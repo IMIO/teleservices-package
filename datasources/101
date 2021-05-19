@@ -1,9 +1,0 @@
-<datasources id="101">
-  <name>DS_lien_parente</name>
-  <slug>ds_lien_parente</slug>
-  <description>Liste des liens de parenté</description>
-  <data_source>
-    <type>formula</type>
-    <value>[('Epoux','Epoux'),('Epouse','Epouse'),('Fils','Fils'),('Fille','Fille'),('Gendre','Gendre'),('Bru','Bru'),('Petit-fils','Petit-fils'),('Petite-fille','Petite-fille'),('Pere','Père'),('Mere','Mère'),('Beau-pere','Beau-pére'),('Belle-mere','Belle-mère'),('Grand-père','Grand-p&#232;re'),('Grand-mere','Grand-mère'),('Beau-fils','Beau-fils'),('Belle-fille','Belle-fille'),('Frere','Frere'),('Soeur','Soeur'),('Beau-frere','Beau-frère'),('Belle-soeur','Belle-soeur'),('Oncle','Oncle'),('Tante','Tante'),('Neveu','Neveu'),('Niece','Nièce'),('Cousin','Cousin'),('Cousine','Cousine'),('Arriere-petit-fils','Arrière-petit-fils'),('Arriere-petite-fille','Arrière-petite-fille'),('Apparente','Apparenté'),('Non-apparente','Non apparenté')]</value>
-  </data_source>
-</datasources>
