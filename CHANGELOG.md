@@ -1,6 +1,10 @@
-# Changelog
-All notable changes to this project will be documented in this file.
-
+=========================
+imio-townstreet changelog
+=========================
+:App involved: iA.Téléservices, Publik, iA.Tech, e-Atal, FixMyStreet (BeWaPP)
+:Info: This is the changelog for the imio-townstreet package
+:Authors: Christophe Boulanger, Daniel Muyshond, Nicolas Hislaire
+:License: GNU Affero General Public License v3 or later (AGPLv3+)
 
 ## [0.0.1] - 15-04-2021 -
 ### Added
