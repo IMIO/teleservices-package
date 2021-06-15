@@ -22,7 +22,7 @@ setup(
     author_email="support-ts@imio.be",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=["publik-imio-industrialisation"],
+    install_requires=[],
     url="https://github.com/IMIO//teleservices-package",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
