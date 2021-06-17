@@ -1,0 +1,5 @@
+teleservices-package (0-3) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- nselva <nicolas.selva@imio.be>  Thu, 17 Aug 2020 14:12:15 +0200

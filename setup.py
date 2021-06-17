@@ -13,12 +13,12 @@ class inst(install):
             os.getcwd().replace(" ", r"\ ").replace("(", r"\(").replace(")", r"\)")
             + "/bin/"
         )
-        os.system("sh " + path + "install_teleservices-package.sh")
+        os.system("sh " + path + "install_teleservices_package.sh")
 
 
 setup(
     name="teleservices-package",
-    author="Nicolas Selva, Nicolas Hislaire",
+    author="Daniel Muyshond, Nicolas Selva, Nicolas Hislaire",
     author_email="support-ts@imio.be",
     packages=find_packages(),
     include_package_data=True,

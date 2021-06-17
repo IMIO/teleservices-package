@@ -1,0 +1,14 @@
+Source: teleservices-package
+Section: unknown
+Priority: optional
+Maintainer: nselva <nicolas.selva@imio.be>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.1.2
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: https://anonscm.debian.org/git/collab-maint/teleservices-package.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/teleservices-package.git
+
+Package: teleservices-package
+Architecture: all
+Depends: ${misc:Depends}, python3-passerelle, wcs (>=3.5), publik-imio-industrialisation
+Description: Package qui regroupe les demarches de base d'un teleservices.
