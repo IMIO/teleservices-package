@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="268" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/268/">
+  <name>DS Date de l'acte</name>
+  <slug>ds_date_acte</slug>
+  <data_source>
+    <type>formula</type>
+    <value>[{'id': "avant", 'text': "Avant le 31-03-2019"}, {'id': "apres", 'text': "Apr&#232;s le 31-03-2019"}, {'id': "inconnu", 'text': "Ne sais pas"}]</value>
+  </data_source>
+</datasource>

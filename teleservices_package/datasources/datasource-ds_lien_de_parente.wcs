@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="269" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/269/">
+  <name>DS Lien de parent&#233;</name>
+  <slug>ds_lien_de_parente</slug>
+  <data_source>
+    <type>formula</type>
+    <value>[{'id': "conjoint", 'text': "Conjoint"}, {'id': "enfant", 'text': "Enfant"}, {'id': "pere_mere", 'text': "P&#232;re ou M&#232;re"}, {'id': "autre", 'text': "Autre (&#224; pr&#233;ciser)"}]</value>
+  </data_source>
+</datasource>

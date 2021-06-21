@@ -6,6 +6,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.5] - 17-06-2021 -
+### Added
+  - add some files to test indus 
+  [nhi]
+
 ## [0.0.4] - 17-06-2021 -
 ### Added
   - add init.py
