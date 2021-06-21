@@ -1,0 +1,19 @@
+<mail-template id="17">
+  <name>Indus - Par d&#233;faut - Agent traitant - Nouvelle demande</name>
+  <slug>indus-par-defaut-agent-traitant-nouvelle-demande</slug>
+  <description>Email envoy&#233; &#224; l'agent traitant lors de l'arriv&#233;e d'une nouvelle demande.</description>
+  <subject>Nouvelle demande ({{ form_name }})</subject>
+  <body>Bonjour,
+
+Une nouvelle demande a &#233;t&#233; re&#231;ue, vous pouvez la consulter
+en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
+
+{{ form_details }}
+{% endif %}
+
+Bonne journ&#233;e !</body>
+</mail-template>

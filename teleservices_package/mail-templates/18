@@ -1,0 +1,22 @@
+<mail-template id="18">
+  <name>Indus - Par d&#233;faut - Usager - Nouvelle demande</name>
+  <slug>indus-par-defaut-usager-nouvelle-demande</slug>
+  <description>Email envoy&#233; &#224; l'usager lors de l'envoi de sa demande pour confirmation</description>
+  <subject>{{ form_name }} : r&#233;ception de votre demande</subject>
+  <body>{% if form_var_firstname %}Bonjour {{ form_var_firstname }}{% endif %},
+
+
+Votre demande a bien &#233;t&#233; envoy&#233;e &#224; notre service. Nos agents la traiteront dans les plus brefs d&#233;lais, vous serez tenu inform&#233; de son avancement.
+{% if form_user %}
+Vous pouvez la consulter en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
+
+{{ form_details }}
+{% endif %}
+
+Cordialement, 
+</body>
+</mail-template>

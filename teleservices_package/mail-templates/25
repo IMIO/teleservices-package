@@ -1,0 +1,21 @@
+<mail-template id="25">
+  <name>Indus - Par d&#233;faut avec paiement - Usager - Paiement re&#231;u</name>
+  <slug>indus-par-defaut-avec-paiement-usager-paiement-recu</slug>
+  <subject>{{ form_name }} : paiement re&#231;u</subject>
+  <body>{% if form_var_firstname %}Bonjour {{ form_var_firstname }}{% endif %}, 
+
+Nous vous informons que le paiement pour votre demande concernant {{ form_name }} a &#233;t&#233; effectu&#233;. 
+
+Votre demande a &#233;t&#233; envoy&#233;e &#224; notre service. Nos agents la traiteront dans les plus brefs d&#233;lais, vous serez tenu inform&#233; de son avancement.
+{% if form_user %}
+Vous pouvez la consulter en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
+
+{{ form_details }}
+{% endif %}
+
+Cordialement, </body>
+</mail-template>

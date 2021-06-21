@@ -1,0 +1,10 @@
+<mail-template id="27">
+  <name>Indus - Usager - Remboursement effectu&#233;</name>
+  <slug>indus-usager-remboursement-effectue</slug>
+  <subject>{{ form_name }} : remboursement effectu&#233;</subject>
+  <body>{% if form_var_firstname %}Bonjour {{ form_var_firstname }}{% endif %},
+
+Nous vous informons que le remboursement li&#233; &#224; votre demande {{ form_name }} a bien &#233;t&#233; effectu&#233;. 
+
+Cordialement,</body>
+</mail-template>

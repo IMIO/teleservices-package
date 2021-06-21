@@ -1,0 +1,25 @@
+<mail-template id="22">
+  <name>Indus - Par d&#233;faut - Agent traitant - Refus&#233;e</name>
+  <slug>indus-par-defaut-agent-traitant-refusee</slug>
+  <description>Email envoy&#233; &#224; l'agent traitant lorsqu'il refuse une demande</description>
+  <subject>Demande refus&#233;e pour  ({{ form_name }})</subject>
+  <body>Bonjour,
+
+Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
+en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
+
+{% if form_status_changed %}
+Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
+&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+
+Bonne journ&#233;e !
+</body>
+</mail-template>

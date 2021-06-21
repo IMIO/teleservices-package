@@ -1,0 +1,27 @@
+<mail-template id="24">
+  <name>Indus - Par d&#233;faut - Usager - Termin&#233;e</name>
+  <slug>indus-par-defaut-usager-terminee</slug>
+  <description>Email envoy&#233; &#224; l'usager lorsque sa demande est termin&#233;e</description>
+  <subject>({{ form_name }}) : votre demande est termin&#233;e</subject>
+  <body>{% if form_var_firstname %}Bonjour {{ form_var_firstname }}{% endif %},
+
+Nous vous informons que votre demande concernant la d&#233;marche {{ form_name }} est d&#233;sormais cl&#244;tur&#233;e.
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if form_status_changed %}
+Le statut de la demande que vous avez transmise vient de changer (il est
+pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_user %}
+Vous pouvez prendre connaissance de son historique en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+
+Cordialement, 
+</body>
+</mail-template>
