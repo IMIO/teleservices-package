@@ -6,6 +6,12 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.8] - 21-06-2021 -
+### Added
+  - remove theaters mail-templates
+  - rename categories as category
+  [nhi]
+  
 ## [0.0.7] - 21-06-2021 -
 ### Added
   - add pays datasource
