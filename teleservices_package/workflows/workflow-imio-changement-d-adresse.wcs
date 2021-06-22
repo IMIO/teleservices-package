@@ -1,0 +1,1076 @@
+<?xml version="1.0"?>
+<workflow id="98" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/98/">
+  iMio - Changement d'adresse</name>
+  <roles>
+    <role id="_receiver">Agent traitant</role>
+    <role id="_validateur-pc-banking">Validateur pc banking</role>
+  </roles><possible_status>
+    <status>
+      <id>just_submitted</id>
+      <name>Juste envoy&#233;</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="set-backoffice-fields">
+          <label>D&#233;finition du demandeur</label>
+          <fields>
+            <field>
+              <field_id>bo10</field_id>
+              <value>{{form_var_nom_personne}}</value>
+            </field><field>
+              <field_id>bo6</field_id>
+              <value>{{form_var_nnat_personne}}</value>
+            </field><field>
+              <field_id>bo13</field_id>
+              <value>{{form_var_rue_ancienneadr}}, {{form_var_numrue_ancienneadr}} {% if form_var_boiterue_ancienneadr %}/ {{form_var_boiterue_ancienneadr}}{% endif %} - {{form_var_cp_ancienneadr}} {{form_var_localite_ancienneadr}}</value>
+            </field><field>
+              <field_id>bo12</field_id>
+              <value>{{form_var_telephone}}</value>
+            </field><field>
+              <field_id>bo9</field_id>
+              <value>=True</value>
+            </field><field>
+              <field_id>boc9ddcf3d-422e-4da9-b093-0e510f656c5d</field_id>
+              <value>{% firstof form_tracking_code "Code de suivi d&#233;sactiv&#233; sur cette d&#233;marche" %}</value>
+            </field><field>
+              <field_id>bob46cda16-70ea-4548-83f0-ad63ca529261</field_id>
+              <value>{{ form_var_email }}</value>
+            </field><field>
+              <field_id>bod2d774fc-4770-4908-961d-fdb8ccf1c1dd</field_id>
+              <value>{{form_var_rue_nouvelleadr}}, {{form_var_numrue_nouvelleadr}} {% if form_var_boiterue_nouvelleadr %}/ {{form_var_boiterue_nouvelleadr}}{% endif %}</value>
+            </field><field>
+              <field_id>bo203a77dd-6c9c-411b-81e6-7c2ecf3c80f6</field_id>
+              <value>{{form_var_nbre_pers}}</value>
+            </field><field>
+              <field_id>bo3</field_id>
+              <value>=str(Decimal(form_var_wf_nbrpers_concern) * Decimal(form_option_prix_par_adulte_concerne_si_emmenagement_intramuros)) if vars().get('form_var_cp_ancienneadr')  in vars().get('form_option_cp_commune') else str(Decimal(form_var_wf_nbrpers_concern) * Decimal(form_option_prix_par_adulte_autre_commune))</value>
+            </field>
+          </fields>
+        </item><item id="3" type="jump">
+          <status>21</status>
+          <condition>
+            <type>python</type>
+            <value>vars().get('form_var_wf_paiement_en_ligne_raw') is False</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="4" type="jump">
+          <status>10</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>4</id>
+      <name>rejet&#233;</name>
+      <colour>FF0000</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item id="1" type="register-comment">
+          <comment>{{form_refus_var_object}}
+
+	{{form_refus_var_body}}</comment>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
+          <subject>{{form_refus_var_object}}</subject>
+          <body>{{form_refus_var_body}}</body>
+        </item><item id="3" type="jump">
+          <status>24</status>
+          <condition>
+            <type>python</type>
+            <value>Decimal(form_var_wf_total_commande) &gt; 0</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>accepted</id>
+      <name>En cours de traitement</name>
+      <colour>66CCFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
+          <subject>{{form_var_nom_perscon}} : Nouveau formulaire en attente de traitement ({{ form_name }})</subject>
+          <body>Bonjour,
+
+Un nouveau formulaire a &#233;t&#233; compl&#233;t&#233;, vous pouvez le consulter
+en suivant ce lien :
+
+`Consulter la demande du citoyen &lt;{{ form_url_backoffice }}&gt;`_
+
+{% if details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
+
+{{ details }}
+{% endif %}
+
+Bien &#224; vous,
+
+</body>
+        </item><item id="2" type="choice">
+          <label>Terminer</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>finished</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="3" type="choice">
+          <label>Refuser la demande</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>19</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>finished</id>
+      <name>Trait&#233;</name>
+      <colour>00FF00</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
+          <subject>{{ form_name }} - Votre d&#233;marche a &#233;t&#233; trait&#233;e.</subject>
+          <body>Bonjour,
+
+Votre d&#233;marche ({{ form_name }}) a &#233;t&#233; trait&#233;e par nos services.
+
+{% if form_var_destinations %}
+
+{% if form_var_destinations_raw == "envoi-a-domicile-cout-1" %}
+Votre document vous sera envoy&#233; prochainement par voie postale.
+{% endif %}
+
+{% if form_var_destinations_raw == "envoi-a-domicile-par-recommande-cout-6" %}
+Votre document vous sera envoy&#233; prochainement par recommand&#233;.
+{% endif %}
+
+{% if form_var_destinations_raw == "commune" %}
+Vous pouvez venir rechercher votre document &#224; l'administration communale (Espl. de l'H&#244;tel Communal, 1 4430 Ans).
+{% endif %}
+
+{% endif %}
+
+
+Cordialement,
+
+Le service Population / Etat-civil
+
+Esplanade de l'H&#244;tel communal, 1
+
+4430 ANS
+
+T&#233;l. 04 247 72 11
+</body>
+        </item><item id="2" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>10</id>
+      <name>Paiement en ligne</name>
+      <colour>FF9966</colour>
+      <visibility />
+      <items>
+        <item id="1" type="webservice_call">
+          <label>Paiement en ligne</label>
+          <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <qs_data>
+            <item>
+              <name>regie_id</name>
+              <value>{{form_option_regie_de_paiement_raw}}</value>
+            </item>
+          </qs_data><method>POST</method>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>url</name>
+              <value>{{form_url}}</value>
+            </item><item>
+              <name>amount</name>
+              <value>{{form_var_wf_total_commande}}</value>
+            </item><item>
+              <name>display_name</name>
+              <value>{{form_display_name}}</value>
+            </item>
+          </post_data><response_type>json</response_type>
+          <varname>transaction_info</varname>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>True</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>True</record_errors>
+        </item><item id="2" type="register-comment">
+          <comment>&lt;p&gt;L'article se trouve dans votre panier.&lt;br&gt;
+Veuillez r&#233;gler votre commande.&lt;/p&gt;
+&lt;p&gt;
+&lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;Acc&#233;der au panier&lt;/a&gt;
+&lt;/p&gt;</comment>
+        </item><item id="5" type="displaymsg">
+          <message>&lt;p&gt;L'article se trouve dans votre panier.&lt;br&gt;
+Veuillez r&#233;gler votre commande.&lt;/p&gt;
+&lt;p&gt;
+&lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;Acc&#233;der au panier&lt;/a&gt;
+&lt;/p&gt;</message>
+          <level>info</level>
+          <position>top</position>
+        </item><item id="3" type="jump">
+          <status>12</status>
+          <trigger>cancelled</trigger>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="4" type="jump">
+          <status>17</status>
+          <trigger>paid</trigger>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>12</id>
+      <name>Demande annul&#233;e par le citoyen</name>
+      <colour>FF0000</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item id="1" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>17</id>
+      <name>Paiement re&#231;u</name>
+      <colour>66FF66</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-par-defaut-avec-paiement-usager-paiement-recu</mail_template>
+          <subject>Administration de {{ commune_name }} : D&#233;marche "{{ form_name }}" accept&#233;e.</subject>
+          <body>Bonjour Madame, Monsieur {{ session_user_var_last_name }},
+
+Nous avons bien re&#231;u votre paiement. Votre demande va &#234;tre trait&#233;e dans les meilleurs d&#233;lais.
+
+{%if user%}
+Vous pouvez continuer &#224; suivre son &#233;tat d'avancement en suivant ce lien :
+{{ url }}
+{% else %}
+{% endif %}
+
+Bien cordialement,
+
+Le service Population / Etat-civil
+Administration communale d'Ans
+Esplanade de l'H&#244;tel communal, 1
+4430 ANS</body>
+        </item><item id="2" type="jump">
+          <status>accepted</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>18</id>
+      <name>Supprim&#233; du panier</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="webservice_call">
+          <label>Supprimer du panier</label>
+          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <request_signature_key>13245</request_signature_key>
+          <method>POST</method>
+          <post>True</post>
+          <post_data>
+            <item>
+              <name>skip_notification</name>
+              <value>skip</value>
+            </item><item>
+              <name>basket_item_id</name>
+              <value>{{panier_response_id}}</value>
+            </item>
+          </post_data><response_type>json</response_type>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>True</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>False</record_errors>
+        </item><item id="2" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>19</id>
+      <name>formulaire de refus</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="form">
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><varname>form_refus</varname>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <label>Motif du refus</label>
+                <type>title</type>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><id>3</id>
+              </field><field>
+                <label>Le motif du refus sera envoy&#233; par mail &#224; l'usager.</label>
+                <type>comment</type>
+                <id>4</id>
+              </field><field>
+                <label>Objet du mail</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>object</varname>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
+                  <type>formula</type>
+                  <value>"Administration de {0} : Refus : {1} ".format(commune_name, form_name)</value>
+                </prefill><anonymise>True</anonymise>
+                <id>1</id>
+              </field><field>
+                <label>Corps du mail</label>
+                <type>text</type>
+                <required>True</required>
+                <varname>body</varname>
+                <prefill>
+                  <type>formula</type>
+                  <value>"Bonjour,\r\n\r\nNous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.\r\n\r\nLa raison de ce refus est la suivante : \r\n\r\n\r\n\r\nBien cordialement,\r\n\r\nLe service Population Etat civil "</value>
+                </prefill><pre>False</pre>
+                <id>2</id>
+              </field>
+            </fields>
+          </formdef>
+        </item><item id="2" type="jumponsubmit">
+          <status>4</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>21</id>
+      <name>Paiement par virement bancaire</name>
+      <colour>669999</colour>
+      <visibility>
+        <role>_validateur-pc-banking</role>
+        <role>_receiver</role>
+      </visibility><items>
+        <item id="1" type="jump">
+          <status>22</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>22</id>
+      <name>En attente du virement</name>
+      <colour>FFFF00</colour>
+      <visibility />
+      <items>
+        <item id="1" type="displaymsg">
+          <message>&lt;p&gt;Madame, Monsieur {{ form_user_var_last_name }}&lt;/p&gt;
+
+&lt;/p&gt;Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.&lt;/p&gt;
+
+&lt;/p&gt;Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :&lt;/p&gt;
+
+&lt;p&gt;
+&lt;ul&gt;
+&lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;Commune d'{{ commune_name }} - {{ administration_adresse }}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{{form_option_iban}}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;R&#233;f&#233;rence de la commande (communication libre) : &lt;b&gt;{{ form_number }} / {{ form_user_var_last_name }}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_var_wf_total_commande }}&lt;/b&gt; &#8364;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+{% if form_tracking_code %}
+En cas de probl&#232;me, vous pouvez communiquer ce code de suivi &#224; l'administration communale :&lt;br&gt;
+Code de suivi : &lt;b&gt;{{ form_tracking_code }}&lt;/b&gt;
+{% endif %}
+&lt;/p&gt;
+
+&lt;p&gt;Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.&lt;/p&gt;
+
+&lt;p&gt;Bien cordialement,&lt;/p&gt;
+&lt;/p&gt;
+Le service Population / Etat-civil&lt;br&gt;
+{{administration_adresse}}&lt;br&gt;
+{{form_option_numero_de_telephone}}&lt;br&gt;
+&lt;/p&gt;</message>
+          <level>info</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>departement-citoyen-octobre-2020-en-attente-du-virement</mail_template>
+          <subject>{{ form_name }} - En attente du virement</subject>
+          <body>Madame, Monsieur {{ form_user_var_last_name }}
+
+Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
+
+
+Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :
+
+
+B&#233;n&#233;ficiaire : Commune d'{{ commune_name }} - {{ administration_adresse }}
+
+
+Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {{form_option_iban}}
+
+
+R&#233;f&#233;rence de la commande (communication libre) : {{ form_number }} / {{ form_user_var_last_name }}
+
+
+Montant de la commande : {{ form_var_wf_total_commande }}
+
+{% if form_tracking_code %}
+En cas de probl&#232;me, vous pouvez communiquer ce code de suivi &#224; l'administration communale :
+Code de suivi : {{ form_tracking_code }}
+{% endif %}
+
+Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.
+
+
+Bien cordialement,
+Le service Population / Etat-civil
+Esplanade de l'H&#244;tel communal, 1
+4430 ANS
+
+T&#233;l. 04 247 72 11</body>
+        </item><item id="3" type="choice">
+          <label>Le paiement par virement est valid&#233;.</label>
+          <by>
+            <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
+          </by><status>23</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="4" type="choice">
+          <label>Hors d&#233;lai paiement</label>
+          <by>
+            <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
+          </by><status>29</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="5" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-citoyen-en-attente-du-virement</mail_template>
+        </item>
+      </items>
+    </status><status>
+      <id>23</id>
+      <name>Virement re&#231;u</name>
+      <colour>66FF66</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>accepted</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>24</id>
+      <name>Remboursement</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="webservice_call">
+          <url>{{portal_url}}/api/lingo/cancel-transaction</url>
+          <qs_data>
+            <item>
+              <name>amount</name>
+              <value>{{form_var_wf_total_commande}}</value>
+            </item><item>
+              <name>transaction_id</name>
+              <value>{{transaction_id}}</value>
+            </item>
+          </qs_data><method>POST</method>
+          <post>False</post>
+          <response_type>json</response_type>
+          <varname>cancel_operation</varname>
+          <action_on_app_error>25</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>25</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>True</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>True</record_errors>
+        </item><item id="2" type="jump">
+          <status>26</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>25</id>
+      <name>Demande d'informations pour le remboursement</name>
+      <colour>0099FF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-demande-d-infos-pour-remboursement</mail_template>
+          <subject>{{commune_name}} : Demande d'information pour le remboursement de votre commande de {{form_name}}</subject>
+          <body>Bonjour {{form_user_display_name}},
+
+Suite au refus de votre demande de {{form_name}} d'un montant de {{form_var_wf_total_commande}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions
+
+Attention, si vous avez pay&#233; &#224; l'aide d'une carte de cr&#233;dit, merci d'indiquer un num&#233;ro de compte IBAN classique.
+
+Bien cordialement,
+
+Le service Population / Etat civil
+
+Esplanade de l'H&#244;tel communal, 1
+
+4430 ANS
+
+T&#233;l. : 04/247 72 11</body>
+        </item><item id="2" type="displaymsg">
+          <message>Merci de compl&#233;ter les informations bancaires n&#233;cessaires au remboursement de votre demande.
+Le remboursement se fera dans les plus brefs d&#233;lais sur le compte bancaire renseign&#233; par vos soins en bas de cette page.
+Attention, si vous aviez pay&#233; par carte de cr&#233;dit, veuillez indiquer un num&#233;ro de carte de d&#233;bit classique.
+Exemple de num&#233;ro IBAN : BE1234567890</message>
+          <position>top</position>
+        </item><item id="3" type="form">
+          <by>
+            <item role_id="_submitter">_submitter</item>
+          </by><varname>infos_remboursement</varname>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <label>Num&#233;ro de compte IBAN</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>iban</varname>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
+                  <type>none</type>
+                </prefill><anonymise>True</anonymise>
+                <id>1</id>
+              </field><field>
+                <label>Nom</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>nom</varname>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
+                  <type>user</type>
+                  <value>_last_name</value>
+                </prefill><anonymise>True</anonymise>
+                <id>2</id>
+              </field><field>
+                <label>Rue</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>rue</varname>
+                <prefill>
+                  <type>user</type>
+                  <value>_street</value>
+                </prefill><anonymise>True</anonymise>
+                <id>3</id>
+              </field><field>
+                <label>Num&#233;ro</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>numero</varname>
+                <prefill>
+                  <type>user</type>
+                  <value>_num_house</value>
+                </prefill><anonymise>True</anonymise>
+                <id>6</id>
+              </field><field>
+                <label>Boite</label>
+                <type>string</type>
+                <required>False</required>
+                <varname>boite</varname>
+                <prefill>
+                  <type>user</type>
+                  <value>_num_box</value>
+                </prefill><anonymise>True</anonymise>
+                <id>7</id>
+              </field><field>
+                <label>Code postal</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>cp</varname>
+                <prefill>
+                  <type>user</type>
+                  <value>_zipcode</value>
+                </prefill><anonymise>True</anonymise>
+                <id>4</id>
+              </field><field>
+                <label>Localit&#233;</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>localite</varname>
+                <prefill>
+                  <type>user</type>
+                  <value>_city</value>
+                </prefill><anonymise>True</anonymise>
+                <id>8</id>
+              </field><field>
+                <label>Pays</label>
+                <type>item</type>
+                <required>True</required>
+                <varname>pays</varname>
+                <prefill>
+                  <type>user</type>
+                  <value>_country</value>
+                </prefill><items />
+                <display_mode>list</display_mode>
+                <data_source>
+                  <type>pays</type>
+                </data_source><in_filters>False</in_filters>
+                <anonymise>False</anonymise>
+                <display_disabled_items>False</display_disabled_items>
+                <id>5</id>
+              </field>
+            </fields>
+          </formdef>
+        </item><item id="4" type="jumponsubmit">
+          <status>28</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>26</id>
+      <name>Paiement annul&#233;</name>
+      <colour>FFFF66</colour>
+      <visibility />
+      <items>
+        <item id="1" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>27</id>
+      <name>Demande rembours&#233;e</name>
+      <colour>0099FF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>28</id>
+      <name>Demande &#224; rembourser</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-demande-de-remboursement</mail_template>
+          <subject>Demande de remboursement - {{ form_number }}</subject>
+          <body>Bonjour,
+
+Voici une demande de remboursement hors des d&#233;lais d'Atos, merci de proc&#233;der &#224; la demande de remboursement suivante :
+
+* Num&#233;ro IBAN : {{infos_remboursement_var_iban}}
+* Nom : {{infos_remboursement_var_nom}}
+* Rue : {{infos_remboursement_var_rue}}
+* Num&#233;ro : {{infos_remboursement_var_numero}}
+{% if infos_remboursement_var_boite %}
+* Boite : {{infos_remboursement_var_boite}}
+{% endif %}
+* Code postal : {{infos_remboursement_var_cp}}
+* Localit&#233; : {{infos_remboursement_var_localite}}
+* Pays : {{infos_remboursement_var_pays}}
+* Montant : {{form_var_wf_total_commande}}
+
+Communication sugg&#233;r&#233;e : {{form_number}} / {{form_name}}
+
+Pour toute autre information, vous pouvez vous connecter au backoffice :
+
+`Consulter la demande du citoyen &lt;{{ form_url_backoffice }}&gt;`_
+
+Cordialement, 
+Le service Population / Etat-civil
+Esplanade de l'H&#244;tel communal, 1
+4430 ANS
+T&#233;l. 04 247 72 11</body>
+        </item><item id="2" type="choice">
+          <label>Cl&#244;turer le remboursement</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>27</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>29</id>
+      <name>Hors d&#233;lai paiement</name>
+      <colour>FF0066</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>Votre demande sur E-guichet : ({{form_name}})</subject>
+          <body>Madame, Monsieur, {% if form_user %} {{ form_user_var_last_name }},{% endif %}
+
+Bonjour,
+
+Nous sommes au regret devoir vous informer que votre demande n'a pas pu aboutir. En effet, votre paiement ne nous est pas parvenu dans les temps.
+
+Si vous souhaitez n&#233;anmoins ce document, il vous faudra r&#233;introduire une demande compl&#232;te.
+
+Pour rappel, il s'agissait de la demande suivante :
+
+*{{ form_name }}*
+
+{% if form_refus_var_body %}
+Commentaire de l'administration &#224; votre intention :
+Objet : *{{form_refus_var_object}}*
+Message : *{{form_refus_var_body}}*
+{% endif %}
+
+{% if form_tracking_code %}
+En cas de probl&#232;me, vous pouvez communiquer ce code de suivi &#224; l'administration communale :
+Code de suivi : **{{ form_tracking_code }}**
+{% endif %}
+
+{% if form_user %}
+Vous avez la possibilit&#233; de consulter l'historique de cette demande via ce lien :
+
+`Acc&#233;der &#224; ma demande &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+Bien cordialement,
+
+Le service Population / Etat-civil
+
+{{administration_adresse}}
+
+{{form_option_numero_de_telephone}}
+</body>
+        </item><item id="2" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item>
+      </items>
+    </status>
+  </possible_status><global_actions>
+    <action>
+      <id>1</id>
+      <name>Supprimer du panier</name>
+      <items>
+        <item id="1" type="jump">
+          <status>18</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger id="184b1881-a50a-4d06-8ca5-1b97d2c682dc" type="manual">
+          <roles>
+            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+          </roles>
+        </trigger>
+      </triggers>
+    </action><action>
+      <id>2</id>
+      <name>Supprimer la d&#233;marche</name>
+      <items>
+        <item id="1" type="remove" />
+      </items><triggers>
+        <trigger id="abdf42bc-d60c-48c1-a829-a45784d41ed4" type="manual">
+          <roles>
+            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+          </roles>
+        </trigger>
+      </triggers>
+    </action><action>
+      <id>3</id>
+      <name>Resoumettre (iMio-test)</name>
+      <items>
+        <item id="1" type="jump">
+          <status>just_submitted</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger id="3d99b6c3-8ee6-440d-a086-61fa0222b540" type="manual">
+          <roles>
+            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+          </roles>
+        </trigger>
+      </triggers>
+    </action><action>
+      <id>4</id>
+      <name>Anonymisation automatique apr&#232;s 1 mois pour les personnes concern&#233;es</name>
+      <items>
+        <item id="1" type="anonymise" />
+      </items><triggers>
+        <trigger id="1af73299-56f9-4009-8dd6-c1dbb97e0cee" type="timeout">
+          <anchor>creation</anchor>
+          <timeout>30</timeout>
+        </trigger>
+      </triggers>
+    </action><action>
+      <id>5</id>
+      <name>Anonymisation automatique apr&#232;s 5 ans pour les personnes tierces</name>
+      <items>
+        <item id="1" type="anonymise" />
+      </items><triggers>
+        <trigger id="3e626fa5-973d-486c-a490-5c061cfff384" type="timeout">
+          <anchor>creation</anchor>
+          <timeout>1827</timeout>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions><variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label>Prix par adulte concern&#233; si emm&#233;nagement depuis  autre commune</label>
+          <type>string</type>
+          <required>True</required>
+          <hint>Indiquez le prix en euro(s) et en chiffre(s) (Exemple : 2 ou 3.50 )</hint>
+          <varname>prix_par_adulte_autre_commune</varname>
+          <prefill>
+            <type>string</type>
+            <value>"0"</value>
+          </prefill><anonymise>True</anonymise>
+          <id>12</id>
+        </field><field>
+          <label>Prix par adulte concern&#233; si emm&#233;nagement intra-muros</label>
+          <type>string</type>
+          <required>True</required>
+          <hint>Indiquez le prix en euro(s) et en chiffre(s) (Exemple : 2 ou 3.50 )</hint>
+          <varname>prix_par_adulte_concerne_si_emmenagement_intramuros</varname>
+          <prefill>
+            <type>string</type>
+            <value>"0"</value>
+          </prefill><anonymise>True</anonymise>
+          <id>13</id>
+        </field><field>
+          <label>Codes postaux (commune)</label>
+          <type>string</type>
+          <required>False</required>
+          <hint>Lister les diff&#233;rents codes postaux relatifs &#224; votre commune.
+Coll&#233;s et s&#233;par&#233;s par une ","
+ex : 4000,4020,4030,4031</hint>
+          <varname>cp_commune</varname>
+          <prefill>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>6</id>
+        </field><field>
+          <label>Url du document sur le site de Mon Dossier</label>
+          <type>string</type>
+          <required>False</required>
+          <varname>lien_mondossier</varname>
+          <prefill>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>7</id>
+        </field><field>
+          <label>IBAN</label>
+          <type>string</type>
+          <required>False</required>
+          <varname>iban</varname>
+          <prefill>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>9</id>
+        </field><field>
+          <label>R&#233;gie de paiement</label>
+          <type>item</type>
+          <required>False</required>
+          <hint>---</hint>
+          <varname>regie_de_paiement</varname>
+          <prefill>
+            <type>none</type>
+          </prefill><items />
+          <display_mode>list</display_mode>
+          <data_source>
+            <type>json</type>
+            <value>{{portal_url}}/api/lingo/regies</value>
+          </data_source><in_filters>False</in_filters>
+          <anonymise>False</anonymise>
+          <display_disabled_items>False</display_disabled_items>
+          <id>11</id>
+        </field><field>
+          <label>Numero de T&#233;l&#233;phone</label>
+          <type>string</type>
+          <required>False</required>
+          <hint>Numero de T&#233;l&#233;phone &#224; appeler pour finaliser l'inscription</hint>
+          <varname>numero_de_telephone</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>14</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables><backoffice-fields>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label>Nom de l'int&#233;ress&#233;</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>wf_nom_interesse</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bo10</id>
+        </field><field>
+          <label>N&#176; de registre national de l'int&#233;ress&#233;</label>
+          <type>string</type>
+          <required>False</required>
+          <varname>wf_nn_interesse</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bo6</id>
+        </field><field>
+          <label>Ancienne adresse de l'int&#233;ress&#233;</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>wf_ancienneadr_interesse</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bo13</id>
+        </field><field>
+          <label>Nouvelle adresse</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>wf_nouvelleadr_interesse</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bod2d774fc-4770-4908-961d-fdb8ccf1c1dd</id>
+        </field><field>
+          <label>Nombre de personne(s) concern&#233;e(s)</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>wf_nbrpers_concern</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bo203a77dd-6c9c-411b-81e6-7c2ecf3c80f6</id>
+        </field><field>
+          <label>Num&#233;ro(s) de t&#233;l&#233;phone de la/des personne(s)</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>wf_numtel_interesse</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bo12</id>
+        </field><field>
+          <label>Mail(s) de la/des personne(s)</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>wf_mail_interesse</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bob46cda16-70ea-4548-83f0-ad63ca529261</id>
+        </field><field>
+          <label>Total de la commande</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>wf_total_commande</varname>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bo3</id>
+        </field><field>
+          <label>Code de suivi de cette demande</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>wf_code_suivi</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>boc9ddcf3d-422e-4da9-b093-0e510f656c5d</id>
+        </field><field>
+          <label>Paiement en ligne</label>
+          <type>bool</type>
+          <required>False</required>
+          <hint>Est-ce que le citoyen a choisit un paiement en ligne oui/non?</hint>
+          <varname>wf_paiement_en_ligne</varname>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id>bo9</id>
+        </field>
+      </fields>
+    </formdef>
+  </backoffice-fields>
+</workflow>

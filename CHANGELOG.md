@@ -5,13 +5,18 @@ teleservices-package changelog
 :Info: This is the changelog for the teleservices-package
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
+## [0.0.9] - 22-06-2021 -
+### Added
+  - add many workflows
+  - add directory blockdef
+  [nse]
 
 ## [0.0.8] - 21-06-2021 -
 ### Added
   - remove theaters mail-templates
   - rename categories as category
   [nhi]
-  
+
 ## [0.0.7] - 21-06-2021 -
 ### Added
   - add pays datasource

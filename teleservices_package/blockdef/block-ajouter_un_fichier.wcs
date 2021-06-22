@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<block id="11" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/11/">
+  <name>Ajouter un fichier</name>
+  <slug>ajouter_un_fichier</slug>
+  <fields>
+    <field>
+      <label>fichier</label>
+      <type>file</type>
+      <required>True</required>
+      <varname>fichier</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
+      <automatic_image_resize>False</automatic_image_resize>
+      <storage>default</storage>
+      <id>bf229ecbb4-57e1-4f03-bac4-31f10a00acc3</id>
+    </field>
+  </fields>
+</block>

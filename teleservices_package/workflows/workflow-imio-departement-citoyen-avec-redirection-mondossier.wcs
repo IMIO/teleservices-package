@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="89" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/89/">
-  <name>Pr&#233;-Industrialisation - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
+  iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
     <role id="_validateur-pc-banking">Validateur pc banking</role>

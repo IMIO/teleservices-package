@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<workflow id="122" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/122/">
+  iMio - Demande de Primes</name>
+  <roles>
+    <role id="_agent-traitant">Agents finances</role>
+    <role id="_receiver">Agents traitants</role>
+  </roles><possible_status>
+    <status>
+      <id>1</id>
+      <name>Nouvelle demande</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>2</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>2</id>
+      <name>R&#233;ception par l'agent</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="choice">
+          <label>En attente du coll&#232;ge</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>3</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
+          <subject>{{ form_name }}</subject>
+          <body>`Lien vers la d&#233;marche {{form_name}} n&#176;{{form_number}} &lt;{{ form_url_backoffice }}&gt;`_
+
+
+{{ form_details }}</body>
+        </item><item id="3" type="choice">
+          <label>Rejouer</label>
+          <by>
+            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+          </by><status>1</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>3</id>
+      <name>En attente du coll&#232;ge</name>
+      <colour>FFFF00</colour>
+      <visibility />
+      <items>
+        <item id="1" type="choice">
+          <label>Demande refus&#233;e</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>4</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="choice">
+          <label>Demande accept&#233;e</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>7</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>4</id>
+      <name>Demande refus&#233;e</name>
+      <colour>FF0000</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
+          <subject>{{ form_name }}</subject>
+          <body>Votre demande a &#233;t&#233; refus&#233;e. </body>
+        </item><item id="2" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>5</id>
+      <name>Demande accept&#233;e</name>
+      <colour>0099FF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="choice">
+          <label>Demande trait&#233;e</label>
+          <by>
+            <item role_id="_agent-traitant">_agent-traitant</item>
+          </by><status>6</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-par-defaut-agent-traitant-acceptee</mail_template>
+          <subject>{{ form_name }}</subject>
+          <body>Votre demande &#224; &#233;t&#233; accept&#233;e par le coll&#232;ge.
+Celle-ci est en cours de traitement. 
+
+
+</body>
+        </item><item id="3" type="sendmail">
+          <to>
+            <item role_id="_agent-traitant">_agent-traitant</item>
+          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
+          <subject>{{ form_name }}</subject>
+          <body>La demande a &#233;t&#233; accept&#233;e, tu peux faire le paiement. 
+
+Voici le montant de la prime {{montant_var_prime}}
+
+Voici les d&#233;tails de la demande, que tu peux retrouver ici : `Lien vers la d&#233;marche {{form_name}} n&#176;{{form_number}} &lt;{{ form_url_backoffice }}&gt;`_
+
+{{ form_details }}
+
+</body>
+        </item>
+      </items>
+    </status><status>
+      <id>6</id>
+      <name>Demande trait&#233;e</name>
+      <colour>00FF00</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-par-defaut-usager-terminee</mail_template>
+          <subject>{{ form_name }}</subject>
+          <body>Votre demande a &#233;t&#233; trait&#233;e et le paiement a &#233;t&#233; effectu&#233;. 
+
+Cordialement,
+Le service finances de l'Administration communale de Burdinne
+
+</body>
+        </item><item id="2" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>7</id>
+      <name>Montant de la prime</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="form">
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><varname>montant</varname>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <label>Montant Prime</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>prime</varname>
+                <prefill>
+                  <type>none</type>
+                </prefill><anonymise>True</anonymise>
+                <id>1</id>
+              </field>
+            </fields>
+          </formdef>
+        </item><item id="2" type="jumponsubmit">
+          <status>5</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+  </possible_status>
+</workflow>

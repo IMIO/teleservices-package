@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<workflow id="136" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/136/">
+  iMio - Demande de pr&#234;t/location de mat&#233;riel</name>
+  <roles>
+    <role id="_receiver">Destinataire</role>
+  </roles><possible_status>
+    <status>
+      <id>just_submitted</id>
+      <name>Juste envoy&#233;</name>
+      <colour>FFFFFF</colour>
+      <visibility>
+        <role>_receiver</role>
+      </visibility><items>
+        <item id="5" type="set-backoffice-fields">
+          <fields>
+            <field>
+              <field_id>bo8101c24f-a57e-49f4-8051-9b879b19ab7f</field_id>
+              <value>{{form_var_rue_assoc}} {{form_var_numero_porte_assoc}} {% if form_var_boite_assoc != "None" %}{{form_var_boite_assoc}}{% endif %} {{form_var_code_postal_assoc}} {{form_var_ville_assoc}}</value>
+            </field>
+          </fields>
+        </item><item id="4" type="set-backoffice-fields">
+          <fields>
+            <field>
+              <field_id>bobc1c7d66-b278-4aee-a857-36dcc75f38eb</field_id>
+              <value>{{form_var_rue}} {{form_var_numero_porte}} {% if form_var_boite != 'None' %}{{form_var_boite}}{% endif %} {{form_var_code_postal}} {{form_var_ville}}</value>
+            </field>
+          </fields>
+        </item><item id="1" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><subject>Nouvelle demande ({{ form_name }})</subject>
+          <body>Bonjour,
+
+Une nouvelle demande a &#233;t&#233; re&#231;ue, vous pouvez la consulter
+en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
+
+{{ form_details }}
+{% endif %}
+</body>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+          </to><subject>Nouvelle demande ({{ form_name }})</subject>
+          <body>{% if form_var_firstname %}Ch&#232;r&#183;e {{ form_var_firstname }}{% endif %}
+
+Bonjour,
+
+Ce message est un rappel concernant la demande que vous venez d&#8217;envoyer.
+{% if form_user %}
+Vous pouvez la consulter en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
+
+{{ form_details }}
+{% endif %}
+
+Bien &#224; vous, 
+</body>
+        </item><item id="3" type="jump">
+          <status>new</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>new</id>
+      <name>Nouveau</name>
+      <colour>66FF00</colour>
+      <visibility />
+      <items>
+        <item id="1" type="commentable">
+          <by>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </by><required>False</required>
+        </item><item id="4" type="choice">
+          <label>Accepter</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>accepted</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="5" type="choice">
+          <label>Refuser</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>rejected</status>
+          <require_confirmation>True</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="6" type="choice">
+          <label>Ajouter un motif au refus</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>1</status>
+          <require_confirmation>True</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>rejected</id>
+      <name>Rejet&#233;</name>
+      <colour>FF3300</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          <body>Bonjour,
+
+Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
+en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
+
+{% if form_status_changed %}
+Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
+&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+</body>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          <body>Bonjour,
+
+{% if form_status_changed %}
+Le statut de la demande relative &#224; la commande de plants que vous avez transmise vient de changer (il est
+pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_user %}
+Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if motif_var_refus %}Motif du refus : {{motif_var_refus}} {% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+</body>
+        </item><item id="3" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="a59fd9bcf61f44639699d191d5dc25d4">Agents traitants</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>accepted</id>
+      <name>Accept&#233;</name>
+      <colour>66CCFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          <body>Bonjour,
+
+Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
+en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
+
+{% if form_status_changed %}
+Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
+&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+</body>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          <body>Bonjour,
+
+{% if form_status_changed %}
+Le statut de la demande relative &#224; la commande de plants que vous avez transmise vient de changer (il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_user %}
+Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+</body>
+        </item><item id="3" type="commentable">
+          <by>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </by><required>False</required>
+        </item><item id="4" type="choice">
+          <label>Terminer</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>finished</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>finished</id>
+      <name>Termin&#233;</name>
+      <colour>CCCCCC</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          <body>Bonjour,
+
+Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
+en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
+
+{% if form_status_changed %}
+Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
+&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+</body>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          <body>Bonjour,
+
+{% if form_status_changed %}
+Le statut de la demande que vous avez transmise vient de changer (il est
+pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_user %}
+Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+</body>
+        </item><item id="3" type="displaymsg">
+          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="a59fd9bcf61f44639699d191d5dc25d4">Agents traitants</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>1</id>
+      <name>Motif Refus</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="form">
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><varname>motif</varname>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <label>Motif du refus</label>
+                <type>text</type>
+                <required>True</required>
+                <varname>refus</varname>
+                <display_locations />
+                <prefill>
+                  <locked>False</locked>
+                  <type>none</type>
+                </prefill><pre>True</pre>
+                <id>1</id>
+              </field>
+            </fields>
+          </formdef>
+        </item><item id="2" type="jumponsubmit">
+          <status>rejected</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+  </possible_status><variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label>Code postal</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>code_postal</varname>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>1</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables><backoffice-fields>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label>Adresse demandeur</label>
+          <type>string</type>
+          <required>True</required>
+          <display_locations>
+            <display_location>summary</display_location>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bobc1c7d66-b278-4aee-a857-36dcc75f38eb</id>
+        </field><field>
+          <label>Adresse de l'association</label>
+          <type>string</type>
+          <required>True</required>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bo8101c24f-a57e-49f4-8051-9b879b19ab7f</id>
+        </field>
+      </fields>
+    </formdef>
+  </backoffice-fields>
+</workflow>
