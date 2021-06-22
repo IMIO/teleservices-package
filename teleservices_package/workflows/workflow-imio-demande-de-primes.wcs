@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="122" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/122/">
-  iMio - Demande de Primes</name>
+  <name>iMio - Demande de Primes</name>
   <roles>
     <role id="_agent-traitant">Agents finances</role>
     <role id="_receiver">Agents traitants</role>

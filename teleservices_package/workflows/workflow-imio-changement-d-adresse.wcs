@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="98" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/98/">
-  iMio - Changement d'adresse</name>
+  <name>iMio - Changement d'adresse</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
     <role id="_validateur-pc-banking">Validateur pc banking</role>

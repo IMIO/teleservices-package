@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="132" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/132/">
-  iMio - Fiche - Compteur</name>
+  <name>iMio - Fiche - Compteur</name>
   <roles>
     <role id="_editor">&#201;diteur</role>
     <role id="_viewer">Visualisateur</role>

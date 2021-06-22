@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="103" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/103/">
-  iMio - Documents PDF</name>
+  <name>iMio - Documents PDF</name>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>

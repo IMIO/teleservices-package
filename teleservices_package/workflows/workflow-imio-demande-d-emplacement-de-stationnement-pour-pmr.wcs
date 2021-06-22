@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="153" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/153/">
-  iMio - Demande d'emplacement de stationnement pour PMR</name>
+  <name>iMio - Demande d'emplacement de stationnement pour PMR</name>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>

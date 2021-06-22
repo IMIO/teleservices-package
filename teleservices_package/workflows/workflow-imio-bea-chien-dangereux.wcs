@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="150" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/150/">
-  iMio - BEA - chien dangereux</name>
+  <name>iMio - BEA - chien dangereux</name>
   <roles>
     <role id="_police">Police</role>
     <role id="_receiver">Destinataire</role>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="89" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/89/">
-  iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
+  <name>iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
     <role id="_validateur-pc-banking">Validateur pc banking</role>
@@ -717,7 +717,7 @@ Cordialement, </body>
   </possible_status><global_actions>
     <action>
       <id>1</id>
-      <name>&#10060; iMio - Supprimer du panier</name>
+      <name>&#10060; <name>iMio - Supprimer du panier</name>
       <backoffice_info_text>&lt;p&gt;&lt;strong&gt;iMio&lt;/strong&gt; - Supprimer du panier (&lt;strong&gt;debug&lt;/strong&gt;)&lt;/p&gt;</backoffice_info_text>
       <items>
         <item id="1" type="jump">
@@ -745,7 +745,7 @@ Cordialement, </body>
       </triggers>
     </action><action>
       <id>3</id>
-      <name>&#11014;&#65039; iMio - Retour &#224; "Juste envoy&#233;"</name>
+      <name>&#11014;&#65039; <name>iMio - Retour &#224; "Juste envoy&#233;"</name>
       <backoffice_info_text>&lt;p&gt;&lt;strong&gt;iMio&lt;/strong&gt; - Repositionne la demande sur &amp;quot;Juste envoy&amp;eacute;&amp;quot; (&lt;strong&gt;debug&lt;/strong&gt;).&lt;/p&gt;</backoffice_info_text>
       <items>
         <item id="1" type="jump">

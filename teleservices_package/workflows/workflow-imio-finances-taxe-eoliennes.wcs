@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="140" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/140/">
-  iMio - Finances - Taxe &#233;oliennes</name>
+  <name>iMio - Finances - Taxe &#233;oliennes</name>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>

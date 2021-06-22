@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="160" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/160/">
-  iMio - Permis de v&#233;g&#233;taliser</name>
+  <name>iMio - Permis de v&#233;g&#233;taliser</name>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>

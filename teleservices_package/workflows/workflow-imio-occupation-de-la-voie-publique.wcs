@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="121" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/121/">
-  iMio - Occupation de la voie publique</name>
+  <name>iMio - Occupation de la voie publique</name>
   <roles>
     <role id="_agent-traitant-taxation">Agent traitant taxation</role>
     <role id="_receiver">Agent traitant</role>

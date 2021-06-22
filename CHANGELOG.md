@@ -5,6 +5,13 @@ teleservices-package changelog
 :Info: This is the changelog for the teleservices-package
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
+
+## [0.0.10] - 22-06-2021 -
+### Added
+  - add many workflows V2
+  [nse]
+
+
 ## [0.0.9] - 22-06-2021 -
 ### Added
   - add many workflows

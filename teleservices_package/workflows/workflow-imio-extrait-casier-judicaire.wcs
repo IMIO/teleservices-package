@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="106" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/106/">
-  iMio - Extrait casier judicaire</name>
+  <name>iMio - Extrait casier judicaire</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
     <role id="_validateur-pc-banking">Validateur pc banking</role>

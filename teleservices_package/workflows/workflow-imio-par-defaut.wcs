@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="116" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/116/">
-  iMio - Par d&#233;faut</name>
+  <name>iMio - Par d&#233;faut</name>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="141" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/141/">
-  iMio - Finances - D&#233;claration de r&#233;sidence secondaire</name>
+  <name>iMio - Finances - D&#233;claration de r&#233;sidence secondaire</name>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>

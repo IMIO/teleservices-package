@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow id="99" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/99/">
-  iMio - Redirection Pin/Puk</name>
+  <name>iMio - Redirection Pin/Puk</name>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>
