@@ -16,7 +16,8 @@
         <item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>Nouveau formulaire ([name])</subject>
+          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
+          <subject>Nouveau formulaire ([name])</subject>
           <body>Bonjour,
 
 Un nouveau formulaire a &#233;t&#233; compl&#233;t&#233;, vous pouvez le consulter
@@ -32,7 +33,8 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>Nouveau formulaire ([name])</subject>
+          </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
+          <subject>Nouveau formulaire ([name])</subject>
           <body>[form_user_var_title] [form_user_var_last_name],
 
 Nous accusons r&#233;ception de votre demande (formulaire : [form_number]).
@@ -98,7 +100,8 @@ Bien cordialement,
         <item id="1" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>Refus d'autorisation.</subject>
+          </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
+          <subject>Refus d'autorisation.</subject>
           <body>Madame, Monsieur, 
 
 Suite &#224; votre demande d'occupation de la voie publique, dont nous vous remercions, nous sommes au regret de vous informer que votre demande ne peut aboutir.  
@@ -159,7 +162,8 @@ Les dates du chantiers sont pr&#233;vues du [form_var_datedebut] au [form_var_da
         <item id="1" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>Changement de statut du formulaire</subject>
+          </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
+          <subject>Changement de statut du formulaire</subject>
           <body>Bonjour,
 
 [if-any form_status_changed]
@@ -238,7 +242,21 @@ Vous pouvez en prendre connaissance en suivant ce lien :
   </possible_status><variables>
     <formdef>
       <name>-</name>
-      <fields />
+      <fields>
+        <field>
+          <label>Lien du r&#232;glement communal</label>
+          <type>string</type>
+          <required>False</required>
+          <varname>reglement_communal</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>1</id>
+        </field>
+      </fields>
     </formdef>
   </variables><backoffice-fields>
     <formdef>

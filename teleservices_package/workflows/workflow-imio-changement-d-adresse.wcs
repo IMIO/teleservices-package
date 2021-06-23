@@ -965,6 +965,18 @@ ex : 4000,4020,4030,4031</hint>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>14</id>
+        </field><field>
+          <label>Lien du r&#232;glement communal</label>
+          <type>string</type>
+          <required>False</required>
+          <varname>reglement_communal</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>15</id>
         </field>
       </fields>
     </formdef>

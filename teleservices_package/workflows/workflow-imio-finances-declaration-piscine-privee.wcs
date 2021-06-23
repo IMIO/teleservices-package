@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<workflow id="139" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/139/">
-  <name>iMio - Finances - D&#233;claration d'enseignes</name>
+<workflow id="177" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/177/">
+  <name>iMio - Finances - D&#233;claration piscine priv&#233;e</name>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>
@@ -126,7 +126,8 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
 {% if form_status_changed %}
@@ -320,7 +321,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
         <field>
           <label>Lien du r&#232;glement communal</label>
           <type>string</type>
-          <required>False</required>
+          <required>True</required>
           <varname>reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>

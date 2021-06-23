@@ -62,6 +62,8 @@ Bien &#224; vous,
       <visibility />
       <items>
         <item id="1" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
@@ -204,6 +206,8 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 </body>
         </item><item id="3" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
@@ -310,5 +314,24 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
         </item>
       </items>
     </status>
-  </possible_status>
+  </possible_status><variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label>Lien du r&#232;glement communal</label>
+          <type>string</type>
+          <required>False</required>
+          <varname>reglement_communal</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>1</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables>
 </workflow>

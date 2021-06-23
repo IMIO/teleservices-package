@@ -60,6 +60,18 @@
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>6</id>
+        </field><field>
+          <label>Lien du r&#232;glement communal</label>
+          <type>string</type>
+          <required>False</required>
+          <varname>reglement_communal</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>7</id>
         </field>
       </fields>
     </formdef>

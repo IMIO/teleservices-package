@@ -28,7 +28,8 @@
         </item><item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>Nouvelle demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
+          <subject>Nouvelle demande ({{ form_name }})</subject>
           <body>Bonjour,
 
 Une nouvelle demande a &#233;t&#233; re&#231;ue, vous pouvez la consulter
@@ -44,7 +45,8 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
-          </to><subject>Nouvelle demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
+          <subject>Nouvelle demande ({{ form_name }})</subject>
           <body>{% if form_var_firstname %}Ch&#232;r&#183;e {{ form_var_firstname }}{% endif %}
 
 Bonjour,
@@ -74,6 +76,8 @@ Bien &#224; vous,
       <visibility />
       <items>
         <item id="1" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
@@ -114,7 +118,8 @@ Bien &#224; vous,
         <item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-agent-traitant-refusee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
 Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
@@ -135,7 +140,8 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
 {% if form_status_changed %}
@@ -173,7 +179,8 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
         <item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-agent-traitant-acceptee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
 Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
@@ -194,7 +201,8 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
-          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
 {% if form_status_changed %}
@@ -212,6 +220,8 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 </body>
         </item><item id="3" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
@@ -235,7 +245,8 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
         <item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-agent-traitant-terminee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
 Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
@@ -256,7 +267,8 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
-          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-usager-terminee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
 {% if form_status_changed %}
@@ -330,6 +342,18 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
             <display_location>summary</display_location>
           </display_locations><anonymise>True</anonymise>
           <id>1</id>
+        </field><field>
+          <label>Lien du r&#232;glement communal</label>
+          <type>string</type>
+          <required>False</required>
+          <varname>reglement_communal</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>2</id>
         </field>
       </fields>
     </formdef>
