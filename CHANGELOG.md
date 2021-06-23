@@ -6,6 +6,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.16] - 23-06-2021 -
+### Update
+  - rename repo of blocs de champs
+  [nse]
+
 ## [0.0.15] - 23-06-2021 -
 ### Update
   - workflow bea chien dangereux
