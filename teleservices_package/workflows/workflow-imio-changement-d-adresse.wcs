@@ -439,8 +439,7 @@ Le service Population / Etat-civil&lt;br&gt;
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><mail_template>departement-citoyen-octobre-2020-en-attente-du-virement</mail_template>
-          <subject>{{ form_name }} - En attente du virement</subject>
+          <</to><subject>{{ form_name }} - En attente du virement</subject>
           <body>Madame, Monsieur {{ form_user_var_last_name }}
 
 Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
@@ -465,15 +464,7 @@ En cas de probl&#232;me, vous pouvez communiquer ce code de suivi &#224; l'admin
 Code de suivi : {{ form_tracking_code }}
 {% endif %}
 
-Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.
-
-
-Bien cordialement,
-Le service Population / Etat-civil
-Esplanade de l'H&#244;tel communal, 1
-4430 ANS
-
-T&#233;l. 04 247 72 11</body>
+Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.</body>
         </item><item id="3" type="choice">
           <label>Le paiement par virement est valid&#233;.</label>
           <by>
