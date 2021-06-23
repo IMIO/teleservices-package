@@ -152,7 +152,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <level>success</level>
           <position>top</position>
           <to>
-            <item role_id="a59fd9bcf61f44639699d191d5dc25d4">Agents traitants</item>
+            <item role_id="_receiver">_receiver</item>
           </to>
         </item>
       </items>
@@ -277,7 +277,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <level>success</level>
           <position>top</position>
           <to>
-            <item role_id="a59fd9bcf61f44639699d191d5dc25d4">Agents traitants</item>
+            <item role_id="_receiver">_receiver</item>
           </to>
         </item>
       </items>
