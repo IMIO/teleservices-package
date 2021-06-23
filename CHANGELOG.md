@@ -6,6 +6,12 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.14] - 23-06-2021 -
+### Update
+  - workflow changement d'adresse V2
+  [nse]
+
+
 ## [0.0.13] - 23-06-2021 -
 ### Update
   - workflow changement d'adresse

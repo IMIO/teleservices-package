@@ -771,7 +771,6 @@ Pour information, vous pouvez la consulter et mettre &#224; jour votre demande e
       </items><triggers>
         <trigger id="13a2a326-a1a7-4d10-aa0c-20caba285eeb" type="manual">
           <roles>
-            <item role_id="28436aad463e4aa19f2437ef42056f35">28436aad463e4aa19f2437ef42056f35</item>
             <item role_id="43190215712647a89376713be142a4f5">Debug</item>
           </roles>
         </trigger>
