@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<formdef id="215" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/215/">
+  <name>D&#233;claration d'alarme ou cam&#233;ra</name>
+  <url_name>declaration-d-alarme-ou-camera</url_name>
+  <internal_identifier>declaration-d-alarme-ou-camera</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category category_id="107">Pr&#233;-Industrialisation</category>
+  <workflow workflow_id="105">Redirection avec suppression</workflow>
+  <max_field_id>2</max_field_id>
+  <fields>
+    <field>
+      <label>&lt;p&gt;En appuyant sur le bouton &amp;quot;Valider&amp;quot;, vous allez &amp;ecirc;tre redirig&amp;eacute; vers le site f&amp;eacute;d&amp;eacute;ral &amp;quot;Declaration camera&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;Il vous sera&amp;nbsp;n&amp;eacute;cessaire d'avoir un lecteur de carte d'identit&amp;eacute; ainsi que votre code PIN ou l'application Itsme afin de vous connecter sur ce site.&lt;/p&gt;</label>
+      <type>comment</type>
+      <display_locations />
+      <id>2</id>
+    </field>
+  </fields><options>
+    <option varname="texte_redirection">Vous allez &#234;tre redirig&#233; vers le site f&#233;d&#233;ral "Declaration camera".
+</option>
+    <option varname="urlredirection">http://www.declarationcamera.be/</option>
+  </options><custom_views />
+  <geolocations />
+</formdef>

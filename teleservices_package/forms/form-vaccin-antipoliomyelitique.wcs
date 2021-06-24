@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<formdef id="191" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/191/">
+  <name>Vaccin antipoliomy&#233;litique</name>
+  <url_name>vaccin-antipoliomyelitique</url_name>
+  <internal_identifier>vaccin-antipoliomyelitique</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category category_id="107">Pr&#233;-Industrialisation</category>
+  <workflow workflow_id="103">iMio - Documents PDF</workflow>
+  <max_field_id>6</max_field_id>
+  <fields>
+    <field>
+      <label>T&#233;l&#233;charger le certificat de vaccination</label>
+      <type>page</type>
+      <id>3</id>
+    </field><field>
+      <label>&lt;p&gt;Traitement :&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ce document vous est d&amp;eacute;livr&amp;eacute; gratuitement.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1. T&amp;eacute;l&amp;eacute;chargez &lt;a href="{{form_option_lien_document}}"&gt;ce document&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2. Imprimez le document.&lt;/p&gt;
+
+&lt;p&gt;3. Faites compl&amp;eacute;ter&amp;nbsp;le document par votre m&amp;eacute;decin lors de la vaccination.&lt;/p&gt;
+
+&lt;p&gt;4. Revenez sur ce formulaire et ajoutez&amp;nbsp;le document sign&amp;eacute; en deuxi&amp;egrave;me page. Vous pouvez &amp;eacute;galement&amp;nbsp;vous pr&amp;eacute;senter &amp;agrave; l'administration communale ou l'envoyer &amp;agrave; l'adresse indiqu&amp;eacute;e sur le certificat.&lt;/p&gt;</label>
+      <type>comment</type>
+      <display_locations />
+      <id>1</id>
+    </field><field>
+      <label>&lt;p&gt;Vous pouvez consulter le r&amp;egrave;glement communal &lt;a href="http://{{form_option_reglement_communal}}"&gt;en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition><display_locations />
+      <id>6</id>
+    </field><field>
+      <label>Envoyer le certificat de vaccination</label>
+      <type>page</type>
+      <id>4</id>
+    </field><field>
+      <label>D&#233;posez ici le document sign&#233; par votre m&#233;decin</label>
+      <type>file</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><allow_portfolio_picking>False</allow_portfolio_picking>
+      <automatic_image_resize>False</automatic_image_resize>
+      <storage>default</storage>
+      <id>5</id>
+    </field>
+  </fields><options>
+    <option varname="info_plus" />
+    <option varname="lien_document" />
+    <option varname="lieu_depot" />
+  </options><custom_views />
+  <geolocations />
+</formdef>

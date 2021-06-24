@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<formdef id="164" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/164/">
+  <name>Redirection Modele</name>
+  <url_name>redirection-modele</url_name>
+  <internal_identifier>redirection-modele</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>true</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category category_id="107">Pr&#233;-Industrialisation</category>
+  <workflow workflow_id="105">Redirection avec suppression</workflow>
+  <max_field_id>2</max_field_id>
+  <fields>
+    <field>
+      <label>&lt;p&gt;Entrez ici un texte pour le citoyen&lt;/p&gt;</label>
+      <type>comment</type>
+      <display_locations />
+      <id>2</id>
+    </field>
+  </fields><options />
+  <custom_views />
+  <geolocations />
+</formdef>
