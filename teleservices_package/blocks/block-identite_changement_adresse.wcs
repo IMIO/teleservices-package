@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<block id="6" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/6/">
+  <name>Identit&#233; Changement Adresse</name>
+  <slug>identite_changement_adresse</slug>
+  <digest_template>{{identite_changement_adresse_var_nom}} {{identite_changement_adresse_var_prenom}} {{identite_changement_adresse_var_nrn}} {{identite_changement_adresse_var_lien_parente}}</digest_template>
+  <fields>
+    <field>
+      <label>Nom</label>
+      <type>string</type>
+      <required>False</required>
+      <varname>nom</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bfe6df476b-ef50-4985-8cf1-770eddd46a37</id>
+    </field><field>
+      <label>Pr&#233;nom</label>
+      <type>string</type>
+      <required>False</required>
+      <varname>prenom</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bf1e4c022c-d9fa-45fc-9e27-63b3d40cda54</id>
+    </field><field>
+      <label>Num&#233;ro de registre national</label>
+      <type>string</type>
+      <required>False</required>
+      <hint>Le num&#233;ro de registre national figure sur la carte d'identit&#233;</hint>
+      <varname>nrn</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bf02110074-9e65-48f9-b33f-f771b564d50a</id>
+    </field><field>
+      <label>Lien de parent&#233;</label>
+      <type>string</type>
+      <required>False</required>
+      <varname>lien_parente</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-2-12</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bfbf0350ef-23e5-4690-81f6-2b105d525475</id>
+    </field>
+  </fields>
+</block>

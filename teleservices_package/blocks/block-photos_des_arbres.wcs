@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<block id="20" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/20/">
+  <name>Photos des arbres</name>
+  <slug>photos_des_arbres</slug>
+  <fields>
+    <field>
+      <label>Ajoutez une ou plusieurs photos de d&#233;tails importants</label>
+      <type>file</type>
+      <required>True</required>
+      <hint>Par exemple, la pr&#233;sence de pourriture, champignons, arrachement...</hint>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-1</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><document_type>
+        <id>_image</id>
+        <label>Fichiers image</label>
+        <mimetypes>image/*</mimetypes>
+      </document_type><allow_portfolio_picking>True</allow_portfolio_picking>
+      <automatic_image_resize>True</automatic_image_resize>
+      <storage>default</storage>
+      <id>bf8b0ce413-398b-4582-966c-dc9369df5a42</id>
+    </field>
+  </fields>
+</block>

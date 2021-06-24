@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<block id="26" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/26/">
+  <name>Enseignes</name>
+  <slug>enseignes</slug>
+  <digest_template>Type : {{enseignes_var_type}} Lumineux : {{enseignes_var_lumineux}} Non lumineux : {{enseignes_var_non_lumineux}} Cordon lumineux : {{enseignes_var_cordon}}</digest_template>
+  <fields>
+    <field>
+      <label>Type de dispositif</label>
+      <type>items</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Enseigne</item>
+        <item>Panneau publicitaire</item>
+        <item>Lumineuse</item>
+        <item>Non lumineuse</item>
+        <item>Avec spots</item>
+        <item>Lettres boitiers</item>
+        <item>Double face, perpendiculaire &#224; la fa&#231;ade</item>
+        <item>Simple face, parall&#232;le &#224; la fa&#231;ade</item>
+      </items><min_choices>1</min_choices>
+      <max_choices>0</max_choices>
+      <in_filters>False</in_filters>
+      <anonymise>True</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <id>bf552c103f-74af-41f5-b1c4-5c3b1c874dc6</id>
+    </field><field>
+      <label>Longueur</label>
+      <type>string</type>
+      <required>True</required>
+      <hint>En centim&#232;tres.</hint>
+      <varname>lumineux</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><validation>
+        <type>digits</type>
+      </validation><anonymise>True</anonymise>
+      <id>bf1611c40f-dca3-4afb-8857-9288fe7227e0</id>
+    </field><field>
+      <label>Largeur</label>
+      <type>string</type>
+      <required>True</required>
+      <hint>En centim&#232;tres.</hint>
+      <varname>non_lumineux</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><validation>
+        <type>digits</type>
+      </validation><anonymise>True</anonymise>
+      <id>bf087ea5e8-28b0-4a6a-8949-9d9bf21caca2</id>
+    </field><field>
+      <label>Hauteur &#224; laquelle l'enseigne ou le panneau est plac&#233;</label>
+      <type>string</type>
+      <required>True</required>
+      <hint>En m&#232;tres.</hint>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><validation>
+        <type>digits</type>
+      </validation><anonymise>True</anonymise>
+      <id>bf59b163f3-5f4e-44cd-8515-79bde3807089</id>
+    </field><field>
+      <label>Description du texte ou de l'image affich&#233; sur l'enseigne ou le panneau publicitaire</label>
+      <type>text</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-1</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><pre>False</pre>
+      <id>bfdee48ec6-2475-43db-bd41-fce2a21aae16</id>
+    </field>
+  </fields>
+</block>

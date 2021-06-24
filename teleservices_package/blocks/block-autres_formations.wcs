@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<block id="9" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/9/">
+  <name>Autres Formations</name>
+  <slug>autres_formations</slug>
+  <fields>
+    <field>
+      <label>Intitul&#233; de la formation</label>
+      <type>string</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bfc29e145b-d339-49b1-b117-ea0683583218</id>
+    </field><field>
+      <label>Etablissement</label>
+      <type>string</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bfb20109d5-f74e-402b-9690-1a7da04ad104</id>
+    </field><field>
+      <label>Dipl&#244;me/certificat/brevet obtenu</label>
+      <type>item</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>bf512fb1e3-e27b-44c3-97b8-8629198940b9</id>
+    </field><field>
+      <label>Date de l'obtention</label>
+      <type>date</type>
+      <required>False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><minimum_is_future>False</minimum_is_future>
+      <date_in_the_past>True</date_in_the_past>
+      <date_can_be_today>False</date_can_be_today>
+      <id>bfd7229dac-b1c1-4370-bb64-3401d02dd082</id>
+    </field><field>
+      <label>Copie du dipl&#244;me/certificat/brevet obtenu</label>
+      <type>file</type>
+      <required>False</required>
+      <hint>optionnel</hint>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-1</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
+      <automatic_image_resize>False</automatic_image_resize>
+      <storage>default</storage>
+      <id>bf31ec2ca7-01cb-43ee-a2cd-55332b0da18e</id>
+    </field>
+  </fields>
+</block>

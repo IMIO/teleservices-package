@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<block id="24" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/24/">
+  <name>Panneaux de signalisation</name>
+  <slug>panneaux_de_signalisation</slug>
+  <digest_template>{{panneaux_de_signalisation_var_type}} : {{panneaux_de_signalisation_var_exemplaire}}</digest_template>
+  <fields>
+    <field>
+      <label>Type</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>type</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bf89338433-7330-4326-8028-8ffb8006c79b</id>
+    </field><field>
+      <label>Nombre</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>exemplaire</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-2-12</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><validation>
+        <type>digits</type>
+      </validation><anonymise>True</anonymise>
+      <id>bfbd86d56f-9c9c-4c5a-aa7c-c0c191e33b35</id>
+    </field>
+  </fields>
+</block>

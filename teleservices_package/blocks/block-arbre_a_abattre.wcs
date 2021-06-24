@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<block id="19" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/19/">
+  <name>Arbre &#224; abattre</name>
+  <slug>arbre_a_abattre</slug>
+  <fields>
+    <field>
+      <label>Essence de l'arbre</label>
+      <type>string</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bfe2b2c2bd-5813-4b22-bcbf-4f58b4a581c1</id>
+    </field><field>
+      <label>Action &#224; entreprendre</label>
+      <type>item</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Abattage</item>
+        <item>Elagage</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>bf2613df68-7f4e-4287-9bbc-a74a1dc2ca98</id>
+    </field><field>
+      <label>L'arbre est-il visible depuis la voirie ?</label>
+      <type>item</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>bf2c8323c9-6571-43d8-8b67-cd531bda8b6b</id>
+    </field><field>
+      <label>L'arbre est-il isol&#233; ou en groupe ?</label>
+      <type>item</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Isol&#233;</item>
+        <item>En groupe</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>bff491b5ec-6dfd-4ed1-ad50-b6e0a7c294ad</id>
+    </field><field>
+      <label>Circonf&#233;rence (&#224; 1.5m du sol)</label>
+      <type>string</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bfd346f2fc-9881-477f-942a-7cf2d5504f32</id>
+    </field><field>
+      <label>Motif de l'abattage ou &#233;lagage</label>
+      <type>text</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-1</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><pre>False</pre>
+      <id>bf5b5acda0-103b-4f91-b5c5-161ddd8546f8</id>
+    </field>
+  </fields>
+</block>

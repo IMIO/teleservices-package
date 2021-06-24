@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<block id="1" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/1/">
+  <name>Membres du m&#233;nage</name>
+  <slug>menage</slug>
+  <digest_template>Nom: {{menage_var_nom}} Pr&#233;nom: {{menage_var_prenom}} NN: {{menage_var_numero_national}}</digest_template>
+  <fields>
+    <field>
+      <label>Membre du m&#233;nage</label>
+      <type>subtitle</type>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><id>bf9a57c59a-0001-4d46-bf70-e6dae68c59b3</id>
+    </field><field>
+      <label>Nom</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>nom</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-4-12</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bfb9b9a4db-de7e-473a-b8ff-b5ce3dbf50b1</id>
+    </field><field>
+      <label>Pr&#233;nom</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>prenom</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-4-12</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bf2f3efece-1edc-4001-9f60-252dea8771d2</id>
+    </field><field>
+      <label>Num&#233;ro national</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>numero_national</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-3-12</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bf1a4a4902-8e4a-4a12-b1f0-8bdce2247086</id>
+    </field>
+  </fields>
+</block>
