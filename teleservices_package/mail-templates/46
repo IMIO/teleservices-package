@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<mail-template id="46" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/46/">
+  <name>indus - Notification de commentaire - Destinataire</name>
+  <slug>indus-notification-de-commentaire-destinataire</slug>
+  <subject>Notification de commentaire pour la demande {{form_name}} de {{form_user_display_name}}</subject>
+  <body>From {{session_user_display_name}}
+
+{{comment_commentaire}}
+
+Vous pouvez y r&#233;pondre `ici &lt;{{ form_url_backoffice }}&gt;`_</body>
+</mail-template>
