@@ -6,7 +6,22 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
-## [0.0.17] - 24-06-2021 -
+## [0.0.20] - 28-06-2021 -
+### Update
+  - blocs de champs
+  [nse]
+
+
+## [0.0.19] - 25-06-2021 -
+### Added
+  - mails template for wf par defaut
+### Update
+  - wf par defaut comment alert
+  - blocs de champs
+  [nse]
+
+
+## [0.0.18] - 24-06-2021 -
 ### Added
   - Many blocs de champs
   - Many forms

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="20" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/20/">
+<block id="20">
   <name>Photos des arbres</name>
   <slug>photos_des_arbres</slug>
   <fields>

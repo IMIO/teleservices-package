@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="11" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/11/">
+<block id="11">
   <name>Ajouter un fichier</name>
   <slug>ajouter_un_fichier</slug>
   <fields>

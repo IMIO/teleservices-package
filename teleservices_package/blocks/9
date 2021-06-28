@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="9" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/9/">
+<block id="9">
   <name>Autres Formations</name>
   <slug>autres_formations</slug>
   <fields>

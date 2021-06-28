@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="36" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/36/">
+<block id="36">
   <name>Candidature</name>
   <slug>candidature</slug>
   <fields>

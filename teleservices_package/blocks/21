@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="21" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/21/">
+<block id="21">
   <name>Replantation</name>
   <slug>replantation</slug>
   <fields>

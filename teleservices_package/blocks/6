@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="6" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/6/">
+<block id="6">
   <name>Identit&#233; Changement Adresse</name>
   <slug>identite_changement_adresse</slug>
   <digest_template>{{identite_changement_adresse_var_nom}} {{identite_changement_adresse_var_prenom}} {{identite_changement_adresse_var_nrn}} {{identite_changement_adresse_var_lien_parente}}</digest_template>

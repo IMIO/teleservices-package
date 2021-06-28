@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="19" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/19/">
+<block id="19">
   <name>Arbre &#224; abattre</name>
   <slug>arbre_a_abattre</slug>
   <fields>

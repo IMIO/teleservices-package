@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="26" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/blocks/26/">
+<block id="26">
   <name>Enseignes</name>
   <slug>enseignes</slug>
   <digest_template>Type : {{enseignes_var_type}} Lumineux : {{enseignes_var_lumineux}} Non lumineux : {{enseignes_var_non_lumineux}} Cordon lumineux : {{enseignes_var_cordon}}</digest_template>
