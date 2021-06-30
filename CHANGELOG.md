@@ -6,6 +6,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.21] - 30-06-2021 -
+### Delete
+  - many forms for test
+  [nse]
+
 ## [0.0.20] - 28-06-2021 -
 ### Update
   - blocs de champs
