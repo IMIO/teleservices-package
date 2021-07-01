@@ -6,6 +6,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.38] - 01-07-2021 -
+### Patched
+  - bloc de champs personne for forms agenda
+  [nse]
+
 ## [0.0.37] - 01-07-2021 -
 ### Added
   - workflow for forms agenda
