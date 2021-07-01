@@ -6,10 +6,16 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.36] - 01-07-2021 -
+### Updated
+  - workflow par défaut and herit
+  [nse]
+
 ## [0.0.35] - 01-07-2021 -
-### Add
+### Added
   - modele date et heure
   - datasourec heure et minute
+  [nse]
 
 ## [0.0.21] - 30-06-2021 -
 ### Delete

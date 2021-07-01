@@ -67,7 +67,11 @@ Bien &#224; vous,
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
-          </by><required>False</required>
+          </by><varname>commentaire</varname>
+          <required>False</required>
+        </item><item id="7" type="jumponsubmit">
+          <status>2</status>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item id="4" type="choice">
           <label>Accepter</label>
           <by>
@@ -126,7 +130,8 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>Changement de statut de la demande ({{ form_name }})</subject>
+          </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
 {% if form_status_changed %}
@@ -151,7 +156,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <level>success</level>
           <position>top</position>
           <to>
-            <item role_id="_receiver">_receiver</item>
+            <item role_id="_submitter">_submitter</item>
           </to>
         </item>
       </items>
@@ -276,7 +281,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <level>success</level>
           <position>top</position>
           <to>
-            <item role_id="_receiver">_receiver</item>
+            <item role_id="_submitter">_submitter</item>
           </to>
         </item>
       </items>
@@ -312,6 +317,25 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
+    </status><status>
+      <id>2</id>
+      <name>Commentaire</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="2" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-notification-de-commentaire-demandeur</mail_template>
+        </item><item id="3" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-notification-de-commentaire-destinataire</mail_template>
+        </item><item id="1" type="jump">
+          <status>new</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
     </status>
   </possible_status><variables>
     <formdef>
@@ -320,7 +344,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
         <field>
           <label>Lien du r&#232;glement communal</label>
           <type>string</type>
-          <required>False</required>
+          <required>True</required>
           <varname>reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
