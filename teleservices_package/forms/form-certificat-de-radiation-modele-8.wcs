@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="217" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/217/">
-  <name>Certificat de radiation (mod&#232;le 8)</name>
+  <name>iMio - Certificat de radiation (mod&#232;le 8)</name>
   <url_name>certificat-de-radiation-modele-8</url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>certificat-de-radiation-modele-8</internal_identifier>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="158" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/158/">
-  <name>Candidature spontan&#233;e</name>
+  <name>iMio - Candidature spontan&#233;e</name>
   <url_name>candidature-spontanee</url_name>
   <description>&lt;p&gt;&lt;a href="description-candidature-spontanee"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;</description>
   <internal_identifier>candidature-spontanee</internal_identifier>

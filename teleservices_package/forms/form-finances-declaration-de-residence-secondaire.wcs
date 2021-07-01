@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="176" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/176/">
-  <name>Finances - D&#233;claration de r&#233;sidence secondaire</name>
+  <name>iMio - Finances - D&#233;claration de r&#233;sidence secondaire</name>
   <url_name>finances-declaration-de-residence-secondaire</url_name>
   <internal_identifier>finances-declaration-de-residence-secondaire</internal_identifier>
   <discussion>false</discussion>

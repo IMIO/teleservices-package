@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="201" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/201/">
-  <name>Demande d'emplacement de stationnement pour PMR</name>
+  <name>iMio - Demande d'emplacement de stationnement pour PMR</name>
   <url_name>demande-de-reservation-de-stationnement-pour-pmr</url_name>
   <internal_identifier>demande-d-emplacement-de-stationnement-pour-pmr</internal_identifier>
   <discussion>false</discussion>

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="145" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/145/">
-  <name>Acte de D&#233;c&#232;s</name>
-  <url_name>acte-de-deces-1</url_name>
-  <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de D&amp;eacute;c&amp;egrave;s ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; le d&amp;eacute;c&amp;egrave;s a eu lieu. &lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>acte-de-deces-1</internal_identifier>
+<formdef id="144" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/144/">
+  <name>iMio - Acte de Divorce</name>
+  <url_name>acte-de-divorce-1</url_name>
+  <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de Divorce ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; le mariage a &amp;eacute;t&amp;eacute; c&amp;eacute;l&amp;eacute;br&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
+  <internal_identifier>acte-de-divorce-1</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -16,18 +16,19 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category category_id="107">Pr&#233;-Industrialisation</category>
   <workflow workflow_id="89">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>67</max_field_id>
+  <max_field_id>66</max_field_id>
   <fields>
     <field>
-      <label>Extrait/Copie int&#233;grale d'acte de D&#233;c&#232;s</label>
+      <label>Extrait/Copie int&#233;grale d'acte de Divorce</label>
       <type>page</type>
-      <id>2</id>
+      <id>1</id>
     </field><field>
-      <label>&lt;p&gt;&lt;em&gt;Commande d'un acte de d&amp;eacute;c&amp;egrave;s.&lt;/em&gt;&lt;/p&gt;
+      <label>&lt;p&gt;&lt;em&gt;Commande d'un acte de divorce.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par :&amp;nbsp;&lt;/p&gt;
 
 &lt;ol&gt;
+	&lt;li&gt;les personnes concern&amp;eacute;es par l'acte&lt;/li&gt;
 	&lt;li&gt;l'&amp;eacute;poux / l'&amp;eacute;pouse / le cohabitant l&amp;eacute;gal&lt;/li&gt;
 	&lt;li&gt;le repr&amp;eacute;sentant l&amp;eacute;gal&lt;/li&gt;
 	&lt;li&gt;l'ascendant / descendant&lt;/li&gt;
@@ -35,14 +36,7 @@
 	&lt;li&gt;l'h&amp;eacute;ritier / ayant droit&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d'identit&amp;eacute;.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Il y a lieu de distinguer :&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;&lt;strong&gt;l'extrait d'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: document qui ne comporte qu'une partie des informations figurant dans l'acte de d&amp;eacute;c&amp;egrave;s&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;la copie int&amp;eacute;grale de l'acte de d&amp;eacute;c&amp;egrave;s&lt;/strong&gt; : document qui reprend l'int&amp;eacute;gralit&amp;eacute; des informations reprises dans l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d'identit&amp;eacute; &lt;/strong&gt;(ainsi que d'une&amp;nbsp;&lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt;&amp;nbsp;si vous le retirez pour un tiers).&lt;/p&gt;
 
 &lt;h2&gt;Traitement&lt;/h2&gt;
 
@@ -54,51 +48,159 @@
 &lt;/ol&gt;</label>
       <type>comment</type>
       <display_locations />
-      <id>3</id>
+      <id>2</id>
     </field><field>
-      <label>Document souhait&#233;</label>
-      <type>page</type>
-      <id>4</id>
-    </field><field>
-      <label>Extrait ou Copie int&#233;grale</label>
+      <label>Le document demand&#233; :</label>
       <type>item</type>
       <required>True</required>
+      <varname>rb_concerne</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
-        <item>Extrait d'acte de d&#233;c&#232;s</item>
-        <item>Copie int&#233;grale de l'acte de d&#233;c&#232;s</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
+      </prefill><items />
+      <display_mode>radio</display_mode>
+      <data_source>
+        <type>ds_personne_concernee</type>
+      </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
-      <id>5</id>
+      <id>7</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong&gt;- Extrait de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui ne comporte qu'une partie des informations figurant dans l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;- Copie int&amp;eacute;grale de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui reprend l'int&amp;eacute;gralit&amp;eacute; des informations reprises sur l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;</label>
+      <label>&lt;p&gt;Le {{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la ville de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral. Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <type>comment</type>
-      <id>6</id>
+      <condition>
+        <type>django</type>
+        <value>form_option_redirection_automatique == False and form_var_rb_concerne_raw == 'moi'</value>
+      </condition><display_locations />
+      <id>62</id>
+    </field><field>
+      <label>Mode de d&#233;livrance</label>
+      <type>item</type>
+      <condition>
+        <type>django</type>
+        <value>form_option_redirection_automatique == False and form_var_rb_concerne_raw == 'moi'</value>
+      </condition><required>True</required>
+      <varname>mode_delivrance</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><display_mode>radio</display_mode>
+      <data_source>
+        <type>formula</type>
+        <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>True</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>63</id>
+    </field><field>
+      <label>Date de l'acte</label>
+      <type>page</type>
+      <condition>
+        <type>python</type>
+        <value>form_var_rb_concerne_raw != 'tiers' and script.commune('is_strong_authentication', {}) != 'False' and (form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique == 'True')</value>
+      </condition><id>65</id>
+    </field><field>
+      <label>De quand date l'acte demand&#233;</label>
+      <type>item</type>
+      <required>True</required>
+      <varname>date_acte</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Avant le 31-03-2019</item>
+        <item>Apr&#232;s le 31-03-2019</item>
+        <item>Ne sais pas</item>
+      </items><display_mode>radio</display_mode>
+      <data_source>
+        <type>ds_date_acte</type>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>66</id>
+    </field><field>
+      <label>Lien de parent&#233;</label>
+      <type>page</type>
+      <condition>
+        <type>python</type>
+        <value>form_var_rb_concerne_raw == 'tiers'</value>
+      </condition><id>8</id>
+    </field><field>
+      <label>Lien de parent&#233; :</label>
+      <type>item</type>
+      <required>True</required>
+      <varname>parente</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Conjoint</item>
+        <item>Enfants</item>
+        <item>P&#232;re ou M&#232;re</item>
+        <item>Autre (&#224; pr&#233;ciser)</item>
+      </items><display_mode>radio</display_mode>
+      <data_source>
+        <type>ds_lien_de_parente</type>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>9</id>
+    </field><field>
+      <label>Si Autre, pr&#233;ciser le lien de parent&#233;</label>
+      <type>string</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_parente_raw == 'autre'</value>
+      </condition><required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>10</id>
     </field><field>
       <label>Donn&#233;es de la personne concern&#233;e</label>
       <type>page</type>
-      <post_conditions>
+      <condition>
+        <type>python</type>
+        <value>form_var_rb_concerne_raw == "tiers"</value>
+      </condition><post_conditions>
         <post_condition>
           <condition>
             <type>python</type>
             <value>form_var_nn_perscon == None or ((97 - int(form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])) 	 or 	 (97 - int("2" + form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])))</value>
-          </condition><error_message>Num&#233;ro national incorrect. Ce champ ne peut contenir que des chiffres (pas de ., -, +, -, ...).</error_message>
+          </condition><error_message>Num&#233;ro national incorrect : le num&#233;ro national et la date de naissance doivent correspondre. Ce champ ne peut contenir que des chiffres (pas de ., -, +, -, ...).</error_message>
+        </post_condition><post_condition>
+          <condition>
+            <type>python</type>
+            <value>form_var_tel_perscon == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel_perscon))</value>
+          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
         </post_condition>
-      </post_conditions><id>14</id>
+      </post_conditions><id>40</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder &lt;/span&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;LES COORDONNEES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt; DE LA PERSONNE DECEDEE : &lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&#233;es de la &lt;u&gt;PERSONNE CONCERN&#201;E&lt;/u&gt; :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
-      <id>15</id>
+      <id>41</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
+      <label>*  = champ obligatoire  Commentaire</label>
       <type>comment</type>
-      <id>16</id>
+      <id>42</id>
     </field><field>
       <label>Nom</label>
       <type>string</type>
@@ -108,8 +210,10 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>17</id>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>43</id>
     </field><field>
       <label>Pr&#233;nom</label>
       <type>string</type>
@@ -119,8 +223,10 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>18</id>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>44</id>
     </field><field>
       <label>Num&#233;ro national</label>
       <type>string</type>
@@ -131,29 +237,35 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>19</id>
+      <prefill>
+        <type>none</type>
+      </prefill><validation>
+        <type>regex</type>
+        <value>[0-9]*</value>
+      </validation><anonymise>True</anonymise>
+      <id>45</id>
     </field><field>
       <label>Date de naissance</label>
       <type>date</type>
-      <required>True</required>
-      <hint>Format de la date : 01/01/2016</hint>
+      <required>False</required>
       <varname>birthday_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <minimum_is_future>False</minimum_is_future>
+      <prefill>
+        <type>none</type>
+      </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
       <date_can_be_today>False</date_can_be_today>
-      <id>20</id>
+      <id>46</id>
     </field><field>
       <label>ADRESSE :</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>21</id>
+      </display_locations><id>47</id>
     </field><field>
       <label>Rue</label>
       <type>string</type>
@@ -163,8 +275,10 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>22</id>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>48</id>
     </field><field>
       <label>Num&#233;ro</label>
       <type>string</type>
@@ -175,11 +289,13 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
-      <validation>
+      <prefill>
+        <type>none</type>
+      </prefill><validation>
         <type>regex</type>
         <value>[1-9][0-9]*</value>
       </validation><anonymise>True</anonymise>
-      <id>23</id>
+      <id>49</id>
     </field><field>
       <label>Bo&#238;te</label>
       <type>string</type>
@@ -189,8 +305,10 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>24</id>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>50</id>
     </field><field>
       <label>Code postal</label>
       <type>string</type>
@@ -202,11 +320,8 @@
       </display_locations><extra_css_class>grid-1-4 newline</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><validation>
-        <type>regex</type>
-        <value>^[0-9]*$</value>
-      </validation><anonymise>True</anonymise>
-      <id>46</id>
+      </prefill><anonymise>True</anonymise>
+      <id>57</id>
     </field><field>
       <label>Localit&#233;</label>
       <type>string</type>
@@ -219,7 +334,7 @@
       <prefill>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
-      <id>47</id>
+      <id>52</id>
     </field><field>
       <label>Pays</label>
       <type>item</type>
@@ -228,7 +343,7 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-2-4</extra_css_class>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><items />
@@ -238,31 +353,59 @@
       </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
-      <id>63</id>
+      <id>58</id>
+    </field><field>
+      <label>Adresse e-mail</label>
+      <type>email</type>
+      <required>True</required>
+      <varname>email_perscon</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><id>54</id>
+    </field><field>
+      <label>Num&#233;ro de t&#233;l&#233;phone</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>tel_perscon</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>55</id>
     </field><field>
       <label>Donn&#233;es du demandeur</label>
       <type>page</type>
-      <post_conditions>
+      <condition>
+        <type>django</type>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
+      </condition><post_conditions>
         <post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_nn == None or ((97 - int(form_var_nn[:9]) % 97 == int(form_var_nn[-2:])) 	 or 	 (97 - int("2" + form_var_nn[:9]) % 97 == int(form_var_nn[-2:])))</value>
+            <value>form_var_nn_perscon == None or ((97 - int(form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])) 	 or 	 (97 - int("2" + form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])))</value>
           </condition><error_message>Num&#233;ro national incorrect. Ce champ ne peut contenir que des chiffres (pas de ., -, +, -, ...).</error_message>
         </post_condition><post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
+            <value>form_var_tel_perscon == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel_perscon))</value>
           </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
         </post_condition>
-      </post_conditions><id>34</id>
+      </post_conditions><id>11</id>
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
-      <id>35</id>
+      <id>12</id>
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
       <type>comment</type>
-      <id>36</id>
+      <id>13</id>
     </field><field>
       <label>Nom</label>
       <type>string</type>
@@ -276,7 +419,7 @@
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
-      <id>37</id>
+      <id>14</id>
     </field><field>
       <label>Pr&#233;nom</label>
       <type>string</type>
@@ -290,7 +433,7 @@
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
-      <id>38</id>
+      <id>15</id>
     </field><field>
       <label>Num&#233;ro national</label>
       <type>string</type>
@@ -304,12 +447,16 @@
       <prefill>
         <type>user</type>
         <value>_niss</value>
-      </prefill><anonymise>True</anonymise>
-      <id>39</id>
+      </prefill><validation>
+        <type>regex</type>
+        <value>[0-9]*</value>
+      </validation><anonymise>True</anonymise>
+      <id>16</id>
     </field><field>
       <label>Date de naissance</label>
       <type>date</type>
       <required>True</required>
+      <hint>Format de la date : 01/01/2016</hint>
       <varname>birthday</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -321,14 +468,14 @@
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
       <date_can_be_today>False</date_can_be_today>
-      <id>40</id>
+      <id>17</id>
     </field><field>
       <label>ADRESSE :</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>42</id>
+      </display_locations><id>18</id>
     </field><field>
       <label>Rue</label>
       <type>string</type>
@@ -342,7 +489,7 @@
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
-      <id>43</id>
+      <id>19</id>
     </field><field>
       <label>Num&#233;ro</label>
       <type>string</type>
@@ -360,7 +507,7 @@
         <type>regex</type>
         <value>[1-9][0-9]*</value>
       </validation><anonymise>True</anonymise>
-      <id>44</id>
+      <id>20</id>
     </field><field>
       <label>Bo&#238;te</label>
       <type>string</type>
@@ -374,7 +521,7 @@
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
-      <id>45</id>
+      <id>21</id>
     </field><field>
       <label>Code postal</label>
       <type>string</type>
@@ -383,12 +530,13 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4 newline</extra_css_class>
+      </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><anonymise>True</anonymise>
-      <id>60</id>
+      <id>51</id>
     </field><field>
       <label>Localit&#233;</label>
       <type>string</type>
@@ -402,7 +550,7 @@
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
-      <id>61</id>
+      <id>59</id>
     </field><field>
       <label>Pays</label>
       <type>item</type>
@@ -422,7 +570,11 @@
       </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
-      <id>64</id>
+      <id>60</id>
+    </field><field>
+      <label>&lt;p&gt;&lt;b&gt;Localit&#233; : {{commune_name}} &lt;/b&gt;&lt;/p&gt;</label>
+      <type>comment</type>
+      <id>23</id>
     </field><field>
       <label>Adresse e-mail</label>
       <type>email</type>
@@ -431,11 +583,11 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><id>65</id>
+      </prefill><id>24</id>
     </field><field>
       <label>Num&#233;ro de t&#233;l&#233;phone</label>
       <type>string</type>
@@ -449,11 +601,14 @@
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
-      <id>50</id>
+      <id>25</id>
     </field><field>
       <label>Destination du document</label>
       <type>page</type>
-      <id>51</id>
+      <condition>
+        <type>django</type>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
+      </condition><id>31</id>
     </field><field>
       <label>Le document est destin&#233; &#224;</label>
       <type>item</type>
@@ -462,7 +617,7 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>none</type>
@@ -474,7 +629,7 @@
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <initial_zoom>13</initial_zoom>
-      <id>52</id>
+      <id>32</id>
     </field><field>
       <label>Si Autre</label>
       <type>string</type>
@@ -490,7 +645,7 @@
         <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
-      <id>53</id>
+      <id>33</id>
     </field><field>
       <label>Mode de r&#233;cup&#233;ration</label>
       <type>item</type>
@@ -511,7 +666,7 @@
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <initial_zoom>13</initial_zoom>
-      <id>54</id>
+      <id>34</id>
     </field><field>
       <label>Nombre de certificats demand&#233;s</label>
       <type>string</type>
@@ -529,11 +684,14 @@
         <type>regex</type>
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
       </validation><anonymise>True</anonymise>
-      <id>55</id>
+      <id>35</id>
     </field><field>
       <label>Prix de la d&#233;marche</label>
       <type>page</type>
-      <id>56</id>
+      <condition>
+        <type>django</type>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
+      </condition><id>36</id>
     </field><field>
       <label>&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
 
@@ -543,7 +701,7 @@
 &lt;/ul&gt;</label>
       <type>comment</type>
       <display_locations />
-      <id>57</id>
+      <id>37</id>
     </field><field>
       <label>Montant</label>
       <type>string</type>
@@ -557,7 +715,7 @@
         <type>string</type>
         <value>{{form_option_cout|add:form_var_motifs_price|multiply:form_var_nb_exemplaire}} &#8364;</value>
       </prefill><anonymise>True</anonymise>
-      <id>67</id>
+      <id>61</id>
     </field>
   </fields><roles>
     <role role_id="128d6136964f430ba9ca4a1d4e6f4151" role_key="_receiver">Agents traitants - Population, etat civil</role>

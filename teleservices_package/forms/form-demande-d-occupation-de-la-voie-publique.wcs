@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="192" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/192/">
-  <name>Demande d'occupation de la voie publique</name>
+  <name>iMio - Demande d'occupation de la voie publique</name>
   <url_name>demande-d-occupation-de-la-voie-publique</url_name>
   <description>&lt;p&gt;&lt;a href="description-occupation-voie-publique"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-d-occupation-de-la-voie-publique</internal_identifier>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="160" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/160/">
-  <name>D&#233;claration anticip&#233;e relative &#224; l&#8217;euthanasie</name>
+  <name>iMio - D&#233;claration anticip&#233;e relative &#224; l&#8217;euthanasie</name>
   <url_name>declaration-anticipee-relative-a-leuthanasie</url_name>
   <keywords>pdf</keywords>
   <internal_identifier>declaration-anticipee-relative-a-leuthanasie</internal_identifier>

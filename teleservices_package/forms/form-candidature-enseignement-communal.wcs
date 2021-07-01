@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="159" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/159/">
-  <name>Candidature pour l'enseignement communal</name>
+  <name>iMio - Candidature pour l'enseignement communal</name>
   <url_name>candidature-enseignement-communal</url_name>
   <internal_identifier>candidature-pour-l-enseignement-communal</internal_identifier>
   <discussion>false</discussion>

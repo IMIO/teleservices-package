@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="172" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/172/">
-  <name>D&#233;claration de chien dangereux</name>
+  <name>iMio - D&#233;claration de chien dangereux</name>
   <url_name>declaration-de-chien-dangereux</url_name>
   <description>&lt;p&gt;D&amp;eacute;claration de d&amp;eacute;tention d'un chien potentiellement dangereux ou agressif&lt;/p&gt;</description>
   <internal_identifier>declaration-de-chien-dangereux</internal_identifier>

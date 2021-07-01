@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="177" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/177/">
-  <name>Finances - D&#233;claration de tanks et r&#233;servoirs</name>
+  <name>iMio - Finances - D&#233;claration de tanks et r&#233;servoirs</name>
   <url_name>finances-declaration-de-tanks-et-reservoirs</url_name>
   <internal_identifier>finances-declaration-de-tanks-et-reservoirs</internal_identifier>
   <discussion>false</discussion>

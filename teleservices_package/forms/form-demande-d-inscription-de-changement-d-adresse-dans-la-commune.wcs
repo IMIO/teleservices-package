@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="155" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/155/">
-  <name>Demande d'inscription / de changement d'adresse dans la commune</name>
+  <name>iMio - Demande d'inscription / de changement d'adresse dans la commune</name>
   <url_name>demande-d-inscription-de-changement-d-adresse-dans-la-commune</url_name>
   <description>&lt;p class="accroche"&gt;&lt;em&gt;Document pour vous inscrire ou changer d'adresse dans notre commune.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-d-inscription-de-changement-d-adresse-dans-la-commune</internal_identifier>

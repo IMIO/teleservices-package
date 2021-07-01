@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="165" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/165/">
-  <name>Redirection Mon Dossier</name>
+  <name>iMio - Redirection Mon Dossier</name>
   <url_name>redirection-mon-dossier</url_name>
   <keywords>redirection</keywords>
   <internal_identifier>redirection-mon-dossier</internal_identifier>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="216" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/216/">
-  <name>Attestation de milice</name>
+  <name>iMio - Attestation de milice</name>
   <url_name>attestation-de-milice</url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>attestation-de-milice</internal_identifier>

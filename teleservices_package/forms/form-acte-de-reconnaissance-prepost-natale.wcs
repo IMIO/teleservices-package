@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="154" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/154/">
-  <name>Acte de Reconnaissance pr&#233;/post-natale</name>
+  <name>iMio - Acte de Reconnaissance pr&#233;/post-natale</name>
   <url_name>acte-de-reconnaissance-prepost-natale</url_name>
   <description>&lt;p&gt;&lt;em&gt;Un extrait ou une copie int&amp;eacute;grale de l'acte peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>acte-de-reconnaissance-prepost-natale</internal_identifier>

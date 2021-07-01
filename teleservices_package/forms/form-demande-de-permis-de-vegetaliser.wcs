@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="163" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/163/">
-  <name>Demande de permis de v&#233;g&#233;taliser</name>
+  <name>iMio - Demande de permis de v&#233;g&#233;taliser</name>
   <url_name>demande-de-permis-de-vegetaliser</url_name>
   <internal_identifier>demande-de-permis-de-vegetaliser</internal_identifier>
   <discussion>false</discussion>
