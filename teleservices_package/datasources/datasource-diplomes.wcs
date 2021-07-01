@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="158" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/158/">
+  <name>diplomes</name>
+  <slug>diplomes</slug>
+  <data_source>
+    <type>formula</type>
+    <value>[('no_diplome','Pas de dipl&#244;me'),('primaire','Primaire'),('sec_inf','Secondaire inf&#233;rieur'),('sec_sup','Secondaire sup&#233;rieur'),('sup_court','Sup&#233;rieur type court (Bachelor/Graduat)'),('sup_long','Sup&#233;rieur type long (Master/Licence)')]</value>
+  </data_source>
+</datasource>

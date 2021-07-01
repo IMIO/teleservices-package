@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="157" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/157/">
+  <name>do_you_work</name>
+  <slug>do_you_work</slug>
+  <data_source>
+    <type>formula</type>
+    <value>[('never_work','Non, je n\'ai jamais travaill&#233;'), ('currently_no_work','Oui mais je ne travaille pas actuellement'), ('yes_i_work','Oui et je travaille actuellement')]</value>
+  </data_source>
+</datasource>
