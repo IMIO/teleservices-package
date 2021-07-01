@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="245" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/245/">
-  <name>Prise de rendez-vous - Pr&#233;sentation - 11/06</name>
+  <name>Prise de rendez-vous</name>
   <url_name>prise-de-rendez-vous</url_name>
   <internal_identifier>prise-de-rendez-vous</internal_identifier>
   <discussion>false</discussion>

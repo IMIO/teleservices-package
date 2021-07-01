@@ -97,9 +97,8 @@ Visite des ruine 02/01/2021 12:00&lt;/p&gt;</label>
         <locked>True</locked>
         <type>string</type>
         <value>{{form_var_date_rdv_places_available}}</value>
-      </prefill><data_source>
-        <type>patrimoine_1_types_de_rendezvous</type>
-      </data_source><anonymise>True</anonymise>
+      </prefill>
+      <anonymise>True</anonymise>
       <id>5</id>
     </field>
   </fields><backoffice-submission-roles>
