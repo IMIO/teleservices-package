@@ -295,6 +295,8 @@
     <option varname="date_minimale_de_reservation">rendez-vous</option>
     <option varname="date_minimale_de_reservation_display">Rendez-vous</option>
     <option varname="date_minimale_de_reservation_structured" />
+    <option varname="heure_fermeture">23:59</option>
+    <option varname="heure_ouverture">00:00</option>
   </options><custom_views />
   <geolocations />
 </formdef>

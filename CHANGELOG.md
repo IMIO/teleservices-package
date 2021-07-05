@@ -5,6 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.42] - 05-07-2021 -
+### Updated
+  - open and close hour in agenda forms
+  [nse]
+
 ## [0.0.41] - 02-07-2021 -
 ### Added
   - category iMio - ... and move forms into
