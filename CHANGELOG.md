@@ -7,6 +7,11 @@ teleservices-package changelog
 
 ## [0.0.43] - 05-07-2021 -
 ### Updated
+  - category id
+  [nse]
+
+## [0.0.43] - 05-07-2021 -
+### Updated
   - change file name forms
   [nse]
 
