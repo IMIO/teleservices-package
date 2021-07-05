@@ -13,7 +13,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - MobilitPr&#233;-Industrialisation#233;</category>
+  <category category_id="107">iMio - Mobilit&#233;</category>
   <workflow workflow_id="153">iMio - Demande d'emplacement de stationnement pour PMR</workflow>
   <max_field_id>188</max_field_id>
   <fields>
