@@ -1,26 +1,33 @@
 <?xml version="1.0"?>
-<formdef id="176" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/176/">
-  <name>iMio - Finances - D&#233;claration de r&#233;sidence secondaire</name>
-  <url_name>finances-declaration-de-residence-secondaire</url_name>
-  <internal_identifier>finances-declaration-de-residence-secondaire</internal_identifier>
+<formdef id="196" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/196/">
+  <name>iMio - F&#251;t &#224; compost</name>
+  <url_name>prime-fut-a-compost</url_name>
+  <internal_identifier>prime-fut-a-compost</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>true</confirmation>
-  <always_advertise>false</always_advertise>
+  <always_advertise>true</always_advertise>
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Finance</category>
-  <workflow workflow_id="141">iMio - Finances - D&#233;claration de r&#233;sidence secondaire</workflow>
-  <max_field_id>26</max_field_id>
+  <category category_id="107">iMio - Prime</category>
+  <workflow workflow_id="122">iMio - Demande de Primes</workflow>
+  <max_field_id>34</max_field_id>
   <fields>
     <field>
-      <label>Coordonn&#233;es</label>
+      <label>Coordonn&#233;es du demandeur</label>
       <type>page</type>
-      <id>1</id>
+      <id>19</id>
+    </field><field>
+      <label>Coordonn&#233;es du demandeur :</label>
+      <type>title</type>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><id>16</id>
     </field><field>
       <label>Nom</label>
       <type>string</type>
@@ -36,7 +43,7 @@
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
-      <id>2</id>
+      <id>1</id>
     </field><field>
       <label>Pr&#233;nom</label>
       <type>string</type>
@@ -52,7 +59,88 @@
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
+      <id>2</id>
+    </field><field>
+      <label>Rue</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>rue_demandeur</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_street</value>
+      </prefill><anonymise>True</anonymise>
       <id>3</id>
+    </field><field>
+      <label>Num&#233;ro</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>numero_porte_demandeur</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill><validation>
+        <type>regex</type>
+        <value>^[0-9]*</value>
+      </validation><anonymise>True</anonymise>
+      <id>23</id>
+    </field><field>
+      <label>Bo&#238;te</label>
+      <type>string</type>
+      <required>False</required>
+      <varname>boite_demandeur</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_num_box</value>
+      </prefill><anonymise>True</anonymise>
+      <id>24</id>
+    </field><field>
+      <label>Code postal</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>code_postal_demandeur</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-6</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill><validation>
+        <type>regex</type>
+        <value>^[0-9]*</value>
+      </validation><anonymise>True</anonymise>
+      <id>25</id>
+    </field><field>
+      <label>Ville</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>ville_demandeur</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-5-6</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_city</value>
+      </prefill><anonymise>True</anonymise>
+      <id>26</id>
     </field><field>
       <label>Num&#233;ro de t&#233;l&#233;phone</label>
       <type>string</type>
@@ -68,67 +156,96 @@
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
-      <id>9</id>
-    </field><field>
-      <label>Num&#233;ro de GSM</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>gsm_demandeur</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>user</type>
-        <value>_phone</value>
-      </prefill><anonymise>True</anonymise>
-      <id>10</id>
+      <id>8</id>
     </field><field>
       <label>Adresse e-mail</label>
       <type>email</type>
-      <required>False</required>
+      <required>True</required>
       <varname>email_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><prefill>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
         <locked>False</locked>
         <type>user</type>
         <value>_email</value>
-      </prefill><id>11</id>
+      </prefill><id>10</id>
     </field><field>
-      <label>Adresse de la r&#233;sidence principale</label>
-      <type>subtitle</type>
+      <label>Num&#233;ro de compte IBAN du demandeur</label>
+      <type>string</type>
+      <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>25</id>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><validation>
+        <type>iban</type>
+      </validation><anonymise>True</anonymise>
+      <id>13</id>
+    </field><field>
+      <label>&lt;p&gt;Vous pouvez consulter le r&amp;egrave;glement communal &lt;a href="http://{{form_option_reglement_communal}}"&gt;en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition><display_locations />
+      <id>34</id>
+    </field><field>
+      <label>L'installation du f&#251;t &#224; compost a-t-elle &#233;t&#233; effectu&#233;e &#224; votre domicile ?</label>
+      <type>item</type>
+      <required>True</required>
+      <varname>domicile</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>21</id>
+    </field><field>
+      <label>Localisation du f&#251;t &#224; compost</label>
+      <type>page</type>
+      <condition>
+        <type>python</type>
+        <value>form_var_domicile == "Non"</value>
+      </condition><id>20</id>
     </field><field>
       <label>Rue</label>
       <type>string</type>
       <required>True</required>
-      <varname>rue_demandeur</varname>
+      <varname>rue_fut_compost</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
-      <id>4</id>
+      <id>22</id>
     </field><field>
       <label>Num&#233;ro</label>
       <type>string</type>
       <required>True</required>
-      <varname>numero_porte_demandeur</varname>
+      <varname>numero_porte_fut_compost</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>user</type>
@@ -137,31 +254,31 @@
         <type>regex</type>
         <value>^[0-9]*</value>
       </validation><anonymise>True</anonymise>
-      <id>5</id>
+      <id>4</id>
     </field><field>
       <label>Bo&#238;te</label>
       <type>string</type>
       <required>False</required>
-      <varname>boite_demandeur</varname>
+      <varname>boite_fut_compost</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
-      <id>6</id>
+      <id>5</id>
     </field><field>
       <label>Code postal</label>
       <type>string</type>
       <required>True</required>
-      <varname>code_postal_demandeur</varname>
+      <varname>code_postal_fut_compost</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>grid-1-6</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>user</type>
@@ -170,44 +287,31 @@
         <type>regex</type>
         <value>^[0-9]*</value>
       </validation><anonymise>True</anonymise>
-      <id>7</id>
+      <id>6</id>
     </field><field>
       <label>Ville</label>
       <type>string</type>
       <required>True</required>
-      <varname>ville_demandeur</varname>
+      <varname>ville_fut_compost</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>grid-5-6</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
-      <id>8</id>
+      <id>7</id>
     </field><field>
-      <label>&lt;p&gt;Vous pouvez consulter le r&amp;egrave;glement communal &lt;a href="http://{{form_option_reglement_communal}}"&gt;en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
-      <type>comment</type>
-      <condition>
-        <type>django</type>
-        <value>form_option_reglement_communal</value>
-      </condition><display_locations />
-      <id>26</id>
-    </field><field>
-      <label>&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="[idp_account_url]edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
-      <type>comment</type>
-      <display_locations />
-      <id>12</id>
-    </field><field>
-      <label>Donn&#233;es relatives &#224; la r&#233;sidence</label>
+      <label>Informations compl&#233;mentaires</label>
       <type>page</type>
-      <id>13</id>
+      <id>27</id>
     </field><field>
-      <label>L'usager d&#233;clare :</label>
+      <label>Type de f&#251;t &#224; compost</label>
       <type>item</type>
       <required>True</required>
-      <varname>declare</varname>
+      <varname>type</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -216,21 +320,61 @@
         <locked>False</locked>
         <type>none</type>
       </prefill><items>
-        <item>Poss&#233;der</item>
-        <item>Ne plus poss&#233;der</item>
-      </items><display_mode>radio</display_mode>
+        <item>En bois</item>
+        <item>En treillis</item>
+        <item>En plastique</item>
+        <item>Autre</item>
+      </items><display_mode>list</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <initial_zoom>13</initial_zoom>
-      <id>14</id>
+      <id>28</id>
     </field><field>
-      <label>Ajoutez la preuve</label>
-      <type>file</type>
+      <label>Pr&#233;cisez</label>
+      <type>string</type>
       <condition>
         <type>django</type>
-        <value>form_var_declare == "Ne plus poss&#233;der"</value>
+        <value>form_var_type == "Autre"</value>
       </condition><required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>29</id>
+    </field><field>
+      <label>Prix d'achat</label>
+      <type>string</type>
+      <required>True</required>
+      <hint>Exemple 5.99 &#8364;</hint>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>30</id>
+    </field><field>
+      <label>Date d'achat</label>
+      <type>date</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><minimum_is_future>False</minimum_is_future>
+      <date_in_the_past>False</date_in_the_past>
+      <date_can_be_today>False</date_can_be_today>
+      <id>33</id>
+    </field><field>
+      <label>Annexes - Copie de la facture d'achat</label>
+      <type>file</type>
+      <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -241,120 +385,13 @@
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
       <storage>default</storage>
-      <id>15</id>
-    </field><field>
-      <label>Adresse de la seconde r&#233;sidence</label>
-      <type>subtitle</type>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><id>16</id>
-    </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-2-3</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
       <id>17</id>
-    </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>18</id>
-    </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>19</id>
-    </field><field>
-      <label>Ville</label>
-      <type>string</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>20</id>
-    </field><field>
-      <label>Pays</label>
-      <type>item</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><display_mode>list</display_mode>
-      <data_source>
-        <type>pays</type>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>21</id>
-    </field><field>
-      <label>Ann&#233;e d'imposition</label>
-      <type>item</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><items>
-        <item>2020</item>
-        <item>2021</item>
-      </items><display_mode>list</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>23</id>
-    </field><field>
-      <label>Remarque &#233;ventuelle</label>
-      <type>text</type>
-      <required>False</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-1</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><pre>False</pre>
-      <id>24</id>
     </field>
-  </fields><options />
+  </fields><user-roles>
+    <role role_id="logged-users">logged-users</role>
+  </user-roles><roles>
+    <role role_id="55357ff00b574d13b8da448efee618a4" role_key="_agent-traitant">Agents traitants - Finances</role>
+  </roles><options />
   <custom_views />
   <geolocations />
 </formdef>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="197" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/197/">
-  <name>iMio - Prime - V&#233;lo &#224; assistance &#233;lectrique ou kit adaptable</name>
+  <name>iMio - V&#233;lo &#224; assistance &#233;lectrique ou kit adaptable</name>
   <url_name>prime-pour-l-achat-d-un-velo-a-assistance-electrique-ou-d-un-kit-adaptable</url_name>
   <internal_identifier>prime-velo-a-assistance-electrique-ou-kit-adaptable</internal_identifier>
   <discussion>false</discussion>

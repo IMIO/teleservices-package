@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="179" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/179/">
-  <name>iMio - Finances - Compteur d'eau</name>
+  <name>iMio - Compteur d'eau</name>
   <url_name>finances-compteur-d-eau</url_name>
   <internal_identifier>finances-compteur-d-eau</internal_identifier>
   <discussion>false</discussion>
