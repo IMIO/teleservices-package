@@ -5,7 +5,12 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
-## [0.0.43] - 05-07-2021 -
+## [0.0.45] - 05-07-2021 -
+### Updated
+  - category url_name
+  [nse]
+
+## [0.0.44] - 05-07-2021 -
 ### Updated
   - category id
   [nse]
