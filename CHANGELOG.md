@@ -6,6 +6,11 @@ teleservices-package changelog
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
 ## [0.0.48] - 06-07-2021 -
+### Added
+  - Modele coordonées
+  [nse]
+
+## [0.0.48] - 06-07-2021 -
 ### Patched
   - category of redirection forms
   [nse]
