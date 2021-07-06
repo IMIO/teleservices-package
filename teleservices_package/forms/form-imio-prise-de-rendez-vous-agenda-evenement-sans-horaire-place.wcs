@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="265" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/265/">
-  <name>Prise de rendez-vous (1 agenda &#233;v&#232;nement sans horaire place)</name>
+  <name>iMio - Prise de rendez-vous (1 agenda &#233;v&#232;nement sans horaire place)</name>
   <url_name>prise-de-rendez-vous-1-agenda-evenement-sans-horaire-place</url_name>
   <internal_identifier>prise-de-rendez-vous-1-agenda-evenement-sans-horaire-place</internal_identifier>
   <discussion>false</discussion>

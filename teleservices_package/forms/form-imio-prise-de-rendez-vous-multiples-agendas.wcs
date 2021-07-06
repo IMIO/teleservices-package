@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="248" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/248/">
-  <name>Prise de rendez-vous (multiples agendas)</name>
+  <name>iMio - Prise de rendez-vous (multiples agendas)</name>
   <url_name>prise-de-rendez-vous-multiples-agendas</url_name>
   <internal_identifier>prise-de-rendez-vous-multiples-agendas</internal_identifier>
   <discussion>false</discussion>
