@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="174" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/174/">
   <name>iMio - D&#233;claration d'enseignes / panneaux publicitaires</name>
-  <url_name>finances-declaration-d-enseignes</url_name>
+  <url_name></url_name>
   <internal_identifier>finances-declaration-d-enseignes</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="199" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/199/">
   <name>iMio - Demande de pr&#234;t/location de mat&#233;riel</name>
-  <url_name>demande-de-pretlocation-de-materiel</url_name>
+  <url_name></url_name>
   <internal_identifier>demande-de-pretlocation-de-materiel</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="136" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/136/">
   <name>iMio - Cohabitation L&#233;gale</name>
-  <url_name>cohabitation-legale-1</url_name>
+  <url_name></url_name>
   <description>&lt;p class="accroche"&gt;&lt;em&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>imio-cohabitation-legale</internal_identifier>
   <discussion>false</discussion>

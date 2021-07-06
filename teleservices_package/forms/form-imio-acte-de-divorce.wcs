@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="144" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/144/">
   <name>iMio - Acte de Divorce</name>
-  <url_name>acte-de-divorce-1</url_name>
+  <url_name></url_name>
   <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de Divorce ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; le mariage a &amp;eacute;t&amp;eacute; c&amp;eacute;l&amp;eacute;br&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>acte-de-divorce-1</internal_identifier>
   <discussion>false</discussion>

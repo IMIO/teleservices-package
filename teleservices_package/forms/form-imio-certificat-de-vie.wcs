@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="139" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/139/">
   <name>iMio - Certificat de vie</name>
-  <url_name>certificat-de-vie-1</url_name>
+  <url_name></url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de vie atteste qu'une personne est en vie.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>imio-certificat-de-vie</internal_identifier>
   <discussion>false</discussion>

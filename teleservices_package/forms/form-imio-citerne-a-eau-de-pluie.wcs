@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="194" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/194/">
   <name>iMio - Citerne &#224; eau de pluie</name>
-  <url_name>prime-citerne-a-eau-de-pluie</url_name>
+  <url_name></url_name>
   <internal_identifier>prime-citerne-a-eau-de-pluie</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="140" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/140/">
   <name>iMio - Certificat de R&#233;sidence ou de Domicile</name>
-  <url_name>certificat-de-residence-ou-de-domicile-1</url_name>
+  <url_name></url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>certificat-de-residence-ou-de-domicile-a-verifier</internal_identifier>
   <discussion>false</discussion>

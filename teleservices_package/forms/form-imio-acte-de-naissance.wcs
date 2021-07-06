@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="142" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/142/">
   <name>iMio - Acte de Naissance</name>
-  <url_name>acte-de-naissance-1</url_name>
+  <url_name></url_name>
   <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de Naissance ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; la d&amp;eacute;claration de naissance a &amp;eacute;t&amp;eacute; faite.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>acte-de-naissance-1</internal_identifier>
   <discussion>false</discussion>

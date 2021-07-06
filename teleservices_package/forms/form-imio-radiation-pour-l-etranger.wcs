@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="218" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/218/">
   <name>iMio - Radiation pour l'&#233;tranger</name>
-  <url_name>radiation-pour-l-etranger</url_name>
+  <url_name></url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>radiation-pour-l-etranger</internal_identifier>
   <discussion>false</discussion>

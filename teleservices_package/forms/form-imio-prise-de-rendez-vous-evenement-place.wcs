@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="247" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/247/">
   <name>iMio - Prise de rendez-vous (&#233;v&#232;nement place)</name>
-  <url_name>prise-de-rendez-vous-evenement-place-presentation-1106</url_name>
+  <url_name></url_name>
   <internal_identifier>prise-de-rendez-vous-evenement-place</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

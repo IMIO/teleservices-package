@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="156" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/156/">
   <name>iMio - Demande codes PIN/PUK</name>
-  <url_name>demande-codes-pinpuk</url_name>
+  <url_name></url_name>
   <internal_identifier>demande-codes-pinpuk</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

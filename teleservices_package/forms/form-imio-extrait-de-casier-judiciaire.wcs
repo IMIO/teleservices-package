@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="166" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/166/">
   <name>iMio - Extrait de casier judiciaire</name>
-  <url_name>extrait-de-casier-judiciaire</url_name>
+  <url_name></url_name>
   <description>&lt;p class="accroche"&gt;&lt;em&gt;Extrait du casier judiciaire&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>extrait-de-casier-judiciaire</internal_identifier>
   <discussion>false</discussion>

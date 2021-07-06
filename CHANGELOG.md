@@ -5,6 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.52] - 06-07-2021 -
+### deleted
+  - url name from all forms
+  [nse]
+
 ## [0.0.50] - 06-07-2021 -
 ### updated
   - agenda forms name

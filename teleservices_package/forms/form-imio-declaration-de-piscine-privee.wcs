@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="178" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/178/">
   <name>iMio - D&#233;claration de piscine priv&#233;e</name>
-  <url_name>finances-declaration-de-piscine-privee</url_name>
+  <url_name></url_name>
   <internal_identifier>finances-declaration-de-piscine-privee</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

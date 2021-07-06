@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="138" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/138/">
   <name>iMio - Composition de m&#233;nage</name>
-  <url_name>composition-de-menage-1</url_name>
+  <url_name></url_name>
   <description>Il faut OBLIGATOIREMENT habiter dans la commune pour effectuer cette demande.</description>
   <internal_identifier>composition-de-menage-a-tester</internal_identifier>
   <discussion>false</discussion>

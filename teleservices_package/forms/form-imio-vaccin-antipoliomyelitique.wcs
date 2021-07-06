@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="191" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/191/">
   <name>iMio - Vaccin antipoliomy&#233;litique</name>
-  <url_name>vaccin-antipoliomyelitique</url_name>
+  <url_name></url_name>
   <internal_identifier>vaccin-antipoliomyelitique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="215" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/215/">
   <name>iMio - D&#233;claration d'alarme ou cam&#233;ra</name>
-  <url_name>declaration-d-alarme-ou-camera</url_name>
+  <url_name></url_name>
   <internal_identifier>declaration-d-alarme-ou-camera</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

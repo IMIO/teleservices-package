@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="193" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/193/">
   <name>iMio - Alarme habitation </name>
-  <url_name>demande-de-prime-alarme-habitation</url_name>
+  <url_name></url_name>
   <internal_identifier>prime-alarme-habitation</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

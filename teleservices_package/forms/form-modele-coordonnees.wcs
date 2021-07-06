@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="15" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/15/">
   <name>Mod&#232;le - Coordonn&#233;es</name>
-  <url_name>modele-coordonnees</url_name>
+  <url_name></url_name>
   <description>Il faut r&#233;sider obligatoirement dans la commune</description>
   <internal_identifier>modele-coordonnees</internal_identifier>
   <discussion>false</discussion>
