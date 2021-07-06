@@ -5,6 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.0.48] - 06-07-2021 -
+### Patched
+  - category of redirection forms
+  [nse]
+
 ## [0.0.47] - 05-07-2021 -
 ### Patched
   - category of some forms
