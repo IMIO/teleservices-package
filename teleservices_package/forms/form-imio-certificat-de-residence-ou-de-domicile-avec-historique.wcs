@@ -2,7 +2,7 @@
 <formdef id="137" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/137/">
   <name>iMio - Certificat de R&#233;sidence ou de Domicile avec historique</name>
   <url_name></url_name>
-  <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>Ce document atteste l'adresse actuelle d'une personne ainsi que les précédentes. Il est à réclamer dans la commune de son lieu de domicile.</description>
   <internal_identifier>certificat-de-residence-ou-de-domicile-avec-historique-a-tester</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

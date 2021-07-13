@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="161" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/161/">
   <name>iMio - Don d'organes</name>
+  <description>Téléchargez un formulaire sous format PDF via cette démarche et renvoyez-le complété à votre administration communale par ce même biais.</description>
   <url_name></url_name>
   <keywords>pdf</keywords>
   <internal_identifier>don-d-organes</internal_identifier>

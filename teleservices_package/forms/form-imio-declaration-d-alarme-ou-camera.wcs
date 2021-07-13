@@ -2,6 +2,7 @@
 <formdef id="215" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/215/">
   <name>iMio - D&#233;claration d'alarme ou cam&#233;ra</name>
   <url_name></url_name>
+  <description>Vous serez redirigé vers le site fédéral pour effectuer votre déclaration d'alarme ou caméra. Veuillez vous munir d'un lecteur de carte d'identité électronique.</description>
   <internal_identifier>declaration-d-alarme-ou-camera</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

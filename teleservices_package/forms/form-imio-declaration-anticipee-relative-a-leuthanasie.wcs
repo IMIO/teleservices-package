@@ -2,6 +2,7 @@
 <formdef id="160" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/160/">
   <name>iMio - D&#233;claration anticip&#233;e relative &#224; l&#8217;euthanasie</name>
   <url_name></url_name>
+  <description>La déclaration anticipée relative à l'euthanasie vous permet de télécharger un formulaire sous format PDF, à renvoyer par le biais de cette même démarche à votre administration communale.</description>
   <keywords>pdf</keywords>
   <internal_identifier>declaration-anticipee-relative-a-leuthanasie</internal_identifier>
   <discussion>false</discussion>

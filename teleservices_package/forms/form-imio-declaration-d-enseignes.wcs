@@ -2,6 +2,7 @@
 <formdef id="174" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/174/">
   <name>iMio - D&#233;claration d'enseignes / panneaux publicitaires</name>
   <url_name></url_name>
+  <description>Ce formulaire vous permet d'effectuer la déclaration d'une enseigne ou d'un panneau publicitaire visible depuis la voie publique.</description>
   <internal_identifier>finances-declaration-d-enseignes</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

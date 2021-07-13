@@ -2,6 +2,7 @@
 <formdef id="163" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/163/">
   <name>iMio - Demande de permis de v&#233;g&#233;taliser</name>
   <url_name></url_name>
+  <description>Vous souhaitez mettre en place un dispositif végétal sur le domaine public (jardinières, potager, mur végétalisé...) ? Demandez le permis de végétaliser via ce formulaire.</description>
   <internal_identifier>demande-de-permis-de-vegetaliser</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

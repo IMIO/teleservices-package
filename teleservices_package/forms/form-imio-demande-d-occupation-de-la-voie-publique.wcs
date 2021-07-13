@@ -2,7 +2,7 @@
 <formdef id="192" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/192/">
   <name>iMio - Demande d'occupation de la voie publique</name>
   <url_name></url_name>
-  <description>&lt;p&gt;&lt;a href="description-occupation-voie-publique"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;</description>
+  <description>Pour demander l'autorisation d'installer un container, d'un échaffaudage ou de tout autre matériel sur la voie publique, vous pouvez compléter ce formulaire.</description>
   <internal_identifier>demande-d-occupation-de-la-voie-publique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

@@ -2,6 +2,7 @@
 <formdef id="199" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/199/">
   <name>iMio - Demande de pr&#234;t/location de mat&#233;riel</name>
   <url_name></url_name>
+  <description>Vous souhaitez emprunter du matériel auprès du service Travaux? Faites-en la demande via ce formulaire en ligne.</description>
   <internal_identifier>demande-de-pretlocation-de-materiel</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

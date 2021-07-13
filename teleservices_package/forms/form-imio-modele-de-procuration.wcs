@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="162" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/162/">
   <name>iMio - Mod&#232;le de procuration</name>
+  <description>Ce document permet à une personne de se faire représenter en déléguant sa capacité de signature.</description>
   <url_name></url_name>
   <keywords>pdf</keywords>
   <internal_identifier>modele-de-procuration</internal_identifier>

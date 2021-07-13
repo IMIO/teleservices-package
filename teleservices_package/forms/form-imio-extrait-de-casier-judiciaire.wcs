@@ -2,7 +2,7 @@
 <formdef id="166" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/166/">
   <name>iMio - Extrait de casier judiciaire</name>
   <url_name></url_name>
-  <description>&lt;p class="accroche"&gt;&lt;em&gt;Extrait du casier judiciaire&lt;/em&gt;&lt;/p&gt;</description>
+  <description>Anciennement connu sous le nom de "certificat de bonne vie et moeurs", l'extrait de casier judiciaire peut être demandé via ce formulaire.</description>
   <internal_identifier>extrait-de-casier-judiciaire</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

@@ -2,7 +2,7 @@
 <formdef id="139" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/139/">
   <name>iMio - Certificat de vie</name>
   <url_name></url_name>
-  <description>&lt;p&gt;&lt;em&gt;Le certificat de vie atteste qu'une personne est en vie.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>Ce document peut être demandé afin d'attester que son demandeur est en vie à la demande d'une assurance ou pour l'obtention d'une retraite.</description>
   <internal_identifier>imio-certificat-de-vie</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

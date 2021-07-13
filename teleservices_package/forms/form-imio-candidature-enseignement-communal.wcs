@@ -2,6 +2,7 @@
 <formdef id="159" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/159/">
   <name>iMio - Candidature pour l'enseignement communal</name>
   <url_name></url_name>
+  <description>Vous souhaitez postuler pour une fonction liée à l'enseignement communal ? Faites-nous parvenir votre candidature par ce formulaire.</description>
   <internal_identifier>candidature-pour-l-enseignement-communal</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
