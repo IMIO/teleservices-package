@@ -3,7 +3,7 @@
   <name>iMio - V&#233;lo &#224; assistance &#233;lectrique ou kit adaptable</name>
   <url_name></url_name>
   <description>Afin d'encourager la mobilité douce, une prime peut être octroyée lors de l'achat d'un vélo à assistance électrique ou kit adaptable.</description>
-  <internal_identifier>prime-velo-a-assistance-electrique-ou-kit-adaptable</internal_identifier>
+  <internal_identifier>imio-prime-velo-a-assistance-electrique-ou-kit-adaptable</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

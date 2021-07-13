@@ -3,7 +3,7 @@
   <name>iMio - Compteur d'eau</name>
   <url_name></url_name>
   <description>Complétez ce formulaire afin de nous faire parvenir votre relevé d'index de compteur d'eau.</description>
-  <internal_identifier>finances-compteur-d-eau</internal_identifier>
+  <internal_identifier>imio-finances-compteur-d-eau</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

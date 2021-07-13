@@ -3,7 +3,7 @@
   <name>iMio - Demande d'occupation de la voie publique</name>
   <url_name></url_name>
   <description>Pour demander l'autorisation d'installer un container, d'un échaffaudage ou de tout autre matériel sur la voie publique, vous pouvez compléter ce formulaire.</description>
-  <internal_identifier>demande-d-occupation-de-la-voie-publique</internal_identifier>
+  <internal_identifier>imio-demande-d-occupation-de-la-voie-publique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

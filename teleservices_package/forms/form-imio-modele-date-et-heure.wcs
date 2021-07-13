@@ -2,7 +2,7 @@
 <formdef id="266" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/266/">
   <name>Mod&#232;le - Date et heure</name>
   <url_name></url_name>
-  <internal_identifier>modele-date-et-heure</internal_identifier>
+  <internal_identifier>imio-modele-date-et-heure</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>

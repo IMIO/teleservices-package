@@ -3,7 +3,7 @@
   <name>iMio - Acte de Reconnaissance pr&#233;/post-natale</name>
   <url_name></url_name>
   <description>&lt;p&gt;&lt;em&gt;Un extrait ou une copie int&amp;eacute;grale de l'acte peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>acte-de-reconnaissance-prepost-natale</internal_identifier>
+  <internal_identifier>imio-acte-de-reconnaissance-prepost-natale</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

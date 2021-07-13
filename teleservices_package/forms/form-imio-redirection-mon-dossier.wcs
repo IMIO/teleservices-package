@@ -3,7 +3,7 @@
   <name>iMio - Redirection Mon Dossier</name>
   <url_name></url_name>
   <keywords>redirection</keywords>
-  <internal_identifier>redirection-mon-dossier</internal_identifier>
+  <internal_identifier>imio-redirection-mon-dossier</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

@@ -3,7 +3,7 @@
   <name>iMio - Extrait de casier judiciaire</name>
   <url_name></url_name>
   <description>Anciennement connu sous le nom de "certificat de bonne vie et moeurs", l'extrait de casier judiciaire peut être demandé via ce formulaire.</description>
-  <internal_identifier>extrait-de-casier-judiciaire</internal_identifier>
+  <internal_identifier>imio-extrait-de-casier-judiciaire</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

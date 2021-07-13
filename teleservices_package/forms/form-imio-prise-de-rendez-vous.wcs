@@ -2,7 +2,7 @@
 <formdef id="245" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/245/">
   <name>iMio - Prise de rendez-vous</name>
   <url_name></url_name>
-  <internal_identifier>prise-de-rendez-vous</internal_identifier>
+  <internal_identifier>imio-prise-de-rendez-vous</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

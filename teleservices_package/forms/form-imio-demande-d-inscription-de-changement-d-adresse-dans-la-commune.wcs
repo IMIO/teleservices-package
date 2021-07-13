@@ -3,7 +3,7 @@
   <name>iMio - Demande d'inscription / de changement d'adresse dans la commune</name>
   <url_name></url_name>
   <description>Utilisez ce formulaire pour signaler votre déménagement au sein-même de votre commune actuelle.</description>
-  <internal_identifier>demande-d-inscription-de-changement-d-adresse-dans-la-commune</internal_identifier>
+  <internal_identifier>imio-demande-d-inscription-de-changement-d-adresse-dans-la-commune</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

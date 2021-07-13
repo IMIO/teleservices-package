@@ -3,7 +3,7 @@
   <name>iMio - Attestation de milice</name>
   <url_name></url_name>
   <description>Le certificat de milice concerne les personnes nées avant le 1 janvier 1976. Si le ou la résidant.e belge se trouve à l'étranger, le demander à l'administration communale où il/elle a été inscrit·e sur les listes de milice (le lieu de résidence à l'âge de 16 ans). L'attestation de milice concerne les personnes nées après le 31 décembre 1975. Le certificat ou l'attestation doit être demandé au lieu de domicile.</description>
-  <internal_identifier>attestation-de-milice</internal_identifier>
+  <internal_identifier>imio-attestation-de-milice</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

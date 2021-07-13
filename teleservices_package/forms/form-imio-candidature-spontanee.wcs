@@ -3,7 +3,7 @@
   <name>iMio - Candidature spontan&#233;e</name>
   <url_name></url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontanée pour un emploi au sein de l'administration communale.</description>
-  <internal_identifier>candidature-spontanee</internal_identifier>
+  <internal_identifier>imio-candidature-spontanee</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

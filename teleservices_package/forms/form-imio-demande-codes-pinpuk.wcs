@@ -3,7 +3,7 @@
   <name>iMio - Demande codes PIN/PUK</name>
   <url_name></url_name>
   <description>Ce formulaire vous redirige vers le site fédéral où vous pourrez faire votre demande de nouveau code pin/puk pour votre carte d'identité électronique.</description>
-  <internal_identifier>demande-codes-pinpuk</internal_identifier>
+  <internal_identifier>imio-demande-codes-pinpuk</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

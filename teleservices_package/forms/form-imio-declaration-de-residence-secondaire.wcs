@@ -3,7 +3,7 @@
   <name>iMio - D&#233;claration de r&#233;sidence secondaire</name>
   <url_name></url_name>
   <description>Déclarez votre résidence secondaire à votre administration communale en complétant ce formulaire.</description>
-  <internal_identifier>finances-declaration-de-residence-secondaire</internal_identifier>
+  <internal_identifier>imio-finances-declaration-de-residence-secondaire</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

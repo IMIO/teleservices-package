@@ -3,7 +3,7 @@
   <name>iMio - Citerne &#224; eau de pluie</name>
   <url_name></url_name>
   <description>Une prime peut être octroyée pour le placement d'une citerne à eau de pluie. Faites-en la demande via ce formulaire.</description>
-  <internal_identifier>prime-citerne-a-eau-de-pluie</internal_identifier>
+  <internal_identifier>imio-prime-citerne-a-eau-de-pluie</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

@@ -3,7 +3,7 @@
   <name>iMio - Vaccin antipoliomy&#233;litique</name>
   <url_name></url_name>
   <description> Tout enfant de moins de 18 mois doit être vacciné contre la poliomyélitique. Téléchargez dans cette démarche le formulaire PDF à compléter lors de la vaccination et faites-le parvenir à votre administration communale par ce même biais.</description>
-  <internal_identifier>vaccin-antipoliomyelitique</internal_identifier>
+  <internal_identifier>imio-vaccin-antipoliomyelitique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

@@ -4,7 +4,7 @@
   <description>Téléchargez un formulaire sous format PDF via cette démarche et renvoyez-le complété à votre administration communale par ce même biais.</description>
   <url_name></url_name>
   <keywords>pdf</keywords>
-  <internal_identifier>don-d-organes</internal_identifier>
+  <internal_identifier>imio-don-d-organes</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

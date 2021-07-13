@@ -3,7 +3,7 @@
   <name>iMio - F&#251;t &#224; compost</name>
   <description>Vous avez installé un fût à compost? Une prime peut vous être octroyée en remplissant ce formulaire de demande.</description>
   <url_name></url_name>
-  <internal_identifier>prime-fut-a-compost</internal_identifier>
+  <internal_identifier>imio-prime-fut-a-compost</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

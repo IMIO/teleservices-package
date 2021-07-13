@@ -3,7 +3,7 @@
   <name>iMio - Certificat de radiation (mod&#232;le 8)</name>
   <url_name></url_name>
   <description>Si vous déménagez pour vous établir à l'étranger, un certificat de radiation (modèle 8) doit être demandé auprès de la commune où vous êtes inscrit. Ce document vous permettra de vous inscrire dans les registres de la population du pays d'accueil.</description>
-  <internal_identifier>certificat-de-radiation-modele-8</internal_identifier>
+  <internal_identifier>imio-certificat-de-radiation-modele-8</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

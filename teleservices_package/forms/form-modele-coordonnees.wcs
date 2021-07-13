@@ -3,7 +3,7 @@
   <name>Mod&#232;le - Coordonn&#233;es</name>
   <url_name></url_name>
   <description>Il faut r&#233;sider obligatoirement dans la commune</description>
-  <internal_identifier>modele-coordonnees</internal_identifier>
+  <internal_identifier>imio-modele-coordonnees</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

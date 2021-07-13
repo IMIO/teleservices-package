@@ -5,7 +5,12 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
-## [0.0.53] - 12-07-2021 -
+## [0.0.55] - 12-07-2021 -
+### Updated
+  - forms internal identifier
+  [nse]
+
+## [0.0.54] - 12-07-2021 -
 ### Updated
   - form iMio - Déclaration de chien dangereux
   [nse]

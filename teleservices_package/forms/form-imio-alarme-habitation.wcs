@@ -3,7 +3,7 @@
   <name>iMio - Alarme habitation </name>
   <url_name></url_name>
   <description>Demandez votre prime octroyée sous conditions en cas d'installation d'une alarme habitation.</description>
-  <internal_identifier>prime-alarme-habitation</internal_identifier>
+  <internal_identifier>imio-prime-alarme-habitation</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

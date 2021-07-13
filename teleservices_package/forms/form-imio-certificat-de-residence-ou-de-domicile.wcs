@@ -3,7 +3,7 @@
   <name>iMio - Certificat de R&#233;sidence ou de Domicile</name>
   <url_name></url_name>
   <description>Ce document atteste l'adresse actuelle d'une personne Il est à réclamer dans la commune de son lieu de domicile.</description>
-  <internal_identifier>certificat-de-residence-ou-de-domicile-a-verifier</internal_identifier>
+  <internal_identifier>imio-certificat-de-residence-ou-de-domicile-a-verifier</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

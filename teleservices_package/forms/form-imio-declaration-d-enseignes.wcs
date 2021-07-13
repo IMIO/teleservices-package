@@ -3,7 +3,7 @@
   <name>iMio - D&#233;claration d'enseignes / panneaux publicitaires</name>
   <url_name></url_name>
   <description>Ce formulaire vous permet d'effectuer la déclaration d'une enseigne ou d'un panneau publicitaire visible depuis la voie publique.</description>
-  <internal_identifier>finances-declaration-d-enseignes</internal_identifier>
+  <internal_identifier>imio-finances-declaration-d-enseignes</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

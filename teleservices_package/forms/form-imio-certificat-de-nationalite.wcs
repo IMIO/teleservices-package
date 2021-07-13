@@ -3,7 +3,7 @@
   <name>iMio - Certificat de nationalit&#233;</name>
   <url_name></url_name>
   <description>Ce document atteste la nationalité d'une personne. Il est à réclamer dans la commune de son lieu de domicile.</description>
-  <internal_identifier>certificat-de-nationalite-avec-possibilite-de-redirection-obligatoire-mondossier</internal_identifier>
+  <internal_identifier>imio-certificat-de-nationalite-avec-possibilite-de-redirection-obligatoire-mondossier</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
