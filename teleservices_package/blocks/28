@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <block id="28">
-  <name>Personne</name>
+  <name>iMio - Personne</name>
   <slug>personne</slug>
   <digest_template>{{personne_var_nom}} {{personne_var_prenom}}</digest_template>
   <fields>

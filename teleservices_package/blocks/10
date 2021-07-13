@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <block id="10">
-  <name>Emplois Pr&#233;c&#233;dents</name>
+  <name>iMio - Emplois Pr&#233;c&#233;dents</name>
   <slug>emplois_precedents</slug>
   <fields>
     <field>

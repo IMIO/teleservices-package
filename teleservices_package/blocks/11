@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <block id="11">
-  <name>Ajouter un fichier</name>
+  <name>iMio - Ajouter un fichier</name>
   <slug>ajouter_un_fichier</slug>
   <fields>
     <field>

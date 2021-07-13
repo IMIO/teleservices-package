@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <block id="1">
-  <name>Membres du m&#233;nage</name>
+  <name>iMio - Membres du m&#233;nage</name>
   <slug>menage</slug>
   <digest_template>Nom: {{menage_var_nom}} Pr&#233;nom: {{menage_var_prenom}} NN: {{menage_var_numero_national}}</digest_template>
   <fields>

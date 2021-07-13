@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <block id="36">
-  <name>Candidature</name>
+  <name>iMio - Candidature</name>
   <slug>candidature</slug>
   <fields>
     <field>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <block id="8">
-  <name>Etablissement Diplome</name>
+  <name>iMio - Etablissement Diplome</name>
   <slug>etablissement_diplome</slug>
   <fields>
     <field>

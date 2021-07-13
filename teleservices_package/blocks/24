@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <block id="24">
-  <name>Panneaux de signalisation</name>
+  <name>iMio - Panneaux de signalisation</name>
   <slug>panneaux_de_signalisation</slug>
   <digest_template>{{panneaux_de_signalisation_var_type}} : {{panneaux_de_signalisation_var_exemplaire}}</digest_template>
   <fields>
