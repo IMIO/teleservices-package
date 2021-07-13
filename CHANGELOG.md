@@ -6,6 +6,11 @@ teleservices-package changelog
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
 ## [0.0.53] - 12-07-2021 -
+### Updated
+  - form iMio - Déclaration de chien dangereux
+  [nse]
+
+## [0.0.53] - 12-07-2021 -
 ### Added
   - description to forms
 ### Updated
