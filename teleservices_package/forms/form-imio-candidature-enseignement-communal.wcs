@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="159" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/159/">
+<formdef id="62" url="http://local-formulaires.example.net/backoffice/forms/62/">
   <name>iMio - Candidature pour l'enseignement communal</name>
   <url_name></url_name>
-  <description>Vous souhaitez postuler pour une fonction liée à l'enseignement communal ? Faites-nous parvenir votre candidature par ce formulaire.</description>
+  <description>Vous souhaitez postuler pour une fonction li&#233;e &#224; l'enseignement communal ? Faites-nous parvenir votre candidature par ce formulaire.</description>
   <internal_identifier>imio-candidature-pour-l-enseignement-communal</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -14,14 +14,30 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Emploi</category>
-  <workflow workflow_id="151">iMio - Candidature Enseignement</workflow>
-  <max_field_id>360</max_field_id>
+  <category category_id="100">iMio - Emploi</category>
+  <workflow workflow_id="20">iMio - Candidature Enseignement</workflow>
+  <max_field_id>361</max_field_id>
   <fields>
     <field>
       <label>Donn&#233;es signal&#233;tiques</label>
       <type>page</type>
       <id>318</id>
+    </field><field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature pour l'enseignement communal&amp;quot;&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Comment modififer la liste&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/enseignement_communal.html"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="{{site_url_backoffice}}/data/"&gt;Modifier la liste des fonctions disponible&lt;/a&gt;&lt;/p&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>361</id>
     </field><field>
       <label>Nom</label>
       <type>string</type>
@@ -63,7 +79,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -79,7 +94,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><anonymise>True</anonymise>
@@ -150,7 +164,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_birthdate</value>
       </prefill><minimum_is_future>False</minimum_is_future>
@@ -168,7 +181,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>11</id>
@@ -184,7 +196,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><anonymise>True</anonymise>
@@ -200,7 +211,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -215,7 +225,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>348</id>
@@ -228,7 +237,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>A</item>
@@ -253,6 +261,7 @@
 
 &lt;p&gt;&lt;strong&gt;Attention&amp;nbsp;&lt;/strong&gt;uniquement pour 1 titre requis (joindre une copie du dipl&amp;ocirc;me)&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>325</id>
     </field><field>
       <label>Fonction(s) postul&#233;e(s)</label>
@@ -263,12 +272,13 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>instituteur primaire</item>
         <item>instituteur maternel</item>
-        <item>ma&#238;tre d&#8217;&#233;ducation physique	</item>
-        <item>ma&#238;tre de morale	</item>
+        <item>ma&#238;tre d&#8217;&#233;ducation physique</item>
+        <item>ma&#238;tre de morale</item>
         <item>ma&#238;tre de seconde langue</item>
         <item>ma&#238;tre de psychomotricit&#233;</item>
         <item>ergoth&#233;rapeute (ens. sp&#233;cialis&#233;)</item>
@@ -281,7 +291,9 @@
         <item>psychologue (ens. sp&#233;cialis&#233;)</item>
       </items><min_choices>0</min_choices>
       <max_choices>0</max_choices>
-      <in_filters>False</in_filters>
+      <data_source>
+        <type>carddef:imio-candidature-pour-l-enseignement-communal-fonctions-disponibles</type>
+      </data_source><in_filters>False</in_filters>
       <anonymise>True</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <id>341</id>
@@ -350,8 +362,7 @@
     </field>
   </fields><user-roles>
     <role role_id="logged-users">logged-users</role>
-  </user-roles><roles />
-  <options>
+  </user-roles><options>
     <option varname="annees">2020-2021</option>
     <option varname="lien_mentions_legales" />
     <option varname="mail_dpo">nicolas.selva@imio.be</option>
