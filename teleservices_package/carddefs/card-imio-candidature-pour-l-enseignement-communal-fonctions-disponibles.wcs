@@ -25,23 +25,33 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>1</id>
     </field>
   </fields><user-roles>
-    <role role_id="f078d1ddd8c441d18fc2866ee0538f21">Agent ayant acces aux fabriques</role>
+    <role role_id="bb00025108204233a1bae615b7e0635c">Agent ayant acces aux fabriques</role>
   </user-roles><backoffice-submission-roles>
-    <role role_id="f078d1ddd8c441d18fc2866ee0538f21">Agent ayant acces aux fabriques</role>
+    <role role_id="bb00025108204233a1bae615b7e0635c">Agent ayant acces aux fabriques</role>
   </backoffice-submission-roles><roles>
-    <role role_id="f078d1ddd8c441d18fc2866ee0538f21" role_key="_viewer">Agent ayant acces aux fabriques</role>
-    <role role_id="f078d1ddd8c441d18fc2866ee0538f21" role_key="_editor">Agent ayant acces aux fabriques</role>
+    <role role_id="bb00025108204233a1bae615b7e0635c" role_key="_viewer">Agent ayant acces aux fabriques</role>
+    <role role_id="bb00025108204233a1bae615b7e0635c" role_key="_editor">Agent ayant acces aux fabriques</role>
   </roles><options />
-  <custom_views />
-  <geolocations />
+  <custom_views>
+    <custom_view>
+      <title>Vue par d&#233;faut</title>
+      <slug>vue-par-defaut</slug>
+      <visibility>any</visibility>
+      <filters />
+      <columns>
+        <id>id</id>
+        <id>1</id>
+      </columns>
+    </custom_view>
+  </custom_views><geolocations />
   <digest_templates>
     <template key="default">{{ form_var_fonction }}</template>
     <template key="custom-view:user-vue-par-defaut">{{ form_var_fonction }}</template>
+    <template key="custom-view:vue-par-defaut">{{ form_var_fonction }}</template>
   </digest_templates>
 </carddef>

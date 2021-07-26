@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.1] - 26-07-2021 -
+### Patched
+  - View of card card-imio-candidature-pour-l-enseignement-communal-fonctions-disponibles
+
 ## [0.1.0] - 26-07-2021 -
 ### Updated
   - form form-imio-candidature-enseignement-communal
