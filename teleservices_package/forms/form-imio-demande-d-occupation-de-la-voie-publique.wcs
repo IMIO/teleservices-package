@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="192" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/192/">
+<formdef id="57" url="http://local-formulaires.example.net/backoffice/forms/57/">
   <name>iMio - Demande d'occupation de la voie publique</name>
   <url_name></url_name>
-  <description>&lt;p&gt;&lt;a href="description-occupation-voie-publique"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;</description>
-  <internal_identifier>demande-d-occupation-de-la-voie-publique</internal_identifier>
+  <description>Pour demander l'autorisation d'installer un container, d'un &#233;chaffaudage ou de tout autre mat&#233;riel sur la voie publique, vous pouvez compl&#233;ter ce formulaire.</description>
+  <internal_identifier>imio-demande-d-occupation-de-la-voie-publique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -14,9 +14,9 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Travaux</category>
-  <workflow workflow_id="121">iMio - Occupation de la voie publique</workflow>
-  <max_field_id>238</max_field_id>
+  <category category_id="108">iMio - Travaux</category>
+  <workflow workflow_id="8">iMio - Occupation de la voie publique</workflow>
+  <max_field_id>239</max_field_id>
   <fields>
     <field>
       <label>Demandeur</label>
@@ -43,7 +43,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>un particulier</item>
@@ -64,6 +63,7 @@
     </field><field>
       <label>&lt;p&gt;Les demandes d'occupation de la voie publique doivent &amp;ecirc;tre introduites au plus tard 7 jours ouvrables avant le d&amp;eacute;but de l'occupation.&lt;/p&gt;&lt;p&gt;Ce d&amp;eacute;lai peut-&amp;ecirc;tre plus long si une d&amp;eacute;cision du Coll&amp;egrave;ge Communal est n&amp;eacute;cessaire.&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>4</id>
     </field><field>
       <label>&lt;p&gt;Vous pouvez consulter le r&amp;egrave;glement communal &lt;a href="http://{{form_option_reglement_communal}}"&gt;en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
@@ -143,7 +143,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>11</id>
@@ -157,7 +156,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>12</id>
@@ -184,7 +182,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>14</id>
@@ -198,7 +195,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><size>[0-9]*</size>
       <anonymise>True</anonymise>
@@ -213,7 +209,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>16</id>
@@ -227,11 +222,10 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
-        
+        <value>[0-9]*</value>
       </validation><anonymise>True</anonymise>
       <id>17</id>
     </field><field>
@@ -244,7 +238,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>18</id>
@@ -259,7 +252,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>phone</type>
@@ -275,7 +267,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>20</id>
     </field><field>
@@ -288,7 +279,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>((97 - int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) or (97 - int("2" + ((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
+            <value>((97 - int(form_var_nn[:9]) % 97 == int(form_var_nn[-2:])) or (97 - int("2" + form_var_nn[:9]) % 97 == int(form_var_nn[-2:])))</value>
           </condition><error_message>Num&#233;ro national incorrect, veuillez uniquement rentrer des chiffres pour le num&#233;ro national</error_message>
         </post_condition>
       </post_conditions><id>34</id>
@@ -302,7 +293,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -317,7 +307,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -332,7 +321,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -346,7 +334,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><size>[0-9]*</size>
@@ -362,7 +349,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -376,7 +362,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><anonymise>True</anonymise>
@@ -390,7 +375,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>237</id>
@@ -406,7 +390,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
@@ -424,7 +407,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>44</id>
@@ -432,6 +414,7 @@
       <label>Num&#233;ro de registre national</label>
       <type>string</type>
       <required>True</required>
+      <hint>veuillez uniquement rentrer des chiffres pour le num&#233;ro national. Sans points ni tirets ni espaces.</hint>
       <varname>nn</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -443,7 +426,7 @@
         <value>_niss</value>
       </prefill><validation>
         <type>regex</type>
-        
+        <value>[0-9]*</value>
       </validation><anonymise>True</anonymise>
       <id>35</id>
     </field><field>
@@ -456,7 +439,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>45</id>
@@ -481,7 +463,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>48</id>
@@ -495,11 +476,10 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
-        
+        <value>[0-9]*</value>
       </validation><anonymise>True</anonymise>
       <id>49</id>
     </field><field>
@@ -511,7 +491,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>50</id>
@@ -527,7 +506,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>7100</item>
@@ -543,27 +521,18 @@
       <id>233</id>
     </field><field>
       <label>Localit&#233;</label>
-      <type>item</type>
+      <type>string</type>
       <required>True</required>
-      <hint>Choisissez une localit&#233;</hint>
       <varname>localite_chantier</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
-      <data_source>
-        <type>formula</type>
-        <value>commune_localites.split(",")</value>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>234</id>
+      </prefill><anonymise>True</anonymise>
+      <id>239</id>
     </field><field>
       <label>&lt;p&gt;En cas de d&amp;eacute;p&amp;ocirc;t en zone de stationnement altern&amp;eacute;e, veillez &amp;agrave; intervenir durant la bonne quinzaine.&lt;/p&gt;
 
@@ -587,7 +556,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -607,7 +575,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -627,7 +594,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -647,7 +613,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -667,7 +632,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -688,7 +652,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -708,7 +671,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -728,7 +690,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>226</id>
@@ -742,7 +703,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -766,7 +726,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Echafaudage non sur&#233;lev&#233;, avec trottoir assez large pour le passage des pi&#233;tons</item>
@@ -791,7 +750,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -810,7 +768,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -832,7 +789,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>D&#233;m&#233;nagement</item>
@@ -855,7 +811,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>235</id>
@@ -869,7 +824,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Container</item>
@@ -899,7 +853,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><rows>5</rows>
       <pre>False</pre>
@@ -913,7 +866,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -933,7 +885,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -956,7 +907,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>hidden</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
@@ -981,7 +931,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Circulation interdite</item>
@@ -1010,7 +959,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>76</id>
@@ -1034,10 +982,7 @@
       </prefill><anonymise>True</anonymise>
       <id>75</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles />
-  <options>
+  </fields><options>
     <option varname="jours_feries">06/01/2017, 17/04/2017, 01/05/2017, 08/05/2017, 25/05/2017, 05/06/2017, 21/07/2017, 15/08/2017, 01/11/2017, 25/12/2017</option>
     <option varname="legal_holiday" />
     <option varname="legal_holidays" />
