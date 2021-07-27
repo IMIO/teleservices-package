@@ -131,7 +131,7 @@
           <condition>
             <type>python</type>
             <value>form_var_nn_perscon == None or ((97 - int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:]))	 or 	(97 - int("2" + ((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
-          </condition><error_message>Num&#233;ro national incorrect : le num&#233;ro national et la date de naissance doivent correspondre. Ce champ ne peut contenir que des chiffres (pas de ., -, +, -, ...).</error_message>
+          </condition><error_message>Num&#233;ro national incorrect : le num&#233;ro national et la date de naissance doivent correspondre. </error_message>
         </post_condition><post_condition>
           <condition>
             <type>python</type>
@@ -199,7 +199,7 @@
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
-        <value>[0-9]*</value>
+        
       </validation><anonymise>True</anonymise>
       <id>56</id>
     </field><field>

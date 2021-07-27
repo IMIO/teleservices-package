@@ -5,6 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.4] - 27-07-2021 -
+### Patched
+  - error message rn
+  - regex rn
+
 ## [0.1.3] - 27-07-2021 -
 ### Patched
   - condition rn

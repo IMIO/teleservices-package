@@ -180,7 +180,7 @@
         <value>_niss</value>
       </prefill><validation>
         <type>regex</type>
-        <value>[0-9]*</value>
+        
       </validation><anonymise>True</anonymise>
       <id>8</id>
     </field><field>

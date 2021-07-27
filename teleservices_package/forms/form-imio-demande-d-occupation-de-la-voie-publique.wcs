@@ -231,7 +231,7 @@
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
-        <value>[0-9]*</value>
+        
       </validation><anonymise>True</anonymise>
       <id>17</id>
     </field><field>
@@ -443,7 +443,7 @@
         <value>_niss</value>
       </prefill><validation>
         <type>regex</type>
-        <value>[0-9]*</value>
+        
       </validation><anonymise>True</anonymise>
       <id>35</id>
     </field><field>
@@ -499,7 +499,7 @@
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
-        <value>[0-9]*</value>
+        
       </validation><anonymise>True</anonymise>
       <id>49</id>
     </field><field>
