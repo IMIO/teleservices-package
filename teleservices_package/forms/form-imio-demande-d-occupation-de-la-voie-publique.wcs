@@ -2,8 +2,8 @@
 <formdef id="192" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/192/">
   <name>iMio - Demande d'occupation de la voie publique</name>
   <url_name></url_name>
-  <description>Pour demander l'autorisation d'installer un container, d'un échaffaudage ou de tout autre matériel sur la voie publique, vous pouvez compléter ce formulaire.</description>
-  <internal_identifier>imio-demande-d-occupation-de-la-voie-publique</internal_identifier>
+  <description>&lt;p&gt;&lt;a href="description-occupation-voie-publique"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;</description>
+  <internal_identifier>demande-d-occupation-de-la-voie-publique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -288,7 +288,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>((97 - int(form_var_nn[:9]) % 97 == int(form_var_nn[-2:])) or (97 - int("2" + form_var_nn[:9]) % 97 == int(form_var_nn[-2:])))</value>
+            <value>((97 - int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) or (97 - int("2" + ((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
           </condition><error_message>Num&#233;ro national incorrect, veuillez uniquement rentrer des chiffres pour le num&#233;ro national</error_message>
         </post_condition>
       </post_conditions><id>34</id>

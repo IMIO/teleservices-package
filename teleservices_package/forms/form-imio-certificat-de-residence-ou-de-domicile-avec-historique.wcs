@@ -2,8 +2,8 @@
 <formdef id="137" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/137/">
   <name>iMio - Certificat de R&#233;sidence ou de Domicile avec historique</name>
   <url_name></url_name>
-  <description>Ce document atteste l'adresse actuelle d'une personne ainsi que les précédentes. Il est à réclamer dans la commune de son lieu de domicile.</description>
-  <internal_identifier>imio-certificat-de-residence-ou-de-domicile-avec-historique-a-tester</internal_identifier>
+  <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
+  <internal_identifier>certificat-de-residence-ou-de-domicile-avec-historique-a-tester</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -116,7 +116,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>((97 - int(form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])) or (97 - int("2" + form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])))</value>
+            <value>((97 - int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) or (97 - int("2" + ((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
           </condition><error_message>Veuillez entrer un num&#233;ro national valide.</error_message>
         </post_condition>
       </post_conditions><id>45</id>
@@ -291,7 +291,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_nn == None or ((97 - int(form_var_nn[:9]) % 97 == int(form_var_nn[-2:])) 	 or (97 - int("2" + form_var_nn[:9]) % 97 == int(form_var_nn[-2:])))</value>
+            <value>form_var_nn == None or ((97 - int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) 	 or (97 - int("2" + ((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
           </condition><error_message>Num&#233;ro national incorrect. Ce champ ne peut contenir que des chiffres (pas de ., -, +, -, ...).</error_message>
         </post_condition><post_condition>
           <condition>

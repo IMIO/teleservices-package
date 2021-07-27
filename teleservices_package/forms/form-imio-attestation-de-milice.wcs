@@ -2,8 +2,8 @@
 <formdef id="216" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/216/">
   <name>iMio - Attestation de milice</name>
   <url_name></url_name>
-  <description>Le certificat de milice concerne les personnes nées avant le 1 janvier 1976. Si le ou la résidant.e belge se trouve à l'étranger, le demander à l'administration communale où il/elle a été inscrit·e sur les listes de milice (le lieu de résidence à l'âge de 16 ans). L'attestation de milice concerne les personnes nées après le 31 décembre 1975. Le certificat ou l'attestation doit être demandé au lieu de domicile.</description>
-  <internal_identifier>imio-attestation-de-milice</internal_identifier>
+  <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
+  <internal_identifier>attestation-de-milice</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -142,7 +142,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_nn_perscon == None or ((97 - int(form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])) 	 or 	 (97 - int("2" + form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])))</value>
+            <value>form_var_nn_perscon == None or ((97 - int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:]))	 or 	(97 - int("2" + ((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
           </condition><error_message>Num&#233;ro national incorrect : le num&#233;ro national et la date de naissance doivent correspondre. Ce champ ne peut contenir que des chiffres (pas de ., -, +, -, ...).</error_message>
         </post_condition><post_condition>
           <condition>
@@ -358,7 +358,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_nn == None or ((97 - int(form_var_nn[:9]) % 97 == int(form_var_nn[-2:])) 	 or (97 - int("2" + form_var_nn[:9]) % 97 == int(form_var_nn[-2:])))</value>
+            <value>form_var_nn == None or ((97 - int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) 	 or (97 - int("2" + ((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
           </condition><error_message>Num&#233;ro national incorrect.</error_message>
         </post_condition><post_condition>
           <condition>

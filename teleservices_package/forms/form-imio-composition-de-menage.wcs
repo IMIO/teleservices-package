@@ -3,7 +3,7 @@
   <name>iMio - Composition de m&#233;nage</name>
   <url_name></url_name>
   <description>Il faut OBLIGATOIREMENT habiter dans la commune pour effectuer cette demande.</description>
-  <internal_identifier>imio-composition-de-menage-a-tester</internal_identifier>
+  <internal_identifier>composition-de-menage-a-tester</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -126,7 +126,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>((97 - int(form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])) or (97 - int("2" + form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])))</value>
+            <value>((97 - int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) or (97 - int("2" + ((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
           </condition><error_message>Veuillez entrer un num&#233;ro national valide.</error_message>
         </post_condition><post_condition>
           <condition>
@@ -295,7 +295,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>((97 - int(form_var_nn[:9]) % 97 == int(form_var_nn[-2:])) or (97 - int(2 + form_var_nn[:9]) % 97 == int(form_var_nn[-2:])))</value>
+            <value>((97 - int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) or (97 - int(2 + form_var_nn[:9]) % 97 == int(form_var_nn[-2:])))</value>
           </condition><error_message>Veuillez entrer un num&#233;ro national valide.</error_message>
         </post_condition><post_condition>
           <condition>

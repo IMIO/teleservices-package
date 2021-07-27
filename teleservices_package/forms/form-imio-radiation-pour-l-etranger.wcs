@@ -2,8 +2,8 @@
 <formdef id="218" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/218/">
   <name>iMio - Radiation pour l'&#233;tranger</name>
   <url_name></url_name>
-  <description>Si vous déménagez pour vous établir à l'étranger, un certificat de radiation (modèle 8) doit être demandé auprès de la commune où vous êtes inscrit. Ce document vous permettra de vous inscrire dans les registres de la population du pays d'accueil.</description>
-  <internal_identifier>imio-radiation-pour-l-etranger</internal_identifier>
+  <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
+  <internal_identifier>radiation-pour-l-etranger</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -25,7 +25,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_nn == None or ((97 - int(form_var_nn[:9]) % 97 == int(form_var_nn[-2:])) 	 or (97 - int("2" + form_var_nn[:9]) % 97 == int(form_var_nn[-2:])))</value>
+            <value>form_var_nn == None or ((97 - int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) 	 or (97 - int("2" + ((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
           </condition><error_message>Num&#233;ro national incorrect.</error_message>
         </post_condition><post_condition>
           <condition>

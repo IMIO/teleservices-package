@@ -3,7 +3,7 @@
   <name>iMio - Acte de Nationalit&#233;</name>
   <url_name></url_name>
   <description>&lt;p&gt;&lt;em&gt;Seule la copie int&amp;eacute;grale de l'acte de divorce peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>imio-acte-de-nationalite</internal_identifier>
+  <internal_identifier>acte-de-nationalite</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -178,7 +178,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_nn_perscon == None or ((97 - int(form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])) 	 or 	 (97 - int("2" + form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])))</value>
+            <value>form_var_nn_perscon == None or ((97 - int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:]))	 or 	(97 - int("2" + ((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
           </condition><error_message>Num&#233;ro national incorrect : le num&#233;ro national et la date de naissance doivent correspondre. Ce champ ne peut contenir que des chiffres (pas de ., -, +, -, ...).</error_message>
         </post_condition><post_condition>
           <condition>
@@ -389,7 +389,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_nn_perscon == None or ((97 - int(form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])) 	 or 	 (97 - int("2" + form_var_nn_perscon[:9]) % 97 == int(form_var_nn_perscon[-2:])))</value>
+            <value>form_var_nn == None or ((97 - int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) 	 or 	 (97 - int("2" + ((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
           </condition><error_message>Num&#233;ro national incorrect. Ce champ ne peut contenir que des chiffres (pas de ., -, +, -, ...).</error_message>
         </post_condition><post_condition>
           <condition>
