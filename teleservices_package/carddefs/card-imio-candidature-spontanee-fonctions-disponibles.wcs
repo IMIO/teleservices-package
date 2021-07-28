@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<carddef id="3" url="http://local-formulaires.example.net/backoffice/cards/3/">
+  <name>iMio - Candidature spontan&#233;e - Fonctions disponibles</name>
+  <url_name></url_name>
+  <internal_identifier>imio-candidature-spontanee-fonctions-disponibles</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <max_field_id>2</max_field_id>
+  <fields>
+    <field>
+      <label>Section</label>
+      <type>item</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Personnel administratif</item>
+        <item>Personnel ouvrier</item>
+        <item>Personnel social</item>
+        <item>Personnel technique / sp&#233;cifique</item>
+        <item>Personnel de nettoyage</item>
+        <item>Personnel de cuisine</item>
+        <item>Personnel du service enseignement</item>
+      </items><display_mode>list</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>1</id>
+    </field><field>
+      <label>Fonction</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>fonction</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>2</id>
+    </field>
+  </fields><user-roles>
+    <role role_id="bb00025108204233a1bae615b7e0635c">Agent ayant acces aux fabriques</role>
+  </user-roles><backoffice-submission-roles>
+    <role role_id="bb00025108204233a1bae615b7e0635c">Agent ayant acces aux fabriques</role>
+  </backoffice-submission-roles><roles>
+    <role role_id="bb00025108204233a1bae615b7e0635c" role_key="_viewer">Agent ayant acces aux fabriques</role>
+    <role role_id="bb00025108204233a1bae615b7e0635c" role_key="_editor">Agent ayant acces aux fabriques</role>
+  </roles><options />
+  <custom_views>
+    <custom_view>
+      <title>Personnel administratif</title>
+      <slug>personnel-administratif</slug>
+      <visibility>datasource</visibility>
+      <filters>
+        <filter-1>on</filter-1>
+        <filter-1-value>Personnel administratif</filter-1-value>
+      </filters><columns>
+        <id>id</id>
+        <id>1</id>
+        <id>2</id>
+      </columns>
+    </custom_view><custom_view>
+      <title>Personnel du service enseignement</title>
+      <slug>personnel-du-service-enseignement</slug>
+      <visibility>datasource</visibility>
+      <filters>
+        <filter-1>on</filter-1>
+        <filter-1-value>Personnel du service enseignement</filter-1-value>
+      </filters><columns>
+        <id>id</id>
+        <id>1</id>
+        <id>2</id>
+      </columns>
+    </custom_view><custom_view>
+      <title>Personnel technique / sp&#233;cifique</title>
+      <slug>personnel-technique-specifique</slug>
+      <visibility>datasource</visibility>
+      <filters>
+        <filter-1>on</filter-1>
+        <filter-1-value>Personnel technique / sp&#233;cifique</filter-1-value>
+      </filters><columns>
+        <id>id</id>
+        <id>1</id>
+        <id>2</id>
+      </columns>
+    </custom_view><custom_view>
+      <title>Personnel ouvrier</title>
+      <slug>personnel-ouvrier</slug>
+      <visibility>datasource</visibility>
+      <filters>
+        <filter-1>on</filter-1>
+        <filter-1-value>Personnel ouvrier</filter-1-value>
+      </filters><columns>
+        <id>id</id>
+        <id>1</id>
+        <id>2</id>
+      </columns>
+    </custom_view><custom_view>
+      <title>Personnel de cuisine</title>
+      <slug>personnel-de-cuisine</slug>
+      <visibility>datasource</visibility>
+      <filters>
+        <filter-1>on</filter-1>
+        <filter-1-value>Personnel de cuisine</filter-1-value>
+      </filters><columns>
+        <id>id</id>
+        <id>1</id>
+        <id>2</id>
+      </columns>
+    </custom_view><custom_view>
+      <title>Personnel de nettoyage</title>
+      <slug>personnel-de-nettoyage</slug>
+      <visibility>datasource</visibility>
+      <filters>
+        <filter-1>on</filter-1>
+        <filter-1-value>Personnel de nettoyage</filter-1-value>
+      </filters><columns>
+        <id>id</id>
+        <id>1</id>
+        <id>2</id>
+      </columns>
+    </custom_view><custom_view>
+      <title>Personnel social</title>
+      <slug>personnel-social</slug>
+      <visibility>datasource</visibility>
+      <filters>
+        <filter-1>on</filter-1>
+        <filter-1-value>Personnel social</filter-1-value>
+      </filters><columns>
+        <id>id</id>
+        <id>1</id>
+        <id>2</id>
+      </columns>
+    </custom_view>
+  </custom_views><geolocations />
+  <digest_templates>
+    <template key="default">{{ form_var_fonction }}</template>
+    <template key="custom-view:personnel-administratif">{{ form_var_fonction }}</template>
+    <template key="custom-view:personnel-ouvrier">{{ form_var_fonction }}</template>
+    <template key="custom-view:personnel-social">{{ form_var_fonction }}</template>
+    <template key="custom-view:personnel-technique-specifique">{{ form_var_fonction }}</template>
+    <template key="custom-view:personnel-de-nettoyage">{{ form_var_fonction }}</template>
+    <template key="custom-view:personnel-de-cuisine">{{ form_var_fonction }}</template>
+    <template key="custom-view:personnel-du-service-enseignement">{{ form_var_fonction }}</template>
+  </digest_templates>
+</carddef>

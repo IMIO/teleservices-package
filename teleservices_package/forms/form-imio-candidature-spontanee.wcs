@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="158" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/158/">
+<formdef id="30" url="http://local-formulaires.example.net/backoffice/forms/30/">
   <name>iMio - Candidature spontan&#233;e</name>
   <url_name></url_name>
-  <description>Ce formulaire vous permet de communiquer votre candidature spontanée pour un emploi au sein de l'administration communale.</description>
+  <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
   <internal_identifier>imio-candidature-spontanee</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -14,9 +14,9 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Emploi</category>
-  <workflow workflow_id="152">iMio - Candidature spontan&#233;e</workflow>
-  <max_field_id>270</max_field_id>
+  <category category_id="100">iMio - Emploi</category>
+  <workflow workflow_id="19">iMio - Candidature spontan&#233;e</workflow>
+  <max_field_id>273</max_field_id>
   <fields>
     <field>
       <label>Pr&#233;sentation du Candidat</label>
@@ -29,6 +29,17 @@
           </condition><error_message>Num&#233;ro national incorrect ou incomplet. Ce champ ne peut contenir que des chiffres (pas de ., -, +, /,...).</error_message>
         </post_condition>
       </post_conditions><id>1</id>
+    </field><field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature spontan&amp;eacute;e&amp;quot;&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/candidature_spontanee.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="{{site_url_backoffice}}/data/" rel="noopener noreferrer" target="_blank"&gt;Modifier la liste des fonctions et les institutions&lt;/a&gt;&lt;/p&gt;</label>
+      <type>comment</type>
+      <display_locations />
+      <id>272</id>
     </field><field>
       <label>Pr&#233;sentation du candidat</label>
       <type>title</type>
@@ -46,7 +57,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -61,7 +71,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -69,13 +78,14 @@
     </field><field>
       <label>Rue</label>
       <type>string</type>
-      <required>False</required>
+      <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-2-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -83,13 +93,14 @@
     </field><field>
       <label>N&#176;</label>
       <type>string</type>
-      <required>False</required>
+      <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><anonymise>True</anonymise>
@@ -142,13 +153,14 @@
     </field><field>
       <label>Nationalit&#233;</label>
       <type>string</type>
-      <required>False</required>
+      <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>11</id>
@@ -162,7 +174,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_birthdate</value>
       </prefill><minimum_is_future>False</minimum_is_future>
@@ -196,7 +207,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
@@ -212,7 +222,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>270</id>
@@ -225,7 +234,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>A</item>
@@ -305,7 +313,7 @@
         <post_condition>
           <condition>
             <type>django</type>
-            <value>'no_diplome' in form_var_diplomes and form_var_diplomes_structured|length == 1 or 'no_diplome' not in form_var_diplomes</value>
+            <value>'no_diplome' in form_var_diplomes_raw and form_var_diplomes_structured|length == 1 or 'no_diplome' not in form_var_diplomes_raw</value>
           </condition><error_message>Vous avez fait une erreur en compl&#233;tant la liste des dipl&#244;mes</error_message>
         </post_condition>
       </post_conditions><id>20</id>
@@ -347,7 +355,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -368,7 +375,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>do_you_work</type>
       </data_source><in_filters>False</in_filters>
@@ -459,7 +467,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>32</id>
@@ -473,7 +480,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>33</id>
@@ -504,7 +510,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>False</date_in_the_past>
@@ -554,7 +559,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>39</id>
@@ -568,7 +572,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>40</id>
@@ -620,7 +623,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>False</date_in_the_past>
@@ -724,26 +726,34 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>VILLE</item>
         <item>CPAS</item>
       </items><min_choices>0</min_choices>
       <max_choices>0</max_choices>
-      <in_filters>False</in_filters>
+      <data_source>
+        <type>carddef:imio-candidature-spontanee-institutions</type>
+      </data_source><in_filters>False</in_filters>
       <anonymise>True</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <id>99</id>
     </field><field>
       <label>Personnel administratif</label>
       <type>items</type>
-      <required>False</required>
+      <condition>
+        <type>django</type>
+        <value>"Personnel administratif" in form_option_sections</value>
+      </condition><required>False</required>
+      <varname>administratif</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Employ&#233;(e) d'administration</item>
@@ -765,20 +775,27 @@
         <item>Gestionnaire de projets</item>
       </items><min_choices>0</min_choices>
       <max_choices>0</max_choices>
-      <in_filters>False</in_filters>
+      <data_source>
+        <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-administratif</type>
+      </data_source><in_filters>False</in_filters>
       <anonymise>True</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <id>101</id>
     </field><field>
       <label>Personnel ouvrier</label>
       <type>items</type>
-      <required>False</required>
+      <condition>
+        <type>django</type>
+        <value>"Personnel ouvrier" in form_option_sections</value>
+      </condition><required>False</required>
+      <varname>ouvrier</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Ajusteur</item>
@@ -794,7 +811,7 @@
         <item>M&#233;canicien</item>
         <item>Nettoyeur de rues</item>
         <item>Ouvrier aux voiries</item>
-        <item>Ouvrier polyvalent b&#226;timents </item>
+        <item>Ouvrier polyvalent b&#226;timents</item>
         <item>Peintre</item>
         <item>Plafonneur</item>
         <item>Plombier</item>
@@ -805,14 +822,20 @@
         <item>Menuisier</item>
       </items><min_choices>0</min_choices>
       <max_choices>0</max_choices>
-      <in_filters>False</in_filters>
+      <data_source>
+        <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-ouvrier</type>
+      </data_source><in_filters>False</in_filters>
       <anonymise>True</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <id>102</id>
     </field><field>
       <label>Personnel social</label>
       <type>items</type>
-      <required>False</required>
+      <condition>
+        <type>django</type>
+        <value>"Personnel social" in form_option_sections</value>
+      </condition><required>False</required>
+      <varname>social</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -837,20 +860,27 @@
         <item>Chauffeur accompagnant</item>
       </items><min_choices>0</min_choices>
       <max_choices>0</max_choices>
-      <in_filters>False</in_filters>
+      <data_source>
+        <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-social</type>
+      </data_source><in_filters>False</in_filters>
       <anonymise>True</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <id>266</id>
     </field><field>
       <label>Personnel technique / sp&#233;cifique</label>
       <type>items</type>
-      <required>False</required>
+      <condition>
+        <type>django</type>
+        <value>"Personnel technique / sp&#233;cifique" in form_option_section</value>
+      </condition><required>False</required>
+      <varname>technique</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Architecte</item>
@@ -863,20 +893,27 @@
         <item>Maraicher</item>
       </items><min_choices>0</min_choices>
       <max_choices>0</max_choices>
-      <in_filters>False</in_filters>
+      <data_source>
+        <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-technique-specifique</type>
+      </data_source><in_filters>False</in_filters>
       <anonymise>True</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <id>105</id>
     </field><field>
       <label>Personnel de nettoyage</label>
       <type>items</type>
-      <required>False</required>
+      <condition>
+        <type>django</type>
+        <value>"Personnel de nettoyage" in form_option_sections</value>
+      </condition><required>False</required>
+      <varname>nettoyage</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Technicien(ne) de surface</item>
@@ -884,20 +921,27 @@
         <item>Responsable du Service Nettoyage</item>
       </items><min_choices>0</min_choices>
       <max_choices>0</max_choices>
-      <in_filters>False</in_filters>
+      <data_source>
+        <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-de-nettoyage</type>
+      </data_source><in_filters>False</in_filters>
       <anonymise>True</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <id>107</id>
     </field><field>
       <label>Personnel de cuisine</label>
       <type>items</type>
-      <required>False</required>
+      <condition>
+        <type>django</type>
+        <value>"Personnel de cuisine" in form_option_sections</value>
+      </condition><required>False</required>
+      <varname>cuisine</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Ouvrier Cuisinier</item>
@@ -907,10 +951,34 @@
         <item>Cuisinier( &#232;re)</item>
       </items><min_choices>0</min_choices>
       <max_choices>0</max_choices>
-      <in_filters>False</in_filters>
+      <data_source>
+        <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-de-cuisine</type>
+      </data_source><in_filters>False</in_filters>
       <anonymise>True</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <id>108</id>
+    </field><field>
+      <label>Personnel du service enseignement</label>
+      <type>items</type>
+      <condition>
+        <type>django</type>
+        <value>"Personnel du service enseignement" in form_option_sections</value>
+      </condition><required>False</required>
+      <varname>enseignement</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><min_choices>0</min_choices>
+      <max_choices>0</max_choices>
+      <data_source>
+        <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-du-service-enseignement</type>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>True</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <id>271</id>
     </field><field>
       <label>Emploi actuel</label>
       <type>page</type>
@@ -1006,14 +1074,7 @@
     </field><field>
       <label>Motivation, CV et autres pi&#232;ces jointes</label>
       <type>page</type>
-      <post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_motivation_text is not None or form_var_motivation_pj is not None</value>
-          </condition><error_message>Vous devez sp&#233;cifier une motivation soit via le texte libre, soit via une pi&#232;ce jointe.</error_message>
-        </post_condition>
-      </post_conditions><id>140</id>
+      <id>140</id>
     </field><field>
       <label>Lettre de motivation</label>
       <type>file</type>
@@ -1024,7 +1085,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
@@ -1039,7 +1099,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
@@ -1059,12 +1118,24 @@
       <automatic_image_resize>False</automatic_image_resize>
       <storage>default</storage>
       <id>144</id>
+    </field><field>
+      <label>Autres documents</label>
+      <type>block:ajouter_un_fichier</type>
+      <required>False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><max_items>1</max_items>
+      <label_display>normal</label_display>
+      <remove_button>False</remove_button>
+      <id>273</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="2eaeba262b27443da8248a89cfc02b0d" role_key="_receiver">Agent traitant nselva</role>
-  </roles><options />
-  <custom_views />
+  </fields><roles />
+  <options>
+    <option varname="reglement_communal" />
+    <option varname="sections" />
+    <option varname="sections_display">Personnel administratif</option>
+    <option varname="sections_structured" />
+  </options><custom_views />
   <geolocations />
 </formdef>

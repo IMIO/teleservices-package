@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="152" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/152/">
+<workflow id="19" url="http://local-formulaires.example.net/backoffice/workflows/19/">
   <name>iMio - Candidature spontan&#233;e</name>
   <roles>
     <role id="_receiver">Destinataire</role>
@@ -69,10 +69,10 @@ Bien &#224; vous,
             <item role_id="_receiver">_receiver</item>
           </by><varname>commentaire</varname>
           <required>False</required>
-        </item><item id="7" type="jumponsubmit">
+        </item><item id="2" type="jumponsubmit">
           <status>2</status>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="choice">
+        </item><item id="3" type="choice">
           <label>Accepter</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -80,7 +80,7 @@ Bien &#224; vous,
           <require_confirmation>False</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="5" type="choice">
+        </item><item id="4" type="choice">
           <label>Refuser</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -88,7 +88,7 @@ Bien &#224; vous,
           <require_confirmation>True</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="6" type="choice">
+        </item><item id="5" type="choice">
           <label>Ajouter un motif au refus</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -305,7 +305,6 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
                 <varname>refus</varname>
                 <display_locations />
                 <prefill>
-                  <locked>False</locked>
                   <type>none</type>
                 </prefill><pre>True</pre>
                 <id>1</id>
@@ -323,15 +322,15 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="2" type="sendmail">
+        <item id="1" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-notification-de-commentaire-demandeur</mail_template>
-        </item><item id="3" type="sendmail">
+        </item><item id="2" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-notification-de-commentaire-destinataire</mail_template>
-        </item><item id="1" type="jump">
+        </item><item id="3" type="jump">
           <status>new</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -344,7 +343,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
         <field>
           <label>Lien du r&#232;glement communal</label>
           <type>string</type>
-          <required>True</required>
+          <required>False</required>
           <varname>reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
@@ -353,6 +352,30 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>1</id>
+        </field><field>
+          <label>Sections</label>
+          <type>items</type>
+          <required>True</required>
+          <hint>S&#233;lectionnez les diff&#233;rentes sections du personnel qui doivent appara&#238;tre dans le formulaire</hint>
+          <varname>sections</varname>
+          <display_locations />
+          <prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><items>
+            <item>Personnel administratif</item>
+            <item>Personnel ouvrier</item>
+            <item>Personnel social</item>
+            <item>Personnel technique / sp&#233;cifique</item>
+            <item>Personnel de nettoyage</item>
+            <item>Personnel de cuisine</item>
+            <item>Personnel du service enseignement</item>
+          </items><min_choices>0</min_choices>
+          <max_choices>0</max_choices>
+          <in_filters>False</in_filters>
+          <anonymise>False</anonymise>
+          <display_disabled_items>False</display_disabled_items>
+          <id>2</id>
         </field>
       </fields>
     </formdef>

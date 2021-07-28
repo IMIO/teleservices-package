@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.6] - 28-07-2021 -
+### Updated
+  - form iMio - Candidature spontanée
+
 ## [0.1.5] - 27-07-2021 -
 ### Updated
   - localite in iMio - Demande d'occupation de la voie publique
