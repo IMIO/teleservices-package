@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.8] - 29-07-2021 -
+### Patched
+  - forms iMio - Redirection Modele
+
 ## [0.1.7] - 29-07-2021 -
 ### Patched
   - cards
