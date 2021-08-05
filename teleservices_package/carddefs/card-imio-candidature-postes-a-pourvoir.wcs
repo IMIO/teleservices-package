@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<carddef id="27" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/cards/27/">
+  <name>iMio - Candidature postes &#224; pourvoir</name>
+  <url_name>candidature-postes-a-pourvoir</url_name>
+  <internal_identifier>imio-candidature-postes-a-pourvoir</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <max_field_id>3</max_field_id>
+  <fields>
+    <field>
+      <label>Section</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>section</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>1</id>
+    </field><field>
+      <label>Fonction</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>fonction</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>2</id>
+    </field><field>
+      <label>Description</label>
+      <type>text</type>
+      <required>True</required>
+      <varname>description</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><pre>True</pre>
+      <id>3</id>
+    </field>
+  </fields><user-roles>
+    <role role_id="a75f058b52d94042aa75db5057edd034">Agent ayant acces aux fabriques</role>
+  </user-roles><backoffice-submission-roles>
+    <role role_id="a75f058b52d94042aa75db5057edd034">Agent ayant acces aux fabriques</role>
+  </backoffice-submission-roles><roles>
+    <role role_id="a75f058b52d94042aa75db5057edd034" role_key="_viewer">Agent ayant acces aux fabriques</role>
+    <role role_id="a75f058b52d94042aa75db5057edd034" role_key="_editor">Agent ayant acces aux fabriques</role>
+  </roles><options />
+  <custom_views>
+    <custom_view>
+      <title>Trier par section</title>
+      <slug>trier-par-section</slug>
+      <visibility>datasource</visibility>
+      <filters />
+      <columns>
+        <id>id</id>
+        <id>time</id>
+        <id>1</id>
+        <id>2</id>
+      </columns><order_by>f1</order_by>
+    </custom_view>
+  </custom_views><geolocations />
+  <digest_templates>
+    <template key="default">{{ form_var_section }} {{ form_var_fonction }}</template>
+    <template key="custom-view:par-defaut">{{ form_var_section }} {{ form_var_fonction }}</template>
+    <template key="custom-view:trier-par-section">{{ form_var_section }} {{ form_var_fonction }}</template>
+  </digest_templates>
+</carddef>

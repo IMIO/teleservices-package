@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="215" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/215/">
+<formdef id="45" url="http://local-formulaires.example.net/backoffice/forms/45/">
   <name>iMio - D&#233;claration d'alarme ou cam&#233;ra</name>
-  <url_name></url_name>
-  <description>Vous serez redirigé vers le site fédéral pour effectuer votre déclaration d'alarme ou caméra. Veuillez vous munir d'un lecteur de carte d'identité électronique.</description>
+  <url_name>declaration-d-alarme-ou-camera</url_name>
+  <description>Vous serez redirig&#233; vers le site f&#233;d&#233;ral pour effectuer votre d&#233;claration d'alarme ou cam&#233;ra. Veuillez vous munir d'un lecteur de carte d'identit&#233; &#233;lectronique.</description>
   <internal_identifier>imio-declaration-d-alarme-ou-camera</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Logement</category>
-  <workflow workflow_id="105">Redirection avec suppression</workflow>
+  <category category_id="106">iMio - Logement</category>
+  <workflow workflow_id="14">iMio - Redirection avec suppression</workflow>
   <max_field_id>2</max_field_id>
   <fields>
     <field>

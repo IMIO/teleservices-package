@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<block id="14" url="http://local-formulaires.example.net/backoffice/forms/blocks/14/">
+  <name>iMio - Langue</name>
+  <slug>imio_langue</slug>
+  <digest_template>{{imio_langue_var_langue}} : {{imio_langue_var_niveau}}</digest_template>
+  <fields>
+    <field>
+      <label>Langue</label>
+      <type>item</type>
+      <required>True</required>
+      <varname>langue</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><display_mode>autocomplete</display_mode>
+      <data_source>
+        <type>langues</type>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>bf38c04a81-1cb5-422d-b653-28b027ffce08</id>
+    </field><field>
+      <label>Niveau de connaissance</label>
+      <type>item</type>
+      <required>True</required>
+      <varname>niveau</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Natif</item>
+        <item>Moyen</item>
+        <item>Bien</item>
+        <item>Tr&#232;s bien</item>
+      </items><display_mode>list</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>bf08c3b140-ad19-4b67-9814-8d054a0d7afd</id>
+    </field>
+  </fields>
+</block>

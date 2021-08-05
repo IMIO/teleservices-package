@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<workflow id="20" url="http://local-formulaires.example.net/backoffice/workflows/20/">
-  <name>iMio - Candidature Enseignement</name>
+<workflow id="35" url="http://local-formulaires.example.net/backoffice/workflows/35/">
+  <name>iMio - Candidature postes &#224; pourvoir</name>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>
@@ -12,11 +12,17 @@
         <role>_receiver</role>
       </visibility><items>
         <item id="4" type="set-backoffice-fields">
-          <label>Initialisation compteur</label>
+          <label>Initialisation compteurs et liste section</label>
           <fields>
             <field>
-              <field_id>bo83523b71-792f-401e-9a9f-75b066ea6666</field_id>
+              <field_id>bo174538d1-a802-487c-860b-92f3cae029dd</field_id>
               <value>{{ 0 }}</value>
+            </field><field>
+              <field_id>boc9137629-5b1b-4ccb-ba90-60f2617e2b47</field_id>
+              <value>=[x["section"] for x in form_var_fonction_structured]</value>
+            </field><field>
+              <field_id>bodb8b9b14-c390-4508-bddf-eeb70a60bca7</field_id>
+              <value>=["Personnel administratif", "Personnel ouvrier", "Personnel social", "Personnel technique / sp&#233;cifique", "Personnel de nettoyage", "Personnel de cuisine", "Personnel du service enseignement"]</value>
             </field>
           </fields>
         </item><item id="1" type="sendmail">
@@ -368,13 +374,36 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="create_carddata">
+        <item id="5" type="set-backoffice-fields">
+          <label>Le candidat &#224; postuler dans d'autre fonction pour cette section : OUI</label>
+          <fields>
+            <field>
+              <field_id>bo0f524563-6d23-4e97-933e-d180210e6408</field_id>
+              <value>Oui cliquer sur le lien de la demande pour plus d'information</value>
+            </field>
+          </fields><condition>
+            <type>python</type>
+            <value>form_var_section_liste.count(form_var_fonction_structured[int(form_var_compteur)]["section"]) &gt; 1</value>
+          </condition>
+        </item><item id="6" type="set-backoffice-fields">
+          <label>Le candidat &#224; postuler dans d'autre fonction pour cette section : NON</label>
+          <fields>
+            <field>
+              <field_id>bo0f524563-6d23-4e97-933e-d180210e6408</field_id>
+              <value>Non</value>
+            </field>
+          </fields><condition>
+            <type>python</type>
+            <value>form_var_section_liste.count(form_var_fonction_structured[int(form_var_compteur)]["section"]) == 1</value>
+          </condition>
+        </item><item id="1" type="create_carddata">
           <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
           <mappings>
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
-            <mapping field_id="3">Personnel du service enseignement</mapping>
+            <mapping field_id="3">=form_var_fonction_structured[int(form_var_compteur)]["section"] if form_var_fonction_structured[int(form_var_compteur)]["section"] in form_var_liste_section_fiche else "Autre"</mapping>
+            <mapping field_id="16">=form_var_fonction_structured[int(form_var_compteur)]["section"] if form_var_fonction_structured[int(form_var_compteur)]["section"] not in form_var_liste_section_fiche else ""</mapping>
             <mapping field_id="2">{{form_var_fonction_structured|get:form_var_compteur|get:"fonction"}}</mapping>
-            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_fonction_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="4">{{ form_var_candidature_multi_fonction_section }}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>
             <mapping field_id="6">{{ form_var_prenom }}</mapping>
             <mapping field_id="7">{{ form_var_rue }}</mapping>
@@ -384,12 +413,12 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
             <mapping field_id="11">{{ form_var_ville }}</mapping>
             <mapping field_id="12">{{ form_var_tel }}</mapping>
             <mapping field_id="14">{{ form_var_mail }}</mapping>
-          </mappings><user_association_mode>custom</user_association_mode>
+          </mappings><user_association_mode>keep-user</user_association_mode>
         </item><item id="2" type="set-backoffice-fields">
           <label>compteur</label>
           <fields>
             <field>
-              <field_id>bo83523b71-792f-401e-9a9f-75b066ea6666</field_id>
+              <field_id>bo174538d1-a802-487c-860b-92f3cae029dd</field_id>
               <value>{{ form_var_compteur|add:1 }}</value>
             </field>
           </fields>
@@ -406,7 +435,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
         <field>
           <label>Lien du r&#232;glement communal</label>
           <type>string</type>
-          <required>True</required>
+          <required>False</required>
           <varname>reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
@@ -430,7 +459,31 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <validation>
             <type>digits</type>
           </validation><anonymise>False</anonymise>
-          <id>bo83523b71-792f-401e-9a9f-75b066ea6666</id>
+          <id>bo174538d1-a802-487c-860b-92f3cae029dd</id>
+        </field><field>
+          <label>Section liste</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>section_liste</varname>
+          <display_locations />
+          <anonymise>True</anonymise>
+          <id>boc9137629-5b1b-4ccb-ba90-60f2617e2b47</id>
+        </field><field>
+          <label>Liste des section de la fiche</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>liste_section_fiche</varname>
+          <display_locations />
+          <anonymise>True</anonymise>
+          <id>bodb8b9b14-c390-4508-bddf-eeb70a60bca7</id>
+        </field><field>
+          <label>Le candidat &#224; postuler dans d'autre fonction pour cette section ?</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>candidature_multi_fonction_section</varname>
+          <display_locations />
+          <anonymise>True</anonymise>
+          <id>bo0f524563-6d23-4e97-933e-d180210e6408</id>
         </field>
       </fields>
     </formdef>

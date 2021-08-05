@@ -10,7 +10,7 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>grid-5-12</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>none</type>

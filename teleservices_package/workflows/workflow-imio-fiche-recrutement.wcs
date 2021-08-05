@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<workflow id="34" url="http://local-formulaires.example.net/backoffice/workflows/34/">
+  <name>iMio - Fiche - Recrutement</name>
+  <roles>
+    <role id="_editor">&#201;diteur</role>
+    <role id="_responsable-recrutement-personnel-administratif">Responsable recrutement Personnel administratif</role>
+    <role id="_responsable-recrutement-personnel-de-cuisine">Responsable recrutement Personnel de cuisine</role>
+    <role id="_responsable-recrutement-personnel-de-nettoyage">Responsable recrutement Personnel de nettoyage</role>
+    <role id="_responsable-recrutement-personnel-du-service-enseignement">Responsable recrutement Personnel du service enseignement</role>
+    <role id="_responsable-recrutement-personnel-ouvrier">Responsable recrutement Personnel ouvrier</role>
+    <role id="_responsable-recrutement-personnel-social">Responsable recrutement Personnel social</role>
+    <role id="_responsable-recrutement-personnel-technique-specifique">Responsable recrutement Personnel technique / sp&#233;cifique</role>
+    <role id="_responsable-recutement-autre">Responsable recutement Autre</role>
+    <role id="_viewer">Visualisateur</role>
+  </roles><possible_status>
+    <status>
+      <id>recorded</id>
+      <name>Enregistr&#233;e</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="0" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_responsable-recrutement-personnel-administratif">_responsable-recrutement-personnel-administratif</item>
+          </by><required>False</required>
+          <condition>
+            <type>django</type>
+            <value>form_var_section == "Personnel administratif"</value>
+          </condition>
+        </item><item id="1" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_responsable-recrutement-personnel-ouvrier">_responsable-recrutement-personnel-ouvrier</item>
+          </by><required>False</required>
+          <condition>
+            <type>django</type>
+            <value>form_var_section == "Personnel ouvrier"</value>
+          </condition>
+        </item><item id="2" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_responsable-recrutement-personnel-social">_responsable-recrutement-personnel-social</item>
+          </by><required>False</required>
+          <condition>
+            <type>django</type>
+            <value>form_var_section == "Personnel social"</value>
+          </condition>
+        </item><item id="3" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_responsable-recrutement-personnel-technique-specifique">_responsable-recrutement-personnel-technique-specifique</item>
+          </by><required>False</required>
+          <condition>
+            <type>django</type>
+            <value>form_var_section == "Personnel technique / sp&#233;cifique"</value>
+          </condition>
+        </item><item id="4" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_responsable-recrutement-personnel-de-nettoyage">_responsable-recrutement-personnel-de-nettoyage</item>
+          </by><required>False</required>
+          <condition>
+            <type>django</type>
+            <value>form_var_section == "Personnel de nettoyage"</value>
+          </condition>
+        </item><item id="5" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_responsable-recrutement-personnel-de-cuisine">_responsable-recrutement-personnel-de-cuisine</item>
+          </by><required>False</required>
+          <condition>
+            <type>django</type>
+            <value>form_var_section == "Personnel de cuisine"</value>
+          </condition>
+        </item><item id="6" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_responsable-recrutement-personnel-du-service-enseignement">_responsable-recrutement-personnel-du-service-enseignement</item>
+          </by><required>False</required>
+          <condition>
+            <type>django</type>
+            <value>form_var_section == "Personnel du service enseignement"</value>
+          </condition>
+        </item><item id="_action_delete" type="choice">
+          <label>Supprimer la fiche</label>
+          <by>
+            <item role_id="_editor">_editor</item>
+            <item role_id="_submitter">_submitter</item>
+          </by><status>deleted</status>
+          <require_confirmation>True</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="7" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_responsable-recutement-autre">_responsable-recutement-autre</item>
+          </by><required>False</required>
+          <condition>
+            <type>django</type>
+            <value>form_var_section == "Autre"</value>
+          </condition>
+        </item>
+      </items>
+    </status><status>
+      <id>deleted</id>
+      <name>Supprim&#233;e</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="_remove" type="remove" />
+      </items>
+    </status>
+  </possible_status>
+</workflow>

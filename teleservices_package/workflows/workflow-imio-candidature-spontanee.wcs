@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="19" url="http://local-formulaires.example.net/backoffice/workflows/19/">
+<workflow id="33" url="http://local-formulaires.example.net/backoffice/workflows/33/">
   <name>iMio - Candidature spontan&#233;e</name>
   <roles>
     <role id="_receiver">Destinataire</role>
@@ -11,7 +11,33 @@
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="sendmail">
+        <item id="4" type="set-backoffice-fields">
+          <label>Initialisation compteurs</label>
+          <fields>
+            <field>
+              <field_id>bo174538d1-a802-487c-860b-92f3cae029dd</field_id>
+              <value>0</value>
+            </field><field>
+              <field_id>bo4723d6a6-ad40-489f-9514-adbd240f3374</field_id>
+              <value>0</value>
+            </field><field>
+              <field_id>bo7a22f51d-6795-4546-bf5d-ab36c9742100</field_id>
+              <value>0</value>
+            </field><field>
+              <field_id>bofc903fb2-bf27-48dc-897c-5c254ebe20c7</field_id>
+              <value>0</value>
+            </field><field>
+              <field_id>bo472897ee-d4c7-41a5-ab53-a9d63a73762c</field_id>
+              <value>0</value>
+            </field><field>
+              <field_id>boc7a30ffd-9be1-48f1-829b-0ec504aae29d</field_id>
+              <value>0</value>
+            </field><field>
+              <field_id>bo840f2d01-e57a-4b5a-bb49-849bcac5fc56</field_id>
+              <value>0</value>
+            </field>
+          </fields>
+        </item><item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
@@ -51,7 +77,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 Bien &#224; vous, 
 </body>
         </item><item id="3" type="jump">
-          <status>new</status>
+          <status>3</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -335,6 +361,379 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
+    </status><status>
+      <id>3</id>
+      <name>Personnel administratif</name>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+      </visibility><items>
+        <item id="1" type="jump">
+          <status>4</status>
+          <condition>
+            <type>django</type>
+            <value>"Personnel administratif" in form_option_sections and form_var_administratif_raw|length &gt; 0 and form_var_compteur_administratif|add:0 &lt; form_var_administratif_raw|length</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="jump">
+          <status>5</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>4</id>
+      <name>Personnel administratif boucle</name>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+      </visibility><items>
+        <item id="1" type="create_carddata">
+          <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
+          <mappings>
+            <mapping field_id="1">{{ form_url_backoffice }}</mapping>
+            <mapping field_id="3">Personnel administratif</mapping>
+            <mapping field_id="2">{{ form_var_administratif_structured|get:form_var_compteur_administratif|get:"fonction" }}</mapping>
+            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_administratif_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="5">{{ form_var_nom }}</mapping>
+            <mapping field_id="6">{{ form_var_prenom }}</mapping>
+            <mapping field_id="7">{{ form_var_rue }}</mapping>
+            <mapping field_id="8">{{ form_var_numero }}</mapping>
+            <mapping field_id="9">{{ form_var_boite }}</mapping>
+            <mapping field_id="10">{{ form_var_cp }}</mapping>
+            <mapping field_id="11">{{ form_var_ville }}</mapping>
+            <mapping field_id="12">{{ form_var_tel }}</mapping>
+            <mapping field_id="14">{{ form_var_mail }}</mapping>
+          </mappings><user_association_mode>keep-user</user_association_mode>
+        </item><item id="2" type="set-backoffice-fields">
+          <label>compteur</label>
+          <fields>
+            <field>
+              <field_id>bo174538d1-a802-487c-860b-92f3cae029dd</field_id>
+              <value>{{ form_var_compteur_administratif|add:1 }}</value>
+            </field>
+          </fields>
+        </item><item id="3" type="jump">
+          <status>3</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>5</id>
+      <name>Personnel ouvrier</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>6</status>
+          <condition>
+            <type>django</type>
+            <value>"Personnel ouvrier" in form_option_sections and form_var_ouvrier_raw|length &gt; 0 and form_var_compteur_ouvrier|add:0 &lt; form_var_ouvrier_raw|length</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="jump">
+          <status>7</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>6</id>
+      <name>Personnel ouvrier boucle</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="create_carddata">
+          <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
+          <mappings>
+            <mapping field_id="1">{{ form_url_backoffice }}</mapping>
+            <mapping field_id="3">Personnel ouvrier</mapping>
+            <mapping field_id="2">{{ form_var_ouvrier_structured|get:form_var_compteur_ouvrier|get:"fonction" }}</mapping>
+            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_ouvrier_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="5">{{ form_var_nom }}</mapping>
+            <mapping field_id="6">{{ form_var_prenom }}</mapping>
+            <mapping field_id="7">{{ form_var_rue }}</mapping>
+            <mapping field_id="8">{{ form_var_numero }}</mapping>
+            <mapping field_id="9">{{ form_var_boite }}</mapping>
+            <mapping field_id="10">{{ form_var_cp }}</mapping>
+            <mapping field_id="11">{{ form_var_ville }}</mapping>
+            <mapping field_id="12">{{ form_var_tel }}</mapping>
+            <mapping field_id="14">{{ form_var_mail }}</mapping>
+          </mappings><user_association_mode>keep-user</user_association_mode>
+        </item><item id="2" type="set-backoffice-fields">
+          <label>compteur</label>
+          <fields>
+            <field>
+              <field_id>bo4723d6a6-ad40-489f-9514-adbd240f3374</field_id>
+              <value>{{ form_var_compteur_ouvrier|add:1 }}</value>
+            </field>
+          </fields>
+        </item><item id="3" type="jump">
+          <status>5</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>7</id>
+      <name>Personnel social</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>8</status>
+          <condition>
+            <type>django</type>
+            <value>"Personnel social" in form_option_sections and form_var_social_raw|length &gt; 0 and form_var_compteur_social|add:0 &lt; form_var_social_raw|length &gt; 0</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="jump">
+          <status>9</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>8</id>
+      <name>Personnel social boucle</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="create_carddata">
+          <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
+          <mappings>
+            <mapping field_id="1">{{ form_url_backoffice }}</mapping>
+            <mapping field_id="3">Personnel social</mapping>
+            <mapping field_id="2">{{ form_var_social_structured|get:form_var_compteur_social|get:"fonction" }}</mapping>
+            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_social_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="5">{{ form_var_nom }}</mapping>
+            <mapping field_id="6">{{ form_var_prenom }}</mapping>
+            <mapping field_id="7">{{ form_var_rue }}</mapping>
+            <mapping field_id="8">{{ form_var_numero }}</mapping>
+            <mapping field_id="9">{{ form_var_boite }}</mapping>
+            <mapping field_id="10">{{ form_var_cp }}</mapping>
+            <mapping field_id="11">{{ form_var_ville }}</mapping>
+            <mapping field_id="12">{{ form_var_tel }}</mapping>
+            <mapping field_id="14">{{ form_var_mail }}</mapping>
+          </mappings><user_association_mode>keep-user</user_association_mode>
+        </item><item id="2" type="set-backoffice-fields">
+          <label>compteur</label>
+          <fields>
+            <field>
+              <field_id>bo7a22f51d-6795-4546-bf5d-ab36c9742100</field_id>
+              <value>{{ form_var_compteur_social|add:1 }}</value>
+            </field>
+          </fields>
+        </item><item id="4" type="jump">
+          <status>7</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>9</id>
+      <name>Personnel technique / sp&#233;cifique</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>10</status>
+          <condition>
+            <type>django</type>
+            <value>"Personnel technique / sp&#233;cifique" in form_option_section and form_var_technique_raw|length &gt; 0 and form_var_compteur_technique|add:0 &lt; form_var_technique_raw|length</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="jump">
+          <status>11</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>10</id>
+      <name>Personnel technique / sp&#233;cifique boucle</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="create_carddata">
+          <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
+          <mappings>
+            <mapping field_id="1">{{ form_url_backoffice }}</mapping>
+            <mapping field_id="3">Personnel technique / sp&#233;cifique</mapping>
+            <mapping field_id="2">{{ form_var_technique_structured|get:form_var_compteur_technique|get:"fonction" }}</mapping>
+            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_technique_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="5">{{ form_var_nom }}</mapping>
+            <mapping field_id="6">{{ form_var_prenom }}</mapping>
+            <mapping field_id="7">{{ form_var_rue }}</mapping>
+            <mapping field_id="8">{{ form_var_numero }}</mapping>
+            <mapping field_id="9">{{ form_var_boite }}</mapping>
+            <mapping field_id="10">{{ form_var_cp }}</mapping>
+            <mapping field_id="11">{{ form_var_ville }}</mapping>
+            <mapping field_id="12">{{ form_var_tel }}</mapping>
+            <mapping field_id="14">{{ form_var_mail }}</mapping>
+          </mappings><user_association_mode>keep-user</user_association_mode>
+        </item><item id="2" type="set-backoffice-fields">
+          <label>compteur</label>
+          <fields>
+            <field>
+              <field_id>bofc903fb2-bf27-48dc-897c-5c254ebe20c7</field_id>
+              <value>{{ form_var_compteur_technique|add:1 }}</value>
+            </field>
+          </fields>
+        </item><item id="3" type="jump">
+          <status>9</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>11</id>
+      <name>Personnel de nettoyage</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>12</status>
+          <condition>
+            <type>django</type>
+            <value>"Personnel de nettoyage" in form_option_sections and form_var_nettoyage_raw|length &gt; 0 and form_var_compteur_nettoyage|add:0 &lt; form_var_nettoyage_raw|length</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="jump">
+          <status>13</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>12</id>
+      <name>Personnel de nettoyage boucle</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="create_carddata">
+          <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
+          <mappings>
+            <mapping field_id="1">{{ form_url_backoffice }}</mapping>
+            <mapping field_id="3">Personnel de nettoyage</mapping>
+            <mapping field_id="2">{{ form_var_nettoyage_structured|get:form_var_compteur_nettoyage|get:"fonction" }}</mapping>
+            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_nettoyage_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="5">{{ form_var_nom }}</mapping>
+            <mapping field_id="6">{{ form_var_prenom }}</mapping>
+            <mapping field_id="7">{{ form_var_rue }}</mapping>
+            <mapping field_id="8">{{ form_var_numero }}</mapping>
+            <mapping field_id="9">{{ form_var_boite }}</mapping>
+            <mapping field_id="10">{{ form_var_cp }}</mapping>
+            <mapping field_id="11">{{ form_var_ville }}</mapping>
+            <mapping field_id="12">{{ form_var_tel }}</mapping>
+            <mapping field_id="14">{{ form_var_mail }}</mapping>
+          </mappings><user_association_mode>keep-user</user_association_mode>
+        </item><item id="2" type="set-backoffice-fields">
+          <label>compteur</label>
+          <fields>
+            <field>
+              <field_id>bo472897ee-d4c7-41a5-ab53-a9d63a73762c</field_id>
+              <value>{{ form_var_compteur_nettoyage|add:1 }}</value>
+            </field>
+          </fields>
+        </item><item id="3" type="jump">
+          <status>11</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>13</id>
+      <name>Personnel de cuisine</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>14</status>
+          <condition>
+            <type>django</type>
+            <value>"Personnel de cuisine" in form_option_sections and form_var_cuisine_raw|length &gt; 0 and form_var_compteur_cuisine|add:0 &lt; form_var_cuisine_raw|length</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="jump">
+          <status>15</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>14</id>
+      <name>Personnel de cuisine boucle</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="create_carddata">
+          <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
+          <mappings>
+            <mapping field_id="1">{{ form_url_backoffice }}</mapping>
+            <mapping field_id="3">Personnel de cuisine</mapping>
+            <mapping field_id="2">{{ form_var_cuisine_structured|get:form_var_compteur_cuisine|get:"fonction" }}</mapping>
+            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_cuisine_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="5">{{ form_var_nom }}</mapping>
+            <mapping field_id="6">{{ form_var_prenom }}</mapping>
+            <mapping field_id="7">{{ form_var_rue }}</mapping>
+            <mapping field_id="8">{{ form_var_numero }}</mapping>
+            <mapping field_id="9">{{ form_var_boite }}</mapping>
+            <mapping field_id="10">{{ form_var_cp }}</mapping>
+            <mapping field_id="11">{{ form_var_ville }}</mapping>
+            <mapping field_id="12">{{ form_var_tel }}</mapping>
+            <mapping field_id="14">{{ form_var_mail }}</mapping>
+          </mappings><user_association_mode>keep-user</user_association_mode>
+        </item><item id="2" type="set-backoffice-fields">
+          <label>compteur</label>
+          <fields>
+            <field>
+              <field_id>boc7a30ffd-9be1-48f1-829b-0ec504aae29d</field_id>
+              <value>{{ form_var_compteur_cuisine|add:1 }}</value>
+            </field>
+          </fields>
+        </item><item id="3" type="jump">
+          <status>13</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>15</id>
+      <name>Personnel du service enseignement</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>16</status>
+          <condition>
+            <type>django</type>
+            <value>"Personnel du service enseignement" in form_option_sections and form_var_enseignement_raw|length &gt; 0 and form_var_compteur_enseignement|add:0 &lt; form_var_enseignement_raw|length</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="jump">
+          <status>new</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>16</id>
+      <name>Personnel du service enseignement boucle</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="create_carddata">
+          <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
+          <mappings>
+            <mapping field_id="1">{{ form_url_backoffice }}</mapping>
+            <mapping field_id="3">Personnel du service enseignement</mapping>
+            <mapping field_id="2">{{ form_var_enseignement_structured|get:form_var_compteur_enseignement|get:"fonction" }}</mapping>
+            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_enseignement_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="5">{{ form_var_nom }}</mapping>
+            <mapping field_id="6">{{ form_var_prenom }}</mapping>
+            <mapping field_id="7">{{ form_var_rue }}</mapping>
+            <mapping field_id="8">{{ form_var_numero }}</mapping>
+            <mapping field_id="9">{{ form_var_boite }}</mapping>
+            <mapping field_id="10">{{ form_var_cp }}</mapping>
+            <mapping field_id="11">{{ form_var_ville }}</mapping>
+            <mapping field_id="12">{{ form_var_tel }}</mapping>
+            <mapping field_id="14">{{ form_var_mail }}</mapping>
+          </mappings><user_association_mode>keep-user</user_association_mode>
+        </item><item id="2" type="set-backoffice-fields">
+          <label>compteur</label>
+          <fields>
+            <field>
+              <field_id>bo840f2d01-e57a-4b5a-bb49-849bcac5fc56</field_id>
+              <value>{{ form_var_compteur_enseignement|add:1 }}</value>
+            </field>
+          </fields>
+        </item><item id="3" type="jump">
+          <status>15</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
     </status>
   </possible_status><variables>
     <formdef>
@@ -348,7 +747,6 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>1</id>
@@ -360,7 +758,6 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <varname>sections</varname>
           <display_locations />
           <prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><items>
             <item>Personnel administratif</item>
@@ -379,5 +776,82 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
         </field>
       </fields>
     </formdef>
-  </variables>
+  </variables><backoffice-fields>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label>Personnel administratif compteur</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>compteur_administratif</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise>False</anonymise>
+          <id>bo174538d1-a802-487c-860b-92f3cae029dd</id>
+        </field><field>
+          <label>Personnel ouvrier compteur</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>compteur_ouvrier</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise>False</anonymise>
+          <id>bo4723d6a6-ad40-489f-9514-adbd240f3374</id>
+        </field><field>
+          <label>Personnel social compteur</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>compteur_social</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise>False</anonymise>
+          <id>bo7a22f51d-6795-4546-bf5d-ab36c9742100</id>
+        </field><field>
+          <label>Personnel technique / sp&#233;cifique compteur</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>compteur_technique</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise>False</anonymise>
+          <id>bofc903fb2-bf27-48dc-897c-5c254ebe20c7</id>
+        </field><field>
+          <label>Personnel de nettoyage compteur</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>compteur_nettoyage</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise>False</anonymise>
+          <id>bo472897ee-d4c7-41a5-ab53-a9d63a73762c</id>
+        </field><field>
+          <label>Personnel de cuisine compteur</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>compteur_cuisine</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise>False</anonymise>
+          <id>boc7a30ffd-9be1-48f1-829b-0ec504aae29d</id>
+        </field><field>
+          <label>Personnel du service enseignement compteur</label>
+          <type>string</type>
+          <required>True</required>
+          <varname>compteur_enseignement</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise>False</anonymise>
+          <id>bo840f2d01-e57a-4b5a-bb49-849bcac5fc56</id>
+        </field>
+      </fields>
+    </formdef>
+  </backoffice-fields>
 </workflow>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="120" url="http://local-formulaires.example.net/backoffice/settings/data-sources/120/">
+  <name>Poste &#224; pourvoir</name>
+  <slug>poste_a_pourvoir</slug>
+  <data_source>
+    <type>json</type>
+    <value>{{eservices_url}}api/cards/imio-candidature-postes-a-pourvoir/list?full=on</value>
+  </data_source>
+</datasource>
