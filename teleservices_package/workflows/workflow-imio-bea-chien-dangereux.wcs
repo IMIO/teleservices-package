@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="150" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/150/">
+<workflow id="9" url="http://local-formulaires.example.net/backoffice/workflows/9/">
   <name>iMio - BEA - chien dangereux</name>
   <roles>
     <role id="_police">Police</role>
@@ -37,32 +37,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
           <subject>Votre demande d'autorisation de d&#233;tention d'un chien potentiellement dangereux - DogId : {{form_var_dogid}} - Introduction du dossier</subject>
-          <body>+++Ce mail est g&#233;n&#233;r&#233; automatiquement, ne pas y r&#233;pondre +++
-
-Bonjour {{form_var_civilite}} {{form_var_nom}},
-
-Nous accusons r&#233;ception de votre formulaire de demande d'autorisation de d&#233;tention d'un chien potentiellement dangereux pour le chien identifi&#233; {{form_var_dogid}}. 
-
-Nous vous contacterons prochainement apr&#232;s analyse de votre demande par le service bien &#234;tre animal et la Police.
-
-
-Cordialement,
-
-Le service Bien &#234;tre animal
-
-Administration communale d'Ans
-
-Esplanade de l'H&#244;tel communal, 1
-
-4430 ANS
-T&#233;l : 04/247 72 14
-
-
-
-{% if form_user %}
-Pour information, vous pouvez la consulter votre demande en suivant ce lien&#160;: {{ form_url }}
-{% endif %}
-</body>
+          <body></body>
         </item><item id="3" type="sendmail">
           <to>
             <item role_id="_police">_police</item>
@@ -769,24 +744,9 @@ Pour information, vous pouvez la consulter et mettre &#224; jour votre demande e
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="13a2a326-a1a7-4d10-aa0c-20caba285eeb" type="manual">
+        <trigger id="d76054ed-02e5-48cf-abb1-3ff5c1216e2b" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
-          </roles>
-        </trigger>
-      </triggers>
-    </action><action>
-      <id>3</id>
-      <name>go to police 2</name>
-      <items>
-        <item id="1" type="jump">
-          <status>6</status>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
-      </items><triggers>
-        <trigger id="0b4db5de-9567-4d95-b22f-675d18a770b5" type="manual">
-          <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="80f5ba50c0434cac8eb93f3916400a75">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -803,10 +763,20 @@ Pour information, vous pouvez la consulter et mettre &#224; jour votre demande e
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>1</id>
+        </field><field>
+          <label>Liste des documents n&#233;cessaires</label>
+          <type>text</type>
+          <required>True</required>
+          <varname>liste_documents</varname>
+          <display_locations />
+          <prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><pre>True</pre>
+          <id>2</id>
         </field>
       </fields>
     </formdef>

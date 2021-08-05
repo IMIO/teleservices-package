@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="39" url="http://local-formulaires.example.net/backoffice/forms/39/">
   <name>iMio - D&#233;claration de chien dangereux</name>
-  <url_name></url_name>
+  <url_name>declaration-de-chien-dangereux</url_name>
   <description>En vertu du R&#232;glement g&#233;n&#233;rale de Police, tout chien pr&#233;sum&#233; dangereux doit &#234;tre signal&#233; aupr&#232;s de votre administration communale par le biais de ce formulaire.</description>
   <internal_identifier>imio-declaration-de-chien-dangereux</internal_identifier>
   <discussion>false</discussion>
@@ -297,7 +297,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Femelle st&#233;rilis&#233;e</item>
@@ -356,7 +355,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>30</id>
     </field><field>
-      <label>N&#176; de carnet sanitaire</label>
+      <label>N&#176; de passeport europ&#233;en</label>
       <type>string</type>
       <required>True</required>
       <display_locations>
@@ -364,6 +363,7 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>string</type>
         <value>BE</value>
       </prefill><anonymise>True</anonymise>
@@ -372,11 +372,13 @@
       <label>N&#176; de puce &#233;lectronique ou tatouage</label>
       <type>string</type>
       <required>True</required>
+      <hint>Il s'agit du num&#233;ro de code barre, le code alphanum&#233;rique du transpondeur</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>32</id>
@@ -516,7 +518,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>49</id>
     </field>
