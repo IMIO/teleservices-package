@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="121" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/121/">
+<workflow id="8" url="http://local-formulaires.example.net/backoffice/workflows/8/">
   <name>iMio - Occupation de la voie publique</name>
   <roles>
     <role id="_agent-traitant-taxation">Agent traitant taxation</role>
@@ -226,7 +226,6 @@ Vous pouvez en prendre connaissance en suivant ce lien :
                 <varname>refus</varname>
                 <display_locations />
                 <prefill>
-                  <locked>False</locked>
                   <type>none</type>
                 </prefill><pre>True</pre>
                 <id>1</id>
@@ -251,10 +250,22 @@ Vous pouvez en prendre connaissance en suivant ce lien :
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>1</id>
+        </field><field>
+          <label>Jours minimum avant le chantier</label>
+          <type>string</type>
+          <required>True</required>
+          <hint>en jours ouvr&#233;s</hint>
+          <varname>jours_minimum</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><anonymise>True</anonymise>
+          <id>2</id>
         </field>
       </fields>
     </formdef>

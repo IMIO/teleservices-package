@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<formdef id="57" url="http://local-formulaires.example.net/backoffice/forms/57/">
+<formdef id="274" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/274/">
   <name>iMio - Demande d'occupation de la voie publique</name>
-  <url_name></url_name>
+  <url_name>demande-d-occupation-de-la-voie-publique</url_name>
   <description>Pour demander l'autorisation d'installer un container, d'un &#233;chaffaudage ou de tout autre mat&#233;riel sur la voie publique, vous pouvez compl&#233;ter ce formulaire.</description>
   <internal_identifier>imio-demande-d-occupation-de-la-voie-publique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -14,9 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="108">iMio - Travaux</category>
-  <workflow workflow_id="8">iMio - Occupation de la voie publique</workflow>
-  <max_field_id>239</max_field_id>
+  <workflow workflow_id="202">iMio - Occupation de la voie publique</workflow>
+  <max_field_id>257</max_field_id>
   <fields>
     <field>
       <label>Demandeur</label>
@@ -30,8 +29,8 @@
         </post_condition><post_condition>
           <condition>
             <type>django</type>
-            <value>form_var_datedebut|add_days:-10 &gt;= today</value>
-          </condition><error_message>Les demandes d'occupation de la voie publique doivent &#234;tre introduites au plus tard 10 jours avant le d&#233;but de l'occupation.</error_message>
+            <value>today|date|add_working_days:form_option_jours_minimum &lt; form_var_datedebut|date</value>
+          </condition><error_message>Date de d&#233;but trop t&#244;t.</error_message>
         </post_condition>
       </post_conditions><id>1</id>
     </field><field>
@@ -61,7 +60,9 @@
         <display_location>summary</display_location>
       </display_locations><id>3</id>
     </field><field>
-      <label>&lt;p&gt;Les demandes d'occupation de la voie publique doivent &amp;ecirc;tre introduites au plus tard 7 jours ouvrables avant le d&amp;eacute;but de l'occupation.&lt;/p&gt;&lt;p&gt;Ce d&amp;eacute;lai peut-&amp;ecirc;tre plus long si une d&amp;eacute;cision du Coll&amp;egrave;ge Communal est n&amp;eacute;cessaire.&lt;/p&gt;</label>
+      <label>&lt;p&gt;Les demandes d'occupation de la voie publique doivent &amp;ecirc;tre introduites au plus tard &lt;span class="varname"&gt;{{ form_option_jours_minimum }}&lt;/span&gt; jours ouvrables avant le d&amp;eacute;but de l'occupation.&lt;/p&gt;
+
+&lt;p&gt;Ce d&amp;eacute;lai peut-&amp;ecirc;tre plus long si une d&amp;eacute;cision du Coll&amp;egrave;ge communal est n&amp;eacute;cessaire.&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>4</id>
@@ -90,7 +91,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>5</id>
     </field><field>
-      <label>Au (fin probable des travaux): </label>
+      <label>Au :</label>
       <type>date</type>
       <required>True</required>
       <varname>datefin</varname>
@@ -105,6 +106,44 @@
       <date_in_the_past>False</date_in_the_past>
       <date_can_be_today>False</date_can_be_today>
       <id>6</id>
+    </field><field>
+      <label>H</label>
+      <type>item</type>
+      <required>False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-12</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><items />
+      <display_mode>list</display_mode>
+      <data_source>
+        <type>heure</type>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>241</id>
+    </field><field>
+      <label>M</label>
+      <type>item</type>
+      <required>False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-12</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><items />
+      <display_mode>list</display_mode>
+      <data_source>
+        <type>minute</type>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>242</id>
     </field><field>
       <label>Coordonn&#233;es entrepreneur</label>
       <type>page</type>
@@ -411,25 +450,6 @@
         <value>_email</value>
       </prefill><id>44</id>
     </field><field>
-      <label>Num&#233;ro de registre national</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>veuillez uniquement rentrer des chiffres pour le num&#233;ro national. Sans points ni tirets ni espaces.</hint>
-      <varname>nn</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><prefill>
-        <locked>False</locked>
-        <type>user</type>
-        <value>_niss</value>
-      </prefill><validation>
-        <type>regex</type>
-        <value>[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>35</id>
-    </field><field>
       <label>Nom de la soci&#233;t&#233; ou du citoyen effectuant les travaux et/ou qui d&#233;pose le mat&#233;riel</label>
       <type>string</type>
       <required>True</required>
@@ -437,22 +457,53 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>45</id>
     </field><field>
+      <label>T&#233;l&#233;phone</label>
+      <type>string</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><validation>
+        <type>phone</type>
+      </validation><anonymise>True</anonymise>
+      <id>245</id>
+    </field><field>
       <label>Renseignements g&#233;n&#233;raux</label>
       <type>page</type>
       <id>46</id>
     </field><field>
-      <label>Lieu du chantier  (&#224; compl&#233;ter si diff&#233;rent de l'adresse renseign&#233;e pr&#233;c&#233;demment)</label>
+      <label>Occupation de la voirie (&#224; compl&#233;ter si diff&#233;rent de l'adresse renseign&#233;e pr&#233;c&#233;demment)</label>
       <type>title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id>47</id>
+    </field><field>
+      <label>Type d'occupation</label>
+      <type>item</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><items>
+        <item>Occupation en semi-voirie</item>
+        <item>Neutralisation totale de la voirie</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>246</id>
     </field><field>
       <label>Rue</label>
       <type>string</type>
@@ -529,7 +580,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>239</id>
@@ -604,6 +654,44 @@
       <display_disabled_items>False</display_disabled_items>
       <initial_zoom>13</initial_zoom>
       <id>57</id>
+    </field><field>
+      <label>Zone de stationnement priv&#233;</label>
+      <type>item</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>248</id>
+    </field><field>
+      <label>Pr&#233;sence d&#8217;une piste cyclable</label>
+      <type>item</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>247</id>
     </field><field>
       <label>Trottoir disponible de + 2.5 m</label>
       <type>item</type>
@@ -682,7 +770,7 @@
       <initial_zoom>13</initial_zoom>
       <id>60</id>
     </field><field>
-      <label>Veuillez pr&#233;ciser si votre occupation engendrera une perturbation du trafic</label>
+      <label>Autres informations utiles &#224; la r&#233;daction de l&#8217;arr&#234;t&#233; / divers</label>
       <type>text</type>
       <required>True</required>
       <display_locations>
@@ -774,11 +862,11 @@
       </validation><anonymise>True</anonymise>
       <id>231</id>
     </field><field>
-      <label>Descriptif des travaux et mat&#233;riel</label>
+      <label>Descriptif de l&#8217;occupation de la voirie et mat&#233;riel</label>
       <type>page</type>
       <id>61</id>
     </field><field>
-      <label>Type de travaux</label>
+      <label>Type d&#8217;occupation</label>
       <type>item</type>
       <condition>
         <type>django</type>
@@ -793,7 +881,11 @@
       </prefill><items>
         <item>D&#233;m&#233;nagement</item>
         <item>Travaux</item>
-        <item>Autres</item>
+        <item>D&#233;m&#233;nagement / emm&#233;nagement</item>
+        <item>Mariage / enterrement</item>
+        <item>Festivit&#233;s priv&#233;es</item>
+        <item>Livraison</item>
+        <item>Autre : &#224; pr&#233;ciser</item>
       </items><display_mode>list</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
@@ -801,7 +893,21 @@
       <initial_zoom>13</initial_zoom>
       <id>227</id>
     </field><field>
-      <label>Type de travaux</label>
+      <label>Pr&#233;cisez</label>
+      <type>text</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_type_trav == "Autre : &#224; pr&#233;ciser"</value>
+      </condition><required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><pre>True</pre>
+      <id>250</id>
+    </field><field>
+      <label>Type d&#8217;occupation</label>
       <type>text</type>
       <condition>
         <type>django</type>
@@ -834,6 +940,7 @@
         <item>D&#233;p&#244;t de mat&#233;riaux</item>
         <item>Silo</item>
         <item>Grue mobile</item>
+        <item>V&#233;hicule</item>
         <item>Autre</item>
       </items><min_choices>0</min_choices>
       <max_choices>0</max_choices>
@@ -858,28 +965,13 @@
       <pre>False</pre>
       <id>64</id>
     </field><field>
-      <label>Avez-vous besoin que l'on interdise le stationnement?</label>
+      <label>Souhaitez-vous des panneaux de signalisation ?</label>
       <type>item</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><items>
-        <item>Oui</item>
-        <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>65</id>
-    </field><field>
-      <label>Souhaitez-vous les panneaux d'interdiction de stationner (pr&#234;t possible uniquement en cas de conflit de voisinage et pour des chantiers situ&#233;s au centre-ville):</label>
-      <type>item</type>
-      <required>True</required>
+      <condition>
+        <type>django</type>
+        <value>form_var_typedemandeur == "un particulier"</value>
+      </condition><required>True</required>
+      <hint>Le demandeur doit prendre contact avec le Service Travaux de la commune pour conna&#238;tre la proc&#233;dure d'enl&#232;vement et de restitution des panneaux.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -914,79 +1006,72 @@
       </validation><anonymise>True</anonymise>
       <id>67</id>
     </field><field>
-      <label>Circulation et stationnement</label>
-      <type>page</type>
-      <condition>
-        <type>python</type>
-        <value>var_typedemandeur == "un entrepreneur"</value>
-      </condition><id>73</id>
-    </field><field>
-      <label>Mesures de circulation souhait&#233;es</label>
-      <type>items</type>
-      <required>True</required>
-      <varname>mesures_circulation</varname>
+      <label>Documents</label>
+      <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><items>
-        <item>Circulation interdite</item>
-        <item>D&#233;viation</item>
-        <item>Priorit&#233; de passage</item>
-        <item>R&#233;tr&#233;cissement de voirie</item>
-        <item>D&#233;passement interdit</item>
-        <item>Stationnement interdit</item>
-        <item>Autre</item>
-      </items><min_choices>0</min_choices>
-      <max_choices>0</max_choices>
-      <in_filters>False</in_filters>
-      <anonymise>True</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>74</id>
+      </display_locations><id>257</id>
     </field><field>
-      <label>Autres mesures souhait&#233;es et non cit&#233;es pr&#233;c&#233;demment:</label>
-      <type>string</type>
-      <condition>
-        <type>django</type>
-        <value>'autre' in form_var_mesures_circulation</value>
-      </condition><required>False</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>76</id>
-    </field><field>
-      <label>Stationnement interdit</label>
-      <type>page</type>
-      <condition>
-        <type>python</type>
-        <value>var_typedemandeur == "un entrepreneur" and "stationnement interdit" in form_var_mesures_circulation</value>
-      </condition><id>222</id>
-    </field><field>
-      <label>Stationnement interdit sur une distance de (en m&#232;tres):</label>
-      <type>string</type>
+      <label>Plan des travaux</label>
+      <type>file</type>
       <required>False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
+      </display_locations><prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>75</id>
+      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
+      <automatic_image_resize>False</automatic_image_resize>
+      <storage>default</storage>
+      <id>252</id>
+    </field><field>
+      <label>Arr&#234;t&#233; d&#8217;obligation d&#8217;abattage d&#8217;arbres</label>
+      <type>file</type>
+      <required>False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
+      <automatic_image_resize>False</automatic_image_resize>
+      <storage>default</storage>
+      <id>255</id>
+    </field><field>
+      <label>Analyse sanitaire / rapport du DNF</label>
+      <type>file</type>
+      <required>False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
+      <automatic_image_resize>False</automatic_image_resize>
+      <storage>default</storage>
+      <id>254</id>
+    </field><field>
+      <label>Autres</label>
+      <type>block:ajouter_un_fichier</type>
+      <required>False</required>
+      <hint>(faire-part enterrement par ex.)</hint>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><max_items>5</max_items>
+      <add_element_label>Ajouter un autre document</add_element_label>
+      <label_display>normal</label_display>
+      <remove_button>True</remove_button>
+      <id>256</id>
     </field>
   </fields><options>
     <option varname="jours_feries">06/01/2017, 17/04/2017, 01/05/2017, 08/05/2017, 25/05/2017, 05/06/2017, 21/07/2017, 15/08/2017, 01/11/2017, 25/12/2017</option>
+    <option varname="jours_minimum">5</option>
     <option varname="legal_holiday" />
     <option varname="legal_holidays" />
     <option varname="localites">Leroux, Sart-Saint-Laurent, Vitrival</option>
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>
