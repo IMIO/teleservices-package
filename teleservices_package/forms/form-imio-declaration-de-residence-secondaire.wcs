@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="176" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/176/">
+<formdef id="22" url="http://local-formulaires.example.net/backoffice/forms/22/">
   <name>iMio - D&#233;claration de r&#233;sidence secondaire</name>
-  <url_name></url_name>
-  <description>Déclarez votre résidence secondaire à votre administration communale en complétant ce formulaire.</description>
-  <internal_identifier>imio-finances-declaration-de-residence-secondaire</internal_identifier>
+  <url_name>declaration-de-residence-secondaire</url_name>
+  <description>D&#233;clarez votre r&#233;sidence secondaire &#224; votre administration communale en compl&#233;tant ce formulaire.</description>
+  <internal_identifier>imio-declaration-de-residence-secondaire</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -14,9 +14,9 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Finance</category>
-  <workflow workflow_id="141">iMio - Finances - D&#233;claration de r&#233;sidence secondaire</workflow>
-  <max_field_id>26</max_field_id>
+  <category category_id="105">iMio - Finance</category>
+  <workflow workflow_id="13">iMio - Finances - D&#233;claration de r&#233;sidence secondaire</workflow>
+  <max_field_id>27</max_field_id>
   <fields>
     <field>
       <label>Coordonn&#233;es</label>
@@ -33,7 +33,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -49,7 +48,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -65,7 +63,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -81,7 +78,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -95,7 +91,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>11</id>
@@ -116,7 +111,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -131,7 +125,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
@@ -149,7 +142,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -164,7 +156,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
@@ -182,7 +173,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
@@ -214,7 +204,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Poss&#233;der</item>
@@ -225,6 +214,27 @@
       <display_disabled_items>False</display_disabled_items>
       <initial_zoom>13</initial_zoom>
       <id>14</id>
+    </field><field>
+      <label>En ayant droit de</label>
+      <type>item</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Propri&#233;taire</item>
+        <item>Usufruitier</item>
+        <item>Nu-propri&#233;taire</item>
+        <item>Copropri&#233;taire</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>27</id>
     </field><field>
       <label>Ajoutez la preuve</label>
       <type>file</type>
@@ -237,7 +247,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
@@ -259,7 +268,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-2-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>17</id>
@@ -272,7 +280,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>18</id>
@@ -285,7 +292,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>19</id>
@@ -298,7 +304,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>20</id>
@@ -311,9 +316,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>pays</type>
       </data_source><in_filters>False</in_filters>
@@ -330,7 +335,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>2020</item>
@@ -350,7 +354,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>24</id>
