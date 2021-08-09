@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="155" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/155/">
+<formdef id="34" url="http://local-formulaires.example.net/backoffice/forms/34/">
   <name>iMio - Demande d'inscription / de changement d'adresse dans la commune</name>
-  <url_name></url_name>
-  <description>Utilisez ce formulaire pour signaler votre déménagement au sein-même de votre commune actuelle.</description>
-  <internal_identifier>imio-demande-d-inscription-de-changement-d-adresse-dans-la-commune</internal_identifier>
+  <url_name>demande-d-inscription-de-changement-d-adresse-dans-la-commune</url_name>
+  <description>Utilisez ce formulaire pour signaler votre d&#233;m&#233;nagement au sein-m&#234;me de votre commune actuelle.</description>
+  <internal_identifier>demande-d-inscription-de-changement-d-adresse-dans-la-commune</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Population</category>
-  <workflow workflow_id="98">iMio - Changement d'adresse</workflow>
+  <category category_id="101">iMio - Population</category>
+  <workflow workflow_id="31">iMio - Changement d'adresse</workflow>
   <max_field_id>71</max_field_id>
   <fields>
     <field>
@@ -49,7 +49,10 @@
     </field><field>
       <label>Coordonn&#233;es</label>
       <type>page</type>
-      <id>1</id>
+      <condition>
+        <type>django</type>
+        <value>form_var_nbre_pers|add:0 == form_var_bloc_identite|length</value>
+      </condition><id>1</id>
     </field><field>
       <label>Coordonn&#233;es</label>
       <type>title</type>
@@ -81,7 +84,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -111,7 +113,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>71</id>
@@ -178,7 +179,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
@@ -196,7 +196,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
@@ -211,7 +210,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>string</type>
         <value>1</value>
       </prefill><validation>
@@ -225,6 +223,7 @@
         <type>django</type>
         <value>form_var_nbre_pers|add:0 &gt;= 2</value>
       </condition><required>True</required>
+      <varname>bloc_identite</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -235,7 +234,7 @@
       <remove_button>True</remove_button>
       <id>61</id>
     </field><field>
-      <label>Nouvelles adresse</label>
+      <label>Nouvelle adresse</label>
       <type>page</type>
       <id>52</id>
     </field><field>
@@ -255,7 +254,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>30</id>
@@ -269,7 +267,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
@@ -286,7 +283,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>6</id>
@@ -302,7 +298,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Le nouveau logement &#233;tait vide de tout occupant</item>
@@ -399,16 +394,14 @@
       <display_locations />
       <id>41</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="128d6136964f430ba9ca4a1d4e6f4151" role_key="_receiver">Agents traitants - Population, etat civil</role>
+  </fields><roles>
+    <role role_id="44eaaf9fdeb04e2a9ab515e7356069fe" role_key="_receiver">Agents traitants - Population, etat civil</role>
   </roles><options>
     <option varname="baec" />
     <option varname="cout" />
-    <option varname="cp_commune">[cp_commune]</option>
+    <option varname="cp_commune" />
     <option varname="iban" />
-    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
+    <option varname="lien_mondossier" />
     <option varname="mode_recup_disponibles" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
@@ -421,6 +414,7 @@
     <option varname="regie_de_paiement">atos_test</option>
     <option varname="regie_de_paiement_display">Atos test</option>
     <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>
