@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="6">
+<block id="10" url="http://local-formulaires.example.net/backoffice/forms/blocks/10/">
   <name>iMio - Identit&#233; Changement Adresse</name>
   <slug>identite_changement_adresse</slug>
   <digest_template>{{identite_changement_adresse_var_nom}} {{identite_changement_adresse_var_prenom}} {{identite_changement_adresse_var_nrn}} {{identite_changement_adresse_var_lien_parente}}</digest_template>
@@ -14,7 +14,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bfe6df476b-ef50-4985-8cf1-770eddd46a37</id>
@@ -32,6 +31,20 @@
       </prefill><anonymise>True</anonymise>
       <id>bf1e4c022c-d9fa-45fc-9e27-63b3d40cda54</id>
     </field><field>
+      <label>Lien de parent&#233;</label>
+      <type>string</type>
+      <required>False</required>
+      <varname>lien_parente</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bfbf0350ef-23e5-4690-81f6-2b105d525475</id>
+    </field><field>
       <label>Num&#233;ro de registre national</label>
       <type>string</type>
       <required>False</required>
@@ -40,16 +53,16 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf02110074-9e65-48f9-b33f-f771b564d50a</id>
     </field><field>
-      <label>Lien de parent&#233;</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>lien_parente</varname>
+      <label>Date de naissance</label>
+      <type>date</type>
+      <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -57,8 +70,10 @@
       <prefill>
         <locked>False</locked>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>bfbf0350ef-23e5-4690-81f6-2b105d525475</id>
+      </prefill><minimum_is_future>False</minimum_is_future>
+      <date_in_the_past>False</date_in_the_past>
+      <date_can_be_today>False</date_can_be_today>
+      <id>bfdbc52ceb-9c6d-4c1a-b198-40f82f69989c</id>
     </field>
   </fields>
 </block>
