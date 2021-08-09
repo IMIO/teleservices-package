@@ -573,7 +573,7 @@
     <option varname="destinations_structured" />
     <option varname="iban" />
     <option varname="lien_bosa" />
-    <option varname="lien_mondossier" />
+    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
     <option varname="mode_recup_disponibles" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />

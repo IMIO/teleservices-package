@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="152" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/152/">
+<formdef id="29" url="http://local-formulaires.example.net/backoffice/forms/29/">
   <name>iMio - Acte d'Adoption</name>
-  <url_name></url_name>
+  <url_name>acte-d-adoption</url_name>
   <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de Naissance ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; la d&amp;eacute;claration de naissance a &amp;eacute;t&amp;eacute; faite.&lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>acte-d-adoption</internal_identifier>
+  <internal_identifier>imio-acte-d-adoption</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Etat-Civil</category>
-  <workflow workflow_id="89">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="97">iMio - Etat-Civil</category>
+  <workflow workflow_id="28">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>105</max_field_id>
   <fields>
     <field>
@@ -34,7 +34,7 @@
 
 &lt;ol&gt;
 	&lt;li&gt;Compl&amp;eacute;tez votre demande via le formulaire ci-dessous.&lt;/li&gt;
-	&lt;li&gt;Proc&amp;eacute;dez au paiement &amp;eacute;lectronique via une carte de paiement &lt;span style="line-height: 20.7999992370605px;"&gt;Bancontact/MisterCash&lt;/span&gt;. Munissez-vous de votre digipass (appareil fourni par votre banque) pour confirmer votre paiement.&lt;/li&gt;
+	&lt;li&gt;Le cas &amp;eacute;ch&amp;eacute;ant, proc&amp;eacute;dez au paiement &amp;eacute;lectronique via une carte de paiement &lt;span style="line-height: 20.7999992370605px;"&gt;Bancontact/MisterCash&lt;/span&gt;. Munissez-vous de votre digipass (appareil fourni par votre banque) pour confirmer votre paiement.&lt;/li&gt;
 	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l'adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
 	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi. Si votre demande n'est pas valide, vous serez pr&amp;eacute;venu par e-mail et rembours&amp;eacute; de la somme per&amp;ccedil;ue dans les meilleurs d&amp;eacute;lais.&lt;/li&gt;
 &lt;/ol&gt;</label>
@@ -60,7 +60,7 @@
       <display_disabled_items>False</display_disabled_items>
       <id>9</id>
     </field><field>
-      <label>&lt;p&gt;Le {{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la ville de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral. Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
+      <label>&lt;p&gt;Le {{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la commune de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral. Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
@@ -79,9 +79,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>formula</type>
         <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
@@ -106,7 +106,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Avant le 31-03-2019</item>
@@ -135,7 +134,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Extrait d'acte</item>
@@ -169,7 +167,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Conjoint</item>
@@ -195,7 +192,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>8</id>
@@ -221,10 +217,12 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&#233;es de la &lt;u&gt;PERSONNE CONCERN&#201;E&lt;/u&gt; :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>69</id>
     </field><field>
       <label>*  = champ obligatoire  Commentaire</label>
       <type>comment</type>
+      <display_locations />
       <id>70</id>
     </field><field>
       <label>Nom</label>
@@ -266,7 +264,6 @@
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
-        
       </validation><anonymise>True</anonymise>
       <id>73</id>
     </field><field>
@@ -293,7 +290,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>104</id>
@@ -441,10 +437,12 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>54</id>
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>55</id>
     </field><field>
       <label>Nom</label>
@@ -518,7 +516,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>105</id>
@@ -665,9 +662,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -687,7 +684,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>86</id>
@@ -700,9 +696,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
@@ -760,10 +756,8 @@
       </prefill><anonymise>True</anonymise>
       <id>99</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="128d6136964f430ba9ca4a1d4e6f4151" role_key="_receiver">Agents traitants - Population, etat civil</role>
+  </fields><roles>
+    <role role_id="44eaaf9fdeb04e2a9ab515e7356069fe" role_key="_receiver">Agents traitants - Population, etat civil</role>
   </roles><options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_etatcivil</option>
@@ -776,7 +770,7 @@
     <option varname="destinations_structured" />
     <option varname="iban" />
     <option varname="lien_bosa" />
-    <option varname="lien_mondossier">www.google.be</option>
+    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
     <option varname="mode_recup_disponibles" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
@@ -788,6 +782,7 @@
     <option varname="regie_de_paiement">atos_test</option>
     <option varname="regie_de_paiement_display">Atos test</option>
     <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>

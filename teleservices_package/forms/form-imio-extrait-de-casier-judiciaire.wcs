@@ -401,7 +401,7 @@
     <option varname="destinations_display">R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t</option>
     <option varname="destinations_structured" />
     <option varname="iban" />
-    <option varname="lien_mondossier" />
+    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
     <option varname="mode_recup_disponibles" />
     <option varname="mode_recup_disponibles_display">R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t</option>
     <option varname="mode_recup_disponibles_structured" />
