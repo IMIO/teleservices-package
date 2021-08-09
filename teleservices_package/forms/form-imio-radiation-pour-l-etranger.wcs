@@ -35,7 +35,7 @@
         </post_condition><post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_cp in form_option_cp_commune.split(',')</value>
+            <value>form_var_cp in commune_cp.split(',')</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
       </post_conditions><id>5</id>

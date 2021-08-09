@@ -123,7 +123,7 @@
         </post_condition><post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_cp in form_option_cp_commune.split(',')</value>
+            <value>form_var_cp in commune_cp.split(',')</value>
           </condition><error_message>Vous devez habiter notre commune afin que l'on puisse vous d&#233;livrer ce document.</error_message>
         </post_condition>
       </post_conditions><id>1</id>
