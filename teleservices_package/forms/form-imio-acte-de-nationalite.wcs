@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<formdef id="153" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/153/">
+<formdef id="38" url="http://local-formulaires.example.net/backoffice/forms/38/">
   <name>iMio - Acte de Nationalit&#233;</name>
-  <url_name></url_name>
+  <url_name>acte-de-nationalite</url_name>
   <description>&lt;p&gt;&lt;em&gt;Seule la copie int&amp;eacute;grale de l'acte de divorce peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>acte-de-nationalite</internal_identifier>
   <discussion>false</discussion>
@@ -14,21 +14,25 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Etat-Civil</category>
-  <workflow workflow_id="89">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>64</max_field_id>
+  <category category_id="97">iMio - Etat-Civil</category>
+  <workflow workflow_id="28">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <max_field_id>65</max_field_id>
   <fields>
     <field>
       <label>Copie int&#233;grale d'acte de Nationalit&#233;</label>
       <type>page</type>
       <id>1</id>
     </field><field>
-      <label>&lt;p&gt;&lt;em&gt;Commande d'un acte de nationalit&amp;eacute;.&lt;/em&gt;&lt;/p&gt;
+      <label>&lt;h2&gt;L&amp;rsquo;acte de nationale ne concerne que les &amp;eacute;trangers devenus Belges.&lt;br /&gt;
+Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{cards|objects:'imio-lien-vers-formulaire'|filter_by:'nom'|filter_value:'Certificat de nationalit&#233;'|first|get:'lien'}}" rel="noopener noreferrer" target="_blank"&gt;Certificat de nationalit&amp;eacute;&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par :&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Commande d'un acte de nationalit&amp;eacute;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par la personne concern&amp;eacute;e ou moyennant une procuration :&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Si la personne concern&amp;eacute;e est d&amp;eacute;c&amp;eacute;d&amp;eacute;e : l&amp;rsquo;acte ne peut &amp;ecirc;tre demand&amp;eacute; que par les personnes concern&amp;eacute;es par l&amp;rsquo;acte (adoptants ou adopt&amp;eacute;s). En cas de d&amp;eacute;c&amp;egrave;s, l&amp;rsquo;acte peut &amp;ecirc;tre demand&amp;eacute; par :&lt;/p&gt;
 
 &lt;ol&gt;
-	&lt;li&gt;les personnes concern&amp;eacute;es par l'acte&lt;/li&gt;
 	&lt;li&gt;l'&amp;eacute;poux / l'&amp;eacute;pouse / le cohabitant l&amp;eacute;gal&lt;/li&gt;
 	&lt;li&gt;le repr&amp;eacute;sentant l&amp;eacute;gal&lt;/li&gt;
 	&lt;li&gt;l'ascendant / descendant&lt;/li&gt;
@@ -87,9 +91,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>formula</type>
         <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
@@ -114,9 +118,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>ds_date_acte</type>
       </data_source><in_filters>False</in_filters>
@@ -164,7 +168,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>10</id>
@@ -190,6 +193,7 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&amp;eacute;es de la &lt;u&gt;PERSONNE CONCERN&amp;Eacute;E PAR L'ACTE&lt;/u&gt; :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>41</id>
     </field><field>
       <label>*  = champ obligatoire  Commentaire</label>
@@ -233,7 +237,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>45</id>
@@ -245,13 +248,30 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>grid-2-12</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
       <date_can_be_today>False</date_can_be_today>
       <id>46</id>
+    </field><field>
+      <label>Date du d&#233;c&#232;s</label>
+      <type>date</type>
+      <required>True</required>
+      <varname>deces_perscon</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-2-12</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><minimum_is_future>False</minimum_is_future>
+      <date_in_the_past>True</date_in_the_past>
+      <date_can_be_today>False</date_can_be_today>
+      <id>65</id>
     </field><field>
       <label>ADRESSE :</label>
       <type>subtitle</type>
@@ -269,7 +289,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>48</id>
@@ -284,7 +303,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
@@ -314,7 +332,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>57</id>
@@ -328,7 +345,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>52</id>
@@ -342,9 +358,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>pays</type>
       </data_source><in_filters>False</in_filters>
@@ -362,7 +378,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>54</id>
     </field><field>
@@ -375,7 +390,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>55</id>
@@ -531,7 +545,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><anonymise>True</anonymise>
@@ -562,7 +575,8 @@
       <prefill>
         <type>user</type>
         <value>_country</value>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>pays</type>
       </data_source><in_filters>False</in_filters>
@@ -618,9 +632,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -641,7 +655,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>33</id>
@@ -655,9 +668,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
@@ -699,6 +712,7 @@
 	&lt;li&gt;A ce montant, devront &amp;eacute;ventuellement s'ajouter les frais de port.&lt;/li&gt;
 &lt;/ul&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>37</id>
     </field><field>
       <label>Montant</label>
@@ -715,10 +729,8 @@
       </prefill><anonymise>True</anonymise>
       <id>61</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="128d6136964f430ba9ca4a1d4e6f4151" role_key="_receiver">Agents traitants - Population, etat civil</role>
+  </fields><roles>
+    <role role_id="44eaaf9fdeb04e2a9ab515e7356069fe" role_key="_receiver">Agents traitants - Population, etat civil</role>
   </roles><options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_etatcivil</option>
@@ -731,7 +743,7 @@
     <option varname="destinations_structured" />
     <option varname="iban" />
     <option varname="lien_bosa" />
-    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
+    <option varname="lien_mondossier" />
     <option varname="mode_recup_disponibles" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />

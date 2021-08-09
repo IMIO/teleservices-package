@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<carddef id="7" url="http://local-formulaires.example.net/backoffice/cards/7/">
+  <name>iMio - Lien vers formulaire</name>
+  <url_name>imio-lien-vers-formulaire</url_name>
+  <internal_identifier>imio-lien-vers-formulaire</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <max_field_id>2</max_field_id>
+  <fields>
+    <field>
+      <label>Nom du formulaire</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>nom</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>1</id>
+    </field><field>
+      <label>Lien du formulaire</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>lien</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><extra_css_class>grid-2-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>2</id>
+    </field>
+  </fields><user-roles>
+    <role role_id="59ff7d58e24e40f3abed39edccbbcf96">Agent ayant acces aux fabriques</role>
+  </user-roles><backoffice-submission-roles>
+    <role role_id="59ff7d58e24e40f3abed39edccbbcf96">Agent ayant acces aux fabriques</role>
+  </backoffice-submission-roles><roles>
+    <role role_id="59ff7d58e24e40f3abed39edccbbcf96" role_key="_viewer">Agent ayant acces aux fabriques</role>
+    <role role_id="59ff7d58e24e40f3abed39edccbbcf96" role_key="_editor">Agent ayant acces aux fabriques</role>
+  </roles><options />
+  <custom_views />
+  <geolocations />
+</carddef>
