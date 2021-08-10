@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="217" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/217/">
+<formdef id="61" url="http://local-formulaires.example.net/backoffice/forms/61/">
   <name>iMio - Certificat de radiation (mod&#232;le 8)</name>
-  <url_name></url_name>
+  <url_name>imio-certificat-de-radiation-modele-8</url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>certificat-de-radiation-modele-8</internal_identifier>
+  <internal_identifier>imio-certificat-de-radiation-modele-8</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Population</category>
-  <workflow workflow_id="89">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="101">iMio - Population</category>
+  <workflow workflow_id="28">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>77</max_field_id>
   <fields>
     <field>
@@ -23,7 +23,9 @@
       <type>page</type>
       <id>1</id>
     </field><field>
-      <label>&lt;p&gt;Le certificat doit &amp;ecirc;tre demand&amp;eacute;&amp;nbsp;au lieu de domicile.&lt;/p&gt;
+      <label>&lt;h2&gt;Le certificat de radiation mod&amp;egrave;le 8 atteste que le citoyen a &amp;eacute;t&amp;eacute; radi&amp;eacute; des registres de population. Avant de pouvoir vous fournir ce certificat, vous devez compl&amp;eacute;ter la &lt;a href="{{cards|objects:'imio-lien-vers-formulaire'|filter_by:'nom'|filter_value:'Radiation pour l\'&#233;tranger'|first|get:'lien'}}"&gt;d&amp;eacute;marche de radiation pour l'&amp;eacute;tranger&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Le certificat doit &amp;ecirc;tre demand&amp;eacute;&amp;nbsp;au lieu de domicile.&lt;/p&gt;
 
 &lt;p&gt;Si vous choisissez l'envoi postal, le&amp;nbsp;document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
 
@@ -50,7 +52,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>ds_personne_concernee</type>
       </data_source><in_filters>False</in_filters>
@@ -71,7 +74,7 @@
     </field><field>
       <label>La personne concern&#233;e est-elle radi&#233;e des registres de Belgique?</label>
       <type>bool</type>
-      <required>False</required>
+      <required>True</required>
       <varname>radiation</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -87,7 +90,7 @@
         <post_condition>
           <condition>
             <type>python</type>
-            <value>form_var_rb_domicile_raw == '{0}'.format(commune_slug)</value>
+            <value>form_var_rb_domicile_raw == 'plus_{0}'.format(commune_slug)</value>
           </condition><error_message>Nous ne pouvons pas donner suite &#224; votre demande parce que vous n'&#233;tiez pas domicili&#233;(e) dans notre commune. Vous devez vous adresser &#224; la commune o&#249; vous &#233;tiez domicili&#233;(e).</error_message>
         </post_condition>
       </post_conditions><id>77</id>
@@ -105,7 +108,8 @@
         <type>none</type>
       </prefill><display_mode>radio</display_mode>
       <data_source>
-        <type>py_domicile</type>
+        <type>formula</type>
+        <value>data_source.py_domicile[1:]</value>
       </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
@@ -190,7 +194,6 @@
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
-        
       </validation><anonymise>True</anonymise>
       <id>56</id>
     </field><field>
@@ -203,7 +206,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
@@ -296,7 +298,8 @@
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>pays</type>
       </data_source><in_filters>False</in_filters>
@@ -518,7 +521,8 @@
       <prefill>
         <type>user</type>
         <value>_country</value>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>pays</type>
       </data_source><in_filters>False</in_filters>
@@ -566,9 +570,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
@@ -621,7 +625,7 @@
   </fields><user-roles>
     <role role_id="logged-users">logged-users</role>
   </user-roles><roles>
-    <role role_id="128d6136964f430ba9ca4a1d4e6f4151" role_key="_receiver">Agents traitants - Population, etat civil</role>
+    <role role_id="44eaaf9fdeb04e2a9ab515e7356069fe" role_key="_receiver">Agents traitants - Population, etat civil</role>
   </roles><options>
     <option varname="baec" />
     <option varname="cout">0</option>
