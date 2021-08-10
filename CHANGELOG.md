@@ -5,6 +5,27 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.11] - 09-08-2021 -
+### Disabled
+  - all forms
+### Updated
+  - form and wf chien dangereux
+  - form and wf demande d'occuptation de la voie publique
+  - form Déclaration de résidence secondaire
+  - lien mondossier in form Acte
+  - form changement d'adresse
+  - block-identite_changement_adresse.wcs
+  - form acte de nationalité
+  - workflow for radiation pour l'étranger
+  - form certificat de radiation
+  - wf departement citoyen
+  - form candidature spontanée
+### Patched
+  - remove data source motif and destination
+  - form_option_cp in cohabitation legale and radiation pour l'étranger
+### Added
+  - Cards lien vers formulaire
+
 ## [0.1.9] - 05-08-2021 -
 ### Updated
   - forms iMio from category emplois
