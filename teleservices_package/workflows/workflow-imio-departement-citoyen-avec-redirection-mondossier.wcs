@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="89" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/89/">
+<workflow id="28" url="http://local-formulaires.example.net/backoffice/workflows/28/">
   <name>iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
@@ -67,25 +67,31 @@
       </items>
     </status><status>
       <id>4</id>
-      <name>rejet&#233;</name>
+      <name>Rejet&#233;</name>
       <colour>FF0000</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
         <item id="1" type="register-comment">
-          <comment>{{form_refus_var_object}}
+          <comment>&lt;h3&gt;{{form_refus_var_object}}&lt;/h3&gt;
 
-	{{form_refus_var_body}}</comment>
+&lt;p&gt;{{form_refus_var_body}}&lt;/p&gt;</comment>
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>{{form_refus_var_object}}</subject>
           <body>{{form_refus_var_body}}</body>
+        </item><item id="4" type="jump">
+          <status>25</status>
+          <condition>
+            <type>django</type>
+            <value>form_var_wf_total_commande|add:0 &gt; 0</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item id="3" type="jump">
           <status>24</status>
           <condition>
-            <type>python</type>
-            <value>Decimal(form_var_wf_total_commande) &gt; 0</value>
+            <type>django</type>
+            <value>form_var_wf_total_commande|add:0 &gt; 0 and form_var_wf_paiement_en_ligne</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -205,18 +211,18 @@ Bien cordialement,</body>
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</comment>
-        </item><item id="5" type="displaymsg">
+        </item><item id="3" type="displaymsg">
           <message>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</message>
           <level>info</level>
           <position>top</position>
-        </item><item id="3" type="jump">
+        </item><item id="4" type="jump">
           <status>12</status>
           <trigger>cancelled</trigger>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="jump">
+        </item><item id="5" type="jump">
           <status>17</status>
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
@@ -328,10 +334,12 @@ Bien cordialement,
       </items>
     </status><status>
       <id>19</id>
-      <name>formulaire de refus</name>
+      <name>Formulaire de refus</name>
       <colour>FFFFFF</colour>
-      <visibility />
-      <items>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
         <item id="1" type="form">
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -626,7 +634,8 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 </display_locations><prefill>
                   <type>user</type>
                   <value>_country</value>
-                </prefill><display_mode>list</display_mode>
+                </prefill><items />
+                <display_mode>list</display_mode>
                 <data_source>
                   <type>pays</type>
                 </data_source><in_filters>False</in_filters>
@@ -720,9 +729,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="ed127cc5-a0c6-4513-9de4-e6490f65ff2a" type="manual">
+        <trigger id="25d26bc0-7a0e-48bf-b86d-8b2d26dd4be8" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="80f5ba50c0434cac8eb93f3916400a75">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -732,9 +741,9 @@ Cordialement, </body>
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="bd4c2137-4c71-42f9-a2e1-bbe61d3f4b8f" type="manual">
+        <trigger id="34573828-e7f1-4e4d-a4da-a67d754acecf" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="80f5ba50c0434cac8eb93f3916400a75">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -748,9 +757,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="82c6e9d0-0c83-4331-845b-4ab14075e386" type="manual">
+        <trigger id="b91d9639-801a-4842-b4ba-fd034cd2c453" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="80f5ba50c0434cac8eb93f3916400a75">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -765,8 +774,10 @@ Cordialement, </body>
           </condition>
         </item>
       </items><triggers>
-        <trigger id="f7420edc-dc4e-44bd-93d6-0ece068d768d" type="timeout">
+        <trigger id="9d1e5c9c-40b6-46b3-8ccf-d219af35ccff" type="timeout">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>31</timeout>
         </trigger>
       </triggers>
@@ -776,8 +787,10 @@ Cordialement, </body>
       <items>
         <item id="1" type="anonymise" />
       </items><triggers>
-        <trigger id="1767a348-7686-462e-b82b-4a92d71f3297" type="timeout">
+        <trigger id="2acdaf15-b84d-4a26-bc23-40cc9dac739d" type="timeout">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -910,7 +923,6 @@ Cordialement, </body>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><id>13</id>
         </field><field>
@@ -921,7 +933,6 @@ Cordialement, </body>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>14</id>
