@@ -6,7 +6,7 @@
   <internal_identifier>candidature-spontanee</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -420,7 +420,7 @@
         <value>"sec_sup" in form_var_diplomes_raw</value>
       </condition><id>36</id>
     </field><field>
-      <label>Secondaire sup&#233;rieur</label>
+      <label>Études secondaires</label>
       <type>title</type>
       <display_locations>
         <display_location>validation</display_location>
