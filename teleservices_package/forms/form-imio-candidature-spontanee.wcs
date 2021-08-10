@@ -3,7 +3,7 @@
   <name>iMio - Candidature spontan&#233;e</name>
   <url_name>candidature-spontanee</url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
-  <internal_identifier>imio-candidature-spontanee</internal_identifier>
+  <internal_identifier>candidature-spontanee</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -16,7 +16,7 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category category_id="100">iMio - Emploi</category>
   <workflow workflow_id="33">iMio - Candidature spontan&#233;e</workflow>
-  <max_field_id>275</max_field_id>
+  <max_field_id>276</max_field_id>
   <fields>
     <field>
       <label>Pr&#233;sentation du Candidat</label>
@@ -36,7 +36,10 @@
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/candidature_spontanee.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="{{site_url_backoffice}}/data/" rel="noopener noreferrer" target="_blank"&gt;Modifier la liste des fonctions et les institutions&lt;/a&gt;&lt;/p&gt;</label>
+&lt;p&gt;&lt;a href="{{site_url_backoffice}}/data/" rel="noopener noreferrer" target="_blank"&gt;Modifier la liste des fonctions et les institutions&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;hr /&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>272</id>
@@ -410,139 +413,7 @@
       <remove_button>True</remove_button>
       <id>275</id>
     </field><field>
-      <label>Primaire</label>
-      <type>page</type>
-      <condition>
-        <type>python</type>
-        <value>"primaire" in form_var_diplomes_raw and len(form_var_diplomes_raw) == 1</value>
-      </condition><id>25</id>
-    </field><field>
-      <label>Ecole primaire</label>
-      <type>title</type>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><id>26</id>
-    </field><field>
-      <label>Etablissement</label>
-      <type>string</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-1</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>27</id>
-    </field><field>
-      <label>Date d'obtention du dipl&#244;me</label>
-      <type>date</type>
-      <required>False</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>False</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>28</id>
-    </field><field>
-      <label>Secondaire inf&#233;rieur</label>
-      <type>page</type>
-      <condition>
-        <type>python</type>
-        <value>"sec_inf" in form_var_diplomes_raw</value>
-      </condition><id>29</id>
-    </field><field>
-      <label>Secondaire inf&#233;rieur</label>
-      <type>title</type>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><id>30</id>
-    </field><field>
-      <label>Orientation</label>
-      <type>item</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><items>
-        <item>G&#233;n&#233;ral</item>
-        <item>Professionnel</item>
-        <item>Technique</item>
-        <item>Sp&#233;cial</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>31</id>
-    </field><field>
-      <label>Option</label>
-      <type>string</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>32</id>
-    </field><field>
-      <label>Etablissement fr&#233;quent&#233;</label>
-      <type>string</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>33</id>
-    </field><field>
-      <label>Dipl&#244;me obtenu</label>
-      <type>item</type>
-      <required>False</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><items>
-        <item>Oui</item>
-        <item>Non</item>
-      </items><display_mode>list</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>34</id>
-    </field><field>
-      <label>Date d'obtention du dipl&#244;me</label>
-      <type>date</type>
-      <required>False</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>False</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>35</id>
-    </field><field>
-      <label>Secondaire sup&#233;rieur</label>
+      <label>&#201;tudes secondaires</label>
       <type>page</type>
       <condition>
         <type>python</type>
@@ -1079,9 +950,14 @@
         <display_location>summary</display_location>
       </display_locations><id>116</id>
     </field><field>
+      <label>&lt;p&gt;Merci de n'indiquer que les emplois pertinents par rapport &#224; la fonction &#224; laquelle vous postulez.&lt;/p&gt;</label>
+      <type>comment</type>
+      <display_locations />
+      <id>276</id>
+    </field><field>
       <label>Pr&#233;c&#233;dents emplois</label>
       <type>block:emplois_precedents</type>
-      <required>True</required>
+      <required>False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -1123,20 +999,6 @@
       <automatic_image_resize>False</automatic_image_resize>
       <storage>default</storage>
       <id>143</id>
-    </field><field>
-      <label>Permis de conduire</label>
-      <type>file</type>
-      <required>False</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>144</id>
     </field><field>
       <label>Autres documents</label>
       <type>block:ajouter_un_fichier</type>
