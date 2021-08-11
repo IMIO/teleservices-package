@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="203" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/203/">
+<formdef id="53" url="http://local-formulaires.example.net/backoffice/forms/53/">
   <name>iMio - Autorisation d'abattage/&#233;lagage d'arbres</name>
-  <url_name></url_name>
-  <description>Ce formulaire vous permet d'entrer une demande pour abattre ou élaguer un arbre, conformément aux conditions communales et régionales.</description>
-  <internal_identifier>imio-autorisation-d-abattageelagage-d-arbres</internal_identifier>
+  <url_name>autorisation-d-abattageelagage-d-arbres</url_name>
+  <description>Ce formulaire vous permet d'entrer une demande pour abattre ou &#233;laguer un arbre, conform&#233;ment aux conditions communales et r&#233;gionales.</description>
+  <internal_identifier>autorisation-d-abattageelagage-d-arbres</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,11 +14,25 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Environnement</category>
-  <workflow workflow_id="154">iMio - Environnement - demande d'abattage d'arbre</workflow>
-  <max_field_id>64</max_field_id>
+  <category category_id="102">iMio - Environnement</category>
+  <workflow workflow_id="16">iMio - Environnement - demande d'abattage d'arbre</workflow>
+  <max_field_id>65</max_field_id>
   <fields>
     <field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/reglement_communal.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>65</id>
+    </field><field>
       <label>Mes coordonn&#233;es</label>
       <type>page</type>
       <id>1</id>
@@ -33,7 +47,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -49,7 +62,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -64,7 +76,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -79,7 +90,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
@@ -97,7 +107,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -112,7 +121,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
@@ -130,7 +138,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
@@ -146,7 +153,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -162,7 +168,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -177,7 +182,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>11</id>
@@ -207,7 +211,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Non</item>
@@ -231,7 +234,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><initial_zoom>11</initial_zoom>
       <default_position>50.31578585423175;5.015258789062501</default_position>
@@ -250,7 +252,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-2-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>road</value>
       </prefill><anonymise>True</anonymise>
@@ -268,7 +269,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>house</value>
       </prefill><validation>
@@ -289,7 +289,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>postcode</value>
       </prefill><validation>
@@ -310,7 +309,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>city</value>
       </prefill><anonymise>True</anonymise>
@@ -345,7 +343,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -380,7 +377,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -399,7 +395,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -417,7 +412,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-2-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -435,7 +429,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
@@ -456,7 +449,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -474,7 +466,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
@@ -495,7 +486,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
@@ -514,7 +504,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -532,7 +521,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>53</id>
@@ -621,7 +609,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -648,8 +635,7 @@
       <remove_button>True</remove_button>
       <id>63</id>
     </field>
-  </fields><roles />
-  <options />
+  </fields><options />
   <custom_views />
   <geolocations />
 </formdef>

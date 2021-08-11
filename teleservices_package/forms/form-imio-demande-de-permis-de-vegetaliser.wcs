@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="163" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/163/">
+<formdef id="19" url="http://local-formulaires.example.net/backoffice/forms/19/">
   <name>iMio - Demande de permis de v&#233;g&#233;taliser</name>
-  <url_name></url_name>
-  <description>Vous souhaitez mettre en place un dispositif végétal sur le domaine public (jardinières, potager, mur végétalisé...) ? Demandez le permis de végétaliser via ce formulaire.</description>
-  <internal_identifier>imio-demande-de-permis-de-vegetaliser</internal_identifier>
+  <url_name>demande-de-permis-de-vegetaliser</url_name>
+  <description>Vous souhaitez mettre en place un dispositif v&#233;g&#233;tal sur le domaine public (jardini&#232;res, potager, mur v&#233;g&#233;talis&#233;...) ? Demandez le permis de v&#233;g&#233;taliser via ce formulaire.</description>
+  <internal_identifier>demande-de-permis-de-vegetaliser</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,11 +14,25 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Environnement</category>
-  <workflow workflow_id="160">iMio - Permis de v&#233;g&#233;taliser</workflow>
-  <max_field_id>53</max_field_id>
+  <category category_id="102">iMio - Environnement</category>
+  <workflow workflow_id="27">iMio - Permis de v&#233;g&#233;taliser</workflow>
+  <max_field_id>54</max_field_id>
   <fields>
     <field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/reglement_communal.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>54</id>
+    </field><field>
       <label>Coordonn&#233;es du demandeur</label>
       <type>page</type>
       <id>40</id>
@@ -139,7 +153,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -155,7 +168,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -170,7 +182,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>50</id>
@@ -213,7 +224,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><initial_zoom>13</initial_zoom>
       <init_with_geoloc>True</init_with_geoloc>
@@ -229,7 +239,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-2-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>road</value>
       </prefill><anonymise>True</anonymise>
@@ -245,7 +254,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>house</value>
       </prefill><validation>
@@ -264,7 +272,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>postcode</value>
       </prefill><validation>
@@ -283,7 +290,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>city</value>
       </prefill><anonymise>True</anonymise>
@@ -300,7 +306,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>True</pre>
       <id>12</id>
@@ -317,7 +322,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>V&#233;g&#233;talisation d'un pied d'arbre</item>
@@ -343,7 +347,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>13</id>
@@ -356,7 +359,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>False</date_in_the_past>
@@ -371,7 +373,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>15</id>
@@ -450,11 +451,8 @@
       <remove_button>False</remove_button>
       <id>30</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="2eaeba262b27443da8248a89cfc02b0d" role_key="_receiver">Agent traitant nselva</role>
-  </roles><options />
+  </fields><roles />
+  <options />
   <custom_views />
   <geolocations />
 </formdef>
