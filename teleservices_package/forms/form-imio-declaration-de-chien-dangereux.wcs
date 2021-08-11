@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="39" url="http://local-formulaires.example.net/backoffice/forms/39/">
+<formdef id="38" url="http://local-formulaires.example.net/backoffice/forms/38/">
   <name>iMio - D&#233;claration de chien dangereux</name>
   <url_name>declaration-de-chien-dangereux</url_name>
   <description>En vertu du R&#232;glement g&#233;n&#233;rale de Police, tout chien pr&#233;sum&#233; dangereux doit &#234;tre signal&#233; aupr&#232;s de votre administration communale par le biais de ce formulaire.</description>
-  <internal_identifier>imio-declaration-de-chien-dangereux</internal_identifier>
+  <internal_identifier>declaration-de-chien-dangereux</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -16,9 +16,23 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category category_id="107">iMio - Bien &#234;tre animal</category>
   <workflow workflow_id="9">iMio - BEA - chien dangereux</workflow>
-  <max_field_id>54</max_field_id>
+  <max_field_id>55</max_field_id>
   <fields>
     <field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/chien_dangereux.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>55</id>
+    </field><field>
       <label>Coordonn&#233;es du propri&#233;taire du chien</label>
       <type>page</type>
       <id>12</id>
@@ -363,7 +377,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>string</type>
         <value>BE</value>
       </prefill><anonymise>True</anonymise>
@@ -378,7 +391,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>32</id>

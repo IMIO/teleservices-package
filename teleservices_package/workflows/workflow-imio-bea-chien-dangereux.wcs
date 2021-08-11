@@ -37,7 +37,6 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
           <subject>Votre demande d'autorisation de d&#233;tention d'un chien potentiellement dangereux - DogId : {{form_var_dogid}} - Introduction du dossier</subject>
-          <body></body>
         </item><item id="3" type="sendmail">
           <to>
             <item role_id="_police">_police</item>
@@ -744,9 +743,9 @@ Pour information, vous pouvez la consulter et mettre &#224; jour votre demande e
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="d76054ed-02e5-48cf-abb1-3ff5c1216e2b" type="manual">
+        <trigger id="d86e672a-fe50-4dd2-b4ff-70171fee67ca" type="manual">
           <roles>
-            <item role_id="80f5ba50c0434cac8eb93f3916400a75">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -756,13 +755,14 @@ Pour information, vous pouvez la consulter et mettre &#224; jour votre demande e
       <name>-</name>
       <fields>
         <field>
-          <label>Lien du r&#232;glement communal</label>
+          <label>Lien du r&#232;glement de police</label>
           <type>string</type>
           <required>False</required>
           <varname>reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
+            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>1</id>
@@ -773,7 +773,6 @@ Pour information, vous pouvez la consulter et mettre &#224; jour votre demande e
           <varname>liste_documents</varname>
           <display_locations />
           <prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><pre>True</pre>
           <id>2</id>
