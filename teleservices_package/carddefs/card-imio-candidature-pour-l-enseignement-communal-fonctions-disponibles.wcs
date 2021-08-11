@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <carddef id="1" url="http://local-formulaires.example.net/backoffice/cards/1/">
   <name>iMio - Candidature pour l'enseignement communal - Fonctions disponibles</name>
-  <url_name></url_name>
+  <url_name>imio-candidature-pour-l-enseignement-communal-fonctions-disponibles</url_name>
   <internal_identifier>imio-candidature-pour-l-enseignement-communal-fonctions-disponibles</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

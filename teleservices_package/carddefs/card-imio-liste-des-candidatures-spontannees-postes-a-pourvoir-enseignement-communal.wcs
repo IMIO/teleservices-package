@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <carddef id="4" url="http://local-formulaires.example.net/backoffice/cards/4/">
   <name>iMio - Liste des candidatures spontann&#233;es / postes &#224; pourvoir / enseignement communal</name>
-  <url_name>liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</url_name>
+  <url_name>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</url_name>
   <internal_identifier>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

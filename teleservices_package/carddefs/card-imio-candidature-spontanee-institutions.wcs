@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <carddef id="2" url="http://local-formulaires.example.net/backoffice/cards/2/">
   <name>iMio - Candidature spontan&#233;e - Institutions</name>
-  <url_name></url_name>
+  <url_name>imio-candidature-spontanee-institutions</url_name>
   <internal_identifier>imio-candidature-spontanee-institutions</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
