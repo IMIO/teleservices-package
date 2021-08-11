@@ -16,9 +16,23 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category category_id="105">iMio - Finance</category>
   <workflow workflow_id="7">iMio - Finances - Compteur d'eau</workflow>
-  <max_field_id>56</max_field_id>
+  <max_field_id>57</max_field_id>
   <fields>
     <field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/reglement_communal.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>57</id>
+    </field><field>
       <label>Coordonn&#233;es du propri&#233;taire actuel</label>
       <type>page</type>
       <id>32</id>
