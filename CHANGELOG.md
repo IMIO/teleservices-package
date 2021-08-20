@@ -5,6 +5,20 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.12] - 11-08-2021 -
+### Updated
+  - wf Chien dangereux
+  - wf document pdf
+### Added
+  - mode d'emploi on Finance and Logement forms
+  - mode d'emploi chien dangereux
+  - mode d'emploi on Environement forms
+  - Mode d'emploi on euthanasie form
+### Patched
+  - card candidature poste à pourvoir slug's
+  - candidature cards slug's
+  - form imio compteur d'eau champ société
+
 ## [0.1.11] - 09-08-2021 -
 ### Disabled
   - all forms
