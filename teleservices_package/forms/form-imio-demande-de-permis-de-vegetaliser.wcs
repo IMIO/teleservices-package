@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="19" url="http://local-formulaires.example.net/backoffice/forms/19/">
-  <name>iMio - Demande de permis de v&#233;g&#233;taliser</name>
+  <name>iMio - Permis de v&#233;g&#233;taliser</name>
   <url_name>demande-de-permis-de-vegetaliser</url_name>
   <description>Vous souhaitez mettre en place un dispositif v&#233;g&#233;tal sur le domaine public (jardini&#232;res, potager, mur v&#233;g&#233;talis&#233;...) ? Demandez le permis de v&#233;g&#233;taliser via ce formulaire.</description>
   <internal_identifier>demande-de-permis-de-vegetaliser</internal_identifier>

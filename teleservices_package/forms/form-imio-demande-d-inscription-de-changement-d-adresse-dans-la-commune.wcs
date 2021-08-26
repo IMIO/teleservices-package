@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="34" url="http://local-formulaires.example.net/backoffice/forms/34/">
-  <name>iMio - Demande d'inscription / de changement d'adresse dans la commune</name>
+  <name>iMio - Inscription / de changement d'adresse dans la commune</name>
   <url_name>demande-d-inscription-de-changement-d-adresse-dans-la-commune</url_name>
   <description>Utilisez ce formulaire pour signaler votre d&#233;m&#233;nagement au sein-m&#234;me de votre commune actuelle.</description>
   <internal_identifier>demande-d-inscription-de-changement-d-adresse-dans-la-commune</internal_identifier>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="201" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/201/">
-  <name>iMio - Demande d'emplacement de stationnement pour PMR</name>
+  <name>iMio - Emplacement de stationnement pour PMR</name>
   <url_name></url_name>
   <description>Ce formulaire permet aux personnes à mobilité réduite ou à leurs proches de faire la demande d'une place de stationnement adaptée.</description>
   <internal_identifier>imio-demande-d-emplacement-de-stationnement-pour-pmr</internal_identifier>
