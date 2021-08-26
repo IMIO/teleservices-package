@@ -12,6 +12,7 @@ teleservices-package changelog
   - some form's name with Demande
   - a mail template in workflow-imio-changement-d-adresse
   - url name et internal identifier for all form
+  - name files of all form
 ### Merged
   - doublon enseignement communal
 
