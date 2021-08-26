@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="62" url="http://local-formulaires.example.net/backoffice/forms/62/">
-  <name>iMio - Extrait de casier judiciaire</name>
+  <name>Extrait de casier judiciaire</name>
   <url_name>demande-extrait-de-casier-judiciaire</url_name>
   <description>Anciennement connu sous le nom de "certificat de bonne vie et moeurs", l'extrait de casier judiciaire peut &#234;tre demand&#233; via ce formulaire.</description>
   <internal_identifier>demande-extrait-de-casier-judiciaire</internal_identifier>

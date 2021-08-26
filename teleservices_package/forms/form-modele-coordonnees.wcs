@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <formdef id="15" url="http://local-formulaires.example.net/backoffice/forms/15/">
   <name>Mod&#232;le - Coordonn&#233;es</name>
-  <url_name>demande-modele-coordonnees</url_name>
+  <url_name>modele-coordonnees</url_name>
   <description></description>
-  <internal_identifier>demande-modele-coordonnees</internal_identifier>
+  <internal_identifier>modele-coordonnees</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

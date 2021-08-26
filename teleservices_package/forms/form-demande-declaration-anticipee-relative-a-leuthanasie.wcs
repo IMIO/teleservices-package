@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="39" url="http://local-formulaires.example.net/backoffice/forms/39/">
-  <name>iMio - D&#233;claration anticip&#233;e relative &#224; l&#8217;euthanasie</name>
+  <name>D&#233;claration anticip&#233;e relative &#224; l&#8217;euthanasie</name>
   <url_name>demande-declaration-anticipee-relative-a-leuthanasie</url_name>
   <description>La d&#233;claration anticip&#233;e relative &#224; l'euthanasie vous permet de t&#233;l&#233;charger un formulaire sous format PDF, &#224; renvoyer par le biais de cette m&#234;me d&#233;marche &#224; votre administration communale.</description>
   <keywords>pdf</keywords>

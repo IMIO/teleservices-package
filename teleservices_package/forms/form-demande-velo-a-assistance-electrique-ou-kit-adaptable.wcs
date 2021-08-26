@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="32" url="http://local-formulaires.example.net/backoffice/forms/32/">
-  <name>iMio - V&#233;lo &#224; assistance &#233;lectrique ou kit adaptable</name>
+  <name>V&#233;lo &#224; assistance &#233;lectrique ou kit adaptable</name>
   <url_name>demande-velo-a-assistance-electrique-ou-kit-adaptable</url_name>
   <description>Afin d'encourager la mobilit&#233; douce, une prime peut &#234;tre octroy&#233;e lors de l'achat d'un v&#233;lo &#224; assistance &#233;lectrique ou kit adaptable.</description>
   <internal_identifier>demande-velo-a-assistance-electrique-ou-kit-adaptable</internal_identifier>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="20" url="http://local-formulaires.example.net/backoffice/forms/20/">
-  <name>iMio - D&#233;claration d'enseignes / panneaux publicitaires</name>
+  <name>D&#233;claration d'enseignes / panneaux publicitaires</name>
   <url_name>demande-declaration-d-enseignes-panneaux-publicitaires</url_name>
   <description>Ce formulaire vous permet d'effectuer la d&#233;claration d'une enseigne ou d'un panneau publicitaire visible depuis la voie publique.</description>
   <internal_identifier>demande-declaration-d-enseignes-panneaux-publicitaires</internal_identifier>

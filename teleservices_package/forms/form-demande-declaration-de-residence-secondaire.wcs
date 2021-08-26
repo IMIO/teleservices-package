@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="21" url="http://local-formulaires.example.net/backoffice/forms/21/">
-  <name>iMio - D&#233;claration de r&#233;sidence secondaire</name>
+  <name>D&#233;claration de r&#233;sidence secondaire</name>
   <url_name>demande-declaration-de-residence-secondaire</url_name>
   <description>D&#233;clarez votre r&#233;sidence secondaire &#224; votre administration communale en compl&#233;tant ce formulaire.</description>
   <internal_identifier>demande-declaration-de-residence-secondaire</internal_identifier>

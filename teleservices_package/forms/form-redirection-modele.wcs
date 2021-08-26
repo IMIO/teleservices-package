@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <formdef id="26" url="http://local-formulaires.example.net/backoffice/forms/26/">
   <name>Redirection Modele</name>
-  <url_name>demande-redirection-modele</url_name>
-  <internal_identifier>demande-redirection-modele</internal_identifier>
+  <url_name>redirection-modele</url_name>
+  <internal_identifier>redirection-modele</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>

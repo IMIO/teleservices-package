@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="69" url="http://local-formulaires.example.net/backoffice/forms/69/">
-  <name>iMio - Candidature postes &#224; pourvoir</name>
+  <name>Candidature postes &#224; pourvoir</name>
   <url_name>demande-candidature-postes-a-pourvoir</url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
   <internal_identifier>demande-candidature-postes-a-pourvoir</internal_identifier>

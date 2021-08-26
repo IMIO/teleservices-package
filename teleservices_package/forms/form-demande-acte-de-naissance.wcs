@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="19" url="http://local-formulaires.example.net/backoffice/forms/19/">
-  <name>iMio - Acte de Naissance</name>
+  <name>Acte de Naissance</name>
   <url_name>demande-acte-de-naissance</url_name>
   <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de Naissance ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; la d&amp;eacute;claration de naissance a &amp;eacute;t&amp;eacute; faite.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-naissance</internal_identifier>

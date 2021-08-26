@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="47" url="http://local-formulaires.example.net/backoffice/forms/47/">
-  <name>iMio - Acte de Divorce</name>
+  <name>Acte de Divorce</name>
   <url_name>demande-acte-de-divorce</url_name>
   <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de Divorce ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; le mariage a &amp;eacute;t&amp;eacute; c&amp;eacute;l&amp;eacute;br&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-divorce</internal_identifier>

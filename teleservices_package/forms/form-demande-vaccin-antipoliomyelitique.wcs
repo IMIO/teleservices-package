@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="28" url="http://local-formulaires.example.net/backoffice/forms/28/">
-  <name>iMio - Vaccin antipoliomy&#233;litique</name>
+  <name>Vaccin antipoliomy&#233;litique</name>
   <url_name>demande-vaccin-antipoliomyelitique</url_name>
   <description> Tout enfant de moins de 18 mois doit &#234;tre vaccin&#233; contre la poliomy&#233;litique. T&#233;l&#233;chargez dans cette d&#233;marche le formulaire PDF &#224; compl&#233;ter lors de la vaccination et faites-le parvenir &#224; votre administration communale par ce m&#234;me biais.</description>
   <internal_identifier>demande-vaccin-antipoliomyelitique</internal_identifier>

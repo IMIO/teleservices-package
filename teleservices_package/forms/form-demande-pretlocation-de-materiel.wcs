@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="55" url="http://local-formulaires.example.net/backoffice/forms/55/">
-  <name>iMio - Pr&#234;t/location de mat&#233;riel</name>
+  <name>Pr&#234;t/location de mat&#233;riel</name>
   <url_name>demande-pretlocation-de-materiel</url_name>
   <description>Vous souhaitez emprunter du mat&#233;riel aupr&#232;s du service Travaux? Faites-en la demande via ce formulaire en ligne.</description>
   <internal_identifier>demande-pretlocation-de-materiel</internal_identifier>

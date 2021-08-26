@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="62" url="http://local-formulaires.example.net/backoffice/forms/62/">
-  <name>iMio - Candidature pour l'enseignement communal</name>
+  <name>Candidature pour l'enseignement communal</name>
   <url_name>demande-candidature-pour-l-enseignement-communal</url_name>
   <description>Vous souhaitez postuler pour une fonction li&#233;e &#224; l'enseignement communal ? Faites-nous parvenir votre candidature par ce formulaire.</description>
   <internal_identifier>demande-candidature-pour-l-enseignement-communal</internal_identifier>

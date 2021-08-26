@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="45" url="http://local-formulaires.example.net/backoffice/forms/45/">
-  <name>iMio - D&#233;claration d'alarme ou cam&#233;ra</name>
+  <name>D&#233;claration d'alarme ou cam&#233;ra</name>
   <url_name>demande-declaration-d-alarme-ou-camera</url_name>
   <description>Vous serez redirig&#233; vers le site f&#233;d&#233;ral pour effectuer votre d&#233;claration d'alarme ou cam&#233;ra. Veuillez vous munir d'un lecteur de carte d'identit&#233; &#233;lectronique.</description>
   <internal_identifier>demande-declaration-d-alarme-ou-camera</internal_identifier>

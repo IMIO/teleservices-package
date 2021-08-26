@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="54" url="http://local-formulaires.example.net/backoffice/forms/54/">
-  <name>iMio - D&#233;claration de piscine priv&#233;e</name>
+  <name>D&#233;claration de piscine priv&#233;e</name>
   <url_name>demande-declaration-de-piscine-privee</url_name>
   <description>D&#233;clarez votre piscine &#224; votre administration communale en compl&#233;tant ce formulaire.</description>
   <internal_identifier>demande-declaration-de-piscine-privee</internal_identifier>

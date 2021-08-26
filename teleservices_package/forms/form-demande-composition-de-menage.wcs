@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="43" url="http://local-formulaires.example.net/backoffice/forms/43/">
-  <name>iMio - Composition de m&#233;nage</name>
+  <name>Composition de m&#233;nage</name>
   <url_name>demande-composition-de-menage</url_name>
   <description>Il faut OBLIGATOIREMENT habiter dans la commune pour effectuer cette demande.</description>
   <internal_identifier>demande-composition-de-menage</internal_identifier>

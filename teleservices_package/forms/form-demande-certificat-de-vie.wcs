@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="68" url="http://local-formulaires.example.net/backoffice/forms/68/">
-  <name>iMio - Certificat de vie</name>
+  <name>Certificat de vie</name>
   <url_name>demande-certificat-de-vie</url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de vie atteste qu'une personne est en vie.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-certificat-de-vie</internal_identifier>

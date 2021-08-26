@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="58" url="http://local-formulaires.example.net/backoffice/forms/58/">
-  <name>iMio - Don d'organes</name>
+  <name>Don d'organes</name>
   <url_name>demande-don-d-organes</url_name>
   <description>T&#233;l&#233;chargez un formulaire sous format PDF via cette d&#233;marche et renvoyez-le compl&#233;t&#233; &#224; votre administration communale par ce m&#234;me biais.</description>
   <keywords>pdf</keywords>

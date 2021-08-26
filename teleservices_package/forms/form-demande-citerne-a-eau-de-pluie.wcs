@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="65" url="http://local-formulaires.example.net/backoffice/forms/65/">
-  <name>iMio - Citerne &#224; eau de pluie</name>
+  <name>Citerne &#224; eau de pluie</name>
   <url_name>demande-citerne-a-eau-de-pluie</url_name>
   <description>Une prime peut &#234;tre octroy&#233;e pour le placement d'une citerne &#224; eau de pluie. Faites-en la demande via ce formulaire.</description>
   <internal_identifier>demande-citerne-a-eau-de-pluie</internal_identifier>

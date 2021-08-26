@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="45" url="http://local-formulaires.example.net/backoffice/forms/45/">
-  <name>iMio - Acte de Reconnaissance pr&#233;/post-natale</name>
+  <name>Acte de Reconnaissance pr&#233;/post-natale</name>
   <url_name>demande-acte-de-reconnaissance-prepost-natale</url_name>
   <description>&lt;p&gt;&lt;em&gt;Un extrait ou une copie int&amp;eacute;grale de l'acte peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-reconnaissance-prepost-natale</internal_identifier>

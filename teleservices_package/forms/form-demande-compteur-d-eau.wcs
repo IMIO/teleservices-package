@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="51" url="http://local-formulaires.example.net/backoffice/forms/51/">
-  <name>iMio - Compteur d'eau</name>
+  <name>Compteur d'eau</name>
   <url_name>demande-compteur-d-eau</url_name>
   <description>Compl&#233;tez ce formulaire afin de nous faire parvenir votre relev&#233; d'index de compteur d'eau.</description>
   <internal_identifier>demande-compteur-d-eau</internal_identifier>

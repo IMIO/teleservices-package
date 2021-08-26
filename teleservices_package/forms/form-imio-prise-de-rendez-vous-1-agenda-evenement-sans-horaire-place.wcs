@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="265" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/265/">
+<formdef id="60" url="http://local-formulaires.example.net/backoffice/forms/60/">
   <name>iMio - Prise de rendez-vous (1 agenda &#233;v&#232;nement sans horaire place)</name>
-  <url_name>demande-</url_name>
-  <internal_identifier>demande-prise-de-rendez-vous-1-agenda-evenement-sans-horaire-place</internal_identifier>
+  <url_name>imio-prise-de-rendez-vous-1-agenda-evenement-sans-horaire-place</url_name>
+  <internal_identifier>imio-prise-de-rendez-vous-1-agenda-evenement-sans-horaire-place</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -13,8 +13,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="110">iMio - Agendas</category>
-  <workflow workflow_id="184">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
+  <category category_id="103">iMio - Agendas</category>
+  <workflow workflow_id="25">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
   <max_field_id>9</max_field_id>
   <fields>
     <field>
@@ -97,15 +97,11 @@ Visite des ruine 02/01/2021 12:00&lt;/p&gt;</label>
         <locked>True</locked>
         <type>string</type>
         <value>{{form_var_date_rdv_places_available}}</value>
-      </prefill>
-      <anonymise>True</anonymise>
+      </prefill><anonymise>True</anonymise>
       <id>5</id>
     </field>
-  </fields><backoffice-submission-roles>
-    <role role_id="a75f058b52d94042aa75db5057edd034">Agent ayant acces aux fabriques</role>
-  </backoffice-submission-roles><roles>
-    <role role_id="a75f058b52d94042aa75db5057edd034" role_key="_receiver">Agent ayant acces aux fabriques</role>
-  </roles><options>
+  </fields><roles />
+  <options>
     <option varname="agenda">test-arossa</option>
     <option varname="agenda_display">Test Arossa</option>
     <option varname="agenda_structured" />

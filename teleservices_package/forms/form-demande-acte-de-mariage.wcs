@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="66" url="http://local-formulaires.example.net/backoffice/forms/66/">
-  <name>iMio - Acte de Mariage</name>
+  <name>Acte de Mariage</name>
   <url_name>demande-acte-de-mariage</url_name>
   <description>&lt;p&gt;L'extrait d'acte de Mariage ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; le mariage a &amp;eacute;t&amp;eacute; c&amp;eacute;l&amp;eacute;br&amp;eacute;.&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-mariage</internal_identifier>

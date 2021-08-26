@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="53" url="http://local-formulaires.example.net/backoffice/forms/53/">
-  <name>iMio - Autorisation d'abattage/&#233;lagage d'arbres</name>
+  <name>Autorisation d'abattage/&#233;lagage d'arbres</name>
   <url_name>demande-autorisation-d-abattageelagage-d-arbres</url_name>
   <description>Ce formulaire vous permet d'entrer une demande pour abattre ou &#233;laguer un arbre, conform&#233;ment aux conditions communales et r&#233;gionales.</description>
   <internal_identifier>demande-autorisation-d-abattageelagage-d-arbres</internal_identifier>

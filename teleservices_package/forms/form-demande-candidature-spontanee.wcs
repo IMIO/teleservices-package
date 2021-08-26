@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="30" url="http://local-formulaires.example.net/backoffice/forms/30/">
-  <name>iMio - Candidature spontan&#233;e</name>
+  <name>Candidature spontan&#233;e</name>
   <url_name>demande-candidature-spontanee</url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
   <internal_identifier>demande-candidature-spontanee</internal_identifier>

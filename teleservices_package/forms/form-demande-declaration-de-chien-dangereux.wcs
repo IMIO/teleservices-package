@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="38" url="http://local-formulaires.example.net/backoffice/forms/38/">
-  <name>iMio - D&#233;claration de chien dangereux</name>
+  <name>D&#233;claration de chien dangereux</name>
   <url_name>demande-declaration-de-chien-dangereux</url_name>
   <description>En vertu du R&#232;glement g&#233;n&#233;rale de Police, tout chien pr&#233;sum&#233; dangereux doit &#234;tre signal&#233; aupr&#232;s de votre administration communale par le biais de ce formulaire.</description>
   <internal_identifier>demande-declaration-de-chien-dangereux</internal_identifier>

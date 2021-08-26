@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="27" url="http://local-formulaires.example.net/backoffice/forms/27/">
-  <name>iMio - Obtention de codes PIN/PUK</name>
+  <name>Obtention de codes PIN/PUK</name>
   <url_name>demande-obtention-de-codes-pinpuk</url_name>
   <description>Ce formulaire vous redirige vers le site f&#233;d&#233;ral o&#249; vous pourrez faire votre demande de nouveau code pin/puk pour votre carte d'identit&#233; &#233;lectronique.</description>
   <internal_identifier>demande-obtention-de-codes-pinpuk</internal_identifier>

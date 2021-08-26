@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="38" url="http://local-formulaires.example.net/backoffice/forms/38/">
-  <name>iMio - Acte de Nationalit&#233;</name>
+  <name>Acte de Nationalit&#233;</name>
   <url_name>demande-acte-de-nationalite</url_name>
   <description>&lt;p&gt;&lt;em&gt;Seule la copie int&amp;eacute;grale de l'acte de divorce peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-nationalite</internal_identifier>

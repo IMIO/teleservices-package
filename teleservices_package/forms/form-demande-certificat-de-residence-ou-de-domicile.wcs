@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="52" url="http://local-formulaires.example.net/backoffice/forms/52/">
-  <name>iMio - Certificat de R&#233;sidence ou de Domicile</name>
+  <name>Certificat de R&#233;sidence ou de Domicile</name>
   <url_name>demande-certificat-de-residence-ou-de-domicile</url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-certificat-de-residence-ou-de-domicile</internal_identifier>

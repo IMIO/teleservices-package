@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="50" url="http://local-formulaires.example.net/backoffice/forms/50/">
-  <name>iMio - F&#251;t &#224; compost</name>
+  <name>F&#251;t &#224; compost</name>
   <url_name>demande-fut-a-compost</url_name>
   <description>Vous avez install&#233; un f&#251;t &#224; compost? Une prime peut vous &#234;tre octroy&#233;e en remplissant ce formulaire de demande.</description>
   <internal_identifier>demande-fut-a-compost</internal_identifier>

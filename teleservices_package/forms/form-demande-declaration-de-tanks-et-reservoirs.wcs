@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="66" url="http://local-formulaires.example.net/backoffice/forms/66/">
-  <name>iMio - D&#233;claration de tanks et r&#233;servoirs</name>
+  <name>D&#233;claration de tanks et r&#233;servoirs</name>
   <url_name>demande-declaration-de-tanks-et-reservoirs</url_name>
   <description>D&#233;clarez votre tank ou r&#233;servoir &#224; votre administration communale en compl&#233;tant ce formulaire.</description>
   <internal_identifier>demande-declaration-de-tanks-et-reservoirs</internal_identifier>

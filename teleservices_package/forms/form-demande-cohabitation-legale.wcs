@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="23" url="http://local-formulaires.example.net/backoffice/forms/23/">
-  <name>iMio - Cohabitation L&#233;gale</name>
+  <name>Cohabitation L&#233;gale</name>
   <url_name>demande-cohabitation-legale</url_name>
   <description>&lt;p class="accroche"&gt;&lt;em&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-cohabitation-legale</internal_identifier>

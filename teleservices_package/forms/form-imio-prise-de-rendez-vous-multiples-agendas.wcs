@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="248" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/248/">
+<formdef id="67" url="http://local-formulaires.example.net/backoffice/forms/67/">
   <name>iMio - Prise de rendez-vous (multiples agendas)</name>
-  <url_name>demande-</url_name>
-  <internal_identifier>demande-prise-de-rendez-vous-multiples-agendas</internal_identifier>
+  <url_name>imio-prise-de-rendez-vous-multiples-agendas</url_name>
+  <internal_identifier>imio-prise-de-rendez-vous-multiples-agendas</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -13,8 +13,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="110">iMio - Agendas</category>
-  <workflow workflow_id="161">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
+  <category category_id="103">iMio - Agendas</category>
+  <workflow workflow_id="25">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
   <max_field_id>70</max_field_id>
   <fields>
     <field>
@@ -39,7 +39,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -55,7 +54,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -176,7 +174,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>52</id>
@@ -200,9 +197,9 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>form_option_agendas_structured</value>
@@ -226,9 +223,9 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>json</type>
         <value>{{ form_var_agenda_structured_api_meetings_url }}</value>
@@ -251,9 +248,9 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>template-meetings</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>timetable</display_mode>
+      </prefill><items />
+      <display_mode>timetable</display_mode>
       <data_source>
         <type>json</type>
         <value>{{form_var_type_rdv_api_datetimes_url}}</value>
@@ -263,11 +260,8 @@
       <initial_zoom>13</initial_zoom>
       <id>25</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="a75f058b52d94042aa75db5057edd034" role_key="_receiver">Agent ayant acces aux fabriques</role>
-  </roles><options>
+  </fields><roles />
+  <options>
     <option varname="agenda">rendez-vous</option>
     <option varname="agenda_display">Rendez-vous</option>
     <option varname="agenda_structured" />

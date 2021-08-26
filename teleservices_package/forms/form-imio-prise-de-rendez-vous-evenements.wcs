@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
-<formdef id="247" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/247/">
-  <name>iMio - Prise de rendez-vous (&#233;v&#232;nement place)</name>
-  <url_name>demande-</url_name>
-  <internal_identifier>demande-prise-de-rendez-vous-evenement-place</internal_identifier>
+<formdef id="49" url="http://local-formulaires.example.net/backoffice/forms/49/">
+  <name>iMio - Prise de rendez-vous (&#233;v&#232;nements)</name>
+  <url_name>imio-prise-de-rendez-vous-evenements</url_name>
+  <internal_identifier>imio-prise-de-rendez-vous-evenements</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
-  <confirmation>true</confirmation>
+  <confirmation>false</confirmation>
   <always_advertise>false</always_advertise>
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="110">iMio - Agendas</category>
-  <workflow workflow_id="161">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
-  <max_field_id>77</max_field_id>
+  <category category_id="103">iMio - Agendas</category>
+  <workflow workflow_id="25">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
+  <max_field_id>73</max_field_id>
   <fields>
     <field>
       <label>Coordonn&#233;es</label>
@@ -39,7 +39,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -55,7 +54,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -176,7 +174,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>52</id>
@@ -186,111 +183,64 @@
       <display_locations />
       <id>53</id>
     </field><field>
-      <label>Choix de l'&#233;v&#232;nement</label>
+      <label>S&#233;lectionnez la section</label>
       <type>page</type>
-      <id>76</id>
+      <id>69</id>
     </field><field>
-      <label>Choisisez l'&#233;v&#232;nement</label>
+      <label>Section</label>
       <type>item</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><display_mode>list</display_mode>
-      <data_source>
-        <type>json</type>
-        <value>{{form_option_agenda_structured_api_datetimes_url}}</value>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>77</id>
-    </field><field>
-      <label>S&#233;lectionnez l'heure du rendez-vous</label>
-      <type>page</type>
-      <post_conditions>
-        <post_condition>
-          <condition>
-            <type>django</type>
-            <value>form_var_nb_place|add:0 &lt; form_var_date_rdv_places_available</value>
-          </condition><error_message>Il n'y a pas assez de place &#224; cette heure l&#224;</error_message>
-        </post_condition>
-      </post_conditions><id>17</id>
-    </field><field>
-      <label>Nombre de place</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>nb_place</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><items>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-      </items><display_mode>list</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>73</id>
-    </field><field>
-      <label>Choisissez une plage horaire</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>---</hint>
-      <varname>date_rdv</varname>
+      <required>False</required>
+      <hint>Faites votre choix</hint>
+      <varname>agenda</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
+      <data_source>
+        <type>formula</type>
+        <value>form_option_agendas_structured</value>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <id>70</id>
+    </field><field>
+      <label>S&#233;lectionnez l'heure du rendez-vous</label>
+      <type>page</type>
+      <id>17</id>
+    </field><field>
+      <label>Choisissez une plage horaire</label>
+      <type>item</type>
+      <required>True</required>
+      <varname>date_rdv</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><extra_css_class>template-meetings</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><items />
+      <display_mode>timetable</display_mode>
       <data_source>
         <type>json</type>
-        <value>{{form_option_agenda_structured_api_datetimes_url}}</value>
+        <value>{{form_var_agenda_api_datetimes_url}}</value>
       </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <initial_zoom>13</initial_zoom>
       <id>25</id>
-    </field><field>
-      <label>Place disponnible</label>
-      <type>string</type>
-      <condition>
-        <type>django</type>
-        <value>form_var_date_rdv_raw is not null</value>
-      </condition><required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><prefill>
-        <locked>True</locked>
-        <type>string</type>
-        <value>{{form_var_date_rdv_places_available}}</value>
-      </prefill><anonymise>True</anonymise>
-      <id>74</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="a75f058b52d94042aa75db5057edd034" role_key="_receiver">Agent ayant acces aux fabriques</role>
-  </roles><options>
-    <option varname="agenda">presentation-2</option>
-    <option varname="agenda_display">Pr&#233;sentation 2</option>
+  </fields><roles />
+  <options>
+    <option varname="agenda">rendez-vous</option>
+    <option varname="agenda_display">Rendez-vous</option>
     <option varname="agenda_structured" />
     <option varname="agendas" />
-    <option varname="agendas_display" />
+    <option varname="agendas_display">Test, Test Thon, Test ost&#233;rone</option>
     <option varname="agendas_structured" />
     <option varname="date_minimale_de_reservation">rendez-vous</option>
     <option varname="date_minimale_de_reservation_display">Rendez-vous</option>
