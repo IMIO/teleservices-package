@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="184" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/184/">
+<workflow id="25" url="http://local-formulaires.example.net/backoffice/workflows/25/">
   <name>iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
@@ -85,6 +85,7 @@ Bien &#224; vous.</body>
             <item role_id="_submitter">_submitter</item>
           </by><status>7</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;Action permettant au citoyen et &amp;agrave; l'agent traitant annuler le rendez-vous, quelle que soit la raison de chacun.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item id="6" type="choice">
@@ -105,14 +106,16 @@ Bien &#224; vous.</body>
             <item role_id="_receiver">_receiver</item>
           </by><status>9</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;Action &amp;agrave; l'initiative de l'agent traitant qui va refuser le rendez-vous, quelle que soit la raison.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item id="8" type="choice">
-          <label>Posposer la demande</label>
+          <label>Postposer la demande</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>13</status>
           <require_confirmation>True</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;Action &amp;agrave; l'initiative de l'agent traitant pour demander&amp;nbsp;au citoyen de choisir une nouvelle date.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item id="9" type="editable">
@@ -121,6 +124,7 @@ Bien &#224; vous.</body>
             <item role_id="_receiver">_receiver</item>
           </by><status>12</status>
           <label>Editer le rendez-vous</label>
+          <backoffice_info_text>&lt;p&gt;Action permettant au citoyen ou &amp;agrave; l'agent traitant de modifier son rendez-vous.&lt;/p&gt;</backoffice_info_text>
           <condition>
             <type>django</type>
             <value>reservation_response_datetime|date &gt; today|date</value>
@@ -478,9 +482,9 @@ Bien &#224; vous.</body>
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="42f08325-6c63-422e-9b3a-2080e890f224" type="manual">
+        <trigger id="6793331d-4939-4940-b788-0d86a8c40340" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -496,7 +500,7 @@ Bien &#224; vous.</body>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="1b5e5287-42ea-4ff4-abb7-fe889b382fa5" type="manual">
+        <trigger id="5a9d4edd-3449-470b-9777-ff1d908a698f" type="manual">
           <roles>
             <item role_id="_receiver">_receiver</item>
           </roles>
