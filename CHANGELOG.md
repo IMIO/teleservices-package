@@ -8,6 +8,7 @@ teleservices-package changelog
 ## [0.1.14] - 26-08-2021 -
 ### Updated
   - wf iMio - Gestion des rendez-vous et événements - package with documentation
+  - forms acte with redirection mondossier
 
 ## [0.1.12] - 11-08-2021 -
 ### Updated
