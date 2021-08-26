@@ -484,7 +484,7 @@ Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.</body
         </item><item id="5" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-citoyen-en-attente-du-virement</mail_template>
+          </to><mail_template>indus-usager-en-attente-du-virement</mail_template>
         </item>
       </items>
     </status><status>

@@ -10,6 +10,7 @@ teleservices-package changelog
   - wf iMio - Gestion des rendez-vous et événements - package with documentation
   - forms acte with redirection mondossier
   - some form's name with Demande
+  - a mail template in workflow-imio-changement-d-adresse
 
 ## [0.1.12] - 11-08-2021 -
 ### Updated
