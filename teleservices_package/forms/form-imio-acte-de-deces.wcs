@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="145" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/145/">
+<formdef id="37" url="http://local-formulaires.example.net/backoffice/forms/37/">
   <name>iMio - Acte de D&#233;c&#232;s</name>
-  <url_name></url_name>
+  <url_name>acte-de-deces</url_name>
   <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de D&amp;eacute;c&amp;egrave;s ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; le d&amp;eacute;c&amp;egrave;s a eu lieu. &lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>acte-de-deces-1</internal_identifier>
+  <internal_identifier>acte-de-deces</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Etat-Civil</category>
-  <workflow workflow_id="89">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="97">iMio - Etat-Civil</category>
+  <workflow workflow_id="30">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>67</max_field_id>
   <fields>
     <field>
@@ -79,6 +79,7 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong&gt;- Extrait de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui ne comporte qu'une partie des informations figurant dans l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;- Copie int&amp;eacute;grale de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui reprend l'int&amp;eacute;gralit&amp;eacute; des informations reprises sur l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>6</id>
     </field><field>
       <label>Donn&#233;es de la personne concern&#233;e</label>
@@ -94,10 +95,12 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder &lt;/span&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;LES COORDONNEES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt; DE LA PERSONNE DECEDEE : &lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>15</id>
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>16</id>
     </field><field>
       <label>Nom</label>
@@ -258,10 +261,12 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>35</id>
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>36</id>
     </field><field>
       <label>Nom</label>
@@ -464,9 +469,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -487,7 +492,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>53</id>
@@ -501,9 +505,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
@@ -559,9 +563,8 @@
       </prefill><anonymise>True</anonymise>
       <id>67</id>
     </field>
-  </fields><roles>
-    <role role_id="128d6136964f430ba9ca4a1d4e6f4151" role_key="_receiver">Agents traitants - Population, etat civil</role>
-  </roles><options>
+  </fields><roles />
+  <options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_etatcivil</option>
     <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>

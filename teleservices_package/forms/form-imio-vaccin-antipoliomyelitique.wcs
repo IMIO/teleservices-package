@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="191" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/191/">
+<formdef id="28" url="http://local-formulaires.example.net/backoffice/forms/28/">
   <name>iMio - Vaccin antipoliomy&#233;litique</name>
-  <url_name></url_name>
-  <description> Tout enfant de moins de 18 mois doit être vacciné contre la poliomyélitique. Téléchargez dans cette démarche le formulaire PDF à compléter lors de la vaccination et faites-le parvenir à votre administration communale par ce même biais.</description>
-  <internal_identifier>imio-vaccin-antipoliomyelitique</internal_identifier>
+  <url_name>vaccin-antipoliomyelitique</url_name>
+  <description> Tout enfant de moins de 18 mois doit &#234;tre vaccin&#233; contre la poliomy&#233;litique. T&#233;l&#233;chargez dans cette d&#233;marche le formulaire PDF &#224; compl&#233;ter lors de la vaccination et faites-le parvenir &#224; votre administration communale par ce m&#234;me biais.</description>
+  <internal_identifier>vaccin-antipoliomyelitique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Population</category>
-  <workflow workflow_id="103">iMio - Documents PDF</workflow>
+  <category category_id="101">iMio - Population</category>
+  <workflow workflow_id="10">iMio - Documents PDF</workflow>
   <max_field_id>6</max_field_id>
   <fields>
     <field>

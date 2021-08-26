@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <formdef id="28" url="http://local-formulaires.example.net/backoffice/forms/28/">
   <name>Redirection Mon Dossier</name>
-  <url_name>imio-redirection-mon-dossier</url_name>
+  <url_name>redirection-mon-dossier</url_name>
   <keywords>redirection</keywords>
-  <internal_identifier>imio-redirection-mon-dossier</internal_identifier>
+  <internal_identifier>redirection-mon-dossier</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>

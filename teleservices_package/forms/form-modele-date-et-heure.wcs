@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="266" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/266/">
+<formdef id="48" url="http://local-formulaires.example.net/backoffice/forms/48/">
   <name>Mod&#232;le - Date et heure</name>
-  <url_name></url_name>
-  <internal_identifier>imio-modele-date-et-heure</internal_identifier>
+  <url_name>modele-date-et-heure</url_name>
+  <internal_identifier>modele-date-et-heure</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -26,7 +26,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-2-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>False</date_in_the_past>
@@ -41,9 +40,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>heure</type>
       </data_source><in_filters>False</in_filters>
@@ -60,9 +59,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>minute</type>
       </data_source><in_filters>False</in_filters>

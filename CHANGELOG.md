@@ -11,6 +11,9 @@ teleservices-package changelog
   - forms acte with redirection mondossier
   - some form's name with Demande
   - a mail template in workflow-imio-changement-d-adresse
+  - url name et internal identifier for all form
+### Merged
+  - doublon enseignement communal
 
 ## [0.1.12] - 11-08-2021 -
 ### Updated

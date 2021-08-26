@@ -3,7 +3,7 @@
   <name>iMio - Candidature postes &#224; pourvoir</name>
   <url_name>candidature-postes-a-pourvoir</url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
-  <internal_identifier>imio-candidature-postes-a-pourvoir</internal_identifier>
+  <internal_identifier>candidature-postes-a-pourvoir</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>

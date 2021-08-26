@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<formdef id="161" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/161/">
+<formdef id="58" url="http://local-formulaires.example.net/backoffice/forms/58/">
   <name>iMio - Don d'organes</name>
-  <description>Téléchargez un formulaire sous format PDF via cette démarche et renvoyez-le complété à votre administration communale par ce même biais.</description>
-  <url_name></url_name>
+  <url_name>don-d-organes</url_name>
+  <description>T&#233;l&#233;chargez un formulaire sous format PDF via cette d&#233;marche et renvoyez-le compl&#233;t&#233; &#224; votre administration communale par ce m&#234;me biais.</description>
   <keywords>pdf</keywords>
-  <internal_identifier>imio-don-d-organes</internal_identifier>
+  <internal_identifier>don-d-organes</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -15,8 +15,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Population</category>
-  <workflow workflow_id="103">iMio - Documents PDF</workflow>
+  <category category_id="101">iMio - Population</category>
+  <workflow workflow_id="10">iMio - Documents PDF</workflow>
   <max_field_id>3</max_field_id>
   <fields>
     <field>

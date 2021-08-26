@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="199" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/199/">
+<formdef id="55" url="http://local-formulaires.example.net/backoffice/forms/55/">
   <name>iMio - Pr&#234;t/location de mat&#233;riel</name>
-  <url_name></url_name>
-  <description>Vous souhaitez emprunter du matériel auprès du service Travaux? Faites-en la demande via ce formulaire en ligne.</description>
-  <internal_identifier>imio-demande-de-pretlocation-de-materiel</internal_identifier>
+  <url_name>pretlocation-de-materiel</url_name>
+  <description>Vous souhaitez emprunter du mat&#233;riel aupr&#232;s du service Travaux? Faites-en la demande via ce formulaire en ligne.</description>
+  <internal_identifier>pretlocation-de-materiel</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Travaux</category>
-  <workflow workflow_id="136">iMio - Demande de pr&#234;t/location de mat&#233;riel</workflow>
+  <category category_id="108">iMio - Travaux</category>
+  <workflow workflow_id="19">iMio - Demande de pr&#234;t/location de mat&#233;riel</workflow>
   <max_field_id>74</max_field_id>
   <fields>
     <field>
@@ -154,7 +154,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -186,7 +185,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -221,7 +219,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>15</id>
@@ -234,7 +231,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>16</id>
@@ -255,7 +251,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -270,7 +265,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -285,7 +279,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
@@ -303,7 +296,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
@@ -321,7 +313,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
@@ -346,7 +337,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>False</date_in_the_past>
@@ -361,7 +351,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>True</minimum_is_future>
       <date_in_the_past>False</date_in_the_past>
@@ -383,7 +372,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>29</id>
@@ -397,7 +385,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Brocante</item>
@@ -420,7 +407,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>70</id>
@@ -433,7 +419,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><initial_zoom>13</initial_zoom>
       <init_with_geoloc>True</init_with_geoloc>
@@ -448,7 +433,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>road</value>
       </prefill><anonymise>True</anonymise>
@@ -463,7 +447,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>house</value>
       </prefill><anonymise>True</anonymise>
@@ -478,7 +461,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>postcode</value>
       </prefill><anonymise>True</anonymise>
@@ -493,7 +475,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>city</value>
       </prefill><anonymise>True</anonymise>
@@ -507,7 +488,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>36</id>
@@ -520,7 +500,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
@@ -535,7 +514,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -562,7 +540,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>32</id>
@@ -576,7 +553,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>33</id>
@@ -590,7 +566,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>34</id>
@@ -604,7 +579,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>35</id>
@@ -624,7 +598,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>60</id>
     </field><field>
@@ -639,7 +612,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -654,7 +626,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>61</id>
     </field><field>
@@ -681,7 +652,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>62</id>
     </field><field>
@@ -696,7 +666,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>48</id>
@@ -709,7 +678,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>63</id>
     </field><field>
@@ -724,7 +692,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -739,7 +706,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>64</id>
     </field><field>
@@ -754,7 +720,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -769,7 +734,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>65</id>
     </field><field>
@@ -784,7 +748,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -799,7 +762,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>66</id>
     </field><field>
@@ -814,7 +776,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>51</id>
@@ -827,7 +788,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>67</id>
     </field><field>
@@ -855,7 +815,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>68</id>
     </field><field>
@@ -870,7 +829,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -885,7 +843,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>56</id>
@@ -898,16 +855,12 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>57</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="6477caa01e094d6b8592f26a00a1330b" role_key="_receiver">agent traitant mbrognon</role>
-  </roles><options>
+  </fields><roles />
+  <options>
     <option varname="code_postal">5032,5031</option>
   </options><custom_views />
   <geolocations />

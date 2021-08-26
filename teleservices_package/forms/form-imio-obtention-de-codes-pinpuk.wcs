@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="156" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/156/">
+<formdef id="27" url="http://local-formulaires.example.net/backoffice/forms/27/">
   <name>iMio - Obtention de codes PIN/PUK</name>
-  <url_name></url_name>
-  <description>Ce formulaire vous redirige vers le site fédéral où vous pourrez faire votre demande de nouveau code pin/puk pour votre carte d'identité électronique.</description>
-  <internal_identifier>imio-demande-codes-pinpuk</internal_identifier>
+  <url_name>obtention-de-codes-pinpuk</url_name>
+  <description>Ce formulaire vous redirige vers le site f&#233;d&#233;ral o&#249; vous pourrez faire votre demande de nouveau code pin/puk pour votre carte d'identit&#233; &#233;lectronique.</description>
+  <internal_identifier>obtention-de-codes-pinpuk</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Population</category>
-  <workflow workflow_id="105">iMio - Redirection avec suppression</workflow>
+  <category category_id="101">iMio - Population</category>
+  <workflow workflow_id="14">iMio - Redirection avec suppression</workflow>
   <max_field_id>64</max_field_id>
   <fields>
     <field>
@@ -34,8 +34,7 @@
       <display_locations />
       <id>64</id>
     </field>
-  </fields><roles />
-  <options>
+  </fields><options>
     <option varname="cost">5</option>
     <option varname="cp_commune">1234</option>
     <option varname="destinations" />

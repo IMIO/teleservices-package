@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="143" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/143/">
+<formdef id="66" url="http://local-formulaires.example.net/backoffice/forms/66/">
   <name>iMio - Acte de Mariage</name>
-  <url_name></url_name>
+  <url_name>acte-de-mariage</url_name>
   <description>&lt;p&gt;L'extrait d'acte de Mariage ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; le mariage a &amp;eacute;t&amp;eacute; c&amp;eacute;l&amp;eacute;br&amp;eacute;.&lt;/p&gt;</description>
-  <internal_identifier>acte-de-mariage-1</internal_identifier>
+  <internal_identifier>acte-de-mariage</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Etat-Civil</category>
-  <workflow workflow_id="89">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="97">iMio - Etat-Civil</category>
+  <workflow workflow_id="30">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>91</max_field_id>
   <fields>
     <field>
@@ -66,7 +66,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>ds_personne_concernee</type>
       </data_source><in_filters>False</in_filters>
@@ -74,7 +75,7 @@
       <display_disabled_items>False</display_disabled_items>
       <id>7</id>
     </field><field>
-      <label>&lt;p&gt;L'{{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la commune de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral (valable uniquement pour les actes enregistrés après le 31/03/2019). Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
+      <label>&lt;p&gt;L'{{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la commune de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral (valable uniquement pour les actes enregistr&#233;s apr&#232;s le 31/03/2019). Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
@@ -93,9 +94,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>formula</type>
         <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
@@ -120,7 +121,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Avant le 31-03-2019</item>
@@ -144,6 +144,7 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong&gt;- Extrait de l'acte de mariage &lt;/strong&gt;: Document qui ne comporte qu'une partie des informations figurant dans l'acte de mariage.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;- Copie int&amp;eacute;grale de l'acte de mariage &lt;/strong&gt;: Document qui reprend l'int&amp;eacute;gralit&amp;eacute; des informations reprises sur l'acte de mariage.&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>5</id>
     </field><field>
       <label>Extrait ou Copie int&#233;grale</label>
@@ -178,7 +179,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Conjoint</item>
@@ -204,7 +204,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>10</id>
@@ -230,10 +229,12 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&#233;es de la &lt;u&gt;PERSONNE CONCERN&#201;E&lt;/u&gt; :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>59</id>
     </field><field>
       <label>*  = champ obligatoire  Commentaire</label>
       <type>comment</type>
+      <display_locations />
       <id>60</id>
     </field><field>
       <label>Nom</label>
@@ -377,7 +378,8 @@
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>pays</type>
       </data_source><in_filters>False</in_filters>
@@ -432,10 +434,12 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>44</id>
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>45</id>
     </field><field>
       <label>Nom</label>
@@ -642,9 +646,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -665,7 +669,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>76</id>
@@ -679,9 +682,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
@@ -740,9 +743,8 @@
       </prefill><anonymise>True</anonymise>
       <id>88</id>
     </field>
-  </fields><roles>
-    <role role_id="128d6136964f430ba9ca4a1d4e6f4151" role_key="_receiver">Agents traitants - Population, etat civil</role>
-  </roles><options>
+  </fields><roles />
+  <options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_etatcivil</option>
     <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>

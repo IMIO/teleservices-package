@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<formdef id="162" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/162/">
+<formdef id="36" url="http://local-formulaires.example.net/backoffice/forms/36/">
   <name>iMio - Mod&#232;le de procuration</name>
-  <description>Ce document permet à une personne de se faire représenter en déléguant sa capacité de signature.</description>
-  <url_name></url_name>
+  <url_name>modele-de-procuration</url_name>
+  <description>Ce document permet &#224; une personne de se faire repr&#233;senter en d&#233;l&#233;guant sa capacit&#233; de signature.</description>
   <keywords>pdf</keywords>
-  <internal_identifier>imio-modele-de-procuration</internal_identifier>
+  <internal_identifier>modele-de-procuration</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -15,8 +15,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Population</category>
-  <workflow workflow_id="103">iMio - Documents PDF</workflow>
+  <category category_id="101">iMio - Population</category>
+  <workflow workflow_id="10">iMio - Documents PDF</workflow>
   <max_field_id>3</max_field_id>
   <fields>
     <field>

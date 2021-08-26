@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<formdef id="216" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/216/">
+<formdef id="38" url="http://local-formulaires.example.net/backoffice/forms/38/">
   <name>iMio - Attestation de milice</name>
-  <url_name></url_name>
+  <url_name>attestation-de-milice</url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>attestation-de-milice</internal_identifier>
   <discussion>false</discussion>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Population</category>
-  <workflow workflow_id="89">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="101">iMio - Population</category>
+  <workflow workflow_id="30">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>74</max_field_id>
   <fields>
     <field>
@@ -61,7 +61,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>ds_personne_concernee</type>
       </data_source><in_filters>False</in_filters>
@@ -101,9 +102,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>formula</type>
         <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
@@ -211,7 +212,6 @@
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
-        
       </validation><anonymise>True</anonymise>
       <id>56</id>
     </field><field>
@@ -316,7 +316,8 @@
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>pays</type>
       </data_source><in_filters>False</in_filters>
@@ -541,7 +542,8 @@
       <prefill>
         <type>user</type>
         <value>_country</value>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>pays</type>
       </data_source><in_filters>False</in_filters>
@@ -607,9 +609,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -630,7 +632,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>22</id>
@@ -644,9 +645,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
@@ -702,9 +703,8 @@
     </field>
   </fields><user-roles>
     <role role_id="logged-users">logged-users</role>
-  </user-roles><roles>
-    <role role_id="128d6136964f430ba9ca4a1d4e6f4151" role_key="_receiver">Agents traitants - Population, etat civil</role>
-  </roles><options>
+  </user-roles><roles />
+  <options>
     <option varname="baec" />
     <option varname="cout">0</option>
     <option varname="cp_commune">5032</option>

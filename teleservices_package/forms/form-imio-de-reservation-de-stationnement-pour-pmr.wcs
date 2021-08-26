@@ -3,7 +3,7 @@
   <name>iMio - Emplacement de stationnement pour PMR</name>
   <url_name></url_name>
   <description>Ce formulaire permet aux personnes à mobilité réduite ou à leurs proches de faire la demande d'une place de stationnement adaptée.</description>
-  <internal_identifier>imio-demande-d-emplacement-de-stationnement-pour-pmr</internal_identifier>
+  <internal_identifier>demande-d-emplacement-de-stationnement-pour-pmr</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>

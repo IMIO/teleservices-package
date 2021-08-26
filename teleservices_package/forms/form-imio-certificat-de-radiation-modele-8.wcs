@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="61" url="http://local-formulaires.example.net/backoffice/forms/61/">
+<formdef id="63" url="http://local-formulaires.example.net/backoffice/forms/63/">
   <name>iMio - Certificat de radiation (mod&#232;le 8)</name>
-  <url_name>imio-certificat-de-radiation-modele-8</url_name>
+  <url_name>certificat-de-radiation-modele-8</url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>imio-certificat-de-radiation-modele-8</internal_identifier>
+  <internal_identifier>certificat-de-radiation-modele-8</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -15,7 +15,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category category_id="101">iMio - Population</category>
-  <workflow workflow_id="28">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <workflow workflow_id="30">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>77</max_field_id>
   <fields>
     <field>
@@ -80,7 +80,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><id>76</id>
     </field><field>
@@ -104,9 +103,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>formula</type>
         <value>data_source.py_domicile[1:]</value>
@@ -624,9 +623,8 @@
     </field>
   </fields><user-roles>
     <role role_id="logged-users">logged-users</role>
-  </user-roles><roles>
-    <role role_id="44eaaf9fdeb04e2a9ab515e7356069fe" role_key="_receiver">Agents traitants - Population, etat civil</role>
-  </roles><options>
+  </user-roles><roles />
+  <options>
     <option varname="baec" />
     <option varname="cout">0</option>
     <option varname="cp_commune" />

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="164" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/164/">
-  <name>iMio - Redirection Modele</name>
-  <url_name></url_name>
-  <internal_identifier>imio-redirection-modele</internal_identifier>
+<formdef id="26" url="http://local-formulaires.example.net/backoffice/forms/26/">
+  <name>Redirection Modele</name>
+  <url_name>redirection-modele</url_name>
+  <internal_identifier>redirection-modele</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -13,8 +13,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">Mod&#232;les</category>
-  <workflow workflow_id="105">iMio - Redirection avec suppression</workflow>
+  <category category_id="96">Mod&#232;les</category>
+  <workflow workflow_id="14">iMio - Redirection avec suppression</workflow>
   <max_field_id>2</max_field_id>
   <fields>
     <field>

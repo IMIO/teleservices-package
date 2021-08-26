@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="194" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/194/">
+<formdef id="65" url="http://local-formulaires.example.net/backoffice/forms/65/">
   <name>iMio - Citerne &#224; eau de pluie</name>
-  <url_name></url_name>
-  <description>Une prime peut être octroyée pour le placement d'une citerne à eau de pluie. Faites-en la demande via ce formulaire.</description>
-  <internal_identifier>imio-prime-citerne-a-eau-de-pluie</internal_identifier>
+  <url_name>citerne-a-eau-de-pluie</url_name>
+  <description>Une prime peut &#234;tre octroy&#233;e pour le placement d'une citerne &#224; eau de pluie. Faites-en la demande via ce formulaire.</description>
+  <internal_identifier>citerne-a-eau-de-pluie</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Prime</category>
-  <workflow workflow_id="122">iMio - Demande de Primes</workflow>
+  <category category_id="98">iMio - Prime</category>
+  <workflow workflow_id="24">iMio - Demande de Primes</workflow>
   <max_field_id>40</max_field_id>
   <fields>
     <field>
@@ -62,7 +62,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -77,7 +76,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
@@ -95,7 +93,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -110,7 +107,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-6</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
@@ -128,7 +124,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-5-6</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
@@ -159,7 +154,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
@@ -174,7 +168,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>10</id>
@@ -187,7 +180,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>iban</type>
@@ -209,7 +201,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -251,7 +242,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -266,7 +256,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
@@ -284,7 +273,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -299,7 +287,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-6</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
@@ -317,7 +304,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-5-6</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
@@ -334,7 +320,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
@@ -348,7 +333,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
@@ -362,7 +346,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
@@ -382,9 +365,8 @@
     </field>
   </fields><user-roles>
     <role role_id="logged-users">logged-users</role>
-  </user-roles><roles>
-    <role role_id="55357ff00b574d13b8da448efee618a4" role_key="_agent-traitant">Agents traitants - Finances</role>
-  </roles><options />
+  </user-roles><roles />
+  <options />
   <custom_views />
   <geolocations />
 </formdef>

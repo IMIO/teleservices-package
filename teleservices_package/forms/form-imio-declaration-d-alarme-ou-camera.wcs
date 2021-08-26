@@ -3,7 +3,7 @@
   <name>iMio - D&#233;claration d'alarme ou cam&#233;ra</name>
   <url_name>declaration-d-alarme-ou-camera</url_name>
   <description>Vous serez redirig&#233; vers le site f&#233;d&#233;ral pour effectuer votre d&#233;claration d'alarme ou cam&#233;ra. Veuillez vous munir d'un lecteur de carte d'identit&#233; &#233;lectronique.</description>
-  <internal_identifier>imio-declaration-d-alarme-ou-camera</internal_identifier>
+  <internal_identifier>declaration-d-alarme-ou-camera</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>

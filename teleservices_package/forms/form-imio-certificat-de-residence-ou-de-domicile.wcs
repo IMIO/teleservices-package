@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="140" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/140/">
+<formdef id="52" url="http://local-formulaires.example.net/backoffice/forms/52/">
   <name>iMio - Certificat de R&#233;sidence ou de Domicile</name>
-  <url_name></url_name>
+  <url_name>certificat-de-residence-ou-de-domicile</url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>certificat-de-residence-ou-de-domicile-a-verifier</internal_identifier>
+  <internal_identifier>certificat-de-residence-ou-de-domicile</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Population</category>
-  <workflow workflow_id="89">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="101">iMio - Population</category>
+  <workflow workflow_id="30">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>60</max_field_id>
   <fields>
     <field>
@@ -91,9 +91,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>formula</type>
         <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
@@ -335,10 +335,12 @@
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>6</id>
     </field><field>
       <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>7</id>
     </field><field>
       <label>Nom</label>
@@ -562,9 +564,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -584,7 +586,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>60</id>
@@ -598,9 +599,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
@@ -637,6 +638,7 @@
     </field><field>
       <label>&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;&lt;p&gt;Votre d&#233;marche sera automatiquement mise dans votre panier pour un paiement global de votre commande.&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>48</id>
     </field><field>
       <label>Montant</label>
@@ -652,11 +654,8 @@
       </prefill><anonymise>True</anonymise>
       <id>59</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="128d6136964f430ba9ca4a1d4e6f4151" role_key="_receiver">Agents traitants - Population, etat civil</role>
-  </roles><options>
+  </fields><roles />
+  <options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_pop</option>
     <option varname="comptes_identifiants_regies_display">atos_pop</option>

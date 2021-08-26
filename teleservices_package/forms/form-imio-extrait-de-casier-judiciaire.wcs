@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="166" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/166/">
+<formdef id="62" url="http://local-formulaires.example.net/backoffice/forms/62/">
   <name>iMio - Extrait de casier judiciaire</name>
-  <url_name></url_name>
-  <description>Anciennement connu sous le nom de "certificat de bonne vie et moeurs", l'extrait de casier judiciaire peut être demandé via ce formulaire.</description>
-  <internal_identifier>imio-extrait-de-casier-judiciaire</internal_identifier>
+  <url_name>extrait-de-casier-judiciaire</url_name>
+  <description>Anciennement connu sous le nom de "certificat de bonne vie et moeurs", l'extrait de casier judiciaire peut &#234;tre demand&#233; via ce formulaire.</description>
+  <internal_identifier>extrait-de-casier-judiciaire</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">iMio - Population</category>
-  <workflow workflow_id="106">iMio - Extrait casier judicaire</workflow>
+  <category category_id="101">iMio - Population</category>
+  <workflow workflow_id="26">iMio - Extrait casier judicaire</workflow>
   <max_field_id>81</max_field_id>
   <fields>
     <field>
@@ -78,7 +78,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Affr&#232;tement fluvial : direction/cadre du personnel technique</item>
@@ -154,6 +153,7 @@
     </field><field>
       <label>&lt;p&gt;Veuillez encoder les coordonn&amp;eacute;es &lt;strong&gt;DE LA PERSONNE CONCERNEE&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>11</id>
     </field><field>
       <label>Nom</label>
@@ -238,7 +238,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><anonymise>True</anonymise>
@@ -253,7 +252,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -353,7 +351,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <error_message>Maximum 20 exemplaires</error_message>
@@ -373,6 +370,7 @@
 	&lt;li&gt;A ce montant, devront&amp;nbsp;&amp;eacute;ventuellement s'ajouter les frais de port.&lt;/li&gt;
 &lt;/ul&gt;</label>
       <type>comment</type>
+      <display_locations />
       <id>73</id>
     </field><field>
       <label>Montant</label>
@@ -388,11 +386,8 @@
       </prefill><anonymise>True</anonymise>
       <id>80</id>
     </field>
-  </fields><user-roles>
-    <role role_id="a93e019556714b90b9d7519e72c420a5">Citoyen(test)</role>
-  </user-roles><roles>
-    <role role_id="2eaeba262b27443da8248a89cfc02b0d" role_key="_receiver">Agent traitant nselva</role>
-  </roles><options>
+  </fields><roles />
+  <options>
     <option varname="baec" />
     <option varname="cost">0</option>
     <option varname="cout">0</option>
