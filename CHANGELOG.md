@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.15] - 30-08-2021 -
+### Updated
+  - pop etat-civil form's with mode d'emploi
+
 ## [0.1.14] - 26-08-2021 -
 ### Updated
   - wf iMio - Gestion des rendez-vous et événements - package with documentation
