@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="98" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/98/">
+<workflow id="34" url="http://local-formulaires.example.net/backoffice/workflows/34/">
   <name>iMio - Changement d'adresse</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
@@ -46,15 +46,18 @@
               <value>=str(Decimal(form_var_wf_nbrpers_concern) * Decimal(form_option_prix_par_adulte_concerne_si_emmenagement_intramuros)) if vars().get('form_var_cp_ancienneadr')  in vars().get('form_option_cp_commune') else str(Decimal(form_var_wf_nbrpers_concern) * Decimal(form_option_prix_par_adulte_autre_commune))</value>
             </field>
           </fields>
-        </item><item id="3" type="jump">
+        </item><item id="2" type="jump">
           <status>21</status>
           <condition>
-            <type>python</type>
-            <value>vars().get('form_var_wf_paiement_en_ligne_raw') is False</value>
+            <type>django</type>
+            <value>not form_option_paiement_en_ligne</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="jump">
+        </item><item id="3" type="jump">
           <status>10</status>
-          <set_marker_on_status>False</set_marker_on_status>
+          <condition>
+            <type>django</type>
+            <value>form_option_paiement_en_ligne</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
@@ -222,7 +225,7 @@ Veuillez r&#233;gler votre commande.&lt;/p&gt;
 &lt;p&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;Acc&#233;der au panier&lt;/a&gt;
 &lt;/p&gt;</comment>
-        </item><item id="5" type="displaymsg">
+        </item><item id="3" type="displaymsg">
           <message>&lt;p&gt;L'article se trouve dans votre panier.&lt;br&gt;
 Veuillez r&#233;gler votre commande.&lt;/p&gt;
 &lt;p&gt;
@@ -230,11 +233,11 @@ Veuillez r&#233;gler votre commande.&lt;/p&gt;
 &lt;/p&gt;</message>
           <level>info</level>
           <position>top</position>
-        </item><item id="3" type="jump">
+        </item><item id="4" type="jump">
           <status>12</status>
           <trigger>cancelled</trigger>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="jump">
+        </item><item id="5" type="jump">
           <status>17</status>
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
@@ -349,6 +352,7 @@ Esplanade de l'H&#244;tel communal, 1
               </field><field>
                 <label>Le motif du refus sera envoy&#233; par mail &#224; l'usager.</label>
                 <type>comment</type>
+                <display_locations />
                 <id>4</id>
               </field><field>
                 <label>Objet du mail</label>
@@ -368,7 +372,10 @@ Esplanade de l'H&#244;tel communal, 1
                 <type>text</type>
                 <required>True</required>
                 <varname>body</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>formula</type>
                   <value>"Bonjour,\r\n\r\nNous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.\r\n\r\nLa raison de ce refus est la suivante : \r\n\r\n\r\n\r\nBien cordialement,\r\n\r\nLe service Population Etat civil "</value>
                 </prefill><pre>False</pre>
@@ -484,7 +491,7 @@ Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.</body
         </item><item id="5" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-usager-en-attente-du-virement</mail_template>
+          </to><mail_template>indus-citoyen-en-attente-du-virement</mail_template>
         </item>
       </items>
     </status><status>
@@ -600,7 +607,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>True</required>
                 <varname>rue</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>user</type>
                   <value>_street</value>
                 </prefill><anonymise>True</anonymise>
@@ -610,7 +620,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>True</required>
                 <varname>numero</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>user</type>
                   <value>_num_house</value>
                 </prefill><anonymise>True</anonymise>
@@ -620,7 +633,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>False</required>
                 <varname>boite</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>user</type>
                   <value>_num_box</value>
                 </prefill><anonymise>True</anonymise>
@@ -630,7 +646,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>True</required>
                 <varname>cp</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>user</type>
                   <value>_zipcode</value>
                 </prefill><anonymise>True</anonymise>
@@ -640,7 +659,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>True</required>
                 <varname>localite</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>user</type>
                   <value>_city</value>
                 </prefill><anonymise>True</anonymise>
@@ -650,7 +672,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>item</type>
                 <required>True</required>
                 <varname>pays</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>user</type>
                   <value>_country</value>
                 </prefill><items />
@@ -814,9 +839,9 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="184b1881-a50a-4d06-8ca5-1b97d2c682dc" type="manual">
+        <trigger id="2c82f3c1-3f24-4cf7-a6cb-64ba90d3ccf7" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -826,9 +851,9 @@ Le service Population / Etat-civil
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="abdf42bc-d60c-48c1-a829-a45784d41ed4" type="manual">
+        <trigger id="4a33d1ac-c88c-4f37-8a91-bf6ad77f08bb" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -841,9 +866,9 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="3d99b6c3-8ee6-440d-a086-61fa0222b540" type="manual">
+        <trigger id="7af7e752-fcdc-4fbe-aac7-9700dc023cf2" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -853,8 +878,10 @@ Le service Population / Etat-civil
       <items>
         <item id="1" type="anonymise" />
       </items><triggers>
-        <trigger id="1af73299-56f9-4009-8dd6-c1dbb97e0cee" type="timeout">
+        <trigger id="f4c14bb3-377c-4421-85e9-389b9971a3f5" type="timeout">
           <anchor>creation</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>30</timeout>
         </trigger>
       </triggers>
@@ -864,8 +891,10 @@ Le service Population / Etat-civil
       <items>
         <item id="1" type="anonymise" />
       </items><triggers>
-        <trigger id="3e626fa5-973d-486c-a490-5c061cfff384" type="timeout">
+        <trigger id="058849c4-0838-41b4-9761-9bac599edd70" type="timeout">
           <anchor>creation</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -880,7 +909,10 @@ Le service Population / Etat-civil
           <required>True</required>
           <hint>Indiquez le prix en euro(s) et en chiffre(s) (Exemple : 2 ou 3.50 )</hint>
           <varname>prix_par_adulte_autre_commune</varname>
-          <prefill>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
             <type>string</type>
             <value>"0"</value>
           </prefill><anonymise>True</anonymise>
@@ -891,7 +923,10 @@ Le service Population / Etat-civil
           <required>True</required>
           <hint>Indiquez le prix en euro(s) et en chiffre(s) (Exemple : 2 ou 3.50 )</hint>
           <varname>prix_par_adulte_concerne_si_emmenagement_intramuros</varname>
-          <prefill>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
             <type>string</type>
             <value>"0"</value>
           </prefill><anonymise>True</anonymise>
@@ -904,25 +939,22 @@ Le service Population / Etat-civil
 Coll&#233;s et s&#233;par&#233;s par une ","
 ex : 4000,4020,4030,4031</hint>
           <varname>cp_commune</varname>
-          <prefill>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>6</id>
-        </field><field>
-          <label>Url du document sur le site de Mon Dossier</label>
-          <type>string</type>
-          <required>False</required>
-          <varname>lien_mondossier</varname>
-          <prefill>
-            <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>7</id>
         </field><field>
           <label>IBAN</label>
           <type>string</type>
           <required>False</required>
           <varname>iban</varname>
-          <prefill>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>9</id>
@@ -932,7 +964,10 @@ ex : 4000,4020,4030,4031</hint>
           <required>False</required>
           <hint>---</hint>
           <varname>regie_de_paiement</varname>
-          <prefill>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
             <type>none</type>
           </prefill><items />
           <display_mode>list</display_mode>
@@ -944,6 +979,15 @@ ex : 4000,4020,4030,4031</hint>
           <display_disabled_items>False</display_disabled_items>
           <id>11</id>
         </field><field>
+          <label>Paiement en ligne</label>
+          <type>bool</type>
+          <required>False</required>
+          <varname>paiement_en_ligne</varname>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id>16</id>
+        </field><field>
           <label>Numero de T&#233;l&#233;phone</label>
           <type>string</type>
           <required>False</required>
@@ -952,7 +996,6 @@ ex : 4000,4020,4030,4031</hint>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>14</id>
@@ -964,7 +1007,6 @@ ex : 4000,4020,4030,4031</hint>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>15</id>
