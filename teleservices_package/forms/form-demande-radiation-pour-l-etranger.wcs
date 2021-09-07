@@ -16,8 +16,23 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category category_id="101">iMio - Population</category>
   <workflow workflow_id="39">iMio - Radiation pour l'&#233;tranger</workflow>
-  <max_field_id>100</max_field_id>
+  <max_field_id>101</max_field_id>
   <fields>
+    <field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/reglement_communal.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>101</id>
+    </field>
     <field>
       <label>Donn&#233;es du demandeur</label>
       <type>page</type>

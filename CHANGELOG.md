@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.16] - 07-09-2021 -
+### Updated
+  - form radiation pour l'étranger
+
 ## [0.1.15] - 30-08-2021 -
 ### Updated
   - pop etat-civil form's with mode d'emploi
