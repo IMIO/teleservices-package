@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="34" url="http://local-formulaires.example.net/backoffice/forms/34/">
-  <name>Inscription / de changement d'adresse dans la commune</name>
+  <name>Inscription / Changement d'adresse dans la commune</name>
   <url_name>demande-demande-d-inscription-de-changement-d-adresse-dans-la-commune</url_name>
   <description>Utilisez ce formulaire pour signaler votre d&#233;m&#233;nagement au sein-m&#234;me de votre commune actuelle.</description>
   <internal_identifier>demande-demande-d-inscription-de-changement-d-adresse-dans-la-commune</internal_identifier>
@@ -16,8 +16,23 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category category_id="101">iMio - Population</category>
   <workflow workflow_id="31">iMio - Changement d'adresse</workflow>
-  <max_field_id>71</max_field_id>
+  <max_field_id>72</max_field_id>
   <fields>
+    <field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/adresse_commune.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>72</id>
+    </field>
     <field>
       <label>Conditions d'obtention</label>
       <type>page</type>
