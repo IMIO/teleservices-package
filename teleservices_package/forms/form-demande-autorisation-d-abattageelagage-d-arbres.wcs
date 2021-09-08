@@ -14,7 +14,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="102">iMio - Environnement</category>
+  <category category_id="102">Environnement</category>
   <workflow workflow_id="16">iMio - Environnement - demande d'abattage d'arbre</workflow>
   <max_field_id>65</max_field_id>
   <fields>

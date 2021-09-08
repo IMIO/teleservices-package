@@ -14,7 +14,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="105">iMio - Finance</category>
+  <category category_id="105">Finance</category>
   <workflow workflow_id="32">iMio - Finances - D&#233;claration piscine priv&#233;e</workflow>
   <max_field_id>31</max_field_id>
   <fields>

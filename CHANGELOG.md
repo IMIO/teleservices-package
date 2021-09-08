@@ -8,6 +8,7 @@ teleservices-package changelog
 ## [0.1.18] - 07-09-2021 -
 ### Updated
   - form changement d'adresse with instruction
+  - category
 
 ## [0.1.17] - 07-09-2021 -
 ### Updated

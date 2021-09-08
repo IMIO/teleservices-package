@@ -14,7 +14,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="100">iMio - Emploi</category>
+  <category category_id="100">Emploi</category>
   <workflow workflow_id="20">iMio - Candidature Enseignement</workflow>
   <max_field_id>365</max_field_id>
   <fields>

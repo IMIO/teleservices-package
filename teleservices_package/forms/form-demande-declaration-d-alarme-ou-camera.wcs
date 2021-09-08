@@ -14,7 +14,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="106">iMio - Logement</category>
+  <category category_id="106">Logement</category>
   <workflow workflow_id="14">iMio - Redirection avec suppression</workflow>
   <max_field_id>2</max_field_id>
   <fields>
