@@ -4,7 +4,7 @@
   <slug>ajouter_un_fichier</slug>
   <fields>
     <field>
-      <label>fichier</label>
+      <label>Fichier</label>
       <type>file</type>
       <required>True</required>
       <varname>fichier</varname>
