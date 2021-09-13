@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="106" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/106/">
+<workflow id="26" url="http://local-formulaires.example.net/backoffice/workflows/26/">
   <name>iMio - Extrait casier judicaire</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
@@ -11,7 +11,7 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="2" type="set-backoffice-fields">
+        <item id="1" type="set-backoffice-fields">
           <label>D&#233;finition du demandeur</label>
           <fields>
             <field>
@@ -37,19 +37,19 @@
               <value>{% firstof form_tracking_code "Code de suivi d&#233;sactiv&#233; sur cette d&#233;marche" %}</value>
             </field>
           </fields>
-        </item><item id="3" type="jump">
+        </item><item id="2" type="jump">
           <status>13</status>
           <condition>
             <type>python</type>
             <value>Decimal(form_var_wf_total_commande) == Decimal('0') and form_var_destinations_price == '0.00'</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="jump">
+        </item><item id="3" type="jump">
           <status>21</status>
           <condition>
             <type>django</type>
             <value>form_option_paiement_en_ligne == 'False'</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="5" type="jump">
+        </item><item id="4" type="jump">
           <status>10</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -217,17 +217,24 @@ Le service Population / Etat-civil
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</comment>
-        </item><item id="5" type="displaymsg">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item id="3" type="displaymsg">
           <message>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</message>
+          <level>info</level>
           <position>top</position>
-        </item><item id="3" type="jump">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item id="4" type="jump">
           <status>12</status>
           <trigger>cancelled</trigger>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="jump">
+        </item><item id="5" type="jump">
           <status>17</status>
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
@@ -366,6 +373,7 @@ Le service Population / Etat-civil
               </field><field>
                 <label>Le motif du refus sera envoy&#233; par mail &#224; l'usager.</label>
                 <type>comment</type>
+                <display_locations />
                 <id>4</id>
               </field><field>
                 <label>Objet du mail</label>
@@ -385,7 +393,10 @@ Le service Population / Etat-civil
                 <type>text</type>
                 <required>True</required>
                 <varname>body</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>formula</type>
                   <value>"Bonjour,\r\n\r\nNous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.\r\n\r\nLa raison de ce refus est la suivante : \r\n\r\n\r\n\r\nBien cordialement,\r\n\r\nLe service Population Etat civil "</value>
                 </prefill><pre>False</pre>
@@ -624,7 +635,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>True</required>
                 <varname>rue</varname>
-                <extra_css_class>grid-2-4</extra_css_class>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><extra_css_class>grid-2-4</extra_css_class>
                 <prefill>
                   <type>user</type>
                   <value>_street</value>
@@ -635,7 +649,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>True</required>
                 <varname>numero</varname>
-                <extra_css_class>grid-1-4</extra_css_class>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><extra_css_class>grid-1-4</extra_css_class>
                 <prefill>
                   <type>user</type>
                   <value>_num_house</value>
@@ -646,7 +663,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>False</required>
                 <varname>boite</varname>
-                <extra_css_class>grid-1-4</extra_css_class>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><extra_css_class>grid-1-4</extra_css_class>
                 <prefill>
                   <type>user</type>
                   <value>_num_box</value>
@@ -657,7 +677,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>True</required>
                 <varname>cp</varname>
-                <extra_css_class>grid-1-4</extra_css_class>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><extra_css_class>grid-1-4</extra_css_class>
                 <prefill>
                   <type>user</type>
                   <value>_zipcode</value>
@@ -668,7 +691,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>string</type>
                 <required>True</required>
                 <varname>localite</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>user</type>
                   <value>_city</value>
                 </prefill><anonymise>True</anonymise>
@@ -678,7 +704,10 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <type>item</type>
                 <required>True</required>
                 <varname>pays</varname>
-                <prefill>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><prefill>
                   <type>user</type>
                   <value>_country</value>
                 </prefill><items />
@@ -839,9 +868,9 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="b97e6d0f-f690-41f6-864e-4168ba427892" type="manual">
+        <trigger id="ea178fc6-8c51-4b8c-a1c5-ff077bc71362" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -851,9 +880,9 @@ Le service Population / Etat-civil
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="ecaa6a93-c087-4eff-828d-55b216b292fc" type="manual">
+        <trigger id="1de1be26-a64d-425e-9bfd-e9aeff2459b1" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -866,9 +895,9 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="4bbd96ef-c6b9-4a95-a6ea-3c4bfeb2737e" type="manual">
+        <trigger id="aa1c1766-1e16-4a62-b44d-2b11598a17c5" type="manual">
           <roles>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -898,9 +927,9 @@ Le service Population / Etat-civil
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
-          </prefill><min_choices>0</min_choices>
+          </prefill><items />
+          <min_choices>0</min_choices>
           <max_choices>0</max_choices>
           <data_source>
             <type>passerelle_motifs</type>
@@ -918,7 +947,8 @@ Le service Population / Etat-civil
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><min_choices>0</min_choices>
+          </prefill><items />
+          <min_choices>0</min_choices>
           <max_choices>0</max_choices>
           <data_source>
             <type>passerelle_destinations</type>
@@ -948,7 +978,8 @@ Le service Population / Etat-civil
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><display_mode>list</display_mode>
+          </prefill><items />
+          <display_mode>list</display_mode>
           <data_source>
             <type>json</type>
             <value>{{portal_url}}/api/lingo/regies</value>
@@ -965,7 +996,6 @@ Le service Population / Etat-civil
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><id>12</id>
         </field><field>
@@ -976,7 +1006,6 @@ Le service Population / Etat-civil
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>14</id>

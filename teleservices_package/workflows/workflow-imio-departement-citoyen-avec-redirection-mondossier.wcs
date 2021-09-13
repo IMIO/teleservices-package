@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="28" url="http://local-formulaires.example.net/backoffice/workflows/28/">
+<workflow id="30" url="http://local-formulaires.example.net/backoffice/workflows/30/">
   <name>iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
@@ -81,13 +81,13 @@
             <item role_id="_submitter">_submitter</item>
           </to><subject>{{form_refus_var_object}}</subject>
           <body>{{form_refus_var_body}}</body>
-        </item><item id="4" type="jump">
+        </item><item id="3" type="jump">
           <status>25</status>
           <condition>
             <type>django</type>
             <value>form_var_wf_total_commande|add:0 &gt; 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="3" type="jump">
+        </item><item id="4" type="jump">
           <status>24</status>
           <condition>
             <type>django</type>
@@ -211,6 +211,9 @@ Bien cordialement,</body>
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</comment>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
         </item><item id="3" type="displaymsg">
           <message>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
@@ -218,6 +221,9 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
 &lt;p&gt;</message>
           <level>info</level>
           <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
         </item><item id="4" type="jump">
           <status>12</status>
           <trigger>cancelled</trigger>
@@ -729,9 +735,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="25d26bc0-7a0e-48bf-b86d-8b2d26dd4be8" type="manual">
+        <trigger id="86bd0ce8-54f9-425b-a665-3f86d1cfddb3" type="manual">
           <roles>
-            <item role_id="80f5ba50c0434cac8eb93f3916400a75">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -741,9 +747,9 @@ Cordialement, </body>
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="34573828-e7f1-4e4d-a4da-a67d754acecf" type="manual">
+        <trigger id="a76900fb-3989-486e-ab62-1419ea0d8f0d" type="manual">
           <roles>
-            <item role_id="80f5ba50c0434cac8eb93f3916400a75">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -757,9 +763,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="b91d9639-801a-4842-b4ba-fd034cd2c453" type="manual">
+        <trigger id="796952b9-57b6-48dd-a5c8-d91ce6fc810c" type="manual">
           <roles>
-            <item role_id="80f5ba50c0434cac8eb93f3916400a75">Debug</item>
+            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -774,10 +780,8 @@ Cordialement, </body>
           </condition>
         </item>
       </items><triggers>
-        <trigger id="9d1e5c9c-40b6-46b3-8ccf-d219af35ccff" type="timeout">
+        <trigger id="c6853c09-2990-49da-a070-b79d25da798a" type="timeout">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>31</timeout>
         </trigger>
       </triggers>
@@ -787,10 +791,8 @@ Cordialement, </body>
       <items>
         <item id="1" type="anonymise" />
       </items><triggers>
-        <trigger id="2acdaf15-b84d-4a26-bc23-40cc9dac739d" type="timeout">
+        <trigger id="6fdbac0a-ea71-4514-803a-55316e5b4dc0" type="timeout">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>

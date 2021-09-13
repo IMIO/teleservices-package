@@ -225,6 +225,9 @@ Veuillez r&#233;gler votre commande.&lt;/p&gt;
 &lt;p&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;Acc&#233;der au panier&lt;/a&gt;
 &lt;/p&gt;</comment>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
         </item><item id="3" type="displaymsg">
           <message>&lt;p&gt;L'article se trouve dans votre panier.&lt;br&gt;
 Veuillez r&#233;gler votre commande.&lt;/p&gt;
@@ -233,6 +236,9 @@ Veuillez r&#233;gler votre commande.&lt;/p&gt;
 &lt;/p&gt;</message>
           <level>info</level>
           <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
         </item><item id="4" type="jump">
           <status>12</status>
           <trigger>cancelled</trigger>
