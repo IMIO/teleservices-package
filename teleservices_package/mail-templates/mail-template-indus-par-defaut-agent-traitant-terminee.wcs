@@ -1,8 +1,9 @@
-<mail-template id="23">
+<?xml version="1.0"?>
+<mail-template id="57" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/57/">
   <name>Indus - Par d&#233;faut - Agent traitant - Termin&#233;e</name>
   <slug>indus-par-defaut-agent-traitant-terminee</slug>
   <description>Email envoy&#233; &#224; l'agent traitant lorsque la demande est clotur&#233;e.</description>
-  <subject>Demande cl&#244;tur&#233;e pour ({{ form_name }})</subject>
+  <subject>{{ form_name }} : Demande cl&#244;tur&#233;e</subject>
   <body>Bonjour,
 
 Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance

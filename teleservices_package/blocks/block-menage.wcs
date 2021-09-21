@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="1">
+<block id="15" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/15/">
   <name>iMio - Membres du m&#233;nage</name>
   <slug>menage</slug>
   <digest_template>Nom: {{menage_var_nom}} Pr&#233;nom: {{menage_var_prenom}} NN: {{menage_var_numero_national}}</digest_template>
@@ -21,7 +21,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-4-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bfb9b9a4db-de7e-473a-b8ff-b5ce3dbf50b1</id>
@@ -35,7 +34,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-4-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf2f3efece-1edc-4001-9f60-252dea8771d2</id>
@@ -49,7 +47,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf1a4a4902-8e4a-4a12-b1f0-8bdce2247086</id>

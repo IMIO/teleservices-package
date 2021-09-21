@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <formdef id="201" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/201/">
   <name>Emplacement de stationnement pour PMR</name>
-  <url_name>demande-</url_name>
-  <description>Ce formulaire permet aux personnes à mobilité réduite ou à leurs proches de faire la demande d'une place de stationnement adaptée.</description>
-  <internal_identifier>demande-demande-d-emplacement-de-stationnement-pour-pmr</internal_identifier>
+  <url_name>demande-emplacement-stationnement-pmr</url_name>
+  <description>Ce formulaire permet aux personnes &#224; mobilit&#233; r&#233;duite ou &#224; leurs proches de faire la demande d'une place de stationnement adapt&#233;e.</description>
+  <internal_identifier>demande-emplacement-stationnement-pmr</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">Mobilit&#233;</category>
-  <workflow workflow_id="153">iMio - Demande d'emplacement de stationnement pour PMR</workflow>
+  <category category_id="130">iMio - Mobilit&#233;</category>
+  <workflow workflow_id="128">iMio - Demande d'emplacement de stationnement pour PMR</workflow>
   <max_field_id>188</max_field_id>
   <fields>
     <field>
@@ -23,7 +23,7 @@
       <type>page</type>
       <id>116</id>
     </field><field>
-      <label>&lt;p&gt;Vous pouvez consulter le r&amp;egrave;glement communal &lt;a href="http://{{form_option_reglement_communal}}"&gt;en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
+      <label>&lt;p&gt;Vous pouvez &lt;a href="http://{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
@@ -40,7 +40,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>La personne concern&#233;e par l'emplacement de parking</item>
@@ -73,9 +72,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>139</id>
@@ -87,9 +86,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>140</id>
@@ -100,7 +99,6 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-2-4</extra_css_class>
       <prefill>
         <locked>False</locked>
@@ -114,7 +112,6 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
         <locked>False</locked>
@@ -148,7 +145,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
@@ -165,7 +161,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>134</id>
@@ -177,7 +172,6 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
         <locked>False</locked>
@@ -187,7 +181,7 @@
       </validation><anonymise>True</anonymise>
       <id>146</id>
     </field><field>
-      <label>Adresse e-mail</label>
+      <label>Adresse &#233;lectronique</label>
       <type>email</type>
       <required>False</required>
       <varname>email_perscon</varname>
@@ -218,9 +212,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -233,9 +227,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -250,7 +244,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -265,7 +258,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
@@ -283,7 +275,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -298,7 +289,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
@@ -316,7 +306,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
@@ -329,15 +318,15 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><anonymise>True</anonymise>
       <id>135</id>
     </field><field>
-      <label>Adresse e-mail</label>
+      <label>Adresse &#233;lectronique</label>
       <type>email</type>
       <required>True</required>
       <varname>email</varname>
@@ -391,7 +380,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
@@ -416,7 +404,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><max_items>6</max_items>
-      <add_element_label>+</add_element_label>
+      <add_element_label>Ajouter un fichier</add_element_label>
       <label_display>normal</label_display>
       <remove_button>True</remove_button>
       <id>184</id>
@@ -432,14 +420,13 @@
         <display_location>summary</display_location>
       </display_locations><id>8</id>
     </field><field>
-      <label>Le demandeur ou une personne composant le m&#233;nage a-t-il un v&#233;hicule?</label>
+      <label>Le demandeur ou une personne composant le m&#233;nage a-t-il un v&#233;hicule ?</label>
       <type>item</type>
       <required>True</required>
       <varname>voiture</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
         <locked>False</locked>
         <type>none</type>
@@ -453,14 +440,13 @@
       <initial_zoom>13</initial_zoom>
       <id>11</id>
     </field><field>
-      <label>Le demandeur ou une personne composant le m&#233;nage a-t-il un permis automobile?</label>
+      <label>Le demandeur ou une personne composant le m&#233;nage a-t-il un permis automobile ?</label>
       <type>item</type>
       <required>True</required>
       <varname>permis</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
         <locked>False</locked>
         <type>none</type>
@@ -481,7 +467,6 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
         <locked>False</locked>
         <type>none</type>
@@ -495,7 +480,7 @@
       <initial_zoom>13</initial_zoom>
       <id>171</id>
     </field><field>
-      <label>Le demandeur dispose-t-il d'un emplacement priv&#233; au domicile ou &#224; proximit&#233;?</label>
+      <label>Le demandeur dispose-t-il d'un emplacement priv&#233; au domicile ou &#224; proximit&#233; ?</label>
       <type>item</type>
       <required>True</required>
       <hint>Garage, emplacement ou all&#233;e carrossable.</hint>
@@ -503,7 +488,6 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
         <locked>False</locked>
         <type>none</type>
@@ -517,14 +501,13 @@
       <initial_zoom>13</initial_zoom>
       <id>9</id>
     </field><field>
-      <label>Est-il situ&#233; &#224; plus de 100 m de l'habitation?</label>
+      <label>Est-il situ&#233; &#224; plus de 100 m de l'habitation ?</label>
       <type>item</type>
       <required>True</required>
       <varname>distance</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
         <locked>False</locked>
         <type>none</type>
@@ -558,7 +541,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-2-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>155</id>
@@ -572,7 +554,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>156</id>
@@ -583,6 +564,7 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
+        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
         <locked>False</locked>
@@ -596,6 +578,7 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
+        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-2-3</extra_css_class>
       <prefill>
         <locked>False</locked>
@@ -616,7 +599,6 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
         <locked>False</locked>
         <type>none</type>
@@ -630,13 +612,12 @@
       <initial_zoom>13</initial_zoom>
       <id>15</id>
     </field><field>
-      <label>Y a-t-il une zone de stationnement du c&#244;t&#233; oppos&#233; &#224; l'habitation?</label>
+      <label>Y a-t-il une zone de stationnement du c&#244;t&#233; oppos&#233; &#224; l'habitation ?</label>
       <type>item</type>
       <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
         <locked>False</locked>
         <type>none</type>
@@ -650,14 +631,13 @@
       <initial_zoom>13</initial_zoom>
       <id>16</id>
     </field><field>
-      <label>Y a-t-il une zone de stationnement altern&#233;e par quinzaine?</label>
+      <label>Y a-t-il une zone de stationnement altern&#233;e par quinzaine ?</label>
       <type>item</type>
       <required>True</required>
       <varname>quinzaine</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
         <locked>False</locked>
         <type>none</type>
@@ -671,13 +651,13 @@
       <initial_zoom>13</initial_zoom>
       <id>17</id>
     </field><field>
-      <label>Le stationnement est-il interdit &#224; l'endroit de la demande? (ex. lignes jaunes, arr&#234;t de bus...)</label>
+      <label>Le stationnement est-il interdit &#224; l'endroit de la demande ?</label>
       <type>item</type>
       <required>True</required>
+      <hint>ex. lignes jaunes, arr&#234;t de bus...</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
         <locked>False</locked>
         <type>none</type>
@@ -699,12 +679,15 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>183</id>
     </field>
-  </fields><options />
+  </fields><user-roles>
+    <role role_id="97e7a2ec3963492583f1e67a7cbd140d"></role>
+  </user-roles><roles>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+  </roles><options />
   <custom_views />
   <geolocations />
 </formdef>

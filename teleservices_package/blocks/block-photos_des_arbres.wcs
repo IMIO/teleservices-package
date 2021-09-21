@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="20">
+<block id="12" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/12/">
   <name>iMio - Photos des arbres</name>
   <slug>photos_des_arbres</slug>
   <fields>
@@ -13,7 +13,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><document_type>
         <id>_image</id>

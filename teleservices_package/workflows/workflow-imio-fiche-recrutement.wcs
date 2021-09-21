@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="34" url="http://local-formulaires.example.net/backoffice/workflows/34/">
+<workflow id="116" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/116/">
   <name>iMio - Fiche - Recrutement</name>
   <roles>
     <role id="_editor">&#201;diteur</role>
@@ -19,7 +19,7 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="0" type="commentable">
+        <item id="1" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -29,7 +29,7 @@
             <type>django</type>
             <value>form_var_section == "Personnel administratif"</value>
           </condition>
-        </item><item id="1" type="commentable">
+        </item><item id="2" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -39,7 +39,7 @@
             <type>django</type>
             <value>form_var_section == "Personnel ouvrier"</value>
           </condition>
-        </item><item id="2" type="commentable">
+        </item><item id="3" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -49,7 +49,7 @@
             <type>django</type>
             <value>form_var_section == "Personnel social"</value>
           </condition>
-        </item><item id="3" type="commentable">
+        </item><item id="4" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -59,7 +59,7 @@
             <type>django</type>
             <value>form_var_section == "Personnel technique / sp&#233;cifique"</value>
           </condition>
-        </item><item id="4" type="commentable">
+        </item><item id="5" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -69,7 +69,7 @@
             <type>django</type>
             <value>form_var_section == "Personnel de nettoyage"</value>
           </condition>
-        </item><item id="5" type="commentable">
+        </item><item id="6" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -79,7 +79,7 @@
             <type>django</type>
             <value>form_var_section == "Personnel de cuisine"</value>
           </condition>
-        </item><item id="6" type="commentable">
+        </item><item id="7" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -89,7 +89,7 @@
             <type>django</type>
             <value>form_var_section == "Personnel du service enseignement"</value>
           </condition>
-        </item><item id="_action_delete" type="choice">
+        </item><item id="8" type="choice">
           <label>Supprimer la fiche</label>
           <by>
             <item role_id="_editor">_editor</item>
@@ -98,7 +98,7 @@
           <require_confirmation>True</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="7" type="commentable">
+        </item><item id="9" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -116,7 +116,7 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="_remove" type="remove" />
+        <item id="1" type="remove" />
       </items>
     </status>
   </possible_status>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="122" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/122/">
+<workflow id="93" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/93/">
   <name>iMio - Demande de Primes</name>
   <roles>
     <role id="_agent-traitant">Agents finances</role>
@@ -11,7 +11,18 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="jump">
+        <item id="2" type="set-backoffice-fields">
+          <label>Adresse</label>
+          <fields>
+            <field>
+              <field_id>bod391bd90-702b-4bd5-b842-eeddc7f71c06</field_id>
+              <value>{% if form_var_installation_a_domicile == "Oui" %}{{ form_var_rue }} n&#176;{{ form_var_numero_porte }} {{ form_var_boite|default_if_none:"" }} {{ form_var_code_postal }} {{ form_var_ville }}{% else %}{{ form_var_rue_installation }} n&#176;{{ form_var_numero_porte_installation }} {{ form_var_boite_installation|default_if_none:"" }} {{ form_var_code_postal_installation }} {{ form_var_ville_installation }}{% endif %}</value>
+            </field>
+          </fields><condition>
+            <type>django</type>
+            <value>form_var_installation_a_domicile</value>
+          </condition>
+        </item><item id="1" type="jump">
           <status>2</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -39,14 +50,6 @@
 
 
 {{ form_details }}</body>
-        </item><item id="3" type="choice">
-          <label>Rejouer</label>
-          <by>
-            <item role_id="43190215712647a89376713be142a4f5">Debug</item>
-          </by><status>1</status>
-          <require_confirmation>False</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
-          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
@@ -100,14 +103,8 @@
       <colour>0099FF</colour>
       <visibility />
       <items>
-        <item id="1" type="choice">
-          <label>Demande trait&#233;e</label>
-          <by>
-            <item role_id="_agent-traitant">_agent-traitant</item>
-          </by><status>6</status>
-          <require_confirmation>False</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
-          <set_marker_on_status>False</set_marker_on_status>
+        <item id="3" type="register-comment">
+          <comment>Montant de la prime : {{ prime_var_montant }}</comment>
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -118,20 +115,14 @@ Celle-ci est en cours de traitement.
 
 
 </body>
-        </item><item id="3" type="sendmail">
-          <to>
+        </item><item id="1" type="choice">
+          <label>Demande trait&#233;e</label>
+          <by>
             <item role_id="_agent-traitant">_agent-traitant</item>
-          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
-          <subject>{{ form_name }}</subject>
-          <body>La demande a &#233;t&#233; accept&#233;e, tu peux faire le paiement. 
-
-Voici le montant de la prime {{montant_var_prime}}
-
-Voici les d&#233;tails de la demande, que tu peux retrouver ici : `Lien vers la d&#233;marche {{form_name}} n&#176;{{form_number}} &lt;{{ form_url_backoffice }}&gt;`_
-
-{{ form_details }}
-
-</body>
+          </by><status>6</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
@@ -169,16 +160,27 @@ Le service finances de l'Administration communale de Burdinne
         <item id="1" type="form">
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><varname>montant</varname>
+          </by><varname>prime</varname>
           <formdef>
             <name>-</name>
             <fields>
               <field>
-                <label>Montant Prime</label>
+                <label>Montant de la prime</label>
+                <type>title</type>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><id>2</id>
+              </field><field>
+                <label>Montant accord&#233;</label>
                 <type>string</type>
                 <required>True</required>
-                <varname>prime</varname>
+                <hint>Indiquez ici le montant accord&#233; comme prime.</hint>
+                <varname>montant</varname>
+                <display_locations />
+                <extra_css_class>pk-important</extra_css_class>
                 <prefill>
+                  <locked>False</locked>
                   <type>none</type>
                 </prefill><anonymise>True</anonymise>
                 <id>1</id>
@@ -188,6 +190,10 @@ Le service finances de l'Administration communale de Burdinne
         </item><item id="2" type="jumponsubmit">
           <status>5</status>
           <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="3" type="sendmail">
+          <to>
+            <item role_id="_agent-traitant">_agent-traitant</item>
+          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
         </item>
       </items>
     </status>
@@ -203,12 +209,26 @@ Le service finances de l'Administration communale de Burdinne
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>1</id>
         </field>
       </fields>
     </formdef>
-  </variables>
+  </variables><backoffice-fields>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label>Adresse de l'installation</label>
+          <type>string</type>
+          <required>True</required>
+          <display_locations>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bod391bd90-702b-4bd5-b842-eeddc7f71c06</id>
+        </field>
+      </fields>
+    </formdef>
+  </backoffice-fields>
 </workflow>

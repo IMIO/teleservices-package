@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<workflow id="127" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/127/">
-  <name>iMio - Demande de pr&#234;t/location de mat&#233;riel</name>
+<workflow id="117" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/117/">
+  <name>iMio - Chien dangereux</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
   </roles><possible_status>
@@ -11,18 +11,7 @@
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="4" type="set-backoffice-fields">
-          <label>Synth&#232;se des adresses</label>
-          <fields>
-            <field>
-              <field_id>bo6de679ef-6c19-4ccf-9f6f-c3a66f0a4f39</field_id>
-              <value>{{form_var_rue_assoc}} {{form_var_numero_porte_assoc}} {{ form_var_boite_assoc|default_if_none:"" }} {{form_var_code_postal_assoc}} {{form_var_ville_assoc}}</value>
-            </field><field>
-              <field_id>bobf0ab0ec-b2e3-4bfd-a68a-0624b4005c5e</field_id>
-              <value>{{form_var_rue}} {{form_var_numero_porte}} {{ form_var_boite|default_if_none:"" }} {{form_var_code_postal}} {{form_var_ville}}</value>
-            </field>
-          </fields>
-        </item><item id="1" type="sendmail">
+        <item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
@@ -359,18 +348,6 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <name>-</name>
       <fields>
         <field>
-          <label>Code postal</label>
-          <type>string</type>
-          <required>True</required>
-          <varname>code_postal</varname>
-          <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <locked>False</locked>
-            <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>2</id>
-        </field><field>
           <label>Lien du r&#232;glement communal</label>
           <type>string</type>
           <required>False</required>
@@ -382,33 +359,32 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>1</id>
-        </field>
-      </fields>
-    </formdef>
-  </variables><backoffice-fields>
-    <formdef>
-      <name>-</name>
-      <fields>
-        <field>
-          <label>Adresse du demandeur</label>
-          <type>string</type>
-          <required>True</required>
-          <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bobf0ab0ec-b2e3-4bfd-a68a-0624b4005c5e</id>
         </field><field>
-          <label>Adresse de l'association</label>
-          <type>string</type>
+          <label>Liste des documents n&#233;cessaires</label>
+          <type>text</type>
           <required>True</required>
+          <varname>liste_documents</varname>
           <display_locations>
-            <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo6de679ef-6c19-4ccf-9f6f-c3a66f0a4f39</id>
+          </display_locations><prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><pre>False</pre>
+          <id>2</id>
+        </field><field>
+          <label>Informations compl&#233;mentaires</label>
+          <type>text</type>
+          <required>False</required>
+          <varname>informations_complementaires</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <locked>False</locked>
+            <type>none</type>
+          </prefill><pre>False</pre>
+          <id>3</id>
         </field>
       </fields>
     </formdef>
-  </backoffice-fields>
+  </variables>
 </workflow>

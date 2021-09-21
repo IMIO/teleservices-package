@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="10" url="http://local-formulaires.example.net/backoffice/forms/blocks/10/">
+<block id="17" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/17/">
   <name>iMio - Identit&#233; Changement Adresse</name>
   <slug>identite_changement_adresse</slug>
   <digest_template>{{identite_changement_adresse_var_nom}} {{identite_changement_adresse_var_prenom}} {{identite_changement_adresse_var_nrn}} {{identite_changement_adresse_var_lien_parente}}</digest_template>
@@ -40,7 +40,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bfbf0350ef-23e5-4690-81f6-2b105d525475</id>
@@ -55,7 +54,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf02110074-9e65-48f9-b33f-f771b564d50a</id>
@@ -71,8 +69,8 @@
         <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>False</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
+      <date_in_the_past>True</date_in_the_past>
+      <date_can_be_today>True</date_can_be_today>
       <id>bfdbc52ceb-9c6d-4c1a-b198-40f82f69989c</id>
     </field>
   </fields>

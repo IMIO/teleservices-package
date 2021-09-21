@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="97">Etat-Civil</category>
-  <workflow workflow_id="30">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="126">iMio - Etat-Civil</category>
+  <workflow workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>67</max_field_id>
   <fields>
     <field>
@@ -34,8 +34,7 @@
         <value>false</value>
       </condition><display_locations />
       <id>67</id>
-    </field>
-    <field>
+    </field><field>
       <label>Extrait/Copie int&#233;grale d'acte de Divorce</label>
       <type>page</type>
       <id>1</id>
@@ -208,7 +207,7 @@
         </post_condition>
       </post_conditions><id>40</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&#233;es de la &lt;u&gt;PERSONNE CONCERN&#201;E&lt;/u&gt; :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&amp;eacute;es de la personne concern&amp;eacute;e&amp;nbsp;:&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>41</id>
@@ -275,7 +274,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>46</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -414,7 +413,7 @@
         </post_condition>
       </post_conditions><id>11</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;u&gt;vos donn&amp;eacute;es :&lt;/u&gt;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>12</id>
@@ -486,7 +485,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>17</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -721,7 +720,7 @@
       <label>Montant</label>
       <type>string</type>
       <required>True</required>
-      <hint>Hors &#233;ventuels frais de port</hint>
+      <hint>Hors &#233;ventuels frais de port.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -732,8 +731,7 @@
       </prefill><anonymise>True</anonymise>
       <id>61</id>
     </field>
-  </fields><roles />
-  <options>
+  </fields><options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_etatcivil</option>
     <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>

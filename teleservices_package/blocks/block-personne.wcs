@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="28">
+<block id="4" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/4/">
   <name>iMio - Personne</name>
   <slug>personne</slug>
   <digest_template>{{personne_var_nom}} {{personne_var_prenom}}</digest_template>
@@ -14,7 +14,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf34e41962-f06d-4e12-9f61-0475499add92</id>
@@ -28,7 +27,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf7c1567a7-7283-476c-9919-6d5cb04f3059</id>

@@ -2,7 +2,7 @@
 <formdef id="55" url="http://local-formulaires.example.net/backoffice/forms/55/">
   <name>Pr&#234;t/location de mat&#233;riel</name>
   <url_name>demande-pretlocation-de-materiel</url_name>
-  <description>Vous souhaitez emprunter du mat&#233;riel aupr&#232;s du service Travaux? Faites-en la demande via ce formulaire en ligne.</description>
+  <description>Vous souhaitez emprunter du mat&#233;riel aupr&#232;s du service Travaux ? Faites-en la demande via ce formulaire en ligne.</description>
   <internal_identifier>demande-pretlocation-de-materiel</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="108">Travaux</category>
-  <workflow workflow_id="19">iMio - Demande de pr&#234;t/location de mat&#233;riel</workflow>
+  <category category_id="123">iMio - Travaux</category>
+  <workflow workflow_id="127">iMio - Demande de pr&#234;t/location de mat&#233;riel</workflow>
   <max_field_id>74</max_field_id>
   <fields>
     <field>
@@ -144,29 +144,16 @@
       </prefill><anonymise>True</anonymise>
       <id>8</id>
     </field><field>
-      <label>Num&#233;ro de GSM</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>gsm</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>user</type>
-        <value>_phone</value>
-      </prefill><anonymise>True</anonymise>
-      <id>9</id>
-    </field><field>
-      <label>Adresse e-mail</label>
+      <label>Adresse &#233;lectronique</label>
       <type>email</type>
       <required>False</required>
       <varname>email</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><prefill>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>10</id>
@@ -196,7 +183,7 @@
       <initial_zoom>13</initial_zoom>
       <id>13</id>
     </field><field>
-      <label>&lt;p&gt;Vous pouvez consulter le r&amp;egrave;glement communal &lt;a href="http://{{form_option_reglement_communal}}"&gt;en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
+      <label>&lt;p&gt;Vous pouvez &lt;a href="http://{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
@@ -385,12 +372,13 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Brocante</item>
         <item>Kermesse</item>
         <item>Autre</item>
-      </items><display_mode>list</display_mode>
+      </items><display_mode>radio</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
@@ -411,14 +399,16 @@
       </prefill><anonymise>True</anonymise>
       <id>70</id>
     </field><field>
-      <label>Lieu de la manifestation (pointez sur la carte)</label>
+      <label>Lieu de la manifestation</label>
       <type>map</type>
       <required>False</required>
+      <hint>Pointez l'endroit pr&#233;cis sur la carte.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-1</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><initial_zoom>13</initial_zoom>
       <init_with_geoloc>True</init_with_geoloc>
@@ -629,7 +619,7 @@
         <type>none</type>
       </prefill><id>61</id>
     </field><field>
-      <label>Panneaux de signlisation</label>
+      <label>Panneaux de signalisation</label>
       <type>block:panneaux_de_signalisation</type>
       <condition>
         <type>django</type>
@@ -639,7 +629,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><max_items>15</max_items>
-      <add_element_label>+</add_element_label>
+      <add_element_label>Ajouter un type de panneaux</add_element_label>
       <label_display>hidden</label_display>
       <remove_button>True</remove_button>
       <id>71</id>
@@ -803,7 +793,7 @@
       </display_locations><max_items>10</max_items>
       <add_element_label>Ajouter un type de mat&#233;riel</add_element_label>
       <label_display>normal</label_display>
-      <remove_button>False</remove_button>
+      <remove_button>True</remove_button>
       <id>72</id>
     </field><field>
       <label>Containers/poubelles</label>
@@ -827,15 +817,16 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
       </validation><anonymise>True</anonymise>
       <id>69</id>
     </field><field>
-      <label>Si autres, pr&#233;cisez</label>
+      <label>Si autres, pr&#233;cisez :</label>
       <type>text</type>
       <required>False</required>
       <display_locations>
@@ -843,6 +834,7 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>56</id>
@@ -859,8 +851,11 @@
       </prefill><pre>False</pre>
       <id>57</id>
     </field>
-  </fields><roles />
-  <options>
+  </fields><user-roles>
+    <role role_id="97e7a2ec3963492583f1e67a7cbd140d"></role>
+  </user-roles><roles>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+  </roles><options>
     <option varname="code_postal">5032,5031</option>
   </options><custom_views />
   <geolocations />

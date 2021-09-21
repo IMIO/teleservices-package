@@ -10,14 +10,14 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="2" type="displaymsg">
+        <item id="1" type="displaymsg">
           <message>{{form_option_texte_redirection}}</message>
           <level>info</level>
           <position>top</position>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item id="1" type="redirect_to_url">
+        </item><item id="2" type="redirect_to_url">
           <url>{{form_option_urlredirection}}</url>
         </item><item id="3" type="jump">
           <status>2</status>
@@ -55,7 +55,6 @@
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><pre>True</pre>
           <id>2</id>
@@ -68,7 +67,6 @@
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>1</id>

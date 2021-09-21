@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <formdef id="34" url="http://local-formulaires.example.net/backoffice/forms/34/">
   <name>Inscription / Changement d'adresse dans la commune</name>
-  <url_name>demande-demande-d-inscription-de-changement-d-adresse-dans-la-commune</url_name>
+  <url_name>demande-d-inscription-de-changement-d-adresse-dans-la-commune</url_name>
   <description>Utilisez ce formulaire pour signaler votre d&#233;m&#233;nagement au sein-m&#234;me de votre commune actuelle.</description>
-  <internal_identifier>demande-demande-d-inscription-de-changement-d-adresse-dans-la-commune</internal_identifier>
+  <internal_identifier>demande-d-inscription-de-changement-d-adresse-dans-la-commune</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,25 +14,10 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="101">Population</category>
-  <workflow workflow_id="31">iMio - Changement d'adresse</workflow>
-  <max_field_id>72</max_field_id>
+  <category category_id="132">iMio - Population</category>
+  <workflow workflow_id="109">iMio - Changement d'adresse</workflow>
+  <max_field_id>74</max_field_id>
   <fields>
-    <field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
-
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/adresse_commune.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;</label>
-      <type>comment</type>
-      <condition>
-        <type>django</type>
-        <value>false</value>
-      </condition><display_locations />
-      <id>72</id>
-    </field>
     <field>
       <label>Conditions d'obtention</label>
       <type>page</type>
@@ -64,10 +49,7 @@
     </field><field>
       <label>Coordonn&#233;es</label>
       <type>page</type>
-      <condition>
-        <type>django</type>
-        <value>form_var_nbre_pers|add:0 == form_var_bloc_identite|length</value>
-      </condition><id>1</id>
+      <id>1</id>
     </field><field>
       <label>Coordonn&#233;es</label>
       <type>title</type>
@@ -216,27 +198,32 @@
       </prefill><anonymise>True</anonymise>
       <id>8</id>
     </field><field>
-      <label>Nombre de personnes adultes (demandeur inclus) concern&#233;(es) par ce changement d'adresse :</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Veuillez indiquer le chiffre correspondant au nombre de personnes.</hint>
-      <varname>nbre_pers</varname>
+      <label>Est-ce que d'autres personnes vous accompagnent ?</label>
+      <type>item</type>
+      <required>False</required>
+      <varname>accompagne</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><prefill>
-        <type>string</type>
-        <value>1</value>
-      </prefill><validation>
-        <type>digits</type>
-      </validation><anonymise>True</anonymise>
-      <id>57</id>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items><display_mode>radio</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>74</id>
     </field><field>
-      <label>Identit&#233; des personnes concern&#233;es, la premi&#232;re &#233;tant la personne de r&#233;f&#233;rence du m&#233;nage</label>
+      <label>Identit&#233; des autres personnes concern&#233;es</label>
       <type>block:identite_changement_adresse</type>
       <condition>
         <type>django</type>
-        <value>form_var_nbre_pers|add:0 &gt;= 2</value>
+        <value>form_var_accompagne == 'Oui'</value>
       </condition><required>True</required>
       <varname>bloc_identite</varname>
       <display_locations>
@@ -253,7 +240,7 @@
       <type>page</type>
       <id>52</id>
     </field><field>
-      <label>Nouvelles adresse &#224; {{commune_name}}</label>
+      <label>Nouvelle adresse &#224; {{commune_name}}</label>
       <type>title</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -400,21 +387,44 @@
       <type>page</type>
       <id>40</id>
     </field><field>
-      <label>&lt;ul&gt;
-	&lt;li&gt;&lt;strong&gt;Lorsque l&amp;rsquo;agent de quartier sera pass&amp;eacute; pour la v&amp;eacute;rification de votre domicile, merci de patienter 2 semaines avant de vous pr&amp;eacute;senter au service population avec votre/vos carte(s) d&amp;rsquo;identit&amp;eacute; et code(s) pin pour finaliser votre inscription.&lt;/strong&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Veuillez pour ce faire prendre rendez-vous au {{form_option_numero_de_telephone}}.&lt;/strong&gt;&lt;/li&gt;
-	&lt;li&gt;Si vous ne connaissez&amp;nbsp;plus votre code PIN et n&amp;rsquo;&amp;ecirc;tes plus en possession du document reprenant le code PUK, veuillez commander un nouveau code puk en vous rendant sur le site &lt;a href="https://www.ibz.rrn.fgov.be/fr/documents-didentite/eid/demande-dun-code-pin/" target="_blank"&gt;Registre national&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</label>
+      <label>Suite de la proc&#233;dure</label>
+      <type>subtitle</type>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><id>72</id>
+    </field><field>
+      <label>&lt;p&gt;L'agent de quartier passera &amp;agrave; votre domicile dans les prochains jours ou les prochaines semaines afin de proc&amp;eacute;der &amp;agrave; la v&amp;eacute;rification de votre domicile.&lt;/p&gt;
+
+&lt;p&gt;Lorsque l&amp;rsquo;agent de quartier sera pass&amp;eacute;, merci de patienter 2 semaines avant de vous pr&amp;eacute;senter au service population avec votre/vos carte(s) d&amp;rsquo;identit&amp;eacute; et code(s) pin pour finaliser votre inscription.&lt;/p&gt;
+
+&lt;p&gt;{% if form_option_numero_de_telephone %}Veuillez&amp;nbsp;prendre rendez-vous au {{form_option_numero_de_telephone}}.{% endif %}&lt;/p&gt;
+
+&lt;p&gt;Si vous ne connaissez&amp;nbsp;plus votre code PIN et n&amp;rsquo;&amp;ecirc;tes plus en possession du document reprenant le code PUK, veuillez &lt;a href="https://www.ibz.rrn.fgov.be/fr/documents-didentite/eid/demande-dun-code-pin/" target="_blank"&gt;commander un nouveau code puk en vous rendant sur le site du Registre national&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;{% with nombre_personnes=form_var_bloc_identite|default_if_none:0|length|add:1 %}Montant de votre demande (hors frais de ports) : {% if&#160;form_var_cp_ancienneadr in form_option_cp_commune %}{{ nombre_personnes|multiply:form_option_prix_par_adulte_concerne_si_emmenagement_intramuros|decimal:2 }}{% elif&#160;form_var_cp_ancienneadr not in form_option_cp_commune %}{{ nombre_personnes|multiply:form_option_prix_par_adulte_autre_commune|decimal:2 }}{% endif %} &amp;euro;{% endwith %}&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>41</id>
+    </field><field>
+      <label>J'ai bien pris connaissance de ces informations.</label>
+      <type>bool</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><id>73</id>
     </field>
   </fields><roles>
-    <role role_id="44eaaf9fdeb04e2a9ab515e7356069fe" role_key="_receiver">Agents traitants - Population, etat civil</role>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_validateur-pc-banking"></role>
   </roles><options>
     <option varname="baec" />
     <option varname="cout" />
-    <option varname="cp_commune" />
+    <option varname="cp_commune"></option>
     <option varname="iban" />
     <option varname="lien_mondossier" />
     <option varname="mode_recup_disponibles" />
@@ -424,10 +434,10 @@
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="numero_de_telephone" />
-    <option varname="prix_par_adulte_autre_commune">7</option>
-    <option varname="prix_par_adulte_concerne_si_emmenagement_intramuros">4</option>
-    <option varname="regie_de_paiement">atos_test</option>
-    <option varname="regie_de_paiement_display">Atos test</option>
+    <option varname="prix_par_adulte_autre_commune"></option>
+    <option varname="prix_par_adulte_concerne_si_emmenagement_intramuros"></option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
   </options><custom_views />

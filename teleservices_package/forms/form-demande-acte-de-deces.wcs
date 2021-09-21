@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="97">Etat-Civil</category>
-  <workflow workflow_id="30">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="126">iMio - Etat-Civil</category>
+  <workflow workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>68</max_field_id>
   <fields>
     <field>
@@ -34,8 +34,7 @@
         <value>false</value>
       </condition><display_locations />
       <id>68</id>
-    </field>
-    <field>
+    </field><field>
       <label>Extrait/Copie int&#233;grale d'acte de D&#233;c&#232;s</label>
       <type>page</type>
       <id>2</id>
@@ -110,7 +109,7 @@
         </post_condition>
       </post_conditions><id>14</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder &lt;/span&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;LES COORDONNEES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt; DE LA PERSONNE DECEDEE : &lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder &lt;u&gt;les coordonn&amp;eacute;es de la personne d&amp;eacute;c&amp;eacute;d&amp;eacute;e :&lt;/u&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>15</id>
@@ -168,7 +167,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>20</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -276,7 +275,7 @@
         </post_condition>
       </post_conditions><id>34</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&lt;u&gt;vos donn&amp;eacute;es&amp;nbsp;&lt;/u&gt;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>35</id>
@@ -345,7 +344,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>40</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -569,7 +568,7 @@
       <label>Montant</label>
       <type>string</type>
       <required>True</required>
-      <hint>Hors &#233;ventuels frais de port</hint>
+      <hint>Hors &#233;ventuels frais de port.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -580,8 +579,7 @@
       </prefill><anonymise>True</anonymise>
       <id>67</id>
     </field>
-  </fields><roles />
-  <options>
+  </fields><options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_etatcivil</option>
     <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>

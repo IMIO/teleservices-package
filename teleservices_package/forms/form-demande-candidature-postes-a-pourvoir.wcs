@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="100">Emploi</category>
-  <workflow workflow_id="35">iMio - Candidature postes &#224; pourvoir</workflow>
+  <category category_id="131">iMio - Emploi</category>
+  <workflow workflow_id="115">iMio - Candidature postes &#224; pourvoir</workflow>
   <max_field_id>277</max_field_id>
   <fields>
     <field>
@@ -23,13 +23,13 @@
       <type>page</type>
       <id>98</id>
     </field><field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature spontan&amp;eacute;e&amp;quot;&lt;/h1&gt;
+      <label>&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature à pourvoir&amp;quot;&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/candidature_spontanee.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/poste_pourvoir.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="{{site_url_backoffice}}/data/" rel="noopener noreferrer" target="_blank"&gt;Modifier la liste des fonctions et les institutions&lt;/a&gt;&lt;/p&gt;</label>
+&lt;p&gt;&lt;a href="{{site_url_backoffice}}/data/" rel="noopener noreferrer" target="_blank"&gt;Modifier la liste des fonctions&lt;/a&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
@@ -45,9 +45,11 @@
       </display_locations><id>264</id>
     </field><field>
       <label>&lt;p&gt;{% for i in data_source.poste_a_pourvoir %}&lt;br /&gt;
-Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
+Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}}&lt;br /&gt;
 {{i.fields.description}}&lt;br /&gt;
-{% endfor %}&lt;/p&gt;</label>
+{% endfor %}&lt;/p&gt;
+
+&lt;hr /&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>276</id>
@@ -60,7 +62,8 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><prefill>
+      </display_locations><extra_css_class>pk-important</extra_css_class>
+      <prefill>
         <locked>False</locked>
         <type>none</type>
       </prefill><min_choices>0</min_choices>
@@ -100,7 +103,6 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -116,7 +118,6 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -132,7 +133,6 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-2-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -148,7 +148,6 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><anonymise>True</anonymise>
@@ -164,7 +163,6 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -180,7 +178,6 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
@@ -199,7 +196,6 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise>True</anonymise>
@@ -276,7 +272,6 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>270</id>
@@ -314,17 +309,19 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>list</display_mode>
+      </items><display_mode>radio</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
       <id>17</id>
     </field><field>
-      <label>Souhaitez-vous travailler : </label>
+      <label>Souhaitez-vous travailler &#224;</label>
       <type>item</type>
       <required>False</required>
       <display_locations>
@@ -333,17 +330,19 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Temps plein</item>
         <item>Temps partiel</item>
-      </items><display_mode>list</display_mode>
+      </items><display_mode>radio</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
       <id>18</id>
     </field><field>
-      <label>&#202;tes-vous reconnu par l'AVIQ?</label>
+      <label>&#202;tes-vous reconnu par l'AVIQ ?</label>
       <type>item</type>
       <required>False</required>
       <display_locations>
@@ -352,14 +351,16 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
-        <item>Non</item>
         <item>Oui</item>
-      </items><display_mode>list</display_mode>
+        <item>Non</item>
+      </items><display_mode>radio</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
       <id>19</id>
     </field><field>
       <label>Etudes et formations</label>
@@ -369,7 +370,7 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
           <condition>
             <type>django</type>
             <value>'no_diplome' in form_var_diplomes_raw and form_var_diplomes_structured|length == 1 or 'no_diplome' not in form_var_diplomes_raw</value>
-          </condition><error_message>Vous avez fait une erreur en compl&#233;tant la liste des dipl&#244;mes</error_message>
+          </condition><error_message>Vous avez fait une erreur en compl&#233;tant la liste des dipl&#244;mes.</error_message>
         </post_condition>
       </post_conditions><id>20</id>
     </field><field>
@@ -400,7 +401,7 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       <display_disabled_items>False</display_disabled_items>
       <id>22</id>
     </field><field>
-      <label>Avez-vous suivis une (des) formation(s)?</label>
+      <label>Avez-vous suivi une (des) formation(s) ?</label>
       <type>item</type>
       <required>True</required>
       <hint>Par ex : formation continue</hint>
@@ -410,6 +411,7 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -421,7 +423,7 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       <initial_zoom>13</initial_zoom>
       <id>23</id>
     </field><field>
-      <label>Avez-vous de l'exp&#233;rience professionnelle?</label>
+      <label>Avez-vous de l'exp&#233;rience professionnelle ?</label>
       <type>item</type>
       <required>True</required>
       <varname>xp_professionnelle</varname>
@@ -429,14 +431,15 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
-      </prefill><items />
-      <display_mode>radio</display_mode>
+      </prefill><display_mode>radio</display_mode>
       <data_source>
         <type>do_you_work</type>
       </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
       <id>24</id>
     </field><field>
       <label>Niveau en langues</label>
@@ -552,36 +555,19 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       </prefill><anonymise>True</anonymise>
       <id>33</id>
     </field><field>
-      <label>Dipl&#244;me obtenu</label>
-      <type>item</type>
-      <required>False</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><items>
-        <item>Oui</item>
-        <item>Non</item>
-      </items><display_mode>list</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>34</id>
-    </field><field>
       <label>Date d'obtention du dipl&#244;me</label>
       <type>date</type>
       <required>False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>False</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
+      <date_in_the_past>True</date_in_the_past>
+      <date_can_be_today>True</date_can_be_today>
       <id>35</id>
     </field><field>
       <label>Secondaire sup&#233;rieur</label>
@@ -644,24 +630,6 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       </prefill><anonymise>True</anonymise>
       <id>40</id>
     </field><field>
-      <label>Dipl&#244;me obtenu</label>
-      <type>item</type>
-      <required>False</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><items>
-        <item>Oui</item>
-        <item>Non</item>
-      </items><display_mode>list</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>41</id>
-    </field><field>
       <label>Copie du dipl&#244;me obtenu</label>
       <type>title</type>
       <display_locations>
@@ -689,12 +657,13 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>False</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
+      <date_in_the_past>True</date_in_the_past>
+      <date_can_be_today>True</date_can_be_today>
       <id>44</id>
     </field><field>
       <label>Sup&#233;rieur type court (Bachelor/Graduat)</label>
@@ -720,7 +689,7 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       </display_locations><max_items>5</max_items>
       <add_element_label>Ajouter un Dipl&#244;me</add_element_label>
       <label_display>subtitle</label_display>
-      <remove_button>False</remove_button>
+      <remove_button>True</remove_button>
       <id>259</id>
     </field><field>
       <label>Sup&#233;rieur type long (Master/Licence)</label>
@@ -746,7 +715,7 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       </display_locations><max_items>5</max_items>
       <add_element_label>Ajouter un Dipl&#244;me</add_element_label>
       <label_display>subtitle</label_display>
-      <remove_button>False</remove_button>
+      <remove_button>True</remove_button>
       <id>261</id>
     </field><field>
       <label>Autres formations</label>
@@ -772,7 +741,7 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       </display_locations><max_items>15</max_items>
       <add_element_label>Ajouter une formation</add_element_label>
       <label_display>hidden</label_display>
-      <remove_button>False</remove_button>
+      <remove_button>True</remove_button>
       <id>263</id>
     </field><field>
       <label>Emploi actuel</label>
@@ -864,7 +833,7 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       </display_locations><max_items>20</max_items>
       <add_element_label>Ajouter</add_element_label>
       <label_display>hidden</label_display>
-      <remove_button>False</remove_button>
+      <remove_button>True</remove_button>
       <id>268</id>
     </field><field>
       <label>Motivation, CV et autres pi&#232;ces jointes</label>
@@ -920,10 +889,10 @@ Section {{i.fields.section}} : {{i.fields.fonction}}&lt;br /&gt;
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>1</max_items>
-      <add_element_label />
+      </display_locations><max_items>5</max_items>
+      <add_element_label>Ajouter un document</add_element_label>
       <label_display>normal</label_display>
-      <remove_button>False</remove_button>
+      <remove_button>True</remove_button>
       <id>273</id>
     </field>
   </fields><user-roles>

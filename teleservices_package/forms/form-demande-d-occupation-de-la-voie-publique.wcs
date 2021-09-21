@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <formdef id="274" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/274/">
   <name>Occupation de la voie publique</name>
-  <url_name>demande-demande-d-occupation-de-la-voie-publique</url_name>
+  <url_name>demande-d-occupation-de-la-voie-publique</url_name>
   <description>Pour demander l'autorisation d'installer un container, d'un &#233;chaffaudage ou de tout autre mat&#233;riel sur la voie publique, vous pouvez compl&#233;ter ce formulaire.</description>
-  <internal_identifier>demande-demande-d-occupation-de-la-voie-publique</internal_identifier>
+  <internal_identifier>demande-d-occupation-de-la-voie-publique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,9 +14,9 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">Travaux</category>
-  <workflow workflow_id="202">iMio - Occupation de la voie publique</workflow>
-  <max_field_id>257</max_field_id>
+  <category category_id="123">iMio - Travaux</category>
+  <workflow workflow_id="118">iMio - Occupation de la voie publique</workflow>
+  <max_field_id>262</max_field_id>
   <fields>
     <field>
       <label>Demandeur</label>
@@ -31,22 +31,24 @@
           <condition>
             <type>django</type>
             <value>today|date|add_working_days:form_option_jours_minimum &lt; form_var_datedebut|date</value>
-          </condition><error_message>Date de d&#233;but trop t&#244;t.</error_message>
+          </condition><error_message>La date indiqu&#233;e n'est pas sup&#233;rieure au d&#233;lais de 5 jours demand&#233;s. Veuillez indiquer une date ult&#233;rieure.</error_message>
         </post_condition>
       </post_conditions><id>1</id>
     </field><field>
-      <label>Vous &#234;tes:</label>
+      <label>Vous &#234;tes :</label>
       <type>item</type>
       <required>True</required>
       <varname>typedemandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
+        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
-        <item>un particulier</item>
-        <item>un entrepreneur</item>
+        <item>Un particulier</item>
+        <item>Un entrepreneur</item>
       </items><display_mode>radio</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
@@ -61,14 +63,14 @@
         <display_location>summary</display_location>
       </display_locations><id>3</id>
     </field><field>
-      <label>&lt;p&gt;Les demandes d'occupation de la voie publique doivent &amp;ecirc;tre introduites au plus tard &lt;span class="varname"&gt;{{ form_option_jours_minimum }}&lt;/span&gt; jours ouvrables avant le d&amp;eacute;but de l'occupation.&lt;/p&gt;
+      <label>&lt;p&gt;Les demandes d'occupation de la voie publique doivent &amp;ecirc;tre introduites &lt;strong&gt;au plus tard &lt;span class="varname"&gt;{{ form_option_jours_minimum }}&lt;/span&gt; jours ouvrables&lt;/strong&gt; avant le d&amp;eacute;but de l'occupation.&lt;/p&gt;
 
 &lt;p&gt;Ce d&amp;eacute;lai peut-&amp;ecirc;tre plus long si une d&amp;eacute;cision du Coll&amp;egrave;ge communal est n&amp;eacute;cessaire.&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>4</id>
     </field><field>
-      <label>&lt;p&gt;Vous pouvez consulter le r&amp;egrave;glement communal &lt;a href="http://{{form_option_reglement_communal}}"&gt;en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
+      <label>&lt;p&gt;Vous pouvez &lt;a href="http://{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
@@ -76,7 +78,7 @@
       </condition><display_locations />
       <id>238</id>
     </field><field>
-      <label>Du : </label>
+      <label>Du :</label>
       <type>date</type>
       <required>True</required>
       <varname>datedebut</varname>
@@ -86,11 +88,50 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-3</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>True</minimum_is_future>
       <date_in_the_past>False</date_in_the_past>
       <date_can_be_today>False</date_can_be_today>
       <id>5</id>
+    </field><field>
+      <label>Heure</label>
+      <type>item</type>
+      <required>False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-12</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><display_mode>list</display_mode>
+      <data_source>
+        <type>heure</type>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>241</id>
+    </field><field>
+      <label>Minutes</label>
+      <type>item</type>
+      <required>False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-12</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><display_mode>list</display_mode>
+      <data_source>
+        <type>minute</type>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>242</id>
     </field><field>
       <label>Au :</label>
       <type>date</type>
@@ -100,15 +141,16 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class>newline grid-1-3</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>True</minimum_is_future>
       <date_in_the_past>False</date_in_the_past>
       <date_can_be_today>False</date_can_be_today>
       <id>6</id>
     </field><field>
-      <label>H</label>
+      <label>Heure</label>
       <type>item</type>
       <required>False</required>
       <display_locations>
@@ -116,18 +158,18 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-12</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
-      </prefill><items />
-      <display_mode>list</display_mode>
+      </prefill><display_mode>list</display_mode>
       <data_source>
         <type>heure</type>
       </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <initial_zoom>13</initial_zoom>
-      <id>241</id>
+      <id>259</id>
     </field><field>
-      <label>M</label>
+      <label>Minutes</label>
       <type>item</type>
       <required>False</required>
       <display_locations>
@@ -135,16 +177,16 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-12</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
-      </prefill><items />
-      <display_mode>list</display_mode>
+      </prefill><display_mode>list</display_mode>
       <data_source>
         <type>minute</type>
       </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <initial_zoom>13</initial_zoom>
-      <id>242</id>
+      <id>260</id>
     </field><field>
       <label>Coordonn&#233;es entrepreneur</label>
       <type>page</type>
@@ -160,7 +202,7 @@
         </post_condition>
       </post_conditions><id>9</id>
     </field><field>
-      <label>N&#176; de TVA </label>
+      <label>N&#176; de TVA</label>
       <type>string</type>
       <required>True</required>
       <hint>ex : BE0841470248</hint>
@@ -168,9 +210,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>10</id>
@@ -200,15 +242,15 @@
       </prefill><anonymise>True</anonymise>
       <id>12</id>
     </field><field>
-      <label>Nom de l'entrepreneur </label>
+      <label>Nom de l'entrepreneur</label>
       <type>string</type>
       <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>13</id>
@@ -219,9 +261,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>14</id>
@@ -232,9 +274,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><size>[0-9]*</size>
       <anonymise>True</anonymise>
@@ -246,9 +288,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>16</id>
@@ -259,9 +301,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
@@ -275,9 +317,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-3-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>18</id>
@@ -289,24 +331,24 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>phone</type>
       </validation><anonymise>True</anonymise>
       <id>19</id>
     </field><field>
-      <label>E-mail</label>
+      <label>Adresse &#233;lectronique</label>
       <type>email</type>
       <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><id>20</id>
     </field><field>
@@ -330,9 +372,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise>True</anonymise>
@@ -344,9 +386,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise>True</anonymise>
@@ -358,9 +400,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise>True</anonymise>
@@ -386,9 +428,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise>True</anonymise>
@@ -427,9 +469,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
@@ -437,16 +479,16 @@
       </validation><anonymise>True</anonymise>
       <id>43</id>
     </field><field>
-      <label>E-mail</label>
+      <label>Adresse &#233;lectronique</label>
       <type>email</type>
       <required>True</required>
       <varname>email</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>44</id>
@@ -457,9 +499,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>45</id>
@@ -488,13 +530,15 @@
         <display_location>summary</display_location>
       </display_locations><id>47</id>
     </field><field>
-      <label>Type d'occupation</label>
+      <label>Portion de voirie occup&#233;e</label>
       <type>item</type>
       <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
+        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Occupation en semi-voirie</item>
@@ -508,41 +552,44 @@
     </field><field>
       <label>Rue</label>
       <type>string</type>
-      <required>False</required>
+      <required>True</required>
+      <varname>rue_chantier</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>48</id>
     </field><field>
       <label>Num&#233;ro</label>
       <type>string</type>
-      <required>False</required>
+      <required>True</required>
+      <varname>numero_chantier</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
-        <type>regex</type>
-        <value>[0-9]*</value>
+        <type>digits</type>
       </validation><anonymise>True</anonymise>
       <id>49</id>
     </field><field>
       <label>Bo&#238;te</label>
       <type>string</type>
       <required>False</required>
+      <varname>boite_chantier</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>50</id>
@@ -555,9 +602,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>7100</item>
@@ -605,8 +652,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -624,8 +671,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -643,12 +690,13 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
         <item>Non</item>
+        <item>Je ne sais pas</item>
       </items><display_mode>radio</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
@@ -662,8 +710,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -681,8 +729,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -700,12 +748,13 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
         <item>Non</item>
+        <item>Je ne sais pas</item>
       </items><display_mode>radio</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
@@ -719,8 +768,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -739,8 +788,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -758,8 +807,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -773,111 +822,34 @@
     </field><field>
       <label>Autres informations utiles &#224; la r&#233;daction de l&#8217;arr&#234;t&#233; / divers</label>
       <type>text</type>
-      <required>True</required>
+      <required>False</required>
+      <hint>Optionnel.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>226</id>
-    </field><field>
-      <label>Des &#233;chafaudages seront-ils n&#233;cessaires ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>echaf</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><items>
-        <item>Oui</item>
-        <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>228</id>
-    </field><field>
-      <label>De quel type ?</label>
-      <type>item</type>
-      <condition>
-        <type>django</type>
-        <value>form_var_echaf == "Oui"</value>
-      </condition><required>True</required>
-      <varname>echaf_type</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><items>
-        <item>Echafaudage non sur&#233;lev&#233;, avec trottoir assez large pour le passage des pi&#233;tons</item>
-        <item>Echafaudage sur&#233;lev&#233; avec passage pi&#233;tons (en-dessous)</item>
-        <item>Echafaudage non sur&#233;lev&#233; avec couloir de s&#233;curit&#233; pour pi&#233;tons</item>
-      </items><display_mode>list</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>229</id>
-    </field><field>
-      <label>Longueur de l'&#233;chafaudage</label>
-      <type>string</type>
-      <condition>
-        <type>django</type>
-        <value>form_var_echaf == "Oui"</value>
-      </condition><required>True</required>
-      <hint>En m&#232;tres.</hint>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><validation>
-        <type>digits</type>
-      </validation><anonymise>True</anonymise>
-      <id>230</id>
-    </field><field>
-      <label>Largeur de l'&#233;chafaudage</label>
-      <type>string</type>
-      <condition>
-        <type>django</type>
-        <value>form_var_echaf == "Oui"</value>
-      </condition><required>True</required>
-      <hint>En m&#232;tres.</hint>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><validation>
-        <type>digits</type>
-      </validation><anonymise>True</anonymise>
-      <id>231</id>
     </field><field>
       <label>Descriptif de l&#8217;occupation de la voirie et mat&#233;riel</label>
       <type>page</type>
       <id>61</id>
     </field><field>
-      <label>Type d&#8217;occupation</label>
+      <label>Raison de l'occupation</label>
       <type>item</type>
       <condition>
         <type>django</type>
-        <value>form_var_typedemandeur == "un particulier"</value>
+        <value>form_var_typedemandeur == "Un particulier"</value>
       </condition><required>True</required>
-      <varname>type_trav</varname>
+      <varname>raison_occupation</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>D&#233;m&#233;nagement</item>
@@ -898,12 +870,14 @@
       <type>text</type>
       <condition>
         <type>django</type>
-        <value>form_var_type_trav == "Autre : &#224; pr&#233;ciser"</value>
+        <value>"autre" in form_var_raison_occupation|lower</value>
       </condition><required>True</required>
+      <varname>raison_occupation_autre</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><pre>True</pre>
       <id>250</id>
@@ -929,13 +903,12 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Container</item>
         <item>Echafaudage</item>
-        <item>Echafaudage avec passage pour pi&#233;tons</item>
         <item>Monte-charge</item>
         <item>Nacelle</item>
         <item>D&#233;p&#244;t de mat&#233;riaux</item>
@@ -950,17 +923,83 @@
       <display_disabled_items>False</display_disabled_items>
       <id>63</id>
     </field><field>
-      <label>Autre mat&#233;riel d&#233;pos&#233;:</label>
-      <type>text</type>
+      <label>Type d'&#233;chafaudage</label>
+      <type>item</type>
       <condition>
         <type>django</type>
-        <value>'autre' in form_var_materiel_depose</value>
-      </condition><required>False</required>
+        <value>"Echafaudage" in form_var_materiel_depose</value>
+      </condition><required>True</required>
+      <hint>--- S&#233;lectionnez le type d'&#233;chafaudage ---</hint>
+      <varname>echaf_type</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><prefill>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><items>
+        <item>Echafaudage non sur&#233;lev&#233;, avec trottoir assez large pour le passage des pi&#233;tons</item>
+        <item>Echafaudage sur&#233;lev&#233; avec passage pi&#233;tons (en-dessous)</item>
+        <item>Echafaudage non sur&#233;lev&#233; avec couloir de s&#233;curit&#233; pour pi&#233;tons</item>
+      </items><display_mode>list</display_mode>
+      <in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>229</id>
+    </field><field>
+      <label>Longueur de l'&#233;chafaudage</label>
+      <type>string</type>
+      <condition>
+        <type>django</type>
+        <value>"Echafaudage" in form_var_materiel_depose</value>
+      </condition><required>True</required>
+      <hint>En m&#232;tres.</hint>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><validation>
+        <type>digits</type>
+      </validation><anonymise>True</anonymise>
+      <id>230</id>
+    </field><field>
+      <label>Largeur de l'&#233;chafaudage</label>
+      <type>string</type>
+      <condition>
+        <type>django</type>
+        <value>"Echafaudage" in form_var_materiel_depose</value>
+      </condition><required>True</required>
+      <hint>En m&#232;tres.</hint>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><validation>
+        <type>digits</type>
+      </validation><anonymise>True</anonymise>
+      <id>231</id>
+    </field><field>
+      <label>Autre mat&#233;riel d&#233;pos&#233; :</label>
+      <type>text</type>
+      <condition>
+        <type>django</type>
+        <value>'Autre' in form_var_materiel_depose</value>
+      </condition><required>False</required>
+      <hint>Optionnel.</hint>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><rows>5</rows>
       <pre>False</pre>
@@ -976,8 +1015,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -997,9 +1036,9 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-        <display_location>listings</display_location>
       </display_locations><extra_css_class>hidden</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
@@ -1053,10 +1092,9 @@
       <storage>default</storage>
       <id>254</id>
     </field><field>
-      <label>Autres</label>
+      <label>Tout autre document utile &#224; votre demande</label>
       <type>block:ajouter_un_fichier</type>
       <required>False</required>
-      <hint>(faire-part enterrement par ex.)</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -1066,13 +1104,17 @@
       <remove_button>True</remove_button>
       <id>256</id>
     </field>
-  </fields><options>
-    <option varname="jours_feries">06/01/2017, 17/04/2017, 01/05/2017, 08/05/2017, 25/05/2017, 05/06/2017, 21/07/2017, 15/08/2017, 01/11/2017, 25/12/2017</option>
+  </fields><roles>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_agent-traitant-taxation"></role>
+  </roles><options>
+    <option varname="form_option_jours_minimum">5</option>
+    <option varname="jours_feries"></option>
     <option varname="jours_minimum">5</option>
     <option varname="legal_holiday" />
     <option varname="legal_holidays" />
-    <option varname="localites">Leroux, Sart-Saint-Laurent, Vitrival</option>
-    <option varname="reglement_communal" />
+    <option varname="localites"></option>
+    <option varname="reglement_communal"></option>
   </options><custom_views />
   <geolocations />
 </formdef>

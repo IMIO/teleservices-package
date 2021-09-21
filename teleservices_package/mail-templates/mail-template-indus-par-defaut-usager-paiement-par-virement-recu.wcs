@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<mail-template id="58" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/58/">
+  <name>Indus - Par d&#233;faut - Usager - Paiement par virement re&#231;u</name>
+  <slug>indus-par-defaut-usager-paiement-par-virement-recu</slug>
+  <subject>{{ form_name }} : Virement bancaire confirm&#233;</subject>
+  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+
+Nous vous informons que le virement bancaire pour votre demande concernant {{ form_name }} a &#233;t&#233; bien &#233;t&#233; re&#231;u.
+
+Votre demande a &#233;t&#233; envoy&#233;e &#224; notre service. Nos agents la traiteront dans les plus brefs d&#233;lais, vous serez tenu inform&#233; de son avancement.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
+
+{{ form_details }}
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,</body>
+</mail-template>

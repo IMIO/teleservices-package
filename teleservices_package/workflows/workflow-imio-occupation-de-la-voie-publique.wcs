@@ -1,50 +1,65 @@
 <?xml version="1.0"?>
-<workflow id="8" url="http://local-formulaires.example.net/backoffice/workflows/8/">
+<workflow id="118" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/118/">
   <name>iMio - Occupation de la voie publique</name>
   <roles>
-    <role id="_agent-traitant-taxation">Agent traitant taxation</role>
     <role id="_receiver">Agent traitant</role>
   </roles><possible_status>
     <status>
       <id>just_submitted</id>
-      <name>Juste envoy&#233; &#224; mon administration</name>
-      <colour>FFFFFF</colour>
+      <name>Juste envoy&#233;</name>
+      <colour>999999</colour>
       <visibility>
         <role>_receiver</role>
-        <role>_agent-traitant-taxation</role>
       </visibility><items>
-        <item id="1" type="sendmail">
+        <item id="4" type="set-backoffice-fields">
+          <label>Synth&#232;se de l'occupation</label>
+          <fields>
+            <field>
+              <field_id>boaf708c82-4c73-4bca-91ad-e8791f692db5</field_id>
+              <value>{{ form_var_rue_chantier }} n&#176;{{ form_var_numero_chantier }} {{ form_var_boite_chantier }}, {{ form_var_code_postal_chantier }} {{ form_var_localite_chantier }}</value>
+            </field><field>
+              <field_id>bo5b6e18f0-51ea-4107-9643-529c890a8796</field_id>
+              <value>{% if form_var_raison_occupation == "Autre : &#224; pr&#233;ciser" %}{{ form_var_raison_occupation_autre }}{% else %}{{ form_var_raison_occupation }}{% endif %}</value>
+            </field>
+          </fields>
+        </item><item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
-          <subject>Nouveau formulaire ([name])</subject>
+          <subject>Nouvelle demande ({{ form_name }})</subject>
           <body>Bonjour,
 
-Un nouveau formulaire a &#233;t&#233; compl&#233;t&#233;, vous pouvez le consulter
-en suivant ce lien :
-  [form_url_backoffice]
+Une nouvelle demande a &#233;t&#233; re&#231;ue, vous pouvez la consulter
+en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
 
-[if-any details]
-Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 
-[details]
-[end]
+{{ form_details }}
+{% endif %}
 </body>
         </item><item id="2" type="sendmail">
           <to>
-            <item role_id="_submitter">_submitter</item>
+            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
-          <subject>Nouveau formulaire ([name])</subject>
-          <body>[form_user_var_title] [form_user_var_last_name],
+          <subject>Nouvelle demande ({{ form_name }})</subject>
+          <body>{% if form_var_firstname %}Ch&#232;r&#183;e {{ form_var_firstname }}{% endif %}
 
-Nous accusons r&#233;ception de votre demande (formulaire : [form_number]).
-Celle-ci sera trait&#233;e dans les d&#233;lais impartis. 
+Bonjour,
 
-L'autorisation vous parviendra d&#232;s qu'elle sera sign&#233;e par --------- sur la bo&#238;te e-mail que vous avez renseign&#233;.
+Ce message est un rappel concernant la demande que vous venez d&#8217;envoyer.
+{% if form_user %}
+Vous pouvez la consulter en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
 
-Pour rappel,  la demande doit &#234;tre formul&#233;e au plus tard 7 jours ouvrables avant le d&#233;but de l'occupation.
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 
-Bien cordialement, 
+{{ form_details }}
+{% endif %}
+
+Bien &#224; vous, 
 </body>
         </item><item id="3" type="jump">
           <status>new</status>
@@ -53,102 +68,173 @@ Bien cordialement,
       </items>
     </status><status>
       <id>new</id>
-      <name>Analyse de votre demande d'autorisation</name>
+      <name>Nouvelle demande</name>
       <colour>66FF00</colour>
       <visibility />
       <items>
-        <item id="1" type="choice">
+        <item id="6" type="displaymsg">
+          <message>Votre demande a bien &#233;t&#233; enregistr&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><condition>
+            <type>django</type>
+            <value>form_previous_status == "Juste envoy&#233;"</value>
+          </condition>
+        </item><item id="1" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </by><varname>commentaire</varname>
+          <backoffice_info_text>&lt;p&gt;&lt;/p&gt;
+
+&lt;p dir="ltr" id="docs-internal-guid-5cb84a04-7fff-424c-a22c-3f7fe12a8ab7" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
+          <required>False</required>
+        </item><item id="2" type="jumponsubmit">
+          <status>2</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="3" type="choice">
           <label>Accepter</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>accepted</status>
           <require_confirmation>False</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="2" type="choice">
-          <label>Refuser sans motif</label>
-          <by>
-            <item role_id="_receiver">_receiver</item>
-          </by><status>rejected</status>
-          <require_confirmation>False</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="3" type="choice">
-          <label>Reprise de contact (via t&#233;l&#233;phone)</label>
-          <by>
-            <item role_id="_receiver">_receiver</item>
-          </by><status>0</status>
-          <require_confirmation>False</require_confirmation>
-          <backoffice_info_text>&lt;p&gt;L'agent traitant choisit de contacter le citoyen par t&amp;eacute;l&amp;eacute;phone pour demander des informations compl&amp;eacute;mentaires.&lt;/p&gt;</backoffice_info_text>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-e6d8ec27-7fff-f2b8-4554-5377d15d86e8" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action valide la demande de l&amp;rsquo;usager. Un courriel lui sera envoy&amp;eacute; pour le pr&amp;eacute;venir.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item id="4" type="choice">
+          <label>Refuser</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>rejected</status>
+          <require_confirmation>True</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-558a8a5b-7fff-3458-7dac-d9b0d83338d8" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action rejettera d&amp;eacute;finitivement la demande de l&amp;rsquo;usager. Un email lui sera envoy&amp;eacute; sans motif du refus.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="5" type="choice">
+          <label>Refuser avec motif</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>1</status>
-          <require_confirmation>False</require_confirmation>
+          <require_confirmation>True</require_confirmation>
+          <backoffice_info_text>&lt;p dir="ltr" id="docs-internal-guid-58bfc0b6-7fff-3ec2-ef62-60fe1d9db719" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action rejettera d&amp;eacute;finitivement la demande de l&amp;rsquo;usager. Vous aurez la possibilit&amp;eacute; d&amp;rsquo;&amp;eacute;crire la raison du refus dans un formulaire qui lui sera envoy&amp;eacute; par courriel.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>rejected</id>
-      <name>Rejet&#233;</name>
+      <name>Demande rejet&#233;e</name>
       <colour>FF3300</colour>
+      <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
-          <subject>Refus d'autorisation.</subject>
-          <body>Madame, Monsieur, 
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
+          <body>Bonjour,
 
-Suite &#224; votre demande d'occupation de la voie publique, dont nous vous remercions, nous sommes au regret de vous informer que votre demande ne peut aboutir.  
-
-{% if motif_var_refus %}
-Motif du refus
-
-{{motif_var_refus}}
-
+{% if form_status_changed %}
+Le statut de la demande relative &#224; la commande de plants que vous avez transmise vient de changer (il est
+pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
 {% endif %}
-Cordialement, 
 
+{% if form_user %}
+Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if motif_var_refus %}Motif du refus : {{motif_var_refus}} {% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
 </body>
-        </item><item id="2" type="displaymsg">
-          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
-          <level>success</level>
+        </item><item id="3" type="displaymsg">
+          <message>Votre demande a &#233;t&#233; refus&#233;e.</message>
+          <level>warning</level>
           <position>top</position>
           <to>
-            <item role_id="_receiver">_receiver</item>
+            <item role_id="_submitter">_submitter</item>
           </to>
+        </item><item id="4" type="register-comment">
+          <comment>Motif du refus : {{ refus_var_motif }}</comment>
+          <condition>
+            <type>django</type>
+            <value>refus_var_motif</value>
+          </condition>
         </item>
       </items>
     </status><status>
       <id>accepted</id>
-      <name>Accept&#233; (agent taxation pr&#233;venu)</name>
+      <name>Accept&#233;</name>
       <colour>66CCFF</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
           <to>
-            <item role_id="_agent-traitant-taxation">_agent-traitant-taxation</item>
-          </to><subject>[form_name] (du [form_var_datedebut] au [form_var_datefin])</subject>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-par-defaut-agent-traitant-acceptee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
-Ci-dessous, veuillez trouver le lien vers une nouvelle demande d'autorisation pour occupation de la voie publique : 
-  [form_url_backoffice]
+Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
+en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
 
-Les dates du chantiers sont pr&#233;vues du [form_var_datedebut] au [form_var_datefin]. 
+{% if form_status_changed %}
+Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
+&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
 
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
 
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
 </body>
-        </item><item id="2" type="choice">
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+          </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
+          <body>Bonjour,
+
+{% if form_status_changed %}
+Le statut de la demande relative &#224; la commande de plants que vous avez transmise vient de changer (il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_user %}
+Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+</body>
+        </item><item id="3" type="commentable">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </by><backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-01b47662-7fff-c9a5-55e3-7ec6ead8b000" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
+          <required>False</required>
+        </item><item id="4" type="choice">
           <label>Terminer</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>finished</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-431e9120-7fff-fd9c-ba50-e5feb21cad5f" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action confirme que la demande de l&amp;rsquo;usager a &amp;eacute;t&amp;eacute; trait&amp;eacute;e.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -161,61 +247,68 @@ Les dates du chantiers sont pr&#233;vues du [form_var_datedebut] au [form_var_da
       <items>
         <item id="1" type="sendmail">
           <to>
-            <item role_id="_submitter">_submitter</item>
-          </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
-          <subject>Changement de statut du formulaire</subject>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-par-defaut-agent-traitant-terminee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
 
-[if-any form_status_changed]
-Le statut du formulaire que vous avez transmis vient de changer (il est
-pass&#233; de &#171;&#160;[before]&#160;&#187; &#224; &#171;&#160;[after]&#160;&#187;).
-[end]
+Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
+en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
 
-[if-any user]
-Vous pouvez en prendre connaissance en suivant ce lien :
-[url]
-[else]
-[end]
+{% if form_status_changed %}
+Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
+&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
 
-[if-any form_comment]Nouveau commentaire :
-  [form_comment][end]
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
 
-[if-any evolution]
-[evolution]
-[end]
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
 </body>
-        </item><item id="2" type="displaymsg">
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+          </to><mail_template>indus-par-defaut-usager-terminee</mail_template>
+          <subject>Changement de statut de la demande ({{ form_name }})</subject>
+          <body>Bonjour,
+
+{% if form_status_changed %}
+Le statut de la demande que vous avez transmise vient de changer (il est
+pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_user %}
+Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+</body>
+        </item><item id="3" type="displaymsg">
           <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
           <level>success</level>
           <position>top</position>
           <to>
-            <item role_id="_receiver">_receiver</item>
+            <item role_id="_submitter">_submitter</item>
           </to>
         </item>
       </items>
     </status><status>
-      <id>0</id>
-      <name>Dossier pas en ordre (reprise de contact)</name>
-      <colour>FFFFFF</colour>
-      <visibility />
-      <items>
-        <item id="1" type="jump">
-          <status>new</status>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
-      </items>
-    </status><status>
       <id>1</id>
-      <name>Motif</name>
+      <name>Motivation du refus</name>
       <colour>999999</colour>
       <visibility>
-        <role>_agent-traitant-taxation</role>
         <role>_receiver</role>
       </visibility><items>
         <item id="1" type="form">
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><varname>motif</varname>
+          </by><varname>refus</varname>
           <formdef>
             <name>-</name>
             <fields>
@@ -223,17 +316,40 @@ Vous pouvez en prendre connaissance en suivant ce lien :
                 <label>Motif du refus</label>
                 <type>text</type>
                 <required>True</required>
-                <varname>refus</varname>
+                <hint>Le motif du refus sera envoy&#233; &#224; l'usager par courriel</hint>
+                <varname>motif</varname>
                 <display_locations />
+                <extra_css_class>pk-important</extra_css_class>
                 <prefill>
+                  <locked>False</locked>
                   <type>none</type>
-                </prefill><pre>True</pre>
+                </prefill><rows>10m</rows>
+                <pre>True</pre>
                 <id>1</id>
               </field>
             </fields>
           </formdef>
         </item><item id="2" type="jumponsubmit">
           <status>rejected</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>2</id>
+      <name>Commentaire</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-notification-de-commentaire-demandeur</mail_template>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-notification-de-commentaire-destinataire</mail_template>
+        </item><item id="3" type="jump">
+          <status>new</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -250,6 +366,7 @@ Vous pouvez en prendre connaissance en suivant ce lien :
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
+            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>1</id>
@@ -257,7 +374,6 @@ Vous pouvez en prendre connaissance en suivant ce lien :
           <label>Jours minimum avant le chantier</label>
           <type>string</type>
           <required>True</required>
-          <hint>en jours ouvr&#233;s</hint>
           <varname>jours_minimum</varname>
           <display_locations>
             <display_location>summary</display_location>
@@ -265,14 +381,34 @@ Vous pouvez en prendre connaissance en suivant ce lien :
             <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
-          <id>2</id>
+          <id>4</id>
         </field>
       </fields>
     </formdef>
   </variables><backoffice-fields>
     <formdef>
       <name>-</name>
-      <fields />
+      <fields>
+        <field>
+          <label>Localisation de l'occupation</label>
+          <type>string</type>
+          <required>True</required>
+          <display_locations>
+            <display_location>summary</display_location>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>boaf708c82-4c73-4bca-91ad-e8791f692db5</id>
+        </field><field>
+          <label>Raison de l'occupation</label>
+          <type>string</type>
+          <required>True</required>
+          <display_locations>
+            <display_location>summary</display_location>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bo5b6e18f0-51ea-4107-9643-529c890a8796</id>
+        </field>
+      </fields>
     </formdef>
   </backoffice-fields>
 </workflow>

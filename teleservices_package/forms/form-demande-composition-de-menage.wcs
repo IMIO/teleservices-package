@@ -99,7 +99,7 @@
       <initial_zoom>13</initial_zoom>
       <id>66</id>
     </field><field>
-      <label>O&#249; est domicili&#233;(e) la personne concern&#233;e par ce document?</label>
+      <label>O&#249; est domicili&#233;(e) la personne concern&#233;e par ce document ?</label>
       <type>item</type>
       <required>True</required>
       <varname>rb_domicile</varname>

@@ -14,14 +14,14 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="107">Bien &#234;tre animal</category>
-  <workflow workflow_id="9">iMio - BEA - chien dangereux</workflow>
+  <category category_id="128">iMio - Bien &#234;tre animal</category>
+  <workflow workflow_id="117">iMio - Chien dangereux</workflow>
   <max_field_id>55</max_field_id>
   <fields>
     <field>
       <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/chien_dangereux.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
@@ -176,11 +176,12 @@
       <label>Adresse e-mail</label>
       <type>email</type>
       <required>False</required>
-      <varname>email</varname>
+      <varname>courriel</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>10</id>
@@ -190,7 +191,7 @@
       <display_locations />
       <id>11</id>
     </field><field>
-      <label>Le chien est-il d&#233;tenu &#224; une autre adresse que celle de son propri&#233;taire ?</label>
+      <label>Le chien est-il d&#233;tenu &#224; la m&#234;me adresse que celle de son propri&#233;taire ?</label>
       <type>item</type>
       <required>True</required>
       <varname>adresse_chien</varname>
@@ -198,6 +199,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -213,7 +215,7 @@
       <type>page</type>
       <condition>
         <type>python</type>
-        <value>form_var_adresse_chien == "Oui"</value>
+        <value>form_var_adresse_chien == "Non"</value>
       </condition><id>14</id>
     </field><field>
       <label>Rue</label>
@@ -485,7 +487,7 @@
       </condition><display_locations />
       <id>52</id>
     </field><field>
-      <label>documents</label>
+      <label>Documents</label>
       <type>block:ajouter_un_fichier</type>
       <condition>
         <type>django</type>
@@ -510,31 +512,39 @@
         <display_location>summary</display_location>
       </display_locations><id>54</id>
     </field><field>
-      <label>&lt;p&gt;&lt;span class="varname"&gt;{{ form_option_informations_completementaires }}&lt;/span&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;span class="varname"&gt;{{ form_option_informations_complementaires }}&lt;/span&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
-        <value>form_option_informations_completementaires</value>
+        <value>form_option_informations_complementaires</value>
       </condition><display_locations />
       <id>53</id>
     </field><field>
-      <label>&lt;p&gt;Lien vers le &lt;a href="{{ form_option_reglement_communal }}" rel="noopener noreferrer" target="_blank"&gt;r&amp;eacute;glement g&amp;eacute;n&amp;eacute;ral de police&lt;/a&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;a href="{{ form_option_reglement_communal }}" rel="noopener noreferrer" target="_blank"&gt;Consulter le r&amp;eacute;glement g&amp;eacute;n&amp;eacute;ral de police&lt;/a&gt;&lt;/p&gt;</label>
       <type>comment</type>
-      <display_locations />
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition><display_locations />
       <id>48</id>
     </field><field>
-      <label>je d&#233;clare avoir pris connaissance des obligations mentionn&#233;es dans le R&#233;glement G&#233;n&#233;ral de Police</label>
+      <label>Je d&#233;clare avoir pris connaissance des obligations mentionn&#233;es dans le R&#233;glement G&#233;n&#233;ral de Police</label>
       <type>bool</type>
       <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><id>49</id>
     </field>
-  </fields><options>
-    <option varname="reglement_communal" />
+  </fields><roles>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+  </roles><options>
+    <option varname="informations_complementaires"></option>
+    <option varname="liste_documents"></option>
+    <option varname="reglement_communal"></option>
   </options><custom_views />
   <geolocations />
 </formdef>

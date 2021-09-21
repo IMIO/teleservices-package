@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="21">
+<block id="5" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/5/">
   <name>iMio - Replantation</name>
   <slug>replantation</slug>
   <fields>
@@ -19,7 +19,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf07380ee6-eaff-4bb1-897a-5fe91bb1c806</id>
@@ -32,7 +31,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf15cc68fd-eec2-4a71-a7d4-27e17c8f0b57</id>
@@ -45,7 +43,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf7e385813-07e7-4aca-99ad-eda595b24af9</id>
@@ -58,7 +55,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf17e5a47e-0098-4cc9-a714-bc95f6e44c6b</id>
@@ -71,7 +67,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf34c39706-7944-4aa6-a3d0-2c29330806d3</id>

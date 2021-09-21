@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="14" url="http://local-formulaires.example.net/backoffice/forms/blocks/14/">
+<block id="8" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/8/">
   <name>iMio - Langue</name>
   <slug>imio_langue</slug>
   <digest_template>{{imio_langue_var_langue}} : {{imio_langue_var_niveau}}</digest_template>
@@ -14,9 +14,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>autocomplete</display_mode>
+      </prefill><items />
+      <display_mode>autocomplete</display_mode>
       <data_source>
         <type>langues</type>
       </data_source><in_filters>False</in_filters>
@@ -28,6 +28,7 @@
       <label>Niveau de connaissance</label>
       <type>item</type>
       <required>True</required>
+      <hint>--- S&#233;lectionnez votre niveau ---</hint>
       <varname>niveau</varname>
       <display_locations>
         <display_location>validation</display_location>

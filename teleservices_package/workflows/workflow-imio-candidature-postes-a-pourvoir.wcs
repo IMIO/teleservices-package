@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="35" url="http://local-formulaires.example.net/backoffice/workflows/35/">
+<workflow id="115" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/115/">
   <name>iMio - Candidature postes &#224; pourvoir</name>
   <roles>
     <role id="_receiver">Destinataire</role>
@@ -11,7 +11,7 @@
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="4" type="set-backoffice-fields">
+        <item id="1" type="set-backoffice-fields">
           <label>Initialisation compteurs et liste section</label>
           <fields>
             <field>
@@ -25,7 +25,7 @@
               <value>=["Personnel administratif", "Personnel ouvrier", "Personnel social", "Personnel technique / sp&#233;cifique", "Personnel de nettoyage", "Personnel de cuisine", "Personnel du service enseignement"]</value>
             </field>
           </fields>
-        </item><item id="1" type="sendmail">
+        </item><item id="2" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
@@ -42,7 +42,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 {{ form_details }}
 {% endif %}
 </body>
-        </item><item id="2" type="sendmail">
+        </item><item id="3" type="sendmail">
           <to>
             <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
@@ -64,288 +64,8 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 
 Bien &#224; vous, 
 </body>
-        </item><item id="3" type="jump">
+        </item><item id="4" type="jump">
           <status>3</status>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
-      </items>
-    </status><status>
-      <id>new</id>
-      <name>Nouveau</name>
-      <colour>66FF00</colour>
-      <visibility />
-      <items>
-        <item id="1" type="commentable">
-          <label>Commentaire</label>
-          <button_label>Ajouter le commentaire</button_label>
-          <by>
-            <item role_id="_submitter">_submitter</item>
-            <item role_id="_receiver">_receiver</item>
-          </by><varname>commentaire</varname>
-          <required>False</required>
-        </item><item id="2" type="jumponsubmit">
-          <status>2</status>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="3" type="choice">
-          <label>Accepter</label>
-          <by>
-            <item role_id="_receiver">_receiver</item>
-          </by><status>accepted</status>
-          <require_confirmation>False</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="choice">
-          <label>Refuser</label>
-          <by>
-            <item role_id="_receiver">_receiver</item>
-          </by><status>rejected</status>
-          <require_confirmation>True</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="5" type="choice">
-          <label>Ajouter un motif au refus</label>
-          <by>
-            <item role_id="_receiver">_receiver</item>
-          </by><status>1</status>
-          <require_confirmation>True</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
-      </items>
-    </status><status>
-      <id>rejected</id>
-      <name>Rejet&#233;</name>
-      <colour>FF3300</colour>
-      <forced_endpoint>true</forced_endpoint>
-      <visibility />
-      <items>
-        <item id="1" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-par-defaut-agent-traitant-refusee</mail_template>
-          <subject>Changement de statut de la demande ({{ form_name }})</subject>
-          <body>Bonjour,
-
-Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
-en suivant ce lien&#160;:
-  {{ form_url_backoffice }}
-
-{% if form_status_changed %}
-Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
-&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
-{% endif %}
-
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
-
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-</body>
-        </item><item id="2" type="sendmail">
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
-          <subject>Changement de statut de la demande ({{ form_name }})</subject>
-          <body>Bonjour,
-
-{% if form_status_changed %}
-Le statut de la demande relative &#224; la commande de plants que vous avez transmise vient de changer (il est
-pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
-{% endif %}
-
-{% if form_user %}
-Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
-{% endif %}
-
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
-
-{% if motif_var_refus %}Motif du refus : {{motif_var_refus}} {% endif %}
-
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-</body>
-        </item><item id="3" type="displaymsg">
-          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
-          <level>success</level>
-          <position>top</position>
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
-        </item>
-      </items>
-    </status><status>
-      <id>accepted</id>
-      <name>Accept&#233;</name>
-      <colour>66CCFF</colour>
-      <visibility />
-      <items>
-        <item id="1" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-par-defaut-agent-traitant-acceptee</mail_template>
-          <subject>Changement de statut de la demande ({{ form_name }})</subject>
-          <body>Bonjour,
-
-Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
-en suivant ce lien&#160;:
-  {{ form_url_backoffice }}
-
-{% if form_status_changed %}
-Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
-&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
-{% endif %}
-
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
-
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-</body>
-        </item><item id="2" type="sendmail">
-          <to>
-            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
-          </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
-          <subject>Changement de statut de la demande ({{ form_name }})</subject>
-          <body>Bonjour,
-
-{% if form_status_changed %}
-Le statut de la demande relative &#224; la commande de plants que vous avez transmise vient de changer (il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
-{% endif %}
-
-{% if form_user %}
-Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
-{% endif %}
-
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
-
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-</body>
-        </item><item id="3" type="commentable">
-          <label>Commentaire</label>
-          <button_label>Ajouter le commentaire</button_label>
-          <by>
-            <item role_id="_submitter">_submitter</item>
-            <item role_id="_receiver">_receiver</item>
-          </by><required>False</required>
-        </item><item id="4" type="choice">
-          <label>Terminer</label>
-          <by>
-            <item role_id="_receiver">_receiver</item>
-          </by><status>finished</status>
-          <require_confirmation>False</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
-      </items>
-    </status><status>
-      <id>finished</id>
-      <name>Termin&#233;</name>
-      <colour>CCCCCC</colour>
-      <visibility />
-      <items>
-        <item id="1" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-par-defaut-agent-traitant-terminee</mail_template>
-          <subject>Changement de statut de la demande ({{ form_name }})</subject>
-          <body>Bonjour,
-
-Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
-en suivant ce lien&#160;:
-  {{ form_url_backoffice }}
-
-{% if form_status_changed %}
-Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
-&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
-{% endif %}
-
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
-
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-</body>
-        </item><item id="2" type="sendmail">
-          <to>
-            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
-          </to><mail_template>indus-par-defaut-usager-terminee</mail_template>
-          <subject>Changement de statut de la demande ({{ form_name }})</subject>
-          <body>Bonjour,
-
-{% if form_status_changed %}
-Le statut de la demande que vous avez transmise vient de changer (il est
-pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
-{% endif %}
-
-{% if form_user %}
-Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
-{% endif %}
-
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
-
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-</body>
-        </item><item id="3" type="displaymsg">
-          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
-          <level>success</level>
-          <position>top</position>
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
-        </item>
-      </items>
-    </status><status>
-      <id>1</id>
-      <name>Motif Refus</name>
-      <colour>FFFFFF</colour>
-      <visibility />
-      <items>
-        <item id="1" type="form">
-          <by>
-            <item role_id="_receiver">_receiver</item>
-          </by><varname>motif</varname>
-          <formdef>
-            <name>-</name>
-            <fields>
-              <field>
-                <label>Motif du refus</label>
-                <type>text</type>
-                <required>True</required>
-                <varname>refus</varname>
-                <display_locations />
-                <prefill>
-                  <type>none</type>
-                </prefill><pre>True</pre>
-                <id>1</id>
-              </field>
-            </fields>
-          </formdef>
-        </item><item id="2" type="jumponsubmit">
-          <status>rejected</status>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
-      </items>
-    </status><status>
-      <id>2</id>
-      <name>Commentaire</name>
-      <colour>FFFFFF</colour>
-      <visibility />
-      <items>
-        <item id="1" type="sendmail">
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to><mail_template>indus-notification-de-commentaire-demandeur</mail_template>
-        </item><item id="2" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-notification-de-commentaire-destinataire</mail_template>
-        </item><item id="3" type="jump">
-          <status>new</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -374,7 +94,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="5" type="set-backoffice-fields">
+        <item id="1" type="set-backoffice-fields">
           <label>Le candidat &#224; postuler dans d'autre fonction pour cette section : OUI</label>
           <fields>
             <field>
@@ -385,7 +105,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
             <type>python</type>
             <value>form_var_section_liste.count(form_var_fonction_structured[int(form_var_compteur)]["section"]) &gt; 1</value>
           </condition>
-        </item><item id="6" type="set-backoffice-fields">
+        </item><item id="2" type="set-backoffice-fields">
           <label>Le candidat &#224; postuler dans d'autre fonction pour cette section : NON</label>
           <fields>
             <field>
@@ -396,7 +116,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
             <type>python</type>
             <value>form_var_section_liste.count(form_var_fonction_structured[int(form_var_compteur)]["section"]) == 1</value>
           </condition>
-        </item><item id="1" type="create_carddata">
+        </item><item id="3" type="create_carddata">
           <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
           <mappings>
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
@@ -414,7 +134,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
             <mapping field_id="12">{{ form_var_tel }}</mapping>
             <mapping field_id="14">{{ form_var_mail }}</mapping>
           </mappings><user_association_mode>keep-user</user_association_mode>
-        </item><item id="2" type="set-backoffice-fields">
+        </item><item id="4" type="set-backoffice-fields">
           <label>compteur</label>
           <fields>
             <field>
@@ -422,9 +142,24 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
               <value>{{ form_var_compteur|add:1 }}</value>
             </field>
           </fields>
-        </item><item id="3" type="jump">
+        </item><item id="5" type="jump">
           <status>3</status>
           <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>new</id>
+      <name>Candidature(s) enregistr&#233;e(s)</name>
+      <colour>66FF00</colour>
+      <visibility />
+      <items>
+        <item id="6" type="displaymsg">
+          <message>Votre candidature a bien &#233;t&#233; enregistr&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
         </item>
       </items>
     </status>

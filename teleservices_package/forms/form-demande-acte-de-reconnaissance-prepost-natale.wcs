@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="97">Etat-Civil</category>
-  <workflow workflow_id="30">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="126">iMio - Etat-Civil</category>
+  <workflow workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>74</max_field_id>
   <fields>
     <field>
@@ -34,8 +34,7 @@
         <value>false</value>
       </condition><display_locations />
       <id>74</id>
-    </field>
-    <field>
+    </field><field>
       <label>Extrait/Copie int&#233;grale d'acte de Reconnaissance</label>
       <type>page</type>
       <id>2</id>
@@ -132,7 +131,7 @@
         </post_condition>
       </post_conditions><id>14</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder &lt;/span&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;LES COORDONNEES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt; DE LA PERSONNE CONCERNEE&amp;nbsp;: &lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder les coordonn&amp;eacute;es de la personne concern&amp;eacute;e&lt;/span&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;: &lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>15</id>
@@ -196,7 +195,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>20</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -333,7 +332,7 @@
         </post_condition>
       </post_conditions><id>34</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;vos donn&amp;eacute;es&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>35</id>
@@ -420,7 +419,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>40</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -644,7 +643,7 @@
       <label>Montant</label>
       <type>string</type>
       <required>True</required>
-      <hint>Hors &#233;ventuels frais de port&#160;</hint>
+      <hint>Hors &#233;ventuels frais de port.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -655,8 +654,10 @@
       </prefill><anonymise>True</anonymise>
       <id>72</id>
     </field>
-  </fields><roles />
-  <options>
+  </fields><roles>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_validateur-pc-banking"></role>
+  </roles><options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_etatcivil</option>
     <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>
@@ -677,9 +678,10 @@
     <option varname="motifs_disponibles_structured" />
     <option varname="paiement_en_ligne" />
     <option varname="redirection_automatique" />
-    <option varname="regie_de_paiement">atos_test</option>
-    <option varname="regie_de_paiement_display">Atos test</option>
+    <option varname="regie_de_paiement" />
+    <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>

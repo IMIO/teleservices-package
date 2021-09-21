@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="24">
+<block id="16" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/16/">
   <name>iMio - Panneaux de signalisation</name>
   <slug>panneaux_de_signalisation</slug>
   <digest_template>{{panneaux_de_signalisation_var_type}} : {{panneaux_de_signalisation_var_exemplaire}}</digest_template>
@@ -14,7 +14,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bf89338433-7330-4326-8028-8ffb8006c79b</id>
@@ -28,7 +27,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-2-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>

@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="101">Population</category>
-  <workflow workflow_id="26">iMio - Extrait casier judicaire</workflow>
+  <category category_id="132">iMio - Population</category>
+  <workflow workflow_id="113">iMio - Extrait casier judicaire</workflow>
   <max_field_id>81</max_field_id>
   <fields>
     <field>
@@ -73,11 +73,13 @@
         <type>django</type>
         <value>form_var_typecasier == "Mod&#232;le pour activit&#233; r&#233;glement&#233;e"</value>
       </condition><required>True</required>
+      <hint>--- Selectionnez un motif ---</hint>
       <varname>casiermod2</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Affr&#232;tement fluvial : direction/cadre du personnel technique</item>
@@ -128,11 +130,13 @@
         <type>django</type>
         <value>form_var_typecasier == "Mod&#232;le destin&#233; aux activit&#233;s li&#233;es aux mineurs"</value>
       </condition><required>True</required>
+      <hint>--- S&#233;lectionnez un motif ---</hint>
       <varname>casiermod3</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Animation</item>
@@ -145,6 +149,7 @@
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
       <id>77</id>
     </field><field>
       <label>Vos coordonn&#233;es</label>
@@ -323,7 +328,6 @@
       <label>Mode d'envoi</label>
       <type>item</type>
       <required>False</required>
-      <hint>Seule la r&#233;ception au sein de l'administration communale est possible pour cette d&#233;marche.</hint>
       <varname>destinations</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -331,31 +335,32 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>none</type>
-      </prefill><items />
-      <display_mode>list</display_mode>
+      </prefill><display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>form_option_mode_recup_disponibles_structured or data_source.passerelle_destinations</value>
       </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
       <id>78</id>
     </field><field>
       <label>Nombre d'exemplaires demand&#233;s</label>
       <type>string</type>
       <required>True</required>
-      <hint>Maximum 20 exemplaires</hint>
+      <hint>Maximum 20 exemplaires.</hint>
       <varname>nb_exemplaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <type>none</type>
+        <locked>False</locked>
+        <type>string</type>
+        <value>1</value>
       </prefill><validation>
-        <error_message>Maximum 20 exemplaires</error_message>
-        <type>regex</type>
-        <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
+        <type>digits</type>
       </validation><anonymise>True</anonymise>
       <id>81</id>
     </field><field>
@@ -386,8 +391,10 @@
       </prefill><anonymise>True</anonymise>
       <id>80</id>
     </field>
-  </fields><roles />
-  <options>
+  </fields><roles>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_validateur-pc-banking"></role>
+  </roles><options>
     <option varname="baec" />
     <option varname="cost">0</option>
     <option varname="cout">0</option>
@@ -398,7 +405,7 @@
     <option varname="iban" />
     <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
     <option varname="mode_recup_disponibles" />
-    <option varname="mode_recup_disponibles_display">R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t</option>
+    <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
     <option varname="motifs_disponibles" />
     <option varname="motifs_disponibles_display" />
@@ -406,9 +413,10 @@
     <option varname="paiement_en_ligne" />
     <option varname="paiement_en_ligne_display">Forcer</option>
     <option varname="paiement_en_ligne_structured" />
-    <option varname="regie_de_paiement">atos_test</option>
-    <option varname="regie_de_paiement_display">Atos test</option>
+    <option varname="regie_de_paiement" />
+    <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>

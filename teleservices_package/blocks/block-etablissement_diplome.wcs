@@ -1,77 +1,72 @@
 <?xml version="1.0"?>
-<block id="10">
-  <name>iMio - Emplois Pr&#233;c&#233;dents</name>
-  <slug>emplois_precedents</slug>
+<block id="11" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/11/">
+  <name>iMio - Etablissement Diplome</name>
+  <slug>etablissement_diplome</slug>
   <fields>
     <field>
-      <label>Profession exerc&#233;e</label>
+      <label>Nom de l'&#233;tablissement fr&#233;quent&#233;</label>
       <type>string</type>
       <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>grid-5-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
-      <id>bf07ad44cd-2335-4b85-8d12-fa4f5c2bbcdf</id>
+      <id>bf0af45a76-4939-4bde-95ad-d2804008ce26</id>
     </field><field>
-      <label>Employeur</label>
+      <label>Intitul&#233; COMPLET du dipl&#244;me</label>
       <type>string</type>
       <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
-      <id>bf23ca1ab0-917a-4c0c-b257-908e529b9b78</id>
+      <id>bfc750ea99-b01d-4cfd-bb29-b63d48bdb8e6</id>
     </field><field>
-      <label>Date d'entr&#233;e en service</label>
-      <type>date</type>
-      <required>True</required>
+      <label>Option</label>
+      <type>string</type>
+      <required>False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>True</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>bfa9a764af-4c84-40e5-8fdb-ea0251f9a062</id>
+      </prefill><anonymise>True</anonymise>
+      <id>bf7cfa5145-45b9-457c-961b-991d49f01d63</id>
     </field><field>
-      <label>Date de fin de service</label>
+      <label>Date d'obtention du dipl&#244;me</label>
       <type>date</type>
-      <required>True</required>
+      <required>False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
       <date_can_be_today>False</date_can_be_today>
-      <id>bf6876bec5-7593-42ca-9eaa-1a746b30f535</id>
+      <id>bf915ede43-b9fa-4e1f-91a4-20fddf242d7d</id>
     </field><field>
-      <label>Description de vos missions principales</label>
-      <type>text</type>
-      <required>True</required>
+      <label>Copie du dipl&#244;me</label>
+      <type>file</type>
+      <required>False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><pre>False</pre>
-      <id>bf24b25b02-7a8c-42e0-b8e1-dc352fad85b4</id>
+      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
+      <automatic_image_resize>False</automatic_image_resize>
+      <storage>default</storage>
+      <id>bfc5a96fd0-9983-4174-b7a6-16d3de2d008c</id>
     </field>
   </fields>
 </block>

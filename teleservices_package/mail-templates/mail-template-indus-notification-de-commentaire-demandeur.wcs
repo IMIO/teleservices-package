@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<mail-template id="48" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/48/">
+  <name>indus - Usager - Notification de commentaire</name>
+  <slug>indus-notification-de-commentaire-demandeur</slug>
+  <subject>Notification de commentaire pour la demande {{form_name}} de {{form_user_display_name}}</subject>
+  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+
+Un agent traitant votre demande a &#233;crit un commentaire.
+
+Commentaire : {{comment_commentaire}}
+
+Vous pouvez &#233;ventuellement y `r&#233;pondre en suivant ce lien &lt;{{ form_url }}&gt;`_
+
+Cordialement,</body>
+</mail-template>

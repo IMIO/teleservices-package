@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="67" url="http://local-formulaires.example.net/backoffice/forms/67/">
-  <name>iMio - Prise de rendez-vous (multiples agendas)</name>
-  <url_name>imio-prise-de-rendez-vous-multiples-agendas</url_name>
-  <internal_identifier>imio-prise-de-rendez-vous-multiples-agendas</internal_identifier>
+<formdef id="292" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/292/">
+  <name>iMio - Prise de rendez-vous - Plusieurs personnes - Multiples agendas</name>
+  <url_name>imio-prise-de-rendez-vous-plusieurs-personnes-multiples-agendas</url_name>
+  <internal_identifier>imio-prise-de-rendez-vous-plusieurs-personnes-multiples-agendas</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -15,7 +15,7 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category category_id="133">iMio - Agendas</category>
   <workflow workflow_id="86">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
-  <max_field_id>70</max_field_id>
+  <max_field_id>72</max_field_id>
   <fields>
     <field>
       <label>Coordonn&#233;es</label>
@@ -196,11 +196,35 @@
       <initial_zoom>13</initial_zoom>
       <id>70</id>
     </field><field>
+      <label>S&#233;lectionnez le nombre de personnes</label>
+      <type>page</type>
+      <id>71</id>
+    </field><field>
+      <label>Type de rendez-vous</label>
+      <type>item</type>
+      <required>True</required>
+      <varname>type_general_rdv</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><display_mode>list</display_mode>
+      <data_source>
+        <type>formula</type>
+        <value>script.liste_type_general_rdv(form_var_agenda_api_meetings_url)</value>
+      </data_source><in_filters>False</in_filters>
+      <anonymise>False</anonymise>
+      <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
+      <id>72</id>
+    </field><field>
       <label>S&#233;lectionnez le type de rendez-vous</label>
       <type>page</type>
       <id>2</id>
     </field><field>
-      <label>Type de rendez-vous</label>
+      <label>Nombre de personnes</label>
       <type>item</type>
       <required>True</required>
       <hint>Faites votre choix</hint>
@@ -210,15 +234,16 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
-      </prefill><items />
-      <display_mode>list</display_mode>
+      </prefill><display_mode>list</display_mode>
       <data_source>
-        <type>json</type>
-        <value>{{ form_var_agenda_structured_api_meetings_url }}</value>
+        <type>formula</type>
+        <value>script.liste_type_rdv(form_var_agenda_api_meetings_url, form_var_type_general_rdv)</value>
       </data_source><in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
+      <initial_zoom>13</initial_zoom>
       <id>24</id>
     </field><field>
       <label>S&#233;lectionnez l'heure du rendez-vous</label>
@@ -248,16 +273,16 @@
       <id>25</id>
     </field>
   </fields><user-roles>
-    <role role_id="97e7a2ec3963492583f1e67a7cbd140d"></role>
+    <role role_id="97e7a2ec3963492583f1e67a7cbd140d">Citoyen (test)</role>
   </user-roles><roles>
-    <role role_id="032bfed279a448d39a09dedadbc09a31" role_key="_administrateur"></role>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+    <role role_id="032bfed279a448d39a09dedadbc09a31" role_key="_administrateur">Agent ayant acces aux fabriques</role>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver">Test agent</role>
   </roles><options>
     <option varname="agenda"></option>
     <option varname="agenda_display"></option>
     <option varname="agenda_structured" />
     <option varname="agendas" />
-    <option varname="agendas_display"></option>
+    <option varname="agendas_display">/option>
     <option varname="agendas_structured" />
     <option varname="date_minimale_de_reservation"></option>
     <option varname="date_minimale_de_reservation_display"></option>

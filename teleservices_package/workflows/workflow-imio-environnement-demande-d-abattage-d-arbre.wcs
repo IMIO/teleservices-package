@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<workflow id="154" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/154/">
+<workflow id="126" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/126/">
   <name>iMio - Environnement - demande d'abattage d'arbre</name>
   <roles>
-    <role id="_receiver">Destinataire</role>
+    <role id="_receiver">Agent traitant</role>
   </roles><possible_status>
     <status>
       <id>just_submitted</id>
       <name>Juste envoy&#233;</name>
-      <colour>FFFFFF</colour>
+      <colour>999999</colour>
       <visibility>
         <role>_receiver</role>
       </visibility><items>
@@ -57,77 +57,71 @@ Bien &#224; vous,
       </items>
     </status><status>
       <id>new</id>
-      <name>Nouveau</name>
+      <name>Nouvelle demande</name>
       <colour>66FF00</colour>
       <visibility />
       <items>
-        <item id="1" type="commentable">
+        <item id="6" type="displaymsg">
+          <message>Votre demande a bien &#233;t&#233; enregistr&#233;e.</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><condition>
+            <type>django</type>
+            <value>form_previous_status == "Juste envoy&#233;"</value>
+          </condition>
+        </item><item id="1" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
           </by><varname>commentaire</varname>
+          <backoffice_info_text>&lt;p&gt;&lt;/p&gt;
+
+&lt;p dir="ltr" id="docs-internal-guid-5cb84a04-7fff-424c-a22c-3f7fe12a8ab7" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <required>False</required>
-        </item><item id="7" type="jumponsubmit">
+        </item><item id="2" type="jumponsubmit">
           <status>2</status>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="choice">
+        </item><item id="3" type="choice">
           <label>Accepter</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>accepted</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-e6d8ec27-7fff-f2b8-4554-5377d15d86e8" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action valide la demande de l&amp;rsquo;usager. Un courriel lui sera envoy&amp;eacute; pour le pr&amp;eacute;venir.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="5" type="choice">
+        </item><item id="4" type="choice">
           <label>Refuser</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>rejected</status>
           <require_confirmation>True</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-558a8a5b-7fff-3458-7dac-d9b0d83338d8" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action rejettera d&amp;eacute;finitivement la demande de l&amp;rsquo;usager. Un email lui sera envoy&amp;eacute; sans motif du refus.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="6" type="choice">
-          <label>Ajouter un motif au refus</label>
+        </item><item id="5" type="choice">
+          <label>Refuser avec motif</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>1</status>
           <require_confirmation>True</require_confirmation>
+          <backoffice_info_text>&lt;p dir="ltr" id="docs-internal-guid-58bfc0b6-7fff-3ec2-ef62-60fe1d9db719" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action rejettera d&amp;eacute;finitivement la demande de l&amp;rsquo;usager. Vous aurez la possibilit&amp;eacute; d&amp;rsquo;&amp;eacute;crire la raison du refus dans un formulaire qui lui sera envoy&amp;eacute; par courriel.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>rejected</id>
-      <name>Rejet&#233;</name>
+      <name>Demande rejet&#233;e</name>
       <colour>FF3300</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-par-defaut-agent-traitant-refusee</mail_template>
-          <subject>Changement de statut de la demande ({{ form_name }})</subject>
-          <body>Bonjour,
-
-Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
-en suivant ce lien&#160;:
-  {{ form_url_backoffice }}
-
-{% if form_status_changed %}
-Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
-&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
-{% endif %}
-
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
-
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-</body>
-        </item><item id="2" type="sendmail">
+        <item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
@@ -152,12 +146,18 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 </body>
         </item><item id="3" type="displaymsg">
-          <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
-          <level>success</level>
+          <message>Votre demande a &#233;t&#233; refus&#233;e.</message>
+          <level>warning</level>
           <position>top</position>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
+        </item><item id="4" type="register-comment">
+          <comment>Motif du refus : {{ refus_var_motif }}</comment>
+          <condition>
+            <type>django</type>
+            <value>refus_var_motif</value>
+          </condition>
         </item>
       </items>
     </status><status>
@@ -215,13 +215,15 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
-          </by><required>False</required>
+          </by><backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-01b47662-7fff-c9a5-55e3-7ec6ead8b000" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
+          <required>False</required>
         </item><item id="4" type="choice">
           <label>Terminer</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>finished</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-431e9120-7fff-fd9c-ba50-e5feb21cad5f" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action confirme que la demande de l&amp;rsquo;usager a &amp;eacute;t&amp;eacute; trait&amp;eacute;e.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -287,14 +289,15 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       </items>
     </status><status>
       <id>1</id>
-      <name>Motif Refus</name>
-      <colour>FFFFFF</colour>
-      <visibility />
-      <items>
+      <name>Motivation du refus</name>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+      </visibility><items>
         <item id="1" type="form">
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><varname>motif</varname>
+          </by><varname>refus</varname>
           <formdef>
             <name>-</name>
             <fields>
@@ -302,12 +305,15 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
                 <label>Motif du refus</label>
                 <type>text</type>
                 <required>True</required>
-                <varname>refus</varname>
+                <hint>Le motif du refus sera envoy&#233; &#224; l'usager par courriel</hint>
+                <varname>motif</varname>
                 <display_locations />
+                <extra_css_class>pk-important</extra_css_class>
                 <prefill>
                   <locked>False</locked>
                   <type>none</type>
-                </prefill><pre>True</pre>
+                </prefill><rows>10m</rows>
+                <pre>True</pre>
                 <id>1</id>
               </field>
             </fields>
@@ -323,15 +329,15 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="2" type="sendmail">
+        <item id="1" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-notification-de-commentaire-demandeur</mail_template>
-        </item><item id="3" type="sendmail">
+        </item><item id="2" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-notification-de-commentaire-destinataire</mail_template>
-        </item><item id="1" type="jump">
+        </item><item id="3" type="jump">
           <status>new</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -344,7 +350,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
         <field>
           <label>Lien du r&#232;glement communal</label>
           <type>string</type>
-          <required>True</required>
+          <required>False</required>
           <varname>reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="10" url="http://local-formulaires.example.net/backoffice/workflows/10/">
+<workflow id="103" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/103/">
   <name>iMio - Documents PDF</name>
   <roles>
     <role id="_receiver">Destinataire</role>

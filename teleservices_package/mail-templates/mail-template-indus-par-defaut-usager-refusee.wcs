@@ -1,23 +1,29 @@
-<mail-template id="21">
+<?xml version="1.0"?>
+<mail-template id="43" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/43/">
   <name>Indus - Par d&#233;faut - Usager - Refus&#233;e</name>
   <slug>indus-par-defaut-usager-refusee</slug>
   <description>Email envoy&#233; &#224; l'usager lorsque sa demande est refus&#233;e.</description>
-  <subject>{{ form_name }} : votre demande est refus&#233;e</subject>
-  <body>{% if form_var_firstname %}Bonjour {{ form_var_firstname }}{% endif %},
+  <subject>{{ form_name }} : Votre demande est refus&#233;e</subject>
+  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
 {% if form_status_changed %}
 Nous vous informons que votre demande pour la d&#233;marche "{{ form_name }}" a &#233;t&#233; refus&#233;e. {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if refus_var_motif %}Motif du refus : {{ refus_var_motif }}{% endif %}
 
 Le statut de votre demande a donc chang&#233; (il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
 
 {% if form_user %}
-Vous pouvez consulter l'historique de votre demande en suivant ce lien&#160;: {{ form_url }}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
 {% endif %}
 
 Cordialement,

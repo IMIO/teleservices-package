@@ -1,10 +1,22 @@
 <?xml version="1.0"?>
-<block id="8">
-  <name>iMio - Etablissement Diplome</name>
-  <slug>etablissement_diplome</slug>
+<block id="9" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/9/">
+  <name>iMio - Candidature</name>
+  <slug>candidature</slug>
   <fields>
     <field>
-      <label>Nom de l'&#233;tablissement fr&#233;quent&#233;</label>
+      <label>Nom du dipl&#244;me</label>
+      <type>string</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise>True</anonymise>
+      <id>bfb2033318-0a84-43a7-97a6-405e9dd28c44</id>
+    </field><field>
+      <label>Etablissement ayant d&#233;livr&#233; le dipl&#244;me</label>
       <type>string</type>
       <required>True</required>
       <display_locations>
@@ -15,57 +27,29 @@
         <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
-      <id>bf0af45a76-4939-4bde-95ad-d2804008ce26</id>
+      <id>bfe221d1bf-1beb-4ea5-998b-3d33d090e5b9</id>
     </field><field>
-      <label>Intitul&#233; COMPLET du dipl&#244;me</label>
-      <type>string</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>bfc750ea99-b01d-4cfd-bb29-b63d48bdb8e6</id>
-    </field><field>
-      <label>Option</label>
-      <type>string</type>
-      <required>False</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>bf7cfa5145-45b9-457c-961b-991d49f01d63</id>
-    </field><field>
-      <label>Dipl&#244;me obtenu</label>
+      <label>R&#233;seau</label>
       <type>item</type>
       <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <locked>False</locked>
+      </display_locations><prefill>
         <type>none</type>
       </prefill><items>
-        <item>Oui</item>
-        <item>Non</item>
+        <item>Officiel</item>
+        <item>Libre</item>
       </items><display_mode>radio</display_mode>
       <in_filters>False</in_filters>
       <anonymise>False</anonymise>
       <display_disabled_items>False</display_disabled_items>
       <initial_zoom>13</initial_zoom>
-      <id>bf67c59cbb-5474-482a-8b5e-c2363e61d267</id>
+      <id>bf72c04f35-effa-44c0-945b-cfb61c4b6cf3</id>
     </field><field>
       <label>Date d'obtention du dipl&#244;me</label>
       <type>date</type>
-      <required>False</required>
+      <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -75,23 +59,34 @@
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>bf915ede43-b9fa-4e1f-91a4-20fddf242d7d</id>
+      <date_can_be_today>True</date_can_be_today>
+      <id>bf70bede49-2983-4235-a407-7faad1a02d56</id>
     </field><field>
-      <label>Copie du dipl&#244;me</label>
+      <label>Copie du dipl&#244;me obtenu</label>
       <type>file</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-1</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
+      <automatic_image_resize>False</automatic_image_resize>
+      <storage>default</storage>
+      <id>bf18ba5020-9b2c-4ba4-91f8-0247bb736044</id>
+    </field><field>
+      <label>Remarques &#233;ventuelles</label>
+      <type>text</type>
       <required>False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>bfc5a96fd0-9983-4174-b7a6-16d3de2d008c</id>
+      </prefill><pre>False</pre>
+      <id>bf70049b31-9f47-4aa9-9dd9-18c787919e87</id>
     </field>
   </fields>
 </block>

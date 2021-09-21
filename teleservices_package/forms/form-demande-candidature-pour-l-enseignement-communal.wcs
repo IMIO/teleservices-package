@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="100">Emploi</category>
-  <workflow workflow_id="20">iMio - Candidature Enseignement</workflow>
+  <category category_id="131">iMio - Emploi</category>
+  <workflow workflow_id="110">iMio - Candidature Enseignement</workflow>
   <max_field_id>365</max_field_id>
   <fields>
     <field>
@@ -46,7 +46,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Nouveau : Je n&#8217;ai jamais travaill&#233; au sein de votre PO et je souhaite y travailler</item>
@@ -201,7 +200,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><anonymise>True</anonymise>
@@ -314,14 +312,16 @@
       <remove_button>True</remove_button>
       <id>362</id>
     </field><field>
-      <label>Num&#233;ro de matricule s&#8217;il est connu</label>
+      <label>Num&#233;ro de matricule</label>
       <type>string</type>
       <required>False</required>
+      <hint>S'il est connu.</hint>
       <varname>matricule</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
+        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>343</id>
@@ -364,19 +364,19 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
       <automatic_image_resize>False</automatic_image_resize>
       <storage>default</storage>
       <id>365</id>
     </field>
-  </fields><user-roles>
-    <role role_id="logged-users">logged-users</role>
-  </user-roles><options>
+  </fields><roles>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+  </roles><options>
     <option varname="annees">2020-2021</option>
     <option varname="lien_mentions_legales" />
-    <option varname="mail_dpo">nicolas.selva@imio.be</option>
+    <option varname="mail_dpo"></option>
+    <option varname="reglement_communal"></option>
   </options><custom_views />
   <geolocations />
 </formdef>

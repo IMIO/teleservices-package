@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="30" url="http://local-formulaires.example.net/backoffice/workflows/30/">
+<workflow id="102" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/102/">
   <name>iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
@@ -8,9 +8,11 @@
     <status>
       <id>just_submitted</id>
       <name>Juste envoy&#233;</name>
-      <colour>FFFFFF</colour>
-      <visibility />
-      <items>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
         <item id="1" type="jump">
           <status>20</status>
           <condition>
@@ -18,6 +20,7 @@
             <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and (('form_var_mode_delivrance_raw' in locals() and form_var_mode_delivrance_raw != 'commune') or ('form_var_date_acte_raw' in locals() and form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019') or (('form_var_concerne_qui_raw' in locals() and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True')))</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item id="2" type="set-backoffice-fields">
+          <label>Configuration des donn&#233;es de traitement</label>
           <fields>
             <field>
               <field_id>bo10</field_id>
@@ -28,9 +31,6 @@
             </field><field>
               <field_id>bo6</field_id>
               <value>=form_var_nn if vars().get('form_var_rb_concerne') is None else form_var_nn if form_var_rb_concerne_raw == 'moi' else form_var_nn_perscon</value>
-            </field><field>
-              <field_id>bo13</field_id>
-              <value>='{0} {1} {2} - {3} {4}'.format(form_var_rue, form_var_numero, '({0})'.format(vars().get('form_var_boite')) if vars().get('form_var_boite') is not None else '', form_var_cp, form_var_localite) if vars().get('form_var_rb_concerne') is None else '{0} {1}({2}) - {3} {4}'.format(form_var_rue, form_var_numero, form_var_boite, form_var_cp, form_var_localite) if form_var_rb_concerne_raw == 'moi' else '{0} {1}({2}) - {3} {4}'.format(form_var_rue_perscon, form_var_numero_perscon, form_var_boite_perscon, form_var_cp_perscon, form_var_localite_perscon)</value>
             </field><field>
               <field_id>bo12</field_id>
               <value>=form_var_tel if vars().get('form_var_rb_concerne') is None else form_var_tel if form_var_rb_concerne_raw == 'moi' else vars().get('form_var_tel_perscon') or ''</value>
@@ -45,6 +45,50 @@
               <value>{{form_option_paiement_en_ligne}}</value>
             </field>
           </fields>
+        </item><item id="6" type="set-backoffice-fields">
+          <label>Adresse pour un acte qui me concerne</label>
+          <fields>
+            <field>
+              <field_id>bo13</field_id>
+              <value>{{ form_var_rue }} {{ form_var_numero }}{{ form_var_boite|default_if_none:"" }} - {{ form_var_cp }} {{ form_var_localite }}</value>
+            </field>
+          </fields><condition>
+            <type>django</type>
+            <value>"Acte" in form_name and not form_var_rb_concerne or form_var_rb_concerne_raw == 'moi'</value>
+          </condition>
+        </item><item id="7" type="set-backoffice-fields">
+          <label>Adresse pour un certificat qui me concerne</label>
+          <fields>
+            <field>
+              <field_id>bo13</field_id>
+              <value>{{ form_var_rue }} {{ form_var_numero }}{{ form_var_boite|default_if_none:"" }} - {{ form_var_cp }} {{ form_var_localite }}</value>
+            </field>
+          </fields><condition>
+            <type>django</type>
+            <value>"Acte" not in form_name and not form_var_concerne_qui_raw or form_var_concerne_qui_raw == 'moi'</value>
+          </condition>
+        </item><item id="8" type="set-backoffice-fields">
+          <label>Adresse pour l'acte d'un tiers</label>
+          <fields>
+            <field>
+              <field_id>bo13</field_id>
+              <value>{{ form_var_rue_perscon }} {{ form_var_numero_perscon }}{{ form_var_boite_perscon|default_if_none:"" }} - {{ form_var_cp_perscon }} {{ form_var_localite_perscon }}</value>
+            </field>
+          </fields><condition>
+            <type>django</type>
+            <value>"Acte" in form_name and form_var_rb_concerne_raw == 'tiers'</value>
+          </condition>
+        </item><item id="9" type="set-backoffice-fields">
+          <label>Adresse pour le certificat d'un tiers</label>
+          <fields>
+            <field>
+              <field_id>bo13</field_id>
+              <value>{{ form_var_rue_perscon }} {{ form_var_numero_perscon }}{{ form_var_boite_perscon|default_if_none:"" }} - {{ form_var_cp_perscon }} {{ form_var_localite_perscon }}</value>
+            </field>
+          </fields><condition>
+            <type>django</type>
+            <value>"Acte" not in form_name and form_var_concerne_qui_raw == 'tiers'</value>
+          </condition>
         </item><item id="3" type="jump">
           <status>13</status>
           <condition>
@@ -67,20 +111,26 @@
       </items>
     </status><status>
       <id>4</id>
-      <name>Rejet&#233;</name>
+      <name>Demande rejet&#233;e</name>
       <colour>FF0000</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
         <item id="1" type="register-comment">
-          <comment>&lt;h3&gt;{{form_refus_var_object}}&lt;/h3&gt;
-
-&lt;p&gt;{{form_refus_var_body}}&lt;/p&gt;</comment>
+          <comment>&lt;p&gt;Motif du refus : {{ refus_var_motif }}&lt;/p&gt;</comment>
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>{{form_refus_var_object}}</subject>
-          <body>{{form_refus_var_body}}</body>
+          </to><subject>{{ refus_var_objet }}</subject>
+          <body>Bonjour,
+
+Nous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.
+
+La raison de ce refus est la suivante :
+
+{{ refus_var_corps }}
+
+Bien cordialement,</body>
         </item><item id="3" type="jump">
           <status>25</status>
           <condition>
@@ -101,7 +151,14 @@
       <colour>66CCFF</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item id="4" type="displaymsg">
+          <message>Votre demande est prise en charge par nos services.</message>
+          <level>info</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
@@ -125,6 +182,9 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
             <item role_id="_receiver">_receiver</item>
           </by><status>finished</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;/p&gt;
+
+&lt;p dir="ltr" id="docs-internal-guid-155112b0-7fff-c287-e13d-b4a147894f8c" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet de cl&amp;ocirc;turer la demande de l&amp;rsquo;usager. Celui-ci sera pr&amp;eacute;venu par courriel.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item id="3" type="choice">
@@ -133,6 +193,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
             <item role_id="_receiver">_receiver</item>
           </by><status>19</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-3c4bd445-7fff-6d61-c702-edfcc8df7d7b" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet de refuser la demande de l&amp;rsquo;usager, de lui notifier le motif de refus et de l&amp;rsquo;avertir par courriel.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -147,7 +208,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
         <item id="1" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
+          </to><mail_template>indus-usager-demande-traitee</mail_template>
           <subject>Administration de {{ commune_name }} : D&#233;marche "{{ form_name }}" trait&#233;e.</subject>
           <body>Bonjour,
 
@@ -165,8 +226,8 @@ Bien cordialement,</body>
       </items>
     </status><status>
       <id>10</id>
-      <name>Paiement en ligne</name>
-      <colour>FFFFFF</colour>
+      <name>En attente du paiement</name>
+      <colour>FFFF00</colour>
       <visibility />
       <items>
         <item id="1" type="webservice_call">
@@ -211,9 +272,6 @@ Bien cordialement,</body>
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</comment>
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
         </item><item id="3" type="displaymsg">
           <message>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
@@ -221,9 +279,6 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
 &lt;p&gt;</message>
           <level>info</level>
           <position>top</position>
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
         </item><item id="4" type="jump">
           <status>12</status>
           <trigger>cancelled</trigger>
@@ -237,7 +292,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
     </status><status>
       <id>12</id>
       <name>Demande annul&#233;e par le citoyen</name>
-      <colour>FFFFFF</colour>
+      <colour>FF9966</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -253,9 +308,11 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
     </status><status>
       <id>13</id>
       <name>Document gratuit</name>
-      <colour>FFFFFF</colour>
-      <visibility />
-      <items>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
         <item id="1" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -341,7 +398,7 @@ Bien cordialement,
     </status><status>
       <id>19</id>
       <name>Formulaire de refus</name>
-      <colour>FFFFFF</colour>
+      <colour>999999</colour>
       <visibility>
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
@@ -349,48 +406,24 @@ Bien cordialement,
         <item id="1" type="form">
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><varname>form_refus</varname>
+          </by><varname>refus</varname>
           <formdef>
             <name>-</name>
             <fields>
               <field>
                 <label>Motif du refus</label>
-                <type>title</type>
-                <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><id>3</id>
-              </field><field>
-                <label>Le motif du refus sera envoy&#233; par mail &#224; l'usager.</label>
-                <type>comment</type>
-                <display_locations />
-                <id>4</id>
-              </field><field>
-                <label>Objet du mail</label>
-                <type>string</type>
-                <required>True</required>
-                <varname>object</varname>
-                <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
-                  <type>formula</type>
-                  <value>"Administration de {0} : Refus : {1} ".format(commune_name, form_name)</value>
-                </prefill><anonymise>True</anonymise>
-                <id>1</id>
-              </field><field>
-                <label>Corps du mail</label>
                 <type>text</type>
                 <required>True</required>
-                <varname>body</varname>
-                <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
-                  <type>formula</type>
-                  <value>"Bonjour,\r\n\r\nNous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.\r\n\r\nLa raison de ce refus est la suivante : \r\n\r\n\r\n\r\nBien cordialement, "</value>
-                </prefill><pre>False</pre>
-                <id>2</id>
+                <hint>Le motif du refus sera envoy&#233; dans un courriel &#224; l'usager.</hint>
+                <varname>motif</varname>
+                <display_locations />
+                <extra_css_class>pk-important</extra_css_class>
+                <prefill>
+                  <locked>False</locked>
+                  <type>none</type>
+                </prefill><rows>10</rows>
+                <pre>True</pre>
+                <id>7</id>
               </field>
             </fields>
           </formdef>
@@ -428,9 +461,11 @@ En cliquant sur valider, vous allez &#234;tre red&#233;rig&#233; vers le site du
     </status><status>
       <id>21</id>
       <name>PC Banking (virement)</name>
-      <colour>FFFFFF</colour>
-      <visibility />
-      <items>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
         <item id="1" type="set-backoffice-fields">
           <fields>
             <field>
@@ -450,12 +485,8 @@ En cliquant sur valider, vous allez &#234;tre red&#233;rig&#233; vers le site du
       <visibility />
       <items>
         <item id="1" type="displaymsg">
-          <message>Madame,&lt;br&gt;
-Monsieur,&lt;br&gt;
-&lt;br&gt;
-Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
-&lt;br&gt;&lt;br&gt;
-Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :
+          <message>&lt;p&gt;Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.&lt;/p&gt;
+&lt;p&gt;Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;Ville de {{ commune_name }} - {{ administration_adresse }} &lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{{form_option_iban}}&lt;/b&gt;&lt;/li&gt;
@@ -463,6 +494,7 @@ Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en me
 &lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_var_wf_total_commande }}&lt;/b&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </message>
+          <level>warning</level>
           <position>top</position>
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -485,7 +517,7 @@ B&#233;n&#233;ficiaire : Ville de {{ commune_name }} - {{ administration_adresse
 Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {{form_option_iban}}
 
 
-R&#233;f&#233;rence de la commande (communication libre) :{{ form_number }}
+R&#233;f&#233;rence de la commande (communication libre) : {{ form_number }}
 
 
 Montant de la commande : {{ form_var_wf_total_commande }}
@@ -493,11 +525,14 @@ Montant de la commande : {{ form_var_wf_total_commande }}
 
 Bien cordialement,</body>
         </item><item id="3" type="choice">
-          <label>Le paiement par virement est valid&#233;.</label>
+          <label>Valider le paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
           </by><status>23</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;/p&gt;
+
+&lt;p dir="ltr" id="docs-internal-guid-ec9bf069-7fff-b1fe-eab1-c4a10f6d1244" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action confirme le fait que l&amp;rsquo;usager effectu&amp;eacute; le paiement par virement.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -549,7 +584,7 @@ Bien cordialement,</body>
     </status><status>
       <id>25</id>
       <name>Demande d'informations pour le remboursement</name>
-      <colour>0099FF</colour>
+      <colour>FFFF00</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
@@ -568,11 +603,17 @@ Bien &#224; vous,
 
 </body>
         </item><item id="2" type="displaymsg">
-          <message>Merci de compl&#233;ter les informations bancaires n&#233;cessaires au remboursement de votre demande.
-Le remboursement se fera dans les plus brefs d&#233;lais sur le compte bancaire renseign&#233; par vos soins en bas de cette page.
-Attention, si vous aviez pay&#233; par carte de cr&#233;dit, veuillez indiquer un num&#233;ro de carte de d&#233;bit classique.
-Exemple de num&#233;ro IBAN : BE1234567890</message>
+          <message>&lt;p&gt;Merci de compl&#233;ter les informations bancaires n&#233;cessaires au remboursement de votre demande.
+&lt;br&gt;Le remboursement se fera dans les plus brefs d&#233;lais sur le compte bancaire renseign&#233; par vos soins en bas de cette page.&lt;/p&gt;
+
+&lt;p&gt;Attention, si vous aviez pay&#233; par carte de cr&#233;dit, veuillez indiquer un num&#233;ro de carte de d&#233;bit classique.&lt;/p&lt;
+
+&lt;p&gt;Exemple de num&#233;ro IBAN : BE1234567890&lt;/p&gt;</message>
+          <level>warning</level>
           <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
         </item><item id="3" type="form">
           <by>
             <item role_id="_submitter">_submitter</item>
@@ -581,6 +622,11 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
             <name>-</name>
             <fields>
               <field>
+                <label>Vos informations de remboursement</label>
+                <type>title</type>
+                <display_locations />
+                <id>6</id>
+              </field><field>
                 <label>Num&#233;ro de compte IBAN</label>
                 <type>string</type>
                 <required>True</required>
@@ -606,29 +652,64 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 </prefill><anonymise>True</anonymise>
                 <id>2</id>
               </field><field>
-                <label>Rue et num&#233;ro</label>
+                <label>Rue</label>
                 <type>string</type>
-                <required>False</required>
-                <varname>adresse1</varname>
-                <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
-                  <type>none</type>
+                <required>True</required>
+                <varname>rue</varname>
+                <display_locations />
+                <prefill>
+                  <locked>False</locked>
+                  <type>user</type>
+                  <value>_street</value>
                 </prefill><anonymise>True</anonymise>
                 <id>3</id>
               </field><field>
-                <label>Code postal et localit&#233;</label>
+                <label>Num&#233;ro</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>numero</varname>
+                <display_locations />
+                <prefill>
+                  <locked>False</locked>
+                  <type>user</type>
+                  <value>_num_house</value>
+                </prefill><anonymise>True</anonymise>
+                <id>9</id>
+              </field><field>
+                <label>Bo&#238;te</label>
                 <type>string</type>
                 <required>False</required>
-                <varname>adresse2</varname>
-                <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
-                  <type>none</type>
+                <display_locations />
+                <prefill>
+                  <locked>False</locked>
+                  <type>user</type>
+                  <value>_num_box</value>
+                </prefill><anonymise>True</anonymise>
+                <id>10</id>
+              </field><field>
+                <label>Code postal</label>
+                <type>string</type>
+                <required>False</required>
+                <varname>code_postal</varname>
+                <display_locations />
+                <prefill>
+                  <locked>False</locked>
+                  <type>user</type>
+                  <value>_zipcode</value>
                 </prefill><anonymise>True</anonymise>
                 <id>4</id>
+              </field><field>
+                <label>Localit&#233;</label>
+                <type>string</type>
+                <required>True</required>
+                <varname>localite</varname>
+                <display_locations />
+                <prefill>
+                  <locked>False</locked>
+                  <type>user</type>
+                  <value>_city</value>
+                </prefill><anonymise>True</anonymise>
+                <id>11</id>
               </field><field>
                 <label>Pays</label>
                 <type>item</type>
@@ -659,7 +740,7 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
     </status><status>
       <id>26</id>
       <name>Paiement annul&#233;</name>
-      <colour>FFFF66</colour>
+      <colour>00FF00</colour>
       <visibility />
       <items>
         <item id="1" type="displaymsg">
@@ -674,7 +755,7 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
     </status><status>
       <id>27</id>
       <name>Demande rembours&#233;e</name>
-      <colour>0099FF</colour>
+      <colour>00FF00</colour>
       <visibility />
       <items>
         <item id="1" type="displaymsg">
@@ -684,12 +765,16 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-usager-remboursement-effectue</mail_template>
         </item>
       </items>
     </status><status>
       <id>28</id>
-      <name>Demande &#224; rembourser</name>
-      <colour>FFFFFF</colour>
+      <name>En cours de remboursement</name>
+      <colour>0099FF</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
@@ -735,9 +820,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="86bd0ce8-54f9-425b-a665-3f86d1cfddb3" type="manual">
+        <trigger id="85f2095c-f765-419b-870a-28bc3988b89e" type="manual">
           <roles>
-            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
+            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -747,9 +832,9 @@ Cordialement, </body>
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="a76900fb-3989-486e-ab62-1419ea0d8f0d" type="manual">
+        <trigger id="6087778f-f672-44b2-95aa-0420a91accc6" type="manual">
           <roles>
-            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
+            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -763,9 +848,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="796952b9-57b6-48dd-a5c8-d91ce6fc810c" type="manual">
+        <trigger id="a74338e4-f52f-439a-81c6-5e11320c91ad" type="manual">
           <roles>
-            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
+            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -780,7 +865,7 @@ Cordialement, </body>
           </condition>
         </item>
       </items><triggers>
-        <trigger id="c6853c09-2990-49da-a070-b79d25da798a" type="timeout">
+        <trigger id="c889c636-cf5d-4153-ac85-83a9cbd6ad74" type="timeout">
           <anchor>finalized</anchor>
           <timeout>31</timeout>
         </trigger>
@@ -791,7 +876,7 @@ Cordialement, </body>
       <items>
         <item id="1" type="anonymise" />
       </items><triggers>
-        <trigger id="6fdbac0a-ea71-4514-803a-55316e5b4dc0" type="timeout">
+        <trigger id="5e54f829-8453-4425-a221-5ebe4ffd388f" type="timeout">
           <anchor>finalized</anchor>
           <timeout>1827</timeout>
         </trigger>

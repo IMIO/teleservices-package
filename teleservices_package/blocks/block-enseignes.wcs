@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="26">
+<block id="14" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/14/">
   <name>iMio - Enseignes</name>
   <slug>enseignes</slug>
   <digest_template>Type : {{enseignes_var_type}} Lumineux : {{enseignes_var_lumineux}} Non lumineux : {{enseignes_var_non_lumineux}} Cordon lumineux : {{enseignes_var_cordon}}</digest_template>
@@ -13,7 +13,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Enseigne</item>
@@ -41,7 +40,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -58,7 +56,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -74,7 +71,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
@@ -89,7 +85,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>bfdee48ec6-2475-43db-bd41-fce2a21aae16</id>

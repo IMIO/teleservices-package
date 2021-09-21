@@ -14,25 +14,10 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="101">Population</category>
-  <workflow workflow_id="39">iMio - Radiation pour l'&#233;tranger</workflow>
-  <max_field_id>101</max_field_id>
+  <category category_id="132">iMio - Population</category>
+  <workflow workflow_id="120">iMio - Radiation pour l'&#233;tranger</workflow>
+  <max_field_id>100</max_field_id>
   <fields>
-    <field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
-
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/reglement_communal.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;</label>
-      <type>comment</type>
-      <condition>
-        <type>django</type>
-        <value>false</value>
-      </condition><display_locations />
-      <id>101</id>
-    </field>
     <field>
       <label>Donn&#233;es du demandeur</label>
       <type>page</type>
@@ -365,7 +350,7 @@
       <initial_zoom>13</initial_zoom>
       <id>95</id>
     </field><field>
-      <label>D'autres personnes, de votre m&#233;nage actuel, d&#233;m&#233;nagent-elles aussi avec vous?</label>
+      <label>D'autres personnes, de votre m&#233;nage actuel, d&#233;m&#233;nagent-elles aussi avec vous ?</label>
       <type>bool</type>
       <required>False</required>
       <varname>autre_personne</varname>
@@ -393,7 +378,7 @@
       <id>99</id>
     </field>
   </fields><roles>
-    <role role_id="44eaaf9fdeb04e2a9ab515e7356069fe" role_key="_receiver">Agents traitants - Population, etat civil</role>
+    <role role_id="e8158eb6f0cb49798416e192f8c4dde6" role_key="_receiver"></role>
   </roles><options>
     <option varname="baec" />
     <option varname="cout">0</option>

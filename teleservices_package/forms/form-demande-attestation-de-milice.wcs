@@ -131,7 +131,7 @@
       <initial_zoom>13</initial_zoom>
       <id>69</id>
     </field><field>
-      <label>O&#249; est domicili&#233;(e) la personne concern&#233;e par le document?</label>
+      <label>O&#249; est domicili&#233;(e) la personne concern&#233;e par le document ?</label>
       <type>item</type>
       <required>True</required>
       <hint>La personne concern&#233;e par le document doit se rendre &#224; la commune de son domicile.</hint>
@@ -247,7 +247,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>57</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -467,7 +467,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>72</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>

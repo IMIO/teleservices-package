@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="97">Etat-Civil</category>
-  <workflow workflow_id="28">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="126">iMio - Etat-Civil</category>
+  <workflow workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>66</max_field_id>
   <fields>
     <field>
@@ -34,14 +34,13 @@
         <value>false</value>
       </condition><display_locations />
       <id>66</id>
-    </field>
-    <field>
+    </field><field>
       <label>Copie int&#233;grale d'acte de Nationalit&#233;</label>
       <type>page</type>
       <id>1</id>
     </field><field>
-      <label>&lt;h2&gt;L&amp;rsquo;acte de nationale ne concerne que les &amp;eacute;trangers devenus Belges.&lt;br /&gt;
-Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{cards|objects:'imio-lien-vers-formulaire'|filter_by:'nom'|filter_value:'Certificat de nationalit&#233;'|first|get:'lien'}}" rel="noopener noreferrer" target="_blank"&gt;Certificat de nationalit&amp;eacute;&lt;/a&gt;&lt;/h2&gt;
+      <label>&lt;p&gt;&lt;strong&gt;L&amp;rsquo;acte de nationalit&amp;eacute;&amp;nbsp;ne concerne que les &amp;eacute;trangers devenus Belges.&lt;br /&gt;
+Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|objects:'imio-lien-vers-formulaire'|filter_by:'nom'|filter_value:'Certificat de nationalit&#233;'|first|get:'lien'}}" rel="noopener noreferrer" target="_blank"&gt;demander le certificat de nationalit&amp;eacute;&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Commande d'un acte de nationalit&amp;eacute;.&lt;/em&gt;&lt;/p&gt;
 
@@ -59,7 +58,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
 
 &lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d'identit&amp;eacute; &lt;/strong&gt;(ainsi que d'une&amp;nbsp;&lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt;&amp;nbsp;si vous le retirez pour un tiers).&lt;/p&gt;
 
-&lt;h2&gt;Traitement&lt;/h2&gt;
+&lt;h3&gt;Traitement&lt;/h3&gt;
 
 &lt;ol&gt;
 	&lt;li&gt;Compl&amp;eacute;tez votre demande via le formulaire ci-dessous.&lt;/li&gt;
@@ -89,7 +88,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
       <display_disabled_items>False</display_disabled_items>
       <id>7</id>
     </field><field>
-      <label>&lt;p&gt;L'{{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la commune de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral (valable uniquement pour les actes enregistrés après le 31/03/2019). Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
+      <label>&lt;p&gt;L'{{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la commune de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral (valable uniquement pour les actes enregistr&#233;s apr&#232;s le 31/03/2019). Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
@@ -208,7 +207,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
         </post_condition>
       </post_conditions><id>40</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&amp;eacute;es de la &lt;u&gt;PERSONNE CONCERN&amp;Eacute;E PAR L'ACTE&lt;/u&gt; :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&amp;eacute;es de la personne concern&amp;eacute;e par l'acte :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>41</id>
@@ -267,7 +266,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-2-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
@@ -283,14 +281,13 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-2-12</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
       <date_can_be_today>False</date_can_be_today>
       <id>65</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -430,7 +427,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
         </post_condition>
       </post_conditions><id>11</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder vos donn&amp;eacute;es :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>12</id>
@@ -500,7 +497,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
       <date_can_be_today>False</date_can_be_today>
       <id>17</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -735,7 +732,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
       <label>Montant</label>
       <type>string</type>
       <required>True</required>
-      <hint>Hors &#233;ventuels frais de port</hint>
+      <hint>Hors &#233;ventuels frais de port.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -747,7 +744,8 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
       <id>61</id>
     </field>
   </fields><roles>
-    <role role_id="44eaaf9fdeb04e2a9ab515e7356069fe" role_key="_receiver">Agents traitants - Population, etat civil</role>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver">Test agent</role>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_validateur-pc-banking">Test agent</role>
   </roles><options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_etatcivil</option>
@@ -769,9 +767,10 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez demander le &lt;a href="{{
     <option varname="motifs_disponibles_structured" />
     <option varname="paiement_en_ligne" />
     <option varname="redirection_automatique" />
-    <option varname="regie_de_paiement">atos_test</option>
-    <option varname="regie_de_paiement_display">Atos test</option>
+    <option varname="regie_de_paiement">atos</option>
+    <option varname="regie_de_paiement_display">Atos (test)</option>
     <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal">test</option>
   </options><custom_views />
   <geolocations />
 </formdef>

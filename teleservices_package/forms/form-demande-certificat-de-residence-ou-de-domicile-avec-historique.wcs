@@ -107,7 +107,7 @@
       <initial_zoom>13</initial_zoom>
       <id>56</id>
     </field><field>
-      <label>O&#249; est domicili&#233;(e) la personne concern&#233;e par le document?</label>
+      <label>O&#249; est domicili&#233;(e) la personne concern&#233;e par le document ?</label>
       <type>item</type>
       <required>True</required>
       <varname>rb_domicile</varname>
@@ -395,7 +395,7 @@
       <date_can_be_today>False</date_can_be_today>
       <id>11</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>

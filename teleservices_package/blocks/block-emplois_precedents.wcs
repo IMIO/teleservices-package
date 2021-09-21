@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<block id="9">
-  <name>iMio - Autres Formations</name>
-  <slug>autres_formations</slug>
+<block id="10" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/10/">
+  <name>iMio - Emplois Pr&#233;c&#233;dents</name>
+  <slug>emplois_precedents</slug>
   <fields>
     <field>
-      <label>Intitul&#233; de la formation</label>
+      <label>Profession exerc&#233;e</label>
       <type>string</type>
       <required>True</required>
       <display_locations>
@@ -12,74 +12,62 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
-      <id>bfc29e145b-d339-49b1-b117-ea0683583218</id>
+      <id>bf07ad44cd-2335-4b85-8d12-fa4f5c2bbcdf</id>
     </field><field>
-      <label>Etablissement</label>
+      <label>Employeur</label>
       <type>string</type>
       <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class>grid-5-12</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
-      <id>bfb20109d5-f74e-402b-9690-1a7da04ad104</id>
+      <id>bf23ca1ab0-917a-4c0c-b257-908e529b9b78</id>
     </field><field>
-      <label>Dipl&#244;me/certificat/brevet obtenu</label>
-      <type>item</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><items>
-        <item>Oui</item>
-        <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>bf512fb1e3-e27b-44c3-97b8-8629198940b9</id>
-    </field><field>
-      <label>Date de l'obtention</label>
+      <label>Date d'entr&#233;e en service</label>
       <type>date</type>
-      <required>False</required>
+      <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
       <date_can_be_today>False</date_can_be_today>
-      <id>bfd7229dac-b1c1-4370-bb64-3401d02dd082</id>
+      <id>bfa9a764af-4c84-40e5-8fdb-ea0251f9a062</id>
     </field><field>
-      <label>Copie du dipl&#244;me/certificat/brevet obtenu</label>
-      <type>file</type>
-      <required>False</required>
-      <hint>optionnel</hint>
+      <label>Date de fin de service</label>
+      <type>date</type>
+      <required>True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><minimum_is_future>False</minimum_is_future>
+      <date_in_the_past>True</date_in_the_past>
+      <date_can_be_today>False</date_can_be_today>
+      <id>bf6876bec5-7593-42ca-9eaa-1a746b30f535</id>
+    </field><field>
+      <label>Description de vos missions principales</label>
+      <type>text</type>
+      <required>True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>bf31ec2ca7-01cb-43ee-a2cd-55332b0da18e</id>
+      </prefill><pre>False</pre>
+      <id>bf24b25b02-7a8c-42e0-b8e1-dc352fad85b4</id>
     </field>
   </fields>
 </block>

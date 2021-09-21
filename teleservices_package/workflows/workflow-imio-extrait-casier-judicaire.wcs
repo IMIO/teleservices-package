@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="26" url="http://local-formulaires.example.net/backoffice/workflows/26/">
+<workflow id="113" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/113/">
   <name>iMio - Extrait casier judicaire</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
@@ -8,9 +8,11 @@
     <status>
       <id>just_submitted</id>
       <name>Juste envoy&#233;</name>
-      <colour>FFFFFF</colour>
-      <visibility />
-      <items>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
         <item id="1" type="set-backoffice-fields">
           <label>D&#233;finition du demandeur</label>
           <fields>
@@ -56,15 +58,13 @@
       </items>
     </status><status>
       <id>4</id>
-      <name>rejet&#233;</name>
+      <name>Demande rejet&#233;e</name>
       <colour>FF0000</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
         <item id="1" type="register-comment">
-          <comment>{{form_refus_var_object}}
-
-	{{form_refus_var_body}}</comment>
+          <comment>&lt;p&gt;{{ refus_var_motif }}&lt;/p&gt;</comment>
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -74,18 +74,31 @@
         </item><item id="3" type="jump">
           <status>24</status>
           <condition>
-            <type>python</type>
-            <value>Decimal(form_var_wf_total_commande) &gt; 0</value>
+            <type>django</type>
+            <value>form_var_wf_total_commande|add:0 &gt; 0 and form_var_wf_paiement_en_ligne</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="4" type="jump">
+          <status>25</status>
+          <condition>
+            <type>django</type>
+            <value>form_var_wf_total_commande|add:0 &gt; 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>accepted</id>
       <name>En cours de traitement</name>
-      <colour>66CCFF</colour>
+      <colour>0099FF</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item id="4" type="displaymsg">
+          <message>Votre demande est prise en charge par nos services.</message>
+          <level>info</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
@@ -112,6 +125,7 @@ Bien &#224; vous,
             <item role_id="_receiver">_receiver</item>
           </by><status>finished</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-27dca64c-7fff-b55a-5da8-d5113ccda1fa" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action confirme que la demande de l&amp;rsquo;usager a &amp;eacute;t&amp;eacute; trait&amp;eacute;e.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item id="3" type="choice">
@@ -120,6 +134,7 @@ Bien &#224; vous,
             <item role_id="_receiver">_receiver</item>
           </by><status>19</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-d061012f-7fff-1563-6406-a9759b7466aa" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet &amp;agrave; l&amp;rsquo;agent traitant de refuser la demande de l&amp;rsquo;usager et d&amp;rsquo;utiliser un formulaire pour lui notifier la raison de ce refus.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -134,7 +149,7 @@ Bien &#224; vous,
         <item id="1" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
+          </to><mail_template>indus-usager-demande-traitee</mail_template>
           <subject>{{ form_name }} - Votre d&#233;marche a &#233;t&#233; trait&#233;e.</subject>
           <body>Bonjour,
 
@@ -174,8 +189,8 @@ Le service Population / Etat-civil
       </items>
     </status><status>
       <id>10</id>
-      <name>Paiement en ligne</name>
-      <colour>FF9966</colour>
+      <name>En attente du paiement</name>
+      <colour>FFFF00</colour>
       <visibility />
       <items>
         <item id="1" type="webservice_call">
@@ -225,11 +240,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</message>
-          <level>info</level>
           <position>top</position>
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
         </item><item id="4" type="jump">
           <status>12</status>
           <trigger>cancelled</trigger>
@@ -243,7 +254,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
     </status><status>
       <id>12</id>
       <name>Demande annul&#233;e par le citoyen</name>
-      <colour>FF0000</colour>
+      <colour>FF9966</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -259,7 +270,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
     </status><status>
       <id>13</id>
       <name>Document gratuit</name>
-      <colour>99FFFF</colour>
+      <colour>999999</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
@@ -284,7 +295,7 @@ Le service Population / Etat-civil
     </status><status>
       <id>17</id>
       <name>Paiement re&#231;u</name>
-      <colour>66FF66</colour>
+      <colour>99FF00</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
@@ -352,54 +363,32 @@ Le service Population / Etat-civil
       </items>
     </status><status>
       <id>19</id>
-      <name>formulaire de refus</name>
-      <colour>FFFFFF</colour>
-      <visibility />
-      <items>
+      <name>Formulaire de refus</name>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
         <item id="1" type="form">
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><varname>form_refus</varname>
+          </by><varname>refus</varname>
           <formdef>
             <name>-</name>
             <fields>
               <field>
                 <label>Motif du refus</label>
-                <type>title</type>
-                <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><id>3</id>
-              </field><field>
-                <label>Le motif du refus sera envoy&#233; par mail &#224; l'usager.</label>
-                <type>comment</type>
-                <display_locations />
-                <id>4</id>
-              </field><field>
-                <label>Objet du mail</label>
-                <type>string</type>
-                <required>True</required>
-                <varname>object</varname>
-                <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
-                  <type>formula</type>
-                  <value>"Administration de {0} : Refus : {1} ".format(commune_name, form_name)</value>
-                </prefill><anonymise>True</anonymise>
-                <id>1</id>
-              </field><field>
-                <label>Corps du mail</label>
                 <type>text</type>
                 <required>True</required>
-                <varname>body</varname>
-                <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
-                  <type>formula</type>
-                  <value>"Bonjour,\r\n\r\nNous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.\r\n\r\nLa raison de ce refus est la suivante : \r\n\r\n\r\n\r\nBien cordialement,\r\n\r\nLe service Population Etat civil "</value>
-                </prefill><pre>False</pre>
+                <hint>Le motif du refus sera envoy&#233; dans un courriel &#224; l'usager.</hint>
+                <varname>motif</varname>
+                <display_locations />
+                <extra_css_class>pk-important</extra_css_class>
+                <prefill>
+                  <locked>False</locked>
+                  <type>none</type>
+                </prefill><rows>10</rows>
+                <pre>True</pre>
                 <id>2</id>
               </field>
             </fields>
@@ -412,10 +401,10 @@ Le service Population / Etat-civil
     </status><status>
       <id>21</id>
       <name>Paiement par virement bancaire</name>
-      <colour>669999</colour>
+      <colour>999999</colour>
       <visibility>
-        <role>_validateur-pc-banking</role>
         <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
       </visibility><items>
         <item id="1" type="set-backoffice-fields">
           <fields>
@@ -436,38 +425,22 @@ Le service Population / Etat-civil
       <visibility />
       <items>
         <item id="1" type="displaymsg">
-          <message>&lt;p&gt;Madame, Monsieur {{ form_user_var_last_name }}&lt;/p&gt;
-
-&lt;/p&gt;Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.&lt;/p&gt;
+          <message>&lt;/p&gt;Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.&lt;/p&gt;
 
 &lt;/p&gt;Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :&lt;/p&gt;
 
-&lt;p&gt;
 &lt;ul&gt;
-&lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;Commune d'{{ commune_name }} - {{ administration_adresse }}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;{{ commune_name }} - {{ administration_adresse }}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{{form_option_iban}}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;R&#233;f&#233;rence de la commande (communication libre) : &lt;b&gt;{{ form_number }} / {{ form_user_var_last_name }}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_var_wf_total_commande }}&lt;/b&gt; &#8364;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/p&gt;
 
-&lt;p&gt;
-{% if form_tracking_code %}
-En cas de probl&#232;me, vous pouvez communiquer ce code de suivi &#224; l'administration communale :&lt;br&gt;
-Code de suivi : &lt;b&gt;{{ form_tracking_code }}&lt;/b&gt;
-{% endif %}
-&lt;/p&gt;
+{% if form_tracking_code %}&lt;p&gt;En cas de probl&#232;me, vous pouvez communiquer ce code de suivi &#224; l'administration communale :&lt;br&gt;
+Code de suivi : &lt;b&gt;{{ form_tracking_code }}&lt;/b&gt;&lt;/p&gt;{% endif %}
 
-&lt;p&gt;Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.&lt;/p&gt;
-
-&lt;p&gt;Bien cordialement,&lt;/p&gt;
-&lt;/p&gt;
-Le service Population / Etat-civil&lt;br&gt;
-Esplanade de l'H&#244;tel communal, 1&lt;br&gt;
-4430 ANS&lt;br&gt;
-T&#233;l. 04 247 72 11&lt;br&gt;
-&lt;/p&gt;</message>
-          <level>info</level>
+&lt;p&gt;Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.&lt;/p&gt;</message>
+          <level>warning</level>
           <position>top</position>
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -509,19 +482,21 @@ Le service Population / Etat-civil
 
 {{administration_adresse}</body>
         </item><item id="3" type="choice">
-          <label>Le paiement par virement est valid&#233;.</label>
+          <label>Valider le paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
           </by><status>23</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p dir="ltr" id="docs-internal-guid-2ca9c741-7fff-8789-b702-2955dc3133c4" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action confirme le fait que l&amp;rsquo;usager effectu&amp;eacute; le paiement par virement.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item id="4" type="choice">
-          <label>Hors d&#233;lai paiement</label>
+          <label>Paiement hors d&#233;lai</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
           </by><status>29</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-0d668ef6-7fff-9ae7-59e8-a35cf5ff8199" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Si l&amp;rsquo;usager n&amp;rsquo;a pas effectu&amp;eacute; son paiement end&amp;eacute;ans le d&amp;eacute;lai pr&amp;eacute;cis&amp;eacute;, cette action permet d&amp;rsquo;annuler sa demande. L&amp;rsquo;usager sera pr&amp;eacute;venu par courriel.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -529,7 +504,7 @@ Le service Population / Etat-civil
     </status><status>
       <id>23</id>
       <name>Virement re&#231;u</name>
-      <colour>66FF66</colour>
+      <colour>99FF00</colour>
       <visibility />
       <items>
         <item id="1" type="jump">
@@ -573,7 +548,7 @@ Le service Population / Etat-civil
     </status><status>
       <id>25</id>
       <name>Demande d'informations pour le remboursement</name>
-      <colour>0099FF</colour>
+      <colour>FFFF00</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
@@ -593,11 +568,15 @@ Le service Population / Etat civil
 
 {{administration_adresse}}</body>
         </item><item id="2" type="displaymsg">
-          <message>Merci de compl&#233;ter les informations bancaires n&#233;cessaires au remboursement de votre demande.
-Le remboursement se fera dans les plus brefs d&#233;lais sur le compte bancaire renseign&#233; par vos soins en bas de cette page.
-Attention, si vous aviez pay&#233; par carte de cr&#233;dit, veuillez indiquer un num&#233;ro de carte de d&#233;bit classique.
-Exemple de num&#233;ro IBAN : BE1234567890</message>
+          <message>&lt;p&gt;Merci de compl&#233;ter les informations bancaires n&#233;cessaires au remboursement de votre demande.
+&lt;br&gt;Le remboursement se fera dans les plus brefs d&#233;lais sur le compte bancaire renseign&#233; par vos soins en bas de cette page.&lt;/p&gt;
+&lt;p&gt;Attention, si vous aviez pay&#233; par carte de cr&#233;dit, veuillez indiquer un num&#233;ro de carte de d&#233;bit classique.&lt;/p&gt;
+&lt;p&gt;Exemple de num&#233;ro IBAN : BE12345678901234&lt;/p&gt;</message>
+          <level>warning</level>
           <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
         </item><item id="3" type="form">
           <by>
             <item role_id="_submitter">_submitter</item>
@@ -606,6 +585,13 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
             <name>-</name>
             <fields>
               <field>
+                <label>Vos informations de remboursement</label>
+                <type>title</type>
+                <display_locations>
+                  <display_location>validation</display_location>
+                  <display_location>summary</display_location>
+                </display_locations><id>9</id>
+              </field><field>
                 <label>Num&#233;ro de compte IBAN</label>
                 <type>string</type>
                 <required>True</required>
@@ -676,12 +662,11 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <label>Code postal</label>
                 <type>string</type>
                 <required>True</required>
-                <varname>cp</varname>
-                <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><extra_css_class>grid-1-4</extra_css_class>
+                <varname>code_postal</varname>
+                <display_locations />
+                <extra_css_class>grid-1-4</extra_css_class>
                 <prefill>
+                  <locked>False</locked>
                   <type>user</type>
                   <value>_zipcode</value>
                 </prefill><anonymise>True</anonymise>
@@ -729,7 +714,7 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
     </status><status>
       <id>26</id>
       <name>Paiement annul&#233;</name>
-      <colour>FFFF66</colour>
+      <colour>00FF00</colour>
       <visibility />
       <items>
         <item id="1" type="displaymsg">
@@ -744,7 +729,7 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
     </status><status>
       <id>27</id>
       <name>Demande rembours&#233;e</name>
-      <colour>0099FF</colour>
+      <colour>00FF00</colour>
       <visibility />
       <items>
         <item id="1" type="displaymsg">
@@ -754,21 +739,26 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><mail_template>indus-usager-remboursement-effectue</mail_template>
         </item>
       </items>
     </status><status>
       <id>28</id>
-      <name>Demande &#224; rembourser</name>
-      <colour>FFFFFF</colour>
+      <name>En cours de remboursement</name>
+      <colour>0099FF</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>Demande de remboursement - {{ form_number }}</subject>
+          </to><mail_template>indus-demande-de-remboursement</mail_template>
+          <subject>Demande de remboursement - {{ form_number }}</subject>
           <body>Bonjour,
 
-Voici une demande de remboursement hors des d&#233;lais de {{form_option_regie_de_paiement}}, merci de proc&#233;der &#224; la demande de remboursement suivante :
+Merci de proc&#233;der &#224; la demande de remboursement suivante :
 
 * Num&#233;ro IBAN : {{infos_remboursement_var_iban}}
 * Nom : {{infos_remboursement_var_nom}}
@@ -793,12 +783,22 @@ Cordialement,
 Le service Population / Etat-civil
 
 {{administration_adresse}}</body>
+        </item><item id="3" type="register-comment">
+          <comment>* Num&#233;ro IBAN : {{infos_remboursement_var_iban}}
+* Nom : {{infos_remboursement_var_nom}}
+* Adresse : {{ infos_remboursement_var_rue }} n&#176;{{ infos_remboursement_var_numero }} {{ infos_remboursement_var_boite }}
+* Code postal et ville : {{ infos_remboursement_var_code_postal }} {{ infos_remboursement_var_localite }}
+* Pays : {{infos_remboursement_var_pays}}
+* Montant : {{form_var_wf_total_commande}}
+
+Communication sugg&#233;r&#233;e : {{form_name}}, code {{form_number}}</comment>
         </item><item id="2" type="choice">
           <label>Cl&#244;turer le remboursement</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>27</status>
           <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;Cette action notifie l'usager que le remboursement a &amp;eacute;t&amp;eacute; effectu&amp;eacute;.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -806,7 +806,7 @@ Le service Population / Etat-civil
     </status><status>
       <id>29</id>
       <name>Hors d&#233;lai paiement</name>
-      <colour>FF6699</colour>
+      <colour>FF9966</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
@@ -868,9 +868,9 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="ea178fc6-8c51-4b8c-a1c5-ff077bc71362" type="manual">
+        <trigger id="658b2c5b-9243-42c6-aabf-456485042769" type="manual">
           <roles>
-            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
+            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -880,9 +880,9 @@ Le service Population / Etat-civil
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="1de1be26-a64d-425e-9bfd-e9aeff2459b1" type="manual">
+        <trigger id="dcff4f5e-2973-4975-9eb4-43264ff0560c" type="manual">
           <roles>
-            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
+            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -895,9 +895,9 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="aa1c1766-1e16-4a62-b44d-2b11598a17c5" type="manual">
+        <trigger id="1ce9301b-1ec9-42be-af98-45041e3c7650" type="manual">
           <roles>
-            <item role_id="0518a00119af4f72a940ea13ffe60d83">Debug</item>
+            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>

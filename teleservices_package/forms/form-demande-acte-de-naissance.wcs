@@ -6,7 +6,7 @@
   <internal_identifier>demande-acte-de-naissance</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="97">Etat-Civil</category>
-  <workflow workflow_id="28">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="126">iMio - Etat-Civil</category>
+  <workflow workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>105</max_field_id>
   <fields>
     <field>
@@ -34,8 +34,7 @@
         <value>false</value>
       </condition><display_locations />
       <id>105</id>
-    </field>
-    <field>
+    </field><field>
       <label>Extrait/Copie int&#233;grale d'acte de Naissance</label>
       <type>page</type>
       <id>1</id>
@@ -77,7 +76,7 @@
       <display_disabled_items>False</display_disabled_items>
       <id>9</id>
     </field><field>
-      <label>&lt;p&gt;L'{{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la commune de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral (valable uniquement pour les actes enregistrés après le 31/03/2019). Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
+      <label>&lt;p&gt;L'{{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la commune de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral (valable uniquement pour les actes enregistr&#233;s apr&#232;s le 31/03/2019). Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
@@ -223,7 +222,7 @@
         </post_condition>
       </post_conditions><id>68</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&#233;es de la &lt;u&gt;PERSONNE CONCERN&#201;E&lt;/u&gt; :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&amp;eacute;es de la personne concern&amp;eacute;e :&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>69</id>
@@ -302,7 +301,7 @@
       </prefill><anonymise>True</anonymise>
       <id>103</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -443,7 +442,7 @@
         </post_condition>
       </post_conditions><id>53</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder vos donn&amp;eacute;es :&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type>comment</type>
       <display_locations />
       <id>54</id>
@@ -528,7 +527,7 @@
       </prefill><anonymise>True</anonymise>
       <id>104</id>
     </field><field>
-      <label>ADRESSE :</label>
+      <label>ADRESSE</label>
       <type>subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
@@ -753,7 +752,7 @@
       <label>Montant</label>
       <type>string</type>
       <required>True</required>
-      <hint>Hors &#233;ventuels frais de port</hint>
+      <hint>Hors &#233;ventuels frais de port.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -764,8 +763,11 @@
       </prefill><anonymise>True</anonymise>
       <id>99</id>
     </field>
-  </fields><roles>
-    <role role_id="44eaaf9fdeb04e2a9ab515e7356069fe" role_key="_receiver">Agents traitants - Population, etat civil</role>
+  </fields><user-roles>
+    <role role_id="97e7a2ec3963492583f1e67a7cbd140d"></role>
+  </user-roles><roles>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
+    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_validateur-pc-banking"></role>
   </roles><options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies">atos_etatcivil</option>

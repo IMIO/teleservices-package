@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="19">
+<block id="13" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/13/">
   <name>iMio - Arbre &#224; abattre</name>
   <slug>arbre_a_abattre</slug>
   <fields>
@@ -12,7 +12,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bfe2b2c2bd-5813-4b22-bcbf-4f58b4a581c1</id>
@@ -25,7 +24,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Abattage</item>
@@ -45,7 +43,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -64,7 +61,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Isol&#233;</item>
@@ -84,7 +80,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>bfd346f2fc-9881-477f-942a-7cf2d5504f32</id>
@@ -97,7 +92,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>newline grid-1-1</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><pre>False</pre>
       <id>bf5b5acda0-103b-4f91-b5c5-161ddd8546f8</id>
