@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<formdef id="245" url="">
+<formdef id="37" url="http://local-formulaires.example.net/backoffice/forms/37/">
   <name>iMio - R&#233;servation &#233;v&#232;nement</name>
   <url_name>imio-reservation-evenement</url_name>
   <internal_identifier>imio-reservation-evenement</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>false</confirmation>
@@ -13,11 +13,31 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="133">iMio - Agendas</category>
-  <workflow workflow_id="86">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
-  <max_field_id>73</max_field_id>
+  <category category_id="103">iMio - Agendas</category>
+  <workflow workflow_id="26">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
+  <max_field_id>74</max_field_id>
   <fields>
     <field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/reservation_evenement.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/configurer_agenda.html" rel="noopener noreferrer" target="_blank"&gt;Configurer un agenda&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/evenement.html" rel="noopener noreferrer" target="_blank"&gt;Configurer un agenda de type &#201;v&#232;nement&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/index.html" rel="noopener noreferrer" target="_blank"&gt;Page de documentation g&amp;eacute;n&amp;eacute;rale sur les agendas&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>74</id>
+    </field><field>
       <label>Coordonn&#233;es</label>
       <type>page</type>
       <id>40</id>
@@ -146,7 +166,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>52</id>
@@ -222,14 +241,14 @@
       <id>25</id>
     </field>
   </fields><options>
-    <option varname="agenda"></option>
-    <option varname="agenda_display"></option>
+    <option varname="agenda" />
+    <option varname="agenda_display" />
     <option varname="agenda_structured" />
     <option varname="agendas" />
-    <option varname="agendas_display"></option>
+    <option varname="agendas_display" />
     <option varname="agendas_structured" />
-    <option varname="date_minimale_de_reservation"></option>
-    <option varname="date_minimale_de_reservation_display"></option>
+    <option varname="date_minimale_de_reservation" />
+    <option varname="date_minimale_de_reservation_display" />
     <option varname="date_minimale_de_reservation_structured" />
     <option varname="heure_fermeture">23:59</option>
     <option varname="heure_ouverture">00:00</option>

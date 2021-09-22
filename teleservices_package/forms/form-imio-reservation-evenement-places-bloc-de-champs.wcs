@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<formdef id="288" url="">
+<formdef id="56" url="http://local-formulaires.example.net/backoffice/forms/56/">
   <name>iMio - R&#233;servation &#233;v&#232;nement - Places - Bloc de champs</name>
   <url_name>imio-reservation-evenement-places-bloc-de-champs</url_name>
   <internal_identifier>imio-reservation-evenement-places-bloc-de-champs</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -13,11 +13,31 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="133">iMio - Agendas</category>
-  <workflow workflow_id="86">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
-  <max_field_id>9</max_field_id>
+  <category category_id="103">iMio - Agendas</category>
+  <workflow workflow_id="26">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
+  <max_field_id>10</max_field_id>
   <fields>
     <field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/reservation_evenement.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/configurer_agenda.html" rel="noopener noreferrer" target="_blank"&gt;Configurer un agenda&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/evenement.html" rel="noopener noreferrer" target="_blank"&gt;Configurer un agenda de type &#201;v&#232;nement&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/index.html" rel="noopener noreferrer" target="_blank"&gt;Page de documentation g&amp;eacute;n&amp;eacute;rale sur les agendas&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>10</id>
+    </field><field>
       <label>Inscription</label>
       <type>page</type>
       <post_conditions>
@@ -28,27 +48,6 @@
           </condition><error_message>Il n'y a pas assez de place ce jour l&#224;.</error_message>
         </post_condition>
       </post_conditions><id>6</id>
-    </field><field>
-      <label>&lt;h2&gt;&lt;strong&gt;Ce commentaire n'apparaitra pas en Front Office&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;Pour utiliser ce formulaire, cliquez sur &lt;strong&gt;Options&lt;/strong&gt; et s&amp;eacute;lectionnez un agenda &lt;strong&gt;&amp;eacute;v&amp;egrave;nement&lt;/strong&gt; dans la &lt;strong&gt;liste d&amp;eacute;roulante&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Les diff&amp;eacute;rents &amp;eacute;v&amp;egrave;nements de celui-ci appaitront dans le formulaire.&lt;/p&gt;
-
-&lt;p&gt;Donnez des libell&amp;eacute;s &amp;agrave; vos &amp;eacute;v&amp;eacute;nements et mettez-y &amp;eacute;galement la date et l'heure.&lt;/p&gt;
-
-&lt;p&gt;Ce formulaire est destin&amp;eacute; principalement aux &amp;eacute;v&amp;egrave;nements qui ont lieu une fois dans la journ&amp;eacute;e.&lt;/p&gt;
-
-&lt;p&gt;Exemple :&lt;/p&gt;
-
-&lt;p&gt;Tour de la ville 01/01/2021 12:00&lt;br /&gt;
-Visite des ruine 02/01/2021 12:00&lt;/p&gt;</label>
-      <type>comment</type>
-      <condition>
-        <type>django</type>
-        <value>false</value>
-      </condition><display_locations />
-      <id>9</id>
     </field><field>
       <label>Personnes</label>
       <type>block:personne</type>
@@ -101,8 +100,8 @@ Visite des ruine 02/01/2021 12:00&lt;/p&gt;</label>
       <id>5</id>
     </field>
   </fields><options>
-    <option varname="agenda"></option>
-    <option varname="agenda_display"></option>
+    <option varname="agenda" />
+    <option varname="agenda_display" />
     <option varname="agenda_structured" />
     <option varname="agendas" />
     <option varname="agendas_display" />

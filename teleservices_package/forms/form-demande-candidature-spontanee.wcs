@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="30" url="http://local-formulaires.example.net/backoffice/forms/30/">
+<formdef id="47" url="http://local-formulaires.example.net/backoffice/forms/47/">
   <name>Candidature spontan&#233;e</name>
   <url_name>demande-candidature-spontanee</url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
@@ -14,22 +14,11 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="131">iMio - Emploi</category>
-  <workflow workflow_id="111">iMio - Candidature spontan&#233;e</workflow>
+  <category category_id="100">Emploi</category>
+  <workflow workflow_id="21">iMio - Candidature spontan&#233;e</workflow>
   <max_field_id>276</max_field_id>
   <fields>
     <field>
-      <label>Pr&#233;sentation du Candidat</label>
-      <type>page</type>
-      <post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>script.lalouviere("is_valid_belgian_nrn",{'nrn':form_var_nn,'can_be_none':'False'})</value>
-          </condition><error_message>Num&#233;ro national incorrect ou incomplet. Ce champ ne peut contenir que des chiffres (pas de ., -, +, /,...).</error_message>
-        </post_condition>
-      </post_conditions><id>1</id>
-    </field><field>
       <label>&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature spontan&amp;eacute;e&amp;quot;&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
@@ -45,6 +34,17 @@
         <value>false</value>
       </condition><display_locations />
       <id>272</id>
+    </field><field>
+      <label>Pr&#233;sentation du Candidat</label>
+      <type>page</type>
+      <post_conditions>
+        <post_condition>
+          <condition>
+            <type>python</type>
+            <value>script.lalouviere("is_valid_belgian_nrn",{'nrn':form_var_nn,'can_be_none':'False'})</value>
+          </condition><error_message>Num&#233;ro national incorrect ou incomplet. Ce champ ne peut contenir que des chiffres (pas de ., -, +, /,...).</error_message>
+        </post_condition>
+      </post_conditions><id>1</id>
     </field><field>
       <label>Pr&#233;sentation du candidat</label>
       <type>title</type>
@@ -269,7 +269,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -290,7 +289,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Temps plein</item>
@@ -311,7 +309,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -502,7 +499,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
@@ -606,7 +602,6 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>VILLE</item>
@@ -633,7 +628,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>pk-important</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Employ&#233;(e) d'administration</item>
@@ -675,7 +669,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>pk-important</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Ajusteur</item>
@@ -721,7 +714,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>pk-important</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Assistant(e) social(e)</item>
@@ -760,7 +752,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>pk-important</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Architecte</item>
@@ -793,7 +784,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>pk-important</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Technicien(ne) de surface</item>
@@ -821,7 +811,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>pk-important</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Ouvrier Cuisinier</item>
@@ -850,9 +839,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>pk-important</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><min_choices>0</min_choices>
+      </prefill><items />
+      <min_choices>0</min_choices>
       <max_choices>0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-du-service-enseignement</type>
@@ -1004,7 +993,7 @@
       <id>273</id>
     </field>
   </fields><options>
-    <option varname="reglement_communal"></option>
+    <option varname="reglement_communal" />
     <option varname="sections" />
     <option varname="sections_display">Personnel administratif, Personnel social, Personnel de nettoyage, Personnel de cuisine</option>
     <option varname="sections_structured" />

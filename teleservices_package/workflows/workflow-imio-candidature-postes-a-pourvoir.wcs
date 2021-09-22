@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<workflow id="115" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/115/">
+<workflow id="32" url="http://local-formulaires.example.net/backoffice/workflows/32/">
   <name>iMio - Candidature postes &#224; pourvoir</name>
   <roles>
-    <role id="_receiver">Destinataire</role>
+    <role id="_receiver">Agent traitant</role>
   </roles><possible_status>
     <status>
       <id>just_submitted</id>
@@ -25,23 +25,6 @@
               <value>=["Personnel administratif", "Personnel ouvrier", "Personnel social", "Personnel technique / sp&#233;cifique", "Personnel de nettoyage", "Personnel de cuisine", "Personnel du service enseignement"]</value>
             </field>
           </fields>
-        </item><item id="2" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
-          <subject>Nouvelle demande ({{ form_name }})</subject>
-          <body>Bonjour,
-
-Une nouvelle demande a &#233;t&#233; re&#231;ue, vous pouvez la consulter
-en suivant ce lien&#160;:
-  {{ form_url_backoffice }}
-
-{% if form_details %}
-Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
-
-{{ form_details }}
-{% endif %}
-</body>
         </item><item id="3" type="sendmail">
           <to>
             <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
@@ -153,7 +136,7 @@ Bien &#224; vous,
       <colour>66FF00</colour>
       <visibility />
       <items>
-        <item id="6" type="displaymsg">
+        <item id="1" type="displaymsg">
           <message>Votre candidature a bien &#233;t&#233; enregistr&#233;e.</message>
           <level>success</level>
           <position>top</position>

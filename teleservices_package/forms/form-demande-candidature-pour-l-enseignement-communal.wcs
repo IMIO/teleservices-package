@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="62" url="http://local-formulaires.example.net/backoffice/forms/62/">
+<formdef id="53" url="http://local-formulaires.example.net/backoffice/forms/53/">
   <name>Candidature pour l'enseignement communal</name>
   <url_name>demande-candidature-pour-l-enseignement-communal</url_name>
   <description>Vous souhaitez postuler pour une fonction li&#233;e &#224; l'enseignement communal ? Faites-nous parvenir votre candidature par ce formulaire.</description>
@@ -14,15 +14,11 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="131">iMio - Emploi</category>
-  <workflow workflow_id="110">iMio - Candidature Enseignement</workflow>
+  <category category_id="100">Emploi</category>
+  <workflow workflow_id="23">iMio - Candidature Enseignement</workflow>
   <max_field_id>365</max_field_id>
   <fields>
     <field>
-      <label>Donn&#233;es signal&#233;tiques</label>
-      <type>page</type>
-      <id>318</id>
-    </field><field>
       <label>&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature pour l'enseignement communal&amp;quot;&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
@@ -38,6 +34,10 @@
         <value>false</value>
       </condition><display_locations />
       <id>361</id>
+    </field><field>
+      <label>Donn&#233;es signal&#233;tiques</label>
+      <type>page</type>
+      <id>318</id>
     </field><field>
       <label>Candidature</label>
       <type>item</type>
@@ -321,7 +321,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>343</id>
@@ -373,8 +372,8 @@
   </fields><options>
     <option varname="annees">2020-2021</option>
     <option varname="lien_mentions_legales" />
-    <option varname="mail_dpo"></option>
-    <option varname="reglement_communal"></option>
+    <option varname="mail_dpo" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>

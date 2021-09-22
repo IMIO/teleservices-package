@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="45" url="http://local-formulaires.example.net/backoffice/forms/45/">
+<formdef id="50" url="http://local-formulaires.example.net/backoffice/forms/50/">
   <name>Acte de Reconnaissance pr&#233;/post-natale</name>
   <url_name>demande-acte-de-reconnaissance-prepost-natale</url_name>
   <description>&lt;p&gt;&lt;em&gt;Un extrait ou une copie int&amp;eacute;grale de l'acte peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="126">iMio - Etat-Civil</category>
-  <workflow workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="2">Etat civil</category>
+  <workflow workflow_id="31">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>74</max_field_id>
   <fields>
     <field>
@@ -654,11 +654,10 @@
       </prefill><anonymise>True</anonymise>
       <id>72</id>
     </field>
-  </fields>
-  <options>
+  </fields><options>
     <option varname="baec" />
-    <option varname="comptes_identifiants_regies"></option>
-    <option varname="comptes_identifiants_regies_display"></option>
+    <option varname="comptes_identifiants_regies" />
+    <option varname="comptes_identifiants_regies_display" />
     <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">0</option>
     <option varname="cp_commune" />

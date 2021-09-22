@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="69" url="http://local-formulaires.example.net/backoffice/forms/69/">
+<formdef id="48" url="http://local-formulaires.example.net/backoffice/forms/48/">
   <name>Candidature postes &#224; pourvoir</name>
   <url_name>demande-candidature-postes-a-pourvoir</url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
@@ -14,16 +14,12 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="131">iMio - Emploi</category>
-  <workflow workflow_id="115">iMio - Candidature postes &#224; pourvoir</workflow>
+  <category category_id="100">Emploi</category>
+  <workflow workflow_id="32">iMio - Candidature postes &#224; pourvoir</workflow>
   <max_field_id>277</max_field_id>
   <fields>
     <field>
-      <label>Postes &#224; pourvoir</label>
-      <type>page</type>
-      <id>98</id>
-    </field><field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature à pourvoir&amp;quot;&lt;/h1&gt;
+      <label>&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature &#224; pourvoir&amp;quot;&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
 
@@ -36,6 +32,10 @@
         <value>false</value>
       </condition><display_locations />
       <id>272</id>
+    </field><field>
+      <label>Postes &#224; pourvoir</label>
+      <type>page</type>
+      <id>98</id>
     </field><field>
       <label>Postes &#224; pourvoir</label>
       <type>title</type>
@@ -64,9 +64,9 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <display_location>listings</display_location>
       </display_locations><extra_css_class>pk-important</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><min_choices>0</min_choices>
+      </prefill><items />
+      <min_choices>0</min_choices>
       <max_choices>0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-postes-a-pourvoir:trier-par-section</type>
@@ -309,7 +309,6 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -330,7 +329,6 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <display_location>listings</display_location>
       </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Temps plein</item>
@@ -351,7 +349,6 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -411,7 +408,6 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
@@ -431,9 +427,9 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>radio</display_mode>
+      </prefill><items />
+      <display_mode>radio</display_mode>
       <data_source>
         <type>do_you_work</type>
       </data_source><in_filters>False</in_filters>
@@ -563,7 +559,6 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>
@@ -659,7 +654,6 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><minimum_is_future>False</minimum_is_future>
       <date_in_the_past>True</date_in_the_past>

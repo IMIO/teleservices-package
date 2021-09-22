@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="289" url="">
+<formdef id="22" url="http://local-formulaires.example.net/backoffice/forms/22/">
   <name>iMio - Prise de rendez-vous - Plusieurs personnes</name>
   <url_name>imio-prise-de-rendez-vous-plusieurs-personnes</url_name>
   <internal_identifier>imio-prise-de-rendez-vous-plusieurs-personnes</internal_identifier>
@@ -13,11 +13,31 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="133">iMio - Agendas</category>
-  <workflow workflow_id="86">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
-  <max_field_id>71</max_field_id>
+  <category category_id="103">iMio - Agendas</category>
+  <workflow workflow_id="26">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
+  <max_field_id>72</max_field_id>
   <fields>
     <field>
+      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/prise_rdv.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/configurer_agenda.html" rel="noopener noreferrer" target="_blank"&gt;Configurer un agenda&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/rendez_vous.html" rel="noopener noreferrer" target="_blank"&gt;Configurer un agenda de type Rendez-vous&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/index.html" rel="noopener noreferrer" target="_blank"&gt;Page de documentation g&#233;n&#233;rale sur les agendas&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <type>comment</type>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition><display_locations />
+      <id>72</id>
+    </field><field>
       <label>Coordonn&#233;es</label>
       <type>page</type>
       <post_conditions>
@@ -153,7 +173,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id>52</id>
@@ -190,9 +209,9 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>script.liste_type_general_rdv(form_option_agenda_api_meetings_url)</value>
@@ -216,9 +235,9 @@
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><display_mode>list</display_mode>
+      </prefill><items />
+      <display_mode>list</display_mode>
       <data_source>
         <type>formula</type>
         <value>script.liste_type_rdv(form_option_agenda_api_meetings_url, form_var_type_general_rdv)</value>
@@ -254,14 +273,14 @@
       <id>25</id>
     </field>
   </fields><options>
-    <option varname="agenda"></option>
-    <option varname="agenda_display"></option>
+    <option varname="agenda" />
+    <option varname="agenda_display" />
     <option varname="agenda_structured" />
     <option varname="agendas" />
     <option varname="agendas_display" />
     <option varname="agendas_structured" />
-    <option varname="date_minimale_de_reservation"></option>
-    <option varname="date_minimale_de_reservation_display"></option>
+    <option varname="date_minimale_de_reservation" />
+    <option varname="date_minimale_de_reservation_display" />
     <option varname="date_minimale_de_reservation_structured" />
     <option varname="heure_fermeture">23:59</option>
     <option varname="heure_ouverture">00:00</option>

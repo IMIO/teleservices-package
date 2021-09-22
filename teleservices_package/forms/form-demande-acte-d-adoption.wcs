@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="29" url="http://local-formulaires.example.net/backoffice/forms/29/">
+<formdef id="57" url="http://local-formulaires.example.net/backoffice/forms/57/">
   <name>Acte d'Adoption</name>
   <url_name>demande-acte-d-adoption</url_name>
   <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de Naissance ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; la d&amp;eacute;claration de naissance a &amp;eacute;t&amp;eacute; faite.&lt;/em&gt;&lt;/p&gt;</description>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="97">iMio - Etat-Civil</category>
-  <workflow workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="2">Etat civil</category>
+  <workflow workflow_id="31">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>106</max_field_id>
   <fields>
     <field>
@@ -307,7 +307,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class>grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise>True</anonymise>
       <id>104</id>
@@ -774,11 +773,10 @@
       </prefill><anonymise>True</anonymise>
       <id>99</id>
     </field>
-  </fields><roles />
-  <options>
+  </fields><options>
     <option varname="baec" />
-    <option varname="comptes_identifiants_regies"></option>
-    <option varname="comptes_identifiants_regies_display"></option>
+    <option varname="comptes_identifiants_regies" />
+    <option varname="comptes_identifiants_regies_display" />
     <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">5</option>
     <option varname="cp_commune" />
@@ -796,8 +794,8 @@
     <option varname="motifs_disponibles_structured" />
     <option varname="paiement_en_ligne" />
     <option varname="redirection_automatique" />
-    <option varname="regie_de_paiement"></option>
-    <option varname="regie_de_paiement_display"></option>
+    <option varname="regie_de_paiement" />
+    <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
   </options><custom_views />
