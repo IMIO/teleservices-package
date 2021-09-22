@@ -277,7 +277,7 @@
     <option varname="agenda_display"></option>
     <option varname="agenda_structured" />
     <option varname="agendas" />
-    <option varname="agendas_display">/option>
+    <option varname="agendas_display"></option>
     <option varname="agendas_structured" />
     <option varname="date_minimale_de_reservation"></option>
     <option varname="date_minimale_de_reservation_display"></option>

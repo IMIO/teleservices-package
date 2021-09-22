@@ -279,8 +279,8 @@
     </field>
   </fields><roles />
   <options>
-    <option varname="agenda">presentation-2</option>
-    <option varname="agenda_display">Pr&#233;sentation 2</option>
+    <option varname="agenda"></option>
+    <option varname="agenda_display"></option>
     <option varname="agenda_structured" />
     <option varname="agendas" />
     <option varname="agendas_display" />
