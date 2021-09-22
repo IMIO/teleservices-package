@@ -100,12 +100,7 @@ Visite des ruine 02/01/2021 12:00&lt;/p&gt;</label>
       </prefill><anonymise>True</anonymise>
       <id>5</id>
     </field>
-  </fields><user-roles>
-    <role role_id="97e7a2ec3963492583f1e67a7cbd140d"></role>
-  </user-roles><roles>
-    <role role_id="e726c9be4a584427ba4500b8d7780c5a" role_key="_receiver"></role>
-    <role role_id="032bfed279a448d39a09dedadbc09a31" role_key="_administrateur"></role>
-  </roles><options>
+  </fields><options>
     <option varname="agenda"></option>
     <option varname="agenda_display"></option>
     <option varname="agenda_structured" />

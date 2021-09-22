@@ -272,12 +272,7 @@
       <initial_zoom>13</initial_zoom>
       <id>25</id>
     </field>
-  </fields><user-roles>
-    <role role_id="97e7a2ec3963492583f1e67a7cbd140d">Citoyen (test)</role>
-  </user-roles><roles>
-    <role role_id="032bfed279a448d39a09dedadbc09a31" role_key="_administrateur">Agent ayant acces aux fabriques</role>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver">Test agent</role>
-  </roles><options>
+  </fields><options>
     <option varname="agenda"></option>
     <option varname="agenda_display"></option>
     <option varname="agenda_structured" />

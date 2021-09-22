@@ -581,8 +581,8 @@
     </field>
   </fields><options>
     <option varname="baec" />
-    <option varname="comptes_identifiants_regies">atos_etatcivil</option>
-    <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>
+    <option varname="comptes_identifiants_regies"></option>
+    <option varname="comptes_identifiants_regies_display"></option>
     <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">0</option>
     <option varname="cp_commune" />

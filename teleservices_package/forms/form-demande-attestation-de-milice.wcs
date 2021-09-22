@@ -718,13 +718,11 @@
       </prefill><anonymise>True</anonymise>
       <id>73</id>
     </field>
-  </fields><user-roles>
-    <role role_id="logged-users">logged-users</role>
-  </user-roles><roles />
+  </fields><roles />
   <options>
     <option varname="baec" />
     <option varname="cout">0</option>
-    <option varname="cp_commune">5032</option>
+    <option varname="cp_commune"></option>
     <option varname="destinations" />
     <option varname="destinations_display" />
     <option varname="destinations_structured" />
@@ -738,8 +736,8 @@
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="redirection_automatique" />
-    <option varname="regie_de_paiement">atos</option>
-    <option varname="regie_de_paiement_display">Atos (test)</option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
     <option varname="regie_de_paiement_structured" />
   </options><custom_views />
   <geolocations />

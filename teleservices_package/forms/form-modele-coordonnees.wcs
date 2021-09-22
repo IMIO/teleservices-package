@@ -169,9 +169,7 @@
       <display_locations />
       <id>13</id>
     </field>
-  </fields><roles>
-    <role role_id="a2d46c1b5e3548e49664fb630cc17154" role_key="_receiver">Agents traitants - Travaux</role>
-  </roles><options>
+  </fields><options>
     <option varname="cost">0</option>
     <option varname="destinations" />
     <option varname="destinations_display">R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t,Envoi &#224; domicile : co&#251;t 1&#8364;,Envoi &#224; domicile par recommand&#233;: co&#251;t 6&#8364;</option>

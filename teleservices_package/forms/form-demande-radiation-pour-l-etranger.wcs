@@ -377,9 +377,7 @@
       <remove_button>True</remove_button>
       <id>99</id>
     </field>
-  </fields><roles>
-    <role role_id="e8158eb6f0cb49798416e192f8c4dde6" role_key="_receiver"></role>
-  </roles><options>
+  </fields><options>
     <option varname="baec" />
     <option varname="cout">0</option>
     <option varname="cp_commune">5032</option>
@@ -396,8 +394,8 @@
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="redirection_automatique" />
-    <option varname="regie_de_paiement">atos</option>
-    <option varname="regie_de_paiement_display">Atos (test)</option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
     <option varname="regie_de_paiement_structured" />
   </options><custom_views />
   <geolocations />

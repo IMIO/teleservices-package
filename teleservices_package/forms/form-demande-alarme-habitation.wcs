@@ -360,12 +360,7 @@
       </validation><anonymise>True</anonymise>
       <id>12</id>
     </field>
-  </fields><user-roles>
-    <role role_id="97e7a2ec3963492583f1e67a7cbd140d"></role>
-  </user-roles><roles>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_agent-traitant"></role>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
-  </roles><options />
+  </fields><options />
   <custom_views />
   <geolocations />
 </formdef>

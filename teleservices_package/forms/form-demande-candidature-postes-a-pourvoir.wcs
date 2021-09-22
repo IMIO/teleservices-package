@@ -895,9 +895,7 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <remove_button>True</remove_button>
       <id>273</id>
     </field>
-  </fields><user-roles>
-    <role role_id="7366f44247bb4821846dbbcf01622d3c">Citoyen (test)</role>
-  </user-roles><options>
+  </fields><options>
     <option varname="reglement_communal" />
     <option varname="sections" />
     <option varname="sections_display">Personnel administratif, Personnel social, Personnel de cuisine</option>

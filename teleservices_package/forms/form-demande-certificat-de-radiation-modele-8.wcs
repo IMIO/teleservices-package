@@ -638,9 +638,7 @@
       </prefill><anonymise>True</anonymise>
       <id>73</id>
     </field>
-  </fields><user-roles>
-    <role role_id="logged-users">logged-users</role>
-  </user-roles><roles />
+  </fields>
   <options>
     <option varname="baec" />
     <option varname="cout">0</option>

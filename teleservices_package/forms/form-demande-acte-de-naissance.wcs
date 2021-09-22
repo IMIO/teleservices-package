@@ -763,15 +763,10 @@
       </prefill><anonymise>True</anonymise>
       <id>99</id>
     </field>
-  </fields><user-roles>
-    <role role_id="97e7a2ec3963492583f1e67a7cbd140d"></role>
-  </user-roles><roles>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_validateur-pc-banking"></role>
-  </roles><options>
+  </fields><options>
     <option varname="baec" />
-    <option varname="comptes_identifiants_regies">atos_etatcivil</option>
-    <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>
+    <option varname="comptes_identifiants_regies"></option>
+    <option varname="comptes_identifiants_regies_display"></option>
     <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">0</option>
     <option varname="cp_commune" />

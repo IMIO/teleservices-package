@@ -370,9 +370,7 @@
       <storage>default</storage>
       <id>365</id>
     </field>
-  </fields><roles>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
-  </roles><options>
+  </fields><options>
     <option varname="annees">2020-2021</option>
     <option varname="lien_mentions_legales" />
     <option varname="mail_dpo"></option>

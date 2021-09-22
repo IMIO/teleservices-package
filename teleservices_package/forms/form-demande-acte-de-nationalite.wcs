@@ -743,13 +743,11 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       </prefill><anonymise>True</anonymise>
       <id>61</id>
     </field>
-  </fields><roles>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver">Test agent</role>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_validateur-pc-banking">Test agent</role>
-  </roles><options>
+  </fields><roles />
+  <options>
     <option varname="baec" />
-    <option varname="comptes_identifiants_regies">atos_etatcivil</option>
-    <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>
+    <option varname="comptes_identifiants_regies"></option>
+    <option varname="comptes_identifiants_regies_display"></option>
     <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">0</option>
     <option varname="cp_commune" />
@@ -767,10 +765,10 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
     <option varname="motifs_disponibles_structured" />
     <option varname="paiement_en_ligne" />
     <option varname="redirection_automatique" />
-    <option varname="regie_de_paiement">atos</option>
-    <option varname="regie_de_paiement_display">Atos (test)</option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"> </option>
     <option varname="regie_de_paiement_structured" />
-    <option varname="reglement_communal">test</option>
+    <option varname="reglement_communal"></option>
   </options><custom_views />
   <geolocations />
 </formdef>

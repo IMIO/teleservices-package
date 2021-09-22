@@ -228,9 +228,7 @@
       <initial_zoom>13</initial_zoom>
       <id>25</id>
     </field>
-  </fields><roles>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
-  </roles><options>
+  </fields><options>
     <option varname="agenda"></option>
     <option varname="agenda_display"></option>
     <option varname="agenda_structured" />

@@ -774,12 +774,11 @@
       </prefill><anonymise>True</anonymise>
       <id>99</id>
     </field>
-  </fields><roles>
-    <role role_id="e8158eb6f0cb49798416e192f8c4dde6" role_key="_receiver">Agents traitants - Population, etat civil</role>
-  </roles><options>
+  </fields><roles />
+  <options>
     <option varname="baec" />
-    <option varname="comptes_identifiants_regies">atos_etatcivil</option>
-    <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>
+    <option varname="comptes_identifiants_regies"></option>
+    <option varname="comptes_identifiants_regies_display"></option>
     <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">5</option>
     <option varname="cp_commune" />
@@ -797,8 +796,8 @@
     <option varname="motifs_disponibles_structured" />
     <option varname="paiement_en_ligne" />
     <option varname="redirection_automatique" />
-    <option varname="regie_de_paiement">atos_test</option>
-    <option varname="regie_de_paiement_display">Atos test</option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
   </options><custom_views />

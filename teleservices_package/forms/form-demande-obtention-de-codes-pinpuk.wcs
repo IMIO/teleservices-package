@@ -36,14 +36,14 @@
     </field>
   </fields><options>
     <option varname="cost">5</option>
-    <option varname="cp_commune">1234</option>
+    <option varname="cp_commune"></option>
     <option varname="destinations" />
-    <option varname="destinations_display">Envoi &#224; domicile : co&#251;t 0,77&#8364;, Envoi &#224; domicile par recommand&#233;: co&#251;t 6&#8364;, R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t</option>
+    <option varname="destinations_display"></option>
     <option varname="destinations_structured" />
     <option varname="iban" />
     <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=42&amp;language=FR</option>
     <option varname="motifs_disponibles" />
-    <option varname="motifs_disponibles_display">Allocations familiales : gratuit, Assurance, Avocat : co&#251;t 5&#8364;, Banque : co&#251;t 5&#8364;</option>
+    <option varname="motifs_disponibles_display"></option>
     <option varname="motifs_disponibles_structured" />
     <option varname="numero_de_telephone" />
     <option varname="paiement_en_ligne" />

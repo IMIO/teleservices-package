@@ -1104,10 +1104,7 @@
       <remove_button>True</remove_button>
       <id>256</id>
     </field>
-  </fields><roles>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_receiver"></role>
-    <role role_id="7390f1bcf62a4b5b89d7a8f3f8e6aad3" role_key="_agent-traitant-taxation"></role>
-  </roles><options>
+  </fields><options>
     <option varname="form_option_jours_minimum">5</option>
     <option varname="jours_feries"></option>
     <option varname="jours_minimum">5</option>
