@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.25] - 23-09-2021 -
+### Fix
+   - category of euthanasia's form
+
 ## [0.1.24] - 22-09-2021 -
 ### Updated
    - all forms
