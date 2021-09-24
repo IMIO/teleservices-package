@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="109" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/109/">
+<workflow id="32" url="http://local-formulaires.example.net/backoffice/workflows/32/">
   <name>iMio - Changement d'adresse</name>
   <roles>
     <role id="_receiver">Agent traitant</role>
@@ -45,7 +45,7 @@
               <value>{{ form_var_bloc_identite|default_if_none:0|length|add:1 }}</value>
             </field>
           </fields>
-        </item><item id="4" type="set-backoffice-fields">
+        </item><item id="2" type="set-backoffice-fields">
           <label>Calcul du montant si intramuros</label>
           <fields>
             <field>
@@ -56,7 +56,7 @@
             <type>django</type>
             <value>form_var_cp_ancienneadr in form_option_cp_commune</value>
           </condition>
-        </item><item id="5" type="set-backoffice-fields">
+        </item><item id="3" type="set-backoffice-fields">
           <label>Calcul du montant si nouvel habitant</label>
           <fields>
             <field>
@@ -67,13 +67,13 @@
             <type>django</type>
             <value>form_var_cp_ancienneadr not in form_option_cp_commune</value>
           </condition>
-        </item><item id="2" type="jump">
+        </item><item id="4" type="jump">
           <status>21</status>
           <condition>
             <type>python</type>
             <value>vars().get('form_var_wf_paiement_en_ligne_raw') is False</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="3" type="jump">
+        </item><item id="5" type="jump">
           <status>10</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -375,7 +375,6 @@ Esplanade de l'H&#244;tel communal, 1
                 <display_locations />
                 <extra_css_class>pk-important</extra_css_class>
                 <prefill>
-                  <locked>False</locked>
                   <type>none</type>
                 </prefill><pre>False</pre>
                 <id>2</id>
@@ -445,7 +444,8 @@ Le service Population / Etat-civil&lt;br&gt;
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>{{ form_name }} - En attente du virement</subject>
+          </to><mail_template>indus-usager-en-attente-du-virement</mail_template>
+          <subject>{{ form_name }} - En attente du virement</subject>
           <body>Madame, Monsieur {{ form_user_var_last_name }}
 
 Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
@@ -471,11 +471,7 @@ Code de suivi : {{ form_tracking_code }}
 {% endif %}
 
 Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.</body>
-        </item><item id="5" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-usager-en-attente-du-virement</mail_template>
-        </item><item id="3" type="choice">
+        </item><item id="4" type="choice">
           <label>Le paiement par virement est valid&#233;.</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -483,7 +479,7 @@ Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.</body
           <require_confirmation>False</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="choice">
+        </item><item id="5" type="choice">
           <label>Hors d&#233;lai paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -654,7 +650,6 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
                 <varname>code_postal</varname>
                 <display_locations />
                 <prefill>
-                  <locked>False</locked>
                   <type>user</type>
                   <value>_zipcode</value>
                 </prefill><anonymise>True</anonymise>
@@ -771,7 +766,7 @@ Le service Population / Etat-civil
 Esplanade de l'H&#244;tel communal, 1
 4430 ANS
 T&#233;l. 04 247 72 11</body>
-        </item><item id="3" type="register-comment">
+        </item><item id="2" type="register-comment">
           <comment>* Num&#233;ro IBAN : {{infos_remboursement_var_iban}}
 * Nom : {{infos_remboursement_var_nom}}
 * Adresse : {{ infos_remboursement_var_rue }} n&#176;{{ infos_remboursement_var_numero }} {{ infos_remboursement_var_boite }}
@@ -780,7 +775,7 @@ T&#233;l. 04 247 72 11</body>
 * Montant : {{form_var_wf_total_commande}}
 
 Communication sugg&#233;r&#233;e : {{form_name}}, code {{form_number}}</comment>
-        </item><item id="2" type="choice">
+        </item><item id="3" type="choice">
           <label>Cl&#244;turer le remboursement</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -857,9 +852,9 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="b120b71f-7be4-4493-b484-878e7f9b7210" type="manual">
+        <trigger id="be4ccd89-dfdb-4ef2-8a4b-40b74b83ed8a" type="manual">
           <roles>
-            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item role_id="d47fa267dc4c49e0bdcca37c6648a311">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -869,9 +864,9 @@ Le service Population / Etat-civil
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="de386819-54b0-462f-b2ba-9b289b2fce28" type="manual">
+        <trigger id="d921c4e8-de53-4cf1-9a96-d35863fb41a7" type="manual">
           <roles>
-            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item role_id="d47fa267dc4c49e0bdcca37c6648a311">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -884,9 +879,9 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="9329d78b-5a03-4441-8d79-bb723d66f260" type="manual">
+        <trigger id="bf7e64f3-e4fd-4565-b377-f3af80d15aec" type="manual">
           <roles>
-            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item role_id="d47fa267dc4c49e0bdcca37c6648a311">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -896,10 +891,8 @@ Le service Population / Etat-civil
       <items>
         <item id="1" type="anonymise" />
       </items><triggers>
-        <trigger id="bb9094d0-f7e8-4996-9fdb-c677b4a8f140" type="timeout">
+        <trigger id="993ad290-3f46-457b-8b8b-6c21bfdffd8a" type="timeout">
           <anchor>creation</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>30</timeout>
         </trigger>
       </triggers>
@@ -909,10 +902,8 @@ Le service Population / Etat-civil
       <items>
         <item id="1" type="anonymise" />
       </items><triggers>
-        <trigger id="cee37867-4ca8-40dd-a8b4-92cbf6288d9d" type="timeout">
+        <trigger id="7122bd34-05e9-4b34-a7f9-7c0697446be7" type="timeout">
           <anchor>creation</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -929,7 +920,6 @@ Le service Population / Etat-civil
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>16</id>
@@ -1029,7 +1019,6 @@ ex : 4000,4020,4030,4031</hint>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
           </prefill><anonymise>True</anonymise>
           <id>14</id>
