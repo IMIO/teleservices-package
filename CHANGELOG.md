@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.27] - 28-09-2021 -
+### Fixed
+   - Fix total amount if a coma is used instead of a dot
+
 ## [0.1.26] - 24-09-2021 -
 ### Fixed
    - Ghost mail template in wf iMio - Changement d'adresse
