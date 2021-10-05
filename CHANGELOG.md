@@ -5,6 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.28] - 05-10-2021 -
+### Fixed
+   - Do not verify SSL certificate's validity
+   - Fix motif refus display in mail
+
 ## [0.1.27] - 28-09-2021 -
 ### Fixed
    - Fix total amount if a coma is used instead of a dot

@@ -128,7 +128,7 @@ Nous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.
 
 La raison de ce refus est la suivante :
 
-{{ refus_var_corps }}
+{{ refus_var_motif }}
 
 Bien cordialement,</body>
         </item><item id="3" type="jump">
