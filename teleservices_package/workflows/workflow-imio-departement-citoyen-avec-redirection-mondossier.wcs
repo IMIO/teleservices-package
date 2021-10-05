@@ -121,7 +121,7 @@
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>{{ refus_var_objet }}</subject>
+          </to><subject>Votre demande concernant : {{ form_name }} {{ form_number }} a &#233;t&#233; rejet&#233;</subject>
           <body>Bonjour,
 
 Nous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.

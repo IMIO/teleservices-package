@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.29] - 05-10-2021 -
+### Fixed
+   - Fix subject of refus mail in WF dep. citoyen
+
 ## [0.1.28] - 05-10-2021 -
 ### Fixed
    - Do not verify SSL certificate's validity
