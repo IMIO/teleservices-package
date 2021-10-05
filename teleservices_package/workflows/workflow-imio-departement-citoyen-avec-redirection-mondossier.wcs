@@ -132,16 +132,16 @@ La raison de ce refus est la suivante :
 
 Bien cordialement,</body>
         </item><item id="3" type="jump">
-          <status>25</status>
-          <condition>
-            <type>django</type>
-            <value>form_var_wf_total_commande|add:0 &gt; 0</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="jump">
           <status>24</status>
           <condition>
             <type>django</type>
             <value>form_var_wf_total_commande|add:0 &gt; 0 and form_var_wf_paiement_en_ligne</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="4" type="jump">
+          <status>25</status>
+          <condition>
+            <type>django</type>
+            <value>form_var_wf_total_commande|add:0 &gt; 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>

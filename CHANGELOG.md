@@ -8,7 +8,8 @@ teleservices-package changelog
 ## [0.1.28] - 05-10-2021 -
 ### Fixed
    - Do not verify SSL certificate's validity
-   - Fix motif refus display in mail
+   - Fix motif refus display in mail in WF dep. citoyen
+   - Re order auto-jumps for refund in WF dep. citoyen
 
 ## [0.1.27] - 28-09-2021 -
 ### Fixed
