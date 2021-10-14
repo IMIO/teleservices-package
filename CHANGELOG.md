@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.31] - 14-10-2021 -
+### Added
+   - Install usage in README [dmshd]
+
 ## [0.1.30] - 05-10-2021 -
 ### Fixed
    - Fix typo in subject of refus mail in WF dep. citoyen
