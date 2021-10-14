@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.32] - 14-10-2021 -
+### Fixed
+   - [TELE-1128] Fix links not working because of protocol set to "http" [dmshd]
+
 ## [0.1.31] - 14-10-2021 -
 ### Added
    - Install usage in README [dmshd]

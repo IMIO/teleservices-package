@@ -168,7 +168,7 @@
         <value>_email</value>
       </prefill><id>10</id>
     </field><field>
-      <label>&lt;p&gt;Vous pouvez &lt;a href="http://{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
+      <label>&lt;p&gt;Vous pouvez &lt;a href="{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
       <type>comment</type>
       <condition>
         <type>django</type>
