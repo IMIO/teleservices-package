@@ -240,7 +240,7 @@ Bien &#224; vous,
           <status>10</status>
           <condition>
             <type>django</type>
-            <value>"Personnel technique / sp&#233;cifique" in form_option_section and form_var_technique_raw|length &gt; 0 and form_var_compteur_technique|add:0 &lt; form_var_technique_raw|length</value>
+            <value>"Personnel technique / sp&#233;cifique" in form_option_sections and form_var_technique_raw|length &gt; 0 and form_var_compteur_technique|add:0 &lt; form_var_technique_raw|length</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item id="2" type="jump">
           <status>11</status>

@@ -743,7 +743,7 @@
       <type>items</type>
       <condition>
         <type>django</type>
-        <value>"Personnel technique / sp&#233;cifique" in form_option_section</value>
+        <value>"Personnel technique / sp&#233;cifique" in form_option_sections</value>
       </condition><required>False</required>
       <varname>technique</varname>
       <display_locations>
