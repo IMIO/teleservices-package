@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="86" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/86/">
+<workflow id="24" url="http://local-formulaires.example.net/backoffice/workflows/24/">
   <name>iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</name>
   <roles>
     <role id="_administrateur">Administrateur</role>
@@ -121,14 +121,14 @@
       <colour>0099FF</colour>
       <visibility />
       <items>
-        <item id="10" type="displaymsg">
+        <item id="1" type="displaymsg">
           <message>Votre demande a &#233;t&#233; enregistr&#233;e avec succ&#232;s.</message>
           <level>success</level>
           <position>top</position>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item id="1" type="set-backoffice-fields">
+        </item><item id="2" type="set-backoffice-fields">
           <label>Tri sur la date</label>
           <fields>
             <field>
@@ -136,7 +136,18 @@
               <value>{{form_workflow_data_reservation_response_datetime}}</value>
             </field>
           </fields>
-        </item><item id="2" type="sendmail">
+        </item><item id="11" type="set-backoffice-fields">
+          <label>Guichet</label>
+          <fields>
+            <field>
+              <field_id>bofbe17c40-8368-4d9e-a8a6-7267552a1710</field_id>
+              <value>{{ form_workflow_data_reservation_response_desk_label }}</value>
+            </field>
+          </fields><condition>
+            <type>django</type>
+            <value>form_workflow_data_reservation_response_desk_label</value>
+          </condition>
+        </item><item id="3" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><subject>Prise de rendez-vous pour le {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
@@ -145,7 +156,7 @@
 Un rendez-vous a &#233;t&#233; pris pour {{form_var_nom}} {{form_var_prenom}} &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} avec comme motif {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
 
 `Consulter la demande  &lt;{{form_url_backoffice}}&gt;`_</body>
-        </item><item id="3" type="sendmail">
+        </item><item id="4" type="sendmail">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
           </to><subject>Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
@@ -156,7 +167,7 @@ Votre rendez-vous pour {% firstof form_var_type_rdv form_var_date_rdv_label form
 `Consulter votre demande via ce lien &lt;{{ form_url }}&gt;`_ {% if form_tracking_code %} ou via votre code de suivi **{{form_tracking_code}}** si le lien ne fonctionne pas. {% endif %}
 
 Bien &#224; vous.</body>
-        </item><item id="4" type="choice">
+        </item><item id="5" type="choice">
           <label>Le demandeur s'est pr&#233;sent&#233;</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -168,7 +179,7 @@ Bien &#224; vous.</body>
             <type>django</type>
             <value>reservation_response_datetime|date &lt;= today|date</value>
           </condition>
-        </item><item id="5" type="choice">
+        </item><item id="6" type="choice">
           <label>Annuler la demande</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -187,7 +198,7 @@ Bien &#224; vous.</body>
           <backoffice_info_text>&lt;p&gt;Action &amp;agrave; l'initiative de l'agent traitant qui va refuser le rendez-vous, quelle que soit la raison.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="6" type="choice">
+        </item><item id="8" type="choice">
           <label>Le demandeur ne s'est pas pr&#233;sent&#233;</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -199,7 +210,7 @@ Bien &#224; vous.</body>
             <type>django</type>
             <value>reservation_response_datetime|date &lt;= today|date</value>
           </condition>
-        </item><item id="8" type="choice">
+        </item><item id="9" type="choice">
           <label>Postposer la demande</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -208,7 +219,7 @@ Bien &#224; vous.</body>
           <backoffice_info_text>&lt;p&gt;Action &amp;agrave; l'initiative de l'agent traitant pour demander&amp;nbsp;au citoyen de choisir une nouvelle date.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="9" type="editable">
+        </item><item id="10" type="editable">
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
@@ -251,7 +262,6 @@ Bien &#224; vous.</body>
                 <display_locations />
                 <extra_css_class>pk-important</extra_css_class>
                 <prefill>
-                  <locked>False</locked>
                   <type>none</type>
                 </prefill><rows>10</rows>
                 <pre>True</pre>
@@ -486,9 +496,9 @@ Bien &#224; vous
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="9e9dc786-8278-4371-a963-48681a6d0659" type="manual">
+        <trigger id="8922620b-f0e3-48a6-ab36-dc1a12b3fc9b" type="manual">
           <roles>
-            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item role_id="d47fa267dc4c49e0bdcca37c6648a311">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -504,7 +514,7 @@ Bien &#224; vous
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="e181fc3f-8817-43d8-b807-31d98a0c7fd6" type="manual">
+        <trigger id="6729bb9e-0119-4031-814a-e7c81b783abe" type="manual">
           <roles>
             <item role_id="_administrateur">_administrateur</item>
           </roles>
@@ -611,6 +621,14 @@ Bien &#224; vous
             <display_location>listings</display_location>
           </display_locations><anonymise>True</anonymise>
           <id>bo6735f532-2e69-427c-a8b6-3bc21dffed49</id>
+        </field><field>
+          <label>Guichet</label>
+          <type>string</type>
+          <required>True</required>
+          <display_locations>
+            <display_location>listings</display_location>
+          </display_locations><anonymise>True</anonymise>
+          <id>bofbe17c40-8368-4d9e-a8a6-7267552a1710</id>
         </field>
       </fields>
     </formdef>

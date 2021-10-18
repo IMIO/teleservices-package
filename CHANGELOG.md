@@ -5,7 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
-## [0.1.34] - 15-10-2021 -
+## [0.1.35] - 18-10-2021 -
+### Updated
+   - workflow-imio-gestion-des-rendez-vous-et-evenements-package with guichet
+
+## [0.1.34] - 18-10-2021 -
 ### Removed
    - BAEC option in [dmshd]
 
