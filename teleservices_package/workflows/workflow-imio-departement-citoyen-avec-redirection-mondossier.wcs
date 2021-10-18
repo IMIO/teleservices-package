@@ -962,18 +962,6 @@ Cordialement, </body>
           </prefill><anonymise>True</anonymise>
           <id>9</id>
         </field><field>
-          <label>BAEC</label>
-          <type>bool</type>
-          <required>False</required>
-          <hint>Cette option est &#224; activer (case coch&#233;e) pour les actes et &#224; d&#233;sactiver pour les autres d&#233;marches. (+ d'info : https://docs.imio.be/imio-doc/ia.teleservices/faq/a_quoi_sert_la_case_baec.html)</hint>
-          <varname>baec</varname>
-          <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><id>10</id>
-        </field><field>
           <label>R&#233;gie de paiement</label>
           <type>item</type>
           <required>False</required>

@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.34] - 15-10-2021 -
+### Removed
+   - BAEC option in [dmshd]
+
 ## [0.1.33] - 14-10-2021 -
 ### Fixed
    - [TELE-1135] Fix spelling mistake in two variables inside two conditions [dmshd]
