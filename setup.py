@@ -15,9 +15,11 @@ class inst(install):
         )
         os.system("sh " + path + "install_teleservices_package.sh")
 
+version = "0.1.36"
 
 setup(
     name="teleservices-package",
+    version=version,
     author="Daniel Muyshond, Nicolas Selva, Nicolas Hislaire",
     author_email="support-ts@imio.be",
     packages=find_packages(),

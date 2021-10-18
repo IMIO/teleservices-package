@@ -5,6 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.36] - 18-10-2021 -
+### Updated
+   - set version in setup.py
+   - use iateleservicesCreateDeb pipeline function
+
 ## [0.1.35] - 18-10-2021 -
 ### Updated
    - workflow-imio-gestion-des-rendez-vous-et-evenements-package with guichet
