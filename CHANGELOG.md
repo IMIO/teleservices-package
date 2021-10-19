@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.37] - 19-10-2021 -
+### Fixed
+   - [TELE-1144] set install path in jenkinsfile [nhi]
+
 ## [0.1.36] - 18-10-2021 -
 ### Updated
    - set version in setup.py
