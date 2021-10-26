@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datasource id="104" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/104/">
+  <name>Pays</name>
+  <slug>pays</slug>
+  <description>Liste des pays</description>
+  <data_source>
+    <type>json</type>
+    <value>{{passerelle_url}}csvdatasource/pays/data</value>
+  </data_source>
+</datasource>

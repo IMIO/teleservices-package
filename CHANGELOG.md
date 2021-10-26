@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.39] - 25-10-2021 -
+### Fixed
+   - add pays in data_source
+
 ## [0.1.38] - 25-10-2021 -
 ### Fixed
    - add motifs and destinations in data_source
