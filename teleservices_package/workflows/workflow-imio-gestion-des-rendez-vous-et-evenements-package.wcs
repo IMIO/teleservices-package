@@ -366,7 +366,7 @@ La commune de {{commune_name}}</body>
           </to><subject>Annulation de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
           <body>Bonjour,
 
-Vous n'avez pas post-pos&#233;e votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
+Vous n'avez pas post-pos&#233; votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
 
 Ce mail est juste l&#224; pour vous pr&#233;venir qu'il ne faut pas venir.
 
