@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.40] - 22-11-2021 -
+### Fixed
+  - [TELE-1158] fix spelling mistake [dmshd]
+
 ## [0.1.39] - 25-10-2021 -
 ### Fixed
    - add pays in data_source
