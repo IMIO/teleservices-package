@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.41] - 23-11-2021 -
+### Fixed
+  - [TELE-1163] remove hard burdinne in workflow  [nhi]
+
 ## [0.1.40] - 22-11-2021 -
 ### Fixed
   - [TELE-1158] fix spelling mistake [dmshd]
