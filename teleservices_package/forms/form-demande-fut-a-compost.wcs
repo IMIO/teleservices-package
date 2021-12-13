@@ -307,7 +307,7 @@
       <label>Type de f&#251;t &#224; compost</label>
       <type>item</type>
       <required>True</required>
-      <hint>--- S&#233;lectionnez un type de f&#251;t &#224; compost ---</hint>
+      <hint>Choisissez une option</hint>
       <varname>type</varname>
       <display_locations>
         <display_location>validation</display_location>

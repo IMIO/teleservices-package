@@ -196,7 +196,7 @@
       <label>Section</label>
       <type>item</type>
       <required>True</required>
-      <hint>Faites votre choix</hint>
+      <hint>Choisissez une option</hint>
       <varname>agenda</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -222,7 +222,7 @@
       <label>Type de rendez-vous</label>
       <type>item</type>
       <required>True</required>
-      <hint>Faites votre choix</hint>
+      <hint>Choisissez une option</hint>
       <varname>type_rdv</varname>
       <display_locations>
         <display_location>validation</display_location>

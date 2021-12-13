@@ -315,6 +315,7 @@
       <label>Pays</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>pays_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -540,6 +541,7 @@
       <label>Pays</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>pays</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -609,6 +611,7 @@
       <label>Le document est destin&#233; &#224;</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>motifs</varname>
       <display_locations>
         <display_location>validation</display_location>

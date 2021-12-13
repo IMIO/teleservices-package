@@ -8,6 +8,7 @@
       <label>Langue</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>langue</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -28,7 +29,7 @@
       <label>Niveau de connaissance</label>
       <type>item</type>
       <required>True</required>
-      <hint>--- S&#233;lectionnez votre niveau ---</hint>
+      <hint>Choisissez une option</hint>
       <varname>niveau</varname>
       <display_locations>
         <display_location>validation</display_location>

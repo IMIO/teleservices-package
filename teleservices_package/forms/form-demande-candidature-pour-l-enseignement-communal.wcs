@@ -154,6 +154,7 @@
       <label>Pays</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>pays</varname>
       <display_locations>
         <display_location>validation</display_location>

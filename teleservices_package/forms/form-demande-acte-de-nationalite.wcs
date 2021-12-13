@@ -366,6 +366,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <label>Pays</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>pays_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -581,6 +582,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <label>Pays</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>pays</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -640,6 +642,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <label>Le document est destin&#233; &#224;</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>motifs</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -676,6 +679,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <label>Mode de r&#233;cup&#233;ration</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>destinations</varname>
       <display_locations>
         <display_location>validation</display_location>

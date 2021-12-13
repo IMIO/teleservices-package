@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.42] - 13-12-2021 -
+### Fixed
+  - [TELE-1182] add hint in forms and blocs for list item  [NSE]
+
 ## [0.1.41] - 23-11-2021 -
 ### Fixed
   - [TELE-1163] remove hard burdinne in workflow  [nhi]

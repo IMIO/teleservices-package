@@ -569,6 +569,7 @@
       <label>Pays</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>pays</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -664,6 +665,7 @@
       <label>Mode de r&#233;cup&#233;ration</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <varname>destinations</varname>
       <display_locations>
         <display_location>validation</display_location>

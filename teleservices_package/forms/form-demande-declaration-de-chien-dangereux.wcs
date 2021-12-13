@@ -308,6 +308,7 @@
       <label>Genre</label>
       <type>item</type>
       <required>True</required>
+      <hint>Choisissez une option</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>

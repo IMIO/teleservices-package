@@ -65,7 +65,7 @@
       <label>Choisisez la date</label>
       <type>item</type>
       <required>True</required>
-      <hint>---</hint>
+      <hint>Choisissez une option</hint>
       <varname>date_rdv</varname>
       <display_locations>
         <display_location>validation</display_location>
