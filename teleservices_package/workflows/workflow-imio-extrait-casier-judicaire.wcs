@@ -212,7 +212,7 @@ Le service Population / Etat-civil
               <value>{{form_var_wf_total_commande}}</value>
             </item><item>
               <name>destination</name>
-              <value>{{form_var_destinations_raw}}</value>
+              <value>{{form_var_destinations_paymentrequired}}</value>
             </item><item>
               <name>display_name</name>
               <value>{{form_display_name}}</value>
