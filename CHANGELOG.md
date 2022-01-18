@@ -5,6 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+
+## [0.1.43] - 18-01-2022 -
+### Fixed
+  - [TELE-1207] add datasources and carddefs for new "motifs" and "modes d'envoi" using cards  [dmshd]
+
 ## [0.1.42] - 13-12-2021 -
 ### Fixed
   - [TELE-1182] add hint in forms and blocs for list item  [NSE]
@@ -390,7 +395,7 @@ teleservices-package changelog
 ### Update
   - all workflows
 ### Delete
-  - all forms  
+  - all forms
   [nse]
 
 ## [0.0.10] - 22-06-2021 -
@@ -424,7 +429,7 @@ teleservices-package changelog
 
 ## [0.0.5] - 21-06-2021 -
 ### Added
-  - add some files to test indus 
+  - add some files to test indus
   [nhi]
 
 ## [0.0.4] - 17-06-2021 -

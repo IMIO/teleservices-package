@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<carddef id="2" url="https://eupen-formulaires.guichet-citoyen.be/backoffice/cards/2/">
+  <name>iMio - Modes d'envoi d'une d&#233;marche pop/ec</name>
+  <url_name>imio-modes-envoi</url_name>
+  <internal_identifier>imio-modes-d-envoi-d-une-demarche-popec</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <max_field_id>4</max_field_id>
+  <fields>
+    <field>
+      <label>Libell&#233;</label>
+      <type>string</type>
+      <required>True</required>
+      <varname>text</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><anonymise>False</anonymise>
+      <id>1</id>
+    </field><field>
+      <label>Paiement requis</label>
+      <type>bool</type>
+      <required>False</required>
+      <varname>paymentrequired</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><id>4</id>
+    </field><field>
+      <label>Prix</label>
+      <type>string</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_paymentrequired</value>
+      </condition><required>True</required>
+      <varname>price</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><validation>
+        <error_message>Le prix indiqu&#233; semble invalide (exemple de prix valide : 2 ou 1,86).</error_message>
+        <type>regex</type>
+        <value>(\d+?[,]?\d?(?:[,]\d+)?)</value>
+      </validation><anonymise>False</anonymise>
+      <id>2</id>
+    </field><field>
+      <label>Description</label>
+      <type>text</type>
+      <required>False</required>
+      <varname>description</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><pre>True</pre>
+      <id>3</id>
+    </field>
+  </fields><user-roles>
+    <role role_id="6760ff2035df4931a4eabe06d245be98">Agent ayant acces aux fabriques</role>
+  </user-roles><backoffice-submission-roles>
+    <role role_id="6760ff2035df4931a4eabe06d245be98">Agent ayant acces aux fabriques</role>
+  </backoffice-submission-roles><roles>
+    <role role_id="6760ff2035df4931a4eabe06d245be98" role_key="_viewer">Agent ayant acces aux fabriques</role>
+    <role role_id="6760ff2035df4931a4eabe06d245be98" role_key="_editor">Agent ayant acces aux fabriques</role>
+  </roles><options />
+  <custom_views>
+    <custom_view>
+      <title>iMio - Modes d'envoi d'une d&#233;marche pop/ec</title>
+      <slug>imio-modes-d-envoi-d-une-demarche-popec</slug>
+      <visibility>any</visibility>
+      <filters>
+        <filter-1>on</filter-1>
+        <filter-2>on</filter-2>
+        <filter-4>on</filter-4>
+      </filters><columns>
+        <id>1</id>
+        <id>4</id>
+        <id>2</id>
+        <id>3</id>
+      </columns><order_by>-receipt_time</order_by>
+    </custom_view>
+  </custom_views><geolocations />
+  <digest_templates>
+    <template key="custom-view:imio-modes-d-envoi-d-une-demarche-popec">{{ form_var_text }}</template>
+    <template key="default">{{ form_var_text }}</template>
+  </digest_templates>
+</carddef>
