@@ -512,10 +512,7 @@ Bien &#224; vous
         <role>_administrateur</role>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="jump">
-          <status>13</status>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="2" type="sendmail">
+        <item type="sendmail" id="2">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
           </to><subject>D&#233;placement de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}</subject>
@@ -526,6 +523,9 @@ Pour des raisons ind&#233;pendantes de notre volont&#233; votre rendez-vous du {
 Bien &#224; vous.
 
 La commune de {{commune_name}}</body>
+        </item><item type="jump" id="1">
+          <status>13</status>
+          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status>
