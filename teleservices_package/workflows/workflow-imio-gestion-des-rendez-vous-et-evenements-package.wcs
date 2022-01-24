@@ -506,7 +506,7 @@ Bien &#224; vous
       </items>
     </status><status>
       <id>15</id>
-      <name>Courriel de repport</name>
+      <name>Courriel de report</name>
       <colour>999999</colour>
       <visibility>
         <role>_administrateur</role>
