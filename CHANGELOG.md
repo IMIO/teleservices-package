@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.44] - 24-01-2022 -
+### Fixed
+  - [TELE-1226] fix spelling mistake in status name  [dmshd]
+  - [TELE-1226] fix order of actions making a mail action is not played (mail not sent) [dmshd]
 
 ## [0.1.43] - 18-01-2022 -
 ### Fixed
