@@ -5,6 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.1.45] - 01-01-2022 -
+### Added
+  - [TELE-1238] add new wf for pin/puk form and update its form
+
+
 ## [0.1.44] - 24-01-2022 -
 ### Fixed
   - [TELE-1226] fix spelling mistake in status name  [dmshd]
