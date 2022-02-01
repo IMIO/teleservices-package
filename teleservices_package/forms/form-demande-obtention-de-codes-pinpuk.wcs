@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="27" url="http://local-formulaires.example.net/backoffice/forms/27/">
+<formdef id="154" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/154/">
   <name>Obtention de codes PIN/PUK</name>
   <url_name>demande-obtention-de-codes-pinpuk</url_name>
   <description>Ce formulaire vous redirige vers le site f&#233;d&#233;ral o&#249; vous pourrez faire votre demande de nouveau code pin/puk pour votre carte d'identit&#233; &#233;lectronique.</description>
@@ -14,36 +14,36 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="101">Population</category>
-  <workflow workflow_id="14">iMio - Redirection avec suppression</workflow>
+  <category category_id="1" slug="population">Population</category>
+  <workflow slug="imio-redirection-pinpuk" workflow_id="82">iMio - Redirection Pin/Puk</workflow>
   <max_field_id>64</max_field_id>
   <fields>
     <field>
-      <label>Demande Codes PIN/PUK</label>
-      <type>page</type>
-      <id>54</id>
+      <label type="str">Demande Codes PIN/PUK</label>
+      <type type="str">page</type>
+      <id type="str">54</id>
     </field><field>
-      <label>&lt;p&gt;Vous avez perdu vos codes PIN/PUK ?&lt;/p&gt;
+      <label type="str">&lt;p&gt;Vous avez perdu vos codes PIN/PUK ?&lt;/p&gt;
 
 &lt;p&gt;Vos nouveaux codes PIN/PUK arriveront dans votre commune end&amp;eacute;ans les 3 semaines. Pass&amp;eacute; ce d&amp;eacute;lai, merci de prendre rendez-vous avec le Service Population au {{form_option_numero_de_telephone}} {% if form_option_url_rendezvous %} ou via ce &lt;strong&gt;&lt;a href=""&gt;lien&lt;/a&gt;&lt;/strong&gt; {% endif %} pour effectuer le retrait des codes.&lt;/p&gt;
 
 &lt;p&gt;Si vous ne vous pr&amp;eacute;sentez pas dans un d&amp;eacute;lais de 2 mois, les codes seront d&amp;eacute;truits.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Veuillez &amp;quot;Valider&amp;quot; ci dessous pour commander vos codes&lt;/strong&gt;&lt;/p&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <display_locations />
-      <id>64</id>
+      <id type="str">64</id>
     </field>
   </fields><options>
     <option varname="cost">5</option>
-    <option varname="cp_commune"></option>
+    <option varname="cp_commune" />
     <option varname="destinations" />
-    <option varname="destinations_display"></option>
+    <option varname="destinations_display" />
     <option varname="destinations_structured" />
     <option varname="iban" />
     <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=42&amp;language=FR</option>
     <option varname="motifs_disponibles" />
-    <option varname="motifs_disponibles_display"></option>
+    <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="numero_de_telephone" />
     <option varname="paiement_en_ligne" />
