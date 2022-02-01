@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<workflow id="82" url="https://staging-formulaires.guichet-citoyen.be/backoffice/workflows/82/">
+  <name>iMio - Redirection Pin/Puk</name>
+  <slug>imio-redirection-pinpuk</slug>
+  <roles>
+    <role id="_receiver">Destinataire</role>
+  </roles><possible_status>
+    <status>
+      <id>1</id>
+      <name>Redirection</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="displaymsg">
+          <message>Vous allez &#234;tre redirig&#233; vers le site du Service public f&#233;d&#233;ral Int&#233;rieur afin de demander de nouveaux codes</message>
+          <level>info</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item id="2" type="redirect_to_url">
+          <url>{{form_option_urlredirection}}</url>
+        </item>
+      </items>
+    </status>
+  </possible_status><variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label type="str">Url-redirection</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <varname type="str">urlredirection</varname>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">1</id>
+        </field><field>
+          <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">numero_de_telephone</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <type>none</type>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">2</id>
+        </field><field>
+          <label type="str">URL Rendez-vous</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">url_rendezvous</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <type>none</type>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">3</id>
+        </field><field>
+          <label type="str">Lien du r&#232;glement communal</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">reglement_communal</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <type>none</type>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">4</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables>
+</workflow>
