@@ -308,7 +308,7 @@ Votre demande de rendez-vous &#224; la date du {{form_workflow_data_reservation_
 {% if refus_var_motif %}
 Motif du refus:
 
-{{motif_var_refus}}
+{{refus_var_motif}}
 {% endif %}
 
 D'avance merci pour votre compr&#233;hension.

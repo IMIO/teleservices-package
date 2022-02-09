@@ -145,7 +145,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 
 {% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
 
-{% if motif_var_refus %}Motif du refus : {{motif_var_refus}} {% endif %}
+{% if refus_var_motif %}Motif du refus : {{refus_var_motif}} {% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
