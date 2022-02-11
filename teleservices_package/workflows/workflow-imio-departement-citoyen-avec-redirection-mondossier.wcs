@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="102" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/102/">
+<workflow id="94" url="https://staging-formulaires.guichet-citoyen.be/backoffice/workflows/94/">
   <name>iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
+  <slug>imio-departement-citoyen-avec-redirection-mondossier</slug>
   <roles>
     <role id="_receiver">Agent traitant</role>
     <role id="_validateur-pc-banking">Validateur pc banking</role>
@@ -45,7 +46,7 @@
               <value>{{form_option_paiement_en_ligne}}</value>
             </field>
           </fields>
-        </item><item id="6" type="set-backoffice-fields">
+        </item><item id="3" type="set-backoffice-fields">
           <label>Adresse pour un acte qui me concerne</label>
           <fields>
             <field>
@@ -56,7 +57,7 @@
             <type>django</type>
             <value>"Acte" in form_name and not form_var_rb_concerne or form_var_rb_concerne_raw == 'moi'</value>
           </condition>
-        </item><item id="7" type="set-backoffice-fields">
+        </item><item id="4" type="set-backoffice-fields">
           <label>Adresse pour un certificat qui me concerne</label>
           <fields>
             <field>
@@ -67,7 +68,7 @@
             <type>django</type>
             <value>"Acte" not in form_name and not form_var_concerne_qui_raw or form_var_concerne_qui_raw == 'moi'</value>
           </condition>
-        </item><item id="8" type="set-backoffice-fields">
+        </item><item id="5" type="set-backoffice-fields">
           <label>Adresse pour l'acte d'un tiers</label>
           <fields>
             <field>
@@ -78,7 +79,7 @@
             <type>django</type>
             <value>"Acte" in form_name and form_var_rb_concerne_raw == 'tiers'</value>
           </condition>
-        </item><item id="9" type="set-backoffice-fields">
+        </item><item id="6" type="set-backoffice-fields">
           <label>Adresse pour le certificat d'un tiers</label>
           <fields>
             <field>
@@ -89,19 +90,19 @@
             <type>django</type>
             <value>"Acte" not in form_name and form_var_concerne_qui_raw == 'tiers'</value>
           </condition>
-        </item><item id="3" type="jump">
+        </item><item id="7" type="jump">
           <status>13</status>
           <condition>
             <type>python</type>
             <value>Decimal(form_var_wf_total_commande) == Decimal('0') and (locals().get('form_var_destinations_paymentrequired') == 'False')</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="jump">
+        </item><item id="8" type="jump">
           <status>21</status>
           <condition>
             <type>python</type>
             <value>vars().get('form_var_wf_paiement_en_ligne_raw') is False</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="5" type="jump">
+        </item><item id="9" type="jump">
           <status>10</status>
           <condition>
             <type>django</type>
@@ -151,14 +152,14 @@ Bien cordialement,</body>
       <colour>66CCFF</colour>
       <visibility />
       <items>
-        <item id="4" type="displaymsg">
+        <item id="1" type="displaymsg">
           <message>Votre demande est prise en charge par nos services.</message>
           <level>info</level>
           <position>top</position>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item id="1" type="sendmail">
+        </item><item id="2" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
@@ -176,18 +177,44 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
 {{ details }}
 {% endif %}
 </body>
-        </item><item id="2" type="choice">
+        </item><item id="5" type="addattachment">
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><required>True</required>
+          <title>Joindre un fichier</title>
+          <display_title>True</display_title>
+          <button_label>Envoyer le document vers le porte-documents</button_label>
+          <display_button>True</display_button>
+          <attach_to_history>True</attach_to_history>
+          <push_to_portfolio>True</push_to_portfolio>
+          <condition>
+            <type>django</type>
+            <value>"porte" in form_var_destinations</value>
+          </condition>
+        </item><item id="6" type="jumponsubmit">
+          <status>finished</status>
+          <set_marker_on_status>False</set_marker_on_status>
+          <condition>
+            <type>django</type>
+            <value>"porte" in form_var_destinations</value>
+          </condition>
+        </item><item id="3" type="choice">
           <label>Terminer</label>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><status>finished</status>
           <require_confirmation>False</require_confirmation>
-          <backoffice_info_text>&lt;p&gt;&lt;/p&gt;
+          <backoffice_info_text>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-&lt;p dir="ltr" id="docs-internal-guid-155112b0-7fff-c287-e13d-b4a147894f8c" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet de cl&amp;ocirc;turer la demande de l&amp;rsquo;usager. Celui-ci sera pr&amp;eacute;venu par courriel.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
+&lt;p dir="ltr" id="docs-internal-guid-155112b0-7fff-c287-e13d-b4a147894f8c" style="line-height: 1.38;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet de cl&amp;ocirc;turer la demande de l&amp;rsquo;usager. Celui-ci sera pr&amp;eacute;venu par courriel.&lt;/span&gt;&lt;/p&gt;
+</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="3" type="choice">
+          <condition>
+            <type>django</type>
+            <value>"porte" not in form_var_destinations</value>
+          </condition>
+        </item><item id="4" type="choice">
           <label>Refuser la demande</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -411,19 +438,18 @@ Bien cordialement,
             <name>-</name>
             <fields>
               <field>
-                <label>Motif du refus</label>
-                <type>text</type>
-                <required>True</required>
-                <hint>Le motif du refus sera envoy&#233; dans un courriel &#224; l'usager.</hint>
-                <varname>motif</varname>
+                <label type="str">Motif du refus</label>
+                <type type="str">text</type>
+                <required type="bool">True</required>
+                <hint type="str">Le motif du refus sera envoy&#233; dans un courriel &#224; l'usager.</hint>
+                <varname type="str">motif</varname>
                 <display_locations />
-                <extra_css_class>pk-important</extra_css_class>
+                <extra_css_class type="str">pk-important</extra_css_class>
                 <prefill>
-                  <locked>False</locked>
                   <type>none</type>
-                </prefill><rows>10</rows>
-                <pre>True</pre>
-                <id>7</id>
+                </prefill><rows type="str">10</rows>
+                <pre type="bool">True</pre>
+                <id type="str">7</id>
               </field>
             </fields>
           </formdef>
@@ -622,99 +648,94 @@ Bien &#224; vous,
             <name>-</name>
             <fields>
               <field>
-                <label>Vos informations de remboursement</label>
-                <type>title</type>
+                <label type="str">Vos informations de remboursement</label>
+                <type type="str">title</type>
                 <display_locations />
-                <id>6</id>
+                <id type="str">6</id>
               </field><field>
-                <label>Num&#233;ro de compte IBAN</label>
-                <type>string</type>
-                <required>True</required>
-                <varname>iban</varname>
+                <label type="str">Num&#233;ro de compte IBAN</label>
+                <type type="str">string</type>
+                <required type="bool">True</required>
+                <varname type="str">iban</varname>
                 <display_locations>
                   <display_location>validation</display_location>
                   <display_location>summary</display_location>
                 </display_locations><prefill>
                   <type>none</type>
-                </prefill><anonymise>True</anonymise>
-                <id>1</id>
+                </prefill><anonymise type="bool">True</anonymise>
+                <id type="str">1</id>
               </field><field>
-                <label>Nom</label>
-                <type>string</type>
-                <required>True</required>
-                <varname>nom</varname>
+                <label type="str">Nom</label>
+                <type type="str">string</type>
+                <required type="bool">True</required>
+                <varname type="str">nom</varname>
                 <display_locations>
                   <display_location>validation</display_location>
                   <display_location>summary</display_location>
                 </display_locations><prefill>
                   <type>user</type>
                   <value>_last_name</value>
-                </prefill><anonymise>True</anonymise>
-                <id>2</id>
+                </prefill><anonymise type="bool">True</anonymise>
+                <id type="str">2</id>
               </field><field>
-                <label>Rue</label>
-                <type>string</type>
-                <required>True</required>
-                <varname>rue</varname>
+                <label type="str">Rue</label>
+                <type type="str">string</type>
+                <required type="bool">True</required>
+                <varname type="str">rue</varname>
                 <display_locations />
                 <prefill>
-                  <locked>False</locked>
                   <type>user</type>
                   <value>_street</value>
-                </prefill><anonymise>True</anonymise>
-                <id>3</id>
+                </prefill><anonymise type="bool">True</anonymise>
+                <id type="str">3</id>
               </field><field>
-                <label>Num&#233;ro</label>
-                <type>string</type>
-                <required>True</required>
-                <varname>numero</varname>
+                <label type="str">Num&#233;ro</label>
+                <type type="str">string</type>
+                <required type="bool">True</required>
+                <varname type="str">numero</varname>
                 <display_locations />
                 <prefill>
-                  <locked>False</locked>
                   <type>user</type>
                   <value>_num_house</value>
-                </prefill><anonymise>True</anonymise>
-                <id>9</id>
+                </prefill><anonymise type="bool">True</anonymise>
+                <id type="str">9</id>
               </field><field>
-                <label>Bo&#238;te</label>
-                <type>string</type>
-                <required>False</required>
+                <label type="str">Bo&#238;te</label>
+                <type type="str">string</type>
+                <required type="bool">False</required>
                 <display_locations />
                 <prefill>
-                  <locked>False</locked>
                   <type>user</type>
                   <value>_num_box</value>
-                </prefill><anonymise>True</anonymise>
-                <id>10</id>
+                </prefill><anonymise type="bool">True</anonymise>
+                <id type="str">10</id>
               </field><field>
-                <label>Code postal</label>
-                <type>string</type>
-                <required>False</required>
-                <varname>code_postal</varname>
+                <label type="str">Code postal</label>
+                <type type="str">string</type>
+                <required type="bool">False</required>
+                <varname type="str">code_postal</varname>
                 <display_locations />
                 <prefill>
-                  <locked>False</locked>
                   <type>user</type>
                   <value>_zipcode</value>
-                </prefill><anonymise>True</anonymise>
-                <id>4</id>
+                </prefill><anonymise type="bool">True</anonymise>
+                <id type="str">4</id>
               </field><field>
-                <label>Localit&#233;</label>
-                <type>string</type>
-                <required>True</required>
-                <varname>localite</varname>
+                <label type="str">Localit&#233;</label>
+                <type type="str">string</type>
+                <required type="bool">True</required>
+                <varname type="str">localite</varname>
                 <display_locations />
                 <prefill>
-                  <locked>False</locked>
                   <type>user</type>
                   <value>_city</value>
-                </prefill><anonymise>True</anonymise>
-                <id>11</id>
+                </prefill><anonymise type="bool">True</anonymise>
+                <id type="str">11</id>
               </field><field>
-                <label>Pays</label>
-                <type>item</type>
-                <required>True</required>
-                <varname>pays</varname>
+                <label type="str">Pays</label>
+                <type type="str">item</type>
+                <required type="bool">True</required>
+                <varname type="str">pays</varname>
                 <display_locations>
                   <display_location>validation</display_location>
                   <display_location>summary</display_location>
@@ -722,13 +743,13 @@ Bien &#224; vous,
                   <type>user</type>
                   <value>_country</value>
                 </prefill><items />
-                <display_mode>list</display_mode>
+                <display_mode type="str">list</display_mode>
                 <data_source>
                   <type>pays</type>
-                </data_source><in_filters>False</in_filters>
-                <anonymise>False</anonymise>
-                <display_disabled_items>False</display_disabled_items>
-                <id>5</id>
+                </data_source><in_filters type="bool">False</in_filters>
+                <anonymise type="bool">False</anonymise>
+                <display_disabled_items type="bool">False</display_disabled_items>
+                <id type="str">5</id>
               </field>
             </fields>
           </formdef>
@@ -820,9 +841,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="85f2095c-f765-419b-870a-28bc3988b89e" type="manual">
+        <trigger id="1375f1ea-3ca4-4e2d-aba4-d8d2346a30a7" type="manual">
           <roles>
-            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item role_id="df908b92acec4a68b3a11bbf516263d9" slug="debug">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -832,9 +853,9 @@ Cordialement, </body>
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="6087778f-f672-44b2-95aa-0420a91accc6" type="manual">
+        <trigger id="4fb81864-3515-4a18-bbcc-182215bd5f4c" type="manual">
           <roles>
-            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item role_id="df908b92acec4a68b3a11bbf516263d9" slug="debug">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -848,9 +869,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="a74338e4-f52f-439a-81c6-5e11320c91ad" type="manual">
+        <trigger id="70bcb5a9-22fd-4593-865e-32277b4eb0aa" type="manual">
           <roles>
-            <item role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item role_id="df908b92acec4a68b3a11bbf516263d9" slug="debug">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -865,8 +886,10 @@ Cordialement, </body>
           </condition>
         </item>
       </items><triggers>
-        <trigger id="c889c636-cf5d-4153-ac85-83a9cbd6ad74" type="timeout">
+        <trigger id="b2b2df23-9568-4d42-87b1-a577c0121170" type="timeout">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>31</timeout>
         </trigger>
       </triggers>
@@ -876,8 +899,10 @@ Cordialement, </body>
       <items>
         <item id="1" type="anonymise" />
       </items><triggers>
-        <trigger id="5e54f829-8453-4425-a221-5ebe4ffd388f" type="timeout">
+        <trigger id="6ad13e67-259b-4634-be49-46bd793d8294" type="timeout">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -887,130 +912,130 @@ Cordialement, </body>
       <name>-</name>
       <fields>
         <field>
-          <label>Co&#251;t du document</label>
-          <type>string</type>
-          <required>False</required>
-          <varname>cout</varname>
+          <label type="str">Co&#251;t du document</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">cout</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>string</type>
             <value>"0"</value>
-          </prefill><anonymise>True</anonymise>
-          <id>1</id>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">1</id>
         </field><field>
-          <label>Motifs disponibles</label>
-          <type>items</type>
-          <required>False</required>
-          <varname>motifs_disponibles</varname>
+          <label type="str">Motifs disponibles</label>
+          <type type="str">items</type>
+          <required type="bool">False</required>
+          <varname type="str">motifs_disponibles</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
           </prefill><items />
-          <min_choices>0</min_choices>
-          <max_choices>0</max_choices>
+          <min_choices type="int">0</min_choices>
+          <max_choices type="int">0</max_choices>
           <data_source>
             <type>passerelle_motifs</type>
-          </data_source><in_filters>False</in_filters>
-          <anonymise>True</anonymise>
-          <display_disabled_items>False</display_disabled_items>
-          <id>3</id>
+          </data_source><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">True</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">3</id>
         </field><field>
-          <label>Destinations</label>
-          <type>items</type>
-          <required>False</required>
-          <varname>mode_recup_disponibles</varname>
+          <label type="str">Destinations</label>
+          <type type="str">items</type>
+          <required type="bool">False</required>
+          <varname type="str">mode_recup_disponibles</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
           </prefill><items />
-          <min_choices>0</min_choices>
-          <max_choices>0</max_choices>
+          <min_choices type="int">0</min_choices>
+          <max_choices type="int">0</max_choices>
           <data_source>
             <type>passerelle_destinations</type>
-          </data_source><in_filters>False</in_filters>
-          <anonymise>True</anonymise>
-          <display_disabled_items>False</display_disabled_items>
-          <id>4</id>
+          </data_source><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">True</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">4</id>
         </field><field>
-          <label>Url du document sur le site de Mon Dossier</label>
-          <type>string</type>
-          <required>False</required>
-          <varname>lien_mondossier</varname>
+          <label type="str">Url du document sur le site de Mon Dossier</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">lien_mondossier</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>7</id>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">7</id>
         </field><field>
-          <label>IBAN</label>
-          <type>string</type>
-          <required>False</required>
-          <varname>iban</varname>
+          <label type="str">IBAN</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">iban</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>9</id>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">9</id>
         </field><field>
-          <label>R&#233;gie de paiement</label>
-          <type>item</type>
-          <required>False</required>
-          <hint>---</hint>
-          <varname>regie_de_paiement</varname>
+          <label type="str">R&#233;gie de paiement</label>
+          <type type="str">item</type>
+          <required type="bool">False</required>
+          <hint type="str">---</hint>
+          <varname type="str">regie_de_paiement</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
           </prefill><items />
-          <display_mode>list</display_mode>
+          <display_mode type="str">list</display_mode>
           <data_source>
             <type>json</type>
             <value>{{portal_url}}/api/lingo/regies</value>
-          </data_source><in_filters>False</in_filters>
-          <anonymise>False</anonymise>
-          <display_disabled_items>False</display_disabled_items>
-          <id>11</id>
+          </data_source><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">False</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">11</id>
         </field><field>
-          <label>Redirection Automatique</label>
-          <type>bool</type>
-          <required>False</required>
-          <varname>redirection_automatique</varname>
+          <label type="str">Redirection Automatique</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <varname type="str">redirection_automatique</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><id>12</id>
+          </display_locations><id type="str">12</id>
         </field><field>
-          <label>Paiement en ligne</label>
-          <type>bool</type>
-          <required>False</required>
-          <hint>A cocher si vous poss&#233;der une r&#233;gie de paiement tel qu'Atos, Ingenico, Mollie, ...</hint>
-          <varname>paiement_en_ligne</varname>
+          <label type="str">Paiement en ligne</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <hint type="str">A cocher si vous poss&#233;der une r&#233;gie de paiement tel qu'Atos, Ingenico, Mollie, ...</hint>
+          <varname type="str">paiement_en_ligne</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><id>13</id>
+          </prefill><id type="str">13</id>
         </field><field>
-          <label>Lien du r&#232;glement communal</label>
-          <type>string</type>
-          <required>False</required>
-          <varname>reglement_communal</varname>
+          <label type="str">Lien du r&#232;glement communal</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>14</id>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">14</id>
         </field>
       </fields>
     </formdef>
@@ -1019,81 +1044,81 @@ Cordialement, </body>
       <name>-</name>
       <fields>
         <field>
-          <label>Nom de l'int&#233;ress&#233;</label>
-          <type>string</type>
-          <required>True</required>
+          <label type="str">Nom de l'int&#233;ress&#233;</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo10</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo10</id>
         </field><field>
-          <label>Pr&#233;nom de l'int&#233;ress&#233;</label>
-          <type>string</type>
-          <required>True</required>
+          <label type="str">Pr&#233;nom de l'int&#233;ress&#233;</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo11</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo11</id>
         </field><field>
-          <label>NN de l'int&#233;ress&#233;</label>
-          <type>string</type>
-          <required>False</required>
-          <varname>wf_nn</varname>
+          <label type="str">NN de l'int&#233;ress&#233;</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">wf_nn</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo6</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo6</id>
         </field><field>
-          <label>Adresse de l'int&#233;ress&#233;</label>
-          <type>string</type>
-          <required>True</required>
+          <label type="str">Adresse de l'int&#233;ress&#233;</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo13</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo13</id>
         </field><field>
-          <label>N&#176; t&#233;l&#233;phone de l'int&#233;ress&#233;</label>
-          <type>string</type>
-          <required>True</required>
+          <label type="str">N&#176; t&#233;l&#233;phone de l'int&#233;ress&#233;</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo12</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo12</id>
         </field><field>
-          <label>Nombre d'exemplaires</label>
-          <type>string</type>
-          <required>True</required>
-          <varname>wf_nb_exemplaires</varname>
+          <label type="str">Nombre d'exemplaires</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <varname type="str">wf_nb_exemplaires</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo2</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo2</id>
         </field><field>
-          <label>Total de la commande</label>
-          <type>string</type>
-          <required>True</required>
-          <varname>wf_total_commande</varname>
+          <label type="str">Total de la commande</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <varname type="str">wf_total_commande</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo3</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo3</id>
         </field><field>
-          <label>Paiement en ligne</label>
-          <type>bool</type>
-          <required>False</required>
-          <hint>Est-ce que le citoyen a choisit un paiement en ligne oui/non?</hint>
-          <varname>wf_paiement_en_ligne</varname>
+          <label type="str">Paiement en ligne</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <hint type="str">Est-ce que le citoyen a choisit un paiement en ligne oui/non?</hint>
+          <varname type="str">wf_paiement_en_ligne</varname>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><id>bo9</id>
+          </display_locations><id type="str">bo9</id>
         </field>
       </fields>
     </formdef>
