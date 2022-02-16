@@ -58,7 +58,7 @@
               <value>{{ form_url }}</value>
             </item><item>
               <name>user_email</name>
-              <value>{{ form_var_email }}</value>
+              <value>{{ form_var_email|default:"nothing" }}</value>
             </item>
           </post_data><response_type>json</response_type>
           <varname>reservation</varname>
@@ -543,7 +543,7 @@ La commune de {{commune_name}}</body>
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="37aed365-f9c0-4ebf-8629-c9e90b7f1186" type="manual">
+        <trigger id="1226f187-2368-4617-aa00-8639f45d4da5" type="manual">
           <roles>
             <item role_id="df908b92acec4a68b3a11bbf516263d9" slug="debug">Debug</item>
           </roles>
@@ -561,7 +561,7 @@ La commune de {{commune_name}}</body>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="df700960-cbf5-4e68-838d-5f6fa9a8257e" type="manual">
+        <trigger id="244539cc-ed69-4104-b918-2d25cd1b0510" type="manual">
           <roles>
             <item role_id="_administrateur">_administrateur</item>
           </roles>
