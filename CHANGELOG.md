@@ -6,6 +6,10 @@ teleservices-package changelog
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
 ## [0.1.45] - 01-01-2022 -
+### update
+  - [SUP-21926] update webservice réservation agenda for rappel 
+
+## [0.1.45] - 01-01-2022 -
 ### Added
   - [TELE-1238] add new wf for pin/puk form and update its form
 

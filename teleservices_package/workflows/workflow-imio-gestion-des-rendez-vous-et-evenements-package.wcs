@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="24" url="http://local-formulaires.example.net/backoffice/workflows/24/">
+<workflow id="107" url="https://staging-formulaires.guichet-citoyen.be/backoffice/workflows/107/">
   <name>iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</name>
+  <slug>imio-gestion-des-rendez-vous-et-evenements-package</slug>
   <roles>
     <role id="_administrateur">Administrateur</role>
     <role id="_receiver">Agent traitant</role>
@@ -52,6 +53,12 @@
             </item><item>
               <name>count</name>
               <value>{% firstof form_var_personnes|length form_var_nb_place 1 %}</value>
+            </item><item>
+              <name>form_url</name>
+              <value>{{ form_url }}</value>
+            </item><item>
+              <name>user_email</name>
+              <value>{{ form_var_email }}</value>
             </item>
           </post_data><response_type>json</response_type>
           <varname>reservation</varname>
@@ -89,24 +96,24 @@
             <name>-</name>
             <fields>
               <field>
-                <label>Choisissez une nouvelle date</label>
-                <type>item</type>
-                <required>True</required>
-                <varname>date_rdv</varname>
+                <label type="str">Choisissez une nouvelle date</label>
+                <type type="str">item</type>
+                <required type="bool">True</required>
+                <varname type="str">date_rdv</varname>
                 <display_locations />
-                <extra_css_class>template-meetings</extra_css_class>
+                <extra_css_class type="str">template-meetings</extra_css_class>
                 <prefill>
                   <type>none</type>
                 </prefill><items />
-                <display_mode>list</display_mode>
+                <display_mode type="str">list</display_mode>
                 <data_source>
                   <type>json</type>
                   <value>{% firstof form_var_type_rdv_api_datetimes_url form_var_agenda_api_datetimes_url %}</value>
-                </data_source><in_filters>False</in_filters>
-                <anonymise>False</anonymise>
-                <display_disabled_items>False</display_disabled_items>
-                <initial_zoom>13</initial_zoom>
-                <id>1</id>
+                </data_source><in_filters type="bool">False</in_filters>
+                <anonymise type="bool">False</anonymise>
+                <display_disabled_items type="bool">False</display_disabled_items>
+                <initial_zoom type="str">13</initial_zoom>
+                <id type="str">1</id>
               </field>
             </fields>
           </formdef>
@@ -255,18 +262,18 @@ Bien &#224; vous.</body>
             <name>-</name>
             <fields>
               <field>
-                <label>Motif du refus</label>
-                <type>text</type>
-                <required>False</required>
-                <hint>Optionnel</hint>
-                <varname>motif</varname>
+                <label type="str">Motif du refus</label>
+                <type type="str">text</type>
+                <required type="bool">False</required>
+                <hint type="str">Optionnel</hint>
+                <varname type="str">motif</varname>
                 <display_locations />
-                <extra_css_class>pk-important</extra_css_class>
+                <extra_css_class type="str">pk-important</extra_css_class>
                 <prefill>
                   <type>none</type>
-                </prefill><rows>10</rows>
-                <pre>True</pre>
-                <id>1</id>
+                </prefill><rows type="str">10</rows>
+                <pre type="bool">True</pre>
+                <id type="str">1</id>
               </field>
             </fields>
           </formdef>
@@ -322,13 +329,13 @@ Bien &#224; vous</body>
       <colour>FF9900</colour>
       <visibility />
       <items>
-        <item id="2" type="editable">
+        <item id="1" type="editable">
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
           </by><status>12</status>
           <label>&#201;diter le rendez-vous</label>
-        </item><item id="3" type="choice">
+        </item><item id="2" type="choice">
           <label>Annuler la r&#233;servation</label>
           <by>
             <item role_id="_submitter">_submitter</item>
@@ -337,13 +344,13 @@ Bien &#224; vous</body>
           <require_confirmation>False</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="jump">
+        </item><item id="3" type="jump">
           <status>14</status>
           <condition>
             <type>django</type>
             <value>form_workflow_data_reservation_response_datetime|date|add_days:1 == today|date</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="5" type="jump">
+        </item><item id="4" type="jump">
           <status>13</status>
           <timeout>86400</timeout>
           <set_marker_on_status>False</set_marker_on_status>
@@ -356,7 +363,7 @@ Bien &#224; vous</body>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item id="3" type="displaymsg">
+        <item id="1" type="displaymsg">
           <message>&lt;p&gt;
 Attention, votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %} n'a pas &#233;t&#233; report&#233;.&lt;br&gt;
 Si vous le souhaitez, vous pouvez &lt;a href="{{eservices_url}}{{form_uri}}" title="Reprendre un rendez-vous"&gt;reprendre un rendez-vous via le formulaire ad&#233;quat&lt;/a&gt;.
@@ -374,7 +381,7 @@ Si vous le souhaitez, vous pouvez &lt;a href="{{eservices_url}}{{form_uri}}" tit
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item id="1" type="sendmail">
+        </item><item id="3" type="sendmail">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
           </to><subject>Annulation de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
@@ -512,7 +519,7 @@ Bien &#224; vous
         <role>_administrateur</role>
         <role>_receiver</role>
       </visibility><items>
-        <item type="sendmail" id="2">
+        <item id="1" type="sendmail">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
           </to><subject>D&#233;placement de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}</subject>
@@ -523,7 +530,7 @@ Pour des raisons ind&#233;pendantes de notre volont&#233; votre rendez-vous du {
 Bien &#224; vous.
 
 La commune de {{commune_name}}</body>
-        </item><item type="jump" id="1">
+        </item><item id="2" type="jump">
           <status>13</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -536,9 +543,9 @@ La commune de {{commune_name}}</body>
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="30ac5d59-a211-41f9-9962-d8b2aca13686" type="manual">
+        <trigger id="37aed365-f9c0-4ebf-8629-c9e90b7f1186" type="manual">
           <roles>
-            <item role_id="d47fa267dc4c49e0bdcca37c6648a311">Debug</item>
+            <item role_id="df908b92acec4a68b3a11bbf516263d9" slug="debug">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -554,7 +561,7 @@ La commune de {{commune_name}}</body>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="5b1d8857-f80b-4e92-839c-5001da2eeeae" type="manual">
+        <trigger id="df700960-cbf5-4e68-838d-5f6fa9a8257e" type="manual">
           <roles>
             <item role_id="_administrateur">_administrateur</item>
           </roles>
@@ -566,67 +573,67 @@ La commune de {{commune_name}}</body>
       <name>-</name>
       <fields>
         <field>
-          <label>Liste des agendas disponible choix unique</label>
-          <type>item</type>
-          <required>True</required>
-          <varname>agenda</varname>
+          <label type="str">Liste des agendas disponible choix unique</label>
+          <type type="str">item</type>
+          <required type="bool">True</required>
+          <varname type="str">agenda</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
           </prefill><items />
-          <display_mode>list</display_mode>
+          <display_mode type="str">list</display_mode>
           <data_source>
             <type>json</type>
             <value>{{agendas_url}}api/agenda/</value>
-          </data_source><in_filters>False</in_filters>
-          <anonymise>False</anonymise>
-          <display_disabled_items>False</display_disabled_items>
-          <initial_zoom>13</initial_zoom>
-          <id>3</id>
+          </data_source><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">False</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <initial_zoom type="str">13</initial_zoom>
+          <id type="str">3</id>
         </field><field>
-          <label>Liste des agendas disponible choix multiple</label>
-          <type>items</type>
-          <required>False</required>
-          <varname>agendas</varname>
+          <label type="str">Liste des agendas disponible choix multiple</label>
+          <type type="str">items</type>
+          <required type="bool">False</required>
+          <varname type="str">agendas</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
           </prefill><items />
-          <min_choices>0</min_choices>
-          <max_choices>0</max_choices>
+          <min_choices type="int">0</min_choices>
+          <max_choices type="int">0</max_choices>
           <data_source>
             <type>json</type>
             <value>{{agendas_url}}api/agenda/</value>
-          </data_source><in_filters>False</in_filters>
-          <anonymise>True</anonymise>
-          <display_disabled_items>False</display_disabled_items>
-          <id>2</id>
+          </data_source><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">True</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">2</id>
         </field><field>
-          <label>Heure d'ouverture</label>
-          <type>string</type>
-          <required>True</required>
-          <hint>Format 9:00</hint>
-          <varname>heure_ouverture</varname>
+          <label type="str">Heure d'ouverture</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <hint type="str">Format 9:00</hint>
+          <varname type="str">heure_ouverture</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>4</id>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">4</id>
         </field><field>
-          <label>Heure de fermeture</label>
-          <type>string</type>
-          <required>True</required>
-          <hint>Format 18:30</hint>
-          <varname>heure_fermeture</varname>
+          <label type="str">Heure de fermeture</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <hint type="str">Format 18:30</hint>
+          <varname type="str">heure_fermeture</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>5</id>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">5</id>
         </field>
       </fields>
     </formdef>
@@ -635,40 +642,40 @@ La commune de {{commune_name}}</body>
       <name>-</name>
       <fields>
         <field>
-          <label>Adresse du b&#233;n&#233;ficiaire</label>
-          <type>string</type>
-          <required>True</required>
+          <label type="str">Adresse du b&#233;n&#233;ficiaire</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo3c729bcc-c254-4ef6-b8ce-90a179d9cfde</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo3c729bcc-c254-4ef6-b8ce-90a179d9cfde</id>
         </field><field>
-          <label>Date d'annulation</label>
-          <type>string</type>
-          <required>True</required>
-          <varname>date_annulation</varname>
+          <label type="str">Date d'annulation</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <varname type="str">date_annulation</varname>
           <display_locations>
             <display_location>summary</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo4dd33514-33fd-4f8b-b7e4-fb573a89afd3</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo4dd33514-33fd-4f8b-b7e4-fb573a89afd3</id>
         </field><field>
-          <label>Date r&#233;serv&#233;e</label>
-          <type>string</type>
-          <required>True</required>
+          <label type="str">Date r&#233;serv&#233;e</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
           <display_locations>
             <display_location>summary</display_location>
             <display_location>listings</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bo6735f532-2e69-427c-a8b6-3bc21dffed49</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo6735f532-2e69-427c-a8b6-3bc21dffed49</id>
         </field><field>
-          <label>Guichet</label>
-          <type>string</type>
-          <required>True</required>
+          <label type="str">Guichet</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
           <display_locations>
             <display_location>listings</display_location>
-          </display_locations><anonymise>True</anonymise>
-          <id>bofbe17c40-8368-4d9e-a8a6-7267552a1710</id>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bofbe17c40-8368-4d9e-a8a6-7267552a1710</id>
         </field>
       </fields>
     </formdef>
