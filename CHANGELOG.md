@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 ## [0.1.46] - 30-03-2022 -
+### Updated
+  - [TELE-1164] updated form Acte de Reconnaissance pré/post-natale
+
+## [0.1.46] - 30-03-2022 -
 ### Fixed
   - [TELE-1148] updated commentaire in Candidature poste à pourvoir
 
