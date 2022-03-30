@@ -2,7 +2,7 @@
 <formdef id="43" url="http://local-formulaires.example.net/backoffice/forms/43/">
   <name>Composition de m&#233;nage</name>
   <url_name>demande-composition-de-menage</url_name>
-  <description>Il faut OBLIGATOIREMENT habiter dans la commune pour effectuer cette demande.</description>
+  <description>&lt;p&gt;&lt;em&gt;La composition de ménage reprend toutes les personnes inscrites à une même adresse.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-composition-de-menage</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

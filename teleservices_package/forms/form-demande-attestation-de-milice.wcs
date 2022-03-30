@@ -2,7 +2,7 @@
 <formdef id="38" url="http://local-formulaires.example.net/backoffice/forms/38/">
   <name>Attestation de milice</name>
   <url_name>demande-attestation-de-milice</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;&lt;em&gt;Le certificat de milice concerne les personnes nées avant le 1 janvier 1976. Si le ou la résidant.e belge se trouve à l'étranger, le demander à l'administration communale où il/elle a été inscrit·e sur les listes de milice (le lieu de résidence à l'âge de 16 ans). L'attestation de milice concerne les personnes nées après le 31 décembre 1975. Le certificat ou l'attestation doit être demandé au lieu de domicile.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-attestation-de-milice</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

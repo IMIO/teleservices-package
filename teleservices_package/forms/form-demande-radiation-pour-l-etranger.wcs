@@ -2,7 +2,7 @@
 <formdef id="33" url="http://local-formulaires.example.net/backoffice/forms/33/">
   <name>Radiation pour l'&#233;tranger</name>
   <url_name>demande-radiation-pour-l-etranger</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;&lt;em&gt;Si vous déménagez pour vous établir à l'étranger, un certificat de radiation (modèle 8) doit être demandé auprès de la commune où vous êtes inscrit. Ce document vous permettra de vous inscrire dans les registres de la population du pays d'accueil.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-radiation-pour-l-etranger</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

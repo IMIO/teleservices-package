@@ -6,7 +6,11 @@ teleservices-package changelog
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 ## [0.1.46] - 30-03-2022 -
 ### Updated
-  - [TELE-1282] updated forms Description
+  - [TELE-1282] updated forms Pouplation Description
+
+## [0.1.46] - 30-03-2022 -
+### Updated
+  - [TELE-1282] updated forms Etat-Civil Description
 
 ## [0.1.46] - 30-03-2022 -
 ### Updated
