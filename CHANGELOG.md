@@ -4,6 +4,9 @@ teleservices-package changelog
 :Info: This is the changelog for the teleservices-package
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
+## [0.1.46] - 30-03-2022 -
+### Fixed
+  - [TELE-1283] fixed condition in Occupation de la voie publique 
 
 ## [0.1.45] - 01-01-2022 -
 ### update

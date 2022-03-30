@@ -358,7 +358,7 @@
       <type>page</type>
       <condition>
         <type>python</type>
-        <value>form_var_typedemandeur == "un particulier"</value>
+        <value>form_var_typedemandeur == "Un particulier"</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
@@ -865,7 +865,7 @@
       <type>text</type>
       <condition>
         <type>django</type>
-        <value>form_var_typedemandeur == "un entrepreneur"</value>
+        <value>form_var_typedemandeur == "Un entrepreneur"</value>
       </condition><required>True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -983,7 +983,7 @@
       <type>item</type>
       <condition>
         <type>django</type>
-        <value>form_var_typedemandeur == "un particulier"</value>
+        <value>form_var_typedemandeur == "Un particulier"</value>
       </condition><required>True</required>
       <hint>Le demandeur doit prendre contact avec le Service Travaux de la commune pour conna&#238;tre la proc&#233;dure d'enl&#232;vement et de restitution des panneaux.</hint>
       <display_locations>
