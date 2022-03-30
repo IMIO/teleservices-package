@@ -2,7 +2,7 @@
 <formdef id="50" url="http://local-formulaires.example.net/backoffice/forms/50/">
   <name>Acte de Reconnaissance pr&#233;/post-natale</name>
   <url_name>demande-acte-de-reconnaissance-prepost-natale</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Un extrait ou une copie int&amp;eacute;grale de l'acte peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;&lt;em&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-reconnaissance-prepost-natale-1</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

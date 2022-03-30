@@ -2,7 +2,7 @@
 <formdef id="19" url="http://local-formulaires.example.net/backoffice/forms/19/">
   <name>Acte de Divorce</name>
   <url_name>demande-acte-de-divorce</url_name>
-  <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de Divorce ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; le mariage a &amp;eacute;t&amp;eacute; c&amp;eacute;l&amp;eacute;br&amp;eacute;. &lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;&lt;em&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-divorce-1</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

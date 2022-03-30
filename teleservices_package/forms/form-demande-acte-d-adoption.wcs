@@ -2,7 +2,7 @@
 <formdef id="57" url="http://local-formulaires.example.net/backoffice/forms/57/">
   <name>Acte d'Adoption</name>
   <url_name>demande-acte-d-adoption</url_name>
-  <description>&lt;p&gt;&lt;em&gt;L'extrait d'acte de Naissance ne peut &amp;ecirc;tre r&amp;eacute;clam&amp;eacute; que dans la commune o&amp;ugrave; la d&amp;eacute;claration de naissance a &amp;eacute;t&amp;eacute; faite.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;&lt;em&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-acte-d-adoption</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

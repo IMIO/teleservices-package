@@ -6,6 +6,10 @@ teleservices-package changelog
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 ## [0.1.46] - 30-03-2022 -
 ### Updated
+  - [TELE-1282] updated forms Description
+
+## [0.1.46] - 30-03-2022 -
+### Updated
   - [TELE-1164] updated form Acte de Reconnaissance pré/post-natale
 
 ## [0.1.46] - 30-03-2022 -
