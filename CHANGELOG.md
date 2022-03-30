@@ -6,6 +6,10 @@ teleservices-package changelog
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 ## [0.1.46] - 30-03-2022 -
 ### Fixed
+  - [TELE-1148] updated commentaire in Candidature poste à pourvoir
+
+## [0.1.46] - 30-03-2022 -
+### Fixed
   - [TELE-1154] fixed commentaire in Certificat de vie
 
 ## [0.1.46] - 30-03-2022 -

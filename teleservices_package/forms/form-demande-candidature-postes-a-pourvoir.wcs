@@ -46,7 +46,7 @@
     </field><field>
       <label>&lt;p&gt;{% for i in data_source.poste_a_pourvoir %}&lt;br /&gt;
 Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}}&lt;br /&gt;
-{{i.fields.description}}&lt;br /&gt;
+{{i.fields.description|linebreaks}}&lt;br /&gt;
 {% endfor %}&lt;/p&gt;
 
 &lt;hr /&gt;</label>
