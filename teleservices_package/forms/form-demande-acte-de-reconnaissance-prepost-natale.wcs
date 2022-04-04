@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="50" url="http://local-formulaires.example.net/backoffice/forms/50/">
+<formdef id="32" url="http://local-formulaires.example.net/backoffice/forms/32/">
   <name>Acte de Reconnaissance pr&#233;/post-natale</name>
   <url_name>demande-acte-de-reconnaissance-prepost-natale</url_name>
   <description>&lt;p&gt;&lt;em&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>demande-acte-de-reconnaissance-prepost-natale-1</internal_identifier>
+  <internal_identifier>acte-de-reconnaissance-prepost-natale</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,7 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="94">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="2" slug="etat-civil">Etat civil</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="23">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>75</max_field_id>
   <fields>
     <field>
@@ -141,7 +142,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items>
         <item>Moi-m&#234;me</item>
@@ -164,7 +164,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">75</id>
@@ -203,7 +202,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>nrn-be</type>
@@ -410,7 +408,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><validation>
