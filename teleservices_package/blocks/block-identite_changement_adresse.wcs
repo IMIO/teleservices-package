@@ -1,77 +1,79 @@
 <?xml version="1.0"?>
-<block id="17" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/17/">
+<block id="1" url="http://local-formulaires.example.net/backoffice/forms/blocks/1/">
   <name>iMio - Identit&#233; Changement Adresse</name>
   <slug>identite_changement_adresse</slug>
   <digest_template>{{identite_changement_adresse_var_nom}} {{identite_changement_adresse_var_prenom}} {{identite_changement_adresse_var_nrn}} {{identite_changement_adresse_var_lien_parente}}</digest_template>
   <fields>
     <field>
-      <label>Nom</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>nom</varname>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">nom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>bfe6df476b-ef50-4985-8cf1-770eddd46a37</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">bfe6df476b-ef50-4985-8cf1-770eddd46a37</id>
     </field><field>
-      <label>Pr&#233;nom</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>prenom</varname>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">prenom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>bf1e4c022c-d9fa-45fc-9e27-63b3d40cda54</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">bf1e4c022c-d9fa-45fc-9e27-63b3d40cda54</id>
     </field><field>
-      <label>Lien de parent&#233;</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>lien_parente</varname>
+      <label type="str">Lien de parent&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">lien_parente</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>bfbf0350ef-23e5-4690-81f6-2b105d525475</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">bfbf0350ef-23e5-4690-81f6-2b105d525475</id>
     </field><field>
-      <label>Num&#233;ro de registre national</label>
-      <type>string</type>
-      <required>False</required>
-      <hint>Le num&#233;ro de registre national figure sur la carte d'identit&#233;</hint>
-      <varname>nrn</varname>
+      <label type="str">Num&#233;ro de registre national</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <hint type="str">Le num&#233;ro de registre national figure sur la carte d'identit&#233;</hint>
+      <varname type="str">nrn</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>bf02110074-9e65-48f9-b33f-f771b564d50a</id>
-    </field><field>
-      <label>Date de naissance</label>
-      <type>date</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-2-12</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-4</extra_css_class>
       <prefill>
         <locked>False</locked>
         <type>none</type>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>True</date_in_the_past>
-      <date_can_be_today>True</date_can_be_today>
-      <id>bfdbc52ceb-9c6d-4c1a-b198-40f82f69989c</id>
+      </prefill><validation>
+        <type>nrn-be</type>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">bf02110074-9e65-48f9-b33f-f771b564d50a</id>
+    </field><field>
+      <label type="str">Date de naissance</label>
+      <type type="str">date</type>
+      <required type="bool">True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-2-12</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">True</date_can_be_today>
+      <id type="str">bfdbc52ceb-9c6d-4c1a-b198-40f82f69989c</id>
     </field>
   </fields>
 </block>

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="33" url="http://local-formulaires.example.net/backoffice/forms/33/">
+<formdef id="21" url="http://local-formulaires.example.net/backoffice/forms/21/">
   <name>Radiation pour l'&#233;tranger</name>
   <url_name>demande-radiation-pour-l-etranger</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Si vous déménagez pour vous établir à l'étranger, un certificat de radiation (modèle 8) doit être demandé auprès de la commune où vous êtes inscrit. Ce document vous permettra de vous inscrire dans les registres de la population du pays d'accueil.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;&lt;em&gt;Si vous d&#233;m&#233;nagez pour vous &#233;tablir &#224; l'&#233;tranger, un certificat de radiation (mod&#232;le 8) doit &#234;tre demand&#233; aupr&#232;s de la commune o&#249; vous &#234;tes inscrit. Ce document vous permettra de vous inscrire dans les registres de la population du pays d'accueil.&lt;/em&gt;&lt;/p&gt;</description>
   <internal_identifier>demande-radiation-pour-l-etranger</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -14,20 +14,15 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="132">Population</category>
-  <workflow workflow_id="120">iMio - Radiation pour l'&#233;tranger</workflow>
+  <category category_id="1" slug="population">Population</category>
+  <workflow slug="imio-radiation-pour-l-etranger" workflow_id="15">iMio - Radiation pour l'&#233;tranger</workflow>
   <max_field_id>100</max_field_id>
   <fields>
     <field>
-      <label>Donn&#233;es du demandeur</label>
-      <type>page</type>
+      <label type="str">Donn&#233;es du demandeur</label>
+      <type type="str">page</type>
       <post_conditions>
         <post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_nn == None or ((97 - int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) 	 or (97 - int("2" + ((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
-          </condition><error_message>Num&#233;ro national incorrect.</error_message>
-        </post_condition><post_condition>
           <condition>
             <type>python</type>
             <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
@@ -38,346 +33,349 @@
             <value>form_var_cp in commune_cp.split(',')</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
-      </post_conditions><id>5</id>
+      </post_conditions><id type="str">5</id>
     </field><field>
-      <label>Vos coordonn&#233;es</label>
-      <type>title</type>
+      <label type="str">Vos coordonn&#233;es</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>47</id>
+      </display_locations><id type="str">47</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;u&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;VOS DONN&amp;Eacute;ES&lt;/span&gt;&lt;/u&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>6</id>
+      <id type="str">6</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>7</id>
+      <id type="str">7</id>
     </field><field>
-      <label>Nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>nom</varname>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">nom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>8</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">8</id>
     </field><field>
-      <label>Pr&#233;nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>prenom</varname>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">prenom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>9</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">9</id>
     </field><field>
-      <label>Num&#233;ro national</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
-      <varname>nn</varname>
+      <label type="str">Num&#233;ro national</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
+      <varname type="str">nn</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
-      </prefill><anonymise>True</anonymise>
-      <id>10</id>
+      </prefill><validation>
+        <type>nrn-be</type>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">10</id>
     </field><field>
-      <label>Date de naissance</label>
-      <type>date</type>
-      <required>False</required>
-      <varname>birthday</varname>
+      <label type="str">Date de naissance</label>
+      <type type="str">date</type>
+      <required type="bool">False</required>
+      <varname type="str">birthday</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_birthdate</value>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>True</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>72</id>
+      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">72</id>
     </field><field>
-      <label>Derni&#232;re adresse &#224;  : {{commune_name}}</label>
-      <type>subtitle</type>
+      <label type="str">Derni&#232;re adresse &#224;  : {{commune_name}}</label>
+      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>12</id>
+      </display_locations><id type="str">12</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>rue</varname>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">rue</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise>True</anonymise>
-      <id>13</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">13</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
-      <varname>numero</varname>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
+      <varname type="str">numero</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
         <type>regex</type>
         <value>[1-9][0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>14</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">14</id>
     </field><field>
-      <label>Bo&#238;te</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>boite</varname>
+      <label type="str">Bo&#238;te</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">boite</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise>True</anonymise>
-      <id>15</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">15</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>cp</varname>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">cp</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
-      </prefill><anonymise>True</anonymise>
-      <id>50</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">50</id>
     </field><field>
-      <label>Localit&#233;</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>localite</varname>
+      <label type="str">Localit&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">localite</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise>True</anonymise>
-      <id>70</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">70</id>
     </field><field>
-      <label>Pays</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>Choisissez une option</hint>
-      <varname>pays</varname>
+      <label type="str">Pays</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">Choisissez une option</hint>
+      <varname type="str">pays</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_country</value>
       </prefill><items />
-      <display_mode>list</display_mode>
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>pays</type>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>71</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">71</id>
     </field><field>
-      <label>Adresse e-mail</label>
-      <type>email</type>
-      <required>True</required>
-      <varname>email</varname>
+      <label type="str">Adresse e-mail</label>
+      <type type="str">email</type>
+      <required type="bool">True</required>
+      <varname type="str">email</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><id>18</id>
+      </prefill><id type="str">18</id>
     </field><field>
-      <label>Num&#233;ro de t&#233;l&#233;phone</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>tel</varname>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">tel</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise>True</anonymise>
-      <id>19</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">19</id>
     </field><field>
-      <label>Nouvelle adresse &#224; l'&#233;tranger</label>
-      <type>page</type>
-      <id>81</id>
+      <label type="str">Nouvelle adresse &#224; l'&#233;tranger</label>
+      <type type="str">page</type>
+      <id type="str">81</id>
     </field><field>
-      <label>Nouvelle adresse &#224; l'&#233;tranger</label>
-      <type>title</type>
+      <label type="str">Nouvelle adresse &#224; l'&#233;tranger</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>100</id>
+      </display_locations><id type="str">100</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>rue_nouvelle</varname>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">rue_nouvelle</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise>True</anonymise>
-      <id>90</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">90</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
-      <varname>numero_nouvelle</varname>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
+      <varname type="str">numero_nouvelle</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
         <type>regex</type>
         <value>[1-9][0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>91</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">91</id>
     </field><field>
-      <label>Bo&#238;te</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>boite_nouvelle</varname>
+      <label type="str">Bo&#238;te</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">boite_nouvelle</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise>True</anonymise>
-      <id>92</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">92</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>cp_nouvelle</varname>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">cp_nouvelle</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
-      </prefill><anonymise>True</anonymise>
-      <id>93</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">93</id>
     </field><field>
-      <label>Localit&#233;</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>localite_nouvelle</varname>
+      <label type="str">Localit&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">localite_nouvelle</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise>True</anonymise>
-      <id>94</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">94</id>
     </field><field>
-      <label>Pays</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>Choisissez une option</hint>
-      <varname>pays_nouvelle</varname>
+      <label type="str">Pays</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">Choisissez une option</hint>
+      <varname type="str">pays_nouvelle</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_country</value>
       </prefill><items />
-      <display_mode>list</display_mode>
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>pays</type>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>95</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">95</id>
     </field><field>
-      <label>D'autres personnes, de votre m&#233;nage actuel, d&#233;m&#233;nagent-elles aussi avec vous ?</label>
-      <type>bool</type>
-      <required>False</required>
-      <varname>autre_personne</varname>
+      <label type="str">D'autres personnes, de votre m&#233;nage actuel, d&#233;m&#233;nagent-elles aussi avec vous ?</label>
+      <type type="str">bool</type>
+      <required type="bool">False</required>
+      <varname type="str">autre_personne</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><id>98</id>
+      </prefill><id type="str">98</id>
     </field><field>
-      <label>Informations sur les membres du m&#233;nage suppl&#233;mentaire</label>
-      <type>block:menage</type>
+      <label type="str">Informations sur les membres du m&#233;nage suppl&#233;mentaire</label>
+      <type type="str">block:menage</type>
       <condition>
         <type>django</type>
         <value>form_var_autre_personne == True</value>
-      </condition><required>True</required>
-      <varname>menage</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">menage</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>15</max_items>
-      <add_element_label>+</add_element_label>
-      <label_display>subtitle</label_display>
-      <remove_button>True</remove_button>
-      <id>99</id>
+      </display_locations><max_items type="int">15</max_items>
+      <add_element_label type="str">+</add_element_label>
+      <label_display type="str">subtitle</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">99</id>
     </field>
   </fields><options>
     <option varname="baec" />
@@ -396,8 +394,8 @@
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="redirection_automatique" />
-    <option varname="regie_de_paiement"></option>
-    <option varname="regie_de_paiement_display"></option>
+    <option varname="regie_de_paiement" />
+    <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
   </options><custom_views />
   <geolocations />
