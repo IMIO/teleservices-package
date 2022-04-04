@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="40" url="http://local-formulaires.example.net/backoffice/forms/40/">
+<formdef id="23" url="http://local-formulaires.example.net/backoffice/forms/23/">
   <name>Acte de D&#233;c&#232;s</name>
   <url_name>demande-acte-de-deces</url_name>
   <description>&lt;p&gt;&lt;em&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>demande-acte-de-deces-1</internal_identifier>
+  <internal_identifier>demande-acte-de-deces</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,12 +14,12 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="2">Etat civil</category>
-  <workflow workflow_id="31">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category category_id="2" slug="etat-civil">Etat civil</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="23">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>68</max_field_id>
   <fields>
     <field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+      <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
 
@@ -28,18 +28,18 @@
 &lt;p&gt;&lt;a href="{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/" rel="noopener noreferrer" target="_blank"&gt;Ajouter, supprimer ou modifier des motifs et destination&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
-      <id>68</id>
+      <id type="str">68</id>
     </field><field>
-      <label>Extrait/Copie int&#233;grale d'acte de D&#233;c&#232;s</label>
-      <type>page</type>
-      <id>2</id>
+      <label type="str">Extrait/Copie int&#233;grale d'acte de D&#233;c&#232;s</label>
+      <type type="str">page</type>
+      <id type="str">2</id>
     </field><field>
-      <label>&lt;p&gt;&lt;em&gt;Commande d'un acte de d&amp;eacute;c&amp;egrave;s.&lt;/em&gt;&lt;/p&gt;
+      <label type="str">&lt;p&gt;&lt;em&gt;Commande d'un acte de d&amp;eacute;c&amp;egrave;s.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par :&amp;nbsp;&lt;/p&gt;
 
@@ -68,17 +68,17 @@
 	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l'adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
 	&lt;li&gt;Si votre demande est valide, vous recevrez prochainement votre document selon le mode de d&amp;eacute;livrance choisi. A d&amp;eacute;faut, vous serez pr&amp;eacute;venu par e-mail.&lt;/li&gt;
 &lt;/ol&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <display_locations />
-      <id>3</id>
+      <id type="str">3</id>
     </field><field>
-      <label>Document souhait&#233;</label>
-      <type>page</type>
-      <id>4</id>
+      <label type="str">Document souhait&#233;</label>
+      <type type="str">page</type>
+      <id type="str">4</id>
     </field><field>
-      <label>Extrait ou Copie int&#233;grale</label>
-      <type>item</type>
-      <required>True</required>
+      <label type="str">Extrait ou Copie int&#233;grale</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -87,493 +87,488 @@
       </prefill><items>
         <item>Extrait d'acte de d&#233;c&#232;s</item>
         <item>Copie int&#233;grale de l'acte de d&#233;c&#232;s</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>5</id>
+      </items><display_mode type="str">radio</display_mode>
+      <in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">5</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong&gt;- Extrait de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui ne comporte qu'une partie des informations figurant dans l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;- Copie int&amp;eacute;grale de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui reprend l'int&amp;eacute;gralit&amp;eacute; des informations reprises sur l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong&gt;- Extrait de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui ne comporte qu'une partie des informations figurant dans l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;- Copie int&amp;eacute;grale de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui reprend l'int&amp;eacute;gralit&amp;eacute; des informations reprises sur l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>6</id>
+      <id type="str">6</id>
     </field><field>
-      <label>Donn&#233;es de la personne concern&#233;e</label>
-      <type>page</type>
-      <post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_nn_perscon == None or ((97 - int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:]))	 or 	(97 - int("2" + ((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn_perscon.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
-          </condition><error_message>Num&#233;ro national incorrect. </error_message>
-        </post_condition>
-      </post_conditions><id>14</id>
+      <label type="str">Donn&#233;es de la personne concern&#233;e</label>
+      <type type="str">page</type>
+      <id type="str">14</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder &lt;u&gt;les coordonn&amp;eacute;es de la personne d&amp;eacute;c&amp;eacute;d&amp;eacute;e :&lt;/u&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder &lt;u&gt;les coordonn&amp;eacute;es de la personne d&amp;eacute;c&amp;eacute;d&amp;eacute;e :&lt;/u&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>15</id>
+      <id type="str">15</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>16</id>
+      <id type="str">16</id>
     </field><field>
-      <label>Nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>nom_perscon</varname>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">nom_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>17</id>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="bool">True</anonymise>
+      <id type="str">17</id>
     </field><field>
-      <label>Pr&#233;nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>prenom_perscon</varname>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">prenom_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>18</id>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="bool">True</anonymise>
+      <id type="str">18</id>
     </field><field>
-      <label>Num&#233;ro national</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
-      <varname>nn_perscon</varname>
+      <label type="str">Num&#233;ro national</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
+      <varname type="str">nn_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>19</id>
+      </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>none</type>
+      </prefill><validation>
+        <type>nrn-be</type>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">19</id>
     </field><field>
-      <label>Date de naissance</label>
-      <type>date</type>
-      <required>True</required>
-      <hint>Format de la date : 01/01/2016</hint>
-      <varname>birthday_perscon</varname>
+      <label type="str">Date de naissance</label>
+      <type type="str">date</type>
+      <required type="bool">True</required>
+      <hint type="str">Format de la date : 01/01/2016</hint>
+      <varname type="str">birthday_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>True</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>20</id>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">20</id>
     </field><field>
-      <label>ADRESSE</label>
-      <type>subtitle</type>
+      <label type="str">ADRESSE</label>
+      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>21</id>
+      </display_locations><id type="str">21</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>rue_perscon</varname>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">rue_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>22</id>
+      </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
+      <anonymise type="bool">True</anonymise>
+      <id type="str">22</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
-      <varname>numero_perscon</varname>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
+      <varname type="str">numero_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <validation>
         <type>regex</type>
         <value>[1-9][0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>23</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">23</id>
     </field><field>
-      <label>Bo&#238;te</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>boite_perscon</varname>
+      <label type="str">Bo&#238;te</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">boite_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
-      <anonymise>True</anonymise>
-      <id>24</id>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="bool">True</anonymise>
+      <id type="str">24</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>cp_perscon</varname>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">cp_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4 newline</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4 newline</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*$</value>
-      </validation><anonymise>True</anonymise>
-      <id>46</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">46</id>
     </field><field>
-      <label>Localit&#233;</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>localite_perscon</varname>
+      <label type="str">Localit&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">localite_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>47</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">47</id>
     </field><field>
-      <label>Pays</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>Choisissez une option</hint>
-      <varname>pays_perscon</varname>
+      <label type="str">Pays</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">Choisissez une option</hint>
+      <varname type="str">pays_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-2-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><items />
-      <display_mode>list</display_mode>
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>pays</type>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>63</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">63</id>
     </field><field>
-      <label>Donn&#233;es du demandeur</label>
-      <type>page</type>
+      <label type="str">Donn&#233;es du demandeur</label>
+      <type type="str">page</type>
       <post_conditions>
         <post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_nn == None or ((97 - int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])) 	 or 	 (97 - int("2" + ((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[:9]) % 97 == int(((form_var_nn.replace("-", "")).replace(".", "")).replace(" ", "")[-2:])))</value>
-          </condition><error_message>Num&#233;ro national incorrect. </error_message>
-        </post_condition><post_condition>
           <condition>
             <type>python</type>
             <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
           </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
         </post_condition>
-      </post_conditions><id>34</id>
+      </post_conditions><id type="str">34</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&lt;u&gt;vos donn&amp;eacute;es&amp;nbsp;&lt;/u&gt;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&lt;u&gt;vos donn&amp;eacute;es&amp;nbsp;&lt;/u&gt;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>35</id>
+      <id type="str">35</id>
     </field><field>
-      <label>&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>36</id>
+      <id type="str">36</id>
     </field><field>
-      <label>Nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>nom</varname>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">nom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>37</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">37</id>
     </field><field>
-      <label>Pr&#233;nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>prenom</varname>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">prenom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>38</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">38</id>
     </field><field>
-      <label>Num&#233;ro national</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
-      <varname>nn</varname>
+      <label type="str">Num&#233;ro national</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
+      <varname type="str">nn</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
-      </prefill><anonymise>True</anonymise>
-      <id>39</id>
+      </prefill><validation>
+        <type>nrn-be</type>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">39</id>
     </field><field>
-      <label>Date de naissance</label>
-      <type>date</type>
-      <required>True</required>
-      <varname>birthday</varname>
+      <label type="str">Date de naissance</label>
+      <type type="str">date</type>
+      <required type="bool">True</required>
+      <varname type="str">birthday</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_birthdate</value>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>True</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>40</id>
+      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">40</id>
     </field><field>
-      <label>ADRESSE</label>
-      <type>subtitle</type>
+      <label type="str">ADRESSE</label>
+      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>42</id>
+      </display_locations><id type="str">42</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>rue</varname>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">rue</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise>True</anonymise>
-      <id>43</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">43</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
-      <varname>numero</varname>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
+      <varname type="str">numero</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
         <type>regex</type>
         <value>[1-9][0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>44</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">44</id>
     </field><field>
-      <label>Bo&#238;te</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>boite</varname>
+      <label type="str">Bo&#238;te</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">boite</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise>True</anonymise>
-      <id>45</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">45</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>cp</varname>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">cp</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4 newline</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4 newline</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
-      </prefill><anonymise>True</anonymise>
-      <id>60</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">60</id>
     </field><field>
-      <label>Localit&#233;</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>localite</varname>
+      <label type="str">Localit&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">localite</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise>True</anonymise>
-      <id>61</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">61</id>
     </field><field>
-      <label>Pays</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>Choisissez une option</hint>
-      <varname>pays</varname>
+      <label type="str">Pays</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">Choisissez une option</hint>
+      <varname type="str">pays</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-2-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_country</value>
       </prefill><items />
-      <display_mode>list</display_mode>
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>pays</type>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>64</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">64</id>
     </field><field>
-      <label>Adresse e-mail</label>
-      <type>email</type>
-      <required>True</required>
-      <varname>email</varname>
+      <label type="str">Adresse e-mail</label>
+      <type type="str">email</type>
+      <required type="bool">True</required>
+      <varname type="str">email</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><id>65</id>
+      </prefill><id type="str">65</id>
     </field><field>
-      <label>Num&#233;ro de t&#233;l&#233;phone</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>tel</varname>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">tel</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise>True</anonymise>
-      <id>50</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">50</id>
     </field><field>
-      <label>Destination du document</label>
-      <type>page</type>
-      <id>51</id>
+      <label type="str">Destination du document</label>
+      <type type="str">page</type>
+      <id type="str">51</id>
     </field><field>
-      <label>Le document est destin&#233; &#224;</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>Choisissez une option</hint>
-      <varname>motifs</varname>
+      <label type="str">Le document est destin&#233; &#224;</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">Choisissez une option</hint>
+      <varname type="str">motifs</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><items />
-      <display_mode>list</display_mode>
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>52</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">52</id>
     </field><field>
-      <label>Si Autre</label>
-      <type>string</type>
+      <label type="str">Si Autre</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_motifs == "Autre"</value>
-      </condition><required>False</required>
+      </condition><required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>53</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">53</id>
     </field><field>
-      <label>Mode de r&#233;cup&#233;ration</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>Choisissez une option</hint>
-      <varname>destinations</varname>
+      <label type="str">Mode de r&#233;cup&#233;ration</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">Choisissez une option</hint>
+      <varname type="str">destinations</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><items />
-      <display_mode>list</display_mode>
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>54</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">54</id>
     </field><field>
-      <label>Nombre de certificats demand&#233;s</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Maximum 20 exemplaires.</hint>
-      <varname>nb_exemplaire</varname>
+      <label type="str">Nombre de certificats demand&#233;s</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Maximum 20 exemplaires.</hint>
+      <varname type="str">nb_exemplaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>string</type>
         <value>1</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
-      </validation><anonymise>True</anonymise>
-      <id>55</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">55</id>
     </field><field>
-      <label>Prix de la d&#233;marche</label>
-      <type>page</type>
-      <id>56</id>
+      <label type="str">Prix de la d&#233;marche</label>
+      <type type="str">page</type>
+      <id type="str">56</id>
     </field><field>
-      <label>&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
+      <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
 
 &lt;ul&gt;
 	&lt;li&gt;Votre d&amp;eacute;marche sera automatiquement mise dans votre panier pour un paiement global de votre commande&lt;/li&gt;
 	&lt;li&gt;A ce montant, devront&amp;nbsp;&amp;eacute;ventuellement s'ajouter les frais de port.&lt;/li&gt;
 &lt;/ul&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <display_locations />
-      <id>57</id>
+      <id type="str">57</id>
     </field><field>
-      <label>Montant</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Hors &#233;ventuels frais de port.</hint>
+      <label type="str">Montant</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Hors &#233;ventuels frais de port.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -581,8 +576,8 @@
         <locked>True</locked>
         <type>string</type>
         <value>{{form_option_cout|add:form_var_motifs_price|multiply:form_var_nb_exemplaire}} &#8364;</value>
-      </prefill><anonymise>True</anonymise>
-      <id>67</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">67</id>
     </field>
   </fields><options>
     <option varname="baec" />

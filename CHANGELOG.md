@@ -4,6 +4,10 @@ teleservices-package changelog
 :Info: This is the changelog for the teleservices-package
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
+## [0.1.47] - 04-04-2022 -
+### Updated
+  - [TELE-1288] updated forms Actes validation nrn
+
 ## [0.1.46] - 30-03-2022 -
 ### Updated
   - [TELE-1282] updated forms Pouplation Description
