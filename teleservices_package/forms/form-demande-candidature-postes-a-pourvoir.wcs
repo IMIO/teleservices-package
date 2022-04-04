@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="48" url="http://local-formulaires.example.net/backoffice/forms/48/">
+<formdef id="30" url="http://local-formulaires.example.net/backoffice/forms/30/">
   <name>Candidature postes &#224; pourvoir</name>
   <url_name>demande-candidature-postes-a-pourvoir</url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
@@ -14,275 +14,271 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="100">Emploi</category>
-  <workflow workflow_id="32">iMio - Candidature postes &#224; pourvoir</workflow>
+  <category category_id="100" slug="demande-emploi">Emploi</category>
+  <workflow slug="imio-candidature-postes-a-pourvoir" workflow_id="24">iMio - Candidature postes &#224; pourvoir</workflow>
   <max_field_id>277</max_field_id>
   <fields>
     <field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature &#224; pourvoir&amp;quot;&lt;/h1&gt;
+      <label type="str">&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature &#224; pourvoir&amp;quot;&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/poste_pourvoir.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="{{site_url_backoffice}}/data/" rel="noopener noreferrer" target="_blank"&gt;Modifier la liste des fonctions&lt;/a&gt;&lt;/p&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
-      <id>272</id>
+      <id type="str">272</id>
     </field><field>
-      <label>Postes &#224; pourvoir</label>
-      <type>page</type>
-      <id>98</id>
+      <label type="str">Postes &#224; pourvoir</label>
+      <type type="str">page</type>
+      <id type="str">98</id>
     </field><field>
-      <label>Postes &#224; pourvoir</label>
-      <type>title</type>
+      <label type="str">Postes &#224; pourvoir</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>264</id>
+      </display_locations><id type="str">264</id>
     </field><field>
-      <label>&lt;p&gt;{% for i in data_source.poste_a_pourvoir %}&lt;br /&gt;
+      <label type="str">&lt;p&gt;{% for i in data_source.poste_a_pourvoir %}&lt;br /&gt;
 Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}}&lt;br /&gt;
 {{i.fields.description|linebreaks}}&lt;br /&gt;
 {% endfor %}&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <display_locations />
-      <id>276</id>
+      <id type="str">276</id>
     </field><field>
-      <label>S&#233;lectionnez le(s) poste(s) au(x)quel(s) vous voulez postuler</label>
-      <type>items</type>
-      <required>True</required>
-      <varname>fonction</varname>
+      <label type="str">S&#233;lectionnez le(s) poste(s) au(x)quel(s) vous voulez postuler</label>
+      <type type="str">items</type>
+      <required type="bool">True</required>
+      <varname type="str">fonction</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>pk-important</extra_css_class>
+      </display_locations><extra_css_class type="str">pk-important</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><items />
-      <min_choices>0</min_choices>
-      <max_choices>0</max_choices>
+      <min_choices type="int">0</min_choices>
+      <max_choices type="int">0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-postes-a-pourvoir:trier-par-section</type>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>True</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>277</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">True</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">277</id>
     </field><field>
-      <label>Pr&#233;sentation du Candidat</label>
-      <type>page</type>
-      <post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>script.lalouviere("is_valid_belgian_nrn",{'nrn':form_var_nn,'can_be_none':'False'})</value>
-          </condition><error_message>Num&#233;ro national incorrect ou incomplet. Ce champ ne peut contenir que des chiffres (pas de ., -, +, /,...).</error_message>
-        </post_condition>
-      </post_conditions><id>1</id>
+      <label type="str">Pr&#233;sentation du Candidat</label>
+      <type type="str">page</type>
+      <id type="str">1</id>
     </field><field>
-      <label>Pr&#233;sentation du candidat</label>
-      <type>title</type>
+      <label type="str">Pr&#233;sentation du candidat</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>2</id>
+      </display_locations><id type="str">2</id>
     </field><field>
-      <label>Nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>nom</varname>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">nom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>4</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">4</id>
     </field><field>
-      <label>Pr&#233;nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>prenom</varname>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">prenom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>5</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">5</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>rue</varname>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">rue</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>newline grid-2-4</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-2-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise>True</anonymise>
-      <id>6</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">6</id>
     </field><field>
-      <label>N&#176;</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>numero</varname>
+      <label type="str">N&#176;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">numero</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_house</value>
-      </prefill><anonymise>True</anonymise>
-      <id>7</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">7</id>
     </field><field>
-      <label>Boite</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>boite</varname>
+      <label type="str">Boite</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">boite</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise>True</anonymise>
-      <id>8</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">8</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>cp</varname>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">cp</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>9</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">9</id>
     </field><field>
-      <label>Localit&#233;</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>ville</varname>
+      <label type="str">Localit&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">ville</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise>True</anonymise>
-      <id>10</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">10</id>
     </field><field>
-      <label>Nationalit&#233;</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Nationalit&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>11</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">11</id>
     </field><field>
-      <label>Date de naissance</label>
-      <type>date</type>
-      <required>True</required>
+      <label type="str">Date de naissance</label>
+      <type type="str">date</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_birthdate</value>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>False</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>12</id>
+      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">12</id>
     </field><field>
-      <label>Num&#233;ro de Registre National</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>nn</varname>
+      <label type="str">Num&#233;ro de Registre National</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">nn</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
-      </prefill><anonymise>True</anonymise>
-      <id>13</id>
+      </prefill><validation>
+        <type>nrn-be</type>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">13</id>
     </field><field>
-      <label>T&#233;l&#233;phone ou GSM</label>
-      <type>string</type>
-      <required>True</required>
-      <hint>Ex. : 0475123456 ou 0032475123456 ou +32475123456</hint>
-      <varname>tel</varname>
+      <label type="str">T&#233;l&#233;phone ou GSM</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Ex. : 0475123456 ou 0032475123456 ou +32475123456</hint>
+      <varname type="str">tel</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
         <type>phone</type>
-      </validation><anonymise>True</anonymise>
-      <id>14</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">14</id>
     </field><field>
-      <label>Adresse e-mail</label>
-      <type>email</type>
-      <required>True</required>
-      <varname>mail</varname>
+      <label type="str">Adresse e-mail</label>
+      <type type="str">email</type>
+      <required type="bool">True</required>
+      <varname type="str">mail</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><id>270</id>
+      </prefill><id type="str">270</id>
     </field><field>
-      <label>Permis de conduire</label>
-      <type>items</type>
-      <required>True</required>
+      <label type="str">Permis de conduire</label>
+      <type type="str">items</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><items>
@@ -293,75 +289,75 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <item>CE</item>
         <item>DE</item>
         <item>Aucun</item>
-      </items><min_choices>1</min_choices>
-      <max_choices>7</max_choices>
-      <in_filters>False</in_filters>
-      <anonymise>True</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>269</id>
+      </items><min_choices type="int">1</min_choices>
+      <max_choices type="int">7</max_choices>
+      <in_filters type="bool">False</in_filters>
+      <anonymise type="bool">True</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">269</id>
     </field><field>
-      <label>Poss&#233;dez-vous un v&#233;hicule</label>
-      <type>item</type>
-      <required>False</required>
+      <label type="str">Poss&#233;dez-vous un v&#233;hicule</label>
+      <type type="str">item</type>
+      <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>17</id>
+      </items><display_mode type="str">radio</display_mode>
+      <in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">17</id>
     </field><field>
-      <label>Souhaitez-vous travailler &#224;</label>
-      <type>item</type>
-      <required>False</required>
+      <label type="str">Souhaitez-vous travailler &#224;</label>
+      <type type="str">item</type>
+      <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>newline grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><items>
         <item>Temps plein</item>
         <item>Temps partiel</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>18</id>
+      </items><display_mode type="str">radio</display_mode>
+      <in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">18</id>
     </field><field>
-      <label>&#202;tes-vous reconnu par l'AVIQ ?</label>
-      <type>item</type>
-      <required>False</required>
+      <label type="str">&#202;tes-vous reconnu par l'AVIQ ?</label>
+      <type type="str">item</type>
+      <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>19</id>
+      </items><display_mode type="str">radio</display_mode>
+      <in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">19</id>
     </field><field>
-      <label>Etudes et formations</label>
-      <type>page</type>
+      <label type="str">Etudes et formations</label>
+      <type type="str">page</type>
       <post_conditions>
         <post_condition>
           <condition>
@@ -369,19 +365,19 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
             <value>'no_diplome' in form_var_diplomes_raw and form_var_diplomes_structured|length == 1 or 'no_diplome' not in form_var_diplomes_raw</value>
           </condition><error_message>Vous avez fait une erreur en compl&#233;tant la liste des dipl&#244;mes.</error_message>
         </post_condition>
-      </post_conditions><id>20</id>
+      </post_conditions><id type="str">20</id>
     </field><field>
-      <label>Etudes et formations</label>
-      <type>title</type>
+      <label type="str">Etudes et formations</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>21</id>
+      </display_locations><id type="str">21</id>
     </field><field>
-      <label>Dipl&#244;mes</label>
-      <type>items</type>
-      <required>True</required>
-      <varname>diplomes</varname>
+      <label type="str">Dipl&#244;mes</label>
+      <type type="str">items</type>
+      <required type="bool">True</required>
+      <varname type="str">diplomes</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -389,20 +385,20 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </display_locations><prefill>
         <type>none</type>
       </prefill><items />
-      <min_choices>0</min_choices>
-      <max_choices>0</max_choices>
+      <min_choices type="int">0</min_choices>
+      <max_choices type="int">0</max_choices>
       <data_source>
         <type>diplomes</type>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>True</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>22</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">True</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">22</id>
     </field><field>
-      <label>Avez-vous suivi une (des) formation(s) ?</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>Par ex : formation continue</hint>
-      <varname>had_formations</varname>
+      <label type="str">Avez-vous suivi une (des) formation(s) ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">Par ex : formation continue</hint>
+      <varname type="str">had_formations</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -412,102 +408,102 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>23</id>
+      </items><display_mode type="str">radio</display_mode>
+      <in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">23</id>
     </field><field>
-      <label>Avez-vous de l'exp&#233;rience professionnelle ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>xp_professionnelle</varname>
+      <label type="str">Avez-vous de l'exp&#233;rience professionnelle ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">xp_professionnelle</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
       </prefill><items />
-      <display_mode>radio</display_mode>
+      <display_mode type="str">radio</display_mode>
       <data_source>
         <type>do_you_work</type>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>24</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">24</id>
     </field><field>
-      <label>Niveau en langues</label>
-      <type>block:imio_langue</type>
-      <required>True</required>
-      <hint>Pensez &#224; indiquer votre langue natale</hint>
+      <label type="str">Niveau en langues</label>
+      <type type="str">block:imio_langue</type>
+      <required type="bool">True</required>
+      <hint type="str">Pensez &#224; indiquer votre langue natale</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>5</max_items>
-      <add_element_label>Ajouter une langue</add_element_label>
-      <label_display>subtitle</label_display>
-      <remove_button>True</remove_button>
-      <id>275</id>
+      </display_locations><max_items type="int">5</max_items>
+      <add_element_label type="str">Ajouter une langue</add_element_label>
+      <label_display type="str">subtitle</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">275</id>
     </field><field>
-      <label>Primaire</label>
-      <type>page</type>
+      <label type="str">Primaire</label>
+      <type type="str">page</type>
       <condition>
         <type>python</type>
         <value>"primaire" in form_var_diplomes_raw and len(form_var_diplomes_raw) == 1</value>
-      </condition><id>25</id>
+      </condition><id type="str">25</id>
     </field><field>
-      <label>Ecole primaire</label>
-      <type>title</type>
+      <label type="str">Ecole primaire</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>26</id>
+      </display_locations><id type="str">26</id>
     </field><field>
-      <label>Etablissement</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Etablissement</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-1</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-1</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>27</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">27</id>
     </field><field>
-      <label>Date d'obtention du dipl&#244;me</label>
-      <type>date</type>
-      <required>False</required>
+      <label type="str">Date d'obtention du dipl&#244;me</label>
+      <type type="str">date</type>
+      <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>False</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>28</id>
+      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">28</id>
     </field><field>
-      <label>Secondaire inf&#233;rieur</label>
-      <type>page</type>
+      <label type="str">Secondaire inf&#233;rieur</label>
+      <type type="str">page</type>
       <condition>
         <type>python</type>
         <value>"sec_inf" in form_var_diplomes_raw</value>
-      </condition><id>29</id>
+      </condition><id type="str">29</id>
     </field><field>
-      <label>Secondaire inf&#233;rieur</label>
-      <type>title</type>
+      <label type="str">Secondaire inf&#233;rieur</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>30</id>
+      </display_locations><id type="str">30</id>
     </field><field>
-      <label>Orientation</label>
-      <type>item</type>
-      <required>True</required>
+      <label type="str">Orientation</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -519,69 +515,69 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <item>Professionnel</item>
         <item>Technique</item>
         <item>Sp&#233;cial</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>31</id>
+      </items><display_mode type="str">radio</display_mode>
+      <in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">31</id>
     </field><field>
-      <label>Option</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Option</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>32</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">32</id>
     </field><field>
-      <label>Etablissement fr&#233;quent&#233;</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Etablissement fr&#233;quent&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>33</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">33</id>
     </field><field>
-      <label>Date d'obtention du dipl&#244;me</label>
-      <type>date</type>
-      <required>False</required>
+      <label type="str">Date d'obtention du dipl&#244;me</label>
+      <type type="str">date</type>
+      <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>True</date_in_the_past>
-      <date_can_be_today>True</date_can_be_today>
-      <id>35</id>
+      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">True</date_can_be_today>
+      <id type="str">35</id>
     </field><field>
-      <label>Secondaire sup&#233;rieur</label>
-      <type>page</type>
+      <label type="str">Secondaire sup&#233;rieur</label>
+      <type type="str">page</type>
       <condition>
         <type>python</type>
         <value>"sec_sup" in form_var_diplomes_raw</value>
-      </condition><id>36</id>
+      </condition><id type="str">36</id>
     </field><field>
-      <label>Secondaire sup&#233;rieur</label>
-      <type>title</type>
+      <label type="str">Secondaire sup&#233;rieur</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>37</id>
+      </display_locations><id type="str">37</id>
     </field><field>
-      <label>Orientation</label>
-      <type>item</type>
-      <required>True</required>
+      <label type="str">Orientation</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -593,301 +589,301 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <item>Professionnel</item>
         <item>Technique</item>
         <item>Sp&#233;cial</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <id>38</id>
+      </items><display_mode type="str">radio</display_mode>
+      <in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">38</id>
     </field><field>
-      <label>Option</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Option</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>39</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">39</id>
     </field><field>
-      <label>Etablissement fr&#233;quent&#233;</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Etablissement fr&#233;quent&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>40</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">40</id>
     </field><field>
-      <label>Copie du dipl&#244;me obtenu</label>
-      <type>title</type>
+      <label type="str">Copie du dipl&#244;me obtenu</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>42</id>
+      </display_locations><id type="str">42</id>
     </field><field>
-      <label>Copie du dipl&#244;me</label>
-      <type>file</type>
-      <required>False</required>
+      <label type="str">Copie du dipl&#244;me</label>
+      <type type="str">file</type>
+      <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>43</id>
+      </prefill><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">43</id>
     </field><field>
-      <label>Date d'obtention du dipl&#244;me</label>
-      <type>date</type>
-      <required>False</required>
+      <label type="str">Date d'obtention du dipl&#244;me</label>
+      <type type="str">date</type>
+      <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>True</date_in_the_past>
-      <date_can_be_today>True</date_can_be_today>
-      <id>44</id>
+      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">True</date_can_be_today>
+      <id type="str">44</id>
     </field><field>
-      <label>Sup&#233;rieur type court (Bachelor/Graduat)</label>
-      <type>page</type>
+      <label type="str">Sup&#233;rieur type court (Bachelor/Graduat)</label>
+      <type type="str">page</type>
       <condition>
         <type>python</type>
         <value>"sup_court" in form_var_diplomes_raw</value>
-      </condition><id>45</id>
+      </condition><id type="str">45</id>
     </field><field>
-      <label>Etude sup&#233;rieur type court (Bachelor/Graduat)</label>
-      <type>subtitle</type>
+      <label type="str">Etude sup&#233;rieur type court (Bachelor/Graduat)</label>
+      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>46</id>
+      </display_locations><id type="str">46</id>
     </field><field>
-      <label>Etablissement</label>
-      <type>block:etablissement_diplome</type>
-      <required>True</required>
+      <label type="str">Etablissement</label>
+      <type type="str">block:etablissement_diplome</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>5</max_items>
-      <add_element_label>Ajouter un Dipl&#244;me</add_element_label>
-      <label_display>subtitle</label_display>
-      <remove_button>True</remove_button>
-      <id>259</id>
+      </display_locations><max_items type="int">5</max_items>
+      <add_element_label type="str">Ajouter un Dipl&#244;me</add_element_label>
+      <label_display type="str">subtitle</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">259</id>
     </field><field>
-      <label>Sup&#233;rieur type long (Master/Licence)</label>
-      <type>page</type>
+      <label type="str">Sup&#233;rieur type long (Master/Licence)</label>
+      <type type="str">page</type>
       <condition>
         <type>python</type>
         <value>"sup_long" in form_var_diplomes_raw</value>
-      </condition><id>70</id>
+      </condition><id type="str">70</id>
     </field><field>
-      <label>Etude sup&#233;rieur type long (Master/Licence)</label>
-      <type>subtitle</type>
+      <label type="str">Etude sup&#233;rieur type long (Master/Licence)</label>
+      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>71</id>
+      </display_locations><id type="str">71</id>
     </field><field>
-      <label>Etablissement</label>
-      <type>block:etablissement_diplome</type>
-      <required>True</required>
+      <label type="str">Etablissement</label>
+      <type type="str">block:etablissement_diplome</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>5</max_items>
-      <add_element_label>Ajouter un Dipl&#244;me</add_element_label>
-      <label_display>subtitle</label_display>
-      <remove_button>True</remove_button>
-      <id>261</id>
+      </display_locations><max_items type="int">5</max_items>
+      <add_element_label type="str">Ajouter un Dipl&#244;me</add_element_label>
+      <label_display type="str">subtitle</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">261</id>
     </field><field>
-      <label>Autres formations</label>
-      <type>page</type>
+      <label type="str">Autres formations</label>
+      <type type="str">page</type>
       <condition>
         <type>python</type>
         <value>form_var_had_formations == "Oui"</value>
-      </condition><id>95</id>
+      </condition><id type="str">95</id>
     </field><field>
-      <label>Autres formations</label>
-      <type>title</type>
+      <label type="str">Autres formations</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>96</id>
+      </display_locations><id type="str">96</id>
     </field><field>
-      <label>Autres formations</label>
-      <type>block:autres_formations</type>
-      <required>True</required>
+      <label type="str">Autres formations</label>
+      <type type="str">block:autres_formations</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>15</max_items>
-      <add_element_label>Ajouter une formation</add_element_label>
-      <label_display>hidden</label_display>
-      <remove_button>True</remove_button>
-      <id>263</id>
+      </display_locations><max_items type="int">15</max_items>
+      <add_element_label type="str">Ajouter une formation</add_element_label>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">263</id>
     </field><field>
-      <label>Emploi actuel</label>
-      <type>page</type>
+      <label type="str">Emploi actuel</label>
+      <type type="str">page</type>
       <condition>
         <type>python</type>
         <value>form_var_xp_professionnelle_raw == "yes_i_work"</value>
-      </condition><id>109</id>
+      </condition><id type="str">109</id>
     </field><field>
-      <label>Emploi actuel</label>
-      <type>title</type>
+      <label type="str">Emploi actuel</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>110</id>
+      </display_locations><id type="str">110</id>
     </field><field>
-      <label>Profession exerc&#233;e</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Profession exerc&#233;e</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>111</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">111</id>
     </field><field>
-      <label>Employeur</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Employeur</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>112</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">112</id>
     </field><field>
-      <label>Date d'entr&#233;e en service</label>
-      <type>date</type>
-      <required>True</required>
+      <label type="str">Date d'entr&#233;e en service</label>
+      <type type="str">date</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><minimum_is_future>False</minimum_is_future>
-      <date_in_the_past>False</date_in_the_past>
-      <date_can_be_today>False</date_can_be_today>
-      <id>113</id>
+      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">113</id>
     </field><field>
-      <label>Description de vos missions principales</label>
-      <type>text</type>
-      <required>True</required>
+      <label type="str">Description de vos missions principales</label>
+      <type type="str">text</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><cols>146</cols>
-      <rows>3</rows>
-      <pre>False</pre>
-      <id>114</id>
+      </prefill><cols type="str">146</cols>
+      <rows type="str">3</rows>
+      <pre type="bool">False</pre>
+      <id type="str">114</id>
     </field><field>
-      <label>Emplois pr&#233;c&#233;dents</label>
-      <type>page</type>
+      <label type="str">Emplois pr&#233;c&#233;dents</label>
+      <type type="str">page</type>
       <condition>
         <type>python</type>
         <value>form_var_xp_professionnelle_raw in ["yes_i_work","currently_no_work"]</value>
-      </condition><id>115</id>
+      </condition><id type="str">115</id>
     </field><field>
-      <label>Pr&#233;c&#233;dents emplois</label>
-      <type>title</type>
+      <label type="str">Pr&#233;c&#233;dents emplois</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>116</id>
+      </display_locations><id type="str">116</id>
     </field><field>
-      <label>Pr&#233;c&#233;dents emplois</label>
-      <type>block:emplois_precedents</type>
-      <required>True</required>
+      <label type="str">Pr&#233;c&#233;dents emplois</label>
+      <type type="str">block:emplois_precedents</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>20</max_items>
-      <add_element_label>Ajouter</add_element_label>
-      <label_display>hidden</label_display>
-      <remove_button>True</remove_button>
-      <id>268</id>
+      </display_locations><max_items type="int">20</max_items>
+      <add_element_label type="str">Ajouter</add_element_label>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">268</id>
     </field><field>
-      <label>Motivation, CV et autres pi&#232;ces jointes</label>
-      <type>page</type>
-      <id>140</id>
+      <label type="str">Motivation, CV et autres pi&#232;ces jointes</label>
+      <type type="str">page</type>
+      <id type="str">140</id>
     </field><field>
-      <label>Lettre de motivation</label>
-      <type>file</type>
-      <required>True</required>
-      <varname>motivation_pj</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>142</id>
-    </field><field>
-      <label>Curriculum vitae</label>
-      <type>file</type>
-      <required>True</required>
+      <label type="str">Lettre de motivation</label>
+      <type type="str">file</type>
+      <required type="bool">True</required>
+      <varname type="str">motivation_pj</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>143</id>
+      </prefill><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">142</id>
     </field><field>
-      <label>Permis de conduire</label>
-      <type>file</type>
-      <required>False</required>
+      <label type="str">Curriculum vitae</label>
+      <type type="str">file</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>144</id>
+      </prefill><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">143</id>
     </field><field>
-      <label>Autres documents</label>
-      <type>block:ajouter_un_fichier</type>
-      <required>False</required>
+      <label type="str">Permis de conduire</label>
+      <type type="str">file</type>
+      <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>5</max_items>
-      <add_element_label>Ajouter un document</add_element_label>
-      <label_display>normal</label_display>
-      <remove_button>True</remove_button>
-      <id>273</id>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">144</id>
+    </field><field>
+      <label type="str">Autres documents</label>
+      <type type="str">block:ajouter_un_fichier</type>
+      <required type="bool">False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><max_items type="int">5</max_items>
+      <add_element_label type="str">Ajouter un document</add_element_label>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">273</id>
     </field>
   </fields><options>
     <option varname="reglement_communal" />
