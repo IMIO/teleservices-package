@@ -4,6 +4,10 @@ teleservices-package changelog
 :Info: This is the changelog for the teleservices-package
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
+## [0.1.47] - 03-05-2022 -
+### Fixed
+  - [SUP-23200] fix courriel destinaitaire in candidature spontané wf
+
 ## [0.1.47] - 04-04-2022 -
 ### Updated
   - [TELE-1134] fix category of Acte de Reconnaissance pré/post-natale

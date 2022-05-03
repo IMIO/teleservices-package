@@ -39,7 +39,7 @@
           </fields>
         </item><item id="3" type="sendmail">
           <to>
-            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+            <item role_id="{{form_var_mail}}">{{form_var_mail}}</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
           <subject>Nouvelle demande ({{ form_name }})</subject>
           <body>{% if form_var_firstname %}Ch&#232;r&#183;e {{ form_var_firstname }}{% endif %}
