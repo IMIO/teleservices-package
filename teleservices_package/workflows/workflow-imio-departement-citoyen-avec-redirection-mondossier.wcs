@@ -882,7 +882,7 @@ Cordialement, </body>
         <item id="1" type="anonymise">
           <condition>
             <type>python</type>
-            <value>(form_var_rb_concerne_raw and form_var_rb_concerne_raw != 'tiers') or (form_var_concerne_qui_raw and  form_var_concerne_qui_raw != "tiers") or ('form_var_rb_concerne_raw' not in locals() and 'form_var_concerne_qui_raw' not in locals())</value>
+            <value>vars().get('form_var_rb_concerne_raw') == 'moi' or vars().get('form_var_concerne_qui_raw') == 'moi' or ('form_var_rb_concerne_raw' not in locals() and 'form_var_concerne_qui_raw' not in locals())</value>
           </condition>
         </item>
       </items><triggers>
