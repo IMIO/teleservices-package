@@ -68,17 +68,17 @@
             <type>django</type>
             <value>form_var_cp_ancienneadr not in form_option_cp_commune</value>
           </condition>
-        </item><item id="4" type="jump">
-          <status>21</status>
-          <condition>
-            <type>python</type>
-            <value>vars().get('form_var_wf_paiement_en_ligne_raw') is False</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item id="6" type="jump">
           <status>accepted</status>
           <condition>
             <type>django</type>
             <value>form_option_prix_par_adulte_autre_commune == 0 and form_option_prix_par_adulte_concerne_si_emmenagement_intramuros == 0</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="4" type="jump">
+          <status>21</status>
+          <condition>
+            <type>python</type>
+            <value>vars().get('form_var_wf_paiement_en_ligne_raw') is False</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item id="5" type="jump">
           <status>10</status>
