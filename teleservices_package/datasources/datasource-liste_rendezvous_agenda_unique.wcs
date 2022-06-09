@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="445" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/445/">
+  <name>Liste rendez-vous agenda unique</name>
+  <slug>liste_rendezvous_agenda_unique</slug>
+  <data_source>
+    <type>json</type>
+    <value>{{ form_option_agenda_structured_api_meetings_url }}</value>
+  </data_source>
+</datasource>

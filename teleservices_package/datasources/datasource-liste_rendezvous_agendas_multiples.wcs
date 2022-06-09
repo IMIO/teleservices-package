@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="446" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/446/">
+  <name>Liste rendez-vous agendas multiples</name>
+  <slug>liste_rendezvous_agendas_multiples</slug>
+  <data_source>
+    <type>json</type>
+    <value>{{ form_var_agenda_structured_api_meetings_url }}</value>
+  </data_source>
+</datasource>
