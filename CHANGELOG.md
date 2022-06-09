@@ -4,6 +4,10 @@ teleservices-package changelog
 :Info: This is the changelog for the teleservices-package
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
+## [0.1.48] - 09-06-2022 -
+### Updated
+  - [TELE-1188] update forms agenda plusieurs personnes
+
 ## [0.1.47] - 17-05-2022 -
 ### Updated
   - [TELE-1134] typo in modele coordonnées
