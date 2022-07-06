@@ -18,7 +18,7 @@
           <status>20</status>
           <condition>
             <type>python</type>
-            <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and (('form_var_mode_delivrance_raw' in locals() and form_var_mode_delivrance_raw != 'commune') or ('form_var_date_acte_raw' in locals() and form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019') or (('form_var_concerne_qui_raw' in locals() and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True')))</value>
+            <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and ((vars().get('form_var_mode_delivrance_raw') and form_var_mode_delivrance_raw != 'commune') or (vars().get('form_var_date_acte_raw') and form_var_date_acte_raw == 'Après le 31-03-2019') or ((vars().get('form_var_concerne_qui_raw') and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True')))</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item id="2" type="set-backoffice-fields">
           <label>Configuration des donn&#233;es de traitement</label>
