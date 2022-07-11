@@ -4,6 +4,41 @@
       "name": "Recrutement Personnel administratif",
       "slug": "recrutement-personnel-administratif",
       "ou": {"slug": "default"}
+    },
+    {
+      "name": "Recrutement Autre",
+      "slug": "recrutement-autre",
+      "ou": {"slug": "default"}
+    },
+    {
+      "name": "Recrutement Personnel de cuisine",
+      "slug": "recrutement-personnel-de-cuisine",
+      "ou": {"slug": "default"}
+    },
+    {
+      "name": "Recrutement Personnel de nettoyage",
+      "slug": "recrutement-personnel-de-nettoyage",
+      "ou": {"slug": "default"}
+    },
+    {
+      "name": "Recrutement Personnel du service enseignement",
+      "slug": "recrutement-personnel-du-service-enseignement",
+      "ou": {"slug": "default"}
+    },
+    {
+      "name": "Recrutement Personnel ouvrier",
+      "slug": "recrutement-personnel-ouvrier",
+      "ou": {"slug": "default"}
+    },
+    {
+      "name": "Recrutement Personnel social",
+      "slug": "recrutement-personnel-social",
+      "ou": {"slug": "default"}
+    },
+    {
+      "name": "Recrutement Personnel technique / spécifique",
+      "slug": "recrutement-personnel-technique-specifique",
+      "ou": {"slug": "default"}
     }
   ]
 }

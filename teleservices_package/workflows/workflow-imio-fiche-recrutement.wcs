@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="12" url="">
+<workflow id="12" url="http://local-formulaires.example.net/backoffice/workflows/12/">
   <name>iMio - Fiche - Recrutement</name>
   <slug>imio-fiche-recrutement</slug>
   <roles>
@@ -29,18 +29,25 @@
               <role_id role_id="9b4bd3a6e855440696c476aea4987acb" slug="recrutement-personnel-administratif">Recrutement Personnel administratif</role_id>
               <value>Personnel administratif</value>
             </rule><rule>
+              <role_id role_id="35ade55c748a43bca4536f4dd9a69cee" slug="recrutement-personnel-ouvrier">Recrutement Personnel ouvrier</role_id>
               <value>Personnel ouvrier</value>
             </rule><rule>
+              <role_id role_id="dfe6fbbbb7ed460b839a08a21e803d3e" slug="recrutement-personnel-social">Recrutement Personnel social</role_id>
               <value>Personnel social</value>
             </rule><rule>
+              <role_id role_id="c79fd4eb230d47c589d80ca42dedacbf" slug="recrutement-personnel-technique-specifique">Recrutement Personnel technique / sp&#233;cifique</role_id>
               <value>Personnel technique / sp&#233;cifique</value>
             </rule><rule>
+              <role_id role_id="418f68084e1644c0a85d7c3d18836f48" slug="recrutement-personnel-de-nettoyage">Recrutement Personnel de nettoyage</role_id>
               <value>Personnel de nettoyage</value>
             </rule><rule>
+              <role_id role_id="b94f7f3095c94245b75624cc271e4fb6" slug="recrutement-personnel-de-cuisine">Recrutement Personnel de cuisine</role_id>
               <value>Personnel de cuisine</value>
             </rule><rule>
+              <role_id role_id="3c8a34891dae426bac4e5c799dd9e9a6" slug="recrutement-personnel-du-service-enseignement">Recrutement Personnel du service enseignement</role_id>
               <value>Personnel du service enseignement</value>
             </rule><rule>
+              <role_id role_id="32c6b275cee54551aaa71db98bcba323" slug="recrutement-autre">Recrutement Autre</role_id>
               <value>Autre</value>
             </rule>
           </rules><operation_mode>set</operation_mode>
