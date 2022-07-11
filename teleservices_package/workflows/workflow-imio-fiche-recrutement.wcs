@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="18" url="http://local-formulaires.example.net/backoffice/workflows/18/">
+<workflow id="12" url="">
   <name>iMio - Fiche - Recrutement</name>
+  <slug>imio-fiche-recrutement</slug>
   <roles>
     <role id="_editor">Agent traitant</role>
     <role id="_responsable-recrutement-personnel-administratif">Responsable recrutement Personnel administratif</role>
@@ -19,12 +20,13 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="10" type="dispatch">
+        <item id="1" type="dispatch">
           <role_key>_editor</role_key>
           <dispatch_type>automatic</dispatch_type>
           <variable>form_var_section</variable>
           <rules>
             <rule>
+              <role_id role_id="9b4bd3a6e855440696c476aea4987acb" slug="recrutement-personnel-administratif">Recrutement Personnel administratif</role_id>
               <value>Personnel administratif</value>
             </rule><rule>
               <value>Personnel ouvrier</value>
@@ -42,17 +44,17 @@
               <value>Autre</value>
             </rule>
           </rules><operation_mode>set</operation_mode>
-        </item><item id="11" type="aggregationemail">
+        </item><item id="2" type="aggregationemail">
           <to>
             <item role_id="_editor">_editor</item>
           </to>
-        </item><item id="12" type="commentable">
+        </item><item id="3" type="commentable">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
             <item role_id="_editor">_editor</item>
           </by><required>False</required>
-        </item><item id="8" type="choice">
+        </item><item id="4" type="choice">
           <label>Supprimer la fiche</label>
           <by>
             <item role_id="_editor">_editor</item>

@@ -1,0 +1,9 @@
+{
+  "roles": [
+    {
+      "name": "Recrutement Personnel administratif",
+      "slug": "recrutement-personnel-administratif",
+      "ou": {"slug": "default"}
+    }
+  ]
+}
