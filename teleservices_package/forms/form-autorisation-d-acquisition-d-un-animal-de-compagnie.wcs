@@ -266,26 +266,13 @@
         <display_location>summary</display_location>
       </display_locations><id type="str">214</id>
     </field>
-  </fields><roles>
-    <role role_id="5c48030eb8a440c3822b372f111de482" role_key="_receiver" slug="agent-traitant-animaux-de-compagnie">Agent traitant - Animaux de compagnie</role>
-  </roles><options>
-    <option varname="BAEC" />
-    <option varname="cost">0</option>
-    <option varname="cp_commune">1330,1331,1332</option>
+  </fields><roles />
+  <options>
     <option varname="destinations" />
     <option varname="destinations_display">Envoi &#224; domicile, Envoi dans le porte-documents, R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t</option>
     <option varname="destinations_structured" />
-    <option varname="iban" />
-    <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=44</option>
     <option varname="lien_mentions_legales" />
-    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=44</option>
-    <option varname="mode_recup_disponibles" />
-    <option varname="mode_recup_disponibles_display" />
-    <option varname="mode_recup_disponibles_structured" />
     <option varname="montant">0</option>
-    <option varname="motifs_disponibles" />
-    <option varname="motifs_disponibles_display" />
-    <option varname="motifs_disponibles_structured" />
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
