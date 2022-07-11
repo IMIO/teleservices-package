@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<workflow id="127" url="">
+  <name>iMio - Autorisation d'aquisition d'un animal de compagnie</name>
+  <slug>imio-autorisation-d-aquisition-d-un-animal-de-compagnie</slug>
+  <roles>
+    <role id="_receiver">Destinataire</role>
+  </roles><possible_status>
+    <status>
+      <id>7</id>
+      <name>Juste envoy&#233;</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>{{ form_name }} : Demande re&#231;ue</subject>
+          <body>Bonjour {{ form_user_display_name }}, 
+
+Nos services vous confirment la bonne r&#233;ception de votre demande d'autorisation d'acquisition d'un animal de compagnie. 
+
+Nous devons v&#233;rifier dans un premier temps si vous &#234;tes dans les conditions pour obtenir l'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal. 
+
+Cordialement, </body>
+        </item><item id="2" type="jump">
+          <status>1</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>1</id>
+      <name>En attente de validation</name>
+      <colour>66FFFF</colour>
+      <visibility />
+      <items>
+        <item id="3" type="displaymsg">
+          <message>Votre demande a bien &#233;t&#233; introduite dans notre syst&#232;me et les services comp&#233;tents en ont &#233;t&#233; inform&#233;s.</message>
+          <level>success</level>
+          <position>top</position>
+        </item><item id="2" type="choice">
+          <label>Valider</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>8</status>
+          <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;Valider la demande de l&amp;#39;usager.&lt;/p&gt;
+</backoffice_info_text>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="1" type="choice">
+          <label>Refuser</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>5</status>
+          <require_confirmation>True</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;Refuser la demande si l&amp;#39;usager ne peut obtenir son autorisation.&lt;/p&gt;
+</backoffice_info_text>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>5</id>
+      <name>Refus&#233;</name>
+      <colour>FF0000</colour>
+      <visibility />
+      <items>
+        <item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>{{ form_name }} : Demande refus&#233;e</subject>
+          <body>Bonjour {{ form_user_display_name }}, 
+
+Nous vous informons que votre demande d'autorisation d'acquisition d'un animal de compagnie n'a pas &#233;t&#233; accept&#233;e. 
+
+L'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal ne peut &#234;tre d&#233;livr&#233; que si l'individu qui en fait la demande n'est pas sous le coup d'une interdiction de d&#233;tention d'un animal ou d&#233;chue de son permis de d&#233;tenir un animal. 
+
+Cordialement,
+</body>
+        </item>
+      </items>
+    </status><status>
+      <id>8</id>
+      <name>Valid&#233;</name>
+      <colour>99FF00</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>2</status>
+          <condition>
+            <type>django</type>
+            <value>form_option_regie_de_paiement</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="jump">
+          <status>4</status>
+          <condition>
+            <type>django</type>
+            <value>not form_option_regie_de_paiement</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>2</id>
+      <name>En attente de paiement</name>
+      <colour>FFFF00</colour>
+      <visibility />
+      <items>
+        <item id="1" type="jump">
+          <status>3</status>
+          <trigger>paid</trigger>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="webservice_call">
+          <label>Paiement en ligne</label>
+          <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <qs_data>
+            <item>
+              <name>regie_id</name>
+              <value>{{form_option_regie_de_paiement_raw}}</value>
+            </item>
+          </qs_data><method>POST</method>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>amount</name>
+              <value>{{ form_option_montant }}</value>
+            </item><item>
+              <name>destination</name>
+              <value>{{form_var_destination_paymentrequired}}</value>
+            </item><item>
+              <name>display_name</name>
+              <value>{{form_display_name}}</value>
+            </item><item>
+              <name>url</name>
+              <value>{{form_url}}</value>
+            </item><item>
+              <name>nb_documents</name>
+              <value>1</value>
+            </item>
+          </post_data><response_type>json</response_type>
+          <varname>transaction_info</varname>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>False</record_errors>
+        </item>
+      </items>
+    </status><status>
+      <id>3</id>
+      <name>Pay&#233;</name>
+      <colour>99FF00</colour>
+      <visibility />
+      <items>
+        <item id="3" type="register-comment">
+          <comment>Votre paiement a bien &#233;t&#233; pris en compte et votre demande sera trait&#233;e dans les plus brefs d&#233;lais.</comment>
+        </item><item id="1" type="jump">
+          <status>4</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>4</id>
+      <name>En cours de traitement</name>
+      <colour>0099FF</colour>
+      <visibility />
+      <items>
+        <item id="4" type="addattachment">
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><required>False</required>
+          <title>Joindre l'extrait</title>
+          <display_title>True</display_title>
+          <button_label>Joindre l'extrait</button_label>
+          <display_button>True</display_button>
+          <hint>Extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal</hint>
+          <backoffice_info_text>&lt;p&gt;Merci de joindre l&amp;#39;extrait du fichier central de la d&amp;eacute;linquance environnementale et du bien-&amp;ecirc;tre animal pour que celui-ci soit transf&amp;eacute;r&amp;eacute; dans le porte-documents du citoyen.&lt;/p&gt;
+</backoffice_info_text>
+          <varname>extrait</varname>
+          <attach_to_history>True</attach_to_history>
+          <document_type>
+            <id>1</id>
+            <label>Pdf, doc, docx</label>
+            <mimetype>application/pdf</mimetype>
+            <mimetype>application/msword</mimetype>
+            <mimetype>application/vnd.openxmlformats-officedocument.wordprocessingml.document</mimetype>
+          </document_type><allow_portfolio_picking>False</allow_portfolio_picking>
+          <push_to_portfolio>True</push_to_portfolio>
+          <condition>
+            <type>django</type>
+            <value>"porte" in form_var_destination</value>
+          </condition>
+        </item><item id="5" type="jumponsubmit">
+          <status>6</status>
+          <set_marker_on_status>False</set_marker_on_status>
+          <condition>
+            <type>django</type>
+            <value>"porte" in form_var_destination</value>
+          </condition>
+        </item><item id="1" type="choice">
+          <label>Traiter</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by><status>6</status>
+          <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;Notifier l&amp;#39;usager que sa demande est trait&amp;eacute;e.&lt;/p&gt;
+</backoffice_info_text>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <condition>
+            <type>django</type>
+            <value>"porte" not in form_var_destination</value>
+          </condition>
+        </item>
+      </items>
+    </status><status>
+      <id>6</id>
+      <name>Trait&#233;</name>
+      <colour>00FF00</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item id="2" type="displaymsg">
+          <position>top</position>
+        </item><item id="1" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>{{ form_name }} : Demande trait&#233;e</subject>
+          <body>Bonjour {{ form_user_display_name }}, 
+
+Nous vous informons que votre demande d'autorisation d'acquisition d'un animal de compagnie est valid&#233;e et trait&#233;e. 
+Vous recevrez l'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal par le biais souhait&#233;, &#224; savoir par {{ form_var_destinations }}. 
+
+{% if "porte" in form_var_destinations %}
+`Acc&#233;der &#224; mon porte-documents &lt;{{porte_doc_url}}&gt;`_
+{% endif %}
+
+Cordialement,</body>
+        </item><item id="3" type="jump">
+          <status>9</status>
+          <timeout>31557600</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>9</id>
+      <name>Anonymis&#233;</name>
+      <colour>000000</colour>
+      <visibility />
+      <items>
+        <item id="1" type="anonymise" />
+      </items>
+    </status>
+  </possible_status><variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label type="str">Lien vers les mentions l&#233;gales</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">N'indiquez pas le protocol (http, https, etc).</hint>
+          <varname type="str">lien_mentions_legales</varname>
+          <display_locations />
+          <validation>
+            <error_message>N'indiquez pas le protocol (http, https, etc).</error_message>
+            <type>django</type>
+            <value>"http" not in value</value>
+          </validation><anonymise type="bool">False</anonymise>
+          <id type="str">4</id>
+        </field><field>
+          <label type="str">Destinations</label>
+          <type type="str">items</type>
+          <required type="bool">True</required>
+          <hint type="str">S&#233;lectionnez les destinations possibles.</hint>
+          <varname type="str">destinations</varname>
+          <display_locations />
+          <display_mode type="str">checkboxes</display_mode>
+          <min_choices type="int">0</min_choices>
+          <max_choices type="int">0</max_choices>
+          <data_source>
+            <type>passerelle_destinations</type>
+          </data_source><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">True</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">3</id>
+        </field><field>
+          <label type="str">Montant, en &#8364;</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <hint type="str">N'indiquez pas la monnaie. Choisissez une r&#233;gie de paiement, sinon le document restera gratuit.</hint>
+          <varname type="str">montant</varname>
+          <display_locations />
+          <validation>
+            <error_message>N'indiquez pas la monnaie.</error_message>
+            <type>django</type>
+            <value>"&#8364;" not in value</value>
+          </validation><anonymise type="bool">True</anonymise>
+          <id type="str">5</id>
+        </field><field>
+          <label type="str">R&#233;gie de paiement</label>
+          <type type="str">item</type>
+          <required type="bool">False</required>
+          <hint type="str">Gratuit</hint>
+          <varname type="str">regie_de_paiement</varname>
+          <display_locations />
+          <display_mode type="str">list</display_mode>
+          <data_source>
+            <type>json</type>
+            <value>{{portal_url}}/api/lingo/regies</value>
+          </data_source><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">False</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">2</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables>
+</workflow>
