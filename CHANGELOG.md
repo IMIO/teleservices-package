@@ -4,6 +4,10 @@ teleservices-package changelog
 :Info: This is the changelog for the teleservices-package
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
+## [0.1.50] - 11-07-2022 -
+### Updated
+  - [TELE-1253] update roles for wf fiche recrutement
+
 ## [0.1.49] - 11-07-2022 -
 ### Added
   - [TELE-1371] add form and wf bien être animal
