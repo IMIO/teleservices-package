@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="127" url="">
+<workflow id="29" url="">
   <name>iMio - Autorisation d'aquisition d'un animal de compagnie</name>
   <slug>imio-autorisation-d-aquisition-d-un-animal-de-compagnie</slug>
   <roles>
@@ -21,7 +21,15 @@ Nos services vous confirment la bonne r&#233;ception de votre demande d'autorisa
 
 Nous devons v&#233;rifier dans un premier temps si vous &#234;tes dans les conditions pour obtenir l'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal. 
 
-Cordialement, </body>
+Cordialement,
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body>
+        </item><item id="3" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
         </item><item id="2" type="jump">
           <status>1</status>
           <set_marker_on_status>False</set_marker_on_status>
@@ -33,7 +41,7 @@ Cordialement, </body>
       <colour>66FFFF</colour>
       <visibility />
       <items>
-        <item id="3" type="displaymsg">
+        <item id="1" type="displaymsg">
           <message>Votre demande a bien &#233;t&#233; introduite dans notre syst&#232;me et les services comp&#233;tents en ont &#233;t&#233; inform&#233;s.</message>
           <level>success</level>
           <position>top</position>
@@ -47,7 +55,7 @@ Cordialement, </body>
 </backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="1" type="choice">
+        </item><item id="3" type="choice">
           <label>Refuser</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -76,7 +84,10 @@ Nous vous informons que votre demande d'autorisation d'acquisition d'un animal d
 L'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal ne peut &#234;tre d&#233;livr&#233; que si l'individu qui en fait la demande n'est pas sous le coup d'une interdiction de d&#233;tention d'un animal ou d&#233;chue de son permis de d&#233;tenir un animal. 
 
 Cordialement,
-</body>
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body>
         </item>
       </items>
     </status><status>
@@ -105,10 +116,48 @@ Cordialement,
       <colour>FFFF00</colour>
       <visibility />
       <items>
-        <item id="1" type="jump">
-          <status>3</status>
-          <trigger>paid</trigger>
-          <set_marker_on_status>False</set_marker_on_status>
+        <item id="3" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>{{ form_name }} : En attente de votre paiement</subject>
+          <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+
+
+Afin que votre demande "{{form_name}}" puisse &#234;tre trait&#233;e, nous vous invitons &#224; `r&#233;gler votre commande &lt;{{ form_url }}&gt;`_ :
+
+D&#232;s r&#233;ception du paiement, nos agents traiteront votre demande dans les plus brefs d&#233;lais, vous serez tenu inform&#233; de son avancement.
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
+
+{{ form_details }}
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body>
+        </item><item id="4" type="register-comment">
+          <comment>&lt;p&gt;
+Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
+&lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
+&lt;p&gt;</comment>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item id="5" type="displaymsg">
+          <message>&lt;p&gt;
+Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
+&lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
+&lt;p&gt;</message>
+          <level>info</level>
+          <position>top</position>
         </item><item id="2" type="webservice_call">
           <label>Paiement en ligne</label>
           <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
@@ -146,17 +195,48 @@ Cordialement,
           <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+        </item><item id="1" type="jump">
+          <status>3</status>
+          <trigger>paid</trigger>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item id="6" type="jump">
+          <status>10</status>
+          <trigger>cancelled</trigger>
+          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
+    </status><status>
+      <id>10</id>
+      <name>Demande annul&#233;e</name>
+      <colour>FF0000</colour>
+      <visibility />
+      <items />
     </status><status>
       <id>3</id>
       <name>Pay&#233;</name>
       <colour>99FF00</colour>
       <visibility />
       <items>
-        <item id="3" type="register-comment">
+        <item id="1" type="register-comment">
           <comment>Votre paiement a bien &#233;t&#233; pris en compte et votre demande sera trait&#233;e dans les plus brefs d&#233;lais.</comment>
-        </item><item id="1" type="jump">
+        </item><item id="3" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><subject>{{ form_name }} : Paiement re&#231;u</subject>
+          <body>Bonjour,
+
+Un paiement a &#233;t&#233; re&#231;u.
+
+`Consulter la demande &lt;{{ form_url_backoffice }}&gt;`_
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
+
+{{ form_details }}
+{% endif %}
+
+Bonne journ&#233;e !</body>
+        </item><item id="2" type="jump">
           <status>4</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -167,7 +247,7 @@ Cordialement,
       <colour>0099FF</colour>
       <visibility />
       <items>
-        <item id="4" type="addattachment">
+        <item id="1" type="addattachment">
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><required>False</required>
@@ -192,14 +272,14 @@ Cordialement,
             <type>django</type>
             <value>"porte" in form_var_destination</value>
           </condition>
-        </item><item id="5" type="jumponsubmit">
+        </item><item id="2" type="jumponsubmit">
           <status>6</status>
           <set_marker_on_status>False</set_marker_on_status>
           <condition>
             <type>django</type>
             <value>"porte" in form_var_destination</value>
           </condition>
-        </item><item id="1" type="choice">
+        </item><item id="3" type="choice">
           <label>Traiter</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -222,9 +302,9 @@ Cordialement,
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item id="2" type="displaymsg">
+        <item id="1" type="displaymsg">
           <position>top</position>
-        </item><item id="1" type="sendmail">
+        </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>{{ form_name }} : Demande trait&#233;e</subject>
@@ -237,7 +317,11 @@ Vous recevrez l'extrait du fichier central de la d&#233;linquance environnementa
 `Acc&#233;der &#224; mon porte-documents &lt;{{porte_doc_url}}&gt;`_
 {% endif %}
 
-Cordialement,</body>
+Cordialement,
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body>
         </item><item id="3" type="jump">
           <status>9</status>
           <timeout>31557600</timeout>
@@ -277,6 +361,7 @@ Cordialement,</body>
           <hint type="str">S&#233;lectionnez les destinations possibles.</hint>
           <varname type="str">destinations</varname>
           <display_locations />
+          <items />
           <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
           <max_choices type="int">0</max_choices>
@@ -307,6 +392,7 @@ Cordialement,</body>
           <varname type="str">regie_de_paiement</varname>
           <display_locations />
           <display_mode type="str">list</display_mode>
+          <items />
           <data_source>
             <type>json</type>
             <value>{{portal_url}}/api/lingo/regies</value>

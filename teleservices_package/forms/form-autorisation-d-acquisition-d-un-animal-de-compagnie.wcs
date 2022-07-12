@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="204" url="">
+<formdef id="54" url="">
   <name>Extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal</name>
   <url_name>demande-autorisation-d-acquisition-d-un-animal-de-compagnie</url_name>
   <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
-  <internal_identifier>demande-extrait-du-fichier-central-de-la-delinquance-environnementale-et-du-bien-etre-animal</internal_identifier>
+  <internal_identifier>extrait-du-fichier-central-de-la-delinquance-environnementale-et-du-bien-etre-animal</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="" slug="demande-bien-etre-animal">Bien &#234;tre animal</category>
-  <workflow slug="imio-autorisation-d-aquisition-d-un-animal-de-compagnie" workflow_id="127">iMio - Autorisation d'aquisition d'un animal de compagnie</workflow>
+  <category category_id="107" slug="demande-bien-etre-animal">Bien &#234;tre animal</category>
+  <workflow slug="imio-autorisation-d-aquisition-d-un-animal-de-compagnie" workflow_id="29">iMio - Autorisation d'aquisition d'un animal de compagnie</workflow>
   <max_field_id>218</max_field_id>
   <fields>
     <field>
@@ -30,7 +30,7 @@
         </post_condition>
       </post_conditions><id type="str">217</id>
     </field><field>
-      <label type="str">&lt;p&gt;A partir du 1er juillet 2022, il vous faudra pr&amp;eacute;senter un &lt;strong&gt;extrait du fichier central de la d&amp;eacute;linquance environnementale et du bien-&amp;ecirc;tre animal&lt;/strong&gt; pour acqu&amp;eacute;rir (acheter, adopter ou recevoir) un animal de compagnie.&lt;/p&gt;
+      <label type="str">&lt;p&gt;Depuis le 1er juillet 2022, il vous faudra pr&amp;eacute;senter un &lt;strong&gt;extrait du fichier central de la d&amp;eacute;linquance environnementale et du bien-&amp;ecirc;tre animal&lt;/strong&gt; pour acqu&amp;eacute;rir (acheter, adopter ou recevoir) un animal de compagnie.&lt;/p&gt;
 
 &lt;p&gt;Afin d&amp;#39;obtenir cet extrait, nous vous invitons &amp;agrave; compl&amp;eacute;ter le formulaire ci-dessous.&amp;nbsp;Votre demande sera soumise &amp;agrave; une v&amp;eacute;rification pr&amp;eacute;alable au service du Bien-&amp;ecirc;tre animal du SPW.&amp;nbsp;Seules les personnes majeures sont habilit&amp;eacute;es &amp;agrave; introduire cette demande.&lt;/p&gt;
 
@@ -62,7 +62,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -78,7 +77,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -95,7 +93,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><validation>
@@ -111,7 +108,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
@@ -128,7 +124,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill><id type="str">65</id>
@@ -141,7 +136,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_birthdate</value>
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
@@ -165,7 +159,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -181,7 +174,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
@@ -199,7 +191,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -214,7 +205,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-4 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -229,7 +219,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -244,6 +233,7 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-1</extra_css_class>
       <display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_destinations_structured') or data_source.passerelle_destinations</value>
@@ -266,8 +256,7 @@
         <display_location>summary</display_location>
       </display_locations><id type="str">214</id>
     </field>
-  </fields><roles />
-  <options>
+  </fields><options>
     <option varname="destinations" />
     <option varname="destinations_display">Envoi &#224; domicile, Envoi dans le porte-documents, R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t</option>
     <option varname="destinations_structured" />
