@@ -4,6 +4,10 @@ teleservices-package changelog
 :Info: This is the changelog for the teleservices-package
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
+## [0.2.11] - 26-07-2022 -
+### Fixed
+  - [MTELEENGA-11] gratuit but with or whitout extra fees, virement
+
 ## [0.1.49] - 26-07-2022 -
 ### Added
   - [MTELEENGA-11] add virement to bien être animal wf

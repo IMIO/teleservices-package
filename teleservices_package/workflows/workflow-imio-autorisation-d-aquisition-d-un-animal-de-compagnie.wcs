@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="29" url="">
+<workflow id="33" url="">
   <name>iMio - Autorisation d'aquisition d'un animal de compagnie</name>
   <slug>imio-autorisation-d-aquisition-d-un-animal-de-compagnie</slug>
   <roles>
@@ -27,11 +27,11 @@ Cordialement,
 {{ commune_name }}
 {{ administration_adresse }}
 {{ administration_site }}</body>
-        </item><item id="3" type="sendmail">
+        </item><item id="2" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
-        </item><item id="2" type="jump">
+        </item><item id="3" type="jump">
           <status>1</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -101,19 +101,19 @@ Cordialement,
           <status>2</status>
           <condition>
             <type>django</type>
-            <value>form_option_regie_de_paiement</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="2" type="jump">
-          <status>4</status>
-          <condition>
-            <type>django</type>
-            <value>not form_option_regie_de_paiement</value>
+            <value>form_option_regie_de_paiement and form_option_montant|add:form_var_destination_price &gt; 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item id="3" type="jump">
           <status>11</status>
           <condition>
             <type>django</type>
-            <value>not form_option_paiement_en_ligne</value>
+            <value>not form_option_regie_de_paiement and form_option_montant|add:form_var_destination_price &gt; 0</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="2" type="jump">
+          <status>4</status>
+          <condition>
+            <type>django</type>
+            <value>not form_option_regie_de_paiement or form_option_montant|add:form_var_destination_price &lt;= 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -130,7 +130,7 @@ Cordialement,
 &lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;Ville de {{ commune_name }} - {{ administration_adresse }} &lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{{form_option_iban}}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;R&#233;f&#233;rence de la commande (communication libre) : &lt;b&gt;{{ form_number }}&lt;/b&gt;&lt;/li&gt;
-&lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_option_montant }}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_option_montant|add:form_var_destination_price }}&lt;/b&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </message>
           <level>warning</level>
@@ -156,7 +156,7 @@ Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {{form_option_iban}}
 R&#233;f&#233;rence de la commande (communication libre) : {{ form_number }}
 
 
-Montant de la commande : {{ form_option_montant }}
+Montant de la commande : {{ form_option_montant|add:form_var_destination_price }}
 
 
 Bien cordialement,</body>
@@ -176,7 +176,7 @@ Bien cordialement,</body>
       <colour>FFFF00</colour>
       <visibility />
       <items>
-        <item id="3" type="sendmail">
+        <item id="1" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>{{ form_name }} : En attente de votre paiement</subject>
@@ -203,7 +203,7 @@ Cordialement,
 {{ commune_name }}
 {{ administration_adresse }}
 {{ administration_site }}</body>
-        </item><item id="4" type="register-comment">
+        </item><item id="2" type="register-comment">
           <comment>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
@@ -211,14 +211,14 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item id="5" type="displaymsg">
+        </item><item id="3" type="displaymsg">
           <message>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</message>
           <level>info</level>
           <position>top</position>
-        </item><item id="2" type="webservice_call">
+        </item><item id="4" type="webservice_call">
           <label>Paiement en ligne</label>
           <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <qs_data>
@@ -255,7 +255,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
-        </item><item id="1" type="jump">
+        </item><item id="5" type="jump">
           <status>3</status>
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
@@ -279,7 +279,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <items>
         <item id="1" type="register-comment">
           <comment>Votre paiement a bien &#233;t&#233; pris en compte et votre demande sera trait&#233;e dans les plus brefs d&#233;lais.</comment>
-        </item><item id="3" type="sendmail">
+        </item><item id="2" type="sendmail">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><subject>{{ form_name }} : Paiement re&#231;u</subject>
@@ -296,7 +296,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
 {% endif %}
 
 Bonne journ&#233;e !</body>
-        </item><item id="2" type="jump">
+        </item><item id="3" type="jump">
           <status>4</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -397,7 +397,21 @@ Cordialement,
         <item id="1" type="anonymise" />
       </items>
     </status>
-  </possible_status><variables>
+  </possible_status><global_actions>
+    <action>
+      <id>1</id>
+      <name>Suppression</name>
+      <items>
+        <item id="1" type="remove" />
+      </items><triggers>
+        <trigger id="ef341cc4-73f6-434e-b9ec-67785a6fa89e" type="manual">
+          <roles>
+            <item role_id="712f8f807cef44f4aff1b714d5b0e055" slug="debug">Debug</item>
+          </roles>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions><variables>
     <formdef>
       <name>-</name>
       <fields>
@@ -421,6 +435,7 @@ Cordialement,
           <hint type="str">S&#233;lectionnez les destinations possibles.</hint>
           <varname type="str">destinations</varname>
           <display_locations />
+          <items />
           <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
           <max_choices type="int">0</max_choices>
@@ -447,11 +462,10 @@ Cordialement,
           <label type="str">R&#233;gie de paiement</label>
           <type type="str">item</type>
           <required type="bool">False</required>
-          <hint type="str">Gratuit</hint>
+          <hint type="str">Pas de r&#233;gie de paiement</hint>
           <varname type="str">regie_de_paiement</varname>
           <display_locations />
           <display_mode type="str">list</display_mode>
-          <items />
           <data_source>
             <type>json</type>
             <value>{{portal_url}}/api/lingo/regies</value>
@@ -459,15 +473,6 @@ Cordialement,
           <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
           <id type="str">2</id>
-        </field><field>
-          <label type="str">Paiement en ligne</label>
-          <type type="str">bool</type>
-          <required type="bool">False</required>
-          <varname type="str">paiement_en_ligne</varname>
-          <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><id type="str">6</id>
         </field><field>
           <label type="str">IBAN</label>
           <type type="str">string</type>
