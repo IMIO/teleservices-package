@@ -258,10 +258,11 @@
     </field>
   </fields><options>
     <option varname="destinations" />
-    <option varname="destinations_display">Envoi &#224; domicile, Envoi dans le porte-documents, R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t</option>
+    <option varname="destinations_display" />
     <option varname="destinations_structured" />
     <option varname="lien_mentions_legales" />
     <option varname="montant">0</option>
+    <option varname="paiement_en_ligne" />
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
