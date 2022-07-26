@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 ## [0.2.11] - 26-07-2022 -
+### Updated
+  - [TELE-1383] Workflow rendez-vous with possibility of externe agenda
+
+## [0.2.11] - 26-07-2022 -
 ### Fixed
   - [MTELEENGA-11] gratuit but with or whitout extra fees, virement
 
