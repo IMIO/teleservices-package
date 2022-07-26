@@ -4,6 +4,7 @@
   <slug>imio-autorisation-d-aquisition-d-un-animal-de-compagnie</slug>
   <roles>
     <role id="_receiver">Destinataire</role>
+    <role id="_validateur-pc-banking">Validateur PC Banking</role>
   </roles><possible_status>
     <status>
       <id>7</id>
@@ -108,6 +109,65 @@ Cordialement,
             <type>django</type>
             <value>not form_option_regie_de_paiement</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item id="3" type="jump">
+          <status>11</status>
+          <condition>
+            <type>django</type>
+            <value>not form_option_paiement_en_ligne</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>11</id>
+      <name>En attente du virement</name>
+      <colour>FFFF00</colour>
+      <visibility />
+      <items>
+        <item id="1" type="displaymsg">
+          <message>&lt;p&gt;Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.&lt;/p&gt;
+&lt;p&gt;Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;Ville de {{ commune_name }} - {{ administration_adresse }} &lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{{form_option_iban}}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;R&#233;f&#233;rence de la commande (communication libre) : &lt;b&gt;{{ form_number }}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_option_montant }}&lt;/b&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</message>
+          <level>warning</level>
+          <position>top</position>
+        </item><item id="2" type="sendmail">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>Administration de {{ commune_name }} : D&#233;marche "{{ form_name }}". En attente du virement.</subject>
+          <body>Madame, Monsieur,
+
+Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
+
+
+Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :
+
+
+B&#233;n&#233;ficiaire : Ville de {{ commune_name }} - {{ administration_adresse }}
+
+
+Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {{form_option_iban}}
+
+
+R&#233;f&#233;rence de la commande (communication libre) : {{ form_number }}
+
+
+Montant de la commande : {{ form_option_montant }}
+
+
+Bien cordialement,</body>
+        </item><item id="3" type="choice">
+          <label>Valider le paiement</label>
+          <by>
+            <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
+          </by><status>3</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
@@ -357,11 +417,10 @@ Cordialement,
         </field><field>
           <label type="str">Destinations</label>
           <type type="str">items</type>
-          <required type="bool">True</required>
+          <required type="bool">False</required>
           <hint type="str">S&#233;lectionnez les destinations possibles.</hint>
           <varname type="str">destinations</varname>
           <display_locations />
-          <items />
           <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
           <max_choices type="int">0</max_choices>
@@ -400,6 +459,23 @@ Cordialement,
           <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
           <id type="str">2</id>
+        </field><field>
+          <label type="str">Paiement en ligne</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <varname type="str">paiement_en_ligne</varname>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">6</id>
+        </field><field>
+          <label type="str">IBAN</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">iban</varname>
+          <display_locations />
+          <anonymise type="bool">True</anonymise>
+          <id type="str">7</id>
         </field>
       </fields>
     </formdef>
