@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="401" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/401/">
+<formdef id="33" url="">
   <name>iMio - Prise de rendez-vous - Plusieurs personnes - Multiples agendas</name>
   <url_name>imio-prise-de-rendez-vous-plusieurs-personnes-multiples-agendas</url_name>
   <internal_identifier>imio-prise-de-rendez-vous-plusieurs-personnes-multiples-agendas</internal_identifier>
@@ -13,9 +13,9 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="116" slug="imio-agendas">iMio - Agendas</category>
-  <workflow slug="imio-gestion-des-rendez-vous-et-evenements-package" workflow_id="205">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
-  <max_field_id>78</max_field_id>
+  <category category_id="103" slug="imio-agendas">iMio - Agendas</category>
+  <workflow slug="imio-gestion-des-rendez-vous-et-evenements-package" workflow_id="18">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
+  <max_field_id>79</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -215,9 +215,16 @@
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">70</id>
     </field><field>
-      <label type="str">S&#233;lectionnez le nombre de personnes</label>
+      <label type="str">S&#233;lectionnez le type de rendez-vous</label>
       <type type="str">page</type>
       <id type="str">71</id>
+    </field><field>
+      <label type="str">liste_type_rdv_plusieurs_personnes</label>
+      <type type="str">computed</type>
+      <varname type="str">liste_type_rdv_plusieurs_personnes</varname>
+      <value_template type="str">{{form_var_agenda_api_meetings_url|liste_type_rdv_plusieurs_personnes}}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">79</id>
     </field><field>
       <label type="str">Type de rendez-vous</label>
       <type type="str">item</type>
@@ -227,27 +234,24 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">list</display_mode>
-      <items />
+      </display_locations><display_mode type="str">list</display_mode>
       <data_source>
         <type>formula</type>
-        <value>script.liste_type_general_rdv(form_var_agenda_api_meetings_url)</value>
+        <value>form_var_liste_type_rdv_plusieurs_personnes</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">72</id>
     </field><field>
-      <label type="str">S&#233;lectionnez le type de rendez-vous</label>
+      <label type="str">S&#233;lectionnez le nombre de personnes</label>
       <type type="str">page</type>
       <id type="str">2</id>
     </field><field>
       <label type="str">Rendez-vous s&#233;lectionn&#233;</label>
       <type type="str">computed</type>
       <varname type="str">rdv_selectionne</varname>
-      <value_template type="str">{{ data_source.liste_rendezvous_agendas_multiples }}</value_template>
+      <value_template type="str">{{form_var_agenda_api_meetings_url|liste_type_rdv_nombres_personnes:form_var_type_general_rdv_raw}}</value_template>
       <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
       <id type="str">78</id>
     </field><field>
@@ -262,8 +266,8 @@
         <display_location>listings</display_location>
       </display_locations><display_mode type="str">list</display_mode>
       <data_source>
-        <type>nombre_de_personnne</type>
-        <value>script.liste_type_rdv(form_var_agenda_api_meetings_url, form_var_type_general_rdv)</value>
+        <type>formula</type>
+        <value>form_var_rdv_selectionne</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>

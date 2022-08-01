@@ -103,13 +103,13 @@ Cordialement,
             <type>django</type>
             <value>form_option_regie_de_paiement and form_option_montant|add:form_var_destination_price &gt; 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="3" type="jump">
+        </item><item id="2" type="jump">
           <status>11</status>
           <condition>
             <type>django</type>
             <value>not form_option_regie_de_paiement and form_option_montant|add:form_var_destination_price &gt; 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="2" type="jump">
+        </item><item id="3" type="jump">
           <status>4</status>
           <condition>
             <type>django</type>
@@ -330,14 +330,14 @@ Bonne journ&#233;e !</body>
           <push_to_portfolio>True</push_to_portfolio>
           <condition>
             <type>django</type>
-            <value>"porte" in form_var_destination</value>
+            <value>"porte" in form_var_destination or "mail" in form_var_destination|lower</value>
           </condition>
         </item><item id="2" type="jumponsubmit">
           <status>6</status>
           <set_marker_on_status>False</set_marker_on_status>
           <condition>
             <type>django</type>
-            <value>"porte" in form_var_destination</value>
+            <value>"porte" in form_var_destination or "mail" in form_var_destination|lower</value>
           </condition>
         </item><item id="3" type="choice">
           <label>Traiter</label>
@@ -351,7 +351,7 @@ Bonne journ&#233;e !</body>
           <set_marker_on_status>False</set_marker_on_status>
           <condition>
             <type>django</type>
-            <value>"porte" not in form_var_destination</value>
+            <value>"porte" not in form_var_destination and "mail" not in form_var_destination|lower</value>
           </condition>
         </item>
       </items>
@@ -371,9 +371,14 @@ Bonne journ&#233;e !</body>
           <body>Bonjour {{ form_user_display_name }}, 
 
 Nous vous informons que votre demande d'autorisation d'acquisition d'un animal de compagnie est valid&#233;e et trait&#233;e. 
-Vous recevrez l'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal par le biais souhait&#233;, &#224; savoir par {{ form_var_destinations }}. 
+{% if "mail" not in form_var_destination|lower %}
+Vous recevrez l'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal par le biais souhait&#233;, &#224; savoir par {{ form_var_destination }}.
+{% endif %}
+{% if "mail" in form_var_destination|lower %}
+Vous trouverez l'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal en pi&#232;ce jointe de ce mail.
+{% endif %}
 
-{% if "porte" in form_var_destinations %}
+{% if "porte" in form_var_destination %}
 `Acc&#233;der &#224; mon porte-documents &lt;{{porte_doc_url}}&gt;`_
 {% endif %}
 
@@ -382,6 +387,9 @@ Cordialement,
 {{ commune_name }}
 {{ administration_adresse }}
 {{ administration_site }}</body>
+          <attachments>
+            <attachment>{{ form_attachments_extrait }}</attachment>
+          </attachments>
         </item><item id="3" type="jump">
           <status>9</status>
           <timeout>31557600</timeout>
@@ -404,7 +412,7 @@ Cordialement,
       <items>
         <item id="1" type="remove" />
       </items><triggers>
-        <trigger id="ef341cc4-73f6-434e-b9ec-67785a6fa89e" type="manual">
+        <trigger id="2d533a9d-8168-49d2-bf61-22b31f42c4a3" type="manual">
           <roles>
             <item role_id="712f8f807cef44f4aff1b714d5b0e055" slug="debug">Debug</item>
           </roles>
@@ -466,6 +474,7 @@ Cordialement,
           <varname type="str">regie_de_paiement</varname>
           <display_locations />
           <display_mode type="str">list</display_mode>
+          <items />
           <data_source>
             <type>json</type>
             <value>{{portal_url}}/api/lingo/regies</value>
