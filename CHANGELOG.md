@@ -4,7 +4,11 @@ teleservices-package changelog
 :Info: This is the changelog for the teleservices-package
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
-=======
+## [0.2.11] - 08-08-2022 -
+### Updated
+  - [TELE-1412] wf animal supprimer du panier
+
+>>>>>>> dev-test
 ## [0.2.11] - 28-07-2022 -
 ### Updated
   - [TELE-1389] Form animal add extrain in PJ

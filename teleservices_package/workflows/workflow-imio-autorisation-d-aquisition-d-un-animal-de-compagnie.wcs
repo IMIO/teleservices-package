@@ -404,17 +404,88 @@ Cordialement,
       <items>
         <item id="1" type="anonymise" />
       </items>
+    </status><status>
+      <id>12</id>
+      <name>Supprimer du panier</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item id="1" type="webservice_call">
+          <label>Supprimer du panier</label>
+          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <method>POST</method>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>basket_item_id</name>
+              <value>{{ transaction_info_response_id }}</value>
+            </item><item>
+              <name>skip_notification</name>
+              <value>skip</value>
+            </item>
+          </post_data><response_type>json</response_type>
+          <varname>annulation</varname>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>True</record_errors>
+        </item>
+      </items>
     </status>
   </possible_status><global_actions>
     <action>
       <id>1</id>
       <name>Suppression</name>
       <items>
-        <item id="1" type="remove" />
+        <item id="2" type="webservice_call">
+          <label>Supprimer du panier</label>
+          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <method>POST</method>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>basket_item_id</name>
+              <value>{{ transaction_info_response_id }}</value>
+            </item><item>
+              <name>skip_notification</name>
+              <value>skip</value>
+            </item>
+          </post_data><response_type>json</response_type>
+          <varname>annulation_suppression</varname>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>True</record_errors>
+        </item><item id="1" type="remove" />
       </items><triggers>
-        <trigger id="2d533a9d-8168-49d2-bf61-22b31f42c4a3" type="manual">
+        <trigger id="52e6c875-8dcd-4f00-9df0-440600bae249" type="manual">
           <roles>
             <item role_id="712f8f807cef44f4aff1b714d5b0e055" slug="debug">Debug</item>
+            <item role_id="1abc674038c14c6c97fe8db4d504d9da" slug="agent-ayant-acces-aux-fabriques">Agent ayant acces aux fabriques</item>
+          </roles>
+        </trigger>
+      </triggers>
+    </action><action>
+      <id>2</id>
+      <name>Supprimer du panier</name>
+      <items>
+        <item id="1" type="jump">
+          <status>12</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger id="14e1a1b8-637a-48f7-988d-4ae480d6ad83" type="manual">
+          <roles>
+            <item role_id="712f8f807cef44f4aff1b714d5b0e055" slug="debug">Debug</item>
+            <item role_id="1abc674038c14c6c97fe8db4d504d9da" slug="agent-ayant-acces-aux-fabriques">Agent ayant acces aux fabriques</item>
           </roles>
         </trigger>
       </triggers>
