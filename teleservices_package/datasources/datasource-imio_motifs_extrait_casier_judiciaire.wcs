@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="246" url="https://staging-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/246/">
+  <name>iMio - Motifs d'un extrait de casier judiciaire</name>
+  <slug>imio_motifs_extrait_casier_judiciaire</slug>
+  <data_source>
+    <type>json</type>
+    <value>{{eservices_url}}api/cards/imio-motifs-extrait-casier-judiciaire/list?full=on</value>
+  </data_source>
+</datasource>
