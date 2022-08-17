@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="80" url="https://staging-formulaires.guichet-citoyen.be/backoffice/workflows/80/">
+<workflow id="80" url="">
   <name>iMio - Extrait casier judicaire</name>
   <slug>imio-extrait-casier-judicaire</slug>
   <roles>
@@ -30,14 +30,17 @@
               <field_id>bo13</field_id>
               <value>{{form_var_rue_personne}}, {{form_var_numrue_personne}} {% if form_var_boiterue_personne %}/ {{form_var_boiterue_personne}}{% endif %} - {{form_var_cp_personne}} {{form_var_localite_personne}}</value>
             </field><field>
-              <field_id>bo12</field_id>
-              <value>{{form_var_tel_personne}}</value>
+              <field_id>boa5844d62-b20b-4616-886d-0c5d3fc84b38</field_id>
+              <value>{{ form_var_motifs_fields_price|default:0 }}</value>
             </field><field>
               <field_id>bo3</field_id>
-              <value>{{form_option_cout|multiply:form_var_nb_exemplaire}}</value>
+              <value>{{form_option_cout|add:form_var_prix_motif|multiply:form_var_nb_exemplaire}}</value>
             </field><field>
               <field_id>boc9ddcf3d-422e-4da9-b093-0e510f656c5d</field_id>
               <value>{% firstof form_tracking_code "Code de suivi d&#233;sactiv&#233; sur cette d&#233;marche" %}</value>
+            </field><field>
+              <field_id>bo12</field_id>
+              <value>{{form_var_tel_personne}}</value>
             </field>
           </fields>
         </item><item id="2" type="jump">
@@ -120,7 +123,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
 Bien &#224; vous,
 
 </body>
-        </item><item id="5" type="addattachment">
+        </item><item id="3" type="addattachment">
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><required>True</required>
@@ -129,19 +132,20 @@ Bien &#224; vous,
           <button_label>Envoyer le document vers le porte-documents</button_label>
           <display_button>True</display_button>
           <attach_to_history>True</attach_to_history>
+          <allow_portfolio_picking>False</allow_portfolio_picking>
           <push_to_portfolio>True</push_to_portfolio>
           <condition>
             <type>django</type>
             <value>"porte" in form_var_destinations</value>
           </condition>
-        </item><item id="6" type="jumponsubmit">
+        </item><item id="4" type="jumponsubmit">
           <status>finished</status>
           <set_marker_on_status>False</set_marker_on_status>
           <condition>
             <type>django</type>
             <value>"porte" in form_var_destinations</value>
           </condition>
-        </item><item id="3" type="choice">
+        </item><item id="5" type="choice">
           <label>Terminer</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -155,7 +159,7 @@ Bien &#224; vous,
             <type>django</type>
             <value>"porte" not in form_var_destinations</value>
           </condition>
-        </item><item id="4" type="choice">
+        </item><item id="6" type="choice">
           <label>Refuser la demande</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -368,7 +372,7 @@ Le service Population / Etat-civil
               <value>skip</value>
             </item><item>
               <name>basket_item_id</name>
-              <value>{{panier_response_id}}</value>
+              <value>{{transaction_info_response_id}}</value>
             </item>
           </post_data><response_type>json</response_type>
           <action_on_app_error>:pass</action_on_app_error>
@@ -720,8 +724,8 @@ Le service Population / Etat civil
                 </display_locations><prefill>
                   <type>user</type>
                   <value>_country</value>
-                </prefill><items />
-                <display_mode type="str">list</display_mode>
+                </prefill><display_mode type="str">list</display_mode>
+                <items />
                 <data_source>
                   <type>pays</type>
                 </data_source><in_filters type="bool">False</in_filters>
@@ -893,7 +897,7 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="97be5dd7-4116-4ea9-8841-dcd7e9f72b84" type="manual">
+        <trigger id="050e72a0-5d2e-4b16-8c85-b5fbd137399d" type="manual">
           <roles>
             <item role_id="df908b92acec4a68b3a11bbf516263d9" slug="debug">Debug</item>
           </roles>
@@ -903,9 +907,36 @@ Le service Population / Etat-civil
       <id>2</id>
       <name>Supprimer la d&#233;marche</name>
       <items>
-        <item id="1" type="remove" />
+        <item id="2" type="webservice_call">
+          <label>Vidage du panier</label>
+          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <method>POST</method>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>basket_item_id</name>
+              <value>{{transaction_info_response_id}}</value>
+            </item><item>
+              <name>skip_notification</name>
+              <value>skip</value>
+            </item>
+          </post_data><response_type>json</response_type>
+          <varname>vide_panier_globale</varname>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>True</record_errors>
+          <condition>
+            <type>django</type>
+            <value>form_workflow_data_transaction_id</value>
+          </condition>
+        </item><item id="1" type="remove" />
       </items><triggers>
-        <trigger id="783a7e09-ced0-448a-9da0-1a24d8f6d940" type="manual">
+        <trigger id="46fcea8a-8d4d-4922-bbd5-d56125e0e447" type="manual">
           <roles>
             <item role_id="df908b92acec4a68b3a11bbf516263d9" slug="debug">Debug</item>
           </roles>
@@ -920,7 +951,7 @@ Le service Population / Etat-civil
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="ebfe4f8b-428e-4da9-82e3-844119facaa0" type="manual">
+        <trigger id="af7eefd7-3ca2-4ee8-be1c-d8eb644838f7" type="manual">
           <roles>
             <item role_id="df908b92acec4a68b3a11bbf516263d9" slug="debug">Debug</item>
           </roles>
@@ -949,15 +980,12 @@ Le service Population / Etat-civil
           <type type="str">items</type>
           <required type="bool">False</required>
           <varname type="str">motifs_disponibles</varname>
-          <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><items />
+          <display_locations />
+          <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
           <max_choices type="int">0</max_choices>
           <data_source>
-            <type>passerelle_motifs</type>
+            <type>imio_motifs_extrait_casier_judiciaire</type>
           </data_source><in_filters type="bool">False</in_filters>
           <anonymise type="bool">True</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
@@ -973,6 +1001,7 @@ Le service Population / Etat-civil
           </display_locations><prefill>
             <type>none</type>
           </prefill><items />
+          <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
           <max_choices type="int">0</max_choices>
           <data_source>
@@ -1003,8 +1032,8 @@ Le service Population / Etat-civil
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><items />
-          <display_mode type="str">list</display_mode>
+          </prefill><display_mode type="str">list</display_mode>
+          <items />
           <data_source>
             <type>json</type>
             <value>{{portal_url}}/api/lingo/regies</value>
@@ -1086,6 +1115,15 @@ Le service Population / Etat-civil
             <display_location>summary</display_location>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo12</id>
+        </field><field>
+          <label type="str">Prix Motif</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <varname type="str">prix_motif</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">boa5844d62-b20b-4616-886d-0c5d3fc84b38</id>
         </field><field>
           <label type="str">Total de la commande</label>
           <type type="str">string</type>
