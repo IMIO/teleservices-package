@@ -2,7 +2,7 @@
 <formdef id="27" url="http://local-formulaires.example.net/backoffice/forms/27/">
   <name>Certificat de radiation (mod&#232;le 8)</name>
   <url_name>demande-certificat-de-radiation-modele-8</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Cette d&#233;marche vous permet de faire la demande d'un certificat de radiation qui vous fournit la preuve de la radiation de votre inscription dans les registres de notre administration communale.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;Cette d&#233;marche vous permet de faire la demande d'un certificat de radiation qui vous fournit la preuve de la radiation de votre inscription dans les registres de notre administration communale.&lt;/p&gt;</description>
   <internal_identifier>demande-certificat-de-radiation-modele-8</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -21,7 +21,7 @@
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 

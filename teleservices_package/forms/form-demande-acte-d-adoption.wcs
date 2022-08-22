@@ -2,7 +2,7 @@
 <formdef id="38" url="http://local-formulaires.example.net/backoffice/forms/38/">
   <name>Acte d'Adoption</name>
   <url_name>demande-acte-d-adoption</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;</description>
   <internal_identifier>demande-acte-d-adoption</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -21,7 +21,7 @@
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 

@@ -2,7 +2,7 @@
 <formdef id="23" url="http://local-formulaires.example.net/backoffice/forms/23/">
   <name>Acte de D&#233;c&#232;s</name>
   <url_name>demande-acte-de-deces</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-deces</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -21,7 +21,7 @@
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
@@ -39,7 +39,7 @@
       <type type="str">page</type>
       <id type="str">2</id>
     </field><field>
-      <label type="str">&lt;p&gt;&lt;em&gt;Commande d'un acte de d&amp;eacute;c&amp;egrave;s.&lt;/em&gt;&lt;/p&gt;
+      <label type="str">&lt;p&gt;Commande d'un acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;
 
 &lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par :&amp;nbsp;&lt;/p&gt;
 
