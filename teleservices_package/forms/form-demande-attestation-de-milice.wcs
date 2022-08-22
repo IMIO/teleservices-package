@@ -2,7 +2,7 @@
 <formdef id="8" url="http://local-formulaires.example.net/backoffice/forms/8/">
   <name>Attestation de milice</name>
   <url_name>demande-attestation-de-milice</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Le certificat de milice concerne les personnes n&#233;es avant le 1 janvier 1976. Si le ou la r&#233;sidant.e belge se trouve &#224; l'&#233;tranger, le demander &#224; l'administration communale o&#249; il/elle a &#233;t&#233; inscrit&#183;e sur les listes de milice (le lieu de r&#233;sidence &#224; l'&#226;ge de 16 ans). L'attestation de milice concerne les personnes n&#233;es apr&#232;s le 31 d&#233;cembre 1975. Le certificat ou l'attestation doit &#234;tre demand&#233; au lieu de domicile.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;Le certificat de milice concerne les personnes n&#233;es avant le 1 janvier 1976. Si le ou la r&#233;sidant.e belge se trouve &#224; l'&#233;tranger, le demander &#224; l'administration communale o&#249; il/elle a &#233;t&#233; inscrit&#183;e sur les listes de milice (le lieu de r&#233;sidence &#224; l'&#226;ge de 16 ans). L'attestation de milice concerne les personnes n&#233;es apr&#232;s le 31 d&#233;cembre 1975. Le certificat ou l'attestation doit &#234;tre demand&#233; au lieu de domicile.&lt;/p&gt;</description>
   <internal_identifier>demande-attestation-de-milice</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -21,7 +21,7 @@
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 

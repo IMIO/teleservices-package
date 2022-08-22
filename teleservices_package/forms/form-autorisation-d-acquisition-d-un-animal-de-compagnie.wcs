@@ -2,7 +2,7 @@
 <formdef id="54" url="">
   <name>Extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal</name>
   <url_name>demande-autorisation-d-acquisition-d-un-animal-de-compagnie</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/p&gt;</description>
   <internal_identifier>extrait-du-fichier-central-de-la-delinquance-environnementale-et-du-bien-etre-animal</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>

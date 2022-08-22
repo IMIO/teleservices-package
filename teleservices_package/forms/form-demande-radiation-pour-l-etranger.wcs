@@ -2,7 +2,7 @@
 <formdef id="21" url="http://local-formulaires.example.net/backoffice/forms/21/">
   <name>Radiation pour l'&#233;tranger</name>
   <url_name>demande-radiation-pour-l-etranger</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Si vous d&#233;m&#233;nagez pour vous &#233;tablir &#224; l'&#233;tranger, un certificat de radiation (mod&#232;le 8) doit &#234;tre demand&#233; aupr&#232;s de la commune o&#249; vous &#234;tes inscrit. Ce document vous permettra de vous inscrire dans les registres de la population du pays d'accueil.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;Si vous d&#233;m&#233;nagez pour vous &#233;tablir &#224; l'&#233;tranger, un certificat de radiation (mod&#232;le 8) doit &#234;tre demand&#233; aupr&#232;s de la commune o&#249; vous &#234;tes inscrit. Ce document vous permettra de vous inscrire dans les registres de la population du pays d'accueil.&lt;/p&gt;</description>
   <internal_identifier>demande-radiation-pour-l-etranger</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
