@@ -22,7 +22,7 @@
     <field>
       <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/euthanasie.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
@@ -47,7 +47,7 @@
     </field><field>
       <label>&lt;p style="line-height: 20.8px;"&gt;&lt;u&gt;Traitement :&lt;/u&gt;&lt;/p&gt;
 
-&lt;p style="line-height: 20.8px;"&gt;&lt;em&gt;&lt;strong&gt;Ce document vous est d&amp;eacute;livr&amp;eacute; gratuitement&lt;/strong&gt;&lt;/em&gt;&lt;em&gt;&lt;strong&gt;.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p style="line-height: 20.8px;"&gt;&lt;strong&gt;Ce document vous est d&amp;eacute;livr&amp;eacute; gratuitement&lt;/strong&gt;&lt;strong&gt;.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol style="line-height: 20.8px;"&gt;
 	&lt;li&gt;T&amp;eacute;l&amp;eacute;chargez ce document : &lt;a href="{{form_option_lien_document}}"&gt;D&amp;eacute;claration anticip&amp;eacute;e relative &amp;agrave; l'euthanasie&lt;/a&gt;&lt;/li&gt;

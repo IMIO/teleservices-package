@@ -33,7 +33,7 @@
     </field><field>
       <label>&lt;p style="line-height: 20.8px;"&gt;&lt;u&gt;Traitement :&lt;/u&gt;&lt;/p&gt;
 
-&lt;p style="line-height: 20.8px;"&gt;&lt;em&gt;&lt;strong&gt;Ce document vous est d&amp;eacute;livr&amp;eacute; gratuitement.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p style="line-height: 20.8px;"&gt;&lt;strong&gt;Ce document vous est d&amp;eacute;livr&amp;eacute; gratuitement.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol style="line-height: 20.8px;"&gt;
 	&lt;li&gt;T&amp;eacute;l&amp;eacute;chargez ce document : &lt;a href="{{form_option_lien_document}}" target="_blank"&gt;Procuration&amp;nbsp;&lt;/a&gt;&lt;/li&gt;

@@ -2,7 +2,7 @@
 <formdef id="3" url="http://local-formulaires.example.net/backoffice/forms/3/">
   <name>Acte de Nationalit&#233;</name>
   <url_name>demande-acte-de-nationalite</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-nationalite</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -21,7 +21,7 @@
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
@@ -42,7 +42,7 @@
       <label type="str">&lt;p&gt;&lt;strong&gt;L&amp;rsquo;acte de nationalit&amp;eacute;&amp;nbsp;ne concerne que les &amp;eacute;trangers devenus Belges.&lt;br /&gt;
 Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|objects:'imio-lien-vers-formulaire'|filter_by:'nom'|filter_value:'Certificat de nationalit&#233;'|first|get:'lien'}}" rel="noopener noreferrer" target="_blank"&gt;demander le certificat de nationalit&amp;eacute;&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Commande d'un acte de nationalit&amp;eacute;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Commande d'un acte de nationalit&amp;eacute;.&lt;/p&gt;
 
 &lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par la personne concern&amp;eacute;e ou moyennant une procuration :&amp;nbsp;&lt;/p&gt;
 

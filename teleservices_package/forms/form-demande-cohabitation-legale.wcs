@@ -2,7 +2,7 @@
 <formdef id="48" url="http://local-formulaires.example.net/backoffice/forms/48/">
   <name>Cohabitation L&#233;gale</name>
   <url_name>demande-cohabitation-legale</url_name>
-  <description>&lt;p class="accroche"&gt;&lt;em&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/em&gt;&lt;/p&gt;</description>
+  <description>&lt;p class="accroche"&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/p&gt;</description>
   <internal_identifier>demande-cohabitation-legale</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -21,7 +21,7 @@
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;ce champ ne sera pas affich&amp;eacute; en front office&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
@@ -81,7 +81,7 @@
         </post_condition>
       </post_conditions><id type="str">24</id>
     </field><field>
-      <label type="str">&lt;p class="accroche"&gt;&lt;em&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/em&gt;&lt;/p&gt;
+      <label type="str">&lt;p class="accroche"&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/p&gt;
 
 &lt;p&gt;Si vous choisissez l'envoi postal,&amp;nbsp;le document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
 
