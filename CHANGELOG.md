@@ -5,6 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.2.13] - 03-10-2022
+### Changed
+  - [TELE-1501] make some fields mandatory in block iMio - Identité Changement Adresse [nhi]
+
 ## [0.2.12] - 22-08-2022 -
 ### Fixed
   - [TELE-1434] Remove italic when it is Inadequately used on full sentence [dmshd]

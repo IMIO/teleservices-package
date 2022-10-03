@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<block id="1" url="http://local-formulaires.example.net/backoffice/forms/blocks/1/">
+<block id="1" url="">
   <name>iMio - Identit&#233; Changement Adresse</name>
   <slug>identite_changement_adresse</slug>
   <digest_template>{{identite_changement_adresse_var_nom}} {{identite_changement_adresse_var_prenom}} {{identite_changement_adresse_var_nrn}} {{identite_changement_adresse_var_lien_parente}}</digest_template>
@@ -7,28 +7,24 @@
     <field>
       <label type="str">Nom</label>
       <type type="str">string</type>
-      <required type="bool">False</required>
+      <required type="bool">True</required>
       <varname type="str">nom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-4</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      <anonymise type="bool">True</anonymise>
       <id type="str">bfe6df476b-ef50-4985-8cf1-770eddd46a37</id>
     </field><field>
       <label type="str">Pr&#233;nom</label>
       <type type="str">string</type>
-      <required type="bool">False</required>
+      <required type="bool">True</required>
       <varname type="str">prenom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      <anonymise type="bool">True</anonymise>
       <id type="str">bf1e4c022c-d9fa-45fc-9e27-63b3d40cda54</id>
     </field><field>
       <label type="str">Lien de parent&#233;</label>
@@ -46,17 +42,14 @@
     </field><field>
       <label type="str">Num&#233;ro de registre national</label>
       <type type="str">string</type>
-      <required type="bool">False</required>
+      <required type="bool">True</required>
       <hint type="str">Le num&#233;ro de registre national figure sur la carte d'identit&#233;</hint>
       <varname type="str">nrn</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-4</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><validation>
+      <validation>
         <type>nrn-be</type>
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">bf02110074-9e65-48f9-b33f-f771b564d50a</id>
