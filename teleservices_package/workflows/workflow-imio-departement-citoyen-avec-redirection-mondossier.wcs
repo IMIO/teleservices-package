@@ -1018,7 +1018,7 @@ Cordialement, </body>
           <label type="str">Paiement en ligne</label>
           <type type="str">bool</type>
           <required type="bool">False</required>
-          <hint type="str">A cocher si vous poss&#233;der une r&#233;gie de paiement tel qu'Atos, Ingenico, Mollie, ...</hint>
+          <hint type="str">À cocher si vous poss&#233;dez une r&#233;gie de paiement tel qu'Atos, Ingenico, Mollie,...</hint>
           <varname type="str">paiement_en_ligne</varname>
           <display_locations>
             <display_location>summary</display_location>
