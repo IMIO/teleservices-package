@@ -5,6 +5,12 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.2.14] - 12-10-2022
+### Added
+  - [MTELEVIEA-12] Improve both user/agent UX for bank transfer usecase (see jira for the detail) [dmshd]
+### Fixed
+  - [MTELEVIEA-12] Fix spelling mistake in form option tooltip [dmshd]
+
 ## [0.2.13] - 03-10-2022
 ### Changed
   - [TELE-1501] make some fields mandatory in block iMio - Identité Changement Adresse [nhi]
