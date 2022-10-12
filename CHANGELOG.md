@@ -5,7 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
-## [0.2.14] - 12-10-2022
+## [0.2.16] - 12-10-2022
+### Updated
+  - [MTELEVIEA-12] Avoid sender / subject redundancy in all mails [dmshd]
+
+## [0.2.15] - 12-10-2022
 ### Added
   - [MTELEVIEA-12] Improve both user/agent UX for bank transfer usecase (see jira for the detail) [dmshd]
 ### Fixed

@@ -18,7 +18,7 @@ class inst(install):
         os.system("sh " + path + "install_teleservices_package.sh")
 
 
-version = "0.2.14"
+version = "0.2.16"
 
 setup(
     name="teleservices-package",
