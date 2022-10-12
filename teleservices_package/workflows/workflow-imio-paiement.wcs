@@ -190,7 +190,7 @@ Veuillez r&#233;gler votre commande.&lt;/p&gt;
         <item id="1" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>{{commune_name}} : Demande d'information pour le remboursement de votre commande de {{form_name}}</subject>
+          </to><subject>Demande d'information pour le remboursement de votre commande de {{form_name}}</subject>
           <body>Bonjour {{form_user_display_name}},
 
 Suite au refus de votre demande de {{form_name}} d'un montant de {{form_var_total}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions

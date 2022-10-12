@@ -308,7 +308,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
-          <subject>Administration de {{ commune_name }} : D&#233;marche "{{ form_name }}" (document gratuit).</subject>
+          <subject>D&#233;marche "{{ form_name }}" (document gratuit).</subject>
           <body>Bonjour {{ session_user_display_name }},
 Votre d&#233;marche gratuite "{{ form_name }}" est en cours de traitement par nos services.
 
@@ -333,7 +333,7 @@ Le service Population / Etat-civil
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-avec-paiement-usager-paiement-recu</mail_template>
-          <subject>Administration de {{ commune_name }} : D&#233;marche "{{ form_name }}" accept&#233;e.</subject>
+          <subject>D&#233;marche "{{ form_name }}" accept&#233;e.</subject>
           <body>Bonjour {{ session_user_var_last_name }},
 
 Nous avons bien re&#231;u votre paiement. Votre demande va &#234;tre trait&#233;e dans les meilleurs d&#233;lais.
@@ -585,7 +585,7 @@ Le service Population / Etat-civil
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-demande-d-infos-pour-remboursement</mail_template>
-          <subject>{{commune_name}} : Demande d'information pour le remboursement de votre commande de {{form_name}}</subject>
+          <subject>Demande d'information pour le remboursement de votre commande de {{form_name}}</subject>
           <body>Bonjour {{form_user_display_name}},
 
 Suite au refus de votre demande de {{form_name}} d'un montant de {{form_var_wf_total_commande}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions

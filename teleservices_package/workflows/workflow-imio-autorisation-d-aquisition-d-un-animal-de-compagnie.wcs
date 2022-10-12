@@ -138,7 +138,7 @@ Cordialement,
         </item><item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>Administration de {{ commune_name }} : D&#233;marche "{{ form_name }}". En attente du virement.</subject>
+          </to><subject>D&#233;marche "{{ form_name }}". En attente du virement.</subject>
           <body>Madame, Monsieur,
 
 Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
