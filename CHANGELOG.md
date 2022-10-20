@@ -5,6 +5,11 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.2.17] -
+
+### Fixed
+  - [TELE-154] add missing letter in field [dmshd]
+
 ## [0.2.16] - 12-10-2022
 ### Updated
   - [MTELEVIEA-12] Avoid sender / subject redundancy in all mails [dmshd]
