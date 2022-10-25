@@ -10,6 +10,9 @@ teleservices-package changelog
 ### Fixed
   - [TELE-154] add missing letter in field [dmshd]
 
+### Updated
+  - [TELE-862] Update datasource 'mode_de_delivrance' (text) [dmshd] [njphs]
+
 ## [0.2.16] - 12-10-2022
 ### Updated
   - [MTELEVIEA-12] Avoid sender / subject redundancy in all mails [dmshd]
