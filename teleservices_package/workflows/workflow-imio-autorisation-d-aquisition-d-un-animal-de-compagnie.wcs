@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="33" url="">
+<workflow id="127" url="">
   <name>iMio - Autorisation d'aquisition d'un animal de compagnie</name>
   <slug>imio-autorisation-d-aquisition-d-un-animal-de-compagnie</slug>
   <roles>
@@ -12,7 +12,7 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>{{ form_name }} : Demande re&#231;ue</subject>
@@ -27,11 +27,11 @@ Cordialement,
 {{ commune_name }}
 {{ administration_adresse }}
 {{ administration_site }}</body>
-        </item><item id="2" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
-        </item><item id="3" type="jump">
+        </item><item type="jump" id="3">
           <status>1</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -42,11 +42,11 @@ Cordialement,
       <colour>66FFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="displaymsg">
+        <item type="displaymsg" id="1">
           <message>Votre demande a bien &#233;t&#233; introduite dans notre syst&#232;me et les services comp&#233;tents en ont &#233;t&#233; inform&#233;s.</message>
           <level>success</level>
           <position>top</position>
-        </item><item id="2" type="choice">
+        </item><item type="choice" id="2">
           <label>Valider</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -56,7 +56,7 @@ Cordialement,
 </backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="3" type="choice">
+        </item><item type="choice" id="3">
           <label>Refuser</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -74,7 +74,7 @@ Cordialement,
       <colour>FF0000</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>{{ form_name }} : Demande refus&#233;e</subject>
@@ -97,19 +97,19 @@ Cordialement,
       <colour>99FF00</colour>
       <visibility />
       <items>
-        <item id="1" type="jump">
+        <item type="jump" id="1">
           <status>2</status>
           <condition>
             <type>django</type>
             <value>form_option_regie_de_paiement and form_option_montant|add:form_var_destination_price &gt; 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="2" type="jump">
+        </item><item type="jump" id="2">
           <status>11</status>
           <condition>
             <type>django</type>
             <value>not form_option_regie_de_paiement and form_option_montant|add:form_var_destination_price &gt; 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="3" type="jump">
+        </item><item type="jump" id="3">
           <status>4</status>
           <condition>
             <type>django</type>
@@ -123,7 +123,7 @@ Cordialement,
       <colour>FFFF00</colour>
       <visibility />
       <items>
-        <item id="1" type="displaymsg">
+        <item type="displaymsg" id="1">
           <message>&lt;p&gt;Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.&lt;/p&gt;
 &lt;p&gt;Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :&lt;/p&gt;
 &lt;ul&gt;
@@ -135,7 +135,7 @@ Cordialement,
 </message>
           <level>warning</level>
           <position>top</position>
-        </item><item id="2" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>D&#233;marche "{{ form_name }}". En attente du virement.</subject>
@@ -160,7 +160,7 @@ Montant de la commande : {{ form_option_montant|add:form_var_destination_price }
 
 
 Bien cordialement,</body>
-        </item><item id="3" type="choice">
+        </item><item type="choice" id="3">
           <label>Valider le paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -176,7 +176,7 @@ Bien cordialement,</body>
       <colour>FFFF00</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>{{ form_name }} : En attente de votre paiement</subject>
@@ -203,7 +203,7 @@ Cordialement,
 {{ commune_name }}
 {{ administration_adresse }}
 {{ administration_site }}</body>
-        </item><item id="2" type="register-comment">
+        </item><item type="register-comment" id="2">
           <comment>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
@@ -211,14 +211,14 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item id="3" type="displaymsg">
+        </item><item type="displaymsg" id="3">
           <message>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</message>
           <level>info</level>
           <position>top</position>
-        </item><item id="4" type="webservice_call">
+        </item><item type="webservice_call" id="4">
           <label>Paiement en ligne</label>
           <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <qs_data>
@@ -255,11 +255,11 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
-        </item><item id="5" type="jump">
+        </item><item type="jump" id="5">
           <status>3</status>
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="6" type="jump">
+        </item><item type="jump" id="6">
           <status>10</status>
           <trigger>cancelled</trigger>
           <set_marker_on_status>False</set_marker_on_status>
@@ -277,9 +277,9 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <colour>99FF00</colour>
       <visibility />
       <items>
-        <item id="1" type="register-comment">
+        <item type="register-comment" id="1">
           <comment>Votre paiement a bien &#233;t&#233; pris en compte et votre demande sera trait&#233;e dans les plus brefs d&#233;lais.</comment>
-        </item><item id="2" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><subject>{{ form_name }} : Paiement re&#231;u</subject>
@@ -296,7 +296,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
 {% endif %}
 
 Bonne journ&#233;e !</body>
-        </item><item id="3" type="jump">
+        </item><item type="jump" id="3">
           <status>4</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -307,7 +307,7 @@ Bonne journ&#233;e !</body>
       <colour>0099FF</colour>
       <visibility />
       <items>
-        <item id="1" type="addattachment">
+        <item type="addattachment" id="1">
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><required>False</required>
@@ -332,14 +332,14 @@ Bonne journ&#233;e !</body>
             <type>django</type>
             <value>"porte" in form_var_destination or "mail" in form_var_destination|lower</value>
           </condition>
-        </item><item id="2" type="jumponsubmit">
+        </item><item type="jumponsubmit" id="2">
           <status>6</status>
           <set_marker_on_status>False</set_marker_on_status>
           <condition>
             <type>django</type>
             <value>"porte" in form_var_destination or "mail" in form_var_destination|lower</value>
           </condition>
-        </item><item id="3" type="choice">
+        </item><item type="choice" id="3">
           <label>Traiter</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -362,9 +362,9 @@ Bonne journ&#233;e !</body>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item id="1" type="displaymsg">
+        <item type="displaymsg" id="1">
           <position>top</position>
-        </item><item id="2" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>{{ form_name }} : Demande trait&#233;e</subject>
@@ -390,7 +390,7 @@ Cordialement,
           <attachments>
             <attachment>{{ form_attachments_extrait }}</attachment>
           </attachments>
-        </item><item id="3" type="jump">
+        </item><item type="jump" id="3">
           <status>9</status>
           <timeout>31557600</timeout>
           <set_marker_on_status>False</set_marker_on_status>
@@ -402,7 +402,7 @@ Cordialement,
       <colour>000000</colour>
       <visibility />
       <items>
-        <item id="1" type="anonymise" />
+        <item type="anonymise" id="1" />
       </items>
     </status><status>
       <id>12</id>
@@ -410,7 +410,7 @@ Cordialement,
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="webservice_call">
+        <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
           <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <method>POST</method>
@@ -441,7 +441,7 @@ Cordialement,
       <id>1</id>
       <name>Suppression</name>
       <items>
-        <item id="2" type="webservice_call">
+        <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
           <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <method>POST</method>
@@ -464,12 +464,12 @@ Cordialement,
           <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>True</record_errors>
-        </item><item id="1" type="remove" />
+        </item><item type="remove" id="2" />
       </items><triggers>
-        <trigger id="52e6c875-8dcd-4f00-9df0-440600bae249" type="manual">
+        <trigger type="manual" id="466327d5-2cb1-458f-bf6a-f28df7acfd85">
           <roles>
-            <item role_id="712f8f807cef44f4aff1b714d5b0e055" slug="debug">Debug</item>
-            <item role_id="1abc674038c14c6c97fe8db4d504d9da" slug="agent-ayant-acces-aux-fabriques">Agent ayant acces aux fabriques</item>
+            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="9be8b3ce1b3244be8f6e05a9aa003cf0">Agent ayant acces aux fabriques</item>
           </roles>
         </trigger>
       </triggers>
@@ -477,15 +477,32 @@ Cordialement,
       <id>2</id>
       <name>Supprimer du panier</name>
       <items>
-        <item id="1" type="jump">
+        <item type="jump" id="1">
           <status>12</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="14e1a1b8-637a-48f7-988d-4ae480d6ad83" type="manual">
+        <trigger type="manual" id="d0570a4a-e7f6-4605-a79d-11c5a825dedc">
           <roles>
-            <item role_id="712f8f807cef44f4aff1b714d5b0e055" slug="debug">Debug</item>
-            <item role_id="1abc674038c14c6c97fe8db4d504d9da" slug="agent-ayant-acces-aux-fabriques">Agent ayant acces aux fabriques</item>
+            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="9be8b3ce1b3244be8f6e05a9aa003cf0">Agent ayant acces aux fabriques</item>
+          </roles>
+        </trigger>
+      </triggers>
+    </action><action>
+      <id>3</id>
+      <name>Cl&#244;tur&#233;</name>
+      <backoffice_info_text>&lt;p&gt;&amp;Agrave; utiliser en cas de demande/payement au guichet. Emm&amp;egrave;ne la demande dans le statut &lt;strong&gt;Trait&amp;eacute;&lt;/strong&gt;.&lt;/p&gt;
+</backoffice_info_text>
+      <items>
+        <item type="jump" id="1">
+          <status>6</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger type="manual" id="a16169e1-32f1-4ac8-af25-243ecfd20f6c">
+          <roles>
+            <item role_id="_receiver">_receiver</item>
           </roles>
         </trigger>
       </triggers>
