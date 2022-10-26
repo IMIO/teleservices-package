@@ -40,7 +40,6 @@ teleservices-package changelog
 ### Updated
   - [TELE-1412] wf animal supprimer du panier
 
->>>>>>> dev-test
 ## [0.2.11] - 28-07-2022 -
 ### Updated
   - [TELE-1389] Form animal add extrain in PJ
