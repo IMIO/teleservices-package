@@ -5,13 +5,14 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
-## [0.2.17] -
+## [0.2.17] - 26-10-2022
 
 ### Fixed
   - [TELE-154] add missing letter in field [dmshd]
 
 ### Updated
   - [TELE-862] Update datasource 'mode_de_delivrance' (text) [dmshd] [njphs]
+  - [TELE-1524] Implement new BAEC linking [dmshd] [njphs]
 
 ## [0.2.16] - 12-10-2022
 ### Updated

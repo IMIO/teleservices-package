@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
-<formdef id="38" url="http://local-formulaires.example.net/backoffice/forms/38/">
+<formdef id="281" url="">
   <name>Acte d'Adoption</name>
   <url_name>demande-acte-d-adoption</url_name>
-  <description>&lt;p&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;</description>
   <internal_identifier>demande-acte-d-adoption</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -14,9 +13,9 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="2" slug="etat-civil">Etat civil</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="23">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>106</max_field_id>
+  <category slug="etat-civil" category_id="126">Etat civil</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="159">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <max_field_id>118</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -38,6 +37,13 @@
       <label type="str">Extrait/Copie int&#233;grale d'acte de Naissance</label>
       <type type="str">page</type>
       <id type="str">1</id>
+    </field><field>
+      <label type="str">BAEC cat&#233;gorie</label>
+      <type type="str">computed</type>
+      <varname type="str">baec_categorie</varname>
+      <value_template type="str">ADOPTION_CERTIFICATE</value_template>
+      <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
+      <id type="str">118</id>
     </field><field>
       <label type="str">&lt;p&gt;Il y a lieu de distinguer :&lt;/p&gt;
 
@@ -67,8 +73,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>ds_personne_concernee</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -96,8 +102,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
@@ -107,11 +113,52 @@
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">101</id>
     </field><field>
+      <label type="str">Liste des actes disponibles</label>
+      <type type="str">page</type>
+      <condition>
+        <type>python</type>
+        <value>vars().get('imio_wcs_baec') and form_var_rb_concerne_raw != 'tiers' and script.commune('is_strong_authentication', {}) != 'False' and (form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique == 'True')</value>
+      </condition><id type="str">111</id>
+    </field><field>
+      <label type="str">Service disponible</label>
+      <type type="str">computed</type>
+      <varname type="str">service_disponible</varname>
+      <value_template type="str">{{ webservice.baec_service_disponible.err }}</value_template>
+      <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
+      <id type="str">115</id>
+    </field><field>
+      <label type="str">Liste des actes disponibles</label>
+      <type type="str">item</type>
+      <condition>
+        <type>django</type>
+        <value>data_source.baec_documents_by_category|length &gt; 0</value>
+      </condition><required type="bool">True</required>
+      <varname type="str">baec_document_select</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <data_source>
+        <type>baec_documents_by_category</type>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">True</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">116</id>
+    </field><field>
+      <label type="str">&lt;p&gt;{% if form_var_service_disponible == "0" %}Pas d&amp;#39;acte dans la BAEC{% elif form_var_service_disponible == "1" %}Un probl&amp;egrave;me est survenu, demander &amp;agrave; Caroline de r&amp;eacute;&amp;eacute;crire cette phrase.{% endif %}&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>data_source.baec_documents_by_category|length &lt;= 0</value>
+      </condition><display_locations />
+      <id type="str">117</id>
+    </field><field>
       <label type="str">Date de l'acte</label>
       <type type="str">page</type>
       <condition>
         <type>python</type>
-        <value>form_var_rb_concerne_raw != 'tiers' and script.commune('is_strong_authentication', {}) != 'False' and (form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique == 'True')</value>
+        <value>form_var_rb_concerne_raw != 'tiers' and script.commune('is_strong_authentication', {}) != 'False' and (form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique == 'True') and not vars().get('imio_wcs_baec')</value>
       </condition><id type="str">102</id>
     </field><field>
       <label type="str">De quand date l'acte demand&#233;</label>
@@ -123,12 +170,12 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Avant le 31-03-2019</item>
         <item>Apr&#232;s le 31-03-2019</item>
         <item>Ne sais pas</item>
-      </items><display_mode type="str">radio</display_mode>
-      <data_source>
+      </items><data_source>
         <type>ds_date_acte</type>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
@@ -145,21 +192,41 @@
     </field><field>
       <label type="str">Extrait ou Copie int&#233;grale</label>
       <type type="str">item</type>
-      <required type="bool">True</required>
+      <condition>
+        <type>django</type>
+        <value>not form_var_baec_document_select</value>
+      </condition><required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><items>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <items>
         <item>Extrait d'acte</item>
         <item>Copie int&#233;grale de l'acte</item>
-      </items><display_mode type="str">radio</display_mode>
-      <in_filters type="bool">False</in_filters>
+      </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">41</id>
+    </field><field>
+      <label type="str">Type d'acte</label>
+      <type type="str">item</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_baec_document_select</value>
+      </condition><required type="bool">True</required>
+      <varname type="str">baec_document_type</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <data_source>
+        <type>formula</type>
+        <value>form_var_baec_document_select_types</value>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">114</id>
     </field><field>
       <label type="str">&lt;p&gt;&lt;strong&gt;- Extrait de l'acte d'adoption &lt;/strong&gt;: Document qui ne comporte qu'une partie des informations figurant dans l'acte d'adoption.&lt;/p&gt;
 
@@ -184,13 +251,13 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Conjoint</item>
         <item>Enfants</item>
         <item>P&#232;re ou M&#232;re</item>
         <item>Autre (&#224; pr&#233;ciser)</item>
-      </items><display_mode type="str">radio</display_mode>
-      <data_source>
+      </items><data_source>
         <type>ds_lien_de_parente</type>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
@@ -272,7 +339,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>nrn-be</type>
@@ -395,8 +461,8 @@
       </display_locations><extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -434,7 +500,7 @@
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
@@ -492,7 +558,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><validation>
@@ -624,8 +689,8 @@
       </display_locations><extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -664,7 +729,7 @@
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type</value>
       </condition><id type="str">84</id>
     </field><field>
       <label type="str">Le document est destin&#233; &#224;</label>
@@ -677,8 +742,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -712,8 +777,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
@@ -744,7 +809,7 @@
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type</value>
       </condition><id type="str">89</id>
     </field><field>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
@@ -771,7 +836,9 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">99</id>
     </field>
-  </fields><options>
+  </fields><roles>
+    <role slug="agents-traitants-population-etat-civil" role_id="e8158eb6f0cb49798416e192f8c4dde6" role_key="_receiver">Agents traitants - Population, etat civil</role>
+  </roles><options>
     <option varname="baec" />
     <option varname="comptes_identifiants_regies" />
     <option varname="comptes_identifiants_regies_display" />
@@ -782,6 +849,9 @@
     <option varname="destinations_display" />
     <option varname="destinations_structured" />
     <option varname="iban" />
+    <option varname="liaison_baec">Staging</option>
+    <option varname="liaison_baec_display">Staging</option>
+    <option varname="liaison_baec_structured" />
     <option varname="lien_bosa" />
     <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
     <option varname="mode_recup_disponibles" />
