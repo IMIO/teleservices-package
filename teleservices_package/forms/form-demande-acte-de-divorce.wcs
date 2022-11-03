@@ -40,7 +40,7 @@
     </field><field>
       <label type="str">BAEC cat&#233;gorie</label>
       <type type="str">computed</type>
-      <varname type="str">baec_categorie</varname>
+      <varname type="str">baec_category</varname>
       <value_template type="str">'missing_category'</value_template>
       <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
       <id type="str">81</id>
