@@ -160,7 +160,7 @@
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">98</id>
     </field><field>
-      <label type="str">&lt;p&gt;{% if form_var_service_disponible == "0" %}Pas d&amp;#39;acte dans la BAEC{% elif form_var_service_disponible == "1" %}Un probl&amp;egrave;me est survenu, demander &amp;agrave; Caroline de r&amp;eacute;&amp;eacute;crire cette phrase.{% endif %}&lt;/p&gt;
+      <label type="str">&lt;p&gt;{% if form_var_service_disponible == "0" %}Le document que vous demandez n&amp;#39;est pas encore num&amp;eacute;ris&amp;eacute; dans la Banque des Actes de l&amp;#39;Etat Civil, la d&amp;eacute;marche doit donc s&amp;#39;effectuer aupr&amp;egrave;s de votre administration communale directement. Cliquez sur &amp;quot;Suivant&amp;quot; pour poursuivre votre demande.{% elif form_var_service_disponible == "1" %}Il n&amp;#39;est actuellement pas possible de r&amp;eacute;cup&amp;eacute;rer votre document dans la Banque des Actes de l&amp;#39;Etat Civil. Vous pouvez r&amp;eacute;essayer plus tard ou faire votre demande directement aupr&amp;egrave;s de votre administration communale en cliquant sur &amp;quot;Suivant&amp;quot;.{% endif %}&lt;/p&gt;
 </label>
       <type type="str">comment</type>
       <condition>
