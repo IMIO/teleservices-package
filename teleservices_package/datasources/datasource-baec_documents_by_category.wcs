@@ -4,7 +4,7 @@
   <slug>baec_documents_by_category</slug>
   <description>Liste des documents de la personne par cat&#233;gorie.</description>
   <data_attribute>items</data_attribute>
-  <id_attribute>reference</id_attribute>
+  <id_attribute>title</id_attribute>
   <text_attribute>title</text_attribute>
   <data_source>
     <type>json</type>
