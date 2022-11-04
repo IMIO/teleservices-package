@@ -8,7 +8,11 @@ teleservices-package changelog
 ## [0.2.18] -
 
 ### Removed
-  - [TELE-1524] Delete merge warning
+  - [TELE-1524] Delete merge warning [dmshd] [njphs]
+### Updated
+  - [TELE-1534] Update feedback text following team's reviewing [dmshd]
+### Fixed
+  - [TELE-1534] Fix typo in computed var name [dmshd]
 
 ## [0.2.17] - 26-10-2022
 
