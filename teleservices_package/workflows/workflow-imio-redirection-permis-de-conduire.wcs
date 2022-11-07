@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<workflow id="161" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/161/">
+  <name>iMio - Redirection Permis de conduire</name>
+  <slug>imio-redirection-permis-de-conduire</slug>
+  <roles>
+    <role id="_receiver">Destinataire</role>
+  </roles><possible_status>
+    <status>
+      <id>1</id>
+      <name>Redirection</name>
+      <colour>FFFFFF</colour>
+      <visibility />
+      <items>
+        <item type="displaymsg" id="1">
+          <message>Vous allez &#234;tre redirig&#233; vers le site du Service public f&#233;d&#233;ral Int&#233;rieur afin de demander un permis de conduire</message>
+          <level>info</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item type="redirect_to_url" id="2">
+          <url>{{form_option_urlredirection}}</url>
+        </item>
+      </items>
+    </status>
+  </possible_status><variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label type="str">Url-redirection</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <varname type="str">urlredirection</varname>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">1</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables>
+</workflow>

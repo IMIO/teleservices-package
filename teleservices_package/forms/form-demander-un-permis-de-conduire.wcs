@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<formdef id="334" url="">
+  <name>Demander un permis de conduire</name>
+  <url_name>demande-permis-de-conduire</url_name>
+  <internal_identifier>demande-permis-de-conduire</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>true</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>true</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="imio-population" category_id="132">Population</category>
+  <workflow slug="imio-redirection-permis-de-conduire" workflow_id="161">iMio - Redirection Permis de conduire</workflow>
+  <max_field_id>64</max_field_id>
+  <fields>
+    <field>
+      <label type="str">Demande d'un permis de conduire</label>
+      <type type="str">page</type>
+      <id type="str">54</id>
+    </field><field>
+      <label type="str">&lt;p&gt;En cliquant sur valider, vous allez &amp;ecirc;tre redirig&amp;eacute; vers le site du f&amp;eacute;d&amp;eacute;ral, o&amp;ugrave; il vous sera demand&amp;eacute; de vous authentifier via &lt;strong&gt;eID&lt;/strong&gt; ou &lt;strong&gt;It&amp;#39;s me&lt;/strong&gt;&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <display_locations />
+      <id type="str">64</id>
+    </field>
+  </fields><options>
+    <option varname="urlredirection">https://mobilit.belgium.be/fr/circulationroutiere/permis_de_conduire/demande_permis_de_conduire_en_ligne</option>
+  </options><custom_views />
+  <geolocations />
+</formdef>
