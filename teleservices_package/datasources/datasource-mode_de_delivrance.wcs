@@ -5,6 +5,6 @@
   <description>Source de donn&#233;e pour le choix de d&#233;livrance mon dossier ou par la commune.</description>
   <data_source>
     <type>formula</type>
-    <value>[{'id': 'mondossier','text': 'Mon Dossier : je souhaite r&#233;cup&#233;rer le fichier .pdf sign&#233; &#233;lectroniquement (carte d\'identit&#233; + code pin requis).','disabled': True}, {'id': 'commune','text': 'Commune : je souhaite r&#233;aliser ma d&#233;marche et recevoir mes documents par le biais de ma commune.','disabled': False}]</value>
+    <value>[{'id': 'mondossier','text': 'Je souhaite r&#233;cup&#233;rer directement le document PDF (carte d\'identit&#233; + code pin requis).','disabled': True}, {'id': 'commune','text': 'Je souhaite recevoir mes documents par le biais de mon administration communale.','disabled': False}]</value>
   </data_source>
 </datasource>
