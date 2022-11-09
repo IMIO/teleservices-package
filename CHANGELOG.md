@@ -11,6 +11,8 @@ teleservices-package changelog
   - [TELE-1524] Delete merge warning [dmshd] [njphs]
 ### Updated
   - [TELE-1534] Update feedback text following team's reviewing [dmshd]
+  - [TELE-1534] Use 'title' as id in datasource [dmshd] [njphs]
+  - [TELE-1534] Update with latest BAEC mods [dmshd] [njphs]
 ### Fixed
   - [TELE-1534] Fix typo in computed var name [dmshd]
 
