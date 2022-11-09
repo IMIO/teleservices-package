@@ -1,22 +1,21 @@
 <?xml version="1.0"?>
-<formdef id="3" url="http://local-formulaires.example.net/backoffice/forms/3/">
+<formdef id="278" url="">
   <name>Acte de Nationalit&#233;</name>
   <url_name>demande-acte-de-nationalite</url_name>
-  <description>&lt;p&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;</description>
   <internal_identifier>demande-acte-de-nationalite</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
-  <confirmation>true</confirmation>
+  <confirmation>false</confirmation>
   <always_advertise>true</always_advertise>
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="2" slug="etat-civil">Etat civil</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="23">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>66</max_field_id>
+  <category slug="etat-civil" category_id="126">Etat civil</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <max_field_id>80</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -38,6 +37,13 @@
       <label type="str">Copie int&#233;grale d'acte de Nationalit&#233;</label>
       <type type="str">page</type>
       <id type="str">1</id>
+    </field><field>
+      <label type="str">BAEC cat&#233;gorie</label>
+      <type type="str">computed</type>
+      <varname type="str">baec_category</varname>
+      <value_template type="str">'missing_category'</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">77</id>
     </field><field>
       <label type="str">&lt;p&gt;&lt;strong&gt;L&amp;rsquo;acte de nationalit&amp;eacute;&amp;nbsp;ne concerne que les &amp;eacute;trangers devenus Belges.&lt;br /&gt;
 Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|objects:'imio-lien-vers-formulaire'|filter_by:'nom'|filter_value:'Certificat de nationalit&#233;'|first|get:'lien'}}" rel="noopener noreferrer" target="_blank"&gt;demander le certificat de nationalit&amp;eacute;&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
@@ -79,8 +85,8 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>ds_personne_concernee</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -108,8 +114,8 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
@@ -119,11 +125,78 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">63</id>
     </field><field>
+      <label type="str">Liste des actes disponibles</label>
+      <type type="str">page</type>
+      <condition>
+        <type>python</type>
+        <value>vars().get('imio_wcs_baec') and form_var_rb_concerne_raw != 'tiers' and script.commune('is_strong_authentication', {}) != 'False' and (form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique == 'True')</value>
+      </condition><id type="str">67</id>
+    </field><field>
+      <label type="str">Service disponible</label>
+      <type type="str">computed</type>
+      <varname type="str">service_disponible</varname>
+      <value_template type="str">{{ webservice.baec_service_disponible.err }}</value_template>
+      <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
+      <id type="str">74</id>
+    </field><field>
+      <label type="str">Liste des actes disponibles</label>
+      <type type="str">item</type>
+      <condition>
+        <type>django</type>
+        <value>data_source.baec_documents_by_category|length &gt; 0</value>
+      </condition><required type="bool">True</required>
+      <varname type="str">baec_document_select</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <data_source>
+        <type>baec_documents_by_category</type>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">True</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">75</id>
+    </field><field>
+      <label type="str">&lt;p&gt;{% if form_var_service_disponible == "0" %}Le document que vous demandez n&amp;#39;est pas encore num&amp;eacute;ris&amp;eacute; dans la Banque des Actes de l&amp;#39;Etat Civil, la d&amp;eacute;marche doit donc s&amp;#39;effectuer aupr&amp;egrave;s de votre administration communale directement. Cliquez sur &amp;quot;Suivant&amp;quot; pour poursuivre votre demande.{% elif form_var_service_disponible == "1" %}Il n&amp;#39;est actuellement pas possible de r&amp;eacute;cup&amp;eacute;rer votre document dans la Banque des Actes de l&amp;#39;Etat Civil. Vous pouvez r&amp;eacute;essayer plus tard ou faire votre demande directement aupr&amp;egrave;s de votre administration communale en cliquant sur &amp;quot;Suivant&amp;quot;.{% endif %}&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>data_source.baec_documents_by_category|length &lt;= 0</value>
+      </condition><extra_css_class type="str">pk-information</extra_css_class>
+      <display_locations>
+        <display_location>validation</display_location>
+      </display_locations><id type="str">76</id>
+    </field><field>
+      <label type="str">&lt;p&gt;Votre document doit encore &amp;ecirc;tre num&amp;eacute;ris&amp;eacute; dans Banque des Actes de l&amp;#39;Etat Civil. Une demande migration va &amp;ecirc;tre introduite aupr&amp;egrave;s des services concern&amp;eacute;s. Veuillez poursuivre la proc&amp;eacute;dure en cliquant sur &amp;quot;Suivant.&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_baec_document_select is not null and form_var_baec_document_select_migration_command</value>
+      </condition><extra_css_class type="str">pk-information</extra_css_class>
+      <display_locations>
+        <display_location>validation</display_location>
+      </display_locations><id type="str">78</id>
+    </field><field>
+      <label type="str">&lt;p&gt;Il semble ne pas y avoir d&amp;#39;acte de nationalité relatif &amp;agrave; votre num&amp;eacute;ro de registre national dans la Banque des Acte d&amp;#39;Etat Civil (BAEC).&lt;/p&gt;
+
+&lt;p&gt;Veuillez poursuivre la demande si vous pensez que c&amp;#39;est une erreur.&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>data_source.baec_documents_by_category|length == 0</value>
+      </condition><extra_css_class type="str">pk-information</extra_css_class>
+      <display_locations>
+        <display_location>validation</display_location>
+      </display_locations><id type="str">79</id>
+    </field><field>
       <label type="str">Date de l'acte</label>
       <type type="str">page</type>
       <condition>
         <type>python</type>
-        <value>form_var_rb_concerne_raw != 'tiers' and script.commune('is_strong_authentication', {}) != 'False' and (form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique == 'True')</value>
+        <value>form_var_rb_concerne_raw != 'tiers' and script.commune('is_strong_authentication', {}) != 'False' and (form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique == 'True') and not vars().get('imio_wcs_baec')</value>
       </condition><id type="str">6</id>
     </field><field>
       <label type="str">De quand date l'acte demand&#233;</label>
@@ -135,8 +208,8 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>ds_date_acte</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -144,6 +217,65 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">64</id>
+    </field><field>
+      <label type="str">Document souhait&#233;</label>
+      <type type="str">page</type>
+      <id type="str">70</id>
+    </field><field>
+      <label type="str">Extrait ou Copie int&#233;grale</label>
+      <type type="str">item</type>
+      <condition>
+        <type>django</type>
+        <value>not form_var_baec_document_select</value>
+      </condition><required type="bool">True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <items>
+        <item>Extrait d'acte</item>
+        <item>Copie int&#233;grale de l'acte</item>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">71</id>
+    </field><field>
+      <label type="str">Type d'acte</label>
+      <type type="str">item</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_baec_document_select</value>
+      </condition><required type="bool">True</required>
+      <varname type="str">baec_document_type</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <data_source>
+        <type>formula</type>
+        <value>form_var_baec_document_select_types</value>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">72</id>
+    </field><field>
+      <label type="str">&lt;p&gt;&lt;strong&gt;- Extrait de l'acte de nationalit&#233;&lt;/strong&gt; : Document qui ne comporte qu'une partie des informations figurant dans l'acte de nationalité.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;- Copie int&#233;grale de l'acte de nationalit&#233;&lt;/strong&gt; : Document qui reprend l'int&#233;gralit&#233; des informations reprises sur l'acte de nationalit&#233;.&lt;/p&gt;</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>not form_var_baec_document_select_structured_types</value>
+      </condition><display_locations />
+      <id type="str">73</id>
+    </field><field>
+      <label type="str">&lt;p&gt;{% for el in form_var_baec_document_select_structured_types %}{% if el|get:"id" == "E" %}- Extrait : Document qui ne comporte qu'une partie des informations figurant dans l'acte de nationalité.&lt;br&gt;{% endif %}{% if el|get:"id" == "C" %}- Copie : Document qui reprend l'int&#233;gralit&#233; des informations reprises sur l'acte de nationalité.&lt;br&gt;{% endif %}{% if el|get:"id" == "A" %}- Article 16 : Document extrait d'acte multilingue (les 3 langues nationales + l'anglais).{% endif %}{% endfor %}&lt;/p&gt;</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_baec_document_select_structured_types</value>
+      </condition><display_locations />
+      <id type="str">80</id>
     </field><field>
       <label type="str">Lien de parent&#233;</label>
       <type type="str">page</type>
@@ -161,15 +293,15 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Epoux / Epouse / Cohabitant(e) l&#233;gal(e)</item>
         <item>Repr&#233;sentant l&#233;gal</item>
         <item>Ascendant / Descendant</item>
         <item>Notaire / Avocat</item>
         <item>H&#233;ritier(e) / Ayant droit</item>
         <item>Autre</item>
-      </items><display_mode type="str">radio</display_mode>
-      <in_filters type="bool">False</in_filters>
+      </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">9</id>
@@ -248,7 +380,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>nrn-be</type>
@@ -372,8 +503,8 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -411,7 +542,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'  and not form_var_baec_document_type</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
@@ -469,7 +600,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><validation>
@@ -587,8 +717,8 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <prefill>
         <type>user</type>
         <value>_country</value>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -632,7 +762,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'  and not form_var_baec_document_type</value>
       </condition><id type="str">31</id>
     </field><field>
       <label type="str">Le document est destin&#233; &#224;</label>
@@ -646,8 +776,8 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -683,8 +813,8 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
@@ -716,7 +846,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'  and not form_var_baec_document_type</value>
       </condition><id type="str">36</id>
     </field><field>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
@@ -765,7 +895,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|object
     <option varname="paiement_en_ligne" />
     <option varname="redirection_automatique" />
     <option varname="regie_de_paiement" />
-    <option varname="regie_de_paiement_display"> </option>
+    <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
   </options><custom_views />

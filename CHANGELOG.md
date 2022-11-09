@@ -5,13 +5,25 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
-## [0.2.17] -
+## [0.2.18] -
+
+### Removed
+  - [TELE-1524] Delete merge warning [dmshd] [njphs]
+### Updated
+  - [TELE-1534] Update feedback text following team's reviewing [dmshd]
+  - [TELE-1534] Use 'title' as id in datasource [dmshd] [njphs]
+  - [TELE-1534] Update with latest BAEC mods [dmshd] [njphs]
+### Fixed
+  - [TELE-1534] Fix typo in computed var name [dmshd]
+
+## [0.2.17] - 26-10-2022
 
 ### Fixed
   - [TELE-154] add missing letter in field [dmshd]
 
 ### Updated
   - [TELE-862] Update datasource 'mode_de_delivrance' (text) [dmshd] [njphs]
+  - [TELE-1524] Implement new BAEC linking [dmshd] [njphs]
 
 ## [0.2.16] - 12-10-2022
 ### Updated
@@ -39,7 +51,6 @@ teleservices-package changelog
 ### Updated
   - [TELE-1412] wf animal supprimer du panier
 
->>>>>>> dev-test
 ## [0.2.11] - 28-07-2022 -
 ### Updated
   - [TELE-1389] Form animal add extrain in PJ

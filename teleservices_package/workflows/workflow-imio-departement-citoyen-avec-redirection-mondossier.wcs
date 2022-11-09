@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="94" url="https://staging-formulaires.guichet-citoyen.be/backoffice/workflows/94/">
+<workflow id="159" url="">
   <name>iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
   <slug>imio-departement-citoyen-avec-redirection-mondossier</slug>
   <roles>
@@ -15,12 +15,18 @@
         <role>_validateur-pc-banking</role>
       </visibility><items>
         <item type="jump" id="1">
+          <status>32</status>
+          <condition>
+            <type>python</type>
+            <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and (form_var_mode_delivrance_raw != 'commune' or (vars().get('form_var_date_acte_raw') and form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019') or ((vars().get('form_var_concerne_qui_raw') and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True'))) and vars().get('imio_wcs_baec') and vars().get('form_var_baec_document_select')</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="2">
           <status>20</status>
           <condition>
             <type>python</type>
-            <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and ((vars().get('form_var_mode_delivrance_raw') and form_var_mode_delivrance_raw != 'commune') or (vars().get('form_var_date_acte_raw') and form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019') or ((vars().get('form_var_concerne_qui_raw') and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True')))</value>
+            <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and (form_var_mode_delivrance_raw != 'commune' or (vars().get('form_var_date_acte_raw') and form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019') or ((vars().get('form_var_concerne_qui_raw') and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True'))) and not vars().get('form_var_destinations')</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="set-backoffice-fields" id="2">
+        </item><item type="set-backoffice-fields" id="3">
           <label>Configuration des donn&#233;es de traitement</label>
           <fields>
             <field>
@@ -46,7 +52,7 @@
               <value>{{form_option_paiement_en_ligne}}</value>
             </field>
           </fields>
-        </item><item type="set-backoffice-fields" id="3">
+        </item><item type="set-backoffice-fields" id="4">
           <label>Adresse pour un acte qui me concerne</label>
           <fields>
             <field>
@@ -57,7 +63,7 @@
             <type>django</type>
             <value>"Acte" in form_name and not form_var_rb_concerne or form_var_rb_concerne_raw == 'moi'</value>
           </condition>
-        </item><item type="set-backoffice-fields" id="4">
+        </item><item type="set-backoffice-fields" id="5">
           <label>Adresse pour un certificat qui me concerne</label>
           <fields>
             <field>
@@ -68,7 +74,7 @@
             <type>django</type>
             <value>"Acte" not in form_name and not form_var_concerne_qui_raw or form_var_concerne_qui_raw == 'moi'</value>
           </condition>
-        </item><item type="set-backoffice-fields" id="5">
+        </item><item type="set-backoffice-fields" id="6">
           <label>Adresse pour l'acte d'un tiers</label>
           <fields>
             <field>
@@ -79,7 +85,7 @@
             <type>django</type>
             <value>"Acte" in form_name and form_var_rb_concerne_raw == 'tiers'</value>
           </condition>
-        </item><item type="set-backoffice-fields" id="6">
+        </item><item type="set-backoffice-fields" id="7">
           <label>Adresse pour le certificat d'un tiers</label>
           <fields>
             <field>
@@ -90,24 +96,248 @@
             <type>django</type>
             <value>"Acte" not in form_name and form_var_concerne_qui_raw == 'tiers'</value>
           </condition>
-        </item><item type="jump" id="7">
+        </item><item type="jump" id="8">
           <status>13</status>
           <condition>
             <type>python</type>
             <value>Decimal(form_var_wf_total_commande) == Decimal('0') and (locals().get('form_var_destinations_paymentrequired') == 'False')</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="8">
+        </item><item type="jump" id="9">
           <status>21</status>
           <condition>
             <type>python</type>
             <value>vars().get('form_var_wf_paiement_en_ligne_raw') is False</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="9">
+        </item><item type="jump" id="10">
           <status>10</status>
           <condition>
             <type>django</type>
             <value>form_option_regie_de_paiement</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>32</id>
+      <name>BAEC</name>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
+        <item type="jump" id="1">
+          <status>29</status>
+          <condition>
+            <type>django</type>
+            <value>form_var_baec_document_select_reference</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="2">
+          <status>33</status>
+          <condition>
+            <type>django</type>
+            <value>form_var_baec_document_select_migration_command</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>33</id>
+      <name>Demande de migration</name>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
+        <item type="webservice_call" id="1">
+          <label>Demande de migration de document</label>
+          <url>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/request-document-migration</url>
+          <qs_data>
+            <item>
+              <name>migration_command</name>
+              <value>{{ form_var_baec_document_select_migration_command }}</value>
+            </item>
+          </qs_data><method>POST</method>
+          <post>False</post>
+          <response_type>json</response_type>
+          <varname>migration_request</varname>
+          <action_on_app_error>36</action_on_app_error>
+          <action_on_4xx>36</action_on_4xx>
+          <action_on_5xx>36</action_on_5xx>
+          <action_on_bad_data>36</action_on_bad_data>
+          <action_on_network_errors>36</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>True</record_errors>
+          <condition>
+            <type>django</type>
+            <value>form_var_baec_document_select_migration_command</value>
+          </condition>
+        </item><item type="jump" id="2">
+          <status>34</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>36</id>
+      <name>Erreur lors de la demande de migration</name>
+      <colour>FF0000</colour>
+      <visibility />
+      <items>
+        <item type="displaymsg" id="1">
+          <message>Une erreur s'est produite pendant la demande de migration.</message>
+          <level>error</level>
+          <position>top</position>
+        </item><item type="register-comment" id="2">
+          <comment>Une erreur s'est produite pendant la demande de migration.</comment>
+        </item>
+      </items>
+    </status><status>
+      <id>34</id>
+      <name>En attente du document</name>
+      <colour>0099FF</colour>
+      <visibility />
+      <items>
+        <item type="displaymsg" id="3">
+          <message>Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va traiter votre demande dans les plus bref d&#233;lais.</message>
+          <level>info</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item type="register-comment" id="2">
+          <comment>Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va traiter votre demande dans les plus bref d&#233;lais.</comment>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item type="jump" id="1">
+          <status>35</status>
+          <timeout>86400</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item type="choice" id="4">
+          <label>V&#233;rifier la pr&#233;sence de l'acte</label>
+          <by>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+          </by><status>35</status>
+          <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;V&amp;eacute;rifie la pr&amp;eacute;sence de l&amp;#39;acte dans la BAEC suite &amp;agrave; la demande de migration.&lt;/p&gt;
+</backoffice_info_text>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>35</id>
+      <name>V&#233;rification de la pr&#233;sence du document</name>
+      <colour>FFFF00</colour>
+      <visibility />
+      <items>
+        <item type="webservice_call" id="1">
+          <method>GET</method>
+          <post>False</post>
+          <response_type>json</response_type>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>False</record_errors>
+        </item><item type="jump" id="2">
+          <status>34</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="3">
+          <status>29</status>
+          <condition>
+            <type>django</type>
+            <value>False</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>31</id>
+      <name>Document</name>
+      <colour>0099FF</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item type="displaymsg" id="3">
+          <message>Le document num&#233;ris&#233; issu de la BAEC a &#233;t&#233; d&#233;livr&#233; &#224; l'usager.</message>
+          <level>info</level>
+          <position>top</position>
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item><item type="displaymsg" id="1">
+          <message>Votre document est disponible au t&#233;l&#233;chargement.&lt;br /&gt;
+&lt;a style="margin: 10px; width: 230px;" href="{{ form_var_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</message>
+          <level>success</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item type="register-comment" id="2">
+          <comment>&lt;a href="{{ form_var_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</comment>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>29</id>
+      <name>R&#233;cup&#233;ration du document</name>
+      <colour>999999</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
+        <item type="webservice_call" id="1">
+          <label>R&#233;cup&#233;ration du document</label>
+          <url>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/read-document</url>
+          <qs_data>
+            <item>
+              <name>certificate_reference</name>
+              <value>{{ form_var_baec_document_select_reference }}</value>
+            </item><item>
+              <name>certificate_type</name>
+              <value>{{ form_var_baec_document_type_raw }}</value>
+            </item><item>
+              <name>rn</name>
+              <value>{% if form_option_liaison_baec == "Staging" %}89041522261{% elif form_option_liaison_baec == "Production" %}{{ form_user_var_niss }}{% endif %}</value>
+            </item>
+          </qs_data><method>POST</method>
+          <post>False</post>
+          <response_type>attachment</response_type>
+          <varname>baec_document</varname>
+          <backoffice_filefield_id>boc69b2ccc-1a6c-43a8-a1e0-5008ba678885</backoffice_filefield_id>
+          <action_on_app_error>30</action_on_app_error>
+          <action_on_4xx>30</action_on_4xx>
+          <action_on_5xx>30</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>30</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>True</record_errors>
+          <condition>
+            <type>django</type>
+            <value>form_var_baec_document_select_reference</value>
+          </condition>
+        </item><item type="jump" id="2">
+          <status>31</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>30</id>
+      <name>Erreur lors de la r&#233;cup&#233;ration du document</name>
+      <colour>FF0000</colour>
+      <visibility />
+      <items>
+        <item type="displaymsg" id="1">
+          <message>Une erreur est survenue lors de la r&#233;cup&#233;ration de votre document. Veuillez contacter votre administration.</message>
+          <level>error</level>
+          <position>top</position>
+        </item><item type="register-comment" id="2">
+          <comment>Une erreur est survenue lors de la r&#233;cup&#233;ration de votre document. Veuillez contacter votre administration.</comment>
         </item>
       </items>
     </status><status>
@@ -454,7 +684,7 @@ Bien cordialement,
                 <prefill>
                   <type>none</type>
                 </prefill><rows type="str">10</rows>
-                <pre type="bool">True</pre>
+                <display_mode type="str">plain</display_mode>
                 <id type="str">7</id>
               </field>
             </fields>
@@ -516,14 +746,14 @@ En cliquant sur valider, vous allez &#234;tre red&#233;rig&#233; vers le site du
       <colour>FFFF00</colour>
       <visibility />
       <items>
-        <item type="displaymsg" id="5">
+        <item type="displaymsg" id="1">
           <message>Cette demande avec paiement par virement est en attente de validation de votre part (virement effectivement per&#231;u).</message>
           <level>info</level>
           <position>top</position>
           <to>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
           </to>
-        </item><item type="displaymsg" id="1">
+        </item><item type="displaymsg" id="2">
           <message>&lt;p&gt;Votre demande a &#233;t&#233; transmise avec succ&#232;s.&lt;/p&gt;
 &lt;p&gt;Nous vous invitons &#224; r&#233;gler le paiement d&#251; par virement bancaire en veillant &#224; mentionner le d&#233;tail suivant :&lt;/p&gt;
 &lt;ul&gt;
@@ -539,7 +769,7 @@ En cliquant sur valider, vous allez &#234;tre red&#233;rig&#233; vers le site du
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item type="sendmail" id="4">
+        </item><item type="sendmail" id="3">
           <to>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
           </to><subject>{{ form_name }} : Nouvelle demande avec paiement par virement bancaire</subject>
@@ -556,7 +786,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
 {% endif %}
 
 Bonne journ&#233;e !</body>
-        </item><item type="sendmail" id="2">
+        </item><item type="sendmail" id="4">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>D&#233;marche "{{ form_name }}". En attente du virement.</subject>
@@ -581,7 +811,7 @@ Montant de la commande : {{ form_var_wf_total_commande }}
 
 
 Bien cordialement,</body>
-        </item><item type="choice" id="3">
+        </item><item type="choice" id="5">
           <label>Valider le paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -878,9 +1108,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger type="manual" id="d6d6eb04-db11-46ad-b681-f62b0c882377">
+        <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
-            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -890,9 +1120,9 @@ Cordialement, </body>
       <items>
         <item type="remove" id="1" />
       </items><triggers>
-        <trigger type="manual" id="e88e19f9-93a3-4472-b886-396714213932">
+        <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
-            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -906,9 +1136,9 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger type="manual" id="6f880232-ab30-4cb4-ab1f-4f9880392d78">
+        <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
-            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -923,7 +1153,7 @@ Cordialement, </body>
           </condition>
         </item>
       </items><triggers>
-        <trigger type="timeout" id="c589a9a2-464b-4191-b0fe-9f03eb74dc8d">
+          <trigger type="timeout" id="31976731-c2f5-4152-be2e-beb11ba0a901">
           <anchor>finalized</anchor>
           <timeout>31</timeout>
         </trigger>
@@ -934,7 +1164,7 @@ Cordialement, </body>
       <items>
         <item type="anonymise" id="1" />
       </items><triggers>
-        <trigger type="timeout" id="40049de3-450d-4093-bcb6-71f2829d5a01">
+        <trigger type="timeout" id="eb058b81-c101-4ae7-af07-f338c58864b1">
           <anchor>finalized</anchor>
           <timeout>1827</timeout>
         </trigger>
@@ -1071,6 +1301,20 @@ Cordialement, </body>
             <type>none</type>
           </prefill><anonymise type="bool">True</anonymise>
           <id type="str">14</id>
+        </field><field>
+          <label type="str">Phase de la liaison avec la BAEC</label>
+          <type type="str">item</type>
+          <required type="bool">True</required>
+          <varname type="str">liaison_baec</varname>
+          <display_locations />
+          <display_mode type="str">list</display_mode>
+          <items>
+            <item>Staging</item>
+            <item>Production</item>
+          </items><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">False</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">15</id>
         </field>
       </fields>
     </formdef>
@@ -1154,6 +1398,17 @@ Cordialement, </body>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><id type="str">bo9</id>
+        </field><field>
+          <label type="str">Document</label>
+          <type type="str">file</type>
+          <required type="bool">True</required>
+          <varname type="str">document</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+          <automatic_image_resize type="bool">False</automatic_image_resize>
+          <storage type="str">default</storage>
+          <id type="str">boc69b2ccc-1a6c-43a8-a1e0-5008ba678885</id>
         </field>
       </fields>
     </formdef>

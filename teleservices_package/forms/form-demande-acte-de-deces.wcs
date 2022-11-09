@@ -9,7 +9,7 @@
   <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
-  <confirmation>true</confirmation>
+  <confirmation>false</confirmation>
   <always_advertise>true</always_advertise>
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>

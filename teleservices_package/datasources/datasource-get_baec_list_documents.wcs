@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<datasource id="497" url="">
+  <name>iMio BAEC - Liste des documents de la personne</name>
+  <slug>get_baec_list_documents</slug>
+  <cache_duration>30</cache_duration>
+  <data_attribute>items</data_attribute>
+  <id_attribute>reference</id_attribute>
+  <text_attribute>title</text_attribute>
+  <data_source>
+    <type>json</type>
+    <value>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/list-person-documents?rn={% if form_option_liaison_baec == "Staging" %}89041522261{% elif form_option_liaison_baec == "Production" %}{{ form_user_var_niss }}{% endif %}</value>
+  </data_source><record_on_errors>true</record_on_errors>
+</datasource>
