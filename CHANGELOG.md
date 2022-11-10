@@ -5,6 +5,12 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
+## [0.2.19] -
+
+### Fixed
+
+  - [TELE-1547] Fix spelling mistakes [dmshd] [njphs]
+
 ## [0.2.18] - 10-11-2022
 
 ### Added
