@@ -5,8 +5,10 @@ teleservices-package changelog
 :Authors: Daniel Muyshond, Nicolas Hislaire, Nicolas Selva
 :License: GNU Affero General Public License v3 or later (AGPLv3+)
 
-## [0.2.18] -
+## [0.2.18] - 10-11-2022
 
+### Added
+  - [TELE-1547] Init "Tous les actes" (BAEC) (form + wf) [dmshd] [njphs]
 ### Removed
   - [TELE-1524] Delete merge warning [dmshd] [njphs]
 ### Updated
