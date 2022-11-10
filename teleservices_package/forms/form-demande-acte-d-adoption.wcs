@@ -167,7 +167,7 @@
         <display_location>validation</display_location>
       </display_locations><id type="str">119</id>
     </field><field>
-      <label type="str">&lt;p&gt;Il semble ne pas y avoir d&amp;#39;acte d&amp;#39;adoption relatif &amp;agrave; votre num&amp;eacute;ro de registre national dans la Banque des Acte d&amp;#39;Etat Civil (BAEC).&lt;/p&gt;
+      <label type="str">&lt;p&gt;Il semble ne pas y avoir d&amp;#39;acte d&amp;#39;adoption relatif &amp;agrave; votre num&amp;eacute;ro de registre national dans la Banque des Actes d&amp;#39;Etat Civil (BAEC).&lt;/p&gt;
 
 &lt;p&gt;Veuillez poursuivre la demande si vous pensez que c&amp;#39;est une erreur.&lt;/p&gt;
 </label>

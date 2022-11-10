@@ -31,7 +31,7 @@
     </field><field>
       <label type="str">&lt;p&gt;Vous trouverez ci-dessous la liste de vos actes disponibles dans la Banque des Actes de l&amp;#39;Etat Civil.&amp;nbsp;&lt;/p&gt;
 
-&lt;p&gt;L&amp;#39;acte que vous recherchez n&amp;#39;est pas pr&amp;eacute;sent dans cette liste ? Effectuez une demande directement aupr&amp;egrave;s de votre commune en s&amp;eacute;lectionnant l&amp;#39;acte de votre choix dans la cat&amp;eacute;gorie &amp;quot;Etat civil&amp;quot;, puis s&amp;eacute;lectionnez &amp;quot;Je souhaite recevoir mes documents par le biais de mon administration communale&amp;quot;.&lt;/p&gt;
+&lt;p&gt;L&amp;#39;acte que vous recherchez n&amp;#39;est pas pr&amp;eacute;sent dans cette liste ? Effectuez une demande directement aupr&amp;egrave;s de votre administration en s&amp;eacute;lectionnant l&amp;#39;acte de votre choix dans la cat&amp;eacute;gorie &amp;quot;Etat civil&amp;quot;, puis s&amp;eacute;lectionnez &amp;quot;Je souhaite recevoir mes documents par le biais de mon administration communale&amp;quot;.&lt;/p&gt;
 </label>
       <type type="str">comment</type>
       <extra_css_class type="str">pk-information</extra_css_class>
@@ -65,7 +65,7 @@
 
 &lt;p&gt;Vous pouvez r&amp;eacute;essayer plus tard ou compl&amp;eacute;ter la d&amp;eacute;marche li&amp;eacute;e &amp;agrave; l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;
 
-&lt;p&gt;Effectuez une demande directement aupr&amp;egrave;s de votre commune en s&amp;eacute;lectionnant l&amp;#39;acte de votre choix dans la cat&amp;eacute;gorie &amp;quot;Etat civil&amp;quot;, puis s&amp;eacute;lectionnez &amp;quot;Je souhaite recevoir mes documents par le biais de mon administration communale.&amp;quot;&lt;/p&gt;
+&lt;p&gt;Effectuez une demande directement aupr&amp;egrave;s de votre administration en s&amp;eacute;lectionnant l&amp;#39;acte de votre choix dans la cat&amp;eacute;gorie &amp;quot;Etat civil&amp;quot;, puis s&amp;eacute;lectionnez &amp;quot;Je souhaite recevoir mes documents par le biais de mon administration communale.&amp;quot;&lt;/p&gt;
 </label>
       <type type="str">comment</type>
       <condition>

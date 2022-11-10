@@ -196,14 +196,14 @@
       <visibility />
       <items>
         <item type="displaymsg" id="3">
-          <message>Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va traiter votre demande dans les plus bref d&#233;lais.</message>
+          <message>Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va traiter votre demande dans les plus brefs d&#233;lais.</message>
           <level>info</level>
           <position>top</position>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
         </item><item type="register-comment" id="2">
-          <comment>Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va traiter votre demande dans les plus bref d&#233;lais.</comment>
+          <comment>Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va traiter votre demande dans les plus brefs d&#233;lais.</comment>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
