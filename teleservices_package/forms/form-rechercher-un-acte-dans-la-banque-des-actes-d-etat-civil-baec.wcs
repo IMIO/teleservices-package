@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<formdef id="336" url="">
+  <name>Rechercher un acte dans la Banque des Actes d'Etat Civil (BAEC)</name>
+  <url_name>demande-rechercher-un-acte-dans-la-banque-des-actes-d-etat-civil-baec</url_name>
+  <internal_identifier>demande-rechercher-un-acte-dans-la-banque-des-actes-d-etat-civil-baec</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>true</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="etat-civil" category_id="126">Etat civil</category>
+  <workflow slug="imio-rechercher-un-acte-dans-la-banque-des-actes-d-etat-civil-baec" workflow_id="162">iMio - Rechercher un acte dans la Banque des Actes d'Etat Civil (BAEC)</workflow>
+  <max_field_id>12</max_field_id>
+  <fields>
+    <field>
+      <label type="str">Actes auxquels vous avez acc&#232;s</label>
+      <type type="str">page</type>
+      <id type="str">1</id>
+    </field><field>
+      <label type="str">Service disponible</label>
+      <type type="str">computed</type>
+      <varname type="str">service_disponible</varname>
+      <value_template type="str">{{ webservice.baec_service_disponible.err }}</value_template>
+      <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
+      <id type="str">9</id>
+    </field><field>
+      <label type="str">&lt;p&gt;Vous trouverez ci-dessous la liste de vos actes disponibles dans la Banque des Actes de l&amp;#39;Etat Civil.&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;L&amp;#39;acte que vous recherchez n&amp;#39;est pas pr&amp;eacute;sent dans cette liste ? Effectuez une demande directement aupr&amp;egrave;s de votre commune en s&amp;eacute;lectionnant l&amp;#39;acte de votre choix dans la cat&amp;eacute;gorie &amp;quot;Etat civil&amp;quot;, puis s&amp;eacute;lectionnez &amp;quot;Je souhaite recevoir mes documents par le biais de mon administration communale&amp;quot;.&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <extra_css_class type="str">pk-information</extra_css_class>
+      <display_locations />
+      <id type="str">2</id>
+    </field><field>
+      <label type="str">Liste des actes disponibles</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">S&#233;lectionnez le document.</hint>
+      <varname type="str">baec_document_select</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <data_source>
+        <type>baec_documents_by_category</type>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">True</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">3</id>
+    </field><field>
+      <label type="str">Types pour le document s&#233;lectionn&#233;</label>
+      <type type="str">computed</type>
+      <varname type="str">baec_selected_document_types</varname>
+      <value_template type="str">{{ form_var_baec_document_select.types|types_acte }}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">5</id>
+    </field><field>
+      <label type="str">&lt;p&gt;Il n&amp;#39;est actuellement pas possible de r&amp;eacute;cup&amp;eacute;rer votre document dans la Banque des Actes de l&amp;#39;Etat Civil.&lt;/p&gt;
+
+&lt;p&gt;Vous pouvez r&amp;eacute;essayer plus tard ou compl&amp;eacute;ter la d&amp;eacute;marche li&amp;eacute;e &amp;agrave; l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;
+
+&lt;p&gt;Effectuez une demande directement aupr&amp;egrave;s de votre commune en s&amp;eacute;lectionnant l&amp;#39;acte de votre choix dans la cat&amp;eacute;gorie &amp;quot;Etat civil&amp;quot;, puis s&amp;eacute;lectionnez &amp;quot;Je souhaite recevoir mes documents par le biais de mon administration communale.&amp;quot;&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>data_source.baec_documents_by_category|length &lt;= 0 and form_var_service_disponible == "1"</value>
+      </condition><extra_css_class type="str">pk-information</extra_css_class>
+      <display_locations>
+        <display_location>validation</display_location>
+      </display_locations><id type="str">8</id>
+    </field><field>
+      <label type="str">&lt;p&gt;Votre document doit encore &amp;ecirc;tre num&amp;eacute;ris&amp;eacute; dans Banque des Actes de l&amp;#39;Etat Civil. Une demande migration va &amp;ecirc;tre introduite aupr&amp;egrave;s des services concern&amp;eacute;s.&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_baec_document_select is not null and form_var_baec_document_select_migration_command</value>
+      </condition><extra_css_class type="str">pk-information</extra_css_class>
+      <display_locations>
+        <display_location>validation</display_location>
+      </display_locations><id type="str">10</id>
+    </field><field>
+      <label type="str">&lt;p&gt;Il semble ne pas y avoir d&amp;#39;acte relatif &amp;agrave; votre num&amp;eacute;ro de registre national dans la Banque des Actes d&amp;#39;Etat Civil (BAEC).&lt;/p&gt;
+
+&lt;p&gt;Si vous pensez que c&amp;#39;est une erreur, prenez contact avec votre administration ou effectuez une demande en s&amp;eacute;lectionnant l&amp;#39;acte de votre choix dans la cat&amp;eacute;gorie &amp;quot;Etat civil&amp;quot;. S&amp;eacute;lectionnez ensuite &amp;quot;Je souhaite recevoir mes documents par le biais de mon administration communale.&amp;quot;&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>data_source.baec_documents_by_category|length == 0</value>
+      </condition><extra_css_class type="str">pk-information</extra_css_class>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><id type="str">11</id>
+    </field><field>
+      <label type="str">Type d'acte</label>
+      <type type="str">page</type>
+      <id type="str">7</id>
+    </field><field>
+      <label type="str">Type d'acte</label>
+      <type type="str">item</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_baec_document_select is not null</value>
+      </condition><required type="bool">True</required>
+      <hint type="str">S&#233;lectionnez le type.</hint>
+      <varname type="str">baec_document_type</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <data_source>
+        <type>formula</type>
+        <value>form_var_baec_document_select_types</value>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">4</id>
+    </field><field>
+      <label type="str">&lt;p&gt;{% for el in form_var_baec_document_select_structured_types %}{% if el|get:"id" == "E" %}- Extrait : Document qui ne comporte qu'une partie des informations figurant dans l'acte.&lt;br&gt;{% endif %}{% if el|get:"id" == "C" %}- Copie : Document qui reprend l'int&#233;gralit&#233; des informations reprises sur l'acte.&lt;br&gt;{% endif %}{% if el|get:"id" == "A" %}- Article 16 : Document extrait d'acte multilingue (les 3 langues nationales + l'anglais).{% endif %}{% endfor %}&lt;/p&gt;</label>
+      <type type="str">comment</type>
+      <display_locations>
+        <display_location>validation</display_location>
+      </display_locations><id type="str">12</id>
+    </field>
+  </fields><user-roles>
+    <role role_id="logged-users">logged-users</role>
+  </user-roles><options>
+    <option varname="liaison_baec">Staging</option>
+    <option varname="liaison_baec_display">Staging</option>
+    <option varname="liaison_baec_structured" />
+  </options><custom_views />
+  <geolocations />
+  <required_authentication_contexts>
+    <method>fedict</method>
+  </required_authentication_contexts>
+</formdef>
