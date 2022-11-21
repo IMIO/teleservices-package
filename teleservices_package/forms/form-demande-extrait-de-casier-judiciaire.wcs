@@ -89,12 +89,14 @@
         <item>Armes : armurier/interm&#233;diaire</item>
         <item>Assurances : administrateur/directeur/g&#233;rant/mandataire</item>
         <item>Auto-&#233;coles (personnel)</item>
-        <item>Camping (exploitation)</item>
         <item>Chasse (permis)</item>
+        <item>Camping (exploitation)</item>
+        <item>Candidats h&#233;bergeurs r&#233;fugi&#233;s</item>
         <item>D&#233;bit de boissons ferment&#233;es / d&#233;bit de boissons spiritueuses</item>
         <item>D&#233;tective priv&#233;</item>
         <item>Distillerie / fabrique de liqueurs : exploitation d&#8217;une</item>
         <item>Entrepreneur de travaux (agr&#233;ation)</item>
+        <item>&#201;lections</item>
         <item>Etablissement de cr&#233;dit : g&#233;rant/administrateur/membre comit&#233; direction/directeur</item>
         <item>Fonctionnaire "SAC" (sanctions administratives communales)</item>
         <item>Garde champ&#234;tre particulier</item>
@@ -112,6 +114,7 @@
         <item>S&#233;curit&#233; / gardiennage : dirigeant entreprise gardiennage (formation)</item>
         <item>Soci&#233;t&#233;s fonds communs de placement : administrateur/directeur/fond&#233; de pouvoir/commissaire</item>
         <item>Steward (football)</item>
+        <item>Stup&#233;fiants / psychotropes : autorisation</item>
         <item>Taxi : exploitant</item>
         <item>Taxi : chauffeur</item>
         <item>Transport de choses (conditions d'honorabilit&#233;)</item>
