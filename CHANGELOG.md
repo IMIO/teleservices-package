@@ -10,6 +10,8 @@ teleservices-package changelog
 ### Fixed
 
   - [TELE-1547] Fix spelling mistakes [dmshd] [njphs]
+### Added
+  - [TELE-1556] Add form_option for délai migration BAEC [njphs]
 
 ## [0.2.18] - 10-11-2022
 

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="159" url="">
+<workflow id="233" url="">
   <name>iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
   <slug>imio-departement-citoyen-avec-redirection-mondossier</slug>
   <roles>
@@ -195,7 +195,7 @@
       <colour>0099FF</colour>
       <visibility />
       <items>
-        <item type="displaymsg" id="3">
+        <item type="displaymsg" id="1">
           <message>Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va traiter votre demande dans les plus brefs d&#233;lais.</message>
           <level>info</level>
           <position>top</position>
@@ -207,14 +207,14 @@
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item type="jump" id="1">
+        </item><item type="jump" id="3">
           <status>35</status>
           <timeout>86400</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item type="choice" id="4">
           <label>V&#233;rifier la pr&#233;sence de l'acte</label>
           <by>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
           </by><status>35</status>
           <require_confirmation>False</require_confirmation>
           <backoffice_info_text>&lt;p&gt;V&amp;eacute;rifie la pr&amp;eacute;sence de l&amp;#39;acte dans la BAEC suite &amp;agrave; la demande de migration.&lt;/p&gt;
@@ -259,14 +259,14 @@
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item type="displaymsg" id="3">
+        <item type="displaymsg" id="1">
           <message>Le document num&#233;ris&#233; issu de la BAEC a &#233;t&#233; d&#233;livr&#233; &#224; l'usager.</message>
           <level>info</level>
           <position>top</position>
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>
-        </item><item type="displaymsg" id="1">
+        </item><item type="displaymsg" id="2">
           <message>Votre document est disponible au t&#233;l&#233;chargement.&lt;br /&gt;
 &lt;a style="margin: 10px; width: 230px;" href="{{ form_var_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</message>
           <level>success</level>
@@ -274,7 +274,7 @@
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item type="register-comment" id="2">
+        </item><item type="register-comment" id="3">
           <comment>&lt;a href="{{ form_var_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</comment>
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -1110,7 +1110,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1122,7 +1122,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1138,7 +1138,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1153,8 +1153,10 @@ Cordialement, </body>
           </condition>
         </item>
       </items><triggers>
-          <trigger type="timeout" id="31976731-c2f5-4152-be2e-beb11ba0a901">
+        <trigger type="timeout" id="31976731-c2f5-4152-be2e-beb11ba0a901">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>31</timeout>
         </trigger>
       </triggers>
@@ -1166,6 +1168,8 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="eb058b81-c101-4ae7-af07-f338c58864b1">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -1315,6 +1319,17 @@ Cordialement, </body>
           <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
           <id type="str">15</id>
+        </field><field>
+          <label type="str">D&#233;lai migration</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <hint type="str">Nombre de jours pour effectuer la migration des documents vers la BAEC.</hint>
+          <varname type="str">delai_migration</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise type="bool">True</anonymise>
+          <id type="str">16</id>
         </field>
       </fields>
     </formdef>
