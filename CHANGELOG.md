@@ -13,6 +13,7 @@ teleservices-package changelog
 ### Added
   - [TELE-1556] Add form_option for délai migration BAEC [njphs]
   - [TELE-1559] Add "pièce justificative" feature option [dmshd]
+  - [TELE-1516] Add missing hint for 'redirection automatique' form option [dmshd]
 
 ## [0.2.18] - 10-11-2022
 
