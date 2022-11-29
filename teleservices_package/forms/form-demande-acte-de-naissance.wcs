@@ -88,7 +88,7 @@
         <type>django</type>
         <value>form_option_actes_piece_justificative_tiers == "Oui" and form_var_rb_concerne == "Concerne une autre personne"</value>
       </condition><required type="bool">True</required>
-      <hint type="str">Veuillez d&#233;poser un document qui justifie votre demande pour un tiers.</hint>
+      <hint type="str">Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).</hint>
       <varname type="str">piece_justificative_tiers</varname>
       <display_locations>
         <display_location>validation</display_location>
