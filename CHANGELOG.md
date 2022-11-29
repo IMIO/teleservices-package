@@ -12,6 +12,7 @@ teleservices-package changelog
   - [TELE-1547] Fix spelling mistakes [dmshd] [njphs]
 ### Added
   - [TELE-1556] Add form_option for délai migration BAEC [njphs]
+  - [TELE-1559] Add "pièce justificative" feature option [dmshd]
 
 ## [0.2.18] - 10-11-2022
 
