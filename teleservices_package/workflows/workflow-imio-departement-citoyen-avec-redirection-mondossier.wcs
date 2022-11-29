@@ -1299,6 +1299,7 @@ Cordialement, </body>
           <label type="str">Lien du r&#232;glement communal</label>
           <type type="str">string</type>
           <required type="bool">False</required>
+          <hint type="str">Lien vers le r&#232;glement communal qui s'affichera &#233;ventuellement dans certains formulaires (https://...).</hint>
           <varname type="str">reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
