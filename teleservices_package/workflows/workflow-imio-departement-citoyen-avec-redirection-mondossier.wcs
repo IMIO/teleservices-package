@@ -1278,6 +1278,7 @@ Cordialement, </body>
           <label type="str">Redirection Automatique</label>
           <type type="str">bool</type>
           <required type="bool">False</required>
+          <hint type="str">Cocher cette case redirigera automatiquement l'usager vers le site "Mon Dossier" si cela s'applique (Acte apr&#232;s 2019 et est la personne concern&#233;e).</hint>
           <varname type="str">redirection_automatique</varname>
           <display_locations>
             <display_location>validation</display_location>
