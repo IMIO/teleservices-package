@@ -14,8 +14,8 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="etat-civil" category_id="126">Etat civil</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="159">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>88</max_field_id>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <max_field_id>89</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -90,6 +90,22 @@
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">7</id>
     </field><field>
+      <label type="str">Concerne une autre personne : pi&#232;ce justificative</label>
+      <type type="str">file</type>
+      <condition>
+        <type>django</type>
+        <value>form_option_actes_piece_justificative_tiers == "Oui" and form_var_rb_concerne == "Concerne une autre personne"</value>
+      </condition><required type="bool">True</required>
+      <hint type="str">Veuillez d&#233;poser un document qui justifie votre demande pour un tiers.</hint>
+      <varname type="str">piece_justificative_tiers</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">89</id>
+    </field><field>
       <label type="str">&lt;p&gt;L'{{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la commune de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral (valable uniquement pour les actes enregistr&#233;s apr&#232;s le 31/03/2019). Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <type type="str">comment</type>
       <condition>
@@ -146,6 +162,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>baec_documents_by_category</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -261,6 +278,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>form_var_baec_document_select_types</value>
