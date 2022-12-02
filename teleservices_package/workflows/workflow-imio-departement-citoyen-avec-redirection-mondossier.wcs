@@ -1243,26 +1243,19 @@ Cordialement, </body>
           <label type="str">IBAN</label>
           <type type="str">string</type>
           <required type="bool">False</required>
+          <hint type="str">Sera employ&#233; dans le flux "PC Banking (virement)" du Workflow.</hint>
           <varname type="str">iban</varname>
-          <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><anonymise type="bool">True</anonymise>
+          <display_locations />
+          <anonymise type="bool">True</anonymise>
           <id type="str">9</id>
         </field><field>
           <label type="str">R&#233;gie de paiement</label>
           <type type="str">item</type>
           <required type="bool">False</required>
-          <hint type="str">---</hint>
+          <hint type="str">Plus d'information sur les r&#233;gies de paiement : https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html#configurer-un-formulaire-etat-civil-population</hint>
           <varname type="str">regie_de_paiement</varname>
-          <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><display_mode type="str">list</display_mode>
-          <items />
+          <display_locations />
+          <display_mode type="str">radio</display_mode>
           <data_source>
             <type>json</type>
             <value>{{portal_url}}/api/lingo/regies</value>
@@ -1299,9 +1292,9 @@ Cordialement, </body>
           <anonymise type="bool">True</anonymise>
           <id type="str">14</id>
         </field><field>
-          <label type="str">Phase de la liaison avec la BAEC</label>
+          <label type="str">BAEC : Phase de la liaison</label>
           <type type="str">item</type>
-          <required type="bool">True</required>
+          <required type="bool">False</required>
           <varname type="str">liaison_baec</varname>
           <display_locations />
           <display_mode type="str">list</display_mode>
@@ -1313,9 +1306,9 @@ Cordialement, </body>
           <display_disabled_items type="bool">False</display_disabled_items>
           <id type="str">15</id>
         </field><field>
-          <label type="str">D&#233;lai migration</label>
+          <label type="str">BAEC : D&#233;lai pour la migration</label>
           <type type="str">string</type>
-          <required type="bool">True</required>
+          <required type="bool">False</required>
           <hint type="str">Nombre de jours pour effectuer la migration des documents vers la BAEC.</hint>
           <varname type="str">delai_migration</varname>
           <display_locations />
@@ -1323,6 +1316,16 @@ Cordialement, </body>
             <type>digits</type>
           </validation><anonymise type="bool">True</anonymise>
           <id type="str">16</id>
+        </field><field>
+          <label type="str">Actes : Commentaire additionnel</label>
+          <type type="str">text</type>
+          <required type="bool">True</required>
+          <hint type="str">Pour les aces, sera affich&#233; en premi&#232;re page du formulaire, sous les explications.</hint>
+          <varname type="str">actes_commentaire_additionnel</varname>
+          <display_locations />
+          <extra_css_class type="str">grid-1-1 newline</extra_css_class>
+          <display_mode type="str">pre</display_mode>
+          <id type="str">17</id>
         </field>
       </fields>
     </formdef>
