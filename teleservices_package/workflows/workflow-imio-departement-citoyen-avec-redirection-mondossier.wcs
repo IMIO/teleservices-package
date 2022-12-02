@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="233" url="">
+<workflow id="102" url="">
   <name>iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
   <slug>imio-departement-citoyen-avec-redirection-mondossier</slug>
   <roles>
@@ -214,7 +214,7 @@
         </item><item type="choice" id="4">
           <label>V&#233;rifier la pr&#233;sence de l'acte</label>
           <by>
-            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </by><status>35</status>
           <require_confirmation>False</require_confirmation>
           <backoffice_info_text>&lt;p&gt;V&amp;eacute;rifie la pr&amp;eacute;sence de l&amp;#39;acte dans la BAEC suite &amp;agrave; la demande de migration.&lt;/p&gt;
@@ -1110,7 +1110,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
-            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1122,7 +1122,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
-            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1138,7 +1138,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
-            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1155,8 +1155,6 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="31976731-c2f5-4152-be2e-beb11ba0a901">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>31</timeout>
         </trigger>
       </triggers>
@@ -1168,8 +1166,6 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="eb058b81-c101-4ae7-af07-f338c58864b1">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -1280,10 +1276,8 @@ Cordialement, </body>
           <required type="bool">False</required>
           <hint type="str">Cocher cette case redirigera automatiquement l'usager vers le site "Mon Dossier" si cela s'applique (Acte apr&#232;s 2019 et est la personne concern&#233;e).</hint>
           <varname type="str">redirection_automatique</varname>
-          <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><id type="str">12</id>
+          <display_locations />
+          <id type="str">12</id>
         </field><field>
           <label type="str">Paiement en ligne</label>
           <type type="str">bool</type>
@@ -1301,11 +1295,8 @@ Cordialement, </body>
           <required type="bool">False</required>
           <hint type="str">Lien vers le r&#232;glement communal qui s'affichera &#233;ventuellement dans certains formulaires (https://...).</hint>
           <varname type="str">reglement_communal</varname>
-          <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><anonymise type="bool">True</anonymise>
+          <display_locations />
+          <anonymise type="bool">True</anonymise>
           <id type="str">14</id>
         </field><field>
           <label type="str">Phase de la liaison avec la BAEC</label>
