@@ -1155,6 +1155,8 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="31976731-c2f5-4152-be2e-beb11ba0a901">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>31</timeout>
         </trigger>
       </triggers>
@@ -1166,6 +1168,8 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="eb058b81-c101-4ae7-af07-f338c58864b1">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -1256,6 +1260,7 @@ Cordialement, </body>
           <varname type="str">regie_de_paiement</varname>
           <display_locations />
           <display_mode type="str">radio</display_mode>
+          <items />
           <data_source>
             <type>json</type>
             <value>{{portal_url}}/api/lingo/regies</value>
@@ -1319,7 +1324,7 @@ Cordialement, </body>
         </field><field>
           <label type="str">Actes : Commentaire additionnel</label>
           <type type="str">text</type>
-          <required type="bool">True</required>
+          <required type="bool">False</required>
           <hint type="str">Pour les aces, sera affich&#233; en premi&#232;re page du formulaire, sous les explications.</hint>
           <varname type="str">actes_commentaire_additionnel</varname>
           <display_locations />
