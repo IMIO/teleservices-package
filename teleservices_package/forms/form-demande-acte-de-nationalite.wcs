@@ -15,7 +15,7 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="etat-civil" category_id="126">Etat civil</category>
   <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>81</max_field_id>
+  <max_field_id>83</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -45,36 +45,47 @@
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">77</id>
     </field><field>
-      <label type="str">&lt;p&gt;&lt;strong&gt;L&amp;rsquo;acte de nationalit&amp;eacute;&amp;nbsp;ne concerne que les &amp;eacute;trangers devenus Belges.&lt;br /&gt;
-Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a href="{{cards|objects:'imio-lien-vers-formulaire'|filter_by:'nom'|filter_value:'Certificat de nationalit&#233;'|first|get:'lien'}}" rel="noopener noreferrer" target="_blank"&gt;demander le certificat de nationalit&amp;eacute;&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Commande d'un acte de nationalit&amp;eacute;.&lt;/p&gt;
+      <label type="str">&lt;p&gt;&lt;strong&gt;L&amp;rsquo;acte de nationalit&amp;eacute;&amp;nbsp;ne concerne que les &amp;eacute;trangers devenus Belges.&lt;br&gt;
+Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener noreferrer" target="_blank"&gt;demander le certificat de nationalit&amp;eacute;&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par la personne concern&amp;eacute;e ou moyennant une procuration :&amp;nbsp;&lt;/p&gt;
 
 &lt;p&gt;Si la personne concern&amp;eacute;e est d&amp;eacute;c&amp;eacute;d&amp;eacute;e : l&amp;rsquo;acte ne peut &amp;ecirc;tre demand&amp;eacute; que par les personnes concern&amp;eacute;es par l&amp;rsquo;acte (adoptants ou adopt&amp;eacute;s). En cas de d&amp;eacute;c&amp;egrave;s, l&amp;rsquo;acte peut &amp;ecirc;tre demand&amp;eacute; par :&lt;/p&gt;
 
 &lt;ol&gt;
-	&lt;li&gt;l'&amp;eacute;poux / l'&amp;eacute;pouse / le cohabitant l&amp;eacute;gal&lt;/li&gt;
+	&lt;li&gt;l&amp;#39;&amp;eacute;poux / l&amp;#39;&amp;eacute;pouse / le cohabitant l&amp;eacute;gal&lt;/li&gt;
 	&lt;li&gt;le repr&amp;eacute;sentant l&amp;eacute;gal&lt;/li&gt;
-	&lt;li&gt;l'ascendant / descendant&lt;/li&gt;
-	&lt;li&gt;le notaire / l'avocat&lt;/li&gt;
-	&lt;li&gt;l'h&amp;eacute;ritier / ayant droit&lt;/li&gt;
+	&lt;li&gt;l&amp;#39;ascendant / descendant&lt;/li&gt;
+	&lt;li&gt;le notaire / l&amp;#39;avocat&lt;/li&gt;
+	&lt;li&gt;l&amp;#39;h&amp;eacute;ritier / ayant droit&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d'identit&amp;eacute; &lt;/strong&gt;(ainsi que d'une&amp;nbsp;&lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt;&amp;nbsp;si vous le retirez pour un tiers).&lt;/p&gt;
-
-&lt;h3&gt;Traitement&lt;/h3&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;Compl&amp;eacute;tez votre demande via le formulaire ci-dessous.&lt;/li&gt;
-	&lt;li&gt;Le cas &amp;eacute;ch&amp;eacute;ant, proc&amp;eacute;dez au paiement.&lt;/li&gt;
-	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l'adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
-	&lt;li&gt;Si votre demande est valide, vous recevrez prochainement votre document selon le mode de d&amp;eacute;livrance choisi. A d&amp;eacute;faut, vous serez pr&amp;eacute;venu par e-mail.&lt;/li&gt;
-&lt;/ol&gt;</label>
+&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d&amp;#39;identit&amp;eacute; &lt;/strong&gt;(ainsi que d&amp;#39;une&amp;nbsp;&lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt;&amp;nbsp;si vous le retirez pour un tiers).&lt;/p&gt;
+</label>
       <type type="str">comment</type>
       <display_locations />
       <id type="str">2</id>
+    </field><field>
+      <label type="str">&lt;h2&gt;Comment obtenir l&amp;#39;acte souhait&amp;eacute; ?&lt;/h2&gt;
+
+&lt;ol&gt;
+	&lt;li&gt;Si l&amp;#39;acte vous concerne et si vous &amp;ecirc;tes connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique ou l&amp;#39;application It&amp;#39;s Me, vous aurez la possibilit&amp;eacute; de r&amp;eacute;cup&amp;eacute;rer directement en format PDF l&amp;#39;extrait ou la copie de votre acte. Si cet acte n&amp;#39;a pas &amp;eacute;t&amp;eacute; num&amp;eacute;ris&amp;eacute; dans la Banque des Actes de l&amp;#39;Etat Civil, vous aurez la possibilit&amp;eacute; d&amp;#39;en faire la demande.&lt;/li&gt;
+	&lt;li&gt;Si l&amp;#39;acte ne vous concerne pas, vous pourrez faire la demande aupr&amp;egrave;s de l&amp;#39;administration communale pour un tiers. Une redevance communale et des frais li&amp;eacute;s au mode de r&amp;eacute;ception sont possibles. Vous pourrez r&amp;eacute;gler le montant d&amp;ucirc; en ligne.&lt;/li&gt;
+	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi. Si votre demande n&amp;#39;est pas valide, vous serez pr&amp;eacute;venu par e-mail et rembours&amp;eacute; de la somme per&amp;ccedil;ue dans les meilleurs d&amp;eacute;lais.&lt;/li&gt;
+&lt;/ol&gt;
+</label>
+      <type type="str">comment</type>
+      <display_locations />
+      <id type="str">83</id>
+    </field><field>
+      <label type="str">&lt;p&gt;{{ form_option_actes_commentaire_additionnel }}&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>form_option_actes_commentaire_additionnel</value>
+      </condition><display_locations />
+      <id type="str">82</id>
     </field><field>
       <label type="str">Le document demand&#233; :</label>
       <type type="str">item</type>

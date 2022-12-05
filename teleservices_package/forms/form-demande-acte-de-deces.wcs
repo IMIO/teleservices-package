@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="23" url="http://local-formulaires.example.net/backoffice/forms/23/">
+<formdef id="269" url="">
   <name>Acte de D&#233;c&#232;s</name>
   <url_name>demande-acte-de-deces</url_name>
   <description>&lt;p&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;</description>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="2" slug="etat-civil">Etat civil</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="23">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category slug="etat-civil" category_id="126">Etat civil</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>68</max_field_id>
   <fields>
     <field>
@@ -39,35 +39,27 @@
       <type type="str">page</type>
       <id type="str">2</id>
     </field><field>
-      <label type="str">&lt;p&gt;Commande d'un acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;
-
-&lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par :&amp;nbsp;&lt;/p&gt;
+      <label type="str">&lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par :&amp;nbsp;&lt;/p&gt;
 
 &lt;ol&gt;
-	&lt;li&gt;l'&amp;eacute;poux / l'&amp;eacute;pouse / le cohabitant l&amp;eacute;gal&lt;/li&gt;
+	&lt;li&gt;l&amp;#39;&amp;eacute;poux / l&amp;#39;&amp;eacute;pouse / le cohabitant l&amp;eacute;gal&lt;/li&gt;
 	&lt;li&gt;le repr&amp;eacute;sentant l&amp;eacute;gal&lt;/li&gt;
-	&lt;li&gt;l'ascendant / descendant&lt;/li&gt;
-	&lt;li&gt;le notaire / l'avocat&lt;/li&gt;
-	&lt;li&gt;l'h&amp;eacute;ritier / ayant droit&lt;/li&gt;
+	&lt;li&gt;l&amp;#39;ascendant / descendant&lt;/li&gt;
+	&lt;li&gt;le notaire / l&amp;#39;avocat&lt;/li&gt;
+	&lt;li&gt;l&amp;#39;h&amp;eacute;ritier / ayant droit&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d'identit&amp;eacute;.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Il y a lieu de distinguer :&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;&lt;strong&gt;l'extrait d'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: document qui ne comporte qu'une partie des informations figurant dans l'acte de d&amp;eacute;c&amp;egrave;s&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;la copie int&amp;eacute;grale de l'acte de d&amp;eacute;c&amp;egrave;s&lt;/strong&gt; : document qui reprend l'int&amp;eacute;gralit&amp;eacute; des informations reprises dans l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d&amp;#39;identit&amp;eacute;.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2&gt;Traitement&lt;/h2&gt;
 
 &lt;ol&gt;
 	&lt;li&gt;Compl&amp;eacute;tez votre demande via le formulaire ci-dessous.&lt;/li&gt;
 	&lt;li&gt;Le cas &amp;eacute;ch&amp;eacute;ant, proc&amp;eacute;dez au paiement.&lt;/li&gt;
-	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l'adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
-	&lt;li&gt;Si votre demande est valide, vous recevrez prochainement votre document selon le mode de d&amp;eacute;livrance choisi. A d&amp;eacute;faut, vous serez pr&amp;eacute;venu par e-mail.&lt;/li&gt;
-&lt;/ol&gt;</label>
+	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l&amp;#39;adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
+	&lt;li&gt;Si votre demande est valide, vous recevrez prochainement votre document selon le mode de d&amp;eacute;livrance choisi. &amp;Agrave; d&amp;eacute;faut, vous serez pr&amp;eacute;venu par e-mail.&lt;/li&gt;
+&lt;/ol&gt;
+</label>
       <type type="str">comment</type>
       <display_locations />
       <id type="str">3</id>
@@ -84,11 +76,11 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Extrait d'acte de d&#233;c&#232;s</item>
         <item>Copie int&#233;grale de l'acte de d&#233;c&#232;s</item>
-      </items><display_mode type="str">radio</display_mode>
-      <in_filters type="bool">False</in_filters>
+      </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">5</id>
@@ -144,7 +136,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>nrn-be</type>
@@ -249,8 +240,8 @@
       </display_locations><extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -317,7 +308,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><validation>
@@ -434,8 +424,8 @@
       <prefill>
         <type>user</type>
         <value>_country</value>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -485,8 +475,8 @@
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -522,8 +512,8 @@
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>

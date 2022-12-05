@@ -16,6 +16,7 @@ teleservices-package changelog
   - [TELE-1516] Add missing hint for 'redirection automatique' form option [dmshd]
   - [TELE-1516] Add missing hint for 'reglement communal' form option [dmshd]
   - [TELE-1557] Add option allowing additional text for agents [dmshd]
+  - [TELE-1557] Update descriptions + allow add text field (BAEC/Actes) [dmshd]
 
 ## [0.2.18] - 10-11-2022
 
