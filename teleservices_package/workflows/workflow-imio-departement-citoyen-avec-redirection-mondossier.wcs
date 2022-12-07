@@ -1322,6 +1322,21 @@ Cordialement, </body>
           </validation><anonymise type="bool">True</anonymise>
           <id type="str">16</id>
         </field><field>
+          <label type="str">Actes : Pi&#232;ce justificative obligatoire si concerne un tiers</label>
+          <type type="str">item</type>
+          <required type="bool">False</required>
+          <hint type="str">Cocher cette case affichera un champ "Fichier" o&#249; le demandeur sera invit&#233; &#224; joindre un document justificatif si la demande d'acte ne le concerne pas (concerne un tiers).</hint>
+          <varname type="str">actes_piece_justificative_tiers</varname>
+          <display_locations />
+          <display_mode type="str">radio</display_mode>
+          <items>
+            <item>Oui</item>
+            <item>Non</item>
+          </items><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">False</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">18</id>
+        </field><field>
           <label type="str">Actes : Commentaire additionnel</label>
           <type type="str">text</type>
           <required type="bool">False</required>
