@@ -1340,7 +1340,7 @@ Cordialement, </body>
           <label type="str">Actes : Commentaire additionnel</label>
           <type type="str">text</type>
           <required type="bool">False</required>
-          <hint type="str">Pour les aces, sera affich&#233; en premi&#232;re page du formulaire, sous les explications.</hint>
+          <hint type="str">Pour les actes, sera affich&#233; en premi&#232;re page du formulaire, sous les explications.</hint>
           <varname type="str">actes_commentaire_additionnel</varname>
           <display_locations />
           <extra_css_class type="str">grid-1-1 newline</extra_css_class>
