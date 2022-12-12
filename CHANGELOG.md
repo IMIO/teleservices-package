@@ -18,6 +18,7 @@ teleservices-package changelog
   - [TELE-1557] Add option allowing additional text for agents [dmshd]
   - [TELE-1557] Update descriptions + allow add text field (BAEC/Actes) [dmshd]
   - [TELE-1574] Add missing form option in WF for optionnal proof document [dmshd]
+  - [TELE-1577] Add latest asked changes (Types of docs) [dmshd]
 
 ## [0.2.18] - 10-11-2022
 
