@@ -15,7 +15,7 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="etat-civil" category_id="126">Etat civil</category>
   <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>125</max_field_id>
+  <max_field_id>127</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -236,19 +236,23 @@
         <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'</value>
       </condition><id type="str">40</id>
     </field><field>
-      <label type="str">Extrait ou Copie int&#233;grale</label>
+      <label type="str">Type d'acte</label>
       <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>not form_var_baec_document_select</value>
       </condition><required type="bool">True</required>
+      <hint type="str">S&#233;lectionnez le type.</hint>
+      <varname type="str">document_type</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
       <items>
-        <item>Extrait d'acte</item>
-        <item>Copie int&#233;grale de l'acte</item>
+        <item>Extrait</item>
+        <item>Copie int&#233;grale</item>
+        <item>Article 16 (copie multilingue)</item>
+        <item>Article 34</item>
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
@@ -261,12 +265,12 @@
         <type>django</type>
         <value>form_var_baec_document_select</value>
       </condition><required type="bool">True</required>
+      <hint type="str">S&#233;lectionnez le type.</hint>
       <varname type="str">baec_document_type</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
-      <items />
       <data_source>
         <type>formula</type>
         <value>form_var_baec_document_select_types</value>
@@ -293,6 +297,15 @@
         <value>form_var_baec_document_select_structured_types</value>
       </condition><display_locations />
       <id type="str">120</id>
+    </field><field>
+      <label type="str">Je souhaite le document d'aide &#224; la traduction (utilisable en Union Europ&#233;enne).</label>
+      <type type="str">bool</type>
+      <required type="bool">False</required>
+      <varname type="str">document_aide_trad</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><id type="str">127</id>
     </field><field>
       <label type="str">Lien de parent&#233;</label>
       <type type="str">page</type>
@@ -896,6 +909,7 @@
       <id type="str">99</id>
     </field>
   </fields><options>
+    <option varname="actes_commentaire_additionnel" />
     <option varname="actes_piece_justificative_tiers" />
     <option varname="actes_piece_justificative_tiers_display" />
     <option varname="actes_piece_justificative_tiers_structured" />
