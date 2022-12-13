@@ -280,6 +280,10 @@
     </field><field>
       <label type="str">Je souhaite le document d'aide &#224; la traduction (utilisable en Union Europ&#233;enne).</label>
       <type type="str">bool</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_mode_delivrance_raw == "commune" or form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
       <required type="bool">False</required>
       <varname type="str">document_aide_trad</varname>
       <display_locations>

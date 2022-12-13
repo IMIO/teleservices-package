@@ -10,6 +10,7 @@ teleservices-package changelog
 ### Fixed
 
   - [TELE-1547] Fix spelling mistakes [dmshd] [njphs]
+  - [TELE-1577] Condition acknowl. checkbox for translation document help [dmshd]
 ### Added
   - [TELE-1556] Add form_option for délai migration BAEC [njphs]
   - [TELE-1559] Add "pièce justificative" feature option [dmshd]
