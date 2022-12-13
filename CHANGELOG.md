@@ -24,6 +24,9 @@ teleservices-package changelog
 ### Updated
   - [TELE-1577] Update types of docs descriptions display by directly using the desc in the list item [dmshd]
 
+### Removed
+  - [TELE-1557] Delete obsolete comment
+
 ## [0.2.18] - 10-11-2022
 
 ### Added

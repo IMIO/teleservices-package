@@ -100,14 +100,6 @@
       <storage type="str">default</storage>
       <id type="str">123</id>
     </field><field>
-      <label type="str">&lt;p&gt;L'{{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit par la commune de {{commune_name}}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral (valable uniquement pour les actes enregistr&#233;s apr&#232;s le 31/03/2019). Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
-      <type type="str">comment</type>
-      <condition>
-        <type>django</type>
-        <value>form_option_redirection_automatique == False and form_var_rb_concerne_raw == 'moi'</value>
-      </condition><display_locations />
-      <id type="str">100</id>
-    </field><field>
       <label type="str">Mode de d&#233;livrance</label>
       <type type="str">item</type>
       <condition>
