@@ -209,25 +209,14 @@
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
       <items>
-        <item>Extrait</item>
-        <item>Copie int&#233;grale</item>
-        <item>Article 16 (copie multilingue)</item>
-        <item>Article 34</item>
+        <item>Extrait : document qui ne comporte qu'une partie des informations figurant dans l'acte</item>
+        <item>Copie int&#233;grale : document qui reprend l'int&#233;gralit&#233; des informations reprises sur l'acte</item>
+        <item>Article 16 : document extrait d'acte multilingue (les 3 langues nationales + l'anglais)</item>
+        <item>Article 34 : document extrait d'acte plurilingue (&#224; destination de la Suisse et l'Allemagne uniquement)</item>
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">5</id>
-    </field><field>
-      <label type="str">&lt;p&gt;&lt;strong&gt;- Extrait de l&amp;#39;acte de reconnaissance&amp;nbsp;&lt;/strong&gt;: Document qui ne comporte qu&amp;#39;une partie des informations figurant dans l&amp;#39;acte de reconnaissance.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;- Copie int&amp;eacute;grale de l&amp;#39;acte de reconnaissance&amp;nbsp;&lt;/strong&gt;: Document qui reprend l&amp;#39;int&amp;eacute;gralit&amp;eacute; des informations reprises sur l&amp;#39;acte de reconnaissance.&lt;/p&gt;
-</label>
-      <type type="str">comment</type>
-      <condition>
-        <type>django</type>
-        <value>not form_var_baec_document_select_structured_types</value>
-      </condition><display_locations />
-      <id type="str">6</id>
     </field><field>
       <label type="str">Type de reconaissance</label>
       <type type="str">item</type>
@@ -262,6 +251,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>form_var_baec_document_select_types</value>

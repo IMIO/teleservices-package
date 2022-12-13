@@ -68,7 +68,7 @@
       <type type="str">page</type>
       <id type="str">4</id>
     </field><field>
-      <label type="str">Extrait ou Copie int&#233;grale</label>
+      <label type="str">Type d'acte</label>
       <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">S&#233;lectionnez le type.</hint>
@@ -78,19 +78,14 @@
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
       <items>
-        <item>Extrait</item>
-        <item>Copie int&#233;grale</item>
-        <item>Article 16 (copie multilingue)</item>
-        <item>Article 34</item>
+        <item>Extrait : document qui ne comporte qu'une partie des informations figurant dans l'acte</item>
+        <item>Copie int&#233;grale : document qui reprend l'int&#233;gralit&#233; des informations reprises sur l'acte</item>
+        <item>Article 16 : document extrait d'acte multilingue (les 3 langues nationales + l'anglais)</item>
+        <item>Article 34 : document extrait d'acte plurilingue (&#224; destination de la Suisse et l'Allemagne uniquement)</item>
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">5</id>
-    </field><field>
-      <label type="str">&lt;p&gt;&lt;strong&gt;- Extrait de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui ne comporte qu'une partie des informations figurant dans l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;- Copie int&amp;eacute;grale de l'acte de d&amp;eacute;c&amp;egrave;s &lt;/strong&gt;: Document qui reprend l'int&amp;eacute;gralit&amp;eacute; des informations reprises sur l'acte de d&amp;eacute;c&amp;egrave;s.&lt;/p&gt;</label>
-      <type type="str">comment</type>
-      <display_locations />
-      <id type="str">6</id>
     </field><field>
       <label type="str">Je souhaite le document d'aide &#224; la traduction (utilisable en Union Europ&#233;enne).</label>
       <type type="str">bool</type>

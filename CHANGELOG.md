@@ -21,6 +21,9 @@ teleservices-package changelog
   - [TELE-1574] Add missing form option in WF for optionnal proof document [dmshd]
   - [TELE-1577] Add latest asked changes (Types of docs) [dmshd]
 
+### Updated
+  - [TELE-1577] Update types of docs descriptions display by directly using the desc in the list item [dmshd]
+
 ## [0.2.18] - 10-11-2022
 
 ### Added
