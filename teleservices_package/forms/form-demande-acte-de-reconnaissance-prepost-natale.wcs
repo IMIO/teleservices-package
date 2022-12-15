@@ -145,7 +145,7 @@
         <display_location>validation</display_location>
       </display_locations><id type="str">84</id>
     </field><field>
-      <label type="str">&lt;p&gt;Votre document doit encore &amp;ecirc;tre num&amp;eacute;ris&amp;eacute; dans Banque des Actes de l&amp;#39;Etat Civil. Une demande de migration va &amp;ecirc;tre introduite aupr&amp;egrave;s des services concern&amp;eacute;s, le document devrait &amp;ecirc;tre disponible dans le d&amp;eacute;lais de : {{ form_option_delai_migration }} jours. Veuillez poursuivre la proc&amp;eacute;dure en cliquant sur &amp;quot;Suivant.&lt;/p&gt;
+      <label type="str">&lt;p&gt;Votre document doit encore &amp;ecirc;tre num&amp;eacute;ris&amp;eacute; dans Banque des Actes de l&amp;#39;Etat Civil. Une demande de migration va &amp;ecirc;tre introduite aupr&amp;egrave;s des services concern&amp;eacute;s, le document devrait &amp;ecirc;tre disponible dans le d&amp;eacute;lais de : {{ form_option_delai_migration|default:"2" }} jours. Veuillez poursuivre la proc&amp;eacute;dure en cliquant sur &amp;quot;Suivant.&lt;/p&gt;
 </label>
       <type type="str">comment</type>
       <condition>
