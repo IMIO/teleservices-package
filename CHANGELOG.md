@@ -20,9 +20,11 @@ teleservices-package changelog
   - [TELE-1557] Update descriptions + allow add text field (BAEC/Actes) [dmshd]
   - [TELE-1574] Add missing form option in WF for optionnal proof document [dmshd]
   - [TELE-1577] Add latest asked changes (Types of docs) [dmshd]
+  - [TELE-1528] Add defaut value to avoid None if option not set [dmshd]
 
 ### Updated
   - [TELE-1577] Update types of docs descriptions display by directly using the desc in the list item [dmshd]
+  - [TELE-1578] Update anonymisation in main wf [njphs]
 
 ### Removed
   - [TELE-1557] Delete obsolete comment
