@@ -14,7 +14,18 @@
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
       </visibility><items>
-        <item type="jump" id="1">
+        <item type="set-backoffice-fields" id="11">
+          <label>Concerne qui ?</label>
+          <fields>
+            <field>
+              <field_id>bo98fcb92f-d9bc-4913-b0e1-c301885502f5</field_id>
+              <value>{% if not form_var_rb_concerne_raw and not form_var_concerne_qui_raw or form_var_rb_concerne_raw == 'moi' or form_var_concerne_qui_raw == 'moi' %}True{% else %}False{% endif %}</value>
+            </field><field>
+              <field_id>bo24cc53ce-c40b-4167-9080-9f286ac310dd</field_id>
+              <value>{% if form_var_rb_concerne_raw == 'tiers' or form_var_concerne_qui_raw == 'tiers' %}True{% else %}False{% endif %}</value>
+            </field>
+          </fields>
+        </item><item type="jump" id="1">
           <status>32</status>
           <condition>
             <type>python</type>
@@ -214,7 +225,7 @@
         </item><item type="choice" id="4">
           <label>V&#233;rifier la pr&#233;sence de l'acte</label>
           <by>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
           </by><status>35</status>
           <require_confirmation>False</require_confirmation>
           <backoffice_info_text>&lt;p&gt;V&amp;eacute;rifie la pr&amp;eacute;sence de l&amp;#39;acte dans la BAEC suite &amp;agrave; la demande de migration.&lt;/p&gt;
@@ -455,8 +466,9 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
             <item role_id="_receiver">_receiver</item>
           </by><status>19</status>
           <require_confirmation>False</require_confirmation>
-          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-3c4bd445-7fff-6d61-c702-edfcc8df7d7b" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet de refuser la demande de l&amp;rsquo;usager, de lui notifier le motif de refus et de l&amp;rsquo;avertir par courriel.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
-          <ignore_form_errors>False</ignore_form_errors>
+          <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-3c4bd445-7fff-6d61-c702-edfcc8df7d7b" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet de refuser la demande de l&amp;rsquo;usager, de lui notifier le motif de refus et de l&amp;rsquo;avertir par courriel.&lt;/span&gt;&lt;/p&gt;
+</backoffice_info_text>
+          <ignore_form_errors>True</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -1096,6 +1108,39 @@ Cordialement, </body>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
+    </status><status>
+      <id>37</id>
+      <name>Demande Cl&#244;tur&#233;e</name>
+      <colour>FF99FF</colour>
+      <visibility />
+      <items>
+        <item type="register-comment" id="3">
+          <comment>&lt;p&gt;Demande cl&#244;tur&#233;e&lt;/p&gt;
+&lt;p&gt;La demande sera anonymis&#233;e le {% if form_var_demande_me_concerne %}{{ today|add_days:form_option_delai_anonymisation_me_concerne|date:"d/m/Y" }}{% endif %}{% if form_var_demande_concerne_tier %}{{ today|add_days:form_option_delai_anonymisation_document_concerne_tier|date:"d/m/Y" }}{% endif %}&lt;/p&gt;</comment>
+        </item><item type="jump" id="1">
+          <status>38</status>
+          <condition>
+            <type>django</type>
+            <value>form_var_demande_me_concerne</value>
+          </condition><timeout>{{ form_option_delai_anonymisation_me_concerne }} jours</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="2">
+          <status>38</status>
+          <condition>
+            <type>django</type>
+            <value>form_var_demande_concerne_tier</value>
+          </condition><timeout>{{ form_option_delai_anonymisation_document_concerne_tier }} jours</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>38</id>
+      <name>Demande anonymis&#233;e</name>
+      <colour>FF9999</colour>
+      <visibility />
+      <items>
+        <item type="anonymise" id="1" />
+      </items>
     </status>
   </possible_status><global_actions>
     <action>
@@ -1110,7 +1155,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1122,7 +1167,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1138,7 +1183,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1173,12 +1218,42 @@ Cordialement, </body>
           <timeout>1827</timeout>
         </trigger>
       </triggers>
+    </action><action>
+      <id>6</id>
+      <name>Anonymisation</name>
+      <items>
+        <item type="jump" id="1">
+          <status>37</status>
+          <condition>
+            <type>django</type>
+            <value>form_option_activer_anonymisation</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
+          <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
+          <timeout>0</timeout>
+        </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
+          <roles>
+            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+          </roles>
+        </trigger>
+      </triggers>
     </action>
   </global_actions><variables>
     <formdef>
       <name>-</name>
       <fields>
         <field>
+          <label type="str">Paiement</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">24</id>
+        </field><field>
           <label type="str">Co&#251;t du document</label>
           <type type="str">string</type>
           <required type="bool">False</required>
@@ -1191,6 +1266,49 @@ Cordialement, </body>
             <value>"0"</value>
           </prefill><anonymise type="bool">True</anonymise>
           <id type="str">1</id>
+        </field><field>
+          <label type="str">IBAN</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">Sera employ&#233; dans le flux "PC Banking (virement)" du Workflow.</hint>
+          <varname type="str">iban</varname>
+          <display_locations />
+          <anonymise type="bool">True</anonymise>
+          <id type="str">9</id>
+        </field><field>
+          <label type="str">R&#233;gie de paiement</label>
+          <type type="str">item</type>
+          <required type="bool">False</required>
+          <hint type="str">Plus d'information sur les r&#233;gies de paiement : https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html#configurer-un-formulaire-etat-civil-population</hint>
+          <varname type="str">regie_de_paiement</varname>
+          <display_locations />
+          <display_mode type="str">radio</display_mode>
+          <items />
+          <data_source>
+            <type>json</type>
+            <value>{{portal_url}}/api/lingo/regies</value>
+          </data_source><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">False</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">11</id>
+        </field><field>
+          <label type="str">Paiement en ligne</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <hint type="str">A cocher si vous poss&#233;der une r&#233;gie de paiement tel qu'Atos, Ingenico, Mollie, ...</hint>
+          <varname type="str">paiement_en_ligne</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <type>none</type>
+          </prefill><id type="str">13</id>
+        </field><field>
+          <label type="str">Motifs et destinations</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">27</id>
         </field><field>
           <label type="str">Motifs disponibles</label>
           <type type="str">items</type>
@@ -1232,6 +1350,13 @@ Cordialement, </body>
           <display_disabled_items type="bool">False</display_disabled_items>
           <id type="str">4</id>
         </field><field>
+          <label type="str">Mon dossier</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">26</id>
+        </field><field>
           <label type="str">Url du document sur le site de Mon Dossier</label>
           <type type="str">string</type>
           <required type="bool">False</required>
@@ -1244,31 +1369,6 @@ Cordialement, </body>
           </prefill><anonymise type="bool">True</anonymise>
           <id type="str">7</id>
         </field><field>
-          <label type="str">IBAN</label>
-          <type type="str">string</type>
-          <required type="bool">False</required>
-          <hint type="str">Sera employ&#233; dans le flux "PC Banking (virement)" du Workflow.</hint>
-          <varname type="str">iban</varname>
-          <display_locations />
-          <anonymise type="bool">True</anonymise>
-          <id type="str">9</id>
-        </field><field>
-          <label type="str">R&#233;gie de paiement</label>
-          <type type="str">item</type>
-          <required type="bool">False</required>
-          <hint type="str">Plus d'information sur les r&#233;gies de paiement : https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html#configurer-un-formulaire-etat-civil-population</hint>
-          <varname type="str">regie_de_paiement</varname>
-          <display_locations />
-          <display_mode type="str">radio</display_mode>
-          <items />
-          <data_source>
-            <type>json</type>
-            <value>{{portal_url}}/api/lingo/regies</value>
-          </data_source><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">False</anonymise>
-          <display_disabled_items type="bool">False</display_disabled_items>
-          <id type="str">11</id>
-        </field><field>
           <label type="str">Redirection Automatique</label>
           <type type="str">bool</type>
           <required type="bool">False</required>
@@ -1277,25 +1377,12 @@ Cordialement, </body>
           <display_locations />
           <id type="str">12</id>
         </field><field>
-          <label type="str">Paiement en ligne</label>
-          <type type="str">bool</type>
-          <required type="bool">False</required>
-          <hint type="str">A cocher si vous poss&#233;der une r&#233;gie de paiement tel qu'Atos, Ingenico, Mollie, ...</hint>
-          <varname type="str">paiement_en_ligne</varname>
+          <label type="str">BAEC</label>
+          <type type="str">subtitle</type>
           <display_locations>
+            <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><id type="str">13</id>
-        </field><field>
-          <label type="str">Lien du r&#232;glement communal</label>
-          <type type="str">string</type>
-          <required type="bool">False</required>
-          <hint type="str">Lien vers le r&#232;glement communal qui s'affichera &#233;ventuellement dans certains formulaires (https://...).</hint>
-          <varname type="str">reglement_communal</varname>
-          <display_locations />
-          <anonymise type="bool">True</anonymise>
-          <id type="str">14</id>
+          </display_locations><id type="str">28</id>
         </field><field>
           <label type="str">BAEC : Phase de la liaison</label>
           <type type="str">item</type>
@@ -1322,6 +1409,13 @@ Cordialement, </body>
           </validation><anonymise type="bool">True</anonymise>
           <id type="str">16</id>
         </field><field>
+          <label type="str">Actes</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">29</id>
+        </field><field>
           <label type="str">Actes : Pi&#232;ce justificative obligatoire si concerne un tiers</label>
           <type type="str">item</type>
           <required type="bool">False</required>
@@ -1346,6 +1440,71 @@ Cordialement, </body>
           <extra_css_class type="str">grid-1-1 newline</extra_css_class>
           <display_mode type="str">pre</display_mode>
           <id type="str">17</id>
+        </field><field>
+          <label type="str">Anonymisation</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">22</id>
+        </field><field>
+          <label type="str">Activer l'anonymisation</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <hint type="str">Cochez pour activer l'anonymisation</hint>
+          <varname type="str">activer_anonymisation</varname>
+          <display_locations />
+          <id type="str">21</id>
+        </field><field>
+          <label type="str">D&#233;lai d'anonymisation document qui me concerne</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">En jours</hint>
+          <varname type="str">delai_anonymisation_me_concerne</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise type="bool">True</anonymise>
+          <id type="str">19</id>
+        </field><field>
+          <label type="str">&lt;p&gt;Le &lt;strong class="label" id="label19"&gt;D&amp;eacute;lai d&amp;#39;anonymisation document qui me concerne&lt;/strong&gt; est &amp;eacute;galement utilis&amp;eacute; pour&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Acte de D&amp;eacute;c&amp;egrave;s&lt;/strong&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Acte de Reconnaissance pr&amp;eacute;/post-natale&lt;/strong&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Cohabitation L&amp;eacute;gale&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</label>
+          <type type="str">comment</type>
+          <display_locations />
+          <id type="str">23</id>
+        </field><field>
+          <label type="str">D&#233;lai d'anonymisation document qui concerne un tier</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">En jours</hint>
+          <varname type="str">delai_anonymisation_document_concerne_tier</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise type="bool">True</anonymise>
+          <id type="str">20</id>
+        </field><field>
+          <label type="str">Autre</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">30</id>
+        </field><field>
+          <label type="str">Lien du r&#232;glement communal</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">Lien vers le r&#232;glement communal qui s'affichera &#233;ventuellement dans certains formulaires (https://...).</hint>
+          <varname type="str">reglement_communal</varname>
+          <display_locations />
+          <anonymise type="bool">True</anonymise>
+          <id type="str">14</id>
         </field>
       </fields>
     </formdef>
@@ -1440,6 +1599,24 @@ Cordialement, </body>
           <automatic_image_resize type="bool">False</automatic_image_resize>
           <storage type="str">default</storage>
           <id type="str">boc69b2ccc-1a6c-43a8-a1e0-5008ba678885</id>
+        </field><field>
+          <label type="str">La demande me concerne</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <hint type="str">Valable aussi pour : Acte de D&#233;c&#232;s, Acte de Reconnaissance pr&#233;/post-natale, Cohabitation L&#233;gale
+</hint>
+          <varname type="str">demande_me_concerne</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">bo98fcb92f-d9bc-4913-b0e1-c301885502f5</id>
+        </field><field>
+          <label type="str">La demande concerne un tier</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <varname type="str">demande_concerne_tier</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">bo24cc53ce-c40b-4167-9080-9f286ac310dd</id>
         </field>
       </fields>
     </formdef>
