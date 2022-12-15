@@ -11,6 +11,7 @@ teleservices-package changelog
 
   - [TELE-1547] Fix spelling mistakes [dmshd] [njphs]
   - [TELE-1577] Condition acknowl. checkbox for translation document help [dmshd]
+  - [TELE-1528] Fix spelling mistake
 ### Added
   - [TELE-1556] Add form_option for délai migration BAEC [njphs]
   - [TELE-1559] Add "pièce justificative" feature option [dmshd]
@@ -25,6 +26,7 @@ teleservices-package changelog
 ### Updated
   - [TELE-1577] Update types of docs descriptions display by directly using the desc in the list item [dmshd]
   - [TELE-1578] Update anonymisation in main wf [njphs]
+
 
 ### Removed
   - [TELE-1557] Delete obsolete comment
