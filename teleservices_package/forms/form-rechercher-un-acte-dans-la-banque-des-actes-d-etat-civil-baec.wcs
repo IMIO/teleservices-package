@@ -25,8 +25,8 @@
       <label type="str">Service disponible</label>
       <type type="str">computed</type>
       <varname type="str">service_disponible</varname>
-      <value_template type="str">{{ webservice.baec_service_disponible.err }}</value_template>
-      <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
+      <value_template type="str">{% if webservice.baec_service_disponible.err == "1" or not webservice.baec_service_disponible %}{{ False }}{% else %}{{ True }}{% endif %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">9</id>
     </field><field>
       <label type="str">&lt;p&gt;Vous trouverez ci-dessous la liste de vos actes disponibles dans la Banque des Actes de l&amp;#39;Etat Civil.&amp;nbsp;&lt;/p&gt;
@@ -70,7 +70,7 @@
       <type type="str">comment</type>
       <condition>
         <type>django</type>
-        <value>data_source.baec_documents_by_category|length &lt;= 0 and form_var_service_disponible == "1"</value>
+        <value>not form_var_service_disponible</value>
       </condition><extra_css_class type="str">pk-information</extra_css_class>
       <display_locations>
         <display_location>validation</display_location>
@@ -94,7 +94,7 @@
       <type type="str">comment</type>
       <condition>
         <type>django</type>
-        <value>data_source.baec_documents_by_category|length == 0</value>
+        <value>form_var_service_disponible and data_source.baec_documents_by_category|length == 0</value>
       </condition><extra_css_class type="str">pk-information</extra_css_class>
       <display_locations>
         <display_location>validation</display_location>

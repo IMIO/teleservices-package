@@ -153,8 +153,8 @@
       <label type="str">Service disponible</label>
       <type type="str">computed</type>
       <varname type="str">service_disponible</varname>
-      <value_template type="str">{{ webservice.baec_service_disponible.err }}</value_template>
-      <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
+      <value_template type="str">{% if webservice.baec_service_disponible.err == "1" or not webservice.baec_service_disponible %}{{ False }}{% else %}{{ True }}{% endif %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">78</id>
     </field><field>
       <label type="str">Liste des actes disponibles</label>
@@ -181,13 +181,13 @@
       <type type="str">comment</type>
       <condition>
         <type>django</type>
-        <value>data_source.baec_documents_by_category|length &lt;= 0 and form_var_service_disponible == "1"</value>
+        <value>not form_var_service_disponible</value>
       </condition><extra_css_class type="str">pk-information</extra_css_class>
       <display_locations>
         <display_location>validation</display_location>
       </display_locations><id type="str">80</id>
     </field><field>
-      <label type="str">&lt;p&gt;Votre document doit encore &amp;ecirc;tre num&amp;eacute;ris&amp;eacute; dans Banque des Actes de l&amp;#39;Etat Civil. Une demande de migration va &amp;ecirc;tre introduite aupr&amp;egrave;s des services concern&amp;eacute;s, le document devrait &amp;ecirc;tre disponible dans le d&amp;eacute;lai de : {{ form_option_delai_migration|default:"2" }} jours. Veuillez poursuivre la proc&amp;eacute;dure en cliquant sur &amp;quot;Suivant.&lt;/p&gt;
+      <label type="str">&lt;p&gt;Votre document doit encore &amp;ecirc;tre num&amp;eacute;ris&amp;eacute; dans la Banque des Actes de l&amp;#39;Etat Civil. Une demande de migration va &amp;ecirc;tre introduite aupr&amp;egrave;s des services concern&amp;eacute;s, le document devrait &amp;ecirc;tre disponible dans le d&amp;eacute;lai de : {{ form_option_delai_migration|default:"2" }} jours. Veuillez poursuivre la proc&amp;eacute;dure en cliquant sur &amp;quot;Suivant.&lt;/p&gt;
 </label>
       <type type="str">comment</type>
       <condition>
@@ -205,7 +205,7 @@
       <type type="str">comment</type>
       <condition>
         <type>django</type>
-        <value>data_source.baec_documents_by_category|length == 0</value>
+        <value>form_var_service_disponible and data_source.baec_documents_by_category|length == 0</value>
       </condition><extra_css_class type="str">pk-information</extra_css_class>
       <display_locations>
         <display_location>validation</display_location>
@@ -253,6 +253,10 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
     </field><field>
       <label type="str">Document souhait&#233;</label>
       <type type="str">page</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' or not form_var_baec_document_select_migration_command</value>
+      </condition>
       <id type="str">74</id>
     </field><field>
       <label type="str">Type d'acte</label>
@@ -568,8 +572,9 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type</value>
-      </condition><post_conditions>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type and not form_var_baec_document_select</value>
+      </condition>
+      <post_conditions>
         <post_condition>
           <condition>
             <type>python</type>
@@ -788,7 +793,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019'  and not form_var_baec_document_type</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type and not form_var_baec_document_select</value>
       </condition><id type="str">31</id>
     </field><field>
       <label type="str">Le document est destin&#233; &#224;</label>
@@ -871,8 +876,9 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type</value>
-      </condition><id type="str">36</id>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type and not form_var_baec_document_select</value>
+      </condition>
+      <id type="str">36</id>
     </field><field>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
 

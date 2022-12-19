@@ -11,7 +11,8 @@ teleservices-package changelog
 
   - [TELE-1547] Fix spelling mistakes [dmshd] [njphs]
   - [TELE-1577] Condition acknowl. checkbox for translation document help [dmshd]
-  - [TELE-1528] Fix spelling mistake
+  - [TELE-1528] Fix spelling mistake [dmshd]
+  - [TELE-1528] Fix parenthesis instead of curlys [dmshd] [njphs]
 ### Added
   - [TELE-1556] Add form_option for délai migration BAEC [njphs]
   - [TELE-1559] Add "pièce justificative" feature option [dmshd]
@@ -21,13 +22,13 @@ teleservices-package changelog
   - [TELE-1557] Update descriptions + allow add text field (BAEC/Actes) [dmshd]
   - [TELE-1574] Add missing form option in WF for optionnal proof document [dmshd]
   - [TELE-1577] Add latest asked changes (Types of docs) [dmshd]
-  - [TELE-1528] Add defaut value to avoid None if option not set [dmshd]
+  - [TELE-1528] Add defaut value to avoid None if option not set [dmshd] [njphs]
 
 ### Updated
   - [TELE-1577] Update types of docs descriptions display by directly using the desc in the list item [dmshd]
   - [TELE-1578] Update anonymisation in main wf [njphs]
-  - [TELE-1528] Update Workflow with last changes about migration-request [dmshd]
-
+  - [TELE-1528] Update Workflow with last changes about migration-request [dmshd] [njphs]
+  - [TELE-1528] Update Forms with last changes about migration-request [dmshd] [njphs]
 
 ### Removed
   - [TELE-1557] Delete obsolete comment
