@@ -190,7 +190,7 @@
 Nous vous informons que votre document concernant la d&#233;marche {{ form_name }} va &#234;tre num&#233;ris&#233; dans la Banque des Actes de l'Etat Civil.
 Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va la traiter dans les plus brefs d&#233;lais. Vous recevrez un mail lorsqu'il sera disponible.
 
-Vous pouvez consulter l'`historique de votre demande via ce lien &lt;{{form_url))&gt;`_.
+Vous pouvez consulter l'`historique de votre demande via ce lien &lt;{{form_url}}&gt;`_.
 
 {% if form_tracking_code %}
 Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
@@ -355,7 +355,7 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
 
 Nous vous informons que votre document concernant la d&#233;marche {{ form_name }} est d&#233;sormais disponible.
 
-Vous pouvez le t&#233;l&#233;charger dans l'`historique de votre demande &lt;{{form_url))&gt;`_.
+Vous pouvez le t&#233;l&#233;charger dans l'`historique de votre demande &lt;{{form_url}}&gt;`_.
 
 {% if form_tracking_code %}
 Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
