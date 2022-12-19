@@ -14,7 +14,7 @@
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
       </visibility><items>
-        <item type="set-backoffice-fields" id="11">
+        <item type="set-backoffice-fields" id="1">
           <label>Concerne qui ?</label>
           <fields>
             <field>
@@ -25,19 +25,19 @@
               <value>{% if form_var_rb_concerne_raw == 'tiers' or form_var_concerne_qui_raw == 'tiers' %}True{% else %}False{% endif %}</value>
             </field>
           </fields>
-        </item><item type="jump" id="1">
+        </item><item type="jump" id="2">
           <status>32</status>
           <condition>
             <type>python</type>
             <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and (form_var_mode_delivrance_raw != 'commune' or (vars().get('form_var_date_acte_raw') and form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019') or ((vars().get('form_var_concerne_qui_raw') and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True'))) and vars().get('imio_wcs_baec') and vars().get('form_var_baec_document_select')</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="2">
+        </item><item type="jump" id="3">
           <status>20</status>
           <condition>
             <type>python</type>
             <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and (form_var_mode_delivrance_raw != 'commune' or (vars().get('form_var_date_acte_raw') and form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019') or ((vars().get('form_var_concerne_qui_raw') and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True'))) and not vars().get('form_var_destinations')</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="set-backoffice-fields" id="3">
+        </item><item type="set-backoffice-fields" id="4">
           <label>Configuration des donn&#233;es de traitement</label>
           <fields>
             <field>
@@ -63,7 +63,7 @@
               <value>{{form_option_paiement_en_ligne}}</value>
             </field>
           </fields>
-        </item><item type="set-backoffice-fields" id="4">
+        </item><item type="set-backoffice-fields" id="5">
           <label>Adresse pour un acte qui me concerne</label>
           <fields>
             <field>
@@ -74,7 +74,7 @@
             <type>django</type>
             <value>"Acte" in form_name and not form_var_rb_concerne or form_var_rb_concerne_raw == 'moi'</value>
           </condition>
-        </item><item type="set-backoffice-fields" id="5">
+        </item><item type="set-backoffice-fields" id="6">
           <label>Adresse pour un certificat qui me concerne</label>
           <fields>
             <field>
@@ -85,7 +85,7 @@
             <type>django</type>
             <value>"Acte" not in form_name and not form_var_concerne_qui_raw or form_var_concerne_qui_raw == 'moi'</value>
           </condition>
-        </item><item type="set-backoffice-fields" id="6">
+        </item><item type="set-backoffice-fields" id="7">
           <label>Adresse pour l'acte d'un tiers</label>
           <fields>
             <field>
@@ -96,7 +96,7 @@
             <type>django</type>
             <value>"Acte" in form_name and form_var_rb_concerne_raw == 'tiers'</value>
           </condition>
-        </item><item type="set-backoffice-fields" id="7">
+        </item><item type="set-backoffice-fields" id="8">
           <label>Adresse pour le certificat d'un tiers</label>
           <fields>
             <field>
@@ -107,19 +107,19 @@
             <type>django</type>
             <value>"Acte" not in form_name and form_var_concerne_qui_raw == 'tiers'</value>
           </condition>
-        </item><item type="jump" id="8">
+        </item><item type="jump" id="9">
           <status>13</status>
           <condition>
             <type>python</type>
             <value>Decimal(form_var_wf_total_commande) == Decimal('0') and (locals().get('form_var_destinations_paymentrequired') == 'False')</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="9">
+        </item><item type="jump" id="10">
           <status>21</status>
           <condition>
             <type>python</type>
             <value>vars().get('form_var_wf_paiement_en_ligne_raw') is False</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="10">
+        </item><item type="jump" id="11">
           <status>10</status>
           <condition>
             <type>django</type>
@@ -181,9 +181,40 @@
             <type>django</type>
             <value>form_var_baec_document_select_migration_command</value>
           </condition>
+        </item><item type="sendmail" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>{{ form_name }} : Lien vers le r&#233;capitulatif de votre demande</subject>
+          <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+
+Nous vous informons que votre document concernant la d&#233;marche {{ form_name }} va &#234;tre num&#233;ris&#233; dans la Banque des Actes de l'Etat Civil.
+Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va la traiter dans les plus brefs d&#233;lais. Vous recevrez un mail lorsqu'il sera disponible.
+
+Vous pouvez consulter l'`historique de votre demande via ce lien &lt;{{form_url))&gt;`_.
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,</body>
+        </item><item type="set-backoffice-fields" id="4">
+          <label>R&#233;f&#233;rence du document migr&#233;</label>
+          <fields>
+            <field>
+              <field_id>bo7643fe75-2f16-48de-adad-e1820f5e7972</field_id>
+              <value>{{ form_workflow_data_migration_request_response_document_reference }}</value>
+            </field><field>
+              <field_id>bo1cbb8e82-4fca-49c7-ab50-dd7e5e945cf7</field_id>
+              <value>False</value>
+            </field>
+          </fields>
         </item><item type="jump" id="2">
           <status>34</status>
-          <set_marker_on_status>False</set_marker_on_status>
+          <condition>
+            <type>django</type>
+            <value>form_var_reference_document_migration</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
@@ -214,7 +245,9 @@
             <item role_id="_submitter">_submitter</item>
           </to>
         </item><item type="register-comment" id="2">
-          <comment>Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va traiter votre demande dans les plus brefs d&#233;lais.</comment>
+          <comment>&lt;p&gt;Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va la traiter dans les plus brefs d&#233;lais.&lt;br /&gt;
+Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; afin que vous puissiez y revenir ult&#233;rieurement.&lt;/p&gt;
+&lt;p&gt;Un mail vous sera envoy&#233; lorsque votre document sera disponible.&lt;/p&gt;</comment>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
@@ -225,10 +258,10 @@
         </item><item type="choice" id="4">
           <label>V&#233;rifier la pr&#233;sence de l'acte</label>
           <by>
-            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </by><status>35</status>
           <require_confirmation>False</require_confirmation>
-          <backoffice_info_text>&lt;p&gt;V&amp;eacute;rifie la pr&amp;eacute;sence de l&amp;#39;acte dans la BAEC suite &amp;agrave; la demande de migration.&lt;/p&gt;
+          <backoffice_info_text>&lt;p&gt;Debug : V&amp;eacute;rifie la pr&amp;eacute;sence de l&amp;#39;acte dans la BAEC suite &amp;agrave; la demande de migration.&lt;/p&gt;
 </backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
@@ -237,13 +270,26 @@
     </status><status>
       <id>35</id>
       <name>V&#233;rification de la pr&#233;sence du document</name>
-      <colour>FFFF00</colour>
-      <visibility />
-      <items>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+        <role>_validateur-pc-banking</role>
+      </visibility><items>
         <item type="webservice_call" id="1">
-          <method>GET</method>
+          <label>V&#233;rification document migr&#233;</label>
+          <url>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/list-person-documents</url>
+          <qs_data>
+            <item>
+              <name>category</name>
+              <value>{{ form_var_category }}</value>
+            </item><item>
+              <name>rn</name>
+              <value>{{ form_user_var_niss }}</value>
+            </item>
+          </qs_data><method>GET</method>
           <post>False</post>
           <response_type>json</response_type>
+          <varname>migration_check</varname>
           <action_on_app_error>:pass</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>:stop</action_on_5xx>
@@ -252,14 +298,25 @@
           <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+        </item><item type="set-backoffice-fields" id="4">
+          <label>Document migr&#233; (Oui/Non)</label>
+          <fields>
+            <field>
+              <field_id>bo1cbb8e82-4fca-49c7-ab50-dd7e5e945cf7</field_id>
+              <value>{% for item in form_workflow_data_migration_check_response_items %}{% if item.reference == form_var_reference_document_migration %}True{% endif %}{% endfor %}</value>
+            </field>
+          </fields>
         </item><item type="jump" id="2">
           <status>34</status>
-          <set_marker_on_status>False</set_marker_on_status>
+          <condition>
+            <type>django</type>
+            <value>not form_var_document_migrated</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="3">
           <status>29</status>
           <condition>
             <type>django</type>
-            <value>False</value>
+            <value>form_var_document_migrated</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -290,6 +347,26 @@
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
+        </item><item type="sendmail" id="4">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>{{ form_name }} : Votre document est disponible</subject>
+          <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+
+Nous vous informons que votre document concernant la d&#233;marche {{ form_name }} est d&#233;sormais disponible.
+
+Vous pouvez le t&#233;l&#233;charger dans l'`historique de votre demande &lt;{{form_url))&gt;`_.
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,</body>
+          <condition>
+            <type>django</type>
+            <value>form_var_document_migrated</value>
+          </condition>
         </item>
       </items>
     </status><status>
@@ -1114,17 +1191,17 @@ Cordialement, </body>
       <colour>FF99FF</colour>
       <visibility />
       <items>
-        <item type="register-comment" id="3">
+        <item type="register-comment" id="1">
           <comment>&lt;p&gt;Demande cl&#244;tur&#233;e&lt;/p&gt;
 &lt;p&gt;La demande sera anonymis&#233;e le {% if form_var_demande_me_concerne %}{{ today|add_days:form_option_delai_anonymisation_me_concerne|date:"d/m/Y" }}{% endif %}{% if form_var_demande_concerne_tier %}{{ today|add_days:form_option_delai_anonymisation_document_concerne_tier|date:"d/m/Y" }}{% endif %}&lt;/p&gt;</comment>
-        </item><item type="jump" id="1">
+        </item><item type="jump" id="2">
           <status>38</status>
           <condition>
             <type>django</type>
             <value>form_var_demande_me_concerne</value>
           </condition><timeout>{{ form_option_delai_anonymisation_me_concerne }} jours</timeout>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="2">
+        </item><item type="jump" id="3">
           <status>38</status>
           <condition>
             <type>django</type>
@@ -1155,7 +1232,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
-            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1167,7 +1244,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
-            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1183,7 +1260,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
-            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1237,7 +1314,7 @@ Cordialement, </body>
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
-            <item slug="debug" role_id="43190215712647a89376713be142a4f5">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1617,6 +1694,21 @@ Cordialement, </body>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><id type="str">bo24cc53ce-c40b-4167-9080-9f286ac310dd</id>
+        </field><field>
+          <label type="str">R&#233;f&#233;rence document migration</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">reference_document_migration</varname>
+          <display_locations />
+          <anonymise type="bool">True</anonymise>
+          <id type="str">bo7643fe75-2f16-48de-adad-e1820f5e7972</id>
+        </field><field>
+          <label type="str">Migration effectu&#233;e</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <varname type="str">document_migrated</varname>
+          <display_locations />
+          <id type="str">bo1cbb8e82-4fca-49c7-ab50-dd7e5e945cf7</id>
         </field>
       </fields>
     </formdef>

@@ -26,6 +26,7 @@ teleservices-package changelog
 ### Updated
   - [TELE-1577] Update types of docs descriptions display by directly using the desc in the list item [dmshd]
   - [TELE-1578] Update anonymisation in main wf [njphs]
+  - [TELE-1528] Update Workflow with last changes about migration-request [dmshd]
 
 
 ### Removed
