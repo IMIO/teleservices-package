@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
-<formdef id="349" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/349/">
-  <name>Acte de Reconnaissance pr&#233;/post-natale (copie)</name>
-  <url_name>acte-de-reconnaissance-prepost-natale-copie</url_name>
-  <internal_identifier>acte-de-reconnaissance-prepost-natale-copie</internal_identifier>
+<formdef id="352" url="">
+  <name>Acte de Reconnaissance pr&#233;/post-natale</name>
+  <url_name>demande-acte-de-reconnaissance-prepost-natale</url_name>
+  <internal_identifier>demande-acte-de-reconnaissance-prepost-natale</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
-  <confirmation>true</confirmation>
+  <confirmation>false</confirmation>
   <always_advertise>true</always_advertise>
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="imio-etat-civil" category_id="126">Etat civil</category>
+  <category slug="etat-civil" category_id="126">Etat civil</category>
   <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>93</max_field_id>
   <fields>
@@ -64,6 +64,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
@@ -834,15 +835,14 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">72</id>
     </field>
-  </fields><roles />
-  <options>
+  </fields><options>
     <option varname="actes_commentaire_additionnel" />
     <option varname="actes_piece_justificative_tiers" />
     <option varname="actes_piece_justificative_tiers_display" />
     <option varname="actes_piece_justificative_tiers_structured" />
     <option varname="baec" />
-    <option varname="comptes_identifiants_regies">atos_etatcivil</option>
-    <option varname="comptes_identifiants_regies_display">atos_etatcivil</option>
+    <option varname="comptes_identifiants_regies" />
+    <option varname="comptes_identifiants_regies_display" />
     <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">0</option>
     <option varname="cp_commune" />
@@ -851,8 +851,8 @@
     <option varname="destinations_display" />
     <option varname="destinations_structured" />
     <option varname="iban" />
-    <option varname="liaison_baec">Production</option>
-    <option varname="liaison_baec_display">Production</option>
+    <option varname="liaison_baec">Staging</option>
+    <option varname="liaison_baec_display">Staging</option>
     <option varname="liaison_baec_structured" />
     <option varname="lien_bosa" />
     <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
