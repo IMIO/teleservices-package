@@ -848,7 +848,7 @@ En cliquant sur valider, vous allez &#234;tre red&#233;rig&#233; vers le site du
 &lt;ul&gt;
 &lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;Administration de {{ commune_name }}&lt;/b&gt;&lt;/li&gt;
 {% if administration_adresse %}&lt;li&gt;Adresse : &lt;b&gt;{{ administration_adresse }}&lt;/b&gt;&lt;/li&gt; {% endif %}
-&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{{form_option_iban}}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{% if form_option_iban %}{{form_option_iban}}{% else %}Le numéro IBAN n'est pas configuré.{% endif %}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;R&#233;f&#233;rence de la commande (communication libre) : &lt;b&gt;{{ form_number }}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_var_wf_total_commande }}&lt;/b&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -890,7 +890,7 @@ Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en me
 B&#233;n&#233;ficiaire : Ville de {{ commune_name }} - {{ administration_adresse }}
 
 
-Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {{form_option_iban}}
+Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {% if form_option_iban %}{{form_option_iban}}{% else %}Le numéro IBAN n'est pas configuré.{% endif %}
 
 
 R&#233;f&#233;rence de la commande (communication libre) : {{ form_number }}

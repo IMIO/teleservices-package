@@ -128,7 +128,7 @@ Cordialement,
 &lt;p&gt;Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;Ville de {{ commune_name }} - {{ administration_adresse }} &lt;/b&gt;&lt;/li&gt;
-&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{{form_option_iban}}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{% if form_option_iban %}{{form_option_iban}}{% else %}Le numéro IBAN n'est pas configuré.{% endif %}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;R&#233;f&#233;rence de la commande (communication libre) : &lt;b&gt;{{ form_number }}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_option_montant|add:form_var_destination_price }}&lt;/b&gt;&lt;/li&gt;
 &lt;/ul&gt;
