@@ -14,7 +14,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="124">Finance</category>
+  <category category_id="124" slug="demande-finance">Finance</category>
   <workflow workflow_id="123">iMio - Finances - D&#233;claration de r&#233;sidence secondaire</workflow>
   <max_field_id>28</max_field_id>
   <fields>

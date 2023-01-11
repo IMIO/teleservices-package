@@ -14,7 +14,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="1" slug="population">Population</category>
+  <category category_id="1" slug="demande-population">Population</category>
   <workflow slug="imio-redirection-pinpuk" workflow_id="82">iMio - Redirection Pin/Puk</workflow>
   <max_field_id>64</max_field_id>
   <fields>

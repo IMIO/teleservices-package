@@ -14,7 +14,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="1" slug="population">Population</category>
+  <category category_id="1" slug="demande-population">Population</category>
   <workflow slug="imio-extrait-casier-judicaire" workflow_id="80">iMio - Extrait casier judicaire</workflow>
   <max_field_id>88</max_field_id>
   <fields>
