@@ -15,7 +15,7 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-etat-civil" category_id="126">Etat civil</category>
   <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>122</max_field_id>
+  <max_field_id>123</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -149,6 +149,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>baec_documents_by_category</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -223,8 +224,7 @@
       <condition>
         <type>django</type>
         <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' or not form_var_baec_document_select_migration_command</value>
-      </condition>
-      <id type="str">40</id>
+      </condition><id type="str">40</id>
     </field><field>
       <label type="str">Type d'acte</label>
       <type type="str">item</type>
@@ -288,6 +288,25 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">122</id>
+    </field><field>
+      <label type="str">Langue pour la traduction</label>
+      <type type="str">item</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_document_aide_trad</value>
+      </condition><required type="bool">True</required>
+      <hint type="str">S&#233;lectionnez une langue</hint>
+      <varname type="str">langue_traduction</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">autocomplete</display_mode>
+      <data_source>
+        <type>langues</type>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">123</id>
     </field><field>
       <label type="str">Lien de parent&#233;</label>
       <type type="str">page</type>
