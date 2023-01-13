@@ -15,7 +15,7 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-etat-civil" category_id="126">Etat civil</category>
   <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>94</max_field_id>
+  <max_field_id>95</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -259,6 +259,15 @@
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">81</id>
+    </field><field>
+      <label type="str">&lt;p&gt;Le type de document souhait&amp;eacute; n&amp;#39;est pas pr&amp;eacute;sent dans la liste ? Cliquez sur &amp;quot;&lt;strong&gt;Pr&amp;eacute;c&amp;eacute;dent&lt;/strong&gt;&amp;quot; et faites-en la demande directement aupr&amp;egrave;s de votre administration communale.&lt;/p&gt;
+</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>baec_document_select</value>
+      </condition><display_locations />
+      <id type="str">95</id>
     </field><field>
       <label type="str">&lt;p&gt;{% for el in form_var_baec_document_select_structured_types %}{% if el|get:"id" == "E" %}- Extrait : Document qui ne comporte qu'une partie des informations figurant dans l'acte de reconnaissance pr&#233;/post natale.&lt;br&gt;{% endif %}{% if el|get:"id" == "C" %}- Copie : Document qui reprend l'int&#233;gralit&#233; des informations reprises sur l'acte de reconnaissance pr&#233;/post natale.&lt;br&gt;{% endif %}{% if el|get:"id" == "A" %}- Article 16 : Document extrait d'acte multilingue (les 3 langues nationales + l'anglais).{% endif %}{% endfor %}&lt;/p&gt;</label>
       <type type="str">comment</type>
