@@ -15,7 +15,7 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="etat-civil" category_id="126">Etat civil</category>
   <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="102">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>127</max_field_id>
+  <max_field_id>128</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -285,13 +285,31 @@
       <condition>
         <type>django</type>
         <value>form_var_mode_delivrance_raw == "commune" or form_var_rb_concerne_raw == "tiers"</value>
-      </condition>
-      <required type="bool">False</required>
+      </condition><required type="bool">False</required>
       <varname type="str">document_aide_trad</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">127</id>
+    </field><field>
+      <label type="str">Langue pour la traduction</label>
+      <type type="str">item</type>
+      <condition>
+        <type>django</type>
+        <value>form_var_document_aide_trad</value>
+      </condition><required type="bool">True</required>
+      <hint type="str">S&#233;lectionnez une langue</hint>
+      <varname type="str">langue_traduction</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">autocomplete</display_mode>
+      <data_source>
+        <type>langues</type>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">128</id>
     </field><field>
       <label type="str">Lien de parent&#233;</label>
       <type type="str">page</type>
@@ -788,8 +806,7 @@
       <condition>
         <type>django</type>
         <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type and not form_var_baec_document_select</value>
-      </condition>
-      <id type="str">84</id>
+      </condition><id type="str">84</id>
     </field><field>
       <label type="str">Le document est destin&#233; &#224;</label>
       <type type="str">item</type>
@@ -869,8 +886,7 @@
       <condition>
         <type>django</type>
         <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type and not form_var_baec_document_select</value>
-      </condition>
-      <id type="str">89</id>
+      </condition><id type="str">89</id>
     </field><field>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
 
