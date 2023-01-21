@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="103" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/103/">
+<workflow id="86" url="https://staging-formulaires.guichet-citoyen.be/backoffice/workflows/86/">
   <name>iMio - Documents PDF</name>
+  <slug>imio-documents-pdf</slug>
   <roles>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>
@@ -10,7 +11,7 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="displaymsg">
+        <item type="displaymsg" id="1">
           <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
           <level>success</level>
           <position>top</position>
@@ -25,38 +26,32 @@
       <name>-</name>
       <fields>
         <field>
-          <label>lien document</label>
-          <type>string</type>
-          <required>False</required>
-          <varname>lien_document</varname>
-          <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>1</id>
+          <label type="str">Lien vers le document &#224; t&#233;l&#233;charger</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">Exemple: http://www.commune.be/document.pdf</hint>
+          <varname type="str">lien_document</varname>
+          <display_locations />
+          <anonymise type="bool">False</anonymise>
+          <id type="str">1</id>
         </field><field>
-          <label>lieu d&#233;pot</label>
-          <type>text</type>
-          <required>False</required>
-          <varname>lieu_depot</varname>
-          <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><pre>False</pre>
-          <id>5</id>
+          <label type="str">Lieu de d&#233;pot</label>
+          <type type="str">text</type>
+          <required type="bool">False</required>
+          <hint type="str">Viendra compl&#233;ter le commentaire au sein du formulaire.</hint>
+          <varname type="str">lieu_depot</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <id type="str">5</id>
         </field><field>
-          <label>info plus</label>
-          <type>string</type>
-          <required>False</required>
-          <varname>info_plus</varname>
-          <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>6</id>
+          <label type="str">Info plus</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">Ne s'applique pas pour le mod&#232;le de procuration.</hint>
+          <varname type="str">info_plus</varname>
+          <display_locations />
+          <anonymise type="bool">True</anonymise>
+          <id type="str">6</id>
         </field>
       </fields>
     </formdef>
