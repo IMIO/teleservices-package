@@ -62,11 +62,11 @@
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">2</id>
     </field><field>
-      <label type="str">&lt;p&gt;La {{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit :&lt;/p&gt;
+      <label type="str">&lt;p&gt;La composition de m&amp;eacute;nage peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit :&lt;/p&gt;
 
-&lt;p&gt;1.&amp;nbsp;en le t&amp;eacute;l&amp;eacute;chargeant gratuitement via l'application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;1. En la t&amp;eacute;l&amp;eacute;chargeant gratuitement via l&amp;#39;application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
 
-&lt;p&gt;2. en le commandant sur notre e-guichet (cette m&amp;eacute;thode peut engendrer des frais)&lt;/p&gt;
+&lt;p&gt;2. En la commandant sur notre e-guichet (cette m&amp;eacute;thode peut engendrer des frais)&lt;/p&gt;
 
 &lt;p&gt;Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <type type="str">comment</type>

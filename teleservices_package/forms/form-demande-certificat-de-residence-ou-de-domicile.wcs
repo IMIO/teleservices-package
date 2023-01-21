@@ -82,11 +82,11 @@
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">34</id>
     </field><field>
-      <label type="str">&lt;p&gt;Le {{form_name}} peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit :&lt;/p&gt;
+      <label type="str">&lt;p&gt;Le certificat de r&eacute;sidence peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit :&lt;/p&gt;
 
-&lt;p&gt;1.&amp;nbsp;en le t&amp;eacute;l&amp;eacute;chargeant gratuitement via l'application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;1.&amp;nbsp;En le t&amp;eacute;l&amp;eacute;chargeant gratuitement via l'application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
 
-&lt;p&gt;2. en le commandant sur notre e-guichet (cette m&amp;eacute;thode peut engendrer des frais)&lt;/p&gt;
+&lt;p&gt;2. En le commandant sur notre e-guichet (cette m&amp;eacute;thode peut engendrer des frais)&lt;/p&gt;
 
 &lt;p&gt;Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <type type="str">comment</type>
