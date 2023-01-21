@@ -14,6 +14,11 @@ teleservices-package changelog
   - [TELE-1528] Fix spelling mistake [dmshd]
   - [TELE-1528] Fix parenthesis instead of curlys [dmshd] [njphs]
   - [TELE-1528] Fix None appearing in prod [dmshd] [njphs]
+  - [SUP-27953] convert ds_personne_concernee to JSON (fix python deprec) [dmshd]
+  - [SUP-27989] remove form_name, fix spelling and gender use [dmshd]
+  -             Fix categories mismatch by completing missing categories name in the xml file [dmshd]
+  - [SUP-27957] Fix python with undefined variables causing bugs, convert depraceted Python to django [dmshd]
+
 ### Added
   - [TELE-1556] Add form_option for délai migration BAEC [njphs]
   - [TELE-1559] Add "pièce justificative" feature option [dmshd]
@@ -30,6 +35,7 @@ teleservices-package changelog
   - [TELE-1578] Update anonymisation in main wf [njphs]
   - [TELE-1528] Update Workflow with last changes about migration-request [dmshd] [njphs]
   - [TELE-1528] Update Forms with last changes about migration-request [dmshd] [njphs]
+  - [SUP-27991] Relabel and use capital + add hints in form_options (modele procuratio wf) [dmshd]
 
 ### Removed
   - [TELE-1557] Delete obsolete comment
