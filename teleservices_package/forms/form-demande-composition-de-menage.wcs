@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<formdef id="24" url="http://local-formulaires.example.net/backoffice/forms/24/">
+<formdef id="19" url="https://local-formulaires.guichet-citoyen.be/backoffice/forms/19/">
   <name>Composition de m&#233;nage</name>
   <url_name>demande-composition-de-menage</url_name>
   <description>&lt;p&gt;La composition de m&#233;nage reprend toutes les personnes inscrites &#224; une m&#234;me adresse.&lt;/p&gt;</description>
   <internal_identifier>demande-composition-de-menage</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="1" slug="demande-population">Population</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="23">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category slug="demande-population" category_id="1">Population</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="14">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>71</max_field_id>
   <fields>
     <field>
@@ -53,8 +53,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>ds_personne_concernee</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -88,8 +88,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
@@ -108,8 +108,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>py_mon_domicile_est_menage</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -121,13 +121,13 @@
       <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_concerne_qui_raw == "tiers"</value>
+        <type>django</type>
+        <value>form_var_concerne_qui == "Concerne une autre personne"</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_cp_perscon in commune_cp.split(',')</value>
+            <type>django</type>
+            <value>form_var_code_postal_perscon in commune_cp</value>
           </condition><error_message>Vous commandez ce document pour une personne tiers. Cette personne doit habiter ou doit avoir habit&#233; dans notre commune.</error_message>
         </post_condition>
       </post_conditions><id type="str">18</id>
@@ -148,7 +148,6 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
       </prefill><validation>
         <type>nrn-be</type>
@@ -248,8 +247,8 @@
       </display_locations><extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -292,14 +291,9 @@
       </condition><post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>(form_var_concerne_qui_raw == 'moi' and form_var_cp in commune_cp.split(",")) or (form_var_concerne_qui_raw == 'moi' and form_var_domicile_raw == 'plus_{0}'.format(commune_slug)) or form_var_concerne_qui_raw != 'moi'</value>
+            <type>django</type>
+            <value>form_var_cp in commune_cp</value>
           </condition><error_message>Vous commandez ce document pour vous-m&#234;me. Le code postal indiqu&#233; doit obligatoirement &#234;tre celui de notre commune.</error_message>
-        </post_condition><post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
         </post_condition>
       </post_conditions><id type="str">3</id>
     </field><field>
@@ -320,7 +314,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><validation>
@@ -444,8 +437,8 @@
       <prefill>
         <type>user</type>
         <value>_country</value>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -469,13 +462,14 @@
       <label type="str">T&#233;l&#233;phone</label>
       <type type="str">string</type>
       <required type="bool">True</required>
-      <hint type="str">Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...)</hint>
+      <hint type="str">Exemple: +3281005678 ou 0123456789.</hint>
       <varname type="str">tel</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
@@ -521,8 +515,8 @@
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -557,8 +551,8 @@
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
