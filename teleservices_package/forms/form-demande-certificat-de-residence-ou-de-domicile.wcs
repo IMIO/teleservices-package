@@ -82,7 +82,7 @@
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">34</id>
     </field><field>
-      <label type="str">&lt;p&gt;Le certificat de r&eacute;sidence peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit :&lt;/p&gt;
+      <label type="str">&lt;p&gt;Le certificat de r&amp;eacute;sidence peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit :&lt;/p&gt;
 
 &lt;p&gt;1.&amp;nbsp;En le t&amp;eacute;l&amp;eacute;chargeant gratuitement via l'application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
 
