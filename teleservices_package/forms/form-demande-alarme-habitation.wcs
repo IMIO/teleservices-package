@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <formdef id="73" url="http://local-formulaires.example.net/backoffice/forms/73/">
-  <name>Alarme habitation </name>
+  <name>Alarme habitation</name>
   <url_name>demande-alarme-habitation</url_name>
   <description>Demandez votre prime octroy&#233;e sous conditions en cas d'installation d'une alarme habitation.</description>
   <internal_identifier>demande-alarme-habitation</internal_identifier>
