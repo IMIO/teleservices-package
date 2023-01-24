@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="269" url="">
+<formdef id="176" url="">
   <name>Acte de D&#233;c&#232;s</name>
   <url_name>demande-acte-de-deces</url_name>
   <description>&lt;p&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;</description>
@@ -92,8 +92,7 @@
       <condition>
         <type>django</type>
         <value>form_var_mode_delivrance_raw == "commune" or form_var_rb_concerne_raw == "tiers"</value>
-      </condition>
-      <required type="bool">False</required>
+      </condition><required type="bool">False</required>
       <varname type="str">document_aide_trad</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -112,6 +111,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">autocomplete</display_mode>
+      <items />
       <data_source>
         <type>langues</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -280,14 +280,7 @@
     </field><field>
       <label type="str">Donn&#233;es du demandeur</label>
       <type type="str">page</type>
-      <post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition>
-      </post_conditions><id type="str">34</id>
+      <id type="str">34</id>
     </field><field>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&lt;u&gt;vos donn&amp;eacute;es&amp;nbsp;&lt;/u&gt;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type type="str">comment</type>
@@ -478,15 +471,19 @@
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
       <type type="str">string</type>
       <required type="bool">True</required>
+      <hint type="str">Exemple: +3281005678 ou 0123456789.</hint>
       <varname type="str">tel</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><validation>
+        <type>phone</type>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">50</id>
     </field><field>
       <label type="str">Destination du document</label>
