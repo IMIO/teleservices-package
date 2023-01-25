@@ -3,7 +3,7 @@
   <name>do_you_work</name>
   <slug>do_you_work</slug>
   <data_source>
-    <type>formula</type>
-    <value>[('never_work','Non, je n\'ai jamais travaill&#233;'), ('currently_no_work','Oui mais je ne travaille pas actuellement'), ('yes_i_work','Oui et je travaille actuellement')]</value>
+    <type>jsonvalue</type>
+    <value>[{"id": "never_work", "text": "Non, je n'ai jamais travaill&#233;"}, {"id": "currently_no_work", "text": "Oui mais je ne travaille pas actuellement"}, {"id": "yes_i_work", "text": "Oui et je travaille actuellement"}]</value>
   </data_source>
 </datasource>
