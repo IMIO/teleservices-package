@@ -4,7 +4,7 @@
   <slug>mode_de_delivrance</slug>
   <description>Source de donn&#233;e pour le choix de d&#233;livrance mon dossier ou par la commune.</description>
   <data_source>
-    <type>formula</type>
-    <value>[{'id': 'mondossier','text': 'Je souhaite r&#233;cup&#233;rer directement le document PDF (carte d\'identit&#233; + code pin requis).','disabled': True}, {'id': 'commune','text': 'Je souhaite recevoir mes documents par le biais de mon administration communale.','disabled': False}]</value>
+    <type>jsonvalue</type>
+    <value>[{"id": "mondossier","text": "Je souhaite r&#233;cup&#233;rer directement le document PDF (carte d'identit&#233; + code pin requis)."}, {"id": "commune","text": "Je souhaite recevoir mes documents par le biais de mon administration communale.", "disabled": false}]</value>
   </data_source>
 </datasource>
