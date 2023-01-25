@@ -36,6 +36,7 @@ teleservices-package changelog
   - [TELE-1528] Update Workflow with last changes about migration-request [dmshd] [njphs]
   - [TELE-1528] Update Forms with last changes about migration-request [dmshd] [njphs]
   - [SUP-27991] Relabel and use capital + add hints in form_options (modele procuratio wf) [dmshd]
+  - [SUP-27953] Migrate to json value the simplest & easy to do python datasources [dmshd]
 
 ### Removed
   - [TELE-1557] Delete obsolete comment
