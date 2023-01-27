@@ -103,7 +103,10 @@
     </field><field>
       <label type="str">Type d'acte</label>
       <type type="str">page</type>
-      <id type="str">7</id>
+      <condition>
+        <type>django</type>
+        <value>not form_var_baec_document_select_migration_command</value>
+      </condition><id type="str">7</id>
     </field><field>
       <label type="str">Type d'acte</label>
       <type type="str">item</type>
