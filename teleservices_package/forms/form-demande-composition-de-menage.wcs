@@ -462,7 +462,7 @@
       <label type="str">T&#233;l&#233;phone</label>
       <type type="str">string</type>
       <required type="bool">True</required>
-      <hint type="str">Exemple: +3281005678 ou 0123456789.</hint>
+      <hint type="str">Exemple : +3281005678 ou 0123456789.</hint>
       <varname type="str">tel</varname>
       <display_locations>
         <display_location>validation</display_location>
