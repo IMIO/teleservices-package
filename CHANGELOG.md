@@ -18,6 +18,7 @@ teleservices-package changelog
   - [SUP-27989] remove form_name, fix spelling and gender use [dmshd]
   -             Fix categories mismatch by completing missing categories name in the xml file [dmshd]
   - [SUP-27957] Fix python with undefined variables causing bugs, convert depraceted Python to django [dmshd]
+  - [TELE-1598] fix form-rechercher-un-acte-dans-la-banque-des-actes-d-etat-civil-baec.wcs [njphs]
 
 ### Added
   - [TELE-1556] Add form_option for délai migration BAEC [njphs]
@@ -37,7 +38,8 @@ teleservices-package changelog
   - [TELE-1528] Update Forms with last changes about migration-request [dmshd] [njphs]
   - [SUP-27991] Relabel and use capital + add hints in form_options (modele procuratio wf) [dmshd]
   - [SUP-27953] Migrate to json value the simplest & easy to do python datasources [dmshd]
-  - [SUP-27953] migrate page conditions to django (cand.poste à pourvoir)
+  - [SUP-27953] migrate page conditions to django (cand.poste à pourvoir) [dmshd]
+  - [TELE-1601] Uniformize tel hints on some forms [dmshd]
 
 ### Removed
   - [TELE-1557] Delete obsolete comment
