@@ -50,7 +50,7 @@
           <url>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/request-document-migration</url>
           <qs_data>
             <item>
-              <name>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/request-document-migration</name>
+              <name>migration_command</name>
               <value>{{ form_var_baec_document_select_migration_command }}</value>
             </item>
           </qs_data><method>POST</method>
