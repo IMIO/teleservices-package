@@ -19,6 +19,13 @@ teleservices-package changelog
   -             Fix categories mismatch by completing missing categories name in the xml file [dmshd]
   - [SUP-27957] Fix python with undefined variables causing bugs, convert depraceted Python to django [dmshd]
   - [TELE-1598] fix form-rechercher-un-acte-dans-la-banque-des-actes-d-etat-civil-baec.wcs [njphs]
+  - [MCITICAPA-3] Permis de conduire : Fix form import in wrong cat, enable form and set "citoyen (test)" as role du demandeur [dmshd]
+  - [MCITICAPA-3] Euthanasie : Fix form import in wrong cat, enable and set "citoyen (test)" as demandeur
+  - [MCITICAPA-3] Restore missing category "Modèles" (now labelled "iMio - Modèles") [dmshd]
+  - [MCITICAPA-3] Coordonnées (modèle) : Fix category, activate + Citoyen(test) as demandeur, update whole xml with recent publik export particularities (types,ect) [dmshd]
+  - [MCITICAPA-3] Date et heure (modèle) : Fix category, activate + Citoyen(test) as demandeur, update whole xml with recent publik export particularities (types,ect) [dmshd]
+  - [MCITICAPA-3] Redirection(modèle) : Fix category, activate + Citoyen(test) as demandeur, update whole xml with recent publik export particularities (types,ect) [dmshd]
+  - [MCITICAPA-3] Redirection Mon Dossier (modèle) : Fix category, activate + Citoyen(test) as demandeur, update whole xml with recent publik export particularities (types,ect)
 
 ### Added
   - [TELE-1556] Add form_option for délai migration BAEC [njphs]
