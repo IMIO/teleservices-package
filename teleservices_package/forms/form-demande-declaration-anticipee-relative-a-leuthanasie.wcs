@@ -7,7 +7,7 @@
   <internal_identifier>demande-declaration-anticipee-relative-a-leuthanasie</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>false</confirmation>
@@ -15,27 +15,27 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="126">Etat civil</category>
-  <workflow workflow_id="103">iMio - Documents PDF</workflow>
+  <category slug="demande-etat-civil" category_id="9">Etat-Civil</category>
+  <workflow slug="imio-documents-pdf" workflow_id="14">iMio - Documents PDF</workflow>
   <max_field_id>5</max_field_id>
   <fields>
     <field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+      <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/euthanasie.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
-      <id>5</id>
+      <id type="str">5</id>
     </field><field>
-      <label>Document &#224; t&#233;l&#233;charger</label>
-      <type>page</type>
+      <label type="str">Document &#224; t&#233;l&#233;charger</label>
+      <type type="str">page</type>
       <post_conditions>
         <post_condition>
           <condition>
@@ -43,9 +43,9 @@
             <value>False</value>
           </condition><error_message>Vous pouvez t&#233;l&#233;charger le document en cliquant sur le lien "D&#233;claration anticip&#233;e relative &#224; l'euthanasie".</error_message>
         </post_condition>
-      </post_conditions><id>1</id>
+      </post_conditions><id type="str">1</id>
     </field><field>
-      <label>&lt;p style="line-height: 20.8px;"&gt;&lt;u&gt;Traitement :&lt;/u&gt;&lt;/p&gt;
+      <label type="str">&lt;p style="line-height: 20.8px;"&gt;&lt;u&gt;Traitement :&lt;/u&gt;&lt;/p&gt;
 
 &lt;p style="line-height: 20.8px;"&gt;&lt;strong&gt;Ce document vous est d&amp;eacute;livr&amp;eacute; gratuitement&lt;/strong&gt;&lt;strong&gt;.&lt;/strong&gt;&lt;/p&gt;
 
@@ -63,11 +63,13 @@
 &lt;p&gt;Rendez-vous sur la&amp;nbsp;&lt;a href="{{form_option_info_plus}}" target="_blank"&gt;page sp&amp;eacute;cifique de la d&amp;eacute;marche&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;{% endif %}&lt;/p&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <display_locations />
-      <id>2</id>
+      <id type="str">2</id>
     </field>
-  </fields><options>
+  </fields><user-roles>
+    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
+  </user-roles><options>
     <option varname="info_plus" />
     <option varname="lien_document" />
     <option varname="lieu_depot" />
