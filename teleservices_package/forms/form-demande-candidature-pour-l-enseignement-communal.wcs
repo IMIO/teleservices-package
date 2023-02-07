@@ -6,7 +6,7 @@
   <internal_identifier>demande-candidature-pour-l-enseignement-communal</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="100" slug="demande-emploi">Emploi</category>
-  <workflow slug="imio-candidature-enseignement" workflow_id="16">iMio - Candidature Enseignement</workflow>
+  <category slug="demande-emploi" category_id="3">Emploi</category>
+  <workflow slug="imio-candidature-enseignement" workflow_id="3">iMio - Candidature Enseignement</workflow>
   <max_field_id>365</max_field_id>
   <fields>
     <field>
@@ -47,11 +47,11 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Nouveau : Je n&#8217;ai jamais travaill&#233; au sein de votre PO et je souhaite y travailler</item>
         <item>Renouvellement : j&#8217;ai d&#233;j&#224; travaill&#233; au sein de votre PO et souhaite y poursuivre mon exp&#233;rience pour la prochaine ann&#233;e scolaire</item>
-      </items><display_mode type="str">radio</display_mode>
-      <in_filters type="bool">False</in_filters>
+      </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
@@ -164,8 +164,8 @@
       <prefill>
         <type>user</type>
         <value>_country</value>
-      </prefill><items />
-      <display_mode type="str">list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -201,7 +201,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><validation>
@@ -254,7 +253,8 @@
         <item>CE</item>
         <item>DE</item>
         <item>Aucun</item>
-      </items><min_choices type="int">1</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">1</min_choices>
       <max_choices type="int">7</max_choices>
       <in_filters type="bool">False</in_filters>
       <anonymise type="bool">True</anonymise>
@@ -294,7 +294,8 @@
         <item>kin&#233;sith&#233;rapeute</item>
         <item>&#233;ducateur</item>
         <item>psychologue (ens. sp&#233;cialis&#233;)</item>
-      </items><min_choices type="int">0</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-pour-l-enseignement-communal-fonctions-disponibles</type>
@@ -310,7 +311,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items type="int">5</max_items>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
       <add_element_label type="str">Ajouter une langue</add_element_label>
       <label_display type="str">subtitle</label_display>
       <remove_button type="bool">True</remove_button>
@@ -339,7 +341,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items type="int">5</max_items>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
       <add_element_label type="str">Ajouter un dipl&#244;me</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
@@ -373,7 +376,9 @@
       <storage type="str">default</storage>
       <id type="str">365</id>
     </field>
-  </fields><options>
+  </fields><user-roles>
+    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
+  </user-roles><options>
     <option varname="annees">2020-2021</option>
     <option varname="lien_mentions_legales" />
     <option varname="mail_dpo" />

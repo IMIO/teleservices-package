@@ -6,7 +6,7 @@
   <internal_identifier>demande-candidature-spontanee</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="100" slug="demande-emploi">Emploi</category>
-  <workflow slug="imio-candidature-spontanee" workflow_id="14">iMio - Candidature spontan&#233;e</workflow>
+  <category slug="demande-emploi" category_id="3">Emploi</category>
+  <workflow slug="imio-candidature-spontanee" workflow_id="20">iMio - Candidature spontan&#233;e</workflow>
   <max_field_id>276</max_field_id>
   <fields>
     <field>
@@ -193,7 +193,6 @@
         <display_location>listings</display_location>
       </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_niss</value>
       </prefill><validation>
@@ -249,7 +248,8 @@
         <item>CE</item>
         <item>DE</item>
         <item>Aucun</item>
-      </items><min_choices type="int">1</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">1</min_choices>
       <max_choices type="int">7</max_choices>
       <in_filters type="bool">False</in_filters>
       <anonymise type="bool">True</anonymise>
@@ -266,11 +266,11 @@
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode type="str">radio</display_mode>
-      <in_filters type="bool">False</in_filters>
+      </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
@@ -286,11 +286,11 @@
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Temps plein</item>
         <item>Temps partiel</item>
-      </items><display_mode type="str">radio</display_mode>
-      <in_filters type="bool">False</in_filters>
+      </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
@@ -306,11 +306,11 @@
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode type="str">radio</display_mode>
-      <in_filters type="bool">False</in_filters>
+      </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
@@ -345,6 +345,7 @@
       </display_locations><prefill>
         <type>none</type>
       </prefill><items />
+      <display_mode type="str">checkboxes</display_mode>
       <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
@@ -365,11 +366,11 @@
         <display_location>listings</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode type="str">radio</display_mode>
-      <in_filters type="bool">False</in_filters>
+      </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
@@ -384,8 +385,8 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode type="str">radio</display_mode>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>do_you_work</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -400,7 +401,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items type="int">5</max_items>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
       <add_element_label type="str">Ajouter une langue</add_element_label>
       <label_display type="str">subtitle</label_display>
       <remove_button type="bool">True</remove_button>
@@ -429,13 +431,13 @@
         <display_location>listings</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>G&#233;n&#233;ral</item>
         <item>Professionnel</item>
         <item>Technique</item>
         <item>Sp&#233;cial</item>
-      </items><display_mode type="str">radio</display_mode>
-      <in_filters type="bool">False</in_filters>
+      </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">38</id>
@@ -521,7 +523,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items type="int">5</max_items>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
       <add_element_label type="str">Ajouter un Dipl&#244;me</add_element_label>
       <label_display type="str">subtitle</label_display>
       <remove_button type="bool">True</remove_button>
@@ -547,7 +550,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items type="int">5</max_items>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
       <add_element_label type="str">Ajouter un Dipl&#244;me</add_element_label>
       <label_display type="str">subtitle</label_display>
       <remove_button type="bool">True</remove_button>
@@ -573,7 +577,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items type="int">15</max_items>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">15</max_items>
       <add_element_label type="str">Ajouter une formation</add_element_label>
       <label_display type="str">hidden</label_display>
       <remove_button type="bool">True</remove_button>
@@ -602,7 +607,8 @@
       </prefill><items>
         <item>VILLE</item>
         <item>CPAS</item>
-      </items><min_choices type="int">0</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-spontanee-institutions</type>
@@ -643,7 +649,8 @@
         <item>Agent Financier</item>
         <item>Agent d'Accueil</item>
         <item>Gestionnaire de projets</item>
-      </items><min_choices type="int">0</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-administratif</type>
@@ -689,7 +696,8 @@
         <item>Auxili&#232;re Buandier(e)</item>
         <item>Auxili&#232;re Polyvalente</item>
         <item>Menuisier</item>
-      </items><min_choices type="int">0</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-ouvrier</type>
@@ -726,7 +734,8 @@
         <item>Logop&#232;de</item>
         <item>Aide-Soignante / Aide Sanitaire</item>
         <item>Chauffeur accompagnant</item>
-      </items><min_choices type="int">0</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-social</type>
@@ -758,7 +767,8 @@
         <item>Technicien(ne)</item>
         <item>Technicien(ne) en Chef</item>
         <item>Maraicher</item>
-      </items><min_choices type="int">0</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-technique-specifique</type>
@@ -785,7 +795,8 @@
         <item>Technicien(ne) de surface</item>
         <item>Brigadier(&#232;re)</item>
         <item>Responsable du Service Nettoyage</item>
-      </items><min_choices type="int">0</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-de-nettoyage</type>
@@ -814,7 +825,8 @@
         <item>Auxiliaire de Magasin</item>
         <item>Auxiliaire de Cuisine</item>
         <item>Cuisinier( &#232;re)</item>
-      </items><min_choices type="int">0</min_choices>
+      </items><display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
         <type>carddef:imio-candidature-spontanee-fonctions-disponibles:personnel-de-cuisine</type>
@@ -837,6 +849,7 @@
       <prefill>
         <type>none</type>
       </prefill><items />
+      <display_mode type="str">checkboxes</display_mode>
       <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <data_source>
@@ -909,7 +922,7 @@
         <type>none</type>
       </prefill><cols type="str">146</cols>
       <rows type="str">3</rows>
-      <pre type="bool">False</pre>
+      <display_mode type="str">plain</display_mode>
       <id type="str">114</id>
     </field><field>
       <label type="str">Emplois pr&#233;c&#233;dents</label>
@@ -937,7 +950,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items type="int">20</max_items>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">20</max_items>
       <add_element_label type="str">Ajouter</add_element_label>
       <label_display type="str">hidden</label_display>
       <remove_button type="bool">True</remove_button>
@@ -982,13 +996,16 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items type="int">5</max_items>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
       <add_element_label type="str">Ajouter un document</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
       <id type="str">273</id>
     </field>
-  </fields><options>
+  </fields><user-roles>
+    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
+  </user-roles><options>
     <option varname="reglement_communal" />
     <option varname="sections" />
     <option varname="sections_display">Personnel administratif, Personnel social, Personnel de nettoyage, Personnel de cuisine</option>

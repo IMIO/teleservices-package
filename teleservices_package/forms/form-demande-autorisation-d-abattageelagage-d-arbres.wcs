@@ -6,7 +6,7 @@
   <internal_identifier>demande-autorisation-d-abattageelagage-d-arbres</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -14,618 +14,621 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="127" slug="demande-environnement">Environnement</category>
-  <workflow workflow_id="126">iMio - Environnement - demande d'abattage d'arbre</workflow>
+  <category slug="demande-environnement" category_id="7">Environnement</category>
+  <workflow slug="imio-environnement-demande-d-abattage-d-arbre" workflow_id="12">iMio - Environnement - demande d'abattage d'arbre</workflow>
   <max_field_id>65</max_field_id>
   <fields>
     <field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+      <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/reglement_communal.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
-      <id>65</id>
+      <id type="str">65</id>
     </field><field>
-      <label>Mes coordonn&#233;es</label>
-      <type>page</type>
-      <id>1</id>
+      <label type="str">Mes coordonn&#233;es</label>
+      <type type="str">page</type>
+      <id type="str">1</id>
     </field><field>
-      <label>Nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>nom_demandeur</varname>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">nom_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>2</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">2</id>
     </field><field>
-      <label>Pr&#233;nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>prenom_demandeur</varname>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">prenom_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>3</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">3</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>rue_demandeur</varname>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">rue_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise>True</anonymise>
-      <id>4</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">4</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>numero_porte_demandeur</varname>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">numero_porte_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>5</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">5</id>
     </field><field>
-      <label>Bo&#238;te</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>boite_demandeur</varname>
+      <label type="str">Bo&#238;te</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">boite_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise>True</anonymise>
-      <id>6</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">6</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>code_postal_demandeur</varname>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">code_postal_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>36</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">36</id>
     </field><field>
-      <label>Ville</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>ville_demandeur</varname>
+      <label type="str">Ville</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">ville_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-3-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise>True</anonymise>
-      <id>37</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">37</id>
     </field><field>
-      <label>Num&#233;ro de t&#233;l&#233;phone</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>telephone_demandeur</varname>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">telephone_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise>True</anonymise>
-      <id>9</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">9</id>
     </field><field>
-      <label>Adresse e-mail</label>
-      <type>email</type>
-      <required>True</required>
-      <varname>email_demandeur</varname>
+      <label type="str">Adresse e-mail</label>
+      <type type="str">email</type>
+      <required type="bool">True</required>
+      <varname type="str">email_demandeur</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2 newline</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><id>11</id>
+      </prefill><id type="str">11</id>
     </field><field>
-      <label>&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="https://demo-auth.guichet-citoyen.be/accounts/edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="https://demo-auth.guichet-citoyen.be/accounts/edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>12</id>
+      <id type="str">12</id>
     </field><field>
-      <label>&lt;p&gt;Vous pouvez &lt;a href="{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;Vous pouvez &lt;a href="{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>form_option_reglement_communal</value>
       </condition><display_locations />
-      <id>64</id>
+      <id type="str">64</id>
     </field><field>
-      <label>Lieu o&#249; se trouve(nt) le(s) arbre(s)</label>
-      <type>page</type>
-      <id>35</id>
+      <label type="str">Lieu o&#249; se trouve(nt) le(s) arbre(s)</label>
+      <type type="str">page</type>
+      <id type="str">35</id>
     </field><field>
-      <label>Le ou les arbres &#224; abattre ou &#224; &#233;laguer se situe(nt)(-t)-il &#224; une autre adresse que celle du demandeur ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>adresse_arbre</varname>
+      <label type="str">Le ou les arbres &#224; abattre ou &#224; &#233;laguer se situe(nt)(-t)-il &#224; une autre adresse que celle du demandeur ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">adresse_arbre</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Non</item>
         <item>Oui</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>34</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">34</id>
     </field><field>
-      <label>Carte</label>
-      <type>map</type>
+      <label type="str">Carte</label>
+      <type type="str">map</type>
       <condition>
         <type>django</type>
         <value>form_var_adresse_arbre == "Oui"</value>
-      </condition><required>True</required>
-      <hint>Merci de g&#233;olocaliser votre demande sur la carte ci-dessous.</hint>
+      </condition><required type="bool">True</required>
+      <hint type="str">Merci de g&#233;olocaliser votre demande sur la carte ci-dessous.</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><initial_zoom>11</initial_zoom>
-      <default_position>50.31578585423175;5.015258789062501</default_position>
-      <init_with_geoloc>False</init_with_geoloc>
-      <id>33</id>
+      </prefill><initial_zoom type="str">11</initial_zoom>
+      <default_position type="str">50.31578585423175;5.015258789062501</default_position>
+      <init_with_geoloc type="bool">False</init_with_geoloc>
+      <id type="str">33</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_adresse_arbre == "Oui"</value>
-      </condition><required>True</required>
-      <varname>rue_arbre</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">rue_arbre</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-2-3</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-3</extra_css_class>
       <prefill>
         <type>geolocation</type>
         <value>road</value>
-      </prefill><anonymise>True</anonymise>
-      <id>14</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">14</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_adresse_arbre == "Oui"</value>
-      </condition><required>True</required>
-      <varname>numero_porte_arbre</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">numero_porte_arbre</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
         <type>geolocation</type>
         <value>house</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>15</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">15</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_adresse_arbre == "Oui"</value>
-      </condition><required>True</required>
-      <varname>code_postal_arbre</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">code_postal_arbre</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>geolocation</type>
         <value>postcode</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>7</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">7</id>
     </field><field>
-      <label>Ville</label>
-      <type>string</type>
+      <label type="str">Ville</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_adresse_arbre == "Oui"</value>
-      </condition><required>True</required>
-      <varname>ville_arbre</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">ville_arbre</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-3-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
         <type>geolocation</type>
         <value>city</value>
-      </prefill><anonymise>True</anonymise>
-      <id>8</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">8</id>
     </field><field>
-      <label>R&#233;f&#233;rence cadastrale de la parcelle concern&#233;e</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">R&#233;f&#233;rence cadastrale de la parcelle concern&#233;e</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
-      <prefill>
-        <locked>False</locked>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>40</id>
-    </field><field>
-      <label>Ajoutez un croquis de la parcelle avec dimension et rep&#233;rage des arbres, arbres t&#233;tards ou haie(s) concern&#233;s par rapport &#224; la rue et aux habitations.</label>
-      <type>file</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>60</id>
-    </field><field>
-      <label>Le demandeur est-il le propri&#233;taire de la parcelle ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>proprio</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">40</id>
+    </field><field>
+      <label type="str">Ajoutez un croquis de la parcelle avec dimension et rep&#233;rage des arbres, arbres t&#233;tards ou haie(s) concern&#233;s par rapport &#224; la rue et aux habitations.</label>
+      <type type="str">file</type>
+      <required type="bool">True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">60</id>
+    </field><field>
+      <label type="str">Le demandeur est-il le propri&#233;taire de la parcelle ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">proprio</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>41</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">41</id>
     </field><field>
-      <label>Coordonn&#233;es du propri&#233;taire</label>
-      <type>subtitle</type>
+      <label type="str">Coordonn&#233;es du propri&#233;taire</label>
+      <type type="str">subtitle</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
       </condition><display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>42</id>
+      </display_locations><id type="str">42</id>
     </field><field>
-      <label>Nom</label>
-      <type>string</type>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
-      </condition><required>True</required>
-      <varname>nom_proprietaire</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">nom_proprietaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>44</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">44</id>
     </field><field>
-      <label>Pr&#233;nom</label>
-      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
-      </condition><required>True</required>
-      <varname>prenom_proprietaire</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">prenom_proprietaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>45</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">45</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
-      </condition><required>True</required>
-      <varname>rue_proprietaire</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">rue_proprietaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-2-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise>True</anonymise>
-      <id>46</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">46</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
-      </condition><required>True</required>
-      <varname>numero_porte_proprietaire</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">numero_porte_proprietaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>47</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">47</id>
     </field><field>
-      <label>Bo&#238;te</label>
-      <type>string</type>
+      <label type="str">Bo&#238;te</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
-      </condition><required>False</required>
-      <varname>boite_proprietaire</varname>
+      </condition><required type="bool">False</required>
+      <varname type="str">boite_proprietaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise>True</anonymise>
-      <id>48</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">48</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
-      </condition><required>True</required>
-      <varname>code_postal_proprietaire</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">code_postal_proprietaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>49</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">49</id>
     </field><field>
-      <label>Ville</label>
-      <type>string</type>
+      <label type="str">Ville</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
-      </condition><required>True</required>
-      <varname>ville_proprietaire</varname>
+      </condition><required type="bool">True</required>
+      <varname type="str">ville_proprietaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-3-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise>True</anonymise>
-      <id>50</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">50</id>
     </field><field>
-      <label>Num&#233;ro de t&#233;l&#233;phone</label>
-      <type>string</type>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
-      </condition><required>False</required>
-      <varname>telephone_proprietaire</varname>
+      </condition><required type="bool">False</required>
+      <varname type="str">telephone_proprietaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise>True</anonymise>
-      <id>51</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">51</id>
     </field><field>
-      <label>Adresse e-mail</label>
-      <type>email</type>
+      <label type="str">Adresse e-mail</label>
+      <type type="str">email</type>
       <condition>
         <type>django</type>
         <value>form_var_proprio == "Non"</value>
-      </condition><required>False</required>
-      <varname>email_proprietaire</varname>
+      </condition><required type="bool">False</required>
+      <varname type="str">email_proprietaire</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><id>53</id>
+      </prefill><id type="str">53</id>
     </field><field>
-      <label>Renseignements sur l'arbre</label>
-      <type>page</type>
-      <id>13</id>
+      <label type="str">Renseignements sur l'arbre</label>
+      <type type="str">page</type>
+      <id type="str">13</id>
     </field><field>
-      <label>Arbre &#224; abattre/&#233;laguer</label>
-      <type>block:arbre_a_abattre</type>
-      <required>True</required>
-      <hint>Si la demande concerne un groupe d'arbres similaires, merci de l'indiquer dans le champ "Motif".</hint>
+      <label type="str">Arbre &#224; abattre/&#233;laguer</label>
+      <type type="str">block:arbre_a_abattre</type>
+      <required type="bool">True</required>
+      <hint type="str">Si la demande concerne un groupe d'arbres similaires, merci de l'indiquer dans le champ "Motif".</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>15</max_items>
-      <add_element_label>Ajouter un autre arbre</add_element_label>
-      <label_display>normal</label_display>
-      <remove_button>True</remove_button>
-      <id>38</id>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">15</max_items>
+      <add_element_label type="str">Ajouter un autre arbre</add_element_label>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">38</id>
     </field><field>
-      <label>Photo(s)</label>
-      <type>page</type>
-      <id>32</id>
+      <label type="str">Photo(s)</label>
+      <type type="str">page</type>
+      <id type="str">32</id>
     </field><field>
-      <label>&lt;p&gt;Ajoutez minimum 3 photos de la zone o&amp;ugrave; se trouve(nt) le(s) arbre(s), afin de pouvoir les situer dans leur environnement imm&amp;eacute;diat.&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;Ajoutez minimum 3 photos de la zone o&amp;ugrave; se trouve(nt) le(s) arbre(s), afin de pouvoir les situer dans leur environnement imm&amp;eacute;diat.&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>55</id>
+      <id type="str">55</id>
     </field><field>
-      <label>Ajoutez une photo du/des arbre(s) &#224; abattre ou &#233;laguer</label>
-      <type>file</type>
-      <required>True</required>
+      <label type="str">Ajoutez une photo du/des arbre(s) &#224; abattre ou &#233;laguer</label>
+      <type type="str">file</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>56</id>
+      </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">56</id>
     </field><field>
-      <label>Ajoutez une photo du/des arbre(s) &#224; abattre ou &#233;laguer</label>
-      <type>file</type>
-      <required>True</required>
+      <label type="str">Ajoutez une photo du/des arbre(s) &#224; abattre ou &#233;laguer</label>
+      <type type="str">file</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>57</id>
+      </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">57</id>
     </field><field>
-      <label>Ajoutez une photo du/des arbre(s) &#224; abattre ou &#233;laguer</label>
-      <type>file</type>
-      <required>True</required>
+      <label type="str">Ajoutez une photo du/des arbre(s) &#224; abattre ou &#233;laguer</label>
+      <type type="str">file</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>58</id>
+      </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">58</id>
     </field><field>
-      <label>Ajoutez d'autres photos</label>
-      <type>block:photos_des_arbres</type>
-      <required>True</required>
+      <label type="str">Ajoutez d'autres photos</label>
+      <type type="str">block:photos_des_arbres</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>5</max_items>
-      <add_element_label>Ajouter une autre photo</add_element_label>
-      <label_display>normal</label_display>
-      <remove_button>False</remove_button>
-      <id>39</id>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
+      <add_element_label type="str">Ajouter une autre photo</add_element_label>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">False</remove_button>
+      <id type="str">39</id>
     </field><field>
-      <label>Replantation</label>
-      <type>page</type>
-      <id>61</id>
+      <label type="str">Replantation</label>
+      <type type="str">page</type>
+      <id type="str">61</id>
     </field><field>
-      <label>Allez-vous effectuer une replantation ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>replantation</varname>
+      <label type="str">Allez-vous effectuer une replantation ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">replantation</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>62</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">62</id>
     </field><field>
-      <label>Pr&#233;cisez quel type d'arbre va &#234;tre replant&#233;</label>
-      <type>block:replantation</type>
+      <label type="str">Pr&#233;cisez quel type d'arbre va &#234;tre replant&#233;</label>
+      <type type="str">block:replantation</type>
       <condition>
         <type>django</type>
         <value>form_var_replantation == "Oui"</value>
-      </condition><required>True</required>
+      </condition><required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>10</max_items>
-      <add_element_label>Ajouter un autre type d'arbre</add_element_label>
-      <label_display>normal</label_display>
-      <remove_button>True</remove_button>
-      <id>63</id>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">10</max_items>
+      <add_element_label type="str">Ajouter un autre type d'arbre</add_element_label>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">63</id>
     </field>
-  </fields><options />
+  </fields><user-roles>
+    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
+  </user-roles><options />
   <custom_views />
   <geolocations />
 </formdef>

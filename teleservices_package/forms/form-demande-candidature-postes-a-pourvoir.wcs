@@ -6,7 +6,7 @@
   <internal_identifier>demande-candidature-postes-a-pourvoir</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="100" slug="demande-emploi">Emploi</category>
-  <workflow slug="imio-candidature-postes-a-pourvoir" workflow_id="24">iMio - Candidature postes &#224; pourvoir</workflow>
+  <category slug="demande-emploi" category_id="3">Emploi</category>
+  <workflow slug="imio-candidature-postes-a-pourvoir" workflow_id="21">iMio - Candidature postes &#224; pourvoir</workflow>
   <max_field_id>277</max_field_id>
   <fields>
     <field>
@@ -893,7 +893,9 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <remove_button type="bool">True</remove_button>
       <id type="str">273</id>
     </field>
-  </fields><options>
+  </fields><user-roles>
+    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
+  </user-roles><options>
     <option varname="reglement_communal" />
     <option varname="sections" />
     <option varname="sections_display">Personnel administratif, Personnel social, Personnel de cuisine</option>

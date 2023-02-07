@@ -5,7 +5,7 @@
   <internal_identifier>imio-reservation-evenement-places-bloc-de-champs</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -13,12 +13,12 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="103" slug="imio-agendas">iMio - Agendas</category>
-  <workflow workflow_id="26">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
+  <category slug="imio-agendas" category_id="2">iMio - Agendas</category>
+  <workflow slug="imio-gestion-des-rendez-vous-et-evenements-package" workflow_id="30">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
   <max_field_id>10</max_field_id>
   <fields>
     <field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+      <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
@@ -31,15 +31,15 @@
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/index.html" rel="noopener noreferrer" target="_blank"&gt;Page de documentation g&amp;eacute;n&amp;eacute;rale sur les agendas&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
-      <id>10</id>
+      <id type="str">10</id>
     </field><field>
-      <label>Inscription</label>
-      <type>page</type>
+      <label type="str">Inscription</label>
+      <type type="str">page</type>
       <post_conditions>
         <post_condition>
           <condition>
@@ -47,48 +47,49 @@
             <value>form_var_personnes|length &lt;= form_var_date_rdv_places_available</value>
           </condition><error_message>Il n'y a pas assez de place ce jour l&#224;.</error_message>
         </post_condition>
-      </post_conditions><id>6</id>
+      </post_conditions><id type="str">6</id>
     </field><field>
-      <label>Personnes</label>
-      <type>block:personne</type>
-      <required>True</required>
-      <varname>personnes</varname>
+      <label type="str">Personnes</label>
+      <type type="str">block:personne</type>
+      <required type="bool">True</required>
+      <varname type="str">personnes</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><max_items>5</max_items>
-      <add_element_label>Ajouter une personne</add_element_label>
-      <label_display>subtitle</label_display>
-      <remove_button>True</remove_button>
-      <id>3</id>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
+      <add_element_label type="str">Ajouter une personne</add_element_label>
+      <label_display type="str">subtitle</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">3</id>
     </field><field>
-      <label>Choisisez la date</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>Choisissez une option</hint>
-      <varname>date_rdv</varname>
+      <label type="str">Choisisez la date</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">Choisissez une option</hint>
+      <varname type="str">date_rdv</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items />
-      <display_mode>list</display_mode>
+      </prefill><display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>json</type>
         <value>{{form_option_agenda_structured_api_datetimes_url}}</value>
-      </data_source><in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>1</id>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">1</id>
     </field><field>
-      <label>Places disponibles</label>
-      <type>string</type>
+      <label type="str">Places disponibles</label>
+      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_date_rdv_raw is not null</value>
-      </condition><required>True</required>
+      </condition><required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
@@ -96,10 +97,12 @@
         <locked>True</locked>
         <type>string</type>
         <value>{{form_var_date_rdv_places_available}}</value>
-      </prefill><anonymise>True</anonymise>
-      <id>5</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">5</id>
     </field>
-  </fields><options>
+  </fields><user-roles>
+    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
+  </user-roles><options>
     <option varname="agenda" />
     <option varname="agenda_display" />
     <option varname="agenda_structured" />

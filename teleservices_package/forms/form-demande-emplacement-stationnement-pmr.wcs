@@ -6,7 +6,7 @@
   <internal_identifier>demande-emplacement-de-stationnement-pour-pmr</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
@@ -14,668 +14,671 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category category_id="104" slug="demande-mobilite">Mobilit&#233;</category>
-  <workflow workflow_id="30">iMio - Demande d'emplacement de stationnement pour PMR</workflow>
+  <category slug="demande-mobilite" category_id="6">Mobilit&#233;</category>
+  <workflow slug="imio-demande-d-emplacement-de-stationnement-pour-pmr" workflow_id="5">iMio - Demande d'emplacement de stationnement pour PMR</workflow>
   <max_field_id>189</max_field_id>
   <fields>
     <field>
-      <label>&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+      <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/reglement_communal.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type>comment</type>
+      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
-      <id>189</id>
+      <id type="str">189</id>
     </field><field>
-      <label>Demandeur</label>
-      <type>page</type>
-      <id>116</id>
+      <label type="str">Demandeur</label>
+      <type type="str">page</type>
+      <id type="str">116</id>
     </field><field>
-      <label>&lt;p&gt;Vous pouvez &lt;a href="{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;Vous pouvez &lt;a href="{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>form_option_reglement_communal</value>
       </condition><display_locations />
-      <id>188</id>
+      <id type="str">188</id>
     </field><field>
-      <label>Vous &#234;tes :</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>type_personne</varname>
+      <label type="str">Vous &#234;tes :</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">type_personne</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>La personne concern&#233;e par l'emplacement de parking</item>
         <item>Une tierce personne</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>125</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">125</id>
     </field><field>
-      <label>Coordonn&#233;es de la personne concern&#233;e</label>
-      <type>page</type>
+      <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
+      <type type="str">page</type>
       <condition>
         <type>python</type>
         <value>form_var_type_personne == 'Une tierce personne'</value>
-      </condition><id>127</id>
+      </condition><id type="str">127</id>
     </field><field>
-      <label>Coordonn&#233;es de la personne concern&#233;e</label>
-      <type>title</type>
+      <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>151</id>
+      </display_locations><id type="str">151</id>
     </field><field>
-      <label>Nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>nom_perscon</varname>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">nom_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>139</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">139</id>
     </field><field>
-      <label>Pr&#233;nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>prenom_perscon</varname>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">prenom_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>140</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">140</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-2-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>152</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">152</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><validation>
-        <type>regex</type>
-        <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>153</id>
-    </field><field>
-      <label>Bo&#238;te</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>boite</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>132</id>
-    </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>code_postal</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>133</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">153</id>
     </field><field>
-      <label>Ville</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>ville</varname>
+      <label type="str">Bo&#238;te</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">boite</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-3-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>134</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">132</id>
     </field><field>
-      <label>Num&#233;ro de t&#233;l&#233;phone</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>telephone_perscon</varname>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">code_postal</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><validation>
+        <type>regex</type>
+        <value>^[0-9]*</value>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">133</id>
+    </field><field>
+      <label type="str">Ville</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">ville</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">134</id>
+    </field><field>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">telephone_perscon</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><validation>
         <type>phone</type>
-      </validation><anonymise>True</anonymise>
-      <id>146</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">146</id>
     </field><field>
-      <label>Adresse &#233;lectronique</label>
-      <type>email</type>
-      <required>False</required>
-      <varname>email_perscon</varname>
+      <label type="str">Adresse &#233;lectronique</label>
+      <type type="str">email</type>
+      <required type="bool">False</required>
+      <varname type="str">email_perscon</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><id>148</id>
+      </prefill><id type="str">148</id>
     </field><field>
-      <label>Vos coordonn&#233;es</label>
-      <type>page</type>
-      <id>126</id>
+      <label type="str">Vos coordonn&#233;es</label>
+      <type type="str">page</type>
+      <id type="str">126</id>
     </field><field>
-      <label>Vos coordonn&#233;es</label>
-      <type>title</type>
+      <label type="str">Vos coordonn&#233;es</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>150</id>
+      </display_locations><id type="str">150</id>
     </field><field>
-      <label>Nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>nom</varname>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">nom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>128</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">128</id>
     </field><field>
-      <label>Pr&#233;nom</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>prenom</varname>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">prenom</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise>True</anonymise>
-      <id>129</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">129</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>rue</varname>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">rue</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise>True</anonymise>
-      <id>130</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">130</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>numero_porte</varname>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">numero_porte</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_house</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>131</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">131</id>
     </field><field>
-      <label>Bo&#238;te</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>boite</varname>
+      <label type="str">Bo&#238;te</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">boite</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise>True</anonymise>
-      <id>187</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">187</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>code_postal</varname>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">code_postal</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise>True</anonymise>
-      <id>185</id>
+      </validation><anonymise type="bool">True</anonymise>
+      <id type="str">185</id>
     </field><field>
-      <label>Ville</label>
-      <type>string</type>
-      <required>True</required>
-      <varname>ville</varname>
+      <label type="str">Ville</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">ville</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-3-4</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise>True</anonymise>
-      <id>186</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">186</id>
     </field><field>
-      <label>Num&#233;ro de t&#233;l&#233;phone ou GSM</label>
-      <type>string</type>
-      <required>False</required>
-      <varname>telephone</varname>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone ou GSM</label>
+      <type type="str">string</type>
+      <required type="bool">False</required>
+      <varname type="str">telephone</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise>True</anonymise>
-      <id>135</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">135</id>
     </field><field>
-      <label>Adresse &#233;lectronique</label>
-      <type>email</type>
-      <required>True</required>
-      <varname>email</varname>
+      <label type="str">Adresse &#233;lectronique</label>
+      <type type="str">email</type>
+      <required type="bool">True</required>
+      <varname type="str">email</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><id>137</id>
+      </prefill><id type="str">137</id>
     </field><field>
-      <label>&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="[idp_account_url]edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="[idp_account_url]edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>138</id>
+      <id type="str">138</id>
     </field><field>
-      <label>Documents</label>
-      <type>page</type>
-      <id>174</id>
+      <label type="str">Documents</label>
+      <type type="str">page</type>
+      <id type="str">174</id>
     </field><field>
-      <label>Documents &#224; fournir</label>
-      <type>title</type>
+      <label type="str">Documents &#224; fournir</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>164</id>
+      </display_locations><id type="str">164</id>
     </field><field>
-      <label>&lt;p&gt;Merci de joindre les copies des documents demand&amp;eacute;s afin de rendre valide votre demande.&lt;/p&gt;</label>
-      <type>comment</type>
+      <label type="str">&lt;p&gt;Merci de joindre les copies des documents demand&amp;eacute;s afin de rendre valide votre demande.&lt;/p&gt;</label>
+      <type type="str">comment</type>
       <display_locations />
-      <id>173</id>
+      <id type="str">173</id>
     </field><field>
-      <label>Copie de la carte d'identit&#233; du demandeur</label>
-      <type>file</type>
-      <required>True</required>
+      <label type="str">Copie de la carte d'identit&#233; du demandeur</label>
+      <type type="str">file</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>166</id>
+      </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">166</id>
     </field><field>
-      <label>Copie de la carte sp&#233;ciale de stationnement</label>
-      <type>file</type>
-      <required>True</required>
-      <varname>carte_speciale</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>159</id>
-    </field><field>
-      <label>Copie du certificat d'immatriculation du v&#233;hicule</label>
-      <type>file</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
-      <storage>default</storage>
-      <id>168</id>
-    </field><field>
-      <label>Copie du permis de conduire du demandeur ou d'un membre de son m&#233;nage</label>
-      <type>block:ajouter_un_fichier</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><max_items>6</max_items>
-      <add_element_label>Ajouter un fichier</add_element_label>
-      <label_display>normal</label_display>
-      <remove_button>True</remove_button>
-      <id>184</id>
-    </field><field>
-      <label>conditions d'octroi</label>
-      <type>page</type>
-      <id>115</id>
-    </field><field>
-      <label>Conditions d'octroi - donn&#233;es v&#233;rifi&#233;es en interne</label>
-      <type>title</type>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><id>8</id>
-    </field><field>
-      <label>Le demandeur ou une personne composant le m&#233;nage a-t-il un v&#233;hicule ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>voiture</varname>
+      <label type="str">Copie de la carte sp&#233;ciale de stationnement</label>
+      <type type="str">file</type>
+      <required type="bool">True</required>
+      <varname type="str">carte_speciale</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">159</id>
+    </field><field>
+      <label type="str">Copie du certificat d'immatriculation du v&#233;hicule</label>
+      <type type="str">file</type>
+      <required type="bool">True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">168</id>
+    </field><field>
+      <label type="str">Copie du permis de conduire du demandeur ou d'un membre de son m&#233;nage</label>
+      <type type="str">block:ajouter_un_fichier</type>
+      <required type="bool">True</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><default_items_count type="int">1</default_items_count>
+      <max_items type="int">6</max_items>
+      <add_element_label type="str">Ajouter un fichier</add_element_label>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">True</remove_button>
+      <id type="str">184</id>
+    </field><field>
+      <label type="str">conditions d'octroi</label>
+      <type type="str">page</type>
+      <id type="str">115</id>
+    </field><field>
+      <label type="str">Conditions d'octroi - donn&#233;es v&#233;rifi&#233;es en interne</label>
+      <type type="str">title</type>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><id type="str">8</id>
+    </field><field>
+      <label type="str">Le demandeur ou une personne composant le m&#233;nage a-t-il un v&#233;hicule ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">voiture</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>11</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">11</id>
     </field><field>
-      <label>Le demandeur ou une personne composant le m&#233;nage a-t-il un permis automobile ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>permis</varname>
+      <label type="str">Le demandeur ou une personne composant le m&#233;nage a-t-il un permis automobile ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">permis</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>170</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">170</id>
     </field><field>
-      <label>Le demandeur ou une personne composant le m&#233;nage conduit-il ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>conduite</varname>
+      <label type="str">Le demandeur ou une personne composant le m&#233;nage conduit-il ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">conduite</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>171</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">171</id>
     </field><field>
-      <label>Le demandeur dispose-t-il d'un emplacement priv&#233; au domicile ou &#224; proximit&#233; ?</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>Garage, emplacement ou all&#233;e carrossable.</hint>
-      <varname>place</varname>
+      <label type="str">Le demandeur dispose-t-il d'un emplacement priv&#233; au domicile ou &#224; proximit&#233; ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">Garage, emplacement ou all&#233;e carrossable.</hint>
+      <varname type="str">place</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>9</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">9</id>
     </field><field>
-      <label>Est-il situ&#233; &#224; plus de 100 m de l'habitation ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>distance</varname>
+      <label type="str">Est-il situ&#233; &#224; plus de 100 m de l'habitation ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">distance</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>10</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">10</id>
     </field><field>
-      <label>Informations sur l'emplacement</label>
-      <type>page</type>
-      <id>180</id>
+      <label type="str">Informations sur l'emplacement</label>
+      <type type="str">page</type>
+      <id type="str">180</id>
     </field><field>
-      <label>Informations sur le lieu de la demande</label>
-      <type>title</type>
+      <label type="str">Informations sur le lieu de la demande</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>158</id>
+      </display_locations><id type="str">158</id>
     </field><field>
-      <label>Rue</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-2-3</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-3</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>155</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">155</id>
     </field><field>
-      <label>Num&#233;ro</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>156</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">156</id>
     </field><field>
-      <label>Code postal</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-3</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>181</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">181</id>
     </field><field>
-      <label>Localit&#233;</label>
-      <type>string</type>
-      <required>True</required>
+      <label type="str">Localit&#233;</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-2-3</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-3</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>182</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">182</id>
     </field><field>
-      <label>Configuration des lieux</label>
-      <type>title</type>
+      <label type="str">Configuration des lieux</label>
+      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id>14</id>
+      </display_locations><id type="str">14</id>
     </field><field>
-      <label>Y a-t-il une zone de stationnement r&#233;glementaire du m&#234;me c&#244;t&#233; que la demande (le long du domicile)</label>
-      <type>item</type>
-      <required>True</required>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><items>
-        <item>Oui</item>
-        <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>15</id>
-    </field><field>
-      <label>Y a-t-il une zone de stationnement du c&#244;t&#233; oppos&#233; &#224; l'habitation ?</label>
-      <type>item</type>
-      <required>True</required>
+      <label type="str">Y a-t-il une zone de stationnement r&#233;glementaire du m&#234;me c&#244;t&#233; que la demande (le long du domicile)</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>16</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">15</id>
     </field><field>
-      <label>Y a-t-il une zone de stationnement altern&#233;e par quinzaine ?</label>
-      <type>item</type>
-      <required>True</required>
-      <varname>quinzaine</varname>
+      <label type="str">Y a-t-il une zone de stationnement du c&#244;t&#233; oppos&#233; &#224; l'habitation ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>17</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">16</id>
     </field><field>
-      <label>Le stationnement est-il interdit &#224; l'endroit de la demande ?</label>
-      <type>item</type>
-      <required>True</required>
-      <hint>ex. lignes jaunes, arr&#234;t de bus...</hint>
+      <label type="str">Y a-t-il une zone de stationnement altern&#233;e par quinzaine ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <varname type="str">quinzaine</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><items>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
         <item>Oui</item>
         <item>Non</item>
-      </items><display_mode>radio</display_mode>
-      <in_filters>False</in_filters>
-      <anonymise>False</anonymise>
-      <display_disabled_items>False</display_disabled_items>
-      <initial_zoom>13</initial_zoom>
-      <id>18</id>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">17</id>
     </field><field>
-      <label>Remarques &#233;ventuelles</label>
-      <type>text</type>
-      <required>False</required>
+      <label type="str">Le stationnement est-il interdit &#224; l'endroit de la demande ?</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">ex. lignes jaunes, arr&#234;t de bus...</hint>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class>grid-1-1</extra_css_class>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><display_mode type="str">radio</display_mode>
+      <items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">18</id>
+    </field><field>
+      <label type="str">Remarques &#233;ventuelles</label>
+      <type type="str">text</type>
+      <required type="bool">False</required>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-1-1</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><pre>False</pre>
-      <id>183</id>
+      </prefill><display_mode type="str">plain</display_mode>
+      <id type="str">183</id>
     </field>
-  </fields><options />
+  </fields><user-roles>
+    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
+  </user-roles><options />
   <custom_views />
   <geolocations />
 </formdef>
