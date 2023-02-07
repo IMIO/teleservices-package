@@ -51,6 +51,7 @@ teleservices-package changelog
   - Update occupation voie publique (xml update+role demandeur+activé) [dmshd]
   - Update pret/location materiel form (xml update+role demandeur+activé) [dmshd]
   - Update déclaration chien dangereux form (xml update+role demandeur+activé) [dmshd]
+  - Add missing category slug, activate form, use "Citoyen (test)" (autorisation acquisition animal) [dmshd]
 
 
 ### Removed
