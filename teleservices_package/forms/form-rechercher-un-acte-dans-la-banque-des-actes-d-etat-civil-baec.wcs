@@ -5,7 +5,7 @@
   <internal_identifier>demande-rechercher-un-acte-dans-la-banque-des-actes-d-etat-civil-baec</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>false</confirmation>
@@ -13,8 +13,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-etat-civil" category_id="126">Etat civil</category>
-  <workflow slug="imio-rechercher-un-acte-dans-la-banque-des-actes-d-etat-civil-baec" workflow_id="162">iMio - Rechercher un acte dans la Banque des Actes d'Etat Civil (BAEC)</workflow>
+  <category slug="demande-etat-civil" category_id="9">Etat-Civil</category>
+  <workflow slug="imio-rechercher-un-acte-dans-la-banque-des-actes-d-etat-civil-baec" workflow_id="8">iMio - Rechercher un acte dans la Banque des Actes d'Etat Civil (BAEC)</workflow>
   <max_field_id>12</max_field_id>
   <fields>
     <field>
@@ -47,6 +47,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>baec_documents_by_category</type>
       </data_source><in_filters type="bool">False</in_filters>
@@ -120,6 +121,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>form_var_baec_document_select_types</value>
@@ -135,7 +137,7 @@
       </display_locations><id type="str">12</id>
     </field>
   </fields><user-roles>
-    <role role_id="logged-users">logged-users</role>
+    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
   </user-roles><options>
     <option varname="liaison_baec">Staging</option>
     <option varname="liaison_baec_display">Staging</option>
