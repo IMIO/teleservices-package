@@ -52,6 +52,7 @@ teleservices-package changelog
   - Update pret/location materiel form (xml update+role demandeur+activé) [dmshd]
   - Update déclaration chien dangereux form (xml update+role demandeur+activé) [dmshd]
   - Add missing category slug, activate form, use "Citoyen (test)" (autorisation acquisition animal) [dmshd]
+  - Déclaration alarme/caméré : Update xml with types, activate, use Citoyen (test) [dmshd]
 
 
 ### Removed
