@@ -5,7 +5,7 @@
   <internal_identifier>demande-acte-d-adoption</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>false</confirmation>
@@ -13,7 +13,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-etat-civil" category_id="107">Etat-Civil</category>
+  <category slug="demande-etat-civil" category_id="9">Etat-Civil</category>
   <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="13">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <max_field_id>127</max_field_id>
   <fields>
@@ -578,7 +578,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
@@ -919,7 +918,9 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">99</id>
     </field>
-  </fields><options>
+  </fields><user-roles>
+    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
+  </user-roles><options>
     <option varname="actes_commentaire_additionnel" />
     <option varname="actes_piece_justificative_tiers" />
     <option varname="actes_piece_justificative_tiers_display" />
