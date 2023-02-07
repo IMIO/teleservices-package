@@ -48,6 +48,8 @@ teleservices-package changelog
   - [SUP-27953] Migrate to json value the simplest & easy to do python datasources [dmshd]
   - [SUP-27953] migrate page conditions to django (cand.poste à pourvoir) [dmshd]
   - [TELE-1601] Uniformize tel hints on some forms [dmshd]
+  - Update occupation voie publique (xml update+role demandeur+activé) [dmshd]
+  - Update pret/location materiel form (xml update+role demandeur+activé)
 
 ### Removed
   - [TELE-1557] Delete obsolete comment
