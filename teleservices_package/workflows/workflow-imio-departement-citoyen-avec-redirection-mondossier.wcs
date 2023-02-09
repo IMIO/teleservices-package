@@ -1243,7 +1243,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="31c040f6d178408aa431fe26741b0c07">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1255,7 +1255,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="31c040f6d178408aa431fe26741b0c07">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1271,35 +1271,8 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="31c040f6d178408aa431fe26741b0c07">Debug</item>
           </roles>
-        </trigger>
-      </triggers>
-    </action><action>
-      <id>4</id>
-      <name>Anonymisation Personne Concern&#233;e</name>
-      <items>
-        <item type="anonymise" id="1">
-          <condition>
-            <type>python</type>
-            <value>vars().get('form_var_rb_concerne_raw') == 'moi' or vars().get('form_var_concerne_qui_raw') == 'moi' or ('form_var_rb_concerne_raw' not in locals() and 'form_var_concerne_qui_raw' not in locals())</value>
-          </condition>
-        </item>
-      </items><triggers>
-        <trigger type="timeout" id="31976731-c2f5-4152-be2e-beb11ba0a901">
-          <anchor>finalized</anchor>
-          <timeout>31</timeout>
-        </trigger>
-      </triggers>
-    </action><action>
-      <id>5</id>
-      <name>Anonymisation Tiers</name>
-      <items>
-        <item type="anonymise" id="1" />
-      </items><triggers>
-        <trigger type="timeout" id="eb058b81-c101-4ae7-af07-f338c58864b1">
-          <anchor>finalized</anchor>
-          <timeout>1827</timeout>
         </trigger>
       </triggers>
     </action><action>
