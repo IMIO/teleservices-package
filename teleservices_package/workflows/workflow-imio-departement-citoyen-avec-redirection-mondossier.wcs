@@ -25,6 +25,17 @@
               <value>{% if form_var_rb_concerne_raw == 'tiers' or form_var_concerne_qui_raw == 'tiers' %}True{% else %}False{% endif %}</value>
             </field>
           </fields>
+        </item><item type="set-backoffice-fields" id="12">
+          <label>Condition</label>
+          <fields>
+            <field>
+              <field_id>bod44f78a7-aa27-4199-befc-4eebb65bff6f</field_id>
+              <value>{% if form_var_mode_delivrance_raw == 'mondossier' or form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019' %}True{% else %}False{% endif %}</value>
+            </field><field>
+              <field_id>bof2067322-8881-4022-a2c3-e55f600a3c3f</field_id>
+              <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_result_delivrance_date_acte %}True{% else %}False{% endif %}</value>
+            </field>
+          </fields>
         </item><item type="jump" id="2">
           <status>32</status>
           <condition>
@@ -34,8 +45,8 @@
         </item><item type="jump" id="3">
           <status>20</status>
           <condition>
-            <type>python</type>
-            <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and (form_var_mode_delivrance_raw != 'commune' or (vars().get('form_var_date_acte_raw') and form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019') or ((vars().get('form_var_concerne_qui_raw') and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True'))) and not vars().get('form_var_destinations')</value>
+            <type>django</type>
+            <value>session_user|is_strong_authentication and form_option_lien_mondossier and not form_var_destinations and form_var_result_delivrance_date_acte_concerne_qui_redirection_automatique</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="set-backoffice-fields" id="4">
           <label>Configuration des donn&#233;es de traitement</label>
@@ -159,14 +170,14 @@
       </visibility><items>
         <item type="webservice_call" id="1">
           <label>Demande de migration de document</label>
+          <method>POST</method>
           <url>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/request-document-migration</url>
           <qs_data>
             <item>
               <name>migration_command</name>
               <value>{{ form_var_baec_document_select_migration_command }}</value>
             </item>
-          </qs_data><method>POST</method>
-          <post>False</post>
+          </qs_data><post>False</post>
           <response_type>json</response_type>
           <varname>migration_request</varname>
           <action_on_app_error>36</action_on_app_error>
@@ -181,7 +192,7 @@
             <type>django</type>
             <value>form_var_baec_document_select_migration_command</value>
           </condition>
-        </item><item type="sendmail" id="3">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><subject>{{ form_name }} : Lien vers le r&#233;capitulatif de votre demande</subject>
@@ -198,7 +209,7 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 {% endif %}
 
 Cordialement,</body>
-        </item><item type="set-backoffice-fields" id="4">
+        </item><item type="set-backoffice-fields" id="3">
           <label>R&#233;f&#233;rence du document migr&#233;</label>
           <fields>
             <field>
@@ -209,7 +220,7 @@ Cordialement,</body>
               <value>False</value>
             </field>
           </fields>
-        </item><item type="jump" id="2">
+        </item><item type="jump" id="4">
           <status>34</status>
           <condition>
             <type>django</type>
@@ -277,6 +288,7 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
       </visibility><items>
         <item type="webservice_call" id="1">
           <label>V&#233;rification document migr&#233;</label>
+          <method>GET</method>
           <url>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/list-person-documents</url>
           <qs_data>
             <item>
@@ -286,8 +298,7 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
               <name>rn</name>
               <value>{{ form_user_var_niss }}</value>
             </item>
-          </qs_data><method>GET</method>
-          <post>False</post>
+          </qs_data><post>False</post>
           <response_type>json</response_type>
           <varname>migration_check</varname>
           <action_on_app_error>:pass</action_on_app_error>
@@ -298,7 +309,7 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
           <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
-        </item><item type="set-backoffice-fields" id="4">
+        </item><item type="set-backoffice-fields" id="2">
           <label>Document migr&#233; (Oui/Non)</label>
           <fields>
             <field>
@@ -306,13 +317,13 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
               <value>{% for item in form_workflow_data_migration_check_response_items %}{% if item.reference == form_var_reference_document_migration %}True{% endif %}{% endfor %}</value>
             </field>
           </fields>
-        </item><item type="jump" id="2">
+        </item><item type="jump" id="3">
           <status>34</status>
           <condition>
             <type>django</type>
             <value>not form_var_document_migrated</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="3">
+        </item><item type="jump" id="4">
           <status>29</status>
           <condition>
             <type>django</type>
@@ -380,6 +391,7 @@ Cordialement,</body>
       </visibility><items>
         <item type="webservice_call" id="1">
           <label>R&#233;cup&#233;ration du document</label>
+          <method>POST</method>
           <url>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/read-document</url>
           <qs_data>
             <item>
@@ -392,8 +404,7 @@ Cordialement,</body>
               <name>rn</name>
               <value>{% if form_option_liaison_baec == "Staging" %}89041522261{% elif form_option_liaison_baec == "Production" %}{{ form_user_var_niss }}{% endif %}</value>
             </item>
-          </qs_data><method>POST</method>
-          <post>False</post>
+          </qs_data><post>False</post>
           <response_type>attachment</response_type>
           <varname>baec_document</varname>
           <backoffice_filefield_id>boc69b2ccc-1a6c-43a8-a1e0-5008ba678885</backoffice_filefield_id>
@@ -583,14 +594,14 @@ Bien cordialement,</body>
       <items>
         <item type="webservice_call" id="1">
           <label>Paiement en ligne</label>
+          <method>POST</method>
           <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <qs_data>
             <item>
               <name>regie_id</name>
               <value>{{form_option_regie_de_paiement_raw}}</value>
             </item>
-          </qs_data><method>POST</method>
-          <post>False</post>
+          </qs_data><post>False</post>
           <post_data>
             <item>
               <name>amount</name>
@@ -716,9 +727,8 @@ Bien cordialement,
       <items>
         <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
-          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
-          <request_signature_key>13245</request_signature_key>
           <method>POST</method>
+          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <post>True</post>
           <post_data>
             <item>
@@ -729,6 +739,7 @@ Bien cordialement,
               <value>skip</value>
             </item>
           </post_data><response_type>json</response_type>
+          <request_signature_key>13245</request_signature_key>
           <action_on_app_error>:pass</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>:stop</action_on_5xx>
@@ -848,7 +859,7 @@ En cliquant sur valider, vous allez &#234;tre red&#233;rig&#233; vers le site du
 &lt;ul&gt;
 &lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;Administration de {{ commune_name }}&lt;/b&gt;&lt;/li&gt;
 {% if administration_adresse %}&lt;li&gt;Adresse : &lt;b&gt;{{ administration_adresse }}&lt;/b&gt;&lt;/li&gt; {% endif %}
-&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{% if form_option_iban %}{{form_option_iban}}{% else %}Le numéro IBAN n'est pas configuré.{% endif %}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{% if form_option_iban %}{{form_option_iban}}{% else %}Le num&#233;ro IBAN n'est pas configur&#233;.{% endif %}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;R&#233;f&#233;rence de la commande (communication libre) : &lt;b&gt;{{ form_number }}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_var_wf_total_commande }}&lt;/b&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -890,7 +901,7 @@ Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en me
 B&#233;n&#233;ficiaire : Ville de {{ commune_name }} - {{ administration_adresse }}
 
 
-Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {% if form_option_iban %}{{form_option_iban}}{% else %}Le numéro IBAN n'est pas configuré.{% endif %}
+Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {% if form_option_iban %}{{form_option_iban}}{% else %}Le num&#233;ro IBAN n'est pas configur&#233;.{% endif %}
 
 
 R&#233;f&#233;rence de la commande (communication libre) : {{ form_number }}
@@ -936,6 +947,7 @@ Bien cordialement,</body>
       <visibility />
       <items>
         <item type="webservice_call" id="1">
+          <method>POST</method>
           <url>{{portal_url}}/api/lingo/cancel-transaction</url>
           <qs_data>
             <item>
@@ -945,8 +957,7 @@ Bien cordialement,</body>
               <name>amount</name>
               <value>{{form_var_wf_total_commande}}</value>
             </item>
-          </qs_data><method>POST</method>
-          <post>False</post>
+          </qs_data><post>False</post>
           <response_type>json</response_type>
           <varname>cancel_operation</varname>
           <action_on_app_error>25</action_on_app_error>
@@ -1277,8 +1288,6 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="31976731-c2f5-4152-be2e-beb11ba0a901">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>31</timeout>
         </trigger>
       </triggers>
@@ -1290,8 +1299,6 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="eb058b81-c101-4ae7-af07-f338c58864b1">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -1309,8 +1316,6 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
@@ -1709,6 +1714,20 @@ Cordialement, </body>
           <varname type="str">document_migrated</varname>
           <display_locations />
           <id type="str">bo1cbb8e82-4fca-49c7-ab50-dd7e5e945cf7</id>
+        </field><field>
+          <label type="str">Bool - R&#233;sultat delivrance, date_acte pour redirection mon dossier</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <varname type="str">result_delivrance_date_acte</varname>
+          <display_locations />
+          <id type="str">bod44f78a7-aa27-4199-befc-4eebb65bff6f</id>
+        </field><field>
+          <label type="str">Bool - R&#233;sultat (delivrance, date_acte) + concerne_qui et redirection automatique pour redirection mon dossier</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <varname type="str">result_delivrance_date_acte_concerne_qui_redirection_automatique</varname>
+          <display_locations />
+          <id type="str">bof2067322-8881-4022-a2c3-e55f600a3c3f</id>
         </field>
       </fields>
     </formdef>
