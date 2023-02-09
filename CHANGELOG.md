@@ -26,7 +26,8 @@ teleservices-package changelog
   - [MCITICAPA-3] Date et heure (modèle) : Fix category, activate + Citoyen(test) as demandeur, update whole xml with recent publik export particularities (types,ect) [dmshd]
   - [MCITICAPA-3] Redirection(modèle) : Fix category, activate + Citoyen(test) as demandeur, update whole xml with recent publik export particularities (types,ect) [dmshd]
   - [MCITICAPA-3] Redirection Mon Dossier (modèle) : Fix category, activate + Citoyen(test) as demandeur, update whole xml with recent publik export particularities (types,ect)
-  - [TELE-1614] Fix AppRegistry error when indus script occurs
+  - [TELE-1614] Tryout to fix AppRegistry error when indus script occurs [dmshd]
+  - [TELE-1614] Fix unwanted missing demands [dmshd]
 
 ### Added
   - [TELE-1556] Add form_option for délai migration BAEC [njphs]
