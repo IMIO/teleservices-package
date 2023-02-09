@@ -512,14 +512,14 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
           <push_to_portfolio>True</push_to_portfolio>
           <condition>
             <type>django</type>
-            <value>"porte" in form_var_destinations</value>
+            <value>form_var_destinations and "porte" in form_var_destinations</value>
           </condition>
         </item><item type="jumponsubmit" id="4">
           <status>finished</status>
           <set_marker_on_status>False</set_marker_on_status>
           <condition>
             <type>django</type>
-            <value>"porte" in form_var_destinations</value>
+            <value>form_var_destinations and "porte" in form_var_destinations</value>
           </condition>
         </item><item type="choice" id="5">
           <label>Terminer</label>

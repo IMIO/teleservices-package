@@ -14,7 +14,7 @@ Le statut de la demande que vous avez transmise vient de changer (il est
 pass&#233; de &#171; {{ form_previous_status }} &#187; &#224; &#171; {{ form_status }} &#187;).
 {% endif %}
 
-{% if "porte" in form_var_destinations %}
+{% if form_var_destinations and "porte" in form_var_destinations %}
 `Acc&#233;der &#224; mon porte-documents &lt;{{porte_doc_url}}&gt;`_
 {% endif %}
 
