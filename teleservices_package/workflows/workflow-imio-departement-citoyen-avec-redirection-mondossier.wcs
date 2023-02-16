@@ -25,7 +25,7 @@
               <value>{% if form_var_rb_concerne_raw == 'tiers' or form_var_concerne_qui_raw == 'tiers' %}True{% else %}False{% endif %}</value>
             </field>
           </fields>
-        </item><item type="set-backoffice-fields" id="12">
+        </item><item type="set-backoffice-fields" id="2">
           <label>Condition</label>
           <fields>
             <field>
@@ -34,47 +34,50 @@
             </field><field>
               <field_id>bof2067322-8881-4022-a2c3-e55f600a3c3f</field_id>
               <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_result_delivrance_date_acte %}True{% else %}False{% endif %}</value>
+            </field><field>
+              <field_id>bo167ac504-a96b-44ad-9428-d6f354125380</field_id>
+              <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_mode_delivrance_raw == 'mondossier' %}True{% else %}False{% endif %}</value>
             </field>
           </fields>
-        </item><item type="jump" id="2">
+        </item><item type="jump" id="3">
           <status>32</status>
           <condition>
-            <type>python</type>
-            <value>script.commune('is_strong_authentication', {}) == 'True' and vars().get('form_option_lien_mondossier') is not None and (form_var_mode_delivrance_raw != 'commune' or (vars().get('form_var_date_acte_raw') and form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019') or ((vars().get('form_var_concerne_qui_raw') and form_var_concerne_qui_raw != "tiers") and (form_option_redirection_automatique == 'True'))) and vars().get('imio_wcs_baec') and vars().get('form_var_baec_document_select')</value>
+            <type>django</type>
+            <value>form_user|is_strong_authentication and imio_wcs_baec and form_var_baec_document_select and form_var_result_concerne_qui_redirection_auto_delivrance and imio_wcs_baec and form_var_baec_document_select</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="3">
+        </item><item type="jump" id="4">
           <status>20</status>
           <condition>
             <type>django</type>
             <value>session_user|is_strong_authentication and form_option_lien_mondossier and not form_var_destinations and form_var_result_delivrance_date_acte_concerne_qui_redirection_automatique</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="set-backoffice-fields" id="4">
+        </item><item type="set-backoffice-fields" id="5">
           <label>Configuration des donn&#233;es de traitement</label>
           <fields>
             <field>
               <field_id>bo10</field_id>
-              <value>=form_var_nom if vars().get('form_var_rb_concerne') is None else form_var_nom if form_var_rb_concerne_raw == 'moi' else form_var_nom_perscon</value>
+              <value>{% if not form_var_rb_concerne or form_var_rb_concerne_raw == 'moi' %}{{form_var_nom}}{% else %}{{form_var_nom_perscon}}{% endif %}</value>
             </field><field>
               <field_id>bo11</field_id>
-              <value>=form_var_prenom if vars().get('form_var_rb_concerne') is None else form_var_prenom if form_var_rb_concerne_raw == 'moi' else form_var_prenom_perscon</value>
+              <value>{% if not form_var_rb_concerne or form_var_rb_concerne_raw == 'moi' %}{{form_var_prenom}}{% else %}{{form_var_prenom_perscon}}{% endif %}</value>
             </field><field>
               <field_id>bo6</field_id>
-              <value>=form_var_nn if vars().get('form_var_rb_concerne') is None else form_var_nn if form_var_rb_concerne_raw == 'moi' else form_var_nn_perscon</value>
+              <value>{% if not form_var_rb_concerne or form_var_rb_concerne_raw == 'moi' %}{{form_var_nn}}{% else %}{{form_var_nn_perscon}}{% endif %}</value>
             </field><field>
               <field_id>bo12</field_id>
-              <value>=form_var_tel if vars().get('form_var_rb_concerne') is None else form_var_tel if form_var_rb_concerne_raw == 'moi' else vars().get('form_var_tel_perscon') or ''</value>
+              <value>{% if not form_var_rb_concerne or form_var_rb_concerne_raw == 'moi' %}{{form_var_tel}}{% else %}{{form_var_nn_perscon|default_if_none:""}}{% endif %}</value>
             </field><field>
               <field_id>bo2</field_id>
-              <value>=locals().get("form_var_nb_exemplaire") or 1</value>
+              <value>{{form_var_nb_exemplaire|default_if_none:1}}</value>
             </field><field>
               <field_id>bo3</field_id>
-              <value>=str(((Decimal(form_option_cout.replace(',', '.')) + Decimal(locals().get('form_var_motifs_price') or '0')) * int(locals().get('form_var_nb_exemplaire') or '1'))) or '0.00'</value>
+              <value>{% if form_option_cout and form_var_motifs_price %}{{form_option_cout|add:form_var_motifs_price|multiply:form_var_wf_nb_exemplaires}}{% elif form_option_cout and not form_var_motifs_price %}{{form_option_cout|add:0|multiply:form_var_wf_nb_exemplaires}}{% else %}0{% endif %}</value>
             </field><field>
               <field_id>bo9</field_id>
               <value>{{form_option_paiement_en_ligne}}</value>
             </field>
           </fields>
-        </item><item type="set-backoffice-fields" id="5">
+        </item><item type="set-backoffice-fields" id="6">
           <label>Adresse pour un acte qui me concerne</label>
           <fields>
             <field>
@@ -85,7 +88,7 @@
             <type>django</type>
             <value>"Acte" in form_name and not form_var_rb_concerne or form_var_rb_concerne_raw == 'moi'</value>
           </condition>
-        </item><item type="set-backoffice-fields" id="6">
+        </item><item type="set-backoffice-fields" id="7">
           <label>Adresse pour un certificat qui me concerne</label>
           <fields>
             <field>
@@ -96,7 +99,7 @@
             <type>django</type>
             <value>"Acte" not in form_name and not form_var_concerne_qui_raw or form_var_concerne_qui_raw == 'moi'</value>
           </condition>
-        </item><item type="set-backoffice-fields" id="7">
+        </item><item type="set-backoffice-fields" id="8">
           <label>Adresse pour l'acte d'un tiers</label>
           <fields>
             <field>
@@ -107,7 +110,7 @@
             <type>django</type>
             <value>"Acte" in form_name and form_var_rb_concerne_raw == 'tiers'</value>
           </condition>
-        </item><item type="set-backoffice-fields" id="8">
+        </item><item type="set-backoffice-fields" id="9">
           <label>Adresse pour le certificat d'un tiers</label>
           <fields>
             <field>
@@ -118,19 +121,19 @@
             <type>django</type>
             <value>"Acte" not in form_name and form_var_concerne_qui_raw == 'tiers'</value>
           </condition>
-        </item><item type="jump" id="9">
+        </item><item type="jump" id="10">
           <status>13</status>
           <condition>
-            <type>python</type>
-            <value>Decimal(form_var_wf_total_commande) == Decimal('0') and (locals().get('form_var_destinations_paymentrequired') == 'False')</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="10">
-          <status>21</status>
-          <condition>
-            <type>python</type>
-            <value>vars().get('form_var_wf_paiement_en_ligne_raw') is False</value>
+            <type>django</type>
+            <value>form_var_wf_total_commande == 0 and not form_var_destinations_paymentrequired</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="11">
+          <status>21</status>
+          <condition>
+            <type>django</type>
+            <value>not form_var_wf_paiement_en_ligne_raw</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="12">
           <status>10</status>
           <condition>
             <type>django</type>
@@ -1243,7 +1246,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
-            <item slug="debug" role_id="31c040f6d178408aa431fe26741b0c07">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1255,7 +1258,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
-            <item slug="debug" role_id="31c040f6d178408aa431fe26741b0c07">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1271,7 +1274,7 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
-            <item slug="debug" role_id="31c040f6d178408aa431fe26741b0c07">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
         </trigger>
       </triggers>
@@ -1289,6 +1292,8 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
@@ -1701,6 +1706,14 @@ Cordialement, </body>
           <varname type="str">result_delivrance_date_acte_concerne_qui_redirection_automatique</varname>
           <display_locations />
           <id type="str">bof2067322-8881-4022-a2c3-e55f600a3c3f</id>
+        </field><field>
+          <label type="str">Bool - R&#233;sultat concerne qui, redirection auto, d&#233;livrance</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <hint type="str">BAEC</hint>
+          <varname type="str">result_concerne_qui_redirection_auto_delivrance</varname>
+          <display_locations />
+          <id type="str">bo167ac504-a96b-44ad-9428-d6f354125380</id>
         </field>
       </fields>
     </formdef>
