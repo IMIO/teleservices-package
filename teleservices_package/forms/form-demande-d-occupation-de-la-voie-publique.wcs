@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<formdef id="12" url="https://comblainaupont-formulaires.guichet-citoyen.be/backoffice/forms/12/">
+<formdef id="33" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/33/">
   <name>Occupation de la voie publique</name>
   <url_name>demande-d-occupation-de-la-voie-publique</url_name>
   <description>Pour demander l'autorisation d'installer un container, d'un &#233;chaffaudage ou de tout autre mat&#233;riel sur la voie publique, vous pouvez compl&#233;ter ce formulaire.</description>
-  <internal_identifier>occupation-de-la-voie-publique</internal_identifier>
+  <internal_identifier>demande-occupation-de-la-voie-publique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -14,8 +14,8 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-travaux" category_id="4">Travaux</category>
-  <workflow slug="imio-occupation-de-la-voie-publique" workflow_id="11">iMio - Occupation de la voie publique</workflow>
+  <category slug="demande-travaux" category_id="7">Travaux</category>
+  <workflow slug="imio-occupation-de-la-voie-publique" workflow_id="7">iMio - Occupation de la voie publique</workflow>
   <max_field_id>263</max_field_id>
   <fields>
     <field>
@@ -359,14 +359,7 @@
       <condition>
         <type>python</type>
         <value>form_var_typedemandeur == "Un particulier"</value>
-      </condition><post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>((97 - int(form_var_nn[:9]) % 97 == int(form_var_nn[-2:])) or (97 - int("2" + form_var_nn[:9]) % 97 == int(form_var_nn[-2:])))</value>
-          </condition><error_message>Num&#233;ro national incorrect, veuillez uniquement rentrer des chiffres pour le num&#233;ro national</error_message>
-        </post_condition>
-      </post_conditions><id type="str">34</id>
+      </condition><id type="str">34</id>
     </field><field>
       <label type="str">Nom</label>
       <type type="str">string</type>
