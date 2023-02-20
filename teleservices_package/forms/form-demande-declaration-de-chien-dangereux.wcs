@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="38" url="http://local-formulaires.example.net/backoffice/forms/38/">
+<formdef id="38" url="">
   <name>D&#233;claration de chien dangereux</name>
   <url_name>demande-declaration-de-chien-dangereux</url_name>
   <description>En vertu du R&#232;glement g&#233;n&#233;rale de Police, tout chien pr&#233;sum&#233; dangereux doit &#234;tre signal&#233; aupr&#232;s de votre administration communale par le biais de ce formulaire.</description>
@@ -185,7 +185,8 @@
         <value>_email</value>
       </prefill><id type="str">10</id>
     </field><field>
-      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="[idp_account_url]edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
+      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="{{ idp_account_url }}edit/" rel="nofollow"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;
+</label>
       <type type="str">comment</type>
       <display_locations />
       <id type="str">11</id>
@@ -212,7 +213,7 @@
       <label type="str">Adresse o&#249; est d&#233;tenu le chien</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_adresse_chien == "Non"</value>
       </condition><id type="str">14</id>
     </field><field>
@@ -538,9 +539,7 @@
         <type>none</type>
       </prefill><id type="str">49</id>
     </field>
-  </fields><user-roles>
-    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
-  </user-roles><options>
+  </fields><options>
     <option varname="informations_complementaires" />
     <option varname="liste_documents" />
     <option varname="reglement_communal" />
