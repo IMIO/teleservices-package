@@ -832,10 +832,11 @@ En cliquant sur valider, vous allez &#234;tre red&#233;rig&#233; vers le site du
         <role>_validateur-pc-banking</role>
       </visibility><items>
         <item type="set-backoffice-fields" id="1">
+          <label>Prix virement</label>
           <fields>
             <field>
               <field_id>bo3</field_id>
-              <value>=Decimal(form_var_wf_total_commande) + Decimal(vars().get('form_var_destinations_price')) or Decimal('0')</value>
+              <value>{% if form_var_wf_total_commande %}{% if form_var_destinations_price %}{{form_var_wf_total_commande|add:form_var_destinations_price|decimal:2}}{% else %}{{form_var_wf_total_commande|decimal:2}}{% endif %}{% else %}{{"0"|decimal:2}}{% endif %}</value>
             </field>
           </fields>
         </item><item type="jump" id="2">
@@ -1292,8 +1293,6 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
