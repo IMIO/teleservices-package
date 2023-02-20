@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="62" url="http://local-formulaires.example.net/backoffice/forms/62/">
+<formdef id="62" url="">
   <name>Emplacement de stationnement pour PMR</name>
   <url_name>demande-emplacement-stationnement-pmr</url_name>
   <description>Ce formulaire permet aux personnes &#224; mobilit&#233; r&#233;duite ou &#224; leurs proches de faire la demande d'une place de stationnement adapt&#233;e.</description>
@@ -68,7 +68,7 @@
       <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_type_personne == 'Une tierce personne'</value>
       </condition><id type="str">127</id>
     </field><field>
@@ -343,7 +343,8 @@
         <value>_email</value>
       </prefill><id type="str">137</id>
     </field><field>
-      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="[idp_account_url]edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
+      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="{{ idp_account_url }}edit/" rel="nofollow"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;
+</label>
       <type type="str">comment</type>
       <display_locations />
       <id type="str">138</id>
@@ -676,9 +677,7 @@
       </prefill><display_mode type="str">plain</display_mode>
       <id type="str">183</id>
     </field>
-  </fields><user-roles>
-    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
-  </user-roles><options />
+  </fields><options />
   <custom_views />
   <geolocations />
 </formdef>
