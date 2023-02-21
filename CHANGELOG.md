@@ -42,6 +42,7 @@ teleservices-package changelog
   - [TELE-1528] Add defaut value to avoid None if option not set [dmshd] [njphs]
   - Add modèle "Tableau de listes" [dmshd]
   - Add modele for Carte [njphs][dmshd]
+  - [TELE-1298] Update default iMio WF : xml, add 'supprimer' global action [dmshd][njphs]
 
 ### Updated
   - [TELE-1577] Update types of docs descriptions display by directly using the desc in the list item [dmshd]
