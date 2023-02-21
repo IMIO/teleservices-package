@@ -60,6 +60,7 @@ teleservices-package changelog
   - Déclaration alarme/caméré : Update xml with types, activate, use Citoyen (test) [dmshd]
   - Acte de décès : activate, use Citoyen (test) [dmshd]
   - [TELE-1612] [TELE-1613] Update python to django for some category [njphs]
+  - [SUP-28606] Update WF mondossier with donnée de traitement for authentification forte or not [njphs]
 
 ### Removed
   - [TELE-1557] Delete obsolete comment

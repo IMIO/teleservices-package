@@ -23,6 +23,9 @@
             </field><field>
               <field_id>bo24cc53ce-c40b-4167-9080-9f286ac310dd</field_id>
               <value>{% if form_var_rb_concerne_raw == 'tiers' or form_var_concerne_qui_raw == 'tiers' %}True{% else %}False{% endif %}</value>
+            </field><field>
+              <field_id>bo2162b04d-0b5b-4a87-9075-425b8fdebfb2</field_id>
+              <value>{{ form_user|is_strong_authentication }}</value>
             </field>
           </fields>
         </item><item type="set-backoffice-fields" id="2">
@@ -1293,6 +1296,8 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
@@ -1713,6 +1718,14 @@ Cordialement, </body>
           <varname type="str">result_concerne_qui_redirection_auto_delivrance</varname>
           <display_locations />
           <id type="str">bo167ac504-a96b-44ad-9428-d6f354125380</id>
+        </field><field>
+          <label type="str">Usager connect&#233; en authentification forte</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <varname type="str">connexion_forte</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">bo2162b04d-0b5b-4a87-9075-425b8fdebfb2</id>
         </field>
       </fields>
     </formdef>
