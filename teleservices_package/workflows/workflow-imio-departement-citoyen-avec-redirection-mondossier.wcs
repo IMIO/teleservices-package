@@ -702,7 +702,15 @@ Bien cordialement,</body>
       <colour>66FF66</colour>
       <visibility />
       <items>
-        <item type="sendmail" id="1">
+        <item type="set-backoffice-fields" id="3">
+          <label>Reference du paiement</label>
+          <fields>
+            <field>
+              <field_id>bo2ac6793a-00c7-49ea-a725-a60653555d37</field_id>
+              <value>{{form_workflow_data_bank_data_transactionReference}}</value>
+            </field>
+          </fields>
+        </item><item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-avec-paiement-usager-paiement-recu</mail_template>
@@ -1726,6 +1734,15 @@ Cordialement, </body>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><id type="str">bo2162b04d-0b5b-4a87-9075-425b8fdebfb2</id>
+        </field><field>
+          <label type="str">Transaction Reference</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <varname type="str">transaction_reference</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo2ac6793a-00c7-49ea-a725-a60653555d37</id>
         </field>
       </fields>
     </formdef>
