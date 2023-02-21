@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="19" url="https://local-formulaires.guichet-citoyen.be/backoffice/forms/19/">
+<formdef id="19" url="">
   <name>Composition de m&#233;nage</name>
   <url_name>demande-composition-de-menage</url_name>
   <description>&lt;p&gt;La composition de m&#233;nage reprend toutes les personnes inscrites &#224; une m&#234;me adresse.&lt;/p&gt;</description>
@@ -505,17 +505,14 @@
     </field><field>
       <label type="str">Le document est destin&#233; &#224;</label>
       <type type="str">item</type>
-      <required type="bool">False</required>
+      <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">motifs</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">list</display_mode>
-      <items />
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>formula</type>
         <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
@@ -612,15 +609,18 @@
     <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
   </user-roles><options>
     <option varname="cout">0</option>
-    <option varname="cp_commune">[cp_commune]</option>
+    <option varname="cp_commune" />
     <option varname="destinations" />
     <option varname="destinations_display" />
     <option varname="destinations_structured" />
     <option varname="iban" />
+    <option varname="liaison_baec">Staging</option>
+    <option varname="liaison_baec_display">Staging</option>
+    <option varname="liaison_baec_structured" />
     <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=42&amp;language=FR</option>
     <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=42&amp;language=FR</option>
     <option varname="mode_recup_disponibles" />
-    <option varname="mode_recup_disponibles_display">Envoi &#224; domicile (Belgique), R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t</option>
+    <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
     <option varname="motifs_disponibles" />
     <option varname="motifs_disponibles_display" />
@@ -628,6 +628,11 @@
     <option varname="paiement_en_ligne" />
     <option varname="paiement_en_ligne_display" />
     <option varname="paiement_en_ligne_structured" />
+    <option varname="redirection_automatique" />
+    <option varname="regie_de_paiement" />
+    <option varname="regie_de_paiement_display" />
+    <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>
