@@ -13,6 +13,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
+  <category slug="imio-modeles" category_id="17">iMio - Mod&#232;les </category>
   <workflow workflow_id="_default">Par d&#233;faut</workflow>
   <max_field_id>7</max_field_id>
   <fields>
@@ -25,8 +26,8 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
-        <locked>False</locked>
         <type>string</type>
+        <value>None</value>
       </prefill><init_with_geoloc type="bool">False</init_with_geoloc>
       <id type="str">1</id>
     </field><field>
@@ -39,7 +40,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>road</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -54,7 +54,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>house</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -69,7 +68,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>postcode</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -84,7 +82,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>city</value>
       </prefill><anonymise type="bool">True</anonymise>
@@ -99,7 +96,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>geolocation</type>
         <value>country</value>
       </prefill><anonymise type="bool">True</anonymise>
