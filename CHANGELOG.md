@@ -41,6 +41,7 @@ teleservices-package changelog
   - [TELE-1577] Add latest asked changes (Types of docs) [dmshd]
   - [TELE-1528] Add defaut value to avoid None if option not set [dmshd] [njphs]
   - Add modèle "Tableau de listes" [dmshd]
+  - Add modele for Carte [njphs][dmshd]
 
 ### Updated
   - [TELE-1577] Update types of docs descriptions display by directly using the desc in the list item [dmshd]
@@ -57,6 +58,7 @@ teleservices-package changelog
   - Add missing category slug, activate form, use "Citoyen (test)" (autorisation acquisition animal) [dmshd]
   - Déclaration alarme/caméré : Update xml with types, activate, use Citoyen (test) [dmshd]
   - Acte de décès : activate, use Citoyen (test) [dmshd]
+  - [TELE-1612] [TELE-1613] Update python to django for some category [njphs]
 
 ### Removed
   - [TELE-1557] Delete obsolete comment

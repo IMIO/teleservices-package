@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<formdef id="251" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/251/">
+  <name>Mod&#232;le - Carte</name>
+  <url_name>modele-carte</url_name>
+  <internal_identifier>modele-carte</internal_identifier>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow workflow_id="_default">Par d&#233;faut</workflow>
+  <max_field_id>7</max_field_id>
+  <fields>
+    <field>
+      <label type="str">Carte</label>
+      <type type="str">map</type>
+      <required type="bool">True</required>
+      <varname type="str">carte</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>string</type>
+      </prefill><init_with_geoloc type="bool">False</init_with_geoloc>
+      <id type="str">1</id>
+    </field><field>
+      <label type="str">Rue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">newline grid-3-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>geolocation</type>
+        <value>road</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">2</id>
+    </field><field>
+      <label type="str">Num&#233;ro</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">numero_maison</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>geolocation</type>
+        <value>house</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">3</id>
+    </field><field>
+      <label type="str">Code postal</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">newline grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>geolocation</type>
+        <value>postcode</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">4</id>
+    </field><field>
+      <label type="str">Ville</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">commune</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>geolocation</type>
+        <value>city</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">5</id>
+    </field><field>
+      <label type="str">Pays</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">pays</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">newline</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>geolocation</type>
+        <value>country</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">7</id>
+    </field>
+  </fields><options />
+  <custom_views />
+  <geolocations />
+</formdef>
