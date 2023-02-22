@@ -128,7 +128,7 @@
           <status>13</status>
           <condition>
             <type>django</type>
-            <value>form_var_wf_total_commande == 0 and not form_var_destinations_paymentrequired</value>
+            <value>form_var_wf_total_commande == 0 and form_var_destinations_paymentrequired == "False"</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="11">
           <status>21</status>
@@ -702,7 +702,7 @@ Bien cordialement,</body>
       <colour>66FF66</colour>
       <visibility />
       <items>
-        <item type="set-backoffice-fields" id="3">
+        <item type="set-backoffice-fields" id="1">
           <label>Reference du paiement</label>
           <fields>
             <field>
@@ -710,7 +710,7 @@ Bien cordialement,</body>
               <value>{{form_workflow_data_bank_data_transactionReference}}</value>
             </field>
           </fields>
-        </item><item type="sendmail" id="1">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-avec-paiement-usager-paiement-recu</mail_template>
@@ -728,7 +728,7 @@ Vous pouvez continuer &#224; suivre son &#233;tat d'avancement en suivant ce lie
 Bien cordialement,
 
 </body>
-        </item><item type="jump" id="2">
+        </item><item type="jump" id="3">
           <status>accepted</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -1304,8 +1304,6 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
