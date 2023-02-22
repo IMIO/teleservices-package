@@ -681,7 +681,33 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
       </visibility><items>
-        <item type="sendmail" id="1">
+        <item type="webservice_call" id="3">
+          <label>Supprimer du panier</label>
+          <method>POST</method>
+          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>basket_item_id</name>
+              <value>{{transaction_info_response_id}}</value>
+            </item><item>
+              <name>skip_notification</name>
+              <value>skip</value>
+            </item>
+          </post_data><response_type>json</response_type>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>False</record_errors>
+          <condition>
+            <type>django</type>
+            <value>transaction_info_response_id</value>
+          </condition>
+        </item><item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
@@ -747,7 +773,7 @@ Bien cordialement,
           <post_data>
             <item>
               <name>basket_item_id</name>
-              <value>{{panier_response_id}}</value>
+              <value>{{transaction_info_response_id}}</value>
             </item><item>
               <name>skip_notification</name>
               <value>skip</value>
@@ -1307,8 +1333,32 @@ Cordialement, </body>
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
           </roles>
+        </trigger>
+      </triggers>
+    </action><action>
+      <id>7</id>
+      <name>Debug document gratuit</name>
+      <items>
+        <item type="jump" id="1">
+          <status>13</status>
+          <condition>
+            <type>django</type>
+            <value>form_var_wf_total_commande|add:0 == 0 and form_var_destinations_paymentrequired == "False" and form_status == "En attente du paiement"</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger type="manual" id="4bb20453-ad4d-4485-9de2-d843e92055b2">
+          <roles>
+            <item role_id="_receiver">_receiver</item>
+            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="9be8b3ce1b3244be8f6e05a9aa003cf0">Agent ayant acces aux fabriques</item>
+          </roles>
+        </trigger><trigger type="timeout" id="ffd68291-0bf3-4f65-8259-618dd48570da">
+          <anchor>1st-arrival</anchor>
+          <anchor_status_first>wf-10</anchor_status_first>
+          <timeout>0</timeout>
         </trigger>
       </triggers>
     </action>
