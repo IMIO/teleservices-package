@@ -128,7 +128,7 @@ Cordialement,
 &lt;p&gt;Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;B&#233;n&#233;ficiaire : &lt;b&gt;Ville de {{ commune_name }} - {{ administration_adresse }} &lt;/b&gt;&lt;/li&gt;
-&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{% if form_option_iban %}{{form_option_iban}}{% else %}Le numéro IBAN n'est pas configuré.{% endif %}&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : &lt;b&gt;{% if form_option_iban %}{{form_option_iban}}{% else %}Le num&#233;ro IBAN n'est pas configur&#233;.{% endif %}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;R&#233;f&#233;rence de la commande (communication libre) : &lt;b&gt;{{ form_number }}&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;Montant de la commande : &lt;b&gt;{{ form_option_montant|add:form_var_destination_price }}&lt;/b&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -220,14 +220,14 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <position>top</position>
         </item><item type="webservice_call" id="4">
           <label>Paiement en ligne</label>
+          <method>POST</method>
           <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <qs_data>
             <item>
               <name>regie_id</name>
               <value>{{form_option_regie_de_paiement_raw}}</value>
             </item>
-          </qs_data><method>POST</method>
-          <post>False</post>
+          </qs_data><post>False</post>
           <post_data>
             <item>
               <name>amount</name>
@@ -412,8 +412,8 @@ Cordialement,
       <items>
         <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
-          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <method>POST</method>
+          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <post>False</post>
           <post_data>
             <item>
@@ -443,8 +443,8 @@ Cordialement,
       <items>
         <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
-          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <method>POST</method>
+          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <post>False</post>
           <post_data>
             <item>
@@ -464,6 +464,10 @@ Cordialement,
           <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>True</record_errors>
+          <condition>
+            <type>django</type>
+            <value>transaction_info_response_id</value>
+          </condition>
         </item><item type="remove" id="2" />
       </items><triggers>
         <trigger type="manual" id="466327d5-2cb1-458f-bf6a-f28df7acfd85">
@@ -479,7 +483,10 @@ Cordialement,
       <items>
         <item type="jump" id="1">
           <status>12</status>
-          <set_marker_on_status>False</set_marker_on_status>
+          <condition>
+            <type>django</type>
+            <value>transaction_info_response_id</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
         <trigger type="manual" id="d0570a4a-e7f6-4605-a79d-11c5a825dedc">
