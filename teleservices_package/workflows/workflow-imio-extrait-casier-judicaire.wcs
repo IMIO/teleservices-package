@@ -41,6 +41,9 @@
             </field><field>
               <field_id>bo12</field_id>
               <value>{{form_var_tel_personne}}</value>
+            </field><field>
+              <field_id>bofe9b4a04-3a39-4cce-a3d6-0cfe0b7ec5b0</field_id>
+              <value>{{ form_user|is_strong_authentication }}</value>
             </field>
           </fields>
         </item><item type="jump" id="2">
@@ -1170,6 +1173,15 @@ Le service Population / Etat-civil
             <display_location>listings</display_location>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">boc9ddcf3d-422e-4da9-b093-0e510f656c5d</id>
+        </field><field>
+          <label type="str">Usager connect&#233; en authentification forte</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <varname type="str">connexion_forte</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bofe9b4a04-3a39-4cce-a3d6-0cfe0b7ec5b0</id>
         </field><field>
           <label type="str">Transaction Reference</label>
           <type type="str">string</type>
