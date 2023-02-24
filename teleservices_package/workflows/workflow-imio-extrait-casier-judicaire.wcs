@@ -330,7 +330,15 @@ Le service Population / Etat-civil
       <colour>99FF00</colour>
       <visibility />
       <items>
-        <item type="sendmail" id="1">
+        <item type="set-backoffice-fields" id="3">
+          <label>Reference du paiement</label>
+          <fields>
+            <field>
+              <field_id>bo9085b9a0-94a3-4445-bd8f-0a089f7d2ed3</field_id>
+              <value>{{form_workflow_data_bank_data_transactionReference}}</value>
+            </field>
+          </fields>
+        </item><item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-avec-paiement-usager-paiement-recu</mail_template>
@@ -384,6 +392,10 @@ Le service Population / Etat-civil
           <notify_on_errors>True</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+          <condition>
+            <type>django</type>
+            <value>transaction_info_response_id</value>
+          </condition>
         </item><item type="displaymsg" id="2">
           <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
           <level>success</level>
@@ -1158,6 +1170,15 @@ Le service Population / Etat-civil
             <display_location>listings</display_location>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">boc9ddcf3d-422e-4da9-b093-0e510f656c5d</id>
+        </field><field>
+          <label type="str">Transaction Reference</label>
+          <type type="str">string</type>
+          <required type="bool">True</required>
+          <varname type="str">transaction_reference</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><anonymise type="bool">True</anonymise>
+          <id type="str">bo9085b9a0-94a3-4445-bd8f-0a089f7d2ed3</id>
         </field>
       </fields>
     </formdef>
