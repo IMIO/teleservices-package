@@ -3,7 +3,7 @@
   <name>indus - Usager - Notification de commentaire</name>
   <slug>indus-notification-de-commentaire-demandeur</slug>
   <subject>{{form_name}} - Nouveau commentaire</subject>
-  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+  <body>Bonjour,
 
 Votre administration vous écrit le commentaire suivant :
 

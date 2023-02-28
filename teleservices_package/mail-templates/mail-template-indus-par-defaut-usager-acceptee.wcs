@@ -4,7 +4,7 @@
   <slug>indus-par-defaut-usager-acceptee</slug>
   <description>Email envoy&#233; &#224; l'usager lorsque sa demande est accept&#233;e</description>
   <subject>{{ form_name }} - Demande acceptée</subject>
-  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+  <body>Bonjour,
 
 {% if form_status_changed %}
 La demande suivante a &#233;t&#233; accept&#233;e&#160;: {{ form_name }}

@@ -3,7 +3,7 @@
   <name>Indus - Usager - Remboursement effectu&#233;</name>
   <slug>indus-usager-remboursement-effectue</slug>
   <subject>{{ form_name }} - Remboursement effectu&#233;</subject>
-  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+  <body>Bonjour,
 
 Vous avez introduit la démarche suivante : {{ form_name }}.
 Nous vous informons qu'un remboursement vient de vous être accordé et effectué.

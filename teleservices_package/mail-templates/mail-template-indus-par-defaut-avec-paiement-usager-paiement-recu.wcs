@@ -3,7 +3,7 @@
   <name>Indus - Par d&#233;faut avec paiement - Usager - Paiement re&#231;u</name>
   <slug>indus-par-defaut-avec-paiement-usager-paiement-recu</slug>
   <subject>{{ form_name }} - Confirmation de paiement</subject>
-  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+  <body>Bonjour,
 
 Nous vous confirmons la réception du paiement concernant la demande suivante : {{form_name}}.
 

@@ -4,7 +4,7 @@
   <slug>indus-par-defaut-usager-nouvelle-demande</slug>
   <description>Email envoy&#233; &#224; l'usager lors de l'envoi de sa demande pour confirmation</description>
   <subject>{{ form_name }} - R&#233;ception de votre demande</subject>
-  <body>Bonjour {% if form_var_prenom %}{{ form_var_prenom }}{% endif %},
+  <body>Bonjour,
 
 Nous vous confirmons la réception de la démarche suivante : {{form_name}}
 

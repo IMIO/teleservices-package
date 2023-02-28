@@ -4,7 +4,7 @@
   <slug>indus-par-defaut-usager-terminee</slug>
   <description>Email envoy&#233; &#224; l'usager lorsque sa demande est termin&#233;e</description>
   <subject>{{ form_name }} - Démarche finalisée</subject>
-  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+  <body>Bonjour,
 
 Nous vous informons que la démarche suivante est terminée : {{ form_name }}.
 

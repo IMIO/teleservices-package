@@ -3,7 +3,7 @@
   <name>Indus - Usager - Demande trait&#233;e</name>
   <slug>indus-usager-demande-traitee</slug>
   <subject>{{ form_name }} - Demande trait&#233;e</subject>
-  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+  <body>Bonjour,
 
 Votre demande a été traitée.
 Pour rappel, il s'agit de la démarche suivante : {{ form_name }}.

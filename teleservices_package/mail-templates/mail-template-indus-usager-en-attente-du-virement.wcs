@@ -3,7 +3,7 @@
   <name>Indus - Usager - En attente du virement</name>
   <slug>indus-usager-en-attente-du-virement</slug>
   <subject>{{ form_name }} - En attente de paiement</subject>
-  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+  <body>Bonjour,
 
 Nous vous invitons à régler le montant lié à la démarche suivante :
 

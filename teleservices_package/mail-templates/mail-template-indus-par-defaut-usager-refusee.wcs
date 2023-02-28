@@ -4,7 +4,7 @@
   <slug>indus-par-defaut-usager-refusee</slug>
   <description>Email envoy&#233; &#224; l'usager lorsque sa demande est refus&#233;e.</description>
   <subject>{{ form_name }} - Demande refus&#233;e</subject>
-  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+  <body>Bonjour,
 
 {% if form_status_changed %}
 Nous sommes au regrêt de devoir vous informer du refus de votre demande.
