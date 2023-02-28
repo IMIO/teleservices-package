@@ -3,15 +3,17 @@
   <name>Indus - Par d&#233;faut - Usager - Refus&#233;e</name>
   <slug>indus-par-defaut-usager-refusee</slug>
   <description>Email envoy&#233; &#224; l'usager lorsque sa demande est refus&#233;e.</description>
-  <subject>{{ form_name }} : Votre demande est refus&#233;e</subject>
+  <subject>{{ form_name }} - Demande refus&#233;e</subject>
   <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
 {% if form_status_changed %}
-Nous vous informons que votre demande pour la d&#233;marche "{{ form_name }}" a &#233;t&#233; refus&#233;e. {% endif %}
+Nous sommes au regrêt de devoir vous informer du refus de votre demande.
+Pour rappel, cela concerne la démarche suivante : {{ form_name }}.
+{% endif %}
 
-{% if refus_var_motif %}Motif du refus : {{ refus_var_motif }}{% endif %}
-
-Le statut de votre demande a donc chang&#233; (il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% if refus_var_motif %}
+Motif du refus : {{ refus_var_motif }}
+{% endif %}
 
 {% if form_user %}
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_

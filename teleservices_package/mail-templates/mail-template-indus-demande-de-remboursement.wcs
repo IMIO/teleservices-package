@@ -2,10 +2,12 @@
 <mail-template id="44" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/44/">
   <name>Indus - Agent traitant - Demande de remboursement</name>
   <slug>indus-demande-de-remboursement</slug>
-  <subject>E-guichet {{commune_name}} - Demande de remboursement</subject>
+  <subject>{{form_name}} - Demande de remboursement</subject>
   <body>Bonjour,
 
-Voici une demande de remboursement, merci de proc&#233;der &#224; la demande de remboursement suivante :
+Une demande de remboursement vient d'être complétée.
+
+Retrouvez ci-dessous le détail de la demande :
 
 * Num&#233;ro IBAN : {{infos_remboursement_var_iban}}
 * Nom : {{infos_remboursement_var_nom}}
@@ -18,5 +20,5 @@ Communication sugg&#233;r&#233;e : {{form_name}}, code {{form_number}}
 
 Pour toute autre information, vous pouvez vous connecter au backoffice : {{form_url_backoffice}}
 
-Cordialement, </body>
+Cordialement,</body>
 </mail-template>

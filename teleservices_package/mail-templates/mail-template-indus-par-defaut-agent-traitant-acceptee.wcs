@@ -3,7 +3,7 @@
   <name>Indus - Par d&#233;faut - Agent traitant - Accept&#233;e</name>
   <slug>indus-par-defaut-agent-traitant-acceptee</slug>
   <description>Email envoy&#233; &#224; l'agent traitant lorsqu'il a accept&#233; une demande.</description>
-  <subject>{{ form_name }} : Demande accept&#233;e</subject>
+  <subject>{{ form_name }} - Demande accept&#233;e</subject>
   <body>Bonjour,
 
 Nous vous confirmons que le statut de la demande suivante vient de changer, vous pouvez en prendre connaissance en suivant ce lien&#160;:
@@ -20,5 +20,6 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 {{ form_evolution }}
 {% endif %}
 
-Bonne journ&#233;e !</body>
+Cordialement,
+</body>
 </mail-template>

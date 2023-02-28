@@ -2,10 +2,16 @@
 <mail-template id="47" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/47/">
   <name>indus - Destinataire - Notification de commentaire</name>
   <slug>indus-notification-de-commentaire-destinataire</slug>
-  <subject>Notification de commentaire pour la demande {{form_name}} de {{form_user_display_name}}</subject>
-  <body>{{session_user_display_name}} a &#233;crit un commentaire.
+  <subject>{{form_name}} - Nouveau commentaire</subject>
+  <body>
+  Bonjour,
 
-{{comment_commentaire}}
+  Un nouveau commentaire vient d'être écrit sur la demande suivante :
 
-Vous pouvez y `r&#233;pondre en suivant ce lien &lt;{{ form_url_backoffice }}&gt;`_</body>
+  {{ form_name }} portant la référence {{ form_number }}.
+
+  Vous pouvez y `r&#233;pondre en suivant ce lien &lt;{{ form_url_backoffice }}&gt;`_
+
+  Cordialement,
+  </body>
 </mail-template>

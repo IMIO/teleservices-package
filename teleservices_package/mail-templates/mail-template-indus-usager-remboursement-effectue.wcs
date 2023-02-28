@@ -2,10 +2,15 @@
 <mail-template id="45" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/45/">
   <name>Indus - Usager - Remboursement effectu&#233;</name>
   <slug>indus-usager-remboursement-effectue</slug>
-  <subject>{{ form_name }} : remboursement effectu&#233;</subject>
+  <subject>{{ form_name }} - Remboursement effectu&#233;</subject>
   <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
-Nous vous informons que le remboursement li&#233; &#224; votre demande {{ form_name }} a bien &#233;t&#233; effectu&#233;. 
+Vous avez introduit la démarche suivante : {{ form_name }}.
+Nous vous informons qu'un remboursement vient de vous être accordé et effectué.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
 
 Cordialement,</body>
 </mail-template>

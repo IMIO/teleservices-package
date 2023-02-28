@@ -2,12 +2,12 @@
 <mail-template id="52" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/52/">
   <name>Indus - Par d&#233;faut avec paiement - Usager - Paiement re&#231;u</name>
   <slug>indus-par-defaut-avec-paiement-usager-paiement-recu</slug>
-  <subject>{{ form_name }} : Paiement re&#231;u</subject>
-  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %}, 
+  <subject>{{ form_name }} - Confirmation de paiement</subject>
+  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
-Nous vous informons que le paiement pour votre demande concernant {{ form_name }} a &#233;t&#233; effectu&#233;. 
+Nous vous confirmons la réception du paiement concernant la demande suivante : {{form_name}}.
 
-Votre demande a &#233;t&#233; envoy&#233;e &#224; notre service. Nos agents la traiteront dans les plus brefs d&#233;lais, vous serez tenu inform&#233; de son avancement.
+Nos services traitent les demandes dans les meilleurs délais. Vous serez informé·e par mail de l'avancement de votre démarche.
 
 {% if form_user %}
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
@@ -19,5 +19,5 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 {{ form_details }}
 {% endif %}
 
-Cordialement, </body>
+Cordialement,</body>
 </mail-template>

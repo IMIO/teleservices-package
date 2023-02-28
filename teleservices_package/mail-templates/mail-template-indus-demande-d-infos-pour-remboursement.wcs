@@ -2,10 +2,12 @@
 <mail-template id="46" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/46/">
   <name>Indus - Usager - Demande d'infos pour remboursement</name>
   <slug>indus-demande-d-infos-pour-remboursement</slug>
-  <subject>Demande d'information pour le remboursement de votre commande de {{form_name}}</subject>
+  <subject>{{form_name}} - Demande d'information pour remboursement</subject>
   <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
-Suite au refus de votre demande de {{form_name}} d'un montant de {{form_var_wf_total_commande}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions
+Suite au refus de votre démarche payante d'un montant de {{form_var_wf_total_commande}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement déjà effectué. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions
+
+Pour rappel, il s'agit de la démarche suivante : {{form_name}}
 
 Attention, si vous avez pay&#233; &#224; l'aide d'une carte de cr&#233;dit, merci d'indiquer un num&#233;ro de compte IBAN classique.
 

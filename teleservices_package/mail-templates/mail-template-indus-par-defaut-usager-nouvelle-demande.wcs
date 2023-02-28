@@ -3,11 +3,12 @@
   <name>Indus - Par d&#233;faut - Usager - Nouvelle demande</name>
   <slug>indus-par-defaut-usager-nouvelle-demande</slug>
   <description>Email envoy&#233; &#224; l'usager lors de l'envoi de sa demande pour confirmation</description>
-  <subject>{{ form_name }} : R&#233;ception de votre demande</subject>
+  <subject>{{ form_name }} - R&#233;ception de votre demande</subject>
   <body>Bonjour {% if form_var_prenom %}{{ form_var_prenom }}{% endif %},
 
+Nous vous confirmons la réception de la démarche suivante : {{form_name}}
 
-Votre demande a bien &#233;t&#233; envoy&#233;e &#224; notre service. Nos agents la traiteront dans les plus brefs d&#233;lais, vous serez tenu inform&#233; de son avancement.
+Nos services traitent les demandes dans les meilleurs délais. Vous serez informé·e par mail de l'avancement de votre démarche.
 
 {% if form_user %}
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
@@ -25,5 +26,5 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 {% endif %}
 
 
-Cordialement, </body>
+Cordialement,</body>
 </mail-template>

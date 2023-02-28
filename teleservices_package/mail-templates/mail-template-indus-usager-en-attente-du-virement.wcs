@@ -2,19 +2,22 @@
 <mail-template id="54" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/54/">
   <name>Indus - Usager - En attente du virement</name>
   <slug>indus-usager-en-attente-du-virement</slug>
-  <subject>En attente de votre paiement</subject>
+  <subject>{{ form_name }} - En attente de paiement</subject>
   <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
+Nous vous invitons à régler le montant lié à la démarche suivante :
 
-Afin que votre demande "{{form_name}}" puisse &#234;tre trait&#233;e, nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :
+{{ form_name }}
 
+Le montant à payer est le suivant : {{ form_var_wf_total_commande }} €.
+Retrouvez l'information utile au virement ci-dessous.
 
 - B&#233;n&#233;ficiaire : Ville de {{ commune_name }} - {{ administration_adresse }}
 - Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {{form_option_iban}}
 - R&#233;f&#233;rence de la commande (communication libre) :{{ form_number }}
 - Montant de la commande : {{ form_var_wf_total_commande }}
 
-D&#232;s r&#233;ception du paiement, nos agents traiteront votre demande dans les plus brefs d&#233;lais, vous serez tenu inform&#233; de son avancement.
+Nos services traitent les demandes dans les meilleurs délais. Vous serez informé·e par mail de l'avancement de votre démarche.
 
 {% if form_user %}
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_

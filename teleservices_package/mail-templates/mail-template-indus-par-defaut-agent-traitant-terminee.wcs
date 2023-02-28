@@ -3,7 +3,7 @@
   <name>Indus - Par d&#233;faut - Agent traitant - Termin&#233;e</name>
   <slug>indus-par-defaut-agent-traitant-terminee</slug>
   <description>Email envoy&#233; &#224; l'agent traitant lorsque la demande est clotur&#233;e.</description>
-  <subject>{{ form_name }} : Demande cl&#244;tur&#233;e</subject>
+  <subject>{{ form_name }} - Demande cl&#244;tur&#233;e</subject>
   <body>Bonjour,
 
 Le statut d&#8217;une demande vient de changer, vous pouvez en prendre connaissance
@@ -21,5 +21,6 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 {{ form_evolution }}
 {% endif %}
 
-Bonne journ&#233;e !</body>
+Cordialement,
+</body>
 </mail-template>

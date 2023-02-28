@@ -3,16 +3,13 @@
   <name>Indus - Par d&#233;faut - Usager - Termin&#233;e</name>
   <slug>indus-par-defaut-usager-terminee</slug>
   <description>Email envoy&#233; &#224; l'usager lorsque sa demande est termin&#233;e</description>
-  <subject>{{ form_name }} : Votre demande est termin&#233;e</subject>
+  <subject>{{ form_name }} - Démarche finalisée</subject>
   <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
-Nous vous informons que votre demande concernant la d&#233;marche {{ form_name }} est d&#233;sormais cl&#244;tur&#233;e.
+Nous vous informons que la démarche suivante est terminée : {{ form_name }}.
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
-
-{% if form_status_changed %}
-Le statut de la demande que vous avez transmise vient de changer (il est
-pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% if form_comment %}
+Nouveau commentaire&#160;: {{ form_comment }}
 {% endif %}
 
 {% if form_user %}
@@ -28,6 +25,6 @@ Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
 En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
 {% endif %}
 
-Cordialement, 
+Cordialement,
 </body>
 </mail-template>
