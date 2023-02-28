@@ -62,7 +62,8 @@ teleservices-package changelog
   - [TELE-1612] [TELE-1613] Update python to django for some category [njphs]
   - [SUP-28606] Update WF mondossier with donnée de traitement for authentification forte or not [njphs]
   - [SUP-28606] Update WF mondossier with donnée de traitement with paiement reference [njphs]
-
+  - Fix mail not inclusiv and wrong {{form_name}} usage + uniformize them [dmshd, caro, njphs]
+  - Remove first names from mail greetings [dmshd, caro, njphs]
 ### Removed
   - [TELE-1557] Delete obsolete comment
 
