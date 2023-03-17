@@ -333,7 +333,7 @@ Le service Population / Etat-civil
       <colour>99FF00</colour>
       <visibility />
       <items>
-        <item type="set-backoffice-fields" id="3">
+        <item type="set-backoffice-fields" id="1">
           <label>Reference du paiement</label>
           <fields>
             <field>
@@ -341,7 +341,7 @@ Le service Population / Etat-civil
               <value>{{form_workflow_data_bank_data_transactionReference}}</value>
             </field>
           </fields>
-        </item><item type="sendmail" id="1">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-avec-paiement-usager-paiement-recu</mail_template>
@@ -361,7 +361,7 @@ Bien cordialement,
 Le service Population / Etat-civil
 
 {{administration_adresse}</body>
-        </item><item type="jump" id="2">
+        </item><item type="jump" id="3">
           <status>accepted</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -904,6 +904,31 @@ Le service Population / Etat-civil
           </to>
         </item>
       </items>
+    </status><status>
+      <id>30</id>
+      <name>Demande Cl&#244;tur&#233;e</name>
+      <colour>FF99FF</colour>
+      <visibility />
+      <items>
+        <item type="register-comment" id="2">
+          <comment>&lt;p&gt;Demande cl&#244;tur&#233;e&lt;/p&gt;
+&lt;p&gt;La demande sera anonymis&#233;e le {% if form_option_delai_anonymisation %}{{ today|add_days:form_option_delai_anonymisation|date:"d/m/Y" }}{% endif %}&lt;/p&gt;</comment>
+        </item><item type="jump" id="1">
+          <status>31</status>
+          <timeout>{{ form_option_delai_anonymisation }} jours</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>31</id>
+      <name>Demande anonymis&#233;e</name>
+      <colour>FF9999</colour>
+      <visibility />
+      <items>
+        <item type="anonymise" id="1">
+          <unlink_user>False</unlink_user>
+        </item>
+      </items>
     </status>
   </possible_status><global_actions>
     <action>
@@ -975,12 +1000,40 @@ Le service Population / Etat-civil
           </roles>
         </trigger>
       </triggers>
+    </action><action>
+      <id>4</id>
+      <name>Anonymisation</name>
+      <items>
+        <item type="jump" id="1">
+          <status>30</status>
+          <condition>
+            <type>django</type>
+            <value>form_option_activer_anonymisation</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger type="timeout" id="39580d40-0b30-46e5-81c8-3471982d3245">
+          <anchor>finalized</anchor>
+          <timeout>0</timeout>
+        </trigger><trigger type="manual" id="151ede49-d9b5-471d-8b94-424c19081e0c">
+          <roles>
+            <item slug="debug" role_id="3bcd0f8e96bb43988b11ff46cf836c26">Debug</item>
+          </roles>
+        </trigger>
+      </triggers>
     </action>
   </global_actions><variables>
     <formdef>
       <name>-</name>
       <fields>
         <field>
+          <label type="str">Paiement</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">3722b1b6-13d8-446d-ad9e-5a6af3f3cfa9</id>
+        </field><field>
           <label type="str">Co&#251;t du document</label>
           <type type="str">string</type>
           <required type="bool">False</required>
@@ -993,6 +1046,55 @@ Le service Population / Etat-civil
             <value>"0"</value>
           </prefill><anonymise type="bool">True</anonymise>
           <id type="str">1</id>
+        </field><field>
+          <label type="str">R&#233;gie de paiement</label>
+          <type type="str">item</type>
+          <required type="bool">False</required>
+          <hint type="str">---</hint>
+          <varname type="str">regie_de_paiement</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <type>none</type>
+          </prefill><display_mode type="str">list</display_mode>
+          <items />
+          <data_source>
+            <type>json</type>
+            <value>{{portal_url}}/api/lingo/regies</value>
+          </data_source><in_filters type="bool">False</in_filters>
+          <anonymise type="bool">False</anonymise>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <id type="str">11</id>
+        </field><field>
+          <label type="str">Paiement en ligne</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <hint type="str">Si non coch&#233;e les paiements sont &#224; effectuer par virement</hint>
+          <varname type="str">paiement_en_ligne</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <type>none</type>
+          </prefill><id type="str">12</id>
+        </field><field>
+          <label type="str">IBAN</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">iban</varname>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><prefill>
+            <type>none</type>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">9</id>
+        </field><field>
+          <label type="str">Motifs et destinations</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">9a6a97ad-5822-407f-9a4c-08624a84267e</id>
         </field><field>
           <label type="str">Motifs disponibles</label>
           <type type="str">items</type>
@@ -1030,47 +1132,36 @@ Le service Population / Etat-civil
           <display_disabled_items type="bool">False</display_disabled_items>
           <id type="str">4</id>
         </field><field>
-          <label type="str">IBAN</label>
-          <type type="str">string</type>
-          <required type="bool">False</required>
-          <varname type="str">iban</varname>
+          <label type="str">Anonymisation</label>
+          <type type="str">subtitle</type>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><anonymise type="bool">True</anonymise>
-          <id type="str">9</id>
+          </display_locations><id type="str">6ca45ad7-0eaa-48ca-afe2-f650cb97fac6</id>
         </field><field>
-          <label type="str">R&#233;gie de paiement</label>
-          <type type="str">item</type>
-          <required type="bool">False</required>
-          <hint type="str">---</hint>
-          <varname type="str">regie_de_paiement</varname>
-          <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><display_mode type="str">list</display_mode>
-          <items />
-          <data_source>
-            <type>json</type>
-            <value>{{portal_url}}/api/lingo/regies</value>
-          </data_source><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">False</anonymise>
-          <display_disabled_items type="bool">False</display_disabled_items>
-          <id type="str">11</id>
-        </field><field>
-          <label type="str">Paiement en ligne</label>
+          <label type="str">Activer l'anonymisation</label>
           <type type="str">bool</type>
           <required type="bool">False</required>
-          <hint type="str">Si non coch&#233;e les paiements sont &#224; effectuer par virement</hint>
-          <varname type="str">paiement_en_ligne</varname>
+          <hint type="str">Cochez pour activer l'anonymisation</hint>
+          <varname type="str">activer_anonymisation</varname>
+          <display_locations />
+          <id type="str">99b2fbb4-75a2-4a5f-9ed7-cbbf1712aed3</id>
+        </field><field>
+          <label type="str">D&#233;lai d'anonymisation du document</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">En jours</hint>
+          <varname type="str">delai_anonymisation</varname>
+          <display_locations />
+          <anonymise type="bool">False</anonymise>
+          <id type="str">f57de479-1bca-443d-8386-c244bb65ea88</id>
+        </field><field>
+          <label type="str">Divers</label>
+          <type type="str">subtitle</type>
           <display_locations>
+            <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><id type="str">12</id>
+          </display_locations><id type="str">7a30edab-d948-4fb2-9227-e5cb27416605</id>
         </field><field>
           <label type="str">Lien du r&#232;glement communal</label>
           <type type="str">string</type>
