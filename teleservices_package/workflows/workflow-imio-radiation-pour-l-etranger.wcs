@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="39" url="http://local-formulaires.example.net/backoffice/workflows/39/">
+<workflow id="39" url="">
   <name>iMio - Radiation pour l'&#233;tranger</name>
+  <slug>imio-radiation-pour-l-etranger</slug>
   <roles>
     <role id="_receiver">Agent traitant</role>
   </roles><possible_status>
@@ -11,7 +12,7 @@
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
@@ -28,7 +29,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 {{ form_details }}
 {% endif %}
 </body>
-        </item><item id="2" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
@@ -50,7 +51,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 
 Bien &#224; vous, 
 </body>
-        </item><item id="3" type="jump">
+        </item><item type="jump" id="3">
           <status>new</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -61,7 +62,7 @@ Bien &#224; vous,
       <colour>66FF00</colour>
       <visibility />
       <items>
-        <item id="6" type="displaymsg">
+        <item type="displaymsg" id="1">
           <message>Votre demande a bien &#233;t&#233; enregistr&#233;e.</message>
           <level>success</level>
           <position>top</position>
@@ -71,7 +72,7 @@ Bien &#224; vous,
             <type>django</type>
             <value>form_previous_status == "Juste envoy&#233;"</value>
           </condition>
-        </item><item id="1" type="commentable">
+        </item><item type="commentable" id="2">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -82,10 +83,10 @@ Bien &#224; vous,
 
 &lt;p dir="ltr" id="docs-internal-guid-5cb84a04-7fff-424c-a22c-3f7fe12a8ab7" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <required>False</required>
-        </item><item id="2" type="jumponsubmit">
+        </item><item type="jumponsubmit" id="3">
           <status>2</status>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="3" type="choice">
+        </item><item type="choice" id="4">
           <label>Accepter</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -94,7 +95,7 @@ Bien &#224; vous,
           <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-e6d8ec27-7fff-f2b8-4554-5377d15d86e8" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action valide la demande de l&amp;rsquo;usager. Un courriel lui sera envoy&amp;eacute; pour le pr&amp;eacute;venir.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="4" type="choice">
+        </item><item type="choice" id="5">
           <label>Refuser</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -103,7 +104,7 @@ Bien &#224; vous,
           <backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-558a8a5b-7fff-3458-7dac-d9b0d83338d8" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action rejettera d&amp;eacute;finitivement la demande de l&amp;rsquo;usager. Un email lui sera envoy&amp;eacute; sans motif du refus.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="5" type="choice">
+        </item><item type="choice" id="6">
           <label>Refuser avec motif</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -121,7 +122,7 @@ Bien &#224; vous,
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item id="2" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
@@ -145,14 +146,14 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {{ form_evolution }}
 {% endif %}
 </body>
-        </item><item id="3" type="displaymsg">
+        </item><item type="displaymsg" id="2">
           <message>Votre demande a &#233;t&#233; refus&#233;e.</message>
           <level>warning</level>
           <position>top</position>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item id="4" type="register-comment">
+        </item><item type="register-comment" id="3">
           <comment>Motif du refus : {{ refus_var_motif }}</comment>
           <condition>
             <type>django</type>
@@ -166,7 +167,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <colour>66CCFF</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-acceptee</mail_template>
@@ -188,7 +189,7 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 {{ form_evolution }}
 {% endif %}
 </body>
-        </item><item id="2" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
           </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
@@ -209,7 +210,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {{ form_evolution }}
 {% endif %}
 </body>
-        </item><item id="3" type="commentable">
+        </item><item type="commentable" id="3">
           <label>Commentaire</label>
           <button_label>Ajouter le commentaire</button_label>
           <by>
@@ -217,7 +218,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
             <item role_id="_receiver">_receiver</item>
           </by><backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-01b47662-7fff-c9a5-55e3-7ec6ead8b000" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
           <required>False</required>
-        </item><item id="4" type="choice">
+        </item><item type="choice" id="4">
           <label>Terminer</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -234,7 +235,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <colour>CCCCCC</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-par-defaut-agent-traitant-terminee</mail_template>
@@ -256,7 +257,7 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 {{ form_evolution }}
 {% endif %}
 </body>
-        </item><item id="2" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
           </to><mail_template>indus-par-defaut-usager-terminee</mail_template>
@@ -278,7 +279,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {{ form_evolution }}
 {% endif %}
 </body>
-        </item><item id="3" type="displaymsg">
+        </item><item type="displaymsg" id="3">
           <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
           <level>success</level>
           <position>top</position>
@@ -294,31 +295,31 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="form">
+        <item type="form" id="1">
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><varname>refus</varname>
+          <hide_submit_button>True</hide_submit_button>
           <formdef>
             <name>-</name>
             <fields>
               <field>
-                <label>Motif du refus</label>
-                <type>text</type>
-                <required>True</required>
-                <hint>Le motif du refus sera envoy&#233; &#224; l'usager par courriel</hint>
-                <varname>motif</varname>
+                <label type="str">Motif du refus</label>
+                <type type="str">text</type>
+                <required type="bool">True</required>
+                <hint type="str">Le motif du refus sera envoy&#233; &#224; l'usager par courriel</hint>
+                <varname type="str">motif</varname>
                 <display_locations />
-                <extra_css_class>pk-important</extra_css_class>
+                <extra_css_class type="str">pk-important</extra_css_class>
                 <prefill>
-                  <locked>False</locked>
                   <type>none</type>
-                </prefill><rows>10m</rows>
-                <pre>True</pre>
-                <id>1</id>
+                </prefill><rows type="str">10m</rows>
+                <display_mode type="str">plain</display_mode>
+                <id type="str">1</id>
               </field>
             </fields>
           </formdef>
-        </item><item id="2" type="jumponsubmit">
+        </item><item type="jumponsubmit" id="2">
           <status>rejected</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -329,36 +330,113 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-notification-de-commentaire-demandeur</mail_template>
-        </item><item id="2" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to><mail_template>indus-notification-de-commentaire-destinataire</mail_template>
-        </item><item id="3" type="jump">
+        </item><item type="jump" id="3">
           <status>new</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
+    </status><status>
+      <id>3</id>
+      <name>Demande Cl&#244;tur&#233;e</name>
+      <colour>FF9999</colour>
+      <visibility />
+      <items>
+        <item type="register-comment" id="1">
+          <comment>&lt;p&gt;Demande cl&#244;tur&#233;e&lt;/p&gt;
+&lt;p&gt;La demande sera anonymis&#233;e le {% if form_option_delai_anonymisation %}{{ today|add_days:form_option_delai_anonymisation|date:"d/m/Y" }}{% endif %}&lt;/p&gt;</comment>
+        </item><item type="jump" id="2">
+          <status>4</status>
+          <timeout>{{ form_option_delai_anonymisation }} jours</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>4</id>
+      <name>Demande anonymis&#233;e</name>
+      <colour>FF99FF</colour>
+      <visibility />
+      <items>
+        <item type="anonymise" id="1">
+          <unlink_user>False</unlink_user>
+        </item>
+      </items>
     </status>
-  </possible_status><variables>
+  </possible_status><global_actions>
+    <action>
+      <id>1</id>
+      <name>Anonymisation</name>
+      <items>
+        <item type="jump" id="1">
+          <status>3</status>
+          <condition>
+            <type>django</type>
+            <value>form_option_activer_anonymisation</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger type="timeout" id="08ad674a-a90a-4f57-b2c2-7cfa2255136d">
+          <anchor>finalized</anchor>
+          <timeout>0</timeout>
+        </trigger><trigger type="manual" id="e2a9b6c0-a998-4480-9268-5e30f0093d77">
+          <roles>
+            <item slug="debug" role_id="3bcd0f8e96bb43988b11ff46cf836c26">Debug</item>
+          </roles>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions><variables>
     <formdef>
       <name>-</name>
       <fields>
         <field>
-          <label>Lien du r&#232;glement communal</label>
-          <type>string</type>
-          <required>False</required>
-          <varname>reglement_communal</varname>
+          <label type="str">Anonymisation</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">1f724fd2-a672-482d-a7da-ccba69e1b655</id>
+        </field><field>
+          <label type="str">Activer l'anonymisation</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <varname type="str">activer_anonymisation</varname>
+          <display_locations />
+          <id type="str">ff808920-f4fa-4542-a82f-66f58aab0f59</id>
+        </field><field>
+          <label type="str">D&#233;lai d'anonymisation du document</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">En jours</hint>
+          <varname type="str">delai_anonymisation</varname>
+          <display_locations />
+          <anonymise type="bool">False</anonymise>
+          <id type="str">daabbfec-2d6f-48df-a99c-841d12b64349</id>
+        </field><field>
+          <label type="str">Divers</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">c0487155-b4ea-4ddc-9300-78a357f0d630</id>
+        </field><field>
+          <label type="str">Lien du r&#232;glement communal</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <varname type="str">reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
-            <locked>False</locked>
             <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>1</id>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">1</id>
         </field>
       </fields>
     </formdef>
