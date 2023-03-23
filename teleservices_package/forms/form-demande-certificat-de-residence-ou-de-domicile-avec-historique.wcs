@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="17" url="http://local-formulaires.example.net/backoffice/forms/17/">
+<formdef id="17" url="">
   <name>Certificat de R&#233;sidence ou de Domicile avec historique</name>
   <url_name>demande-certificat-de-residence-ou-de-domicile-avec-historique</url_name>
   <description>&lt;p&gt;Le certificat de r&#233;sidence reprend les adresses ant&#233;rieures &#224; l'adresse actuelle.&lt;/p&gt;</description>
@@ -40,8 +40,8 @@
       <post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_rb_domicile_raw == '{0}'.format(commune_slug) or vars().get('form_var_mode_delivrance_raw') == 'mondossier' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'True' and form_var_concerne_qui_raw == 'moi')</value>
+            <type>django</type>
+            <value>form_option_redirection_automatique and session_user|is_strong_authentication and form_var_concerne_qui_raw == 'moi' or form_var_mode_delivrance_raw == 'mondossier' or form_var_rb_domicile_commune_slug == commune_slug or form_var_rb_domicile_raw == commune_slug</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
       </post_conditions><id type="str">54</id>
@@ -127,7 +127,7 @@
       <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_concerne_qui_raw == "tiers"</value>
       </condition><id type="str">45</id>
     </field><field>
@@ -278,9 +278,11 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      <validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">42</id>
     </field><field>
       <label type="str">Adresse e-mail</label>
@@ -300,14 +302,7 @@
       <condition>
         <type>python</type>
         <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False') or form_var_concerne_qui_raw == "tiers"</value>
-      </condition><post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition>
-      </post_conditions><id type="str">5</id>
+      </condition><id type="str">5</id>
     </field><field>
       <label type="str">Vos coordonn&#233;es</label>
       <type type="str">title</type>
@@ -514,16 +509,21 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">19</id>
     </field><field>
       <label type="str">Informations compl&#233;mentaires</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False') or form_var_concerne_qui_raw == "tiers"</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><id type="str">20</id>
     </field><field>
       <label type="str">Date souhait&#233;e du certificat</label>
@@ -620,8 +620,8 @@
       <label type="str">Prix de la d&#233;marche</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False') or form_var_concerne_qui_raw == "tiers"</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><id type="str">29</id>
     </field><field>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;&lt;p&gt;Votre d&#233;marche sera automatiquement mise dans votre panier pour un paiement global de votre commande.&lt;/p&gt;</label>
