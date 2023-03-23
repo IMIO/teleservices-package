@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="25" url="http://local-formulaires.example.net/backoffice/forms/25/">
+<formdef id="25" url="">
   <name>Certificat de vie</name>
   <url_name>demande-certificat-de-vie</url_name>
   <description>&lt;p&gt;Le certificat de vie atteste qu'une personne est en vie.&lt;/p&gt;</description>
@@ -40,8 +40,8 @@
       <post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_rb_domicile_raw == '{0}'.format(commune_slug) or vars().get('form_var_mode_delivrance_raw') == 'mondossier' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'True' and form_var_concerne_qui_raw == 'moi')</value>
+            <type>django</type>
+            <value>form_option_redirection_automatique and session_user|is_strong_authentication and form_var_concerne_qui_raw == 'moi' or form_var_mode_delivrance_raw == 'mondossier' or form_var_rb_domicile_commune_slug == commune_slug or form_var_rb_domicile_raw == commune_slug</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
       </post_conditions><id type="str">67</id>
@@ -141,18 +141,13 @@
       <label type="str">Donn&#233;es de la personne concern&#233;e</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_concerne_qui_raw == 'tiers'</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_tel_perscon == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel_perscon))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition><post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_cp_perscon in commune_cp.split(',')</value>
+            <type>django</type>
+            <value>form_var_cp_perscon in commune_cp|split:','</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
       </post_conditions><id type="str">51</id>
@@ -340,26 +335,23 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      <validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">66</id>
     </field><field>
       <label type="str">Donn&#233;es du demandeur</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False') or form_var_concerne_qui_raw == "tiers"</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition><post_condition>
-          <condition>
-            <type>python</type>
-            <value>(form_var_concerne_qui_raw == 'moi' and form_var_cp in commune_cp.split(',')) or form_var_concerne_qui_raw != 'moi'</value>
+            <type>django</type>
+            <value>form_var_concerne_qui_raw == 'moi' and form_var_cp in commune_cp|split:',' or form_var_concerne_qui_raw != 'moi'</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
       </post_conditions><id type="str">5</id>
@@ -566,16 +558,21 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">19</id>
     </field><field>
       <label type="str">Informations compl&#233;mentaires</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False') or form_var_concerne_qui_raw == "tiers"</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><id type="str">20</id>
     </field><field>
       <label type="str">Date souhait&#233;e du certificat</label>
@@ -672,8 +669,8 @@
       <label type="str">Prix de la d&#233;marche</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False') or form_var_concerne_qui_raw == "tiers"</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><id type="str">29</id>
     </field><field>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;&lt;p&gt;Votre d&#233;marche sera automatiquement mise dans votre panier pour un paiement global de votre commande.&lt;/p&gt;</label>
