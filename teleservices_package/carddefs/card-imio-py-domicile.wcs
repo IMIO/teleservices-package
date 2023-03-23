@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<carddef id="13" url="">
+  <name>iMio Py Domicile</name>
+  <url_name>imio-py-domicile</url_name>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <max_field_id>2</max_field_id>
+  <fields>
+    <field>
+      <label type="str">Commune slug</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Ajoutez rien pas_ ou plus_ en fonction. ma-commune pas_ma-commune plus_ma-commune</hint>
+      <varname type="str">commune_slug</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>string</type>
+        <value>{{ commune_slug }}</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">1</id>
+    </field><field>
+      <label type="str">Domicile</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <hint type="str">Ajoutez Domicili&#233;(e), Pas domicili&#233;(e), Plus domicili&#233;(e) en fonction</hint>
+      <varname type="str">domicile</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><prefill>
+        <locked>False</locked>
+        <type>string</type>
+        <value>&#224; {{ commune_name }}</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">2</id>
+    </field>
+  </fields><user-roles>
+    <role slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a">Debug</role>
+  </user-roles><backoffice-submission-roles>
+    <role slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a">Debug</role>
+  </backoffice-submission-roles><roles>
+    <role slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a" role_key="_viewer">Debug</role>
+    <role slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a" role_key="_editor">Debug</role>
+  </roles><options />
+  <custom_views />
+  <geolocations />
+  <digest_templates>
+    <template key="default">{{ form_var_domicile }}{% if form_var_commune_slug == commune_slug %} (code postal : {{ commune_cp|split:","|join:", " }}){% endif %}</template>
+  </digest_templates>
+</carddef>
