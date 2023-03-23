@@ -146,8 +146,8 @@
       <label type="str">Liste des actes disponibles</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>vars().get('imio_wcs_baec') and form_var_rb_concerne_raw != 'tiers' and script.commune('is_strong_authentication', {}) != 'False' and (form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique == 'True')</value>
+        <type>django</type>
+        <value>form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique and imio_wcs_baec and form_var_rb_concerne_raw == 'moi' and session_user|is_strong_authentication</value>
       </condition><id type="str">71</id>
     </field><field>
       <label type="str">Service disponible</label>
@@ -225,8 +225,8 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <label type="str">Date de l'acte</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_rb_concerne_raw != 'tiers' and script.commune('is_strong_authentication', {}) != 'False' and (form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique == 'True') and not vars().get('imio_wcs_baec')</value>
+        <type>django</type>
+        <value>form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique and form_var_rb_concerne_raw == 'moi' and session_user|is_strong_authentication and not imio_wcs_baec</value>
       </condition><id type="str">65</id>
     </field><field>
       <label type="str">De quand date l'acte demand&#233;</label>
@@ -353,7 +353,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <label type="str">Lien de parent&#233;</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_rb_concerne_raw == 'tiers'</value>
       </condition><id type="str">8</id>
     </field><field>
@@ -397,16 +397,9 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <label type="str">Donn&#233;es de la personne concern&#233;e</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_rb_concerne_raw == "tiers"</value>
-      </condition><post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_tel_perscon == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel_perscon))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition>
-      </post_conditions><id type="str">40</id>
+      </condition><id type="str">40</id>
     </field><field>
       <label type="str">&lt;p&gt;&lt;strong&gt;&lt;span style="font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;"&gt;Veuillez encoder les donn&amp;eacute;es de la personne concern&amp;eacute;e&amp;nbsp;:&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type type="str">comment</type>
@@ -590,9 +583,11 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      <validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">55</id>
     </field><field>
       <label type="str">Donn&#233;es du demandeur</label>
@@ -600,14 +595,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <condition>
         <type>django</type>
         <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type and not form_var_baec_document_select</value>
-      </condition><post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_tel_perscon == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel_perscon))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition>
-      </post_conditions><id type="str">11</id>
+      </condition><id type="str">11</id>
     </field><field>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;u&gt;vos donn&amp;eacute;es :&lt;/u&gt;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
       <type type="str">comment</type>
@@ -810,9 +798,14 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">25</id>
     </field><field>
       <label type="str">Destination du document</label>
