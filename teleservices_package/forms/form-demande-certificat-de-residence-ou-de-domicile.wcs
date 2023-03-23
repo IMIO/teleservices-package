@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="15" url="http://local-formulaires.example.net/backoffice/forms/15/">
+<formdef id="15" url="">
   <name>Certificat de R&#233;sidence ou de Domicile</name>
   <url_name>demande-certificat-de-residence-ou-de-domicile</url_name>
   <description>&lt;p&gt;Ce document atteste l'adresse actuelle d'une personne.&lt;/p&gt;</description>
@@ -40,8 +40,8 @@
       <post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_rb_domicile_raw == '{0}'.format(commune_slug) or vars().get('form_var_mode_delivrance_raw') == 'mondossier' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'True' and form_var_concerne_qui_raw == 'moi')</value>
+            <type>django</type>
+            <value>form_option_redirection_automatique and session_user|is_strong_authentication and form_var_concerne_qui_raw == 'moi' or form_var_mode_delivrance_raw == 'mondossier' or form_var_rb_domicile_commune_slug == commune_slug or form_var_rb_domicile_raw == commune_slug</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
       </post_conditions><id type="str">50</id>
@@ -140,13 +140,13 @@
       <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_concerne_qui_raw == "tiers"</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_cp_perscon in commune_cp.split(',')</value>
+            <type>django</type>
+            <value>form_var_cp_perscon in commune_cp|split:","</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que vous n'&#234;tes pr&#233;sentement pas domicili&#233;(e) dans notre commune. Vous devez vous adresser &#224; la commune du domicile. Si la personne concern&#233;e N'habite PLUS notre commune, vous devriez commander un certificat de domicile/r&#233;sidence avec historique.</error_message>
         </post_condition>
       </post_conditions><id type="str">45</id>
@@ -299,9 +299,11 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      <validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">42</id>
     </field><field>
       <label type="str">Adresse e-mail</label>
@@ -319,18 +321,13 @@
       <label type="str">Donn&#233;es du demandeur</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False') or form_var_concerne_qui_raw == "tiers"</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition><post_condition>
-          <condition>
-            <type>python</type>
-            <value>(form_var_concerne_qui_raw == 'moi' and form_var_cp in commune_cp.split(',')) or form_var_concerne_qui_raw != 'moi'</value>
+            <type>django</type>
+            <value>form_var_concerne_qui_raw == 'moi' and form_var_cp in commune_cp|split:',' or form_var_concerne_qui_raw != 'moi'</value>
           </condition><error_message>Vous d&#233;sirez commander un certificat de r&#233;sidence ou de domicile pour vous-m&#234;me. Votre code postal ne semble pas &#234;tre celui de notre commune. Vous devez habitez notre commune pour commander ce document.</error_message>
         </post_condition>
       </post_conditions><id type="str">5</id>
@@ -540,16 +537,21 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">19</id>
     </field><field>
       <label type="str">Informations compl&#233;mentaires</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False') or form_var_concerne_qui_raw == "tiers"</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><id type="str">20</id>
     </field><field>
       <label type="str">Date souhait&#233;e du certificat</label>
@@ -646,8 +648,8 @@
       <label type="str">Prix de la d&#233;marche</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False') or form_var_concerne_qui_raw == "tiers"</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><id type="str">29</id>
     </field><field>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;&lt;p&gt;Votre d&#233;marche sera automatiquement mise dans votre panier pour un paiement global de votre commande.&lt;/p&gt;</label>
@@ -671,20 +673,30 @@
   </fields><user-roles>
     <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
   </user-roles><options>
+    <option varname="actes_commentaire_additionnel" />
+    <option varname="actes_piece_justificative_tiers" />
+    <option varname="actes_piece_justificative_tiers_display" />
+    <option varname="actes_piece_justificative_tiers_structured" />
+    <option varname="activer_anonymisation" />
     <option varname="baec" />
     <option varname="comptes_identifiants_regies" />
     <option varname="comptes_identifiants_regies_display" />
     <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">0</option>
-    <option varname="cp_commune">[cp_commune]</option>
+    <option varname="delai_anonymisation_document_concerne_tier" />
+    <option varname="delai_anonymisation_me_concerne" />
+    <option varname="delai_migration" />
     <option varname="destinations" />
     <option varname="destinations_display" />
     <option varname="destinations_structured" />
     <option varname="iban" />
+    <option varname="liaison_baec">Staging</option>
+    <option varname="liaison_baec_display">Staging</option>
+    <option varname="liaison_baec_structured" />
     <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=38&amp;language=FR</option>
     <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=38&amp;language=FR</option>
     <option varname="mode_recup_disponibles" />
-    <option varname="mode_recup_disponibles_display">Envoi &#224; domicile, R&#233;cup&#233;rer le document &#224; la commune lorsqu'il est pr&#234;t</option>
+    <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
     <option varname="motifs_disponibles" />
     <option varname="motifs_disponibles_display" />
@@ -694,6 +706,7 @@
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>
