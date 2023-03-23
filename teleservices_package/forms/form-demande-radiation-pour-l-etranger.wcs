@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="21" url="http://local-formulaires.example.net/backoffice/forms/21/">
+<formdef id="21" url="">
   <name>Radiation pour l'&#233;tranger</name>
   <url_name>demande-radiation-pour-l-etranger</url_name>
   <description>&lt;p&gt;Si vous d&#233;m&#233;nagez pour vous &#233;tablir &#224; l'&#233;tranger, un certificat de radiation (mod&#232;le 8) doit &#234;tre demand&#233; aupr&#232;s de la commune o&#249; vous &#234;tes inscrit. Ce document vous permettra de vous inscrire dans les registres de la population du pays d'accueil.&lt;/p&gt;</description>
@@ -24,13 +24,8 @@
       <post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition><post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_cp in commune_cp.split(',')</value>
+            <type>django</type>
+            <value>form_var_cp in commune_cp|split:','</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
       </post_conditions><id type="str">5</id>
@@ -237,9 +232,14 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">19</id>
     </field><field>
       <label type="str">Nouvelle adresse &#224; l'&#233;tranger</label>
