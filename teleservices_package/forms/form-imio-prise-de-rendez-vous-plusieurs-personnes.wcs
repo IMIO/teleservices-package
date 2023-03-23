@@ -191,7 +191,7 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">50</id>
     </field><field>
-      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous pouvez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="[idp_account_url]edit/"&gt;page de profil&lt;/a&gt;).&lt;/p&gt;</label>
+      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous pouvez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="{{ idp_account_url }}edit/"&gt;page de profil&lt;/a&gt;).&lt;/p&gt;</label>
       <type type="str">comment</type>
       <display_locations />
       <id type="str">53</id>
