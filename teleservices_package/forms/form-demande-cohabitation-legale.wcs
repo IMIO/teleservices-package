@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="48" url="http://local-formulaires.example.net/backoffice/forms/48/">
+<formdef id="48" url="">
   <name>Cohabitation L&#233;gale</name>
   <url_name>demande-cohabitation-legale</url_name>
   <description>&lt;p class="accroche"&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/p&gt;</description>
@@ -70,13 +70,13 @@
       <label type="str">Attestation de Cohabitation L&#233;gale</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False')</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_cp_ddeur in commune_cp.split(',')</value>
+            <type>django</type>
+            <value>form_var_cp_ddeur in commune_cp|split:','</value>
           </condition><error_message>Vous devez habiter notre commune afin que l'on puisse vous d&#233;livrer ce document.</error_message>
         </post_condition>
       </post_conditions><id type="str">24</id>
@@ -124,18 +124,13 @@
       <label type="str">Attestation de Cohabitation L&#233;gale - Vos coordonn&#233;es</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False')</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition><post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_cp in commune_cp.split(',')</value>
+            <type>django</type>
+            <value>form_var_cp in commune_cp|split:','</value>
           </condition><error_message>Vous devez habiter notre commune afin que l'on puisse vous d&#233;livrer ce document.</error_message>
         </post_condition>
       </post_conditions><id type="str">1</id>
@@ -218,9 +213,14 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">18</id>
     </field><field>
       <label type="str">ADRESSE</label>
@@ -326,8 +326,8 @@
       <label type="str">Informations compl&#233;mentaires</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False')</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
       </condition><id type="str">27</id>
     </field><field>
       <label type="str">Date souhait&#233;e du certificat</label>
@@ -424,8 +424,8 @@
       <label type="str">Prix de la d&#233;marche</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or (form_option_redirection_automatique == True and script.commune('is_strong_authentication', {}) == 'False')</value>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
       </condition><id type="str">32</id>
     </field><field>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
