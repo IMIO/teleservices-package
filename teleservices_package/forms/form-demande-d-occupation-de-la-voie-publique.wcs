@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="33" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/33/">
+<formdef id="33" url="">
   <name>Occupation de la voie publique</name>
   <url_name>demande-d-occupation-de-la-voie-publique</url_name>
   <description>Pour demander l'autorisation d'installer un container, d'un &#233;chaffaudage ou de tout autre mat&#233;riel sur la voie publique, vous pouvez compl&#233;ter ce formulaire.</description>
@@ -202,16 +202,9 @@
       <label type="str">Coordonn&#233;es entrepreneur</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>var_typedemandeur == "un entrepreneur"</value>
-      </condition><post_conditions>
-        <post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_tva_number is None or  script.lalouviere('is_valid_tva_number',{'tva_number':form_var_tva_number})</value>
-          </condition><error_message>Le num&#233;ro de TVA doit &#234;tre valide, comporter 10 chiffres et commencer par BE. (pour les anciens num&#233;ros de 9 chiffres : BE0)</error_message>
-        </post_condition>
-      </post_conditions><id type="str">9</id>
+        <type>django</type>
+        <value>form_var_typedemandeur == "un entrepreneur"</value>
+      </condition><id type="str">9</id>
     </field><field>
       <label type="str">N&#176; de TVA</label>
       <type type="str">string</type>
@@ -222,9 +215,11 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      <validation>
+        <error_message>Le num&#233;ro de TVA doit &#234;tre valide, comporter 10 chiffres et commencer par BE. (pour les anciens num&#233;ros de 9 chiffres : BE0)</error_message>
+        <type>django</type>
+        <value>value|is_valid_tva_number</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">10</id>
     </field><field>
       <label type="str">Raison sociale</label>
@@ -357,7 +352,7 @@
       <label type="str">Coordonn&#233;es de la personne concern&#233;e par la demande</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_typedemandeur == "Un particulier"</value>
       </condition><id type="str">34</id>
     </field><field>
