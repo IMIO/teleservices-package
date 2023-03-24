@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="28" url="http://local-formulaires.example.net/backoffice/forms/28/">
+<formdef id="28" url="">
   <name>Candidature spontan&#233;e</name>
   <url_name>demande-candidature-spontanee</url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
@@ -411,7 +411,7 @@
       <label type="str">&#201;tudes secondaires</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>"sec_sup" in form_var_diplomes_raw</value>
       </condition><id type="str">36</id>
     </field><field>
@@ -506,7 +506,7 @@
       <label type="str">Sup&#233;rieur type court (Bachelor/Graduat)</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>"sup_court" in form_var_diplomes_raw</value>
       </condition><id type="str">45</id>
     </field><field>
@@ -533,7 +533,7 @@
       <label type="str">Sup&#233;rieur type long (Master/Licence)</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>"sup_long" in form_var_diplomes_raw</value>
       </condition><id type="str">70</id>
     </field><field>
@@ -560,7 +560,7 @@
       <label type="str">Autres formations</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_had_formations == "Oui"</value>
       </condition><id type="str">95</id>
     </field><field>
@@ -862,7 +862,7 @@
       <label type="str">Emploi actuel</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_xp_professionnelle_raw == "yes_i_work"</value>
       </condition><id type="str">109</id>
     </field><field>
@@ -928,8 +928,8 @@
       <label type="str">Emplois pr&#233;c&#233;dents</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
-        <value>form_var_xp_professionnelle_raw in ["yes_i_work","currently_no_work"]</value>
+        <type>django</type>
+        <value>form_var_xp_professionnelle_raw == "yes_i_work" or form_var_xp_professionnelle_raw == "currently_no_work"</value>
       </condition><id type="str">115</id>
     </field><field>
       <label type="str">Pr&#233;c&#233;dents emplois</label>
