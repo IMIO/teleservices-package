@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="27" url="http://local-formulaires.example.net/backoffice/forms/27/">
+<formdef id="27" url="">
   <name>Certificat de radiation (mod&#232;le 8)</name>
   <url_name>demande-certificat-de-radiation-modele-8</url_name>
   <description>&lt;p&gt;Cette d&#233;marche vous permet de faire la demande d'un certificat de radiation qui vous fournit la preuve de la radiation de votre inscription dans les registres de notre administration communale.&lt;/p&gt;</description>
@@ -104,8 +104,8 @@
       <post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_rb_domicile_raw == 'plus_{0}'.format(commune_slug)</value>
+            <type>django</type>
+            <value>form_var_rb_domicile_raw == 'plus_'|add:commune_slug or form_var_rb_domicile_commune_slug == 'plus_'|add:commune_slug</value>
           </condition><error_message>Nous ne pouvons pas donner suite &#224; votre demande parce que vous n'&#233;tiez pas domicili&#233;(e) dans notre commune. Vous devez vous adresser &#224; la commune o&#249; vous &#233;tiez domicili&#233;(e).</error_message>
         </post_condition>
       </post_conditions><id type="str">77</id>
@@ -134,18 +134,13 @@
       <label type="str">Donn&#233;es de la personne concern&#233;e</label>
       <type type="str">page</type>
       <condition>
-        <type>python</type>
+        <type>django</type>
         <value>form_var_concerne_qui_raw == "tiers"</value>
       </condition><post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_tel_perscon == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel_perscon))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition><post_condition>
-          <condition>
-            <type>python</type>
-            <value>form_var_cp_perscon in commune_cp.split(',')</value>
+            <type>django</type>
+            <value>form_var_cp_perscon in commune_cp|split:','</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition><post_condition>
           <condition>
@@ -338,9 +333,11 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      <validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">66</id>
     </field><field>
       <label type="str">Donn&#233;es du demandeur</label>
@@ -348,13 +345,8 @@
       <post_conditions>
         <post_condition>
           <condition>
-            <type>python</type>
-            <value>form_var_tel == None or (re.match("^(0|\\+|00)(\d{8,})$", form_var_tel))</value>
-          </condition><error_message>Num&#233;ro de t&#233;l&#233;phone : seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres pour le num&#233;ro de t&#233;l&#233;phone.</error_message>
-        </post_condition><post_condition>
-          <condition>
-            <type>python</type>
-            <value>(form_var_concerne_qui_raw == 'moi' and form_var_cp in commune_cp.split(',')) or form_var_concerne_qui_raw != 'moi'</value>
+            <type>django</type>
+            <value>form_var_concerne_qui_raw == 'moi' and form_var_cp in commune_cp|split:',' or form_var_concerne_qui_raw != 'moi'</value>
           </condition><error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
       </post_conditions><id type="str">5</id>
@@ -561,9 +553,14 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation><anonymise type="bool">True</anonymise>
       <id type="str">19</id>
     </field><field>
       <label type="str">Informations compl&#233;mentaires</label>
