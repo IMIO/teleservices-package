@@ -40,8 +40,8 @@
       </visibility><items>
         <item type="webservice_call" id="1">
           <label>R&#233;servation du rendez-vous</label>
-          <url>{{ nouvelle_date_var_date_rdv_api_fillslot_url|default:form_var_date_rdv_api_fillslot_url }}</url>
           <method>POST</method>
+          <url>{{ nouvelle_date_var_date_rdv_api_fillslot_url|default:form_var_date_rdv_api_fillslot_url }}</url>
           <post>False</post>
           <post_data>
             <item>
@@ -101,6 +101,7 @@
           <by>
             <item role_id="_submitter">_submitter</item>
           </by><varname>nouvelle_date</varname>
+          <hide_submit_button>True</hide_submit_button>
           <formdef>
             <name>-</name>
             <fields>
@@ -256,7 +257,7 @@ Bien &#224; vous.</body>
           <condition>
             <type>django</type>
             <value>reservation_response_datetime|date &gt; today|date</value>
-          </condition>
+          </condition><operation_mode>full</operation_mode>
         </item>
       </items>
     </status><status>
@@ -279,6 +280,7 @@ Bien &#224; vous.</body>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><varname>refus</varname>
+          <hide_submit_button>True</hide_submit_button>
           <formdef>
             <name>-</name>
             <fields>
@@ -293,7 +295,7 @@ Bien &#224; vous.</body>
                 <prefill>
                   <type>none</type>
                 </prefill><rows type="str">10</rows>
-                <pre type="bool">True</pre>
+                <display_mode type="str">plain</display_mode>
                 <id type="str">1</id>
               </field>
             </fields>
@@ -312,8 +314,8 @@ Bien &#224; vous.</body>
       <items>
         <item type="webservice_call" id="1">
           <label>Lib&#233;ration de la plage r&#233;serv&#233;e</label>
-          <url>{{reservation_response_api_cancel_url}}</url>
           <method>POST</method>
+          <url>{{reservation_response_api_cancel_url}}</url>
           <post>False</post>
           <response_type>json</response_type>
           <varname>refus</varname>
@@ -356,6 +358,7 @@ Bien &#224; vous</body>
             <item role_id="_receiver">_receiver</item>
           </by><status>12</status>
           <label>&#201;diter le rendez-vous</label>
+          <operation_mode>full</operation_mode>
         </item><item type="choice" id="2">
           <label>Annuler la r&#233;servation</label>
           <by>
@@ -428,8 +431,8 @@ La commune de {{commune_name}}</body>
       <items>
         <item type="webservice_call" id="1">
           <label>Lib&#233;ration de la plage r&#233;serv&#233;e</label>
-          <url>{{reservation_response_api_cancel_url}}</url>
           <method>POST</method>
+          <url>{{reservation_response_api_cancel_url}}</url>
           <post>False</post>
           <response_type>json</response_type>
           <varname>annulation</varname>
@@ -482,8 +485,8 @@ Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l 
       <items>
         <item type="webservice_call" id="1">
           <label>Lib&#233;ration de la plage r&#233;serv&#233;e</label>
-          <url>{{reservation_response_api_cancel_url}}</url>
           <method>POST</method>
+          <url>{{reservation_response_api_cancel_url}}</url>
           <post>False</post>
           <response_type>json</response_type>
           <varname>edition</varname>
@@ -547,7 +550,9 @@ Bien &#224; vous
           </to><subject>D&#233;placement de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}</subject>
           <body>Bonjour,
 
-Pour des raisons ind&#233;pendantes de notre volont&#233; votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}, ne pourra avoir lieu. Veuillez &#233;diter votre rendez-vous ou l'annuler.
+Pour des raisons ind&#233;pendantes de notre volont&#233;, votre rendez-vous du 
+{{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}, ne pourra avoir lieu. Veuillez &#233;diter votre rendez-vous ou l'annuler.
+`Vous pouvez consulter votre demande via ce lien &lt;{{ form_url }}&gt;`_ ou via votre code de suivi {{ form_tracking_code }} si le lien ne fonctionne pas. 
 
 Bien &#224; vous.
 
