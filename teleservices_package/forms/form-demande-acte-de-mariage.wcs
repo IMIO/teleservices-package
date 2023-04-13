@@ -140,11 +140,18 @@
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">91</id>
     </field><field>
+      <label type="str">Mode de d&#233;livrance ou redirection automatique</label>
+      <type type="str">computed</type>
+      <varname type="str">mode_de_delivrance_or_redirection_automatique</varname>
+      <value_template type="str">{% if form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique %}True{% else %}False{% endif %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">111</id>
+    </field><field>
       <label type="str">Liste des actes disponibles</label>
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique and imio_wcs_baec and form_var_rb_concerne_raw == 'moi' and session_user|is_strong_authentication</value>
+        <value>imio_wcs_baec and form_var_rb_concerne_raw == 'moi' and session_user|is_strong_authentication and form_var_mode_de_delivrance_or_redirection_automatique == "True"</value>
       </condition><id type="str">93</id>
     </field><field>
       <label type="str">Service disponible</label>
@@ -212,7 +219,7 @@
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique and form_var_rb_concerne_raw == 'moi' and session_user|is_strong_authentication and not imio_wcs_baec</value>
+        <value>form_var_rb_concerne_raw == 'moi' and session_user|is_strong_authentication and not imio_wcs_baec and form_var_mode_de_delivrance_or_redirection_automatique == "True"</value>
       </condition><id type="str">6</id>
     </field><field>
       <label type="str">De quand date l'acte demand&#233;</label>
@@ -571,7 +578,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
@@ -784,7 +790,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
