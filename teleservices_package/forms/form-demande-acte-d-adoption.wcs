@@ -15,7 +15,7 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-etat-civil" category_id="9">Etat-Civil</category>
   <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="13">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>127</max_field_id>
+  <max_field_id>129</max_field_id>
   <fields>
     <field>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
@@ -128,7 +128,7 @@
       <varname type="str">mode_de_delivrance_or_redirection_automatique</varname>
       <value_template type="str">{% if form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique %}True{% else %}False{% endif %}</value_template>
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
-      <id type="str">128</id>
+      <id type="str">129</id>
     </field><field>
       <label type="str">Liste des actes disponibles</label>
       <type type="str">page</type>
