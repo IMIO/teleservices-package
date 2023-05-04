@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <carddef id="17" url="">
-  <name>Langage BOSA</name>
-  <url_name>langage-bosa</url_name>
+  <name>iMio - Langage BOSA</name>
+  <url_name>imio-langage-bosa</url_name>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>

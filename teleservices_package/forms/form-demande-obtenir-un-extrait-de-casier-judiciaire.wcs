@@ -99,7 +99,7 @@
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
       <data_source>
-        <type>carddef:langage-bosa</type>
+        <type>carddef:imio-langage-bosa</type>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
@@ -115,7 +115,7 @@
       </display_locations><display_mode type="str">radio</display_mode>
       <items />
       <data_source>
-        <type>types_d_extraits_de_casier_judiciaire</type>
+        <type>imio_extrait_de_casier_judiciaire_type</type>
         <value>webservice.get_baec_documents['items']</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
