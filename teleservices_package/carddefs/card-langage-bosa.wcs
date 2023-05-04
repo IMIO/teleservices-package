@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<carddef id="17" url="">
+  <name>Langage BOSA</name>
+  <url_name>langage-bosa</url_name>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <max_field_id>2</max_field_id>
+  <fields>
+    <field>
+      <label type="str">Code</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">code</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><anonymise type="bool">True</anonymise>
+      <id type="str">1</id>
+    </field><field>
+      <label type="str">Langue</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">langue</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><anonymise type="bool">True</anonymise>
+      <id type="str">2</id>
+    </field>
+  </fields><user-roles>
+    <role slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</role>
+  </user-roles><backoffice-submission-roles>
+    <role slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</role>
+  </backoffice-submission-roles><options />
+  <custom_views />
+  <geolocations />
+  <digest_templates>
+    <template key="default">{{ form_var_langue }}</template>
+  </digest_templates>
+</carddef>

@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<workflow id="172" url="">
+  <name>iMio - Extrait de casier judiciaire - liaison</name>
+  <slug>imio-extrait-de-casier-judiciaire-liaison</slug>
+  <roles>
+    <role id="_receiver">Destinataire</role>
+  </roles><possible_status>
+    <status>
+      <id>4</id>
+      <name>Juste envoy&#233;</name>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+      </visibility><items>
+        <item type="webservice_call" id="1">
+          <label>V&#233;rification du document</label>
+          <method>GET</method>
+          <url>{{ passerelle_url }}passerelle-imio-apims-casier-judiciaire/apims-casier-judiciaire/get-extract</url>
+          <qs_data>
+            <item>
+              <name>extract_code</name>
+              <value>{{ form_var_type_extrait_code }}</value>
+            </item><item>
+              <name>person_nrn</name>
+              <value>{{ form_var_nn }}</value>
+            </item><item>
+              <name>requestor_nrn</name>
+              <value>{{ form_var_nn }}</value>
+            </item><item>
+              <name>language</name>
+              <value>{{ form_var_language_code }}</value>
+            </item>
+          </qs_data><post>False</post>
+          <response_type>json</response_type>
+          <varname>check_document</varname>
+          <action_on_app_error>3</action_on_app_error>
+          <action_on_4xx>3</action_on_4xx>
+          <action_on_5xx>3</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>3</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>True</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="3">
+          <status>1</status>
+          <condition>
+            <type>django</type>
+            <value>form_workflow_data_check_document_response_bosa_return_code == "GENERATED"</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="4">
+          <status>5</status>
+          <condition>
+            <type>django</type>
+            <value>form_workflow_data_check_document_response_bosa_return_code == "FAILURE"</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>1</id>
+      <name>R&#233;cup&#233;ration du document</name>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+      </visibility><items>
+        <item type="webservice_call" id="1">
+          <label>R&#233;cup&#233;ration du document</label>
+          <method>POST</method>
+          <url>{{ passerelle_url }}passerelle-imio-apims-casier-judiciaire/apims-casier-judiciaire/decode-extract</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>pdf_base64</name>
+              <value>{{ form_workflow_data_check_document_response_file_content }}</value>
+            </item>
+          </post_data><response_type>attachment</response_type>
+          <varname>extract_document</varname>
+          <backoffice_filefield_id>bo70afeba7-c09b-49ef-973e-244528f1af95</backoffice_filefield_id>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:pass</action_on_4xx>
+          <action_on_5xx>:pass</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:pass</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>True</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="2">
+          <status>6</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>2</id>
+      <name>Demande trait&#233;e</name>
+      <colour>00FF00</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items />
+    </status><status>
+      <id>3</id>
+      <name>Une erreur s'est produite</name>
+      <colour>FF0000</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item type="displaymsg" id="1">
+          <message>Une erreur s'est produite !
+
+Veuillez r&#233;essayer apr&#232;s quelques minutes</message>
+          <level>error</level>
+          <position>top</position>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item>
+      </items>
+    </status><status>
+      <id>5</id>
+      <name>Un probl&#232;me est survenu</name>
+      <colour>FF9900</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item type="register-comment" id="1">
+          <comment>&lt;p&gt;Un probl&#232;me est survenu, en voici {% if form_workflow_data_check_document_response_bosa_errors|length &gt; 1 %}les causes{% else %}la cause{% endif %} &lt;/p&gt;
+
+{% for error in  form_workflow_data_check_document_response_bosa_errors %}
+{% if error.code == "CITIZEN_NOT_IN_MUNICIPALITY" %}
+&lt;p&gt;Il semblerait que vous n'habitiez pas {{ commune_name }}.
+Veuillez effectuer votre demande via le guichet de votre commune.
+&lt;/p&gt;
+{% endif %}
+
+{% if error.code == "INVALID_CITIZEN_NN" %}
+&lt;p&gt;Il semblerait que votre num&#233;ro national ne soit pas correct.
+Veuillez v&#233;rifier vos informations et r&#233;essayez.
+&lt;/p&gt;
+{% endif %}
+
+{% if error.code == "INVALID_REQUESTOR_NN" %}
+&lt;p&gt;Il semblerait que le num&#233;ro national du demandeur ne soit pas correct.
+Veuillez v&#233;rifier vos informations et r&#233;essayez.
+&lt;/p&gt;
+{% endif %}
+
+{% if error.code == "UNKNOWN_NIS_CODE" %}
+&lt;p&gt;Il semblerait qu'il y ait un probl&#232;me au niveau de l'administration communale.
+Veuillez contacter votre administration communale pour l'en avertir.
+&lt;/p&gt;
+{% endif %}
+
+{% if error.code == "UNKNOWN_TYPE" %}
+&lt;p&gt;Il semblerait que le type d'extrait de casier judiciaire demand&#233; soit inconnu.
+&lt;/p&gt;
+{% endif %}
+
+{% endfor %}</comment>
+        </item><item type="displaymsg" id="2">
+          <message>&lt;p&gt;Un probl&#232;me est survenu, en voici {% if form_workflow_data_check_document_response_bosa_errors|length &gt; 1 %}les causes{% else %}la cause{% endif %} &lt;/p&gt;
+
+{% for error in  form_workflow_data_check_document_response_bosa_errors %}
+{% if error.code == "CITIZEN_NOT_IN_MUNICIPALITY" %}
+&lt;p&gt;Il semblerait que vous n'habitiez pas {{ commune_name }}.
+Veuillez effectuer votre demande via le guichet de votre commune.
+&lt;/p&gt;
+{% endif %}
+
+{% if error.code == "INVALID_CITIZEN_NN" %}
+&lt;p&gt;Il semblerait que votre num&#233;ro national ne soit pas correct.
+Veuillez v&#233;rifier vos informations et r&#233;essayez.
+&lt;/p&gt;
+{% endif %}
+
+{% if error.code == "INVALID_REQUESTOR_NN" %}
+&lt;p&gt;Il semblerait que le num&#233;ro national du demandeur ne soit pas correct.
+Veuillez v&#233;rifier vos informations et r&#233;essayez.
+&lt;/p&gt;
+{% endif %}
+
+{% if error.code == "UNKNOWN_NIS_CODE" %}
+&lt;p&gt;Il semblerait qu'il y ait un probl&#232;me au niveau de l'administration communale.
+Veuillez contacter votre administration communale pour l'en avertir.
+&lt;/p&gt;
+{% endif %}
+
+{% if error.code == "UNKNOWN_TYPE" %}
+&lt;p&gt;Il semblerait que le type d'extrait de casier judiciaire demand&#233; soit inconnu.
+&lt;/p&gt;
+{% endif %}
+
+{% endfor %}</message>
+          <level>warning</level>
+          <position>top</position>
+        </item>
+      </items>
+    </status><status>
+      <id>6</id>
+      <name>Extrait de casier judiciaire</name>
+      <colour>0099FF</colour>
+      <visibility />
+      <items>
+        <item type="register-comment" id="1">
+          <comment>&lt;a href="{{ form_var_casier_judiciaire_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button" target="_blank" rel="noopener noreferrer"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</comment>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item><item type="displaymsg" id="2">
+          <message>Votre document est disponible au t&#233;l&#233;chargement.&lt;br /&gt;
+&lt;a style="margin: 10px; width: 230px;" href="{{ form_var_casier_judiciaire_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</message>
+          <level>success</level>
+          <position>top</position>
+        </item><item type="jump" id="3">
+          <status>2</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>7</id>
+      <name>En attente d'anonymisation</name>
+      <colour>000000</colour>
+      <visibility>
+        <role>_receiver</role>
+      </visibility><items>
+        <item type="jump" id="1">
+          <status>8</status>
+          <timeout>{{ form_option_delai_anonymisation }} jours</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status><status>
+      <id>8</id>
+      <name>Demande anonymis&#233;e</name>
+      <colour>999999</colour>
+      <visibility>
+        <role>_receiver</role>
+      </visibility><items>
+        <item type="anonymise" id="1">
+          <unlink_user>False</unlink_user>
+        </item>
+      </items>
+    </status>
+  </possible_status><global_actions>
+    <action>
+      <id>2</id>
+      <name>Anonymisation</name>
+      <items>
+        <item type="jump" id="1">
+          <status>7</status>
+          <condition>
+            <type>django</type>
+            <value>form_option_activer_anonymisation</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger type="manual" id="9b8299b1-a3bb-4422-ac47-72e8b362aa5e">
+          <roles>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+          </roles><statuses>
+            <statuse>2</statuse>
+            <statuse>3</statuse>
+            <statuse>5</statuse>
+          </statuses>
+        </trigger><trigger type="timeout" id="cf9c8e6a-187a-4f6c-bab6-c6fa88d30c0e">
+          <anchor>finalized</anchor>
+          <timeout>0</timeout>
+        </trigger>
+      </triggers>
+    </action><action>
+      <id>1</id>
+      <name>Supprimer</name>
+      <items>
+        <item type="remove" id="1" />
+      </items><triggers>
+        <trigger type="manual" id="c13248ae-7f70-498a-94d8-7ca297035141">
+          <roles>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+          </roles><statuses>
+            <statuse>3</statuse>
+            <statuse>5</statuse>
+          </statuses>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions><variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label type="str">Anonymisation</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">97ba5502-07a7-43f4-ba0d-90fdbec9caac</id>
+        </field><field>
+          <label type="str">Activer l'anonymisation</label>
+          <type type="str">bool</type>
+          <required type="bool">False</required>
+          <hint type="str">Cochez pour activer l'anonymisation</hint>
+          <varname type="str">activer_anonymisation</varname>
+          <display_locations />
+          <id type="str">6d5486b5-7e64-47cd-8938-68ffc5b8c2a3</id>
+        </field><field>
+          <label type="str">D&#233;lai d'anonymisation de la demande</label>
+          <type type="str">string</type>
+          <required type="bool">False</required>
+          <hint type="str">En jours</hint>
+          <varname type="str">delai_anonymisation</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation><anonymise type="bool">False</anonymise>
+          <id type="str">aadf04bf-036f-4827-9742-06dc23d5b584</id>
+        </field><field>
+          <label type="str">Divers</label>
+          <type type="str">subtitle</type>
+          <display_locations>
+            <display_location>validation</display_location>
+            <display_location>summary</display_location>
+          </display_locations><id type="str">d947286f-b4b1-4c11-834c-8e49c80591e3</id>
+        </field><field>
+          <label type="str">Commentaire</label>
+          <type type="str">text</type>
+          <required type="bool">False</required>
+          <hint type="str">Pr&#233;cisez par exemple la marche &#224; suivre pour les types d'extrait non list&#233;s ou le d&#233;lai de validit&#233; des extraits. Ce commentaire s'affichera au d&#233;but du formulaire.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <display_mode type="str">pre</display_mode>
+          <anonymise type="bool">False</anonymise>
+          <id type="str">df66fab4-16f7-45a8-b256-799be4adabc3</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables><backoffice-fields>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <label type="str">Document</label>
+          <type type="str">file</type>
+          <required type="bool">True</required>
+          <varname type="str">casier_judiciaire_document</varname>
+          <display_locations>
+            <display_location>summary</display_location>
+          </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+          <automatic_image_resize type="bool">False</automatic_image_resize>
+          <storage type="str">default</storage>
+          <id type="str">bo70afeba7-c09b-49ef-973e-244528f1af95</id>
+        </field>
+      </fields>
+    </formdef>
+  </backoffice-fields>
+</workflow>

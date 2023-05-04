@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<formdef id="367" url="">
+  <name>Obtenir un extrait de casier judiciaire</name>
+  <url_name>demande-obtenir-un-extrait-de-casier-judiciaire</url_name>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="imio-population" category_id="132">Population</category>
+  <workflow slug="imio-extrait-de-casier-judiciaire-liaison" workflow_id="172">iMio - Extrait de casier judiciaire - liaison</workflow>
+  <max_field_id>32</max_field_id>
+  <fields>
+    <field>
+      <label type="str">Obtenir un extrait de casier judiciaire</label>
+      <type type="str">page</type>
+      <id type="str">3</id>
+    </field><field>
+      <label type="str">&lt;hr&gt;
+&lt;p&gt;{{ form_option_commentaire|linebreaks }}&lt;/p&gt;
+
+&lt;hr&gt;</label>
+      <type type="str">comment</type>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">31</id>
+    </field><field>
+      <label type="str">Nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">20</id>
+    </field><field>
+      <label type="str">Pr&#233;nom</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">21</id>
+    </field><field>
+      <label type="str">Num&#233;ro national</label>
+      <type type="str">string</type>
+      <required type="bool">True</required>
+      <varname type="str">nn</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>True</locked>
+        <type>user</type>
+        <value>_niss</value>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">12</id>
+    </field><field>
+      <label type="str">Adresse email</label>
+      <type type="str">email</type>
+      <required type="bool">True</required>
+      <varname type="str">courriel</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>True</locked>
+        <type>user</type>
+        <value>_email</value>
+      </prefill><id type="str">32</id>
+    </field><field>
+      <label type="str">Langue</label>
+      <type type="str">item</type>
+      <required type="bool">True</required>
+      <hint type="str">S&#233;lectionnez une langue</hint>
+      <varname type="str">language</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <data_source>
+        <type>carddef:langage-bosa</type>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <id type="str">13</id>
+    </field><field>
+      <label type="str">Choisissez l'acte souhait&#233;</label>
+      <type type="str">item</type>
+      <required type="bool">False</required>
+      <varname type="str">type_extrait</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <items />
+      <data_source>
+        <type>types_d_extraits_de_casier_judiciaire</type>
+        <value>webservice.get_baec_documents['items']</value>
+      </data_source><in_filters type="bool">False</in_filters>
+      <anonymise type="bool">False</anonymise>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <id type="str">4</id>
+    </field>
+  </fields><user-roles>
+    <role slug="citoyen-test" role_id="97e7a2ec3963492583f1e67a7cbd140d">Citoyen (test)</role>
+  </user-roles><options>
+    <option varname="activer_anonymisation" type="bool">false</option>
+    <option varname="commentaire" />
+    <option varname="delai_anonymisation" />
+  </options><custom_views />
+  <geolocations />
+  <required_authentication_contexts>
+    <method>fedict</method>
+  </required_authentication_contexts>
+</formdef>
