@@ -12,7 +12,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-population" category_id="132">Population</category>
+  <category slug="demande-population" category_id="10">Population</category>
   <workflow slug="imio-extrait-de-casier-judiciaire-liaison" workflow_id="172">iMio - Extrait de casier judiciaire - liaison</workflow>
   <max_field_id>32</max_field_id>
   <fields>
