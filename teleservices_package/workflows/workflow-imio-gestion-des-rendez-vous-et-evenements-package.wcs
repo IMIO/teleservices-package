@@ -79,6 +79,7 @@
           <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="2">
           <status>2</status>
           <set_marker_on_status>False</set_marker_on_status>
@@ -101,7 +102,7 @@
           <by>
             <item role_id="_submitter">_submitter</item>
           </by><varname>nouvelle_date</varname>
-          <hide_submit_button>True</hide_submit_button>
+          <hide_submit_button>False</hide_submit_button>
           <formdef>
             <name>-</name>
             <fields>
@@ -280,7 +281,7 @@ Bien &#224; vous.</body>
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><varname>refus</varname>
-          <hide_submit_button>True</hide_submit_button>
+          <hide_submit_button>False</hide_submit_button>
           <formdef>
             <name>-</name>
             <fields>
@@ -296,6 +297,7 @@ Bien &#224; vous.</body>
                   <type>none</type>
                 </prefill><rows type="str">10</rows>
                 <display_mode type="str">plain</display_mode>
+                <anonymise type="bool">True</anonymise>
                 <id type="str">1</id>
               </field>
             </fields>
@@ -327,6 +329,7 @@ Bien &#224; vous.</body>
           <notify_on_errors>True</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="sendmail" id="2">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
@@ -444,6 +447,7 @@ La commune de {{commune_name}}</body>
           <notify_on_errors>True</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="set-backoffice-fields" id="2">
           <fields>
             <field>
@@ -498,6 +502,7 @@ Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l 
           <notify_on_errors>True</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="sendmail" id="2" />
         <item type="sendmail" id="3" />
         <item type="displaymsg" id="4">
