@@ -197,7 +197,7 @@
           <condition>
             <type>django</type>
             <value>form_var_baec_document_select_migration_command</value>
-          </condition>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -315,6 +315,7 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
           <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="set-backoffice-fields" id="2">
           <label>Document migr&#233; (Oui/Non)</label>
           <fields>
@@ -425,7 +426,7 @@ Cordialement,</body>
           <condition>
             <type>django</type>
             <value>form_var_baec_document_select_reference</value>
-          </condition>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="2">
           <status>31</status>
           <set_marker_on_status>False</set_marker_on_status>
@@ -525,18 +526,16 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
           <button_label>Envoyer le document vers le porte-documents</button_label>
           <display_button>True</display_button>
           <attach_to_history>True</attach_to_history>
-          <allow_portfolio_picking>False</allow_portfolio_picking>
-          <push_to_portfolio>True</push_to_portfolio>
           <condition>
             <type>django</type>
-            <value>form_var_destinations and "porte" in form_var_destinations</value>
+            <value>form_var_destinations and "porte" in form_var_destinations or form_var_destinations is None</value>
           </condition>
         </item><item type="jumponsubmit" id="4">
           <status>finished</status>
           <set_marker_on_status>False</set_marker_on_status>
           <condition>
             <type>django</type>
-            <value>form_var_destinations and "porte" in form_var_destinations</value>
+            <value>form_var_destinations and "porte" in form_var_destinations or form_var_destinations is None</value>
           </condition>
         </item><item type="choice" id="5">
           <label>Terminer</label>
@@ -552,7 +551,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
           <set_marker_on_status>False</set_marker_on_status>
           <condition>
             <type>django</type>
-            <value>form_var_destinations and "porte" not in form_var_destinations</value>
+            <value>form_var_destinations and "porte" not in form_var_destinations or form_var_destinations is None</value>
           </condition>
         </item><item type="choice" id="6">
           <label>Refuser la demande</label>
@@ -635,6 +634,7 @@ Bien cordialement,</body>
           <notify_on_errors>True</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>True</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="register-comment" id="2">
           <comment>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
@@ -706,7 +706,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <condition>
             <type>django</type>
             <value>transaction_info_response_id</value>
-          </condition>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -788,6 +788,7 @@ Bien cordialement,
           <notify_on_errors>True</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="displaymsg" id="2">
           <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
           <level>success</level>
@@ -825,6 +826,7 @@ Bien cordialement,
                   <type>none</type>
                 </prefill><rows type="str">10</rows>
                 <display_mode type="str">plain</display_mode>
+                <anonymise type="bool">True</anonymise>
                 <id type="str">7</id>
               </field>
             </fields>
@@ -1009,6 +1011,7 @@ Bien cordialement,</body>
           <notify_on_errors>True</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>True</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="2">
           <status>26</status>
           <set_marker_on_status>False</set_marker_on_status>
@@ -1268,7 +1271,9 @@ Cordialement, </body>
       <colour>FF9999</colour>
       <visibility />
       <items>
-        <item type="anonymise" id="1" />
+        <item type="anonymise" id="1">
+          <unlink_user>False</unlink_user>
+        </item>
       </items>
     </status>
   </possible_status><global_actions>
@@ -1330,6 +1335,8 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
@@ -1357,6 +1364,8 @@ Cordialement, </body>
           </roles>
         </trigger><trigger type="timeout" id="ffd68291-0bf3-4f65-8259-618dd48570da">
           <anchor>1st-arrival</anchor>
+          <anchor_expression />
+          <anchor_template />
           <anchor_status_first>wf-10</anchor_status_first>
           <timeout>0</timeout>
         </trigger>
@@ -1559,6 +1568,7 @@ Cordialement, </body>
           <display_locations />
           <extra_css_class type="str">grid-1-1 newline</extra_css_class>
           <display_mode type="str">pre</display_mode>
+          <anonymise type="bool">True</anonymise>
           <id type="str">17</id>
         </field><field>
           <label type="str">Anonymisation</label>
