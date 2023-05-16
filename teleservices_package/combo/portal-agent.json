@@ -1,0 +1,66 @@
+{
+  "pages": [
+    {
+      "fields": {
+        "uuid": "1bc04b52-91c2-6a46-d918-139138b992d2",
+        "title": "Accueil",
+        "slug": "index",
+        "sub_slug": "",
+        "description": "",
+        "template_name": "standard",
+        "parent": null,
+        "order": 1,
+        "exclude_from_navigation": false,
+        "redirect_url": "",
+        "extra_variables": {},
+        "placeholder_options": {},
+        "public": false,
+        "picture": "",
+        "edit_role": null,
+        "subpages_edit_role": null,
+        "snapshot": null,
+        "groups": [
+          "Agent"
+        ]
+      },
+      "cells": [
+        {
+          "model": "data.textcell",
+          "fields": {
+            "placeholder": "content",
+            "order": 1,
+            "slug": "services",
+            "extra_css_class": "",
+            "template_name": null,
+            "condition": null,
+            "public": true,
+            "restricted_to_unlogged": false,
+            "title": null,
+            "text": "<h2>Bienvenue sur votre portail agent</h2>",
+            "groups": []
+          }
+        },
+        {
+          "model": "wcs.wcscareformscell",
+          "fields": {
+            "placeholder": "content",
+            "order": 2,
+            "slug": "",
+            "extra_css_class": "",
+            "template_name": null,
+            "condition": null,
+            "public": false,
+            "restricted_to_unlogged": false,
+            "wcs_site": "",
+            "categories": {
+              "data": []
+            },
+            "custom_title": "",
+            "cache_duration": 120,
+            "groups": []
+          }
+        }
+      ]
+    }
+  ]
+}
