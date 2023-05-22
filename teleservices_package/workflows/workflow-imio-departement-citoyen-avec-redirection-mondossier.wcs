@@ -1005,10 +1005,10 @@ Bien cordialement,</body>
           <varname>cancel_operation</varname>
           <action_on_app_error>25</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
-          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_5xx>25</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>True</notify_on_errors>
+          <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>True</record_errors>
           <set_marker_on_status>False</set_marker_on_status>
@@ -1160,6 +1160,7 @@ Bien &#224; vous,
                 </data_source><in_filters type="bool">False</in_filters>
                 <anonymise type="bool">False</anonymise>
                 <display_disabled_items type="bool">False</display_disabled_items>
+                <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
                 <id type="str">5</id>
               </field>
             </fields>
@@ -1335,8 +1336,6 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
@@ -1364,8 +1363,6 @@ Cordialement, </body>
           </roles>
         </trigger><trigger type="timeout" id="ffd68291-0bf3-4f65-8259-618dd48570da">
           <anchor>1st-arrival</anchor>
-          <anchor_expression />
-          <anchor_template />
           <anchor_status_first>wf-10</anchor_status_first>
           <timeout>0</timeout>
         </trigger>
@@ -1419,6 +1416,7 @@ Cordialement, </body>
           </data_source><in_filters type="bool">False</in_filters>
           <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
           <id type="str">11</id>
         </field><field>
           <label type="str">Paiement en ligne</label>
@@ -1525,6 +1523,7 @@ Cordialement, </body>
           </items><in_filters type="bool">False</in_filters>
           <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
           <id type="str">15</id>
         </field><field>
           <label type="str">BAEC : D&#233;lai pour la migration</label>
@@ -1558,6 +1557,7 @@ Cordialement, </body>
           </items><in_filters type="bool">False</in_filters>
           <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
           <id type="str">18</id>
         </field><field>
           <label type="str">Actes : Commentaire additionnel</label>
