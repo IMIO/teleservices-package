@@ -46,7 +46,7 @@
           <post_data>
             <item>
               <name>label</name>
-              <value>{% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</value>
+              <value>{% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</value>
             </item><item>
               <name>user_name</name>
               <value>{{ form_var_nom }} {{ form_var_prenom }}</value>
@@ -64,7 +64,7 @@
               <value>{{ form_var_email|default:"nothing" }}</value>
             </item><item>
               <name>user_display_label</name>
-              <value>{% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %} {{ form_var_nom }} {{ form_var_prenom }}</value>
+              <value>{% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} {{ form_var_nom }} {{ form_var_prenom }}</value>
             </item><item>
               <name>user_phone_number</name>
               <value>{{ form_var_telephone|default_if_none:"" }}</value>
@@ -179,19 +179,19 @@
         </item><item type="sendmail" id="5">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>Prise de rendez-vous pour le {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          </to><subject>Prise de rendez-vous pour le {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
           <body>Bonjour,
 
-Un rendez-vous a &#233;t&#233; pris pour {{form_var_nom}} {{form_var_prenom}} &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} avec comme motif {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
+Un rendez-vous a &#233;t&#233; pris pour {{form_var_nom}} {{form_var_prenom}} &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} avec comme motif {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
 
 `Consulter la demande  &lt;{{form_url_backoffice}}&gt;`_</body>
         </item><item type="sendmail" id="6">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
-          </to><subject>Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          </to><subject>Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
           <body>Bonjour,
 
-Votre rendez-vous pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %} aura lieu le {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}.
+Votre rendez-vous pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} aura lieu le {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}.
 
 `Consulter votre demande via ce lien &lt;{{ form_url }}&gt;`_ {% if form_tracking_code %} ou via votre code de suivi **{{form_tracking_code}}** si le lien ne fonctionne pas. {% endif %}
 
@@ -333,10 +333,10 @@ Bien &#224; vous.</body>
         </item><item type="sendmail" id="2">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
-          </to><subject>Refus de votre r&#233;servation ce {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          </to><subject>Refus de votre r&#233;servation ce {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
           <body>Bonjour {{form_var_nom}} {{form_var_prenom}},
 
-Votre demande de rendez-vous &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %} n'a pas eu de suite favorable.
+Votre demande de rendez-vous &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} n'a pas eu de suite favorable.
 
 {% if refus_var_motif %}
 Motif du refus:
@@ -392,7 +392,7 @@ Bien &#224; vous</body>
       <items>
         <item type="displaymsg" id="1">
           <message>&lt;p&gt;
-Attention, votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %} n'a pas &#233;t&#233; report&#233;.&lt;br&gt;
+Attention, votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} n'a pas &#233;t&#233; report&#233;.&lt;br&gt;
 Si vous le souhaitez, vous pouvez &lt;a href="{{eservices_url}}{{form_uri}}" title="Reprendre un rendez-vous"&gt;reprendre un rendez-vous via le formulaire ad&#233;quat&lt;/a&gt;.
 &lt;/p&gt;</message>
           <level>warning</level>
@@ -402,7 +402,7 @@ Si vous le souhaitez, vous pouvez &lt;a href="{{eservices_url}}{{form_uri}}" tit
           </to>
         </item><item type="register-comment" id="2">
           <comment>&lt;p&gt;
-Attention, votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %} n'a pas &#233;t&#233; report&#233;.&lt;br&gt;
+Attention, votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} n'a pas &#233;t&#233; report&#233;.&lt;br&gt;
 Si vous le souhaitez, vous pouvez &lt;a href="{{eservices_url}}{{form_uri}}" title="Reprendre un rendez-vous"&gt;reprendre un rendez-vous via le formulaire ad&#233;quat&lt;/a&gt;.
 &lt;/p&gt;</comment>
           <to>
@@ -411,10 +411,10 @@ Si vous le souhaitez, vous pouvez &lt;a href="{{eservices_url}}{{form_uri}}" tit
         </item><item type="sendmail" id="3">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
-          </to><subject>Annulation de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          </to><subject>Annulation de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
           <body>Bonjour,
 
-Vous n'avez pas report&#233; votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
+Vous n'avez pas report&#233; votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
 
 Vous pouvez &lt;a href="{{eservices_url}}{{form_uri}}" title="Reprendre un rendez-vous"&gt;reprendre un rendez-vous via le formulaire ad&#233;quat&lt;/a&gt;.
 
@@ -458,7 +458,7 @@ La commune de {{commune_name}}</body>
         </item><item type="sendmail" id="3">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>Annulation du rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          </to><subject>Annulation du rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
           <body>Bonjour,
 
 Le rendez-vous de {{form_var_nom}} {{form_var_prenom}} &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} vient-&#234;tre annul&#233;.
@@ -469,10 +469,10 @@ Bien &#224; vous.</body>
         </item><item type="sendmail" id="4">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
-          </to><subject>Annulation de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          </to><subject>Annulation de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
           <body>Bonjour,
 
-Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %} a bien &#233;t&#233; annul&#233;.</body>
+Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} a bien &#233;t&#233; annul&#233;.</body>
         </item><item type="jump" id="5">
           <status>6</status>
           <condition>
@@ -528,9 +528,9 @@ Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l 
         <item type="sendmail" id="1">
           <to>
             <item role_id="{{form_var_email}}">{{form_var_email}}</item>
-          </to><subject>Votre rendez-vous de ce {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          </to><subject>Votre rendez-vous de ce {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
           <body>Bonjour,
-nous ne pouvons que constater votre absence ce jour pour le rendez-vous pris le {{ form_receipt_date }} &#224; {{ form_receipt_time }} pour cette date {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} et ce motif {% firstof form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
+nous ne pouvons que constater votre absence ce jour pour le rendez-vous pris le {{ form_receipt_date }} &#224; {{ form_receipt_time }} pour cette date {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} et ce motif {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
 
 Les places &#233;tant limit&#233;es, pensez &#224; ne vous inscrire que si vous &#234;tes certain de venir et de penser &#224; annuler en cas d'emp&#234;chement.
 
