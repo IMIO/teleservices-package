@@ -105,7 +105,7 @@
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">13</id>
     </field><field>
-      <label type="str">Choisissez l'acte souhait&#233;</label>
+      <label type="str">Choisissez l'extrait souhait&#233;</label>
       <type type="str">item</type>
       <required type="bool">False</required>
       <varname type="str">type_extrait</varname>
