@@ -59,6 +59,95 @@
             "cache_duration": 120,
             "groups": []
           }
+        },
+        {
+          "model": "dataviz.chartfilterscell",
+          "fields": {
+            "placeholder": "content",
+            "order": 2,
+            "slug": "",
+            "extra_css_class": "",
+            "template_name": null,
+            "condition": "",
+            "public": false,
+            "restricted_to_unlogged": false,
+            "last_update_timestamp": "2023-06-06T07:57:53.421Z",
+            "filters": {
+              "form": {
+                "label": "Formulaire",
+                "enabled": true
+              },
+              "channel": {
+                "label": "Canal",
+                "enabled": true
+              },
+              "group-by": {
+                "label": "Regroupement",
+                "enabled": true
+              },
+              "time_interval": {
+                "label": "Intervalle",
+                "enabled": true
+              }
+            },
+            "groups": [
+              "Agent ayant acces aux fabriques",
+              "Administrateur fonctionnel"
+            ]
+          }
+        },
+        {
+          "model": "dataviz.chartngcell",
+          "fields": {
+            "placeholder": "content",
+            "order": 3,
+            "slug": "",
+            "extra_css_class": "",
+            "template_name": null,
+            "condition": "",
+            "public": false,
+            "restricted_to_unlogged": false,
+            "last_update_timestamp": "2023-06-06T07:48:37.405Z",
+            "statistic": [
+              "forms_counts",
+              "eservices",
+              "wcs"
+            ],
+            "subfilters": [
+              {
+                "id": "group-by",
+                "label": "Regroupement",
+                "options": [
+                  {
+                    "id": "form",
+                    "label": "Formulaire"
+                  }
+                ]
+              }
+            ],
+            "filter_params": {
+              "form": [
+                "_all"
+              ],
+              "channel": "_all",
+              "group-by": "",
+              "time_interval": "month"
+            },
+            "title": "",
+            "time_range": "",
+            "time_range_start": null,
+            "time_range_end": null,
+            "time_range_start_template": "",
+            "time_range_end_template": "",
+            "chart_type": "bar",
+            "height": "250",
+            "sort_order": "none",
+            "hide_null_values": false,
+            "groups": [
+              "Agent ayant acces aux fabriques",
+              "Administrateur fonctionnel"
+            ]
+          }
         }
       ]
     }
