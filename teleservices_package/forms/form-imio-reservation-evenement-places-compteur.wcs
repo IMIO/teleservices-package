@@ -200,7 +200,7 @@
         </post_condition>
       </post_conditions><id type="str">17</id>
     </field><field>
-      <label type="str">Nombre de place</label>
+      <label type="str">Nombre de places</label>
       <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
@@ -245,7 +245,7 @@
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">25</id>
     </field><field>
-      <label type="str">Place disponible</label>
+      <label type="str">Places disponibles</label>
       <type type="str">string</type>
       <condition>
         <type>django</type>
