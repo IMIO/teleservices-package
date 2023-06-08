@@ -28,15 +28,15 @@
           "model": "data.textcell",
           "fields": {
             "placeholder": "content",
-            "order": 1,
+            "order": 0,
             "slug": "services",
             "extra_css_class": "",
             "template_name": null,
             "condition": null,
             "public": true,
             "restricted_to_unlogged": false,
-            "title": null,
-            "text": "<h2>Bienvenue sur votre portail agent</h2>",
+            "title": "Bienvenue sur votre portail agent",
+            "text": "",
             "groups": []
           }
         },
@@ -44,7 +44,7 @@
           "model": "wcs.wcscareformscell",
           "fields": {
             "placeholder": "content",
-            "order": 2,
+            "order": 1,
             "slug": "",
             "extra_css_class": "",
             "template_name": null,
