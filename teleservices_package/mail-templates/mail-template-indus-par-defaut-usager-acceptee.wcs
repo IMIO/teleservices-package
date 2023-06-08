@@ -11,8 +11,8 @@ La demande suivante a &#233;t&#233; accept&#233;e&#160;: {{ form_name }}
 {% endif %}
 
 {% if form_comment %}
-Nouveau commentaire&#160;: {{ form_comment }
-{{% endif %}
+Nouveau commentaire&#160;: {{ form_comment }}
+{% endif %}
 
 Le statut de votre demande a donc chang&#233;, il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;.
 
