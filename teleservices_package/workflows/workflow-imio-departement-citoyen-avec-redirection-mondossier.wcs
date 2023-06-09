@@ -39,7 +39,7 @@
               <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_result_delivrance_date_acte %}True{% else %}False{% endif %}</value>
             </field><field>
               <field_id>bo167ac504-a96b-44ad-9428-d6f354125380</field_id>
-              <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_mode_delivrance_raw == 'mondossier' %}True{% else %}False{% endif %}</value>
+              <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_mode_delivrance_raw == 'mondossier' %}True{% elif form_var_rb_concerne_raw == "moi" and form_option_redirection_automatique %}True{% else %}False{% endif %}</value>
             </field>
           </fields>
         </item><item type="jump" id="3">
