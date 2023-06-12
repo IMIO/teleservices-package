@@ -25,10 +25,6 @@ Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
 En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
 {% endif %}
 
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-
 Cordialement,
 </body>
 </mail-template>

@@ -19,10 +19,6 @@ Motif du refus : {{ refus_var_motif }}
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
 
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-
 {% if form_tracking_code %}
 Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
 En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.

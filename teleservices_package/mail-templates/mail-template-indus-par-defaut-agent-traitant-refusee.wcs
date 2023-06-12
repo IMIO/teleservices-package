@@ -17,10 +17,6 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 
 {% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
 
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-
 Cordialement,
 </body>
 </mail-template>
