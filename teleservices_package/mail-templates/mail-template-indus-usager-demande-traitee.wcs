@@ -25,9 +25,5 @@ Nouveau commentaire : {{ form_comment }}
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
 
-{% if form_evolution %}
-{{ form_evolution }}
-{% endif %}
-
 Cordialement,</body>
 </mail-template>
