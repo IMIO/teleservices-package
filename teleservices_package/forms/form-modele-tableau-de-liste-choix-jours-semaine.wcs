@@ -13,7 +13,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="modeles-imio" category_id="14">iMio - Mod&#232;les</category>
+  <category slug="imio-modeles" category_id="14">iMio - Mod&#232;les</category>
   <workflow workflow_id="_default">Par d&#233;faut</workflow>
   <max_field_id>2</max_field_id>
   <fields>

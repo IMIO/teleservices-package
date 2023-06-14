@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
-<formdef id="15" url="http://local-formulaires.example.net/backoffice/forms/15/">
+<formdef id="353" url="https://wcs.dev.publik.love/backoffice/forms/353/">
   <name>Mod&#232;le - Coordonn&#233;es</name>
   <url_name>modele-coordonnees</url_name>
-  <internal_identifier>modele-coordonnees</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -13,13 +12,12 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="modeles-imio" category_id="14">iMio - Mod&#232;les</category>
+  <category slug="imio-modeles" category_id="6">iMio - Mod&#232;les </category>
   <workflow workflow_id="_default">Par d&#233;faut</workflow>
-  <max_field_id>29</max_field_id>
   <fields>
     <field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">nom</varname>
       <display_locations>
@@ -32,8 +30,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">3</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">prenom</varname>
       <display_locations>
@@ -46,8 +44,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">4</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">rue</varname>
       <display_locations>
@@ -60,8 +58,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">5</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">numero_porte</varname>
       <display_locations>
@@ -77,8 +75,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">6</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">boite</varname>
       <display_locations>
@@ -91,8 +89,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">7</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">code_postal</varname>
       <display_locations>
@@ -108,8 +106,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">8</id>
     </field><field>
+      <type>string</type>
       <label type="str">Ville</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">ville</varname>
       <display_locations>
@@ -122,8 +120,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">9</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">telephone</varname>
       <display_locations>
@@ -136,8 +134,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">10</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro de GSM</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">gsm</varname>
       <display_locations>
@@ -150,8 +148,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">11</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <type type="str">email</type>
       <required type="bool">False</required>
       <varname type="str">email</varname>
       <display_locations>
@@ -162,13 +160,13 @@
         <value>_email</value>
       </prefill><id type="str">12</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="{{ idp_account_url }}edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">13</id>
     </field>
   </fields><user-roles>
-    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
+    <role slug="citoyen-test" role_id="1f4b1ef3cc98405eb939ca80805e5e8d">Citoyen (test)</role>
   </user-roles><options>
     <option varname="cost">0</option>
     <option varname="destinations" />
