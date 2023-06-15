@@ -3,6 +3,7 @@
   <name>iMio - Par d&#233;faut</name>
   <slug>imio-par-defaut</slug>
   <roles>
+    <role id="_autorise-a-supprimer">Autoris&#233; &#224; supprimer</role>
     <role id="_receiver">Destinataire</role>
   </roles><possible_status>
     <status>
@@ -11,6 +12,7 @@
       <colour>FFFFFF</colour>
       <visibility>
         <role>_receiver</role>
+        <role>_autorise-a-supprimer</role>
       </visibility><items>
         <item type="sendmail" id="1">
           <to>
@@ -349,7 +351,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       </items><triggers>
         <trigger type="manual" id="caa9f2d0-5427-45bc-bb05-ee1a40c1be0f">
           <roles>
-            <item role_id="_receiver">_receiver</item>
+            <item role_id="_autorise-a-supprimer">_autorise-a-supprimer</item>
           </roles>
         </trigger>
       </triggers>
