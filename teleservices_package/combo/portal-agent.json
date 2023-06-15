@@ -15,13 +15,13 @@
         "extra_variables": {},
         "placeholder_options": {},
         "public": false,
+        "creation_timestamp": "2020-04-21T23:02:04.037Z",
+        "last_update_timestamp": "2023-06-08T14:35:22.062Z",
         "picture": "",
         "edit_role": null,
         "subpages_edit_role": null,
         "snapshot": null,
-        "groups": [
-          "Agent"
-        ]
+        "groups": ["Agent"]
       },
       "cells": [
         {
@@ -34,6 +34,8 @@
             "template_name": null,
             "condition": null,
             "public": true,
+            "creation_timestamp": "2020-04-21T23:02:04.037Z",
+            "last_update_timestamp": "2023-06-08T14:35:22.062Z",
             "restricted_to_unlogged": false,
             "title": "Bienvenue sur votre portail agent",
             "text": "",
@@ -50,6 +52,8 @@
             "template_name": null,
             "condition": null,
             "public": false,
+            "creation_timestamp": "2020-04-21T23:02:04.037Z",
+            "last_update_timestamp": "2023-06-08T14:35:22.062Z",
             "restricted_to_unlogged": false,
             "wcs_site": "",
             "categories": {
@@ -71,7 +75,8 @@
             "condition": "",
             "public": false,
             "restricted_to_unlogged": false,
-            "last_update_timestamp": "2023-06-06T07:57:53.421Z",
+            "creation_timestamp": "2020-04-21T23:02:04.037Z",
+            "last_update_timestamp": "2023-06-08T14:35:22.062Z",
             "filters": {
               "form": {
                 "label": "Formulaire",
@@ -107,12 +112,9 @@
             "condition": "",
             "public": false,
             "restricted_to_unlogged": false,
-            "last_update_timestamp": "2023-06-06T07:48:37.405Z",
-            "statistic": [
-              "forms_counts",
-              "eservices",
-              "wcs"
-            ],
+            "creation_timestamp": "2020-04-21T23:02:04.037Z",
+            "last_update_timestamp": "2023-06-08T14:35:22.062Z",
+            "statistic": ["forms_counts", "eservices", "wcs"],
             "subfilters": [
               {
                 "id": "group-by",
@@ -126,9 +128,7 @@
               }
             ],
             "filter_params": {
-              "form": [
-                "_all"
-              ],
+              "form": ["_all"],
               "channel": "_all",
               "group-by": "",
               "time_interval": "month"
