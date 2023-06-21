@@ -526,6 +526,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
           <button_label>Envoyer le document vers le porte-documents</button_label>
           <display_button>True</display_button>
           <attach_to_history>True</attach_to_history>
+          <push_to_portfolio>True</push_to_portfolio>
           <condition>
             <type>django</type>
             <value>form_var_destinations and "porte" in form_var_destinations or form_var_destinations is None</value>
