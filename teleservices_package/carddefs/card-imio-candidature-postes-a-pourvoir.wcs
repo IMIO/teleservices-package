@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
-<carddef id="7" url="http://local-formulaires.example.net/backoffice/cards/7/">
+<carddef id="7" url="">
   <name>iMio - Candidature postes &#224; pourvoir</name>
   <url_name>imio-candidature-postes-a-pourvoir</url_name>
-  <internal_identifier>imio-candidature-postes-a-pourvoir</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -14,56 +13,67 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <workflow workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
-  <max_field_id>3</max_field_id>
+  <max_field_id>4</max_field_id>
   <fields>
     <field>
-      <label>Section</label>
       <type>string</type>
-      <required>True</required>
-      <varname>section</varname>
+      <label type="str">Section</label>
+      <required type="bool">True</required>
+      <varname type="str">section</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>1</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">1</id>
     </field><field>
-      <label>Fonction</label>
       <type>string</type>
-      <required>True</required>
-      <varname>fonction</varname>
+      <label type="str">Fonction</label>
+      <required type="bool">True</required>
+      <varname type="str">fonction</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><extra_css_class>grid-1-2</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise>True</anonymise>
-      <id>2</id>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">2</id>
     </field><field>
-      <label>Description</label>
       <type>text</type>
-      <required>True</required>
-      <varname>description</varname>
+      <label type="str">Description</label>
+      <required type="bool">True</required>
+      <varname type="str">description</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><pre>True</pre>
-      <id>3</id>
+      </prefill><display_mode type="str">plain</display_mode>
+      <anonymise type="bool">True</anonymise>
+      <id type="str">3</id>
+    </field><field>
+      <type>string</type>
+      <label type="str">Lien &#233;ventuel</label>
+      <required type="bool">False</required>
+      <varname type="str">lien</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><anonymise type="bool">True</anonymise>
+      <id type="str">4</id>
     </field>
   </fields><user-roles>
-    <role role_id="aa705465f17142a4accae793d48ee6d9">Agent ayant acces aux fabriques</role>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2">Agent ayant acces aux fabriques</role>
   </user-roles><backoffice-submission-roles>
-    <role role_id="aa705465f17142a4accae793d48ee6d9">Agent ayant acces aux fabriques</role>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2">Agent ayant acces aux fabriques</role>
   </backoffice-submission-roles><roles>
-    <role role_id="aa705465f17142a4accae793d48ee6d9" role_key="_viewer">Agent ayant acces aux fabriques</role>
-    <role role_id="aa705465f17142a4accae793d48ee6d9" role_key="_editor">Agent ayant acces aux fabriques</role>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2" role_key="_viewer">Agent ayant acces aux fabriques</role>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2" role_key="_editor">Agent ayant acces aux fabriques</role>
   </roles><options />
   <custom_views>
     <custom_view>

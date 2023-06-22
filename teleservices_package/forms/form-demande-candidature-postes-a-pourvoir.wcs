@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
-<formdef id="30" url="http://local-formulaires.example.net/backoffice/forms/30/">
+<formdef id="30" url="">
   <name>Candidature postes &#224; pourvoir</name>
   <url_name>demande-candidature-postes-a-pourvoir</url_name>
   <description>Ce formulaire vous permet de communiquer votre candidature spontan&#233;e pour un emploi au sein de l'administration communale.</description>
-  <internal_identifier>demande-candidature-postes-a-pourvoir</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -19,6 +18,7 @@
   <max_field_id>277</max_field_id>
   <fields>
     <field>
+      <type>comment</type>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire &amp;quot;Candidature &#224; pourvoir&amp;quot;&lt;/h1&gt;
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
@@ -26,36 +26,34 @@
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/poste_pourvoir.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="{{site_url_backoffice}}/data/" rel="noopener noreferrer" target="_blank"&gt;Modifier la liste des fonctions&lt;/a&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
       <id type="str">272</id>
     </field><field>
+      <type>page</type>
       <label type="str">Postes &#224; pourvoir</label>
-      <type type="str">page</type>
       <id type="str">98</id>
     </field><field>
+      <type>title</type>
       <label type="str">Postes &#224; pourvoir</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">264</id>
     </field><field>
-      <label type="str">&lt;p&gt;{% for i in data_source.poste_a_pourvoir %}&lt;br /&gt;
-Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}}&lt;br /&gt;
-{{i.fields.description|linebreaks}}&lt;br /&gt;
-{% endfor %}&lt;/p&gt;
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{% for i in data_source.poste_a_pourvoir %}&lt;br&gt;
+Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}}&lt;br&gt;
+{{i.fields.description|linebreaks}} {% if i.fields.lien %}&lt;a href="{{ i.fields.lien }}" rel="noopener noreferrer nofollow" target="_blank"&gt;Cliquez sur ce lien pour plus d&amp;#39;explication&lt;/a&gt; {% endif %} &lt;br&gt;{% endfor %}&lt;/p&gt;
 
-&lt;hr /&gt;</label>
-      <type type="str">comment</type>
+&lt;hr&gt;</label>
       <display_locations />
       <id type="str">276</id>
     </field><field>
+      <type>items</type>
       <label type="str">S&#233;lectionnez le(s) poste(s) au(x)quel(s) vous voulez postuler</label>
-      <type type="str">items</type>
       <required type="bool">True</required>
       <varname type="str">fonction</varname>
       <display_locations>
@@ -76,19 +74,19 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">277</id>
     </field><field>
+      <type>page</type>
       <label type="str">Pr&#233;sentation du Candidat</label>
-      <type type="str">page</type>
       <id type="str">1</id>
     </field><field>
+      <type>title</type>
       <label type="str">Pr&#233;sentation du candidat</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">2</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">nom</varname>
       <display_locations>
@@ -102,8 +100,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">4</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">prenom</varname>
       <display_locations>
@@ -117,8 +115,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">5</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">rue</varname>
       <display_locations>
@@ -132,8 +130,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">6</id>
     </field><field>
+      <type>string</type>
       <label type="str">N&#176;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">numero</varname>
       <display_locations>
@@ -147,8 +145,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">7</id>
     </field><field>
+      <type>string</type>
       <label type="str">Boite</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">boite</varname>
       <display_locations>
@@ -162,8 +160,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">8</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">cp</varname>
       <display_locations>
@@ -180,8 +178,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">9</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">ville</varname>
       <display_locations>
@@ -195,8 +193,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">10</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nationalit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -208,8 +206,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">11</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date de naissance</label>
-      <type type="str">date</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -222,10 +220,11 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">False</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">12</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro de Registre National</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">nn</varname>
       <display_locations>
@@ -241,8 +240,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">13</id>
     </field><field>
+      <type>string</type>
       <label type="str">T&#233;l&#233;phone ou GSM</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Ex. : 0475123456 ou 0032475123456 ou +32475123456</hint>
       <varname type="str">tel</varname>
@@ -259,8 +258,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">14</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <type type="str">email</type>
       <required type="bool">True</required>
       <varname type="str">mail</varname>
       <display_locations>
@@ -272,8 +271,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         <value>_email</value>
       </prefill><id type="str">270</id>
     </field><field>
+      <type>items</type>
       <label type="str">Permis de conduire</label>
-      <type type="str">items</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -297,8 +296,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">269</id>
     </field><field>
+      <type>item</type>
       <label type="str">Poss&#233;dez-vous un v&#233;hicule</label>
-      <type type="str">item</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -315,10 +314,11 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">17</id>
     </field><field>
+      <type>item</type>
       <label type="str">Souhaitez-vous travailler &#224;</label>
-      <type type="str">item</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -335,10 +335,11 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">18</id>
     </field><field>
+      <type>item</type>
       <label type="str">&#202;tes-vous reconnu par l'AVIQ ?</label>
-      <type type="str">item</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -355,10 +356,11 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">19</id>
     </field><field>
+      <type>page</type>
       <label type="str">Etudes et formations</label>
-      <type type="str">page</type>
       <post_conditions>
         <post_condition>
           <condition>
@@ -368,15 +370,15 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
         </post_condition>
       </post_conditions><id type="str">20</id>
     </field><field>
+      <type>title</type>
       <label type="str">Etudes et formations</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">21</id>
     </field><field>
+      <type>items</type>
       <label type="str">Dipl&#244;mes</label>
-      <type type="str">items</type>
       <required type="bool">True</required>
       <varname type="str">diplomes</varname>
       <display_locations>
@@ -396,8 +398,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">22</id>
     </field><field>
+      <type>item</type>
       <label type="str">Avez-vous suivi une (des) formation(s) ?</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">Par ex : formation continue</hint>
       <varname type="str">had_formations</varname>
@@ -415,10 +417,11 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">23</id>
     </field><field>
+      <type>item</type>
       <label type="str">Avez-vous de l'exp&#233;rience professionnelle ?</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <varname type="str">xp_professionnelle</varname>
       <display_locations>
@@ -434,10 +437,11 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">24</id>
     </field><field>
+      <type>block</type>
       <label type="str">Niveau en langues</label>
-      <type type="str">block:imio_langue</type>
       <required type="bool">True</required>
       <hint type="str">Pensez &#224; indiquer votre langue natale</hint>
       <display_locations>
@@ -448,24 +452,25 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <add_element_label type="str">Ajouter une langue</add_element_label>
       <label_display type="str">subtitle</label_display>
       <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_langue</block_slug>
       <id type="str">275</id>
     </field><field>
+      <type>page</type>
       <label type="str">Primaire</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>"primaire" in form_var_diplomes_raw and form_var_diplomes_raw|length == 1</value>
       </condition><id type="str">25</id>
     </field><field>
+      <type>title</type>
       <label type="str">Ecole primaire</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">26</id>
     </field><field>
+      <type>string</type>
       <label type="str">Etablissement</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -477,8 +482,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">27</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date d'obtention du dipl&#244;me</label>
-      <type type="str">date</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -488,24 +493,25 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">False</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">28</id>
     </field><field>
+      <type>page</type>
       <label type="str">Secondaire inf&#233;rieur</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>"sec_inf" in form_var_diplomes_raw</value>
       </condition><id type="str">29</id>
     </field><field>
+      <type>title</type>
       <label type="str">Secondaire inf&#233;rieur</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">30</id>
     </field><field>
+      <type>item</type>
       <label type="str">Orientation</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -522,10 +528,11 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">31</id>
     </field><field>
+      <type>string</type>
       <label type="str">Option</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -537,8 +544,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">32</id>
     </field><field>
+      <type>string</type>
       <label type="str">Etablissement fr&#233;quent&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -550,8 +557,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">33</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date d'obtention du dipl&#244;me</label>
-      <type type="str">date</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -562,24 +569,25 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">True</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">35</id>
     </field><field>
+      <type>page</type>
       <label type="str">Secondaire sup&#233;rieur</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>"sec_sup" in form_var_diplomes_raw</value>
       </condition><id type="str">36</id>
     </field><field>
+      <type>title</type>
       <label type="str">Secondaire sup&#233;rieur</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">37</id>
     </field><field>
+      <type>item</type>
       <label type="str">Orientation</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -596,10 +604,11 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">38</id>
     </field><field>
+      <type>string</type>
       <label type="str">Option</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -611,8 +620,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">39</id>
     </field><field>
+      <type>string</type>
       <label type="str">Etablissement fr&#233;quent&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -624,15 +633,15 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">40</id>
     </field><field>
+      <type>title</type>
       <label type="str">Copie du dipl&#244;me obtenu</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">42</id>
     </field><field>
+      <type>file</type>
       <label type="str">Copie du dipl&#244;me</label>
-      <type type="str">file</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -645,8 +654,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <storage type="str">default</storage>
       <id type="str">43</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date d'obtention du dipl&#244;me</label>
-      <type type="str">date</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -657,24 +666,25 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">True</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">44</id>
     </field><field>
+      <type>page</type>
       <label type="str">Sup&#233;rieur type court (Bachelor/Graduat)</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>"sup_court" in form_var_diplomes_raw</value>
       </condition><id type="str">45</id>
     </field><field>
+      <type>subtitle</type>
       <label type="str">Etude sup&#233;rieur type court (Bachelor/Graduat)</label>
-      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">46</id>
     </field><field>
+      <type>block</type>
       <label type="str">Etablissement</label>
-      <type type="str">block:etablissement_diplome</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -684,24 +694,25 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <add_element_label type="str">Ajouter un Dipl&#244;me</add_element_label>
       <label_display type="str">subtitle</label_display>
       <remove_button type="bool">True</remove_button>
+      <block_slug type="str">etablissement_diplome</block_slug>
       <id type="str">259</id>
     </field><field>
+      <type>page</type>
       <label type="str">Sup&#233;rieur type long (Master/Licence)</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>"sup_long" in form_var_diplomes_raw</value>
       </condition><id type="str">70</id>
     </field><field>
+      <type>subtitle</type>
       <label type="str">Etude sup&#233;rieur type long (Master/Licence)</label>
-      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">71</id>
     </field><field>
+      <type>block</type>
       <label type="str">Etablissement</label>
-      <type type="str">block:etablissement_diplome</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -711,24 +722,25 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <add_element_label type="str">Ajouter un Dipl&#244;me</add_element_label>
       <label_display type="str">subtitle</label_display>
       <remove_button type="bool">True</remove_button>
+      <block_slug type="str">etablissement_diplome</block_slug>
       <id type="str">261</id>
     </field><field>
+      <type>page</type>
       <label type="str">Autres formations</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_var_had_formations == "Oui"</value>
       </condition><id type="str">95</id>
     </field><field>
+      <type>title</type>
       <label type="str">Autres formations</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">96</id>
     </field><field>
+      <type>block</type>
       <label type="str">Autres formations</label>
-      <type type="str">block:autres_formations</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -738,24 +750,25 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <add_element_label type="str">Ajouter une formation</add_element_label>
       <label_display type="str">hidden</label_display>
       <remove_button type="bool">True</remove_button>
+      <block_slug type="str">autres_formations</block_slug>
       <id type="str">263</id>
     </field><field>
+      <type>page</type>
       <label type="str">Emploi actuel</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_var_xp_professionnelle_raw == "yes_i_work"</value>
       </condition><id type="str">109</id>
     </field><field>
+      <type>title</type>
       <label type="str">Emploi actuel</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">110</id>
     </field><field>
+      <type>string</type>
       <label type="str">Profession exerc&#233;e</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -766,8 +779,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">111</id>
     </field><field>
+      <type>string</type>
       <label type="str">Employeur</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -778,8 +791,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">112</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date d'entr&#233;e en service</label>
-      <type type="str">date</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -791,10 +804,11 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">False</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">113</id>
     </field><field>
+      <type>text</type>
       <label type="str">Description de vos missions principales</label>
-      <type type="str">text</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -804,24 +818,25 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       </prefill><cols type="str">146</cols>
       <rows type="str">3</rows>
       <display_mode type="str">plain</display_mode>
+      <anonymise type="bool">True</anonymise>
       <id type="str">114</id>
     </field><field>
+      <type>page</type>
       <label type="str">Emplois pr&#233;c&#233;dents</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_var_xp_professionnelle_raw in "yes_i_work currently_no_work"</value>
       </condition><id type="str">115</id>
     </field><field>
+      <type>title</type>
       <label type="str">Pr&#233;c&#233;dents emplois</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">116</id>
     </field><field>
+      <type>block</type>
       <label type="str">Pr&#233;c&#233;dents emplois</label>
-      <type type="str">block:emplois_precedents</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -831,14 +846,15 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <add_element_label type="str">Ajouter</add_element_label>
       <label_display type="str">hidden</label_display>
       <remove_button type="bool">True</remove_button>
+      <block_slug type="str">emplois_precedents</block_slug>
       <id type="str">268</id>
     </field><field>
+      <type>page</type>
       <label type="str">Motivation, CV et autres pi&#232;ces jointes</label>
-      <type type="str">page</type>
       <id type="str">140</id>
     </field><field>
+      <type>file</type>
       <label type="str">Lettre de motivation</label>
-      <type type="str">file</type>
       <required type="bool">True</required>
       <varname type="str">motivation_pj</varname>
       <display_locations>
@@ -852,8 +868,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <storage type="str">default</storage>
       <id type="str">142</id>
     </field><field>
+      <type>file</type>
       <label type="str">Curriculum vitae</label>
-      <type type="str">file</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -866,8 +882,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <storage type="str">default</storage>
       <id type="str">143</id>
     </field><field>
+      <type>file</type>
       <label type="str">Permis de conduire</label>
-      <type type="str">file</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -880,8 +896,8 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <storage type="str">default</storage>
       <id type="str">144</id>
     </field><field>
+      <type>block</type>
       <label type="str">Autres documents</label>
-      <type type="str">block:ajouter_un_fichier</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -891,6 +907,7 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <add_element_label type="str">Ajouter un document</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
+      <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">273</id>
     </field>
   </fields><user-roles>
