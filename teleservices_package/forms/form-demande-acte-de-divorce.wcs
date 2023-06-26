@@ -262,7 +262,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte is not None and form_var_date_acte != 'Apr&#232;s le 31-03-2019' or not form_var_baec_document_select_migration_command</value>
+        <value>form_var_date_acte != "None" and form_var_date_acte != 'Apr&#232;s le 31-03-2019' or not form_var_baec_document_select_migration_command</value>
       </condition><id type="str">74</id>
     </field><field>
       <label type="str">Type d'acte</label>

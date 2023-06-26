@@ -249,7 +249,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
       <type type="str">page</type>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte is not None and form_var_date_acte != 'Apr&#232;s le 31-03-2019' or not form_var_baec_document_select_migration_command</value>
+        <value>form_var_date_acte != "None" and form_var_date_acte != 'Apr&#232;s le 31-03-2019' or not form_var_baec_document_select_migration_command</value>
       </condition><id type="str">70</id>
     </field><field>
       <label type="str">Type d'acte</label>
