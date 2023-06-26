@@ -361,7 +361,9 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
             <item role_id="_submitter">_submitter</item>
           </to>
         </item><item type="register-comment" id="3">
-          <comment>&lt;a href="{{ form_var_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</comment>
+          <comment>{% if form_var_baec_document_select_migration_command %}Nous avons r&#233;cup&#233;r&#233; automatiquement un extrait de votre acte.
+Si vous avez besoin d'une copie int&#233;grale, vous devez remplir &#224; nouveau le formulaire et le document vous sera fourni imm&#233;diatement.{% endif %}
+&lt;a href="{{ form_var_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</comment>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
@@ -406,7 +408,7 @@ Cordialement,</body>
               <value>{{ form_var_baec_document_select_reference }}</value>
             </item><item>
               <name>certificate_type</name>
-              <value>{{ form_var_baec_document_type_raw }}</value>
+              <value>{{ form_var_baec_document_type_raw|default:"E" }}</value>
             </item><item>
               <name>rn</name>
               <value>{% if form_option_liaison_baec == "Staging" %}89041522261{% elif form_option_liaison_baec == "Production" %}{{ form_user_var_niss }}{% endif %}</value>
