@@ -21,7 +21,7 @@
         "edit_role": null,
         "subpages_edit_role": null,
         "snapshot": null,
-        "groups": ["Agent"]
+        "groups": []
       },
       "cells": [
         {
