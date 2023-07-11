@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="32" url="http://local-formulaires.example.net/backoffice/workflows/32/">
+<workflow id="32" url="">
   <name>iMio - Candidature postes &#224; pourvoir</name>
+  <slug>imio-candidature-postes-a-pourvoir</slug>
   <roles>
     <role id="_receiver">Agent traitant</role>
   </roles><possible_status>
@@ -11,7 +12,7 @@
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="set-backoffice-fields">
+        <item type="set-backoffice-fields" id="1">
           <label>Initialisation compteurs et liste section</label>
           <fields>
             <field>
@@ -59,13 +60,13 @@ Bien &#224; vous,
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="jump">
+        <item type="jump" id="1">
           <status>4</status>
           <condition>
             <type>django</type>
             <value>form_var_fonction_raw|length &gt; 0 and form_var_compteur|add:0 &lt; form_var_fonction_raw|length</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="2" type="jump">
+        </item><item type="jump" id="2">
           <status>new</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -77,7 +78,7 @@ Bien &#224; vous,
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="set-backoffice-fields">
+        <item type="set-backoffice-fields" id="1">
           <label>Le candidat &#224; postuler dans d'autre fonction pour cette section : OUI</label>
           <fields>
             <field>
@@ -85,10 +86,10 @@ Bien &#224; vous,
               <value>Oui cliquer sur le lien de la demande pour plus d'information</value>
             </field>
           </fields><condition>
-            <type>python</type>
-            <value>form_var_section_liste.count(form_var_fonction_structured[int(form_var_compteur)]["section"]) &gt; 1</value>
+            <type>django</type>
+            <value>form_var_fonction_structured|get:form_var_compteur|get:"section"|count &gt; 1</value>
           </condition>
-        </item><item id="2" type="set-backoffice-fields">
+        </item><item type="set-backoffice-fields" id="2">
           <label>Le candidat &#224; postuler dans d'autre fonction pour cette section : NON</label>
           <fields>
             <field>
@@ -96,11 +97,12 @@ Bien &#224; vous,
               <value>Non</value>
             </field>
           </fields><condition>
-            <type>python</type>
-            <value>form_var_section_liste.count(form_var_fonction_structured[int(form_var_compteur)]["section"]) == 1</value>
+            <type>django</type>
+            <value>form_var_fonction_structured|get:form_var_compteur|get:"section"|count == 1</value>
           </condition>
-        </item><item id="3" type="create_carddata">
+        </item><item type="create_carddata" id="3">
           <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
+          <map_fields_by_varname>False</map_fields_by_varname>
           <mappings>
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
             <mapping field_id="3">=form_var_fonction_structured[int(form_var_compteur)]["section"] if form_var_fonction_structured[int(form_var_compteur)]["section"] in form_var_liste_section_fiche else "Autre"</mapping>
@@ -117,7 +119,7 @@ Bien &#224; vous,
             <mapping field_id="12">{{ form_var_tel }}</mapping>
             <mapping field_id="14">{{ form_var_mail }}</mapping>
           </mappings><user_association_mode>keep-user</user_association_mode>
-        </item><item id="4" type="set-backoffice-fields">
+        </item><item type="set-backoffice-fields" id="4">
           <label>compteur</label>
           <fields>
             <field>
@@ -125,7 +127,7 @@ Bien &#224; vous,
               <value>{{ form_var_compteur|add:1 }}</value>
             </field>
           </fields>
-        </item><item id="5" type="jump">
+        </item><item type="jump" id="5">
           <status>3</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -136,7 +138,7 @@ Bien &#224; vous,
       <colour>66FF00</colour>
       <visibility />
       <items>
-        <item id="1" type="displaymsg">
+        <item type="displaymsg" id="1">
           <message>Votre candidature a bien &#233;t&#233; enregistr&#233;e.</message>
           <level>success</level>
           <position>top</position>
@@ -151,16 +153,16 @@ Bien &#224; vous,
       <name>-</name>
       <fields>
         <field>
-          <label>Lien du r&#232;glement communal</label>
           <type>string</type>
-          <required>False</required>
-          <varname>reglement_communal</varname>
+          <label type="str">Lien du r&#232;glement communal</label>
+          <required type="bool">False</required>
+          <varname type="str">reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>1</id>
+          </prefill><anonymise type="bool">True</anonymise>
+          <id type="str">1</id>
         </field>
       </fields>
     </formdef>
@@ -169,39 +171,39 @@ Bien &#224; vous,
       <name>-</name>
       <fields>
         <field>
-          <label>Compteur</label>
           <type>string</type>
-          <required>True</required>
-          <varname>compteur</varname>
+          <label type="str">Compteur</label>
+          <required type="bool">True</required>
+          <varname type="str">compteur</varname>
           <display_locations />
           <validation>
             <type>digits</type>
-          </validation><anonymise>False</anonymise>
-          <id>bo174538d1-a802-487c-860b-92f3cae029dd</id>
+          </validation><anonymise type="bool">False</anonymise>
+          <id type="str">bo174538d1-a802-487c-860b-92f3cae029dd</id>
         </field><field>
-          <label>Section liste</label>
           <type>string</type>
-          <required>True</required>
-          <varname>section_liste</varname>
+          <label type="str">Section liste</label>
+          <required type="bool">True</required>
+          <varname type="str">section_liste</varname>
           <display_locations />
-          <anonymise>True</anonymise>
-          <id>boc9137629-5b1b-4ccb-ba90-60f2617e2b47</id>
+          <anonymise type="bool">True</anonymise>
+          <id type="str">boc9137629-5b1b-4ccb-ba90-60f2617e2b47</id>
         </field><field>
-          <label>Liste des section de la fiche</label>
           <type>string</type>
-          <required>True</required>
-          <varname>liste_section_fiche</varname>
+          <label type="str">Liste des section de la fiche</label>
+          <required type="bool">True</required>
+          <varname type="str">liste_section_fiche</varname>
           <display_locations />
-          <anonymise>True</anonymise>
-          <id>bodb8b9b14-c390-4508-bddf-eeb70a60bca7</id>
+          <anonymise type="bool">True</anonymise>
+          <id type="str">bodb8b9b14-c390-4508-bddf-eeb70a60bca7</id>
         </field><field>
-          <label>Le candidat &#224; postuler dans d'autre fonction pour cette section ?</label>
           <type>string</type>
-          <required>True</required>
-          <varname>candidature_multi_fonction_section</varname>
+          <label type="str">Le candidat &#224; postuler dans d'autre fonction pour cette section ?</label>
+          <required type="bool">True</required>
+          <varname type="str">candidature_multi_fonction_section</varname>
           <display_locations />
-          <anonymise>True</anonymise>
-          <id>bo0f524563-6d23-4e97-933e-d180210e6408</id>
+          <anonymise type="bool">True</anonymise>
+          <id type="str">bo0f524563-6d23-4e97-933e-d180210e6408</id>
         </field>
       </fields>
     </formdef>
