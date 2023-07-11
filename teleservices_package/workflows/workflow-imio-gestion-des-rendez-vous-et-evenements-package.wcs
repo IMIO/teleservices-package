@@ -107,8 +107,8 @@
             <name>-</name>
             <fields>
               <field>
+                <type>item</type>
                 <label type="str">Choisissez une nouvelle date</label>
-                <type type="str">item</type>
                 <required type="bool">True</required>
                 <varname type="str">date_rdv</varname>
                 <display_locations />
@@ -124,6 +124,7 @@
                 <anonymise type="bool">False</anonymise>
                 <display_disabled_items type="bool">False</display_disabled_items>
                 <initial_zoom type="str">13</initial_zoom>
+                <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
                 <id type="str">1</id>
               </field>
             </fields>
@@ -286,8 +287,8 @@ Bien &#224; vous.</body>
             <name>-</name>
             <fields>
               <field>
+                <type>text</type>
                 <label type="str">Motif du refus</label>
-                <type type="str">text</type>
                 <required type="bool">False</required>
                 <hint type="str">Optionnel</hint>
                 <varname type="str">motif</varname>
@@ -371,6 +372,10 @@ Bien &#224; vous</body>
           <require_confirmation>False</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
+          <condition>
+            <type>django</type>
+            <value>reservation_response_datetime|date &gt; today|date</value>
+          </condition>
         </item><item type="jump" id="3">
           <status>14</status>
           <condition>
@@ -605,8 +610,8 @@ La commune de {{commune_name}}</body>
       <name>-</name>
       <fields>
         <field>
+          <type>item</type>
           <label type="str">Liste des agendas disponible choix unique</label>
-          <type type="str">item</type>
           <required type="bool">True</required>
           <varname type="str">agenda</varname>
           <display_locations>
@@ -622,10 +627,11 @@ La commune de {{commune_name}}</body>
           <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
           <initial_zoom type="str">13</initial_zoom>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
           <id type="str">3</id>
         </field><field>
+          <type>items</type>
           <label type="str">Liste des agendas disponible choix multiple</label>
-          <type type="str">items</type>
           <required type="bool">False</required>
           <varname type="str">agendas</varname>
           <display_locations>
@@ -644,8 +650,8 @@ La commune de {{commune_name}}</body>
           <display_disabled_items type="bool">False</display_disabled_items>
           <id type="str">2</id>
         </field><field>
+          <type>string</type>
           <label type="str">Heure d'ouverture</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <hint type="str">Format 9:00</hint>
           <varname type="str">heure_ouverture</varname>
@@ -656,8 +662,8 @@ La commune de {{commune_name}}</body>
           </prefill><anonymise type="bool">True</anonymise>
           <id type="str">4</id>
         </field><field>
+          <type>string</type>
           <label type="str">Heure de fermeture</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <hint type="str">Format 18:30</hint>
           <varname type="str">heure_fermeture</varname>
@@ -675,8 +681,8 @@ La commune de {{commune_name}}</body>
       <name>-</name>
       <fields>
         <field>
+          <type>string</type>
           <label type="str">Adresse du b&#233;n&#233;ficiaire</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
@@ -684,8 +690,8 @@ La commune de {{commune_name}}</body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo3c729bcc-c254-4ef6-b8ce-90a179d9cfde</id>
         </field><field>
+          <type>string</type>
           <label type="str">Date d'annulation</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">date_annulation</varname>
           <display_locations>
@@ -693,8 +699,8 @@ La commune de {{commune_name}}</body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo4dd33514-33fd-4f8b-b7e4-fb573a89afd3</id>
         </field><field>
+          <type>string</type>
           <label type="str">Date r&#233;serv&#233;e</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <display_locations>
             <display_location>summary</display_location>
@@ -702,24 +708,24 @@ La commune de {{commune_name}}</body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo6735f532-2e69-427c-a8b6-3bc21dffed49</id>
         </field><field>
+          <type>string</type>
           <label type="str">Guichet</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <display_locations>
             <display_location>listings</display_location>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bofbe17c40-8368-4d9e-a8a6-7267552a1710</id>
         </field><field>
+          <type>string</type>
           <label type="str">Date d&#233;but</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">date_debut</varname>
           <display_locations />
           <anonymise type="bool">True</anonymise>
           <id type="str">bo2fae014b-b93d-43e5-80e6-e288d14af3cc</id>
         </field><field>
+          <type>string</type>
           <label type="str">Date fin</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">date_fin</varname>
           <display_locations />
