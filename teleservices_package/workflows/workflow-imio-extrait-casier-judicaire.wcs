@@ -49,8 +49,8 @@
         </item><item type="jump" id="2">
           <status>13</status>
           <condition>
-            <type>python</type>
-            <value>Decimal(form_var_wf_total_commande) == Decimal('0') and form_var_destinations_price == '0.00'</value>
+            <type>django</type>
+            <value>form_var_wf_total_commande|add:0 == 0 and form_var_destinations_price == '0.00'</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="3">
           <status>21</status>
