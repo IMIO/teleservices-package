@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="132" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/132/">
+<workflow id="132" url="">
   <name>iMio - Fiche - Compteur</name>
+  <slug>imio-fiche-compteur</slug>
   <roles>
     <role id="_editor">&#201;diteur</role>
     <role id="_viewer">Visualisateur</role>
@@ -11,12 +12,13 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="editable">
+        <item type="editable" id="1">
           <by>
             <item role_id="_editor">_editor</item>
           </by><status>recorded</status>
           <label>Modifier la fiche</label>
-        </item><item id="2" type="choice">
+          <operation_mode>full</operation_mode>
+        </item><item type="choice" id="2">
           <label>Supprimer la fiche</label>
           <by>
             <item role_id="_editor">_editor</item>
@@ -32,7 +34,7 @@
       <colour>FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="remove" />
+        <item type="remove" id="1" />
       </items>
     </status><status>
       <id>0</id>
@@ -46,15 +48,15 @@
       <id>1</id>
       <name>Epuis&#233;</name>
       <items>
-        <item id="1" type="jump">
+        <item type="jump" id="1">
           <status>0</status>
           <condition>
-            <type>python</type>
-            <value>int(form_var_place) &lt;= 0</value>
+            <type>django</type>
+            <value>form_var_place|add:0 &lt;= 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="ea5cd53f-ad32-47bb-8f2c-13621aaa03d7" type="webservice">
+        <trigger type="webservice" id="ea5cd53f-ad32-47bb-8f2c-13621aaa03d7">
           <identifier>stage_epuise</identifier>
         </trigger>
       </triggers>
@@ -62,17 +64,17 @@
       <id>2</id>
       <name>Enregistr&#233;</name>
       <items>
-        <item id="1" type="jump">
+        <item type="jump" id="1">
           <status>recorded</status>
           <condition>
-            <type>python</type>
-            <value>int(form_var_place) &gt;= 0</value>
+            <type>django</type>
+            <value>form_var_place|add:0 &gt;= 0</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items><triggers>
-        <trigger id="f05873c4-2dff-4a77-8564-820dedc93b72" type="webservice">
+        <trigger type="webservice" id="f05873c4-2dff-4a77-8564-820dedc93b72">
           <identifier>retour_enregistr&#233;</identifier>
-        </trigger><trigger id="7e33d6a0-fc90-4613-8a5b-35c8315def92" type="manual">
+        </trigger><trigger type="manual" id="7e33d6a0-fc90-4613-8a5b-35c8315def92">
           <roles>
             <item role_id="43190215712647a89376713be142a4f5">Debug</item>
           </roles>
