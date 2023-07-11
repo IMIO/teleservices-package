@@ -481,8 +481,8 @@ Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l 
         </item><item type="jump" id="5">
           <status>6</status>
           <condition>
-            <type>python</type>
-            <value>int(utils.time_delta(form_var_date_rdv_datetime, form_var_date_annulation).days) &lt; form_option_agenda_structured_minimal_booking_delay</value>
+            <type>django</type>
+            <value>False</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
