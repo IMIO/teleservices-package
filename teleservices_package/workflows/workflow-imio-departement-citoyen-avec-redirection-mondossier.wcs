@@ -36,7 +36,7 @@
               <value>{% if form_var_mode_delivrance_raw == 'mondossier' or form_var_date_acte_raw == 'Apr&#232;s le 31-03-2019' %}True{% else %}False{% endif %}</value>
             </field><field>
               <field_id>bof2067322-8881-4022-a2c3-e55f600a3c3f</field_id>
-              <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_result_delivrance_date_acte %}True{% else %}False{% endif %}</value>
+              <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_result_delivrance_date_acte %}True{% elif form_slug == "demande-cohabitation-legale" and form_option_redirection_automatique %}True{% else %}False{% endif %}</value>
             </field><field>
               <field_id>bo167ac504-a96b-44ad-9428-d6f354125380</field_id>
               <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_mode_delivrance_raw == 'mondossier' %}True{% elif form_var_rb_concerne_raw == "moi" and form_option_redirection_automatique %}True{% else %}False{% endif %}</value>
@@ -528,6 +528,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
           <button_label>Envoyer le document vers le porte-documents</button_label>
           <display_button>True</display_button>
           <attach_to_history>True</attach_to_history>
+          <allow_portfolio_picking>False</allow_portfolio_picking>
           <push_to_portfolio>True</push_to_portfolio>
           <condition>
             <type>django</type>
@@ -818,8 +819,8 @@ Bien cordialement,
             <name>-</name>
             <fields>
               <field>
+                <type>text</type>
                 <label type="str">Motif du refus</label>
-                <type type="str">text</type>
                 <required type="bool">True</required>
                 <hint type="str">Le motif du refus sera envoy&#233; dans un courriel &#224; l'usager.</hint>
                 <varname type="str">motif</varname>
@@ -1062,13 +1063,13 @@ Bien &#224; vous,
             <name>-</name>
             <fields>
               <field>
+                <type>title</type>
                 <label type="str">Vos informations de remboursement</label>
-                <type type="str">title</type>
                 <display_locations />
                 <id type="str">6</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Num&#233;ro de compte IBAN</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">iban</varname>
                 <display_locations>
@@ -1079,8 +1080,8 @@ Bien &#224; vous,
                 </prefill><anonymise type="bool">True</anonymise>
                 <id type="str">1</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Nom</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">nom</varname>
                 <display_locations>
@@ -1092,8 +1093,8 @@ Bien &#224; vous,
                 </prefill><anonymise type="bool">True</anonymise>
                 <id type="str">2</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Rue</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">rue</varname>
                 <display_locations />
@@ -1103,8 +1104,8 @@ Bien &#224; vous,
                 </prefill><anonymise type="bool">True</anonymise>
                 <id type="str">3</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Num&#233;ro</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">numero</varname>
                 <display_locations />
@@ -1114,8 +1115,8 @@ Bien &#224; vous,
                 </prefill><anonymise type="bool">True</anonymise>
                 <id type="str">9</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Bo&#238;te</label>
-                <type type="str">string</type>
                 <required type="bool">False</required>
                 <display_locations />
                 <prefill>
@@ -1124,8 +1125,8 @@ Bien &#224; vous,
                 </prefill><anonymise type="bool">True</anonymise>
                 <id type="str">10</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Code postal</label>
-                <type type="str">string</type>
                 <required type="bool">False</required>
                 <varname type="str">code_postal</varname>
                 <display_locations />
@@ -1135,8 +1136,8 @@ Bien &#224; vous,
                 </prefill><anonymise type="bool">True</anonymise>
                 <id type="str">4</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Localit&#233;</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">localite</varname>
                 <display_locations />
@@ -1146,8 +1147,8 @@ Bien &#224; vous,
                 </prefill><anonymise type="bool">True</anonymise>
                 <id type="str">11</id>
               </field><field>
+                <type>item</type>
                 <label type="str">Pays</label>
-                <type type="str">item</type>
                 <required type="bool">True</required>
                 <varname type="str">pays</varname>
                 <display_locations>
@@ -1339,6 +1340,8 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
@@ -1366,6 +1369,8 @@ Cordialement, </body>
           </roles>
         </trigger><trigger type="timeout" id="ffd68291-0bf3-4f65-8259-618dd48570da">
           <anchor>1st-arrival</anchor>
+          <anchor_expression />
+          <anchor_template />
           <anchor_status_first>wf-10</anchor_status_first>
           <timeout>0</timeout>
         </trigger>
@@ -1376,15 +1381,15 @@ Cordialement, </body>
       <name>-</name>
       <fields>
         <field>
+          <type>subtitle</type>
           <label type="str">Paiement</label>
-          <type type="str">subtitle</type>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><id type="str">24</id>
         </field><field>
+          <type>string</type>
           <label type="str">Co&#251;t du document</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <varname type="str">cout</varname>
           <display_locations>
@@ -1396,8 +1401,8 @@ Cordialement, </body>
           </prefill><anonymise type="bool">True</anonymise>
           <id type="str">1</id>
         </field><field>
+          <type>string</type>
           <label type="str">IBAN</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <hint type="str">Sera employ&#233; dans le flux "PC Banking (virement)" du Workflow.</hint>
           <varname type="str">iban</varname>
@@ -1405,8 +1410,8 @@ Cordialement, </body>
           <anonymise type="bool">True</anonymise>
           <id type="str">9</id>
         </field><field>
+          <type>item</type>
           <label type="str">R&#233;gie de paiement</label>
-          <type type="str">item</type>
           <required type="bool">False</required>
           <hint type="str">Plus d'information sur les r&#233;gies de paiement : https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html#configurer-un-formulaire-etat-civil-population</hint>
           <varname type="str">regie_de_paiement</varname>
@@ -1422,8 +1427,8 @@ Cordialement, </body>
           <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
           <id type="str">11</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Paiement en ligne</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <hint type="str">A cocher si vous poss&#233;der une r&#233;gie de paiement tel qu'Atos, Ingenico, Mollie, ...</hint>
           <varname type="str">paiement_en_ligne</varname>
@@ -1433,15 +1438,15 @@ Cordialement, </body>
             <type>none</type>
           </prefill><id type="str">13</id>
         </field><field>
+          <type>subtitle</type>
           <label type="str">Motifs et destinations</label>
-          <type type="str">subtitle</type>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><id type="str">27</id>
         </field><field>
+          <type>items</type>
           <label type="str">Motifs disponibles</label>
-          <type type="str">items</type>
           <required type="bool">False</required>
           <varname type="str">motifs_disponibles</varname>
           <display_locations>
@@ -1460,8 +1465,8 @@ Cordialement, </body>
           <display_disabled_items type="bool">False</display_disabled_items>
           <id type="str">3</id>
         </field><field>
+          <type>items</type>
           <label type="str">Destinations</label>
-          <type type="str">items</type>
           <required type="bool">False</required>
           <varname type="str">mode_recup_disponibles</varname>
           <display_locations>
@@ -1480,15 +1485,15 @@ Cordialement, </body>
           <display_disabled_items type="bool">False</display_disabled_items>
           <id type="str">4</id>
         </field><field>
+          <type>subtitle</type>
           <label type="str">Mon dossier</label>
-          <type type="str">subtitle</type>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><id type="str">26</id>
         </field><field>
+          <type>string</type>
           <label type="str">Url du document sur le site de Mon Dossier</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <varname type="str">lien_mondossier</varname>
           <display_locations>
@@ -1499,23 +1504,23 @@ Cordialement, </body>
           </prefill><anonymise type="bool">True</anonymise>
           <id type="str">7</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Redirection Automatique</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <hint type="str">Cocher cette case redirigera automatiquement l'usager vers le site "Mon Dossier" si cela s'applique (Acte apr&#232;s 2019 et est la personne concern&#233;e).</hint>
           <varname type="str">redirection_automatique</varname>
           <display_locations />
           <id type="str">12</id>
         </field><field>
+          <type>subtitle</type>
           <label type="str">BAEC</label>
-          <type type="str">subtitle</type>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><id type="str">28</id>
         </field><field>
+          <type>item</type>
           <label type="str">BAEC : Phase de la liaison</label>
-          <type type="str">item</type>
           <required type="bool">False</required>
           <varname type="str">liaison_baec</varname>
           <display_locations />
@@ -1529,8 +1534,8 @@ Cordialement, </body>
           <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
           <id type="str">15</id>
         </field><field>
+          <type>string</type>
           <label type="str">BAEC : D&#233;lai pour la migration</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <hint type="str">Nombre de jours pour effectuer la migration des documents vers la BAEC.</hint>
           <varname type="str">delai_migration</varname>
@@ -1540,15 +1545,15 @@ Cordialement, </body>
           </validation><anonymise type="bool">True</anonymise>
           <id type="str">16</id>
         </field><field>
+          <type>subtitle</type>
           <label type="str">Actes</label>
-          <type type="str">subtitle</type>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><id type="str">29</id>
         </field><field>
+          <type>item</type>
           <label type="str">Actes : Pi&#232;ce justificative obligatoire si concerne un tiers</label>
-          <type type="str">item</type>
           <required type="bool">False</required>
           <hint type="str">Cocher cette case affichera un champ "Fichier" o&#249; le demandeur sera invit&#233; &#224; joindre un document justificatif si la demande d'acte ne le concerne pas (concerne un tiers).</hint>
           <varname type="str">actes_piece_justificative_tiers</varname>
@@ -1563,8 +1568,8 @@ Cordialement, </body>
           <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
           <id type="str">18</id>
         </field><field>
+          <type>text</type>
           <label type="str">Actes : Commentaire additionnel</label>
-          <type type="str">text</type>
           <required type="bool">False</required>
           <hint type="str">Pour les actes, sera affich&#233; en premi&#232;re page du formulaire, sous les explications.</hint>
           <varname type="str">actes_commentaire_additionnel</varname>
@@ -1574,23 +1579,23 @@ Cordialement, </body>
           <anonymise type="bool">True</anonymise>
           <id type="str">17</id>
         </field><field>
+          <type>subtitle</type>
           <label type="str">Anonymisation</label>
-          <type type="str">subtitle</type>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><id type="str">22</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Activer l'anonymisation</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <hint type="str">Cochez pour activer l'anonymisation</hint>
           <varname type="str">activer_anonymisation</varname>
           <display_locations />
           <id type="str">21</id>
         </field><field>
+          <type>string</type>
           <label type="str">D&#233;lai d'anonymisation document qui me concerne</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <hint type="str">En jours</hint>
           <varname type="str">delai_anonymisation_me_concerne</varname>
@@ -1600,6 +1605,7 @@ Cordialement, </body>
           </validation><anonymise type="bool">True</anonymise>
           <id type="str">19</id>
         </field><field>
+          <type>comment</type>
           <label type="str">&lt;p&gt;Le &lt;strong class="label" id="label19"&gt;D&amp;eacute;lai d&amp;#39;anonymisation document qui me concerne&lt;/strong&gt; est &amp;eacute;galement utilis&amp;eacute; pour&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1608,12 +1614,11 @@ Cordialement, </body>
 	&lt;li&gt;&lt;strong&gt;Cohabitation L&amp;eacute;gale&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </label>
-          <type type="str">comment</type>
           <display_locations />
           <id type="str">23</id>
         </field><field>
+          <type>string</type>
           <label type="str">D&#233;lai d'anonymisation document qui concerne un tier</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <hint type="str">En jours</hint>
           <varname type="str">delai_anonymisation_document_concerne_tier</varname>
@@ -1623,15 +1628,15 @@ Cordialement, </body>
           </validation><anonymise type="bool">True</anonymise>
           <id type="str">20</id>
         </field><field>
+          <type>subtitle</type>
           <label type="str">Autre</label>
-          <type type="str">subtitle</type>
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
           </display_locations><id type="str">30</id>
         </field><field>
+          <type>string</type>
           <label type="str">Lien du r&#232;glement communal</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <hint type="str">Lien vers le r&#232;glement communal qui s'affichera &#233;ventuellement dans certains formulaires (https://...).</hint>
           <varname type="str">reglement_communal</varname>
@@ -1646,8 +1651,8 @@ Cordialement, </body>
       <name>-</name>
       <fields>
         <field>
+          <type>string</type>
           <label type="str">Nom de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
@@ -1655,8 +1660,8 @@ Cordialement, </body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo10</id>
         </field><field>
+          <type>string</type>
           <label type="str">Pr&#233;nom de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
@@ -1664,8 +1669,8 @@ Cordialement, </body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo11</id>
         </field><field>
+          <type>string</type>
           <label type="str">NN de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <varname type="str">wf_nn</varname>
           <display_locations>
@@ -1674,8 +1679,8 @@ Cordialement, </body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo6</id>
         </field><field>
+          <type>string</type>
           <label type="str">Adresse de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
@@ -1683,8 +1688,8 @@ Cordialement, </body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo13</id>
         </field><field>
+          <type>string</type>
           <label type="str">N&#176; t&#233;l&#233;phone de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <display_locations>
             <display_location>validation</display_location>
@@ -1692,8 +1697,8 @@ Cordialement, </body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo12</id>
         </field><field>
+          <type>string</type>
           <label type="str">Nombre d'exemplaires</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">wf_nb_exemplaires</varname>
           <display_locations>
@@ -1702,8 +1707,8 @@ Cordialement, </body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo2</id>
         </field><field>
+          <type>string</type>
           <label type="str">Total de la commande</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">wf_total_commande</varname>
           <display_locations>
@@ -1712,8 +1717,8 @@ Cordialement, </body>
           </display_locations><anonymise type="bool">True</anonymise>
           <id type="str">bo3</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Paiement en ligne</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <hint type="str">Est-ce que le citoyen a choisit un paiement en ligne oui/non?</hint>
           <varname type="str">wf_paiement_en_ligne</varname>
@@ -1722,8 +1727,8 @@ Cordialement, </body>
             <display_location>summary</display_location>
           </display_locations><id type="str">bo9</id>
         </field><field>
+          <type>file</type>
           <label type="str">Document</label>
-          <type type="str">file</type>
           <required type="bool">True</required>
           <varname type="str">document</varname>
           <display_locations>
@@ -1733,8 +1738,8 @@ Cordialement, </body>
           <storage type="str">default</storage>
           <id type="str">boc69b2ccc-1a6c-43a8-a1e0-5008ba678885</id>
         </field><field>
+          <type>bool</type>
           <label type="str">La demande me concerne</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <hint type="str">Valable aussi pour : Acte de D&#233;c&#232;s, Acte de Reconnaissance pr&#233;/post-natale, Cohabitation L&#233;gale
 </hint>
@@ -1743,61 +1748,61 @@ Cordialement, </body>
             <display_location>summary</display_location>
           </display_locations><id type="str">bo98fcb92f-d9bc-4913-b0e1-c301885502f5</id>
         </field><field>
+          <type>bool</type>
           <label type="str">La demande concerne un tier</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <varname type="str">demande_concerne_tier</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><id type="str">bo24cc53ce-c40b-4167-9080-9f286ac310dd</id>
         </field><field>
+          <type>string</type>
           <label type="str">R&#233;f&#233;rence document migration</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <varname type="str">reference_document_migration</varname>
           <display_locations />
           <anonymise type="bool">True</anonymise>
           <id type="str">bo7643fe75-2f16-48de-adad-e1820f5e7972</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Migration effectu&#233;e</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <varname type="str">document_migrated</varname>
           <display_locations />
           <id type="str">bo1cbb8e82-4fca-49c7-ab50-dd7e5e945cf7</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Bool - R&#233;sultat delivrance, date_acte pour redirection mon dossier</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <varname type="str">result_delivrance_date_acte</varname>
           <display_locations />
           <id type="str">bod44f78a7-aa27-4199-befc-4eebb65bff6f</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Bool - R&#233;sultat (delivrance, date_acte) + concerne_qui et redirection automatique pour redirection mon dossier</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <varname type="str">result_delivrance_date_acte_concerne_qui_redirection_automatique</varname>
           <display_locations />
           <id type="str">bof2067322-8881-4022-a2c3-e55f600a3c3f</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Bool - R&#233;sultat concerne qui, redirection auto, d&#233;livrance</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <hint type="str">BAEC</hint>
           <varname type="str">result_concerne_qui_redirection_auto_delivrance</varname>
           <display_locations />
           <id type="str">bo167ac504-a96b-44ad-9428-d6f354125380</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Usager connect&#233; en authentification forte</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <varname type="str">connexion_forte</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><id type="str">bo2162b04d-0b5b-4a87-9075-425b8fdebfb2</id>
         </field><field>
+          <type>string</type>
           <label type="str">Transaction Reference</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">transaction_reference</varname>
           <display_locations>
