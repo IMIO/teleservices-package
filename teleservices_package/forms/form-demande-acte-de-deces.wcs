@@ -3,7 +3,6 @@
   <name>Acte de D&#233;c&#232;s</name>
   <url_name>demande-acte-de-deces</url_name>
   <description>&lt;p&gt;Vous avez la possibilit&amp;eacute; de demander la copie ou l&amp;#39;extrait conforme de l&amp;#39;acte souhait&amp;eacute;.&lt;/p&gt;</description>
-  <internal_identifier>demande-acte-de-deces</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -14,11 +13,11 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-etat-civil" category_id="9">Etat-Civil</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="13">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>70</max_field_id>
+  <category slug="demande-etat-civil" category_id="8">Etat-Civil</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="22">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <fields>
     <field>
+      <type>comment</type>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
@@ -28,17 +27,17 @@
 &lt;p&gt;&lt;a href="{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/" rel="noopener noreferrer" target="_blank"&gt;Ajouter, supprimer ou modifier des motifs et destination&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
       <id type="str">68</id>
     </field><field>
+      <type>page</type>
       <label type="str">Extrait/Copie int&#233;grale d'acte de D&#233;c&#232;s</label>
-      <type type="str">page</type>
       <id type="str">2</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par :&amp;nbsp;&lt;/p&gt;
 
 &lt;ol&gt;
@@ -60,16 +59,15 @@
 	&lt;li&gt;Si votre demande est valide, vous recevrez prochainement votre document selon le mode de d&amp;eacute;livrance choisi. &amp;Agrave; d&amp;eacute;faut, vous serez pr&amp;eacute;venu par e-mail.&lt;/li&gt;
 &lt;/ol&gt;
 </label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">3</id>
     </field><field>
+      <type>page</type>
       <label type="str">Document souhait&#233;</label>
-      <type type="str">page</type>
       <id type="str">4</id>
     </field><field>
+      <type>item</type>
       <label type="str">Type d'acte</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">S&#233;lectionnez le type.</hint>
       <varname type="str">document_type</varname>
@@ -85,10 +83,11 @@
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">5</id>
     </field><field>
+      <type>bool</type>
       <label type="str">Je souhaite le document d'aide &#224; la traduction (utilisable en Union Europ&#233;enne).</label>
-      <type type="str">bool</type>
       <condition>
         <type>django</type>
         <value>form_var_mode_delivrance_raw == "commune" or form_var_rb_concerne_raw == "tiers"</value>
@@ -99,8 +98,8 @@
         <display_location>summary</display_location>
       </display_locations><id type="str">69</id>
     </field><field>
+      <type>item</type>
       <label type="str">Langue pour la traduction</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>form_var_document_aide_trad</value>
@@ -117,24 +116,25 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">70</id>
     </field><field>
+      <type>page</type>
       <label type="str">Donn&#233;es de la personne concern&#233;e</label>
-      <type type="str">page</type>
       <id type="str">14</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder &lt;u&gt;les coordonn&amp;eacute;es de la personne d&amp;eacute;c&amp;eacute;d&amp;eacute;e :&lt;/u&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">15</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">16</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">nom_perscon</varname>
       <display_locations>
@@ -144,8 +144,8 @@
       <anonymise type="bool">True</anonymise>
       <id type="str">17</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">prenom_perscon</varname>
       <display_locations>
@@ -155,8 +155,8 @@
       <anonymise type="bool">True</anonymise>
       <id type="str">18</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn_perscon</varname>
@@ -171,8 +171,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">19</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date de naissance</label>
-      <type type="str">date</type>
       <required type="bool">True</required>
       <hint type="str">Format de la date : 01/01/2016</hint>
       <varname type="str">birthday_perscon</varname>
@@ -183,17 +183,18 @@
       <minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">20</id>
     </field><field>
+      <type>subtitle</type>
       <label type="str">ADRESSE</label>
-      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">21</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">rue_perscon</varname>
       <display_locations>
@@ -203,8 +204,8 @@
       <anonymise type="bool">True</anonymise>
       <id type="str">22</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
       <varname type="str">numero_perscon</varname>
@@ -218,8 +219,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">23</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">boite_perscon</varname>
       <display_locations>
@@ -229,8 +230,8 @@
       <anonymise type="bool">True</anonymise>
       <id type="str">24</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">cp_perscon</varname>
       <display_locations>
@@ -245,8 +246,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">46</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">localite_perscon</varname>
       <display_locations>
@@ -258,8 +259,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">47</id>
     </field><field>
+      <type>item</type>
       <label type="str">Pays</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">pays_perscon</varname>
@@ -276,24 +277,25 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">63</id>
     </field><field>
+      <type>page</type>
       <label type="str">Donn&#233;es du demandeur</label>
-      <type type="str">page</type>
       <id type="str">34</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&lt;u&gt;vos donn&amp;eacute;es&amp;nbsp;&lt;/u&gt;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">35</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">36</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">nom</varname>
       <display_locations>
@@ -306,8 +308,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">37</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">prenom</varname>
       <display_locations>
@@ -320,8 +322,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">38</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn</varname>
@@ -337,8 +339,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">39</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date de naissance</label>
-      <type type="str">date</type>
       <required type="bool">True</required>
       <varname type="str">birthday</varname>
       <display_locations>
@@ -351,17 +353,18 @@
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">40</id>
     </field><field>
+      <type>subtitle</type>
       <label type="str">ADRESSE</label>
-      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">42</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">rue</varname>
       <display_locations>
@@ -374,8 +377,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">43</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
       <varname type="str">numero</varname>
@@ -392,8 +395,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">44</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">boite</varname>
       <display_locations>
@@ -406,8 +409,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">45</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">cp</varname>
       <display_locations>
@@ -420,8 +423,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">60</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">localite</varname>
       <display_locations>
@@ -434,8 +437,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">61</id>
     </field><field>
+      <type>item</type>
       <label type="str">Pays</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">pays</varname>
@@ -453,10 +456,11 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">64</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <type type="str">email</type>
       <required type="bool">True</required>
       <varname type="str">email</varname>
       <display_locations>
@@ -468,8 +472,8 @@
         <value>_email</value>
       </prefill><id type="str">65</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Exemple : +3281005678 ou 0123456789.</hint>
       <varname type="str">tel</varname>
@@ -485,12 +489,19 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">50</id>
     </field><field>
+      <type>page</type>
       <label type="str">Destination du document</label>
-      <type type="str">page</type>
       <id type="str">51</id>
     </field><field>
+      <type>computed</type>
       <label type="str">Le document est destin&#233; &#224;</label>
-      <type type="str">item</type>
+      <varname type="str">le_document_est_destine_a</varname>
+      <value_template type="str">{% firstof form_option_motifs_disponibles_structured data_source.passerelle_motifs %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">e31f9896-5de6-46c3-a61c-bc9ba48373c0</id>
+    </field><field>
+      <type>item</type>
+      <label type="str">Le document est destin&#233; &#224;</label>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">motifs</varname>
@@ -498,21 +509,19 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">list</display_mode>
-      <items />
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>formula</type>
-        <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
+        <value>form_var_le_document_est_destine_a</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">52</id>
     </field><field>
+      <type>string</type>
       <label type="str">Si Autre</label>
-      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_motifs == "Autre"</value>
@@ -526,8 +535,15 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">53</id>
     </field><field>
+      <type>computed</type>
       <label type="str">Mode de r&#233;cup&#233;ration</label>
-      <type type="str">item</type>
+      <varname type="str">mode_de_recuperation</varname>
+      <value_template type="str">{% firstof form_option_mode_recup_disponibles_structured data_source.passerelle_destinations %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">b783fbda-115c-4d51-8841-a258508ffb3e</id>
+    </field><field>
+      <type>item</type>
+      <label type="str">Mode de r&#233;cup&#233;ration</label>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">destinations</varname>
@@ -535,21 +551,19 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">list</display_mode>
-      <items />
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>formula</type>
-        <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
+        <value>form_var_mode_de_recuperation</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">54</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nombre de certificats demand&#233;s</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Maximum 20 exemplaires.</hint>
       <varname type="str">nb_exemplaire</varname>
@@ -566,22 +580,22 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">55</id>
     </field><field>
+      <type>page</type>
       <label type="str">Prix de la d&#233;marche</label>
-      <type type="str">page</type>
       <id type="str">56</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
 
 &lt;ul&gt;
 	&lt;li&gt;Votre d&amp;eacute;marche sera automatiquement mise dans votre panier pour un paiement global de votre commande&lt;/li&gt;
 	&lt;li&gt;A ce montant, devront&amp;nbsp;&amp;eacute;ventuellement s'ajouter les frais de port.&lt;/li&gt;
 &lt;/ul&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">57</id>
     </field><field>
+      <type>string</type>
       <label type="str">Montant</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Hors &#233;ventuels frais de port.</hint>
       <display_locations>
