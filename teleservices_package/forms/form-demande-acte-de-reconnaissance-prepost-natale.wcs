@@ -2,7 +2,6 @@
 <formdef id="352" url="">
   <name>Acte de Reconnaissance pr&#233;/post-natale</name>
   <url_name>demande-acte-de-reconnaissance-prepost-natale</url_name>
-  <internal_identifier>demande-acte-de-reconnaissance-prepost-natale</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -13,11 +12,11 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-etat-civil" category_id="9">Etat-Civil</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="13">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>95</max_field_id>
+  <category slug="demande-etat-civil" category_id="8">Etat-Civil</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="22">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <fields>
     <field>
+      <type>comment</type>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
@@ -27,17 +26,17 @@
 &lt;p&gt;&lt;a href="{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/" rel="noopener noreferrer" target="_blank"&gt;Ajouter, supprimer ou modifier des motifs et destination&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
       <id type="str">74</id>
     </field><field>
+      <type>page</type>
       <label type="str">Extrait/Copie int&#233;grale d'acte de Reconnaissance</label>
-      <type type="str">page</type>
       <id type="str">2</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Attention : cette d&amp;eacute;marche consiste &amp;agrave; obtenir une copie ou un extrait de l&amp;#39;acte. La reconnaissance en tant que telle doit obligatoirement &amp;ecirc;tre effectu&amp;eacute;e sur place &amp;agrave; l&amp;#39;administration communale.&lt;/p&gt;
 
 &lt;p&gt;Cet acte peut donc &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par :&amp;nbsp;&lt;/p&gt;
@@ -49,12 +48,53 @@
 
 &lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le document vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d&amp;#39;identit&amp;eacute;.&lt;/strong&gt;&lt;/p&gt;
 </label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">3</id>
     </field><field>
+      <type>computed</type>
+      <label type="str">authentication_delivrance_items_visibility</label>
+      <varname type="str">authentication_delivrance_items_visibility</varname>
+      <value_template type="str">{{ data_source.mode_de_delivrance|authentication_delivrance_items_visibility:session_user }}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">92ad4e81-a006-4911-9376-cd51cfe55cda</id>
+    </field><field>
+      <type>computed</type>
+      <label type="str">BAEC cat&#233;gorie</label>
+      <varname type="str">baec_category</varname>
+      <value_template type="str">PRENATAL_RECOGNITION_CERTIFICATE</value_template>
+      <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
+      <id type="str">85</id>
+    </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{ form_option_actes_commentaire_additionnel }}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_actes_commentaire_additionnel</value>
+      </condition><display_locations />
+      <id type="str">89</id>
+    </field><field>
+      <type>comment</type>
+      <label type="str">&lt;h2&gt;Comment obtenir l&amp;#39;acte souhait&amp;eacute; ?&lt;/h2&gt;
+
+&lt;ol&gt;
+	&lt;li&gt;Si l&amp;#39;acte vous concerne et si vous &amp;ecirc;tes connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique ou l&amp;#39;application It&amp;#39;s Me, vous aurez la possibilit&amp;eacute; de r&amp;eacute;cup&amp;eacute;rer directement en format PDF l&amp;#39;extrait ou la copie de votre acte. Si cet acte n&amp;#39;a pas &amp;eacute;t&amp;eacute; num&amp;eacute;ris&amp;eacute; dans la Banque des Actes de l&amp;#39;Etat Civil, vous aurez la possibilit&amp;eacute; d&amp;#39;en faire la demande.&lt;/li&gt;
+	&lt;li&gt;Si l&amp;#39;acte ne vous concerne pas, vous pourrez faire la demande aupr&amp;egrave;s de l&amp;#39;administration communale pour un tiers. Une redevance communale et des frais li&amp;eacute;s au mode de r&amp;eacute;ception sont possibles. Vous pourrez r&amp;eacute;gler le montant d&amp;ucirc; en ligne.&lt;/li&gt;
+	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi. Si votre demande n&amp;#39;est pas valide, vous serez pr&amp;eacute;venu par e-mail et rembours&amp;eacute; de la somme per&amp;ccedil;ue dans les meilleurs d&amp;eacute;lais.&lt;/li&gt;
+&lt;/ol&gt;
+</label>
+      <display_locations />
+      <id type="str">90</id>
+    </field><field>
+      <type>computed</type>
+      <label type="str">Mode de d&#233;livrance ou redirection automatique</label>
+      <varname type="str">mode_de_delivrance_or_redirection_automatique</varname>
+      <value_template type="str">{% if form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique %}True{% else %}False{% endif %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">96</id>
+    </field><field>
+      <type>item</type>
       <label type="str">Mode de d&#233;livrance</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>form_option_redirection_automatique == False and imio_wcs_baec and session_user|is_strong_authentication</value>
@@ -64,66 +104,31 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
-      <items />
       <data_source>
         <type>formula</type>
-        <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
+        <value>form_var_authentication_delivrance_items_visibility</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">True</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">92</id>
     </field><field>
-      <label type="str">BAEC cat&#233;gorie</label>
-      <type type="str">computed</type>
-      <varname type="str">baec_category</varname>
-      <value_template type="str">PRENATAL_RECOGNITION_CERTIFICATE</value_template>
-      <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
-      <id type="str">85</id>
-    </field><field>
-      <label type="str">&lt;p&gt;{{ form_option_actes_commentaire_additionnel }}&lt;/p&gt;
-</label>
-      <type type="str">comment</type>
-      <condition>
-        <type>django</type>
-        <value>form_option_actes_commentaire_additionnel</value>
-      </condition><display_locations />
-      <id type="str">89</id>
-    </field><field>
-      <label type="str">&lt;h2&gt;Comment obtenir l&amp;#39;acte souhait&amp;eacute; ?&lt;/h2&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;Si l&amp;#39;acte vous concerne et si vous &amp;ecirc;tes connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique ou l&amp;#39;application It&amp;#39;s Me, vous aurez la possibilit&amp;eacute; de r&amp;eacute;cup&amp;eacute;rer directement en format PDF l&amp;#39;extrait ou la copie de votre acte. Si cet acte n&amp;#39;a pas &amp;eacute;t&amp;eacute; num&amp;eacute;ris&amp;eacute; dans la Banque des Actes de l&amp;#39;Etat Civil, vous aurez la possibilit&amp;eacute; d&amp;#39;en faire la demande.&lt;/li&gt;
-	&lt;li&gt;Si l&amp;#39;acte ne vous concerne pas, vous pourrez faire la demande aupr&amp;egrave;s de l&amp;#39;administration communale pour un tiers. Une redevance communale et des frais li&amp;eacute;s au mode de r&amp;eacute;ception sont possibles. Vous pourrez r&amp;eacute;gler le montant d&amp;ucirc; en ligne.&lt;/li&gt;
-	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi. Si votre demande n&amp;#39;est pas valide, vous serez pr&amp;eacute;venu par e-mail et rembours&amp;eacute; de la somme per&amp;ccedil;ue dans les meilleurs d&amp;eacute;lais.&lt;/li&gt;
-&lt;/ol&gt;
-</label>
-      <type type="str">comment</type>
-      <display_locations />
-      <id type="str">90</id>
-    </field><field>
-      <label type="str">Mode de d&#233;livrance ou redirection automatique</label>
-      <type type="str">computed</type>
-      <varname type="str">mode_de_delivrance_or_redirection_automatique</varname>
-      <value_template type="str">{% if form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique %}True{% else %}False{% endif %}</value_template>
-      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
-      <id type="str">96</id>
-    </field><field>
+      <type>page</type>
       <label type="str">Liste des actes disponibles</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>imio_wcs_baec and session_user|is_strong_authentication and form_var_mode_de_delivrance_or_redirection_automatique == "True"</value>
       </condition><id type="str">78</id>
     </field><field>
+      <type>computed</type>
       <label type="str">Service disponible</label>
-      <type type="str">computed</type>
       <varname type="str">service_disponible</varname>
       <value_template type="str">{{ webservice.baec_service_disponible.err }}</value_template>
       <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
       <id type="str">82</id>
     </field><field>
+      <type>item</type>
       <label type="str">Liste des actes disponibles</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>data_source.baec_documents_by_category|length &gt; 0</value>
@@ -139,11 +144,12 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">True</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">83</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Il n&amp;#39;est actuellement pas possible de r&amp;eacute;cup&amp;eacute;rer votre document dans la Banque des Actes de l&amp;#39;Etat Civil. Vous pouvez r&amp;eacute;essayer plus tard ou faire votre demande directement aupr&amp;egrave;s de votre administration communale en cliquant sur &amp;quot;Suivant&amp;quot;.&lt;/p&gt;
 </label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>data_source.baec_documents_by_category|length &lt;= 0 and form_var_service_disponible == "1"</value>
@@ -152,9 +158,9 @@
         <display_location>validation</display_location>
       </display_locations><id type="str">84</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Votre document doit encore &amp;ecirc;tre num&amp;eacute;ris&amp;eacute; dans Banque des Actes de l&amp;#39;Etat Civil. Une demande de migration va &amp;ecirc;tre introduite aupr&amp;egrave;s des services concern&amp;eacute;s, le document devrait &amp;ecirc;tre disponible dans le d&amp;eacute;lais de : {{ form_option_delai_migration }} jours. Veuillez poursuivre la proc&amp;eacute;dure en cliquant sur &amp;quot;Suivant.&lt;/p&gt;
 </label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>form_var_baec_document_select_migration_command</value>
@@ -163,11 +169,11 @@
         <display_location>validation</display_location>
       </display_locations><id type="str">86</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Il semble ne pas y avoir d&amp;#39;acte de reconnaissance pr&amp;eacute;/post-natale relatif &amp;agrave; votre num&amp;eacute;ro de registre national dans la Banque des Actes d&amp;#39;Etat Civil (BAEC).&lt;/p&gt;
 
 &lt;p&gt;Veuillez poursuivre la demande si vous pensez que c&amp;#39;est une erreur.&lt;/p&gt;
 </label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>data_source.baec_documents_by_category|length == 0</value>
@@ -176,15 +182,15 @@
         <display_location>validation</display_location>
       </display_locations><id type="str">87</id>
     </field><field>
+      <type>page</type>
       <label type="str">Date de l'acte</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>session_user|is_strong_authentication and not imio_wcs_baec and form_var_mode_de_delivrance_or_redirection_automatique == "True"</value>
       </condition><id type="str">76</id>
     </field><field>
+      <type>item</type>
       <label type="str">De quand date l'acte demand&#233;</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -197,17 +203,18 @@
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">77</id>
     </field><field>
+      <type>page</type>
       <label type="str">Document souhait&#233;</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_var_date_acte != "None" and form_var_date_acte != 'Apr&#232;s le 31-03-2019' or not form_var_baec_document_select_migration_command</value>
       </condition><id type="str">4</id>
     </field><field>
+      <type>item</type>
       <label type="str">Type d'acte</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>not form_var_baec_document_select</value>
@@ -226,10 +233,11 @@
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">5</id>
     </field><field>
+      <type>item</type>
       <label type="str">Type de reconaissance</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>not form_var_baec_document_select</value>
@@ -247,10 +255,11 @@
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">69</id>
     </field><field>
+      <type>item</type>
       <label type="str">Type d'acte</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>form_var_baec_document_select</value>
@@ -268,27 +277,28 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">81</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Le type de document souhait&amp;eacute; n&amp;#39;est pas pr&amp;eacute;sent dans la liste ? Cliquez sur &amp;quot;&lt;strong&gt;Pr&amp;eacute;c&amp;eacute;dent&lt;/strong&gt;&amp;quot; et faites-en la demande directement aupr&amp;egrave;s de votre administration communale.&lt;/p&gt;
 </label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>baec_document_select</value>
       </condition><display_locations />
       <id type="str">95</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;{% for el in form_var_baec_document_select_structured_types %}{% if el|get:"id" == "E" %}- Extrait : Document qui ne comporte qu'une partie des informations figurant dans l'acte de reconnaissance pr&#233;/post natale.&lt;br&gt;{% endif %}{% if el|get:"id" == "C" %}- Copie : Document qui reprend l'int&#233;gralit&#233; des informations reprises sur l'acte de reconnaissance pr&#233;/post natale.&lt;br&gt;{% endif %}{% if el|get:"id" == "A" %}- Article 16 : Document extrait d'acte multilingue (les 3 langues nationales + l'anglais).{% endif %}{% endfor %}&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>form_var_baec_document_select_structured_types</value>
       </condition><display_locations />
       <id type="str">88</id>
     </field><field>
+      <type>bool</type>
       <label type="str">Je souhaite le document d'aide &#224; la traduction (utilisable en Union Europ&#233;enne).</label>
-      <type type="str">bool</type>
       <condition>
         <type>django</type>
         <value>form_var_mode_delivrance_raw == "commune" or form_var_rb_concerne_raw == "tiers"</value>
@@ -299,8 +309,8 @@
         <display_location>summary</display_location>
       </display_locations><id type="str">91</id>
     </field><field>
+      <type>item</type>
       <label type="str">Langue pour la traduction</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>form_var_document_aide_trad</value>
@@ -317,27 +327,28 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">94</id>
     </field><field>
+      <type>page</type>
       <label type="str">Donn&#233;es de la personne concern&#233;e par l'acte</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>not form_var_baec_document_type</value>
       </condition><id type="str">14</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder les coordonn&amp;eacute;es de la personne concern&amp;eacute;e&lt;/span&gt;&lt;/strong&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;: &lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">15</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">16</id>
     </field><field>
+      <type>item</type>
       <label type="str">La personne concern&#233;e par l'acte est</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <varname type="str">personne_concernee</varname>
       <display_locations>
@@ -351,10 +362,11 @@
       </items><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">93</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;cisez votre lien de parent&#233; ou votre fonction en rapport &#224; la personne concern&#233;e</label>
-      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_personne_concernee == "Autre"</value>
@@ -367,8 +379,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">75</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">nom_perscon</varname>
       <display_locations>
@@ -380,8 +392,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">17</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">prenom_perscon</varname>
       <display_locations>
@@ -391,8 +403,8 @@
       <anonymise type="bool">True</anonymise>
       <id type="str">18</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn_perscon</varname>
@@ -407,8 +419,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">19</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date de naissance</label>
-      <type type="str">date</type>
       <required type="bool">True</required>
       <hint type="str">Format de la date : 01/01/2016</hint>
       <varname type="str">birthday_perscon</varname>
@@ -421,17 +433,18 @@
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">20</id>
     </field><field>
+      <type>subtitle</type>
       <label type="str">ADRESSE</label>
-      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">21</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">rue_perscon</varname>
       <display_locations>
@@ -443,8 +456,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">22</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
       <varname type="str">numero_perscon</varname>
@@ -460,8 +473,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">23</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">boite_perscon</varname>
       <display_locations>
@@ -471,8 +484,8 @@
       <anonymise type="bool">True</anonymise>
       <id type="str">24</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">cp_perscon</varname>
       <display_locations>
@@ -487,8 +500,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">46</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">localite_perscon</varname>
       <display_locations>
@@ -500,8 +513,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">47</id>
     </field><field>
+      <type>item</type>
       <label type="str">Pays</label>
-      <type type="str">item</type>
       <required type="bool">False</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">pays_perscon</varname>
@@ -518,10 +531,11 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">63</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <type type="str">email</type>
       <required type="bool">True</required>
       <varname type="str">email_perscon</varname>
       <display_locations>
@@ -532,8 +546,8 @@
         <type>none</type>
       </prefill><id type="str">65</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">tel_perscon</varname>
       <display_locations>
@@ -547,25 +561,25 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">71</id>
     </field><field>
+      <type>page</type>
       <label type="str">Donn&#233;es du demandeur</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_var_personne_concernee == "Autre" and not form_var_baec_document_type or form_var_personne_concernee == "Mon enfant" and not form_var_baec_document_type</value>
       </condition><id type="str">34</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;Veuillez encoder&lt;/span&gt;&lt;/strong&gt;&lt;span class="apple-converted-space" style="line-height: normal;"&gt;&lt;b&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;&amp;nbsp;vos donn&amp;eacute;es&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;strong style="line-height: normal;"&gt;&lt;span style="font-size: 10pt; font-family: Arial, sans-serif;"&gt;:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">35</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong style="line-height: 23.1111106872559px;"&gt;*&lt;/strong&gt;&lt;span style="line-height: 23.1111106872559px;"&gt;&amp;nbsp;= champ obligatoire&lt;/span&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">36</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">nom</varname>
       <display_locations>
@@ -578,8 +592,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">37</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">prenom</varname>
       <display_locations>
@@ -592,8 +606,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">38</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn</varname>
@@ -609,8 +623,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">39</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date de naissance</label>
-      <type type="str">date</type>
       <required type="bool">True</required>
       <varname type="str">birthday</varname>
       <display_locations>
@@ -623,17 +637,18 @@
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">40</id>
     </field><field>
+      <type>subtitle</type>
       <label type="str">ADRESSE</label>
-      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">42</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">rue</varname>
       <display_locations>
@@ -646,8 +661,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">43</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
       <varname type="str">numero</varname>
@@ -664,8 +679,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">44</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">boite</varname>
       <display_locations>
@@ -678,8 +693,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">45</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">cp</varname>
       <display_locations>
@@ -692,8 +707,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">60</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">localite</varname>
       <display_locations>
@@ -706,8 +721,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">61</id>
     </field><field>
+      <type>item</type>
       <label type="str">Pays</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">pays</varname>
@@ -725,10 +740,11 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">64</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <type type="str">email</type>
       <required type="bool">True</required>
       <varname type="str">email</varname>
       <display_locations>
@@ -740,8 +756,8 @@
         <value>_email</value>
       </prefill><id type="str">70</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">tel</varname>
       <display_locations>
@@ -758,15 +774,22 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">50</id>
     </field><field>
+      <type>page</type>
       <label type="str">Destination du document</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>not form_var_baec_document_type</value>
       </condition><id type="str">51</id>
     </field><field>
+      <type>computed</type>
       <label type="str">Le document est destin&#233; &#224;</label>
-      <type type="str">item</type>
+      <varname type="str">le_document_est_destine_a</varname>
+      <value_template type="str">{% firstof form_option_motifs_disponibles_structured data_source.passerelle_motifs %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">8f6678b6-45aa-4114-bda9-6ae5a60d48e3</id>
+    </field><field>
+      <type>item</type>
+      <label type="str">Le document est destin&#233; &#224;</label>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">motifs</varname>
@@ -774,21 +797,19 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">list</display_mode>
-      <items />
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>formula</type>
-        <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
+        <value>form_var_le_document_est_destine_a</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">52</id>
     </field><field>
+      <type>string</type>
       <label type="str">Si Autre, veuillez pr&#233;ciser</label>
-      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_motifs == "Autre"</value>
@@ -802,8 +823,15 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">53</id>
     </field><field>
+      <type>computed</type>
       <label type="str">Mode de r&#233;cup&#233;ration</label>
-      <type type="str">item</type>
+      <varname type="str">mode_de_recuperation</varname>
+      <value_template type="str">{% firstof form_option_mode_recup_disponibles_structured data_source.passerelle_destinations %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">badab110-788a-4005-a78a-f377994fd99e</id>
+    </field><field>
+      <type>item</type>
+      <label type="str">Mode de r&#233;cup&#233;ration</label>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">destinations</varname>
@@ -811,21 +839,19 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">list</display_mode>
-      <items />
+      <display_mode type="str">list</display_mode>
       <data_source>
         <type>formula</type>
-        <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
+        <value>form_var_mode_de_recuperation</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">54</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nombre de certificats demand&#233;s</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Maximum 20 exemplaires.</hint>
       <varname type="str">nb_exemplaire</varname>
@@ -842,25 +868,25 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">55</id>
     </field><field>
+      <type>page</type>
       <label type="str">Prix de la d&#233;marche</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>not form_var_baec_document_type</value>
       </condition><id type="str">56</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
 
 &lt;ul&gt;
 	&lt;li&gt;Votre d&amp;eacute;marche sera automatiquement comptabilis&amp;eacute;e&amp;nbsp;dans votre panier pour un paiement global de votre commande&lt;/li&gt;
 	&lt;li&gt;A ce montant, devront &amp;eacute;ventuellement s'ajouter les frais de port.&lt;/li&gt;
 &lt;/ul&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">57</id>
     </field><field>
+      <type>string</type>
       <label type="str">Montant</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Hors &#233;ventuels frais de port.</hint>
       <display_locations>
