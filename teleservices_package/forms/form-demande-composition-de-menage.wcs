@@ -3,7 +3,6 @@
   <name>Composition de m&#233;nage</name>
   <url_name>demande-composition-de-menage</url_name>
   <description>&lt;p&gt;La composition de m&#233;nage reprend toutes les personnes inscrites &#224; une m&#234;me adresse.&lt;/p&gt;</description>
-  <internal_identifier>demande-composition-de-menage</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -14,13 +13,12 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-population" category_id="12">Population</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="13">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
-  <max_field_id>71</max_field_id>
+  <category slug="demande-population" category_id="9">Population</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="22">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
   <fields>
     <field>
+      <type>page</type>
       <label type="str">Comment obtenir mon document</label>
-      <type type="str">page</type>
       <post_conditions>
         <post_condition>
           <condition>
@@ -30,6 +28,14 @@
         </post_condition>
       </post_conditions><id type="str">64</id>
     </field><field>
+      <type>computed</type>
+      <label type="str">authentication_delivrance_items_visibility</label>
+      <varname type="str">authentication_delivrance_items_visibility</varname>
+      <value_template type="str">{{ data_source.mode_de_delivrance|authentication_delivrance_items_visibility:session_user }}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">88bcf561-1fe3-4530-bca9-6edee2da3955</id>
+    </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;&lt;span lang="FR"&gt;Ce document &amp;eacute;tablit et atteste la composition du m&amp;eacute;nage du demandeur.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;u&gt;Traitement :&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -40,12 +46,11 @@
 	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l'adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
 	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi. Si votre demande n'est pas valide, vous serez pr&amp;eacute;venu par e-mail et rembours&amp;eacute; de la somme per&amp;ccedil;ue dans les meilleurs d&amp;eacute;lais.&lt;/li&gt;
 &lt;/ol&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">62</id>
     </field><field>
+      <type>item</type>
       <label type="str">Le document demand&#233; :</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <varname type="str">concerne_qui</varname>
       <display_locations>
@@ -60,8 +65,10 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">2</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;La composition de m&amp;eacute;nage peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit :&lt;/p&gt;
 
 &lt;p&gt;1. En la t&amp;eacute;l&amp;eacute;chargeant gratuitement via l&amp;#39;application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
@@ -69,15 +76,14 @@
 &lt;p&gt;2. En la commandant sur notre e-guichet (cette m&amp;eacute;thode peut engendrer des frais)&lt;/p&gt;
 
 &lt;p&gt;Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>form_option_redirection_automatique == False and form_var_concerne_qui_raw == 'moi'</value>
       </condition><display_locations />
       <id type="str">65</id>
     </field><field>
+      <type>item</type>
       <label type="str">Mode de d&#233;livrance</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>form_option_redirection_automatique == False and form_var_concerne_qui_raw == 'moi'</value>
@@ -86,21 +92,19 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">radio</display_mode>
-      <items />
+      </display_locations><display_mode type="str">radio</display_mode>
       <data_source>
         <type>formula</type>
-        <value>script.commune("authentication_delivrance_items_visibility",{'datasource':data_source.mode_de_delivrance,'auth':session_user.verified_fields})</value>
+        <value>form_var_authentication_delivrance_items_visibility</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">True</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">66</id>
     </field><field>
+      <type>item</type>
       <label type="str">O&#249; est domicili&#233;(e) la personne concern&#233;e par ce document ?</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <varname type="str">rb_domicile</varname>
       <display_locations>
@@ -116,10 +120,11 @@
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">53</id>
     </field><field>
+      <type>page</type>
       <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_var_concerne_qui == "Concerne une autre personne"</value>
@@ -132,15 +137,15 @@
         </post_condition>
       </post_conditions><id type="str">18</id>
     </field><field>
+      <type>title</type>
       <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">19</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn_perscon</varname>
@@ -154,8 +159,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">20</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">nom_perscon</varname>
       <display_locations>
@@ -167,8 +172,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">21</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">prenom_perscon</varname>
       <display_locations>
@@ -180,8 +185,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">22</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">rue_perscon</varname>
       <display_locations>
@@ -193,8 +198,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">23</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">numero_perscon</varname>
       <display_locations>
@@ -206,8 +211,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">24</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">code_postal_perscon</varname>
       <display_locations>
@@ -222,8 +227,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">11</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">localite_perscon</varname>
       <display_locations>
@@ -236,8 +241,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">55</id>
     </field><field>
+      <type>item</type>
       <label type="str">Pays</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">pays_perscon</varname>
@@ -254,10 +259,11 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">68</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <type type="str">email</type>
       <required type="bool">False</required>
       <varname type="str">email_perscon</varname>
       <display_locations>
@@ -268,8 +274,8 @@
         <type>none</type>
       </prefill><id type="str">26</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">tel_perscon</varname>
       <display_locations>
@@ -283,8 +289,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">70</id>
     </field><field>
+      <type>page</type>
       <label type="str">Mes coordonn&#233;es</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
@@ -297,15 +303,15 @@
         </post_condition>
       </post_conditions><id type="str">3</id>
     </field><field>
+      <type>title</type>
       <label type="str">Mes coordonn&#233;es</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">4</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn</varname>
@@ -321,8 +327,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">5</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">nom</varname>
       <display_locations>
@@ -335,8 +341,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">6</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">prenom</varname>
       <display_locations>
@@ -349,8 +355,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">7</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">rue</varname>
       <display_locations>
@@ -363,8 +369,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">8</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">numero</varname>
       <display_locations>
@@ -380,8 +386,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">9</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">boite</varname>
       <display_locations>
@@ -394,8 +400,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">10</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">cp</varname>
       <display_locations>
@@ -411,8 +417,8 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">54</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">localite</varname>
       <display_locations>
@@ -425,8 +431,8 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">12</id>
     </field><field>
+      <type>item</type>
       <label type="str">Pays</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">pays</varname>
@@ -444,10 +450,11 @@
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">69</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <type type="str">email</type>
       <required type="bool">True</required>
       <varname type="str">email</varname>
       <display_locations>
@@ -459,8 +466,8 @@
         <value>_email</value>
       </prefill><id type="str">15</id>
     </field><field>
+      <type>string</type>
       <label type="str">T&#233;l&#233;phone</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Exemple : +3281005678 ou 0123456789.</hint>
       <varname type="str">tel</varname>
@@ -469,7 +476,6 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill><validation>
@@ -479,20 +485,20 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">13</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="{{ idp_account_url }}edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">16</id>
     </field><field>
+      <type>page</type>
       <label type="str">Informations compl&#233;mentaires</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><id type="str">27</id>
     </field><field>
+      <type>date</type>
       <label type="str">Date souhait&#233;e du certificat</label>
-      <type type="str">date</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -504,10 +510,18 @@
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">True</date_can_be_today>
+      <anonymise type="bool">True</anonymise>
       <id type="str">60</id>
     </field><field>
+      <type>computed</type>
       <label type="str">Le document est destin&#233; &#224;</label>
-      <type type="str">item</type>
+      <varname type="str">le_document_est_destine_a</varname>
+      <value_template type="str">{% firstof form_option_motifs_disponibles_structured data_source.passerelle_motifs %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">45f6a1c6-6911-47dc-812c-e4a1dc411a3e</id>
+    </field><field>
+      <type>item</type>
+      <label type="str">Le document est destin&#233; &#224;</label>
       <required type="bool">True</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">motifs</varname>
@@ -516,18 +530,18 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <display_mode type="str">list</display_mode>
-      <items />
       <data_source>
         <type>formula</type>
-        <value>vars().get('form_option_motifs_disponibles_structured') or data_source.passerelle_motifs</value>
+        <value>form_var_le_document_est_destine_a</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">28</id>
     </field><field>
+      <type>string</type>
       <label type="str">Si Autre</label>
-      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>form_var_motifs == "Autre"</value>
@@ -541,29 +555,34 @@
       </prefill><anonymise type="bool">True</anonymise>
       <id type="str">56</id>
     </field><field>
+      <type>computed</type>
       <label type="str">Mode d'envoi</label>
-      <type type="str">item</type>
+      <varname type="str">mode_d_envoi</varname>
+      <value_template type="str">{% firstof form_option_mode_recup_disponibles_structured data_source.passerelle_destinations %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">907c149a-3166-455a-b9be-218ddb5a82bc</id>
+    </field><field>
+      <type>item</type>
+      <label type="str">Mode d'envoi</label>
       <required type="bool">True</required>
       <varname type="str">destinations</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">radio</display_mode>
-      <items />
+      <display_mode type="str">radio</display_mode>
       <data_source>
         <type>formula</type>
-        <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
+        <value>form_var_mode_d_envoi</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <id type="str">57</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nombre de certificats demand&#233;s</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Maximum 20 exemplaires.</hint>
       <varname type="str">nb_exemplaire</varname>
@@ -580,24 +599,24 @@
       </validation><anonymise type="bool">True</anonymise>
       <id type="str">58</id>
     </field><field>
+      <type>page</type>
       <label type="str">Prix de la d&#233;marche</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition><id type="str">63</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Ci-dessous, veuillez prendre connaissance du montant de votre demande.&lt;/p&gt;
 
 &lt;p&gt;Votre d&amp;eacute;marche sera automatiquement ajout&amp;eacute;e dans votre panier pour un paiement global de votre commande&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;A ce montant, devront&amp;nbsp;&amp;eacute;ventuellement s'ajouter les frais de port.&lt;/strong&gt;&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">33</id>
     </field><field>
+      <type>string</type>
       <label type="str">Montant</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
