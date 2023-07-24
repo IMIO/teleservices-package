@@ -3,7 +3,6 @@
   <name>Occupation de la voie publique</name>
   <url_name>demande-d-occupation-de-la-voie-publique</url_name>
   <description>Pour demander l'autorisation d'installer un container, d'un &#233;chaffaudage ou de tout autre mat&#233;riel sur la voie publique, vous pouvez compl&#233;ter ce formulaire.</description>
-  <internal_identifier>demande-occupation-de-la-voie-publique</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -16,9 +15,9 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-travaux" category_id="7">Travaux</category>
   <workflow slug="imio-occupation-de-la-voie-publique" workflow_id="7">iMio - Occupation de la voie publique</workflow>
-  <max_field_id>263</max_field_id>
   <fields>
     <field>
+      <type>comment</type>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
@@ -26,15 +25,14 @@
 &lt;p&gt;&lt;a href="occupation_voie_publique.rst" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
       <id type="str">263</id>
     </field><field>
+      <type>page</type>
       <label type="str">Demandeur</label>
-      <type type="str">page</type>
       <post_conditions>
         <post_condition>
           <condition>
@@ -49,8 +47,8 @@
         </post_condition>
       </post_conditions><id type="str">1</id>
     </field><field>
+      <type>item</type>
       <label type="str">Vous &#234;tes :</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <varname type="str">typedemandeur</varname>
       <display_locations>
@@ -64,35 +62,38 @@
         <item>Un particulier</item>
         <item>Un entrepreneur</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">2</id>
     </field><field>
+      <type>subtitle</type>
       <label type="str">Information importante</label>
-      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">3</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Les demandes d'occupation de la voie publique doivent &amp;ecirc;tre introduites &lt;strong&gt;au plus tard &lt;span class="varname"&gt;{{ form_option_jours_minimum }}&lt;/span&gt; jours ouvrables&lt;/strong&gt; avant le d&amp;eacute;but de l'occupation.&lt;/p&gt;
 
 &lt;p&gt;Ce d&amp;eacute;lai peut-&amp;ecirc;tre plus long si une d&amp;eacute;cision du Coll&amp;egrave;ge communal est n&amp;eacute;cessaire.&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">4</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Vous pouvez &lt;a href="{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>form_option_reglement_communal</value>
       </condition><display_locations />
       <id type="str">238</id>
     </field><field>
+      <type>date</type>
       <label type="str">Du :</label>
-      <type type="str">date</type>
       <required type="bool">True</required>
       <varname type="str">datedebut</varname>
       <display_locations>
@@ -105,10 +106,11 @@
       </prefill><minimum_is_future type="bool">True</minimum_is_future>
       <date_in_the_past type="bool">False</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
+      <anonymise type="str">final</anonymise>
       <id type="str">5</id>
     </field><field>
+      <type>item</type>
       <label type="str">Heure</label>
-      <type type="str">item</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -121,13 +123,16 @@
       <data_source>
         <type>heure</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">241</id>
     </field><field>
+      <type>item</type>
       <label type="str">Minutes</label>
-      <type type="str">item</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -140,13 +145,16 @@
       <data_source>
         <type>minute</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">242</id>
     </field><field>
+      <type>date</type>
       <label type="str">Au :</label>
-      <type type="str">date</type>
       <required type="bool">True</required>
       <varname type="str">datefin</varname>
       <display_locations>
@@ -159,10 +167,11 @@
       </prefill><minimum_is_future type="bool">True</minimum_is_future>
       <date_in_the_past type="bool">False</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
+      <anonymise type="str">final</anonymise>
       <id type="str">6</id>
     </field><field>
+      <type>item</type>
       <label type="str">Heure</label>
-      <type type="str">item</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -175,13 +184,16 @@
       <data_source>
         <type>heure</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">259</id>
     </field><field>
+      <type>item</type>
       <label type="str">Minutes</label>
-      <type type="str">item</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -194,20 +206,23 @@
       <data_source>
         <type>minute</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">260</id>
     </field><field>
+      <type>page</type>
       <label type="str">Coordonn&#233;es entrepreneur</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_var_typedemandeur == "un entrepreneur"</value>
       </condition><id type="str">9</id>
     </field><field>
+      <type>string</type>
       <label type="str">N&#176; de TVA</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">ex : BE0841470248</hint>
       <varname type="str">tva_number</varname>
@@ -219,11 +234,11 @@
         <error_message>Le num&#233;ro de TVA doit &#234;tre valide, comporter 10 chiffres et commencer par BE. (pour les anciens num&#233;ros de 9 chiffres : BE0)</error_message>
         <type>django</type>
         <value>value|is_valid_tva_number</value>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">10</id>
     </field><field>
+      <type>string</type>
       <label type="str">Raison sociale</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -231,11 +246,11 @@
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">11</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom de l'entreprise</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -244,11 +259,11 @@
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">12</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom de l'entrepreneur</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -256,11 +271,11 @@
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">13</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -268,11 +283,11 @@
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">14</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -281,11 +296,11 @@
       <prefill>
         <type>none</type>
       </prefill><size type="str">[0-9]*</size>
-      <anonymise type="bool">True</anonymise>
+      <anonymise type="str">final</anonymise>
       <id type="str">15</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -293,11 +308,11 @@
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">16</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -308,11 +323,11 @@
       </prefill><validation>
         <type>regex</type>
         <value>[0-9]*</value>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">17</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -320,11 +335,11 @@
       </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">18</id>
     </field><field>
+      <type>string</type>
       <label type="str">T&#233;l&#233;phone ou GSM</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">tel_societe</varname>
       <display_locations>
@@ -335,11 +350,11 @@
         <type>none</type>
       </prefill><validation>
         <type>phone</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">19</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse &#233;lectronique</label>
-      <type type="str">email</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -349,15 +364,15 @@
         <type>none</type>
       </prefill><id type="str">20</id>
     </field><field>
+      <type>page</type>
       <label type="str">Coordonn&#233;es de la personne concern&#233;e par la demande</label>
-      <type type="str">page</type>
       <condition>
         <type>django</type>
         <value>form_var_typedemandeur == "Un particulier"</value>
       </condition><id type="str">34</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -366,11 +381,11 @@
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">36</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -379,11 +394,11 @@
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">37</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -392,11 +407,11 @@
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">38</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -406,11 +421,11 @@
         <type>user</type>
         <value>_num_house</value>
       </prefill><size type="str">[0-9]*</size>
-      <anonymise type="bool">True</anonymise>
+      <anonymise type="str">final</anonymise>
       <id type="str">39</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -419,11 +434,11 @@
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">40</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -432,11 +447,11 @@
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">236</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -444,11 +459,11 @@
       </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">237</id>
     </field><field>
+      <type>string</type>
       <label type="str">T&#233;l&#233;phone ou GSM</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <hint type="str">Ex. : 0475123456 ou 0032475123456 ou +32475123456</hint>
       <varname type="str">tel</varname>
@@ -461,11 +476,11 @@
         <value>_phone</value>
       </prefill><validation>
         <type>phone</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">43</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse &#233;lectronique</label>
-      <type type="str">email</type>
       <required type="bool">True</required>
       <varname type="str">email</varname>
       <display_locations>
@@ -477,8 +492,8 @@
         <value>_email</value>
       </prefill><id type="str">44</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom de la soci&#233;t&#233; ou du citoyen effectuant les travaux et/ou qui d&#233;pose le mat&#233;riel</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -486,11 +501,11 @@
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">45</id>
     </field><field>
+      <type>string</type>
       <label type="str">T&#233;l&#233;phone</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -499,22 +514,22 @@
         <type>none</type>
       </prefill><validation>
         <type>phone</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">245</id>
     </field><field>
+      <type>page</type>
       <label type="str">Renseignements g&#233;n&#233;raux</label>
-      <type type="str">page</type>
       <id type="str">46</id>
     </field><field>
+      <type>title</type>
       <label type="str">Occupation de la voirie (&#224; compl&#233;ter si diff&#233;rent de l'adresse renseign&#233;e pr&#233;c&#233;demment)</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">47</id>
     </field><field>
+      <type>item</type>
       <label type="str">Portion de voirie occup&#233;e</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -527,13 +542,16 @@
         <item>Occupation en semi-voirie</item>
         <item>Neutralisation totale de la voirie</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">246</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">rue_chantier</varname>
       <display_locations>
@@ -542,11 +560,11 @@
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">48</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">numero_chantier</varname>
       <display_locations>
@@ -557,11 +575,11 @@
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">49</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">boite_chantier</varname>
       <display_locations>
@@ -570,11 +588,11 @@
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">50</id>
     </field><field>
+      <type>item</type>
       <label type="str">Code postal</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <hint type="str">Choisissez un code postal</hint>
       <varname type="str">code_postal_chantier</varname>
@@ -582,9 +600,7 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">list</display_mode>
+      <display_mode type="str">list</display_mode>
       <items>
         <item>7100</item>
         <item>7110</item>
@@ -592,13 +608,16 @@
         <type>formula</type>
         <value>commune_cp.split(",")</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">233</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">localite_chantier</varname>
       <display_locations>
@@ -607,25 +626,25 @@
       </display_locations><extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">239</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;En cas de d&amp;eacute;p&amp;ocirc;t en zone de stationnement altern&amp;eacute;e, veillez &amp;agrave; intervenir durant la bonne quinzaine.&lt;/p&gt;
 
 &lt;p&gt;Il n'y a pas de contre-indication &amp;agrave; la d&amp;eacute;livrance d'autorisation d'occupation de la voie publique en zones bleues et riveraines&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">53</id>
     </field><field>
+      <type>title</type>
       <label type="str">Informations sur le lieu du chantier</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">54</id>
     </field><field>
+      <type>item</type>
       <label type="str">Zone de stationnement du m&#234;me c&#244;t&#233; que la demande</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -637,13 +656,16 @@
         <item>Oui</item>
         <item>Non</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">55</id>
     </field><field>
+      <type>item</type>
       <label type="str">Zone de stationnement du c&#244;t&#233; oppos&#233; au chantier</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -655,13 +677,16 @@
         <item>Oui</item>
         <item>Non</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">56</id>
     </field><field>
+      <type>item</type>
       <label type="str">Zone de stationnement altern&#233;e par quinzaine (voir dans la rubrique "Informations compl&#233;mentaires")</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -674,13 +699,16 @@
         <item>Non</item>
         <item>Je ne sais pas</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">57</id>
     </field><field>
+      <type>item</type>
       <label type="str">Zone de stationnement priv&#233;</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -692,13 +720,16 @@
         <item>Oui</item>
         <item>Non</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">248</id>
     </field><field>
+      <type>item</type>
       <label type="str">Pr&#233;sence d&#8217;une piste cyclable</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -710,13 +741,16 @@
         <item>Oui</item>
         <item>Non</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">247</id>
     </field><field>
+      <type>item</type>
       <label type="str">Trottoir disponible de + 2.5 m</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -729,13 +763,16 @@
         <item>Non</item>
         <item>Je ne sais pas</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">58</id>
     </field><field>
+      <type>item</type>
       <label type="str">Arr&#234;t de bus</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -748,13 +785,16 @@
         <item>Non</item>
         <item>Je ne sais pas</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">59</id>
     </field><field>
+      <type>item</type>
       <label type="str">Zone de stationnement PMR</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -766,13 +806,16 @@
         <item>Oui</item>
         <item>Non</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">225</id>
     </field><field>
+      <type>item</type>
       <label type="str">Stationnement interdit &#224; l'endroit de la demande</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -784,13 +827,16 @@
         <item>Oui</item>
         <item>Non</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">60</id>
     </field><field>
+      <type>text</type>
       <label type="str">Autres informations utiles &#224; la r&#233;daction de l&#8217;arr&#234;t&#233; / divers</label>
-      <type type="str">text</type>
       <required type="bool">False</required>
       <hint type="str">Optionnel.</hint>
       <display_locations>
@@ -800,14 +846,15 @@
       <prefill>
         <type>none</type>
       </prefill><display_mode type="str">plain</display_mode>
+      <anonymise type="str">final</anonymise>
       <id type="str">226</id>
     </field><field>
+      <type>page</type>
       <label type="str">Descriptif de l&#8217;occupation de la voirie et mat&#233;riel</label>
-      <type type="str">page</type>
       <id type="str">61</id>
     </field><field>
+      <type>item</type>
       <label type="str">Raison de l'occupation</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>form_var_typedemandeur == "Un particulier"</value>
@@ -829,13 +876,16 @@
         <item>Livraison</item>
         <item>Autre : &#224; pr&#233;ciser</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">227</id>
     </field><field>
+      <type>text</type>
       <label type="str">Pr&#233;cisez</label>
-      <type type="str">text</type>
       <condition>
         <type>django</type>
         <value>"autre" in form_var_raison_occupation|lower</value>
@@ -847,10 +897,11 @@
       </display_locations><prefill>
         <type>none</type>
       </prefill><display_mode type="str">plain</display_mode>
+      <anonymise type="str">final</anonymise>
       <id type="str">250</id>
     </field><field>
+      <type>text</type>
       <label type="str">Type d&#8217;occupation</label>
-      <type type="str">text</type>
       <condition>
         <type>django</type>
         <value>form_var_typedemandeur == "Un entrepreneur"</value>
@@ -861,10 +912,11 @@
       </display_locations><prefill>
         <type>none</type>
       </prefill><display_mode type="str">plain</display_mode>
+      <anonymise type="str">final</anonymise>
       <id type="str">235</id>
     </field><field>
+      <type>items</type>
       <label type="str">Mat&#233;riel d&#233;pos&#233;/utilis&#233; :</label>
-      <type type="str">items</type>
       <required type="bool">True</required>
       <varname type="str">materiel_depose</varname>
       <display_locations>
@@ -886,12 +938,14 @@
       <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
       <in_filters type="bool">False</in_filters>
-      <anonymise type="bool">True</anonymise>
+      <anonymise type="str">final</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">63</id>
     </field><field>
+      <type>item</type>
       <label type="str">Type d'&#233;chafaudage</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>"Echafaudage" in form_var_materiel_depose</value>
@@ -910,13 +964,16 @@
         <item>Echafaudage sur&#233;lev&#233; avec passage pi&#233;tons (en-dessous)</item>
         <item>Echafaudage non sur&#233;lev&#233; avec couloir de s&#233;curit&#233; pour pi&#233;tons</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">229</id>
     </field><field>
+      <type>string</type>
       <label type="str">Longueur de l'&#233;chafaudage</label>
-      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>"Echafaudage" in form_var_materiel_depose</value>
@@ -930,11 +987,11 @@
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">230</id>
     </field><field>
+      <type>string</type>
       <label type="str">Largeur de l'&#233;chafaudage</label>
-      <type type="str">string</type>
       <condition>
         <type>django</type>
         <value>"Echafaudage" in form_var_materiel_depose</value>
@@ -948,11 +1005,11 @@
         <type>none</type>
       </prefill><validation>
         <type>digits</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">231</id>
     </field><field>
+      <type>text</type>
       <label type="str">Autre mat&#233;riel d&#233;pos&#233; :</label>
-      <type type="str">text</type>
       <condition>
         <type>django</type>
         <value>'Autre' in form_var_materiel_depose</value>
@@ -966,10 +1023,11 @@
         <type>none</type>
       </prefill><rows type="str">5</rows>
       <display_mode type="str">plain</display_mode>
+      <anonymise type="str">final</anonymise>
       <id type="str">64</id>
     </field><field>
+      <type>item</type>
       <label type="str">Souhaitez-vous des panneaux de signalisation ?</label>
-      <type type="str">item</type>
       <condition>
         <type>django</type>
         <value>form_var_typedemandeur == "Un particulier"</value>
@@ -985,13 +1043,16 @@
         <item>Oui</item>
         <item>Non</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">66</id>
     </field><field>
+      <type>string</type>
       <label type="str">Je d&#233;clare sur l'honneur faire une occupation de la voie publique (en m&#178;) de</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <hint type="str">ex : 20, 30, 8,... (sans m&#178;)</hint>
       <varname type="str">occupation_m_carre</varname>
@@ -1004,18 +1065,18 @@
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*$</value>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">67</id>
     </field><field>
+      <type>subtitle</type>
       <label type="str">Documents</label>
-      <type type="str">subtitle</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">257</id>
     </field><field>
+      <type>file</type>
       <label type="str">Plan des travaux</label>
-      <type type="str">file</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -1027,8 +1088,8 @@
       <storage type="str">default</storage>
       <id type="str">252</id>
     </field><field>
+      <type>file</type>
       <label type="str">Arr&#234;t&#233; d&#8217;obligation d&#8217;abattage d&#8217;arbres</label>
-      <type type="str">file</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -1040,8 +1101,8 @@
       <storage type="str">default</storage>
       <id type="str">255</id>
     </field><field>
+      <type>file</type>
       <label type="str">Analyse sanitaire / rapport du DNF</label>
-      <type type="str">file</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -1053,8 +1114,8 @@
       <storage type="str">default</storage>
       <id type="str">254</id>
     </field><field>
+      <type>block</type>
       <label type="str">Tout autre document utile &#224; votre demande</label>
-      <type type="str">block:ajouter_un_fichier</type>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -1064,6 +1125,7 @@
       <add_element_label type="str">Ajouter un autre document</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
+      <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">256</id>
     </field>
   </fields><user-roles>
