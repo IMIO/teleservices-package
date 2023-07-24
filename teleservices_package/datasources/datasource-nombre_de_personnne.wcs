@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<datasource id="444" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/444/">
-  <name>Nombre de personnes - Mod&#232;le</name>
-  <slug>nombre_de_personnne</slug>
-  <data_source>
-    <type>formula</type>
-    <value>[x for x in form_var_rdv_selectionne if "AB" in x['text']] if form_var_type_general_rdv == "AB" else [x for x in form_var_rdv_selectionne if "CD" in x['text']] if form_var_type_general_rdv == "CD" else []</value>
-  </data_source>
-</datasource>
