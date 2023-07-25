@@ -52,7 +52,9 @@
       <id type="str">f68b36cf-5fce-44bb-bf95-99080ae797fc</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;Un certificat de&lt;span&gt; nationalit&amp;eacute; &lt;/span&gt;belge atteste &lt;strong&gt;que vous &amp;ecirc;tes belge &lt;/strong&gt;(il ne pourra donc &lt;strong&gt;pas&lt;/strong&gt; vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; si vous &amp;ecirc;tes d'une autre nationalit&amp;eacute;).&lt;/p&gt;
+      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;p&gt;Un certificat de&lt;span&gt; nationalit&amp;eacute; &lt;/span&gt;belge atteste &lt;strong&gt;que vous &amp;ecirc;tes belge &lt;/strong&gt;(il ne pourra donc &lt;strong&gt;pas&lt;/strong&gt; vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; si vous &amp;ecirc;tes d'une autre nationalit&amp;eacute;).&lt;/p&gt;
 
 &lt;p&gt;Si vous choisissez l'envoi postal, le&amp;nbsp;document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
 
@@ -89,10 +91,7 @@
       <id type="str">34</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
-&lt;br&gt;
-
-&lt;p&gt;Le certificat de nationalit&amp;eacute; peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit :&lt;/p&gt;
+      <label type="str">&lt;p&gt;Le certificat de nationalit&amp;eacute; peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit :&lt;/p&gt;
 
 &lt;p&gt;1.&amp;nbsp;En le t&amp;eacute;l&amp;eacute;chargeant gratuitement via l'application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
 

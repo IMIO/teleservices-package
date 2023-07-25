@@ -45,7 +45,9 @@
       <id type="str">a1a6e804-75d3-4438-b33b-db4453c9460e</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;L'attestation de cohabitation peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit par la commune de {{ commune_name }}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral. Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
+      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
+&lt;br&gt;
+      &lt;p&gt;L'attestation de cohabitation peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit par la commune de {{ commune_name }}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral. Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <display_locations />
       <id type="str">41</id>
     </field><field>
@@ -85,10 +87,7 @@
       </post_conditions><id type="str">24</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
-&lt;br&gt;
-
-&lt;p class="accroche"&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/p&gt;
+      <label type="str">&lt;p class="accroche"&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/p&gt;
 
 &lt;p&gt;Si vous choisissez l'envoi postal,&amp;nbsp;le document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
 

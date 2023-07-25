@@ -36,7 +36,9 @@
       <id type="str">88bcf561-1fe3-4530-bca9-6edee2da3955</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;span lang="FR"&gt;Ce document &amp;eacute;tablit et atteste la composition du m&amp;eacute;nage du demandeur.&lt;/span&gt;&lt;/p&gt;
+      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span lang="FR"&gt;Ce document &amp;eacute;tablit et atteste la composition du m&amp;eacute;nage du demandeur.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;u&gt;Traitement :&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
 
@@ -69,10 +71,7 @@
       <id type="str">2</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
-&lt;br&gt;
-
-&lt;p&gt;La composition de m&amp;eacute;nage peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit :&lt;/p&gt;
+      <label type="str">&lt;p&gt;La composition de m&amp;eacute;nage peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit :&lt;/p&gt;
 
 &lt;p&gt;1. En la t&amp;eacute;l&amp;eacute;chargeant gratuitement via l&amp;#39;application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
 

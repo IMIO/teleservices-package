@@ -52,7 +52,9 @@
       <id type="str">803f394a-b2be-4561-b4f7-7d6ff7945ee4</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;Un certificat de&lt;span&gt; vie &lt;/span&gt;belge atteste que la personne concern&amp;eacute;e par le document est en vie.&lt;/p&gt;
+      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;p&gt;Un certificat de&lt;span&gt; vie &lt;/span&gt;belge atteste que la personne concern&amp;eacute;e par le document est en vie.&lt;/p&gt;
 
 &lt;p&gt;Si vous choisissez l'envoi postal. Le document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e le document.&lt;/p&gt;
 
@@ -89,10 +91,7 @@
       <id type="str">34</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
-&lt;br&gt;
-
-&lt;p&gt;Le certificat de vie peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit :&lt;/p&gt;
+      <label type="str">&lt;p&gt;Le certificat de vie peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; soit :&lt;/p&gt;
 
 &lt;p&gt;1.&amp;nbsp;En le t&amp;eacute;l&amp;eacute;chargeant gratuitement via l'application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
 
