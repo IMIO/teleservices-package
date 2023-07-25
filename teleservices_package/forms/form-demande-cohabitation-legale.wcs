@@ -85,7 +85,10 @@
       </post_conditions><id type="str">24</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p class="accroche"&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/p&gt;
+      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
+&lt;br&gt;
+
+&lt;p class="accroche"&gt;Document attestant qu'une d&amp;eacute;claration de cohabitation l&amp;eacute;gale a bien &amp;eacute;t&amp;eacute; enregistr&amp;eacute;e.&lt;/p&gt;
 
 &lt;p&gt;Si vous choisissez l'envoi postal,&amp;nbsp;le document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
 
