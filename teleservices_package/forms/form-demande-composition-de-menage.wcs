@@ -36,9 +36,7 @@
       <id type="str">88bcf561-1fe3-4530-bca9-6edee2da3955</id>
     </field><field>
       <type>comment</type>
-      <label type="str">Attention, les certificats peuvent être obtenus via le site monDossier uniquement en étant connecté avec votre carte d'identité électronique, et non avec Itsme.
-
-&lt;p&gt;&lt;span lang="FR"&gt;Ce document &amp;eacute;tablit et atteste la composition du m&amp;eacute;nage du demandeur.&lt;/span&gt;&lt;/p&gt;
+      <label type="str">&lt;p&gt;&lt;span lang="FR"&gt;Ce document &amp;eacute;tablit et atteste la composition du m&amp;eacute;nage du demandeur.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;u&gt;Traitement :&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
 
