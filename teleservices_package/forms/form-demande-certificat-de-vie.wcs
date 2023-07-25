@@ -52,7 +52,9 @@
       <id type="str">803f394a-b2be-4561-b4f7-7d6ff7945ee4</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;Un certificat de&lt;span&gt; vie &lt;/span&gt;belge atteste que la personne concern&amp;eacute;e par le document est en vie.&lt;/p&gt;
+      <label type="str">Attention, les certificats peuvent être obtenus via le site monDossier uniquement en étant connecté avec votre carte d'identité électronique, et non avec Itsme.
+
+&lt;p&gt;Un certificat de&lt;span&gt; vie &lt;/span&gt;belge atteste que la personne concern&amp;eacute;e par le document est en vie.&lt;/p&gt;
 
 &lt;p&gt;Si vous choisissez l'envoi postal. Le document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e le document.&lt;/p&gt;
 

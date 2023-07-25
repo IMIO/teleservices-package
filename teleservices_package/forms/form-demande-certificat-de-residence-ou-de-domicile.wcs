@@ -52,7 +52,9 @@
       <id type="str">10781c29-2923-44e0-9df1-8482d41dde21</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;Le certificat de r&amp;eacute;sidence reprend l&amp;rsquo;adresse du domicile. Le certificat de r&amp;eacute;sidence est destin&amp;eacute; &amp;agrave; prouver votre lieu de r&amp;eacute;sidence actuel.&lt;/p&gt;
+      <label type="str">Attention, les certificats peuvent être obtenus via le site monDossier uniquement en étant connecté avec votre carte d'identité électronique, et non avec Itsme.
+
+&lt;p&gt;Le certificat de r&amp;eacute;sidence reprend l&amp;rsquo;adresse du domicile. Le certificat de r&amp;eacute;sidence est destin&amp;eacute; &amp;agrave; prouver votre lieu de r&amp;eacute;sidence actuel.&lt;/p&gt;
 
 &lt;p&gt;Si vous choisissez l'envoi postal, le&amp;nbsp;document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
 
