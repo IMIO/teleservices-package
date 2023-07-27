@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="23" url="http://local-formulaires.example.net/backoffice/workflows/23/">
+<workflow id="30" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/workflows/30/">
   <name>iMio - Candidature Enseignement</name>
+  <slug>imio-candidature-enseignement</slug>
   <roles>
     <role id="_receiver">Agent traitant</role>
   </roles><possible_status>
@@ -11,7 +12,7 @@
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="set-backoffice-fields">
+        <item type="set-backoffice-fields" id="1">
           <label>Initialisation compteur</label>
           <fields>
             <field>
@@ -19,7 +20,7 @@
               <value>{{ 0 }}</value>
             </field>
           </fields>
-        </item><item id="3" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="{{form_var_mail}}">{{form_var_mail}}</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
@@ -41,7 +42,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 
 Bien &#224; vous, 
 </body>
-        </item><item id="4" type="jump">
+        </item><item type="jump" id="3">
           <status>3</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -53,13 +54,13 @@ Bien &#224; vous,
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="jump">
+        <item type="jump" id="1">
           <status>4</status>
           <condition>
             <type>django</type>
             <value>form_var_fonction_raw|length &gt; 0 and form_var_compteur|add:0 &lt; form_var_fonction_raw|length</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item id="2" type="jump">
+        </item><item type="jump" id="2">
           <status>new</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -71,13 +72,14 @@ Bien &#224; vous,
       <visibility>
         <role>_receiver</role>
       </visibility><items>
-        <item id="1" type="create_carddata">
+        <item type="create_carddata" id="1">
           <formdef_slug>imio-liste-des-candidatures-spontannees-postes-a-pourvoir-enseignement-communal</formdef_slug>
+          <map_fields_by_varname>False</map_fields_by_varname>
           <mappings>
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
             <mapping field_id="3">Personnel du service enseignement</mapping>
             <mapping field_id="2">{{form_var_fonction_structured|get:form_var_compteur|get:"fonction"}}</mapping>
-            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_fonction_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="4">{% if form_var_fonction_raw|length &gt; 1 %}Oui, cliquez sur le lien de la demande pour plus d'information{% else %}Non{% endif %}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>
             <mapping field_id="6">{{ form_var_prenom }}</mapping>
             <mapping field_id="7">{{ form_var_rue }}</mapping>
@@ -88,7 +90,7 @@ Bien &#224; vous,
             <mapping field_id="12">{{ form_var_tel }}</mapping>
             <mapping field_id="14">{{ form_var_mail }}</mapping>
           </mappings><user_association_mode>custom</user_association_mode>
-        </item><item id="2" type="set-backoffice-fields">
+        </item><item type="set-backoffice-fields" id="2">
           <label>compteur</label>
           <fields>
             <field>
@@ -96,7 +98,7 @@ Bien &#224; vous,
               <value>{{ form_var_compteur|add:1 }}</value>
             </field>
           </fields>
-        </item><item id="3" type="jump">
+        </item><item type="jump" id="3">
           <status>3</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -107,7 +109,7 @@ Bien &#224; vous,
       <colour>66FF00</colour>
       <visibility />
       <items>
-        <item id="1" type="displaymsg">
+        <item type="displaymsg" id="1">
           <message>Votre candidature a bien &#233;t&#233; enregistr&#233;e.</message>
           <level>success</level>
           <position>top</position>
@@ -122,16 +124,16 @@ Bien &#224; vous,
       <name>-</name>
       <fields>
         <field>
-          <label>Lien du r&#232;glement communal</label>
           <type>string</type>
-          <required>True</required>
-          <varname>reglement_communal</varname>
+          <label type="str">Lien du r&#232;glement communal</label>
+          <required type="bool">True</required>
+          <varname type="str">reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>1</id>
+          </prefill><anonymise type="str">final</anonymise>
+          <id type="str">1</id>
         </field>
       </fields>
     </formdef>
@@ -140,15 +142,15 @@ Bien &#224; vous,
       <name>-</name>
       <fields>
         <field>
-          <label>Compteur</label>
           <type>string</type>
-          <required>True</required>
-          <varname>compteur</varname>
+          <label type="str">Compteur</label>
+          <required type="bool">True</required>
+          <varname type="str">compteur</varname>
           <display_locations />
           <validation>
             <type>digits</type>
-          </validation><anonymise>False</anonymise>
-          <id>bo83523b71-792f-401e-9a9f-75b066ea6666</id>
+          </validation><anonymise type="str">no</anonymise>
+          <id type="str">bo83523b71-792f-401e-9a9f-75b066ea6666</id>
         </field>
       </fields>
     </formdef>
