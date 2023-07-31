@@ -28,6 +28,15 @@
         </post_condition>
       </post_conditions><id type="str">64</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">4ca34830-f351-41ca-b29e-4189f483f298</id>
+    </field><field>
       <type>computed</type>
       <label type="str">authentication_delivrance_items_visibility</label>
       <varname type="str">authentication_delivrance_items_visibility</varname>
@@ -36,8 +45,8 @@
       <id type="str">88bcf561-1fe3-4530-bca9-6edee2da3955</id>
     </field><field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
-&lt;br&gt;
+      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;span lang="FR"&gt;Ce document &amp;eacute;tablit et atteste la composition du m&amp;eacute;nage du demandeur.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;u&gt;Traitement :&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -45,9 +54,10 @@
 &lt;ol&gt;
 	&lt;li&gt;Compl&amp;eacute;tez votre demande via le formulaire ci-dessous.&lt;/li&gt;
 	&lt;li&gt;Si le document est payant, proc&amp;eacute;dez au paiement &amp;eacute;lectronique via une carte de paiement &lt;span style="line-height: 20.7999992370605px;"&gt;Bancontact/MisterCash&lt;/span&gt;. Munissez-vous de votre digipass (appareil fourni par votre banque) pour confirmer votre paiement.&lt;/li&gt;
-	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l'adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
-	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi. Si votre demande n'est pas valide, vous serez pr&amp;eacute;venu par e-mail et rembours&amp;eacute; de la somme per&amp;ccedil;ue dans les meilleurs d&amp;eacute;lais.&lt;/li&gt;
-&lt;/ol&gt;</label>
+	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l&amp;#39;adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
+	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi. Si votre demande n&amp;#39;est pas valide, vous serez pr&amp;eacute;venu par e-mail et rembours&amp;eacute; de la somme per&amp;ccedil;ue dans les meilleurs d&amp;eacute;lais.&lt;/li&gt;
+&lt;/ol&gt;
+</label>
       <display_locations />
       <id type="str">62</id>
     </field><field>
@@ -634,6 +644,7 @@
   </fields><user-roles>
     <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
   </user-roles><options>
+    <option varname="commentaire" />
     <option varname="cout">0</option>
     <option varname="destinations" />
     <option varname="destinations_display" />
