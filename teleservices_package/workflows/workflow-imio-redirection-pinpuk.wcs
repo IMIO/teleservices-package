@@ -28,6 +28,18 @@
       <name>-</name>
       <fields>
         <field>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="bool">False</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <anonymise type="str">final</anonymise>
+          <id type="str">1fe351b5-792e-49bc-959b-f07d534a739b</id>
+        </field><field>
+          <type>string</type>
           <label type="str">Url-redirection</label>
           <type type="str">string</type>
           <required type="bool">True</required>
