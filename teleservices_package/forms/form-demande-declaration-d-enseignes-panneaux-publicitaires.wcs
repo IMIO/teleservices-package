@@ -37,6 +37,16 @@
       <type type="str">page</type>
       <id type="str">1</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">3115dee6-8f48-4a73-956f-0da7a379158d</id>
+    </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
       <type type="str">string</type>
       <required type="bool">True</required>
@@ -408,7 +418,9 @@
       <remove_button type="bool">True</remove_button>
       <id type="str">18</id>
     </field>
-  </fields><options />
-  <custom_views />
+  </fields><options>
+    <option varname="commentaire" />
+    <option varname="reglement_communal" />
+  </options><custom_views />
   <geolocations />
 </formdef>
