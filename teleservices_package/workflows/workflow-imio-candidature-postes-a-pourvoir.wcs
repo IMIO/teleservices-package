@@ -153,6 +153,17 @@ Bien &#224; vous,
       <name>-</name>
       <fields>
         <field>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="bool">False</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <anonymise type="str">final</anonymise>
+          <id type="str">ae4b9ca2-a78f-4651-b494-fbb56301166c</id>
+        </field><field>
           <type>string</type>
           <label type="str">Lien du r&#232;glement communal</label>
           <required type="bool">False</required>
