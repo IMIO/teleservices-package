@@ -37,6 +37,16 @@
       <type type="str">page</type>
       <id type="str">116</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">1fb44d31-743f-44c4-af82-129accd9df11</id>
+    </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Vous pouvez &lt;a href="{{form_option_reglement_communal}}"&gt;consulter le r&amp;egrave;glement communal en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
       <type type="str">comment</type>
       <condition>
@@ -677,7 +687,9 @@
       </prefill><display_mode type="str">plain</display_mode>
       <id type="str">183</id>
     </field>
-  </fields><options />
-  <custom_views />
+  </fields><options>
+    <option varname="commentaire" />
+    <option varname="reglement_communal" />
+  </options><custom_views />
   <geolocations />
 </formdef>
