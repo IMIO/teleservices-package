@@ -922,6 +922,18 @@ Le service Population / Etat-civil
       <name>-</name>
       <fields>
         <field>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="bool">False</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <anonymise type="str">final</anonymise>
+          <id type="str">193583c9-8853-4c8b-a2f7-12007ae33542</id>
+        </field><field>
+          <type>title</type>
           <label type="str">Paiement</label>
           <type type="str">title</type>
           <display_locations>
