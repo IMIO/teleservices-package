@@ -30,6 +30,16 @@
         </post_condition>
       </post_conditions><id type="str">5</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">501d5114-a3c5-4ed0-b6da-ef8aaef215e0</id>
+    </field><field>
+      <type>title</type>
       <label type="str">Vos coordonn&#233;es</label>
       <type type="str">title</type>
       <display_locations>
@@ -381,8 +391,10 @@
     <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
   </user-roles><options>
     <option varname="baec" />
+    <option varname="commentaire" />
     <option varname="cout">0</option>
     <option varname="cp_commune">5032</option>
+    <option varname="delai_anonymisation" />
     <option varname="destinations" />
     <option varname="destinations_display" />
     <option varname="destinations_structured" />
@@ -399,6 +411,7 @@
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>
