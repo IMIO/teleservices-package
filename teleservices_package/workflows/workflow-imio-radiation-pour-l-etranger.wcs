@@ -397,6 +397,18 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <name>-</name>
       <fields>
         <field>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="bool">False</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <anonymise type="str">final</anonymise>
+          <id type="str">99d2b9f4-9363-4ed6-a015-f2f2b84692fd</id>
+        </field><field>
+          <type>subtitle</type>
           <label type="str">Anonymisation</label>
           <type type="str">subtitle</type>
           <display_locations>
