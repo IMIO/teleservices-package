@@ -1381,6 +1381,17 @@ Cordialement, </body>
       <name>-</name>
       <fields>
         <field>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="bool">False</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <anonymise type="str">final</anonymise>
+          <id type="str">b8dd06a3-4a96-46be-aaad-714a1f60a0f5</id>
+        </field><field>
           <type>subtitle</type>
           <label type="str">Paiement</label>
           <display_locations>
