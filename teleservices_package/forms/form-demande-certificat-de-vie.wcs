@@ -593,8 +593,9 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-4</extra_css_class>
       <prefill>
-        <type>formula</type>
-        <value>today</value>
+        <locked>False</locked>
+        <type>string</type>
+        <value>{{ today }}</value>
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">True</date_can_be_today>
