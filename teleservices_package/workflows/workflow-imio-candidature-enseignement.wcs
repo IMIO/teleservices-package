@@ -40,7 +40,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 {{ form_details }}
 {% endif %}
 
-Bien &#224; vous, 
+Bien &#224; vous,
 </body>
         </item><item type="jump" id="3">
           <status>3</status>
@@ -124,6 +124,18 @@ Bien &#224; vous,
       <name>-</name>
       <fields>
         <field>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="bool">False</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.
+</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <anonymise type="str">final</anonymise>
+          <id type="str">88218241-4b24-42ed-b827-8eca2a8292bb</id>
+        </field><field>
           <type>string</type>
           <label type="str">Lien du r&#232;glement communal</label>
           <required type="bool">True</required>
