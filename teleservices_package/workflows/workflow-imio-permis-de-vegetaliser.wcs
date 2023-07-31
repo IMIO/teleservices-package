@@ -348,10 +348,21 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <name>-</name>
       <fields>
         <field>
-          <label>Lien du r&#232;glement communal</label>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="bool">False</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <anonymise type="str">final</anonymise>
+          <id type="str">500ae813-9592-4d0f-b120-5eebd50680dc</id>
+        </field><field>
           <type>string</type>
-          <required>False</required>
-          <varname>reglement_communal</varname>
+          <label type="str">Lien du r&#232;glement communal</label>
+          <required type="bool">False</required>
+          <varname type="str">reglement_communal</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
