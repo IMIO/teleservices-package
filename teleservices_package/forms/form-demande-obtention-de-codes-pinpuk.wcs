@@ -23,13 +23,23 @@
       <type type="str">page</type>
       <id type="str">54</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">50259eac-9926-4be1-b9e6-1b5c061e425f</id>
+    </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Vous avez perdu vos codes PIN/PUK ?&lt;/p&gt;
 
-&lt;p&gt;Vos nouveaux codes PIN/PUK arriveront dans votre commune dans un d&amp;eacute;lai d&amp;#39;une semaine. Pass&amp;eacute; ce d&amp;eacute;lai, merci de prendre rendez-vous avec le Service Population au {{form_option_numero_de_telephone}} {% if form_option_url_rendezvous %} ou via ce &lt;strong&gt;&lt;a href=""&gt;lien&lt;/a&gt;&lt;/strong&gt; {% endif %} pour effectuer le retrait des codes.&lt;/p&gt;
+&lt;p&gt;Vos nouveaux codes PIN/PUK arriveront dans votre commune dans un d&amp;eacute;lai d&amp;#39;une semaine. Pass&amp;eacute; ce d&amp;eacute;lai, merci de prendre rendez-vous avec le Service Population au {{form_option_numero_de_telephone}} {% if form_option_url_rendezvous %} ou via ce &lt;strong&gt;&lt;a href="{{ form_option_url_rendezvous }}" rel="nofollow"&gt;lien&lt;/a&gt;&lt;/strong&gt; {% endif %} pour effectuer le retrait des codes.&lt;/p&gt;
 
-&lt;p&gt;Si vous ne vous pr&amp;eacute;sentez pas dans un d&amp;eacute;lais de 2 mois, les codes seront d&amp;eacute;truits.&lt;/p&gt;
+&lt;p&gt;Si vous ne vous pr&amp;eacute;sentez pas dans un d&amp;eacute;lai de 2 mois, les codes seront d&amp;eacute;truits.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Veuillez &amp;quot;Valider&amp;quot; ci dessous pour commander vos codes&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Veuillez &amp;quot;Valider&amp;quot; ci-dessous pour commander vos codes&lt;/strong&gt;&lt;/p&gt;
 </label>
       <type type="str">comment</type>
       <display_locations />
@@ -52,6 +62,7 @@
     <option varname="paiement_en_ligne" />
     <option varname="paiement_en_ligne_display" />
     <option varname="paiement_en_ligne_structured" />
+    <option varname="reglement_communal" />
     <option varname="texte_redirection">Vous allez &#234;tre redirig&#233; vers le site du Service public f&#233;d&#233;ral Int&#233;rieur afin de demander de nouveaux codes</option>
     <option varname="url_du_document_mondossier">http://www.ibz.rrn.fgov.be/fr/documents-didentite/eid/demande-dun-code-pin/</option>
     <option varname="url_rendezvous" />
