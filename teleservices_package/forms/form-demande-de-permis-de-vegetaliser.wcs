@@ -443,7 +443,9 @@
       <remove_button type="bool">False</remove_button>
       <id type="str">30</id>
     </field>
-  </fields><options />
-  <custom_views />
+  </fields><options>
+    <option varname="commentaire" />
+    <option varname="reglement_communal" />
+  </options><custom_views />
   <geolocations />
 </formdef>
