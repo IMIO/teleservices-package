@@ -44,6 +44,15 @@
         </post_condition>
       </post_conditions><id type="str">1</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">1ce6653e-c057-4cc3-92f9-3bc810ebf870</id>
+    </field><field>
       <type>computed</type>
       <label type="str">authentication_delivrance_items_visibility</label>
       <varname type="str">authentication_delivrance_items_visibility</varname>
@@ -54,20 +63,21 @@
       <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
 &lt;br&gt;
-&lt;p&gt;Un certificat de&lt;span&gt; nationalit&amp;eacute; &lt;/span&gt;belge atteste &lt;strong&gt;que vous &amp;ecirc;tes belge &lt;/strong&gt;(il ne pourra donc &lt;strong&gt;pas&lt;/strong&gt; vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; si vous &amp;ecirc;tes d'une autre nationalit&amp;eacute;).&lt;/p&gt;
+Un certificat de&lt;span&gt; nationalit&amp;eacute; &lt;/span&gt;belge atteste &lt;strong&gt;que vous &amp;ecirc;tes belge &lt;/strong&gt;(il ne pourra donc &lt;strong&gt;pas&lt;/strong&gt; vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute; si vous &amp;ecirc;tes d&amp;#39;une autre nationalit&amp;eacute;).&lt;/p&gt;
 
-&lt;p&gt;Si vous choisissez l'envoi postal, le&amp;nbsp;document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
+&lt;p&gt;Si vous choisissez l&amp;#39;envoi postal, le&amp;nbsp;document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l&amp;#39;adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
 
-&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de &lt;strong&gt;votre carte d'identit&amp;eacute;&lt;/strong&gt; (ainsi que d'une &lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt; si vous le retirez pour un tiers).&lt;/p&gt;
+&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de &lt;strong&gt;votre carte d&amp;#39;identit&amp;eacute;&lt;/strong&gt; (ainsi que d&amp;#39;une &lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt; si vous le retirez pour un tiers).&lt;/p&gt;
 
 &lt;h2&gt;Traitement&lt;/h2&gt;
 
 &lt;ol&gt;
 	&lt;li&gt;Compl&amp;eacute;tez votre demande via le formulaire ci-dessous.&lt;/li&gt;
 	&lt;li&gt;Le cas &amp;eacute;ch&amp;eacute;ant, proc&amp;eacute;dez au paiement.&lt;/li&gt;
-	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l'adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
+	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l&amp;#39;adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
 	&lt;li&gt;Si votre demande est valide, vous recevrez prochainement votre document selon le mode de d&amp;eacute;livrance choisi. A d&amp;eacute;faut, vous serez pr&amp;eacute;venu par e-mail.&lt;/li&gt;
-&lt;/ol&gt;</label>
+&lt;/ol&gt;
+</label>
       <display_locations />
       <id type="str">2</id>
     </field><field>
@@ -723,6 +733,7 @@
     <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
   </user-roles><options>
     <option varname="baec" />
+    <option varname="commentaire" />
     <option varname="cout">0</option>
     <option varname="destinations" />
     <option varname="destinations_display" />
@@ -740,6 +751,7 @@
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>
