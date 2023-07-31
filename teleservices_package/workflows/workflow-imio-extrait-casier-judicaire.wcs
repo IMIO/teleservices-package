@@ -457,7 +457,7 @@ Le service Population / Etat-civil
           <fields>
             <field>
               <field_id>bo3</field_id>
-              <value>=Decimal(form_var_wf_total_commande) + Decimal(vars().get('form_var_destinations_price')) or Decimal('0')</value>
+              <value>{{ form_var_wf_total_commande|decimal|add:form_var_destinations_price|decimal }}</value>
             </field>
           </fields>
         </item><item type="jump" id="2">
