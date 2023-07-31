@@ -49,9 +49,21 @@
         <field>
           <label>Texte redirection</label>
           <type>text</type>
-          <required>True</required>
-          <hint>Entrez ici le texte que le citoyen verra en alerte lors de sa redirection</hint>
-          <varname>texte_redirection</varname>
+          <label type="str">Commentaire</label>
+          <required type="bool">False</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <anonymise type="str">final</anonymise>
+          <id type="str">4232d237-1424-494b-90bd-119eb6005072</id>
+        </field><field>
+          <type>text</type>
+          <label type="str">Texte redirection</label>
+          <required type="bool">True</required>
+          <hint type="str">Entrez ici le texte que le citoyen verra en alerte lors de sa redirection</hint>
+          <varname type="str">texte_redirection</varname>
           <display_locations>
             <display_location>summary</display_location>
           </display_locations><prefill>
