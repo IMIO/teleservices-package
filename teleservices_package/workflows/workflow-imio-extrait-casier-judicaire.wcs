@@ -454,6 +454,7 @@ Le service Population / Etat-civil
         <role>_validateur-pc-banking</role>
       </visibility><items>
         <item type="set-backoffice-fields" id="1">
+          <label>Total de la commande</label>
           <fields>
             <field>
               <field_id>bo3</field_id>
