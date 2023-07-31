@@ -37,6 +37,16 @@
       <type type="str">page</type>
       <id type="str">12</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">d4dfe47e-a5b3-4c29-8e33-f9db0bbf2915</id>
+    </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
       <type type="str">string</type>
       <required type="bool">True</required>
@@ -540,6 +550,7 @@
       </prefill><id type="str">49</id>
     </field>
   </fields><options>
+    <option varname="commentaire" />
     <option varname="informations_complementaires" />
     <option varname="liste_documents" />
     <option varname="reglement_communal" />
