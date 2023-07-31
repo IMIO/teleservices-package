@@ -37,6 +37,16 @@
       <type type="str">page</type>
       <id type="str">12</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">fe56ede3-df85-4865-b947-dc77802bff8d</id>
+    </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
       <type type="str">string</type>
       <required type="bool">True</required>
@@ -864,7 +874,9 @@
       <id type="str">57</id>
     </field>
   </fields><options>
-    <option varname="code_postal" />
+    <option varname="code_postal">5032,5031</option>
+    <option varname="commentaire" />
+    <option varname="reglement_communal" />
   </options><custom_views />
   <geolocations />
 </formdef>
