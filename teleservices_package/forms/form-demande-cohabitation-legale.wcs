@@ -37,6 +37,15 @@
       <label type="str">Comment obtenir mon document</label>
       <id type="str">40</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">e5450054-8bcf-4117-9455-12c7185d7428</id>
+    </field><field>
       <type>computed</type>
       <label type="str">authentication_delivrance_items_visibility</label>
       <varname type="str">authentication_delivrance_items_visibility</varname>
@@ -47,7 +56,8 @@
       <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
 &lt;br&gt;
-      &lt;p&gt;L'attestation de cohabitation peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit par la commune de {{ commune_name }}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral. Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
+L&amp;#39;attestation de cohabitation peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit par la commune de {{ commune_name }}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral. Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;
+</label>
       <display_locations />
       <id type="str">41</id>
     </field><field>
@@ -473,6 +483,7 @@
     <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
   </user-roles><options>
     <option varname="baec" />
+    <option varname="commentaire" />
     <option varname="cout">0</option>
     <option varname="cp_commune">[cp_commune]</option>
     <option varname="destinations" />
