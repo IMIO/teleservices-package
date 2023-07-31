@@ -37,6 +37,16 @@
       <type type="str">page</type>
       <id type="str">1</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">22363554-4789-456a-b69e-72ab3fb2a46d</id>
+    </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
       <type type="str">string</type>
       <required type="bool">True</required>
@@ -432,7 +442,9 @@
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">32</id>
     </field>
-  </fields><options />
-  <custom_views />
+  </fields><options>
+    <option varname="commentaire" />
+    <option varname="reglement_communal" />
+  </options><custom_views />
   <geolocations />
 </formdef>
