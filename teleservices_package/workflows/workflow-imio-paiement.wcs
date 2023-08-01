@@ -17,7 +17,7 @@
           <fields>
             <field>
               <field_id>bo4413471e-d2b0-4d57-8ac8-c42a5a5ecc7b</field_id>
-              <value>=Decimal(vars().get('form_option_prix') or '0')</value>
+              <value>{{ form_option_prix|decimal }}</value>
             </field>
           </fields>
         </item><item id="2" type="jump">
