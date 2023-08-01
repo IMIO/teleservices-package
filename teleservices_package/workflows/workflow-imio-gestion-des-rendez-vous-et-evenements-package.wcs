@@ -457,7 +457,7 @@ La commune de {{commune_name}}</body>
           <fields>
             <field>
               <field_id>bo4dd33514-33fd-4f8b-b7e4-fb573a89afd3</field_id>
-              <value>=today</value>
+              <value>{{ today }}</value>
             </field>
           </fields>
         </item><item type="sendmail" id="3">
