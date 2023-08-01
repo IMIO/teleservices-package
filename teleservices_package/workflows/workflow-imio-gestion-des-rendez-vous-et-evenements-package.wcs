@@ -454,6 +454,7 @@ La commune de {{commune_name}}</body>
           <record_errors>False</record_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item type="set-backoffice-fields" id="2">
+          <label>D&#233;finition date d'annulation</label>
           <fields>
             <field>
               <field_id>bo4dd33514-33fd-4f8b-b7e4-fb573a89afd3</field_id>
