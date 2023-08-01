@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <carddef id="13" url="">
-  <name>iMio Py Domicile</name>
+  <name>iMio - py_domicile</name>
   <url_name>imio-py-domicile</url_name>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
