@@ -133,7 +133,7 @@
       </prefill><display_mode type="str">radio</display_mode>
       <items />
       <data_source>
-        <type>formula</type>
+        <type>carddef:imio-py-domicile</type>
         <value>data_source.py_domicile[1:]</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
