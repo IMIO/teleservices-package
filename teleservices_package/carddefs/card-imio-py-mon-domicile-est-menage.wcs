@@ -58,6 +58,6 @@
   <custom_views />
   <geolocations />
   <digest_templates>
-    <template key="default">{{ form_var_domicile }}{% if form_var_commune_slug == commune_slug %} (code postal : {{ commune_cp|split:","|join:", " }}){% endif %}</template>
+    <template key="default">{{ form_var_texte }}</template>
   </digest_templates>
 </carddef>
