@@ -127,7 +127,7 @@
       </prefill><display_mode type="str">radio</display_mode>
       <items />
       <data_source>
-        <type>py_mon_domicile_est_menage</type>
+        <type>carddef:imio-py-mon-domicile-est-menage</type>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
