@@ -127,14 +127,13 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">radio</display_mode>
-      <items />
-      <data_source>
-        <type>carddef:imio-py-mon-domicile-est-menage</type>
-      </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      </display_locations><display_mode type="str">radio</display_mode>
+      <items>
+        <item>Dans l'entit&#233;</item>
+        <item>Hors entit&#233;</item>
+        <item>Plus dans l'entit&#233;, mais souhaite obtenir la composition de m&#233;nage &#224; une date o&#249; cela &#233;tait le cas</item>
+      </items><in_filters type="bool">False</in_filters>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
