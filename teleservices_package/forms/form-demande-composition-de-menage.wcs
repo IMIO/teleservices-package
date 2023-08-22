@@ -75,9 +75,11 @@
       <data_source>
         <type>ds_personne_concernee</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">2</id>
     </field><field>
       <type>comment</type>
@@ -105,14 +107,17 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>form_var_authentication_delivrance_items_visibility</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">True</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">66</id>
     </field><field>
       <type>item</type>
@@ -168,7 +173,7 @@
         <type>none</type>
       </prefill><validation>
         <type>nrn-be</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">20</id>
     </field><field>
       <type>string</type>
@@ -181,7 +186,7 @@
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">21</id>
     </field><field>
       <type>string</type>
@@ -194,7 +199,7 @@
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">22</id>
     </field><field>
       <type>string</type>
@@ -207,7 +212,7 @@
       </display_locations><extra_css_class type="str">grid-2-3</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">23</id>
     </field><field>
       <type>string</type>
@@ -220,7 +225,7 @@
       </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">24</id>
     </field><field>
       <type>string</type>
@@ -236,7 +241,7 @@
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">11</id>
     </field><field>
       <type>string</type>
@@ -250,7 +255,7 @@
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">55</id>
     </field><field>
       <type>item</type>
@@ -269,9 +274,11 @@
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">68</id>
     </field><field>
       <type>email</type>
@@ -298,7 +305,7 @@
         <type>none</type>
       </prefill><validation>
         <type>phone</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">70</id>
     </field><field>
       <type>page</type>
@@ -336,7 +343,7 @@
         <value>_niss</value>
       </prefill><validation>
         <type>nrn-be</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">5</id>
     </field><field>
       <type>string</type>
@@ -350,7 +357,7 @@
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">6</id>
     </field><field>
       <type>string</type>
@@ -364,7 +371,7 @@
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">7</id>
     </field><field>
       <type>string</type>
@@ -378,7 +385,7 @@
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">8</id>
     </field><field>
       <type>string</type>
@@ -395,7 +402,7 @@
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">9</id>
     </field><field>
       <type>string</type>
@@ -409,7 +416,7 @@
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">10</id>
     </field><field>
       <type>string</type>
@@ -426,7 +433,7 @@
       </prefill><validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">54</id>
     </field><field>
       <type>string</type>
@@ -440,7 +447,7 @@
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">12</id>
     </field><field>
       <type>item</type>
@@ -460,9 +467,11 @@
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">69</id>
     </field><field>
       <type>email</type>
@@ -494,7 +503,7 @@
         <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
         <type>regex</type>
         <value>^(0|\+|00)(\d{8,})$</value>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">13</id>
     </field><field>
       <type>comment</type>
@@ -517,13 +526,12 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>string</type>
         <value>{{ today }}</value>
       </prefill><minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">True</date_can_be_today>
-      <anonymise type="bool">True</anonymise>
+      <anonymise type="str">final</anonymise>
       <id type="str">60</id>
     </field><field>
       <type>computed</type>
@@ -543,14 +551,17 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>form_var_le_document_est_destine_a</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">28</id>
     </field><field>
       <type>string</type>
@@ -565,7 +576,7 @@
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">56</id>
     </field><field>
       <type>computed</type>
@@ -584,14 +595,17 @@
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>formula</type>
         <value>form_var_mode_d_envoi</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
+      <anonymise type="str">no</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">57</id>
     </field><field>
       <type>string</type>
@@ -609,7 +623,7 @@
       </prefill><validation>
         <type>regex</type>
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
-      </validation><anonymise type="bool">True</anonymise>
+      </validation><anonymise type="str">final</anonymise>
       <id type="str">58</id>
     </field><field>
       <type>page</type>
