@@ -48,7 +48,7 @@
       <display_locations />
       <id type="str">1</id>
     </field><field>
-      <label type="str"><p>Vous pouvez <a href="{{ form_option_info_plus }}" rel="nofollow">obtenir plus d&#39;informations en suivant ce lien</a>.</p></label>
+      <label type="str">&lt;p&gt;Vous pouvez &lt;a href="{{ form_option_info_plus }}" rel="nofollow"&gt;obtenir plus d&#39;informations en suivant ce lien&lt;/a&gt;.&lt;/p&gt;</label>
       <type type="str">comment</type>
       <condition>
         <type>django</type>
