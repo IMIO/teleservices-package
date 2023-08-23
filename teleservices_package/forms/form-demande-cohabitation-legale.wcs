@@ -56,8 +56,7 @@
       <type>comment</type>
       <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
 &lt;br&gt;
-L&amp;#39;attestation de cohabitation peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit par la commune de {{ commune_name }}, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral. Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;
-</label>
+      &lt;p&gt;L'attestation de cohabitation peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit par cette administration, soit, directement, par le site du f&amp;eacute;d&amp;eacute;ral. Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <display_locations />
       <id type="str">41</id>
     </field><field>
