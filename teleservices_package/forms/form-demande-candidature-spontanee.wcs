@@ -286,7 +286,7 @@
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">17</id>
     </field><field>
-      <label type="str">Souhaitez-vous travailler &#224;</label>
+      <label type="str">&Agrave; quel r&eacute;gime ? &#224;</label>
       <type type="str">item</type>
       <required type="bool">False</required>
       <display_locations>
@@ -365,10 +365,10 @@
       <display_disabled_items type="bool">False</display_disabled_items>
       <id type="str">22</id>
     </field><field>
-      <label type="str">Avez-vous suivis une (des) formation(s)?</label>
+      <label type="str">Avez-vous suivi une ou plusieurs formations ?</label>
       <type type="str">item</type>
       <required type="bool">True</required>
-      <hint type="str">Par ex : formation continue</hint>
+      <hint type="str">Exemple : formation continue, Forem, Ifapme ou autre.</hint>
       <varname type="str">had_formations</varname>
       <display_locations>
         <display_location>validation</display_location>
