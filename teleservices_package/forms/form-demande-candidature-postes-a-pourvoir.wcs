@@ -327,7 +327,7 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <id type="str">17</id>
     </field><field>
       <type>item</type>
-      <label type="str">Souhaitez-vous travailler &#224;</label>
+      <label type="str">&Agrave; quel r&eacute;gime ? &#224;</label>
       <required type="bool">False</required>
       <display_locations>
         <display_location>validation</display_location>
@@ -410,7 +410,7 @@ Section &lt;strong&gt;{{i.fields.section}}&lt;/strong&gt; : {{i.fields.fonction}
       <type>item</type>
       <label type="str">Avez-vous suivi une (des) formation(s) ?</label>
       <required type="bool">True</required>
-      <hint type="str">Par ex : formation continue</hint>
+      <hint type="str">Exemple : formation continue, Forem, Ifapme ou autre.</hint>
       <varname type="str">had_formations</varname>
       <display_locations>
         <display_location>validation</display_location>
