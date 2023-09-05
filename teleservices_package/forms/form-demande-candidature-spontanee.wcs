@@ -286,7 +286,7 @@
       <initial_zoom type="str">13</initial_zoom>
       <id type="str">17</id>
     </field><field>
-      <label type="str">&Agrave; quel r&eacute;gime ? &#224;</label>
+      <label type="str">&#192; quel r&#233;gime ?</label>
       <type type="str">item</type>
       <required type="bool">False</required>
       <display_locations>
