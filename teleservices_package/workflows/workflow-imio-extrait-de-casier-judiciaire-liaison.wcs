@@ -329,6 +329,14 @@ Veuillez contacter votre administration communale pour l'en avertir.
           <display_mode type="str">pre</display_mode>
           <anonymise type="bool">False</anonymise>
           <id type="str">df66fab4-16f7-45a8-b256-799be4adabc3</id>
+        </field><field>
+          <type>string</type>
+          <label type="str">Lien vers l'extrait de casier judiciaire 596.2</label>
+          <required type="bool">False</required>
+          <hint type="str">Lien vers l'obtention de l'extrait de casier judiciaire 596.2 (https://...).</hint>
+          <varname type="str">lien_vers_l_extrait_de_casier_judiciaire_5962</varname>
+          <display_locations />
+          <id type="str">14cb6c8a-551f-4258-97fb-63713bd29223</id>
         </field>
       </fields>
     </formdef>

@@ -32,6 +32,16 @@
       </condition><display_locations />
       <id type="str">31</id>
     </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;a href="{{form_option_lien_vers_l_extrait_de_casier_judiciaire_5962}}" rel="nofollow"&gt;Lien vers l&amp;#39;extrait de casier judiciaire mod&amp;egrave;le 596.2&lt;/a&gt;&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_lien_vers_l_extrait_de_casier_judiciaire_5962</value>
+      </condition><display_locations />
+      <id type="str">fa9ea124-6ca1-4f89-9f0c-0cb14fca00fb</id>
+    </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
       <type type="str">string</type>
       <required type="bool">True</required>
@@ -128,7 +138,8 @@
   </user-roles><options>
     <option varname="activer_anonymisation" type="bool">false</option>
     <option varname="commentaire" />
-    <option varname="delai_anonymisation" />
+    <option varname="delai_anonymisation">90</option>
+    <option varname="lien_vers_l_extrait_de_casier_judiciaire_5962" />
   </options><custom_views />
   <geolocations />
   <required_authentication_contexts>
