@@ -43,7 +43,7 @@
           <condition>
             <type>django</type>
             <value>today|date|add_working_days:form_option_jours_minimum &lt; form_var_datedebut|date</value>
-          </condition><error_message>La date indiqu&#233;e n'est pas sup&#233;rieure au d&#233;lais de 5 jours demand&#233;s. Veuillez indiquer une date ult&#233;rieure.</error_message>
+          </condition><error_message>La date indiquée ne respecte pas le délais de jours demandés. Veuillez indiquer une date ultérieure.</error_message>
         </post_condition>
       </post_conditions><id type="str">1</id>
     </field><field>
