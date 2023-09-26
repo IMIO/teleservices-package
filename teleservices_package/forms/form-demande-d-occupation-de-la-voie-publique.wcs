@@ -124,7 +124,7 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-12</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-12</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><display_mode type="str">list</display_mode>
@@ -146,7 +146,7 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-12</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-12</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><display_mode type="str">list</display_mode>
@@ -185,7 +185,7 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-12</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-12</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><display_mode type="str">list</display_mode>
@@ -207,7 +207,7 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-12</extra_css_class>
+      </display_locations><extra_css_class type="str">grid-2-12</extra_css_class>
       <prefill>
         <type>none</type>
       </prefill><display_mode type="str">list</display_mode>
