@@ -217,7 +217,7 @@
       <label type="str">Type d'acte</label>
       <condition>
         <type>django</type>
-        <value>not form_var_baec_document_select</value>
+        <value>not form_var_baec_document_select or form_var_mode_delivrance_raw == "commune"</value>
       </condition><required type="bool">True</required>
       <hint type="str">S&#233;lectionnez le type.</hint>
       <varname type="str">document_type</varname>
@@ -262,7 +262,7 @@
       <label type="str">Type d'acte</label>
       <condition>
         <type>django</type>
-        <value>form_var_baec_document_select</value>
+        <value>form_var_baec_document_select and form_var_mode_delivrance_raw == "mondossier"</value>
       </condition><required type="bool">True</required>
       <hint type="str">S&#233;lectionnez le type.</hint>
       <varname type="str">baec_document_type</varname>
@@ -334,7 +334,7 @@
       <label type="str">Donn&#233;es de la personne concern&#233;e par l'acte</label>
       <condition>
         <type>django</type>
-        <value>not form_var_baec_document_type</value>
+        <value>form_var_mode_delivrance_raw == "commune"</value>
       </condition><id type="str">14</id>
     </field><field>
       <type>comment</type>
@@ -565,7 +565,7 @@
       <label type="str">Donn&#233;es du demandeur</label>
       <condition>
         <type>django</type>
-        <value>form_var_personne_concernee == "Autre" and not form_var_baec_document_type or form_var_personne_concernee == "Mon enfant" and not form_var_baec_document_type</value>
+        <value>form_var_personne_concernee == "Autre" and form_var_mode_delivrance_raw == "commune" or form_var_personne_concernee == "Mon enfant" and form_var_mode_delivrance_raw == "commune"</value>
       </condition><id type="str">34</id>
     </field><field>
       <type>comment</type>
@@ -778,7 +778,7 @@
       <label type="str">Destination du document</label>
       <condition>
         <type>django</type>
-        <value>not form_var_baec_document_type</value>
+        <value>form_var_mode_delivrance_raw == "commune"</value>
       </condition><id type="str">51</id>
     </field><field>
       <type>computed</type>
@@ -872,7 +872,7 @@
       <label type="str">Prix de la d&#233;marche</label>
       <condition>
         <type>django</type>
-        <value>not form_var_baec_document_type</value>
+        <value>form_var_mode_delivrance_raw == "commune"</value>
       </condition><id type="str">56</id>
     </field><field>
       <type>comment</type>
