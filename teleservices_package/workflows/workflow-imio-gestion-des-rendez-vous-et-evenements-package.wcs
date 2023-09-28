@@ -605,6 +605,26 @@ La commune de {{commune_name}}</body>
           </roles>
         </trigger>
       </triggers>
+    </action><action>
+      <id>3</id>
+      <name>Action Globale Rendez-vous effectu&#233;</name>
+      <items>
+        <item type="jump" id="1">
+          <status>5</status>
+          <condition>
+            <type>django</type>
+            <value>reservation_response_datetime|date &lt;= today|date</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items><triggers>
+        <trigger type="manual" id="bf32720e-8dd5-42f5-8d3b-72e222fba4c0">
+          <roles>
+            <item role_id="_receiver">_receiver</item>
+          </roles><statuses>
+            <statuse>2</statuse>
+          </statuses>
+        </trigger>
+      </triggers>
     </action>
   </global_actions><variables>
     <formdef>
