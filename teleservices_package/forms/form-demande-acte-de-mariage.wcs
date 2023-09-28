@@ -257,11 +257,18 @@
         <value>form_var_date_acte != "None" and form_var_date_acte != 'Apr&#232;s le 31-03-2019' or not form_var_baec_document_select_migration_command</value>
       </condition><id type="str">3</id>
     </field><field>
+      <type>computed</type>
+      <label type="str">Acc&#232;s pages non BAEC</label>
+      <varname type="str">acces_page_non_baec</varname>
+      <value_template type="str">{% if form_var_rb_concerne_raw == "tiers" %}{{True}}{% elif form_var_rb_concerne_raw == "moi" and form_var_mode_delivrance_raw == "commune" %}{{True}}{% else %}{{False}}{% endif %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">ff2ff4e2-2f84-4ea8-bc54-c1338f88df34</id>
+    </field><field>
       <type>item</type>
       <label type="str">Type d'acte</label>
       <condition>
         <type>django</type>
-        <value>not form_var_baec_document_select</value>
+        <value>not form_var_baec_document_select or form_var_mode_delivrance_raw == "commune" or form_var_rb_concerne_raw == "tiers"</value>
       </condition><required type="bool">True</required>
       <hint type="str">S&#233;lectionnez le type.</hint>
       <varname type="str">document_type</varname>
@@ -284,7 +291,7 @@
       <label type="str">Type d'acte</label>
       <condition>
         <type>django</type>
-        <value>form_var_baec_document_select</value>
+        <value>form_var_baec_document_select and form_var_mode_delivrance_raw == "mondossier" and form_var_rb_concerne_raw == "moi"</value>
       </condition><required type="bool">True</required>
       <hint type="str">S&#233;lectionnez le type.</hint>
       <varname type="str">baec_document_type</varname>
@@ -603,7 +610,7 @@
       <label type="str">Donn&#233;es du demandeur</label>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type and not form_var_baec_document_select</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and form_var_acces_page_non_baec</value>
       </condition><id type="str">43</id>
     </field><field>
       <type>comment</type>
@@ -627,7 +634,7 @@
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">46</id>
     </field><field>
       <type>string</type>
@@ -817,7 +824,7 @@
       <label type="str">Destination du document</label>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type and not form_var_baec_document_select</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and form_var_acces_page_non_baec</value>
       </condition><id type="str">74</id>
     </field><field>
       <type>computed</type>
@@ -911,7 +918,7 @@
       <label type="str">Prix de la d&#233;marche</label>
       <condition>
         <type>django</type>
-        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and not form_var_baec_document_type and not form_var_baec_document_select</value>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and form_var_acces_page_non_baec</value>
       </condition><id type="str">79</id>
     </field><field>
       <type>comment</type>
