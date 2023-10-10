@@ -224,7 +224,13 @@
       <id type="str">63</id>
     </field><field>
       <label type="str">Mode de r&#233;cup&#233;ration</label>
-      <type type="str">item</type>
+      <varname type="str">mode_de_recuperation</varname>
+      <value_template type="str">{% firstof form_option_destinations_structured data_source.passerelle_destinations %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">63f75554-3097-417e-b7e3-f26dfb7ed26b</id>
+    </field><field>
+      <type>item</type>
+      <label type="str">Mode de r&#233;cup&#233;ration</label>
       <required type="bool">True</required>
       <varname type="str">destination</varname>
       <display_locations>
