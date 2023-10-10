@@ -3,8 +3,7 @@
   <name>Extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal</name>
   <url_name>demande-autorisation-d-acquisition-d-un-animal-de-compagnie</url_name>
   <internal_identifier>extrait-du-fichier-central-de-la-delinquance-environnementale-et-du-bien-etre-animal</internal_identifier>
-  <description>&lt;p&gt;Le certificat de r&#233;sidence reprend l&#8217;adresse du domicile. Le certificat de r&#233;sidence est destin&#233; &#224; prouver votre lieu de r&#233;sidence actuel.&lt;/p&gt;</description>
-  <discussion>false</discussion>
+    <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
   <only_allow_one>false</only_allow_one>
@@ -236,7 +235,7 @@
       <type>computed</type>
       <label type="str">Mode de r&#233;cup&#233;ration</label>
       <varname type="str">mode_de_recuperation</varname>
-      <value_template type="str">{% firstof form_option_mode_recup_disponibles_structured data_source.passerelle_destinations %}</value_template>
+      <value_template type="str">{% firstof form_option_destinations_structured data_source.passerelle_destinations %}</value_template>
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">63f75554-3097-417e-b7e3-f26dfb7ed26b</id>
     </field><field>
