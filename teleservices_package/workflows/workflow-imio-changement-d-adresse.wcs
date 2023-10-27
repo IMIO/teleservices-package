@@ -40,7 +40,7 @@
               <value>{{form_var_rue_nouvelleadr}}, {{form_var_numrue_nouvelleadr}} {% if form_var_boiterue_nouvelleadr %}/ {{form_var_boiterue_nouvelleadr}}{% endif %}</value>
             </field><field>
               <field_id>bo203a77dd-6c9c-411b-81e6-7c2ecf3c80f6</field_id>
-              <value>{{ form_var_bloc_identite|default_if_none:0|length|add:1 }}</value>
+              <value>{{ form_var_bloc_identite|length|add:1|default_if_none:0 }}</value>
             </field>
           </fields>
         </item><item type="set-backoffice-fields" id="2">
