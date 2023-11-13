@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<formdef id="288" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/288/">
+  <name>Signaler un luminaire en panne</name>
+  <url_name>signaler-un-luminaire-en-panne</url_name>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>true</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>true</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="demande-environnement" category_id="115">Environnement</category>
+  <workflow slug="imio-redirection-signaler-un-nid-de-frelons-asiatiques" workflow_id="177">iMio - Redirection Signaler un luminaire en panne</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Signaler un luminaire en panne</label>
+      <id type="str">54</id>
+    </field><field>
+      <type>title</type>
+      <label type="str">Signaler un probl&#232;me d'&#233;clairage sur la voie publique</label>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><id type="str">fa8baa90-9f6b-4939-82ea-6c2858c56197</id>
+    </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">31f6903e-67b1-4287-b6e5-03059530efec</id>
+    </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Le gestionnaire de r&amp;eacute;seau est comp&amp;eacute;tent pour intervenir lors d&amp;#39;un probl&amp;egrave;me d&amp;#39;&amp;eacute;clairage public ou de luminaire d&amp;eacute;fecteux.&lt;/p&gt;
+
+&lt;p&gt;En cliquant sur le bouton &amp;quot;&lt;strong&gt;Valider&lt;/strong&gt;&amp;quot;, vous serez redirig&amp;eacute; vers un formulaire &amp;agrave; compl&amp;eacute;ter pour signaler le probl&amp;egrave;me au gestionnaire de r&amp;eacute;seau op&amp;eacute;rant sur le territoire de votre commune.&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">64</id>
+    </field>
+  </fields><options>
+    <option varname="commentaire" />
+    <option varname="urlredirection">.</option>
+  </options><custom_views />
+  <geolocations />
+</formdef>
