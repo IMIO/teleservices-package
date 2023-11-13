@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<carddef id="7" url="">
+  <name>iMio - Candidature postes &#224; pourvoir</name>
+  <url_name>imio-candidature-postes-a-pourvoir</url_name>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <max_field_id>4</max_field_id>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Section</label>
+      <required type="bool">True</required>
+      <varname type="str">section</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">1</id>
+    </field><field>
+      <type>string</type>
+      <label type="str">Fonction</label>
+      <required type="bool">True</required>
+      <varname type="str">fonction</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+        <display_location>listings</display_location>
+      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>none</type>
+      </prefill><anonymise type="bool">True</anonymise>
+      <id type="str">2</id>
+    </field><field>
+      <type>text</type>
+      <label type="str">Description</label>
+      <required type="bool">True</required>
+      <varname type="str">description</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><prefill>
+        <type>none</type>
+      </prefill><display_mode type="str">plain</display_mode>
+      <anonymise type="bool">True</anonymise>
+      <id type="str">3</id>
+    </field><field>
+      <type>string</type>
+      <label type="str">Lien &#233;ventuel</label>
+      <required type="bool">False</required>
+      <varname type="str">lien</varname>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><anonymise type="bool">True</anonymise>
+      <id type="str">4</id>
+    </field>
+  </fields><user-roles>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2">Agent ayant acces aux fabriques</role>
+  </user-roles><backoffice-submission-roles>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2">Agent ayant acces aux fabriques</role>
+  </backoffice-submission-roles><roles>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2" role_key="_viewer">Agent ayant acces aux fabriques</role>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2" role_key="_editor">Agent ayant acces aux fabriques</role>
+  </roles><options />
+  <custom_views>
+    <custom_view>
+      <title>Trier par section</title>
+      <slug>trier-par-section</slug>
+      <visibility>datasource</visibility>
+      <filters />
+      <columns>
+        <id>id</id>
+        <id>time</id>
+        <id>1</id>
+        <id>2</id>
+      </columns><order_by>f1</order_by>
+    </custom_view>
+  </custom_views><geolocations />
+  <digest_templates>
+    <template key="default">{{ form_var_section }} {{ form_var_fonction }}</template>
+    <template key="custom-view:par-defaut">{{ form_var_section }} {{ form_var_fonction }}</template>
+    <template key="custom-view:trier-par-section">{{ form_var_section }} {{ form_var_fonction }}</template>
+  </digest_templates>
+</carddef>
