@@ -58,8 +58,7 @@
     </field><field>
 <type>item</type>
       <label type="str">Type de certificat</label>
-      <type type="str">item</type>
-      <required type="bool">True</required>
+            <required type="bool">True</required>
       <varname type="str">typecasier</varname>
       <display_locations>
         <display_location>validation</display_location>
@@ -394,8 +393,10 @@
     </field><field>
 <type>string</type>
       <label type="str">Nombre d'exemplaires demand&#233;s</label>
-      <type type="str">string</type>
-      <required type="bool">True</required>
+      <condition>
+        <type>django</type>
+      <value>form_var_destinations != "Envoi dans mon porte-documents"</value>
+      </condition><required type="bool">True</required>
       <hint type="str">Maximum 20 exemplaires.</hint>
       <varname type="str">nb_exemplaire</varname>
       <display_locations>
