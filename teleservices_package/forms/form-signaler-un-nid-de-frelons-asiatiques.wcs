@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<formdef id="287" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/287/">
+  <name>Signaler un nid de frelons asiatiques</name>
+  <url_name>signaler-un-nid-de-frelons-asiatiques</url_name>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>true</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>true</always_advertise>
+  <include_download_all_button>false</include_download_all_button>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="demande-environnement" category_id="115">Environnement</category>
+  <workflow slug="imio-redirection-signaler-un-nid-de-frelons-asiatiques-1" workflow_id="178">iMio - Redirection Signaler un nid de frelons asiatiques</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Signaler un nid de frelons asiatiques</label>
+      <id type="str">54</id>
+    </field><field>
+      <type>title</type>
+      <label type="str">Signaler un nid de frelons asiatiques</label>
+      <display_locations>
+        <display_location>validation</display_location>
+        <display_location>summary</display_location>
+      </display_locations><id type="str">fa8baa90-9f6b-4939-82ea-6c2858c56197</id>
+    </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition><display_locations />
+      <id type="str">31f6903e-67b1-4287-b6e5-03059530efec</id>
+    </field><field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Vous avez rep&amp;eacute;r&amp;eacute; un nid de &lt;a href="http://biodiversite.wallonie.be/fr/le-frelon-asiatique.includehtml?IDC=5999" rel="nofollow"&gt;frelons asiatiques&lt;/a&gt; ?&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Cette esp&amp;egrave;ce invasive fait l&amp;#39;objet d&amp;#39;une lutte intense au vu des d&amp;eacute;g&amp;acirc;ts importants qu&amp;#39;elle peut faire notamment aux abeilles indig&amp;egrave;nes.&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;En cliquant sur le bouton &amp;quot;&lt;strong&gt;Valider&lt;/strong&gt;&amp;quot;, vous serez redirig&amp;eacute; vers le formulaire du &lt;strong&gt;Service Public de Wallonie&lt;/strong&gt; o&amp;ugrave; vous pourrez v&amp;eacute;rifier si le nid observ&amp;eacute; a d&amp;eacute;j&amp;agrave; fait l&amp;#39;objet d&amp;#39;un signalement et dans le cas contraire, l&amp;#39;effectuer directement en ligne.&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Vous pouvez &amp;eacute;galement contacter directement un &lt;a href="https://www.cra.wallonie.be/fr/carte-des-operateurs-frelon-asiatique?sso_verify=4a9dcy1gf8ysgsccgw8swok4o0w08ssgsocks844s48wc8wgkc" rel="nofollow"&gt;neutralisateur actif dans votre commune&lt;/a&gt;.&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">64</id>
+    </field>
+  </fields><options>
+    <option varname="commentaire" />
+    <option varname="urlredirection">http://observatoire.biodiversite.wallonie.be/enquetes/enquete.aspx?e=invasives&amp;tax=Vespa_velutina</option>
+  </options><custom_views />
+  <geolocations />
+</formdef>
