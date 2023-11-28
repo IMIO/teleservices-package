@@ -589,7 +589,7 @@ La commune de {{commune_name}}</body>
       </triggers>
     </action><action>
       <id>2</id>
-      <name>Post-poser</name>
+      <name>Reporter</name>
       <items>
         <item type="jump" id="1">
           <status>13</status>
