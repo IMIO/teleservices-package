@@ -309,6 +309,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           <by>
             <item role_id="_receiver">_receiver</item>
           </by><varname>refus</varname>
+          <hide_submit_button>False</hide_submit_button>
           <formdef>
             <name>-</name>
             <fields>
