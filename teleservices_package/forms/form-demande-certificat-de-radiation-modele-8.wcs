@@ -3,7 +3,6 @@
   <name>Certificat de radiation (mod&#232;le 8)</name>
   <url_name>demande-certificat-de-radiation-modele-8</url_name>
   <description>&lt;p&gt;Cette d&#233;marche vous permet de faire la demande d'un certificat de radiation qui vous fournit la preuve de la radiation de votre inscription dans les registres de notre administration communale.&lt;/p&gt;</description>
-  <internal_identifier>demande-certificat-de-radiation-modele-8</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -577,6 +576,14 @@
       <type type="str">page</type>
       <id type="str">20</id>
     </field><field>
+      <type>computed</type>
+      <label type="str">Mode d'envoi</label>
+      <varname type="str">mode_d_envoi</varname>
+      <value_template type="str">{% firstof form_option_mode_recup_disponibles_structured data_source.passerelle_destinations %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">78313a13-d8a2-4596-acac-f07eedb6d97a</id>
+    </field><field>
+      <type>item</type>
       <label type="str">Mode d'envoi</label>
       <type type="str">item</type>
       <required type="bool">True</required>
@@ -591,7 +598,7 @@
       <items />
       <data_source>
         <type>formula</type>
-        <value>vars().get('form_option_mode_recup_disponibles_structured') or data_source.passerelle_destinations</value>
+        <value>form_var_mode_d_envoi</value>
       </data_source><in_filters type="bool">False</in_filters>
       <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
