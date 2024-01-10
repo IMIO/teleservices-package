@@ -8,7 +8,7 @@
     <status>
       <id>just_submitted</id>
       <name>Juste envoy&#233;</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility>
         <role>_receiver</role>
       </visibility><items>
@@ -26,7 +26,7 @@
               <value>=["Personnel administratif", "Personnel ouvrier", "Personnel social", "Personnel technique / sp&#233;cifique", "Personnel de nettoyage", "Personnel de cuisine", "Personnel du service enseignement"]</value>
             </field>
           </fields>
-        </item><item id="3" type="sendmail">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="{{form_var_mail}}">{{form_var_mail}}</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
@@ -48,7 +48,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 
 Bien &#224; vous, 
 </body>
-        </item><item id="4" type="jump">
+        </item><item type="jump" id="3">
           <status>3</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -56,7 +56,7 @@ Bien &#224; vous,
     </status><status>
       <id>3</id>
       <name>Boucle Fiche</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
       </visibility><items>
@@ -74,7 +74,7 @@ Bien &#224; vous,
     </status><status>
       <id>4</id>
       <name>Cr&#233;ation fiche</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
       </visibility><items>
@@ -135,7 +135,7 @@ Bien &#224; vous,
     </status><status>
       <id>new</id>
       <name>Candidature(s) enregistr&#233;e(s)</name>
-      <colour>66FF00</colour>
+      <colour>#66FF00</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -160,8 +160,8 @@ Bien &#224; vous,
 Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
           <varname type="str">commentaire</varname>
           <display_locations />
-          <display_mode type="str">plain</display_mode>
           <anonymise type="str">final</anonymise>
+          <display_mode type="str">plain</display_mode>
           <id type="str">ae4b9ca2-a78f-4651-b494-fbb56301166c</id>
         </field><field>
           <type>string</type>
@@ -172,7 +172,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><anonymise type="bool">True</anonymise>
+          </prefill><anonymise type="str">final</anonymise>
           <id type="str">1</id>
         </field>
       </fields>
@@ -187,17 +187,17 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <required type="bool">True</required>
           <varname type="str">compteur</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <validation>
             <type>digits</type>
-          </validation><anonymise type="bool">False</anonymise>
-          <id type="str">bo174538d1-a802-487c-860b-92f3cae029dd</id>
+          </validation><id type="str">bo174538d1-a802-487c-860b-92f3cae029dd</id>
         </field><field>
           <type>string</type>
           <label type="str">Section liste</label>
           <required type="bool">True</required>
           <varname type="str">section_liste</varname>
           <display_locations />
-          <anonymise type="bool">True</anonymise>
+          <anonymise type="str">final</anonymise>
           <id type="str">boc9137629-5b1b-4ccb-ba90-60f2617e2b47</id>
         </field><field>
           <type>string</type>
@@ -205,7 +205,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <required type="bool">True</required>
           <varname type="str">liste_section_fiche</varname>
           <display_locations />
-          <anonymise type="bool">True</anonymise>
+          <anonymise type="str">final</anonymise>
           <id type="str">bodb8b9b14-c390-4508-bddf-eeb70a60bca7</id>
         </field><field>
           <type>string</type>
@@ -213,7 +213,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <required type="bool">True</required>
           <varname type="str">candidature_multi_fonction_section</varname>
           <display_locations />
-          <anonymise type="bool">True</anonymise>
+          <anonymise type="str">final</anonymise>
           <id type="str">bo0f524563-6d23-4e97-933e-d180210e6408</id>
         </field>
       </fields>
