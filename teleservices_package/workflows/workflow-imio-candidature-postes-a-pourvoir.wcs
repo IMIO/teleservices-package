@@ -20,10 +20,10 @@
               <value>{{ 0 }}</value>
             </field><field>
               <field_id>boc9137629-5b1b-4ccb-ba90-60f2617e2b47</field_id>
-              <value>=[x["section"] for x in form_var_fonction_structured]</value>
+              <value>{{ form_var_fonction|getlist:'section' }}</value>
             </field><field>
               <field_id>bodb8b9b14-c390-4508-bddf-eeb70a60bca7</field_id>
-              <value>=["Personnel administratif", "Personnel ouvrier", "Personnel social", "Personnel technique / sp&#233;cifique", "Personnel de nettoyage", "Personnel de cuisine", "Personnel du service enseignement"]</value>
+              <value>{{ "Personnel administratif, Personnel ouvrier, Personnel social, Personnel technique / sp&#233;cifique, Personnel de nettoyage, Personnel de cuisine, Personnel du service enseignement"|split:", " }}</value>
             </field>
           </fields>
         </item><item type="sendmail" id="2">
@@ -105,8 +105,8 @@ Bien &#224; vous,
           <map_fields_by_varname>False</map_fields_by_varname>
           <mappings>
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
-            <mapping field_id="3">=form_var_fonction_structured[int(form_var_compteur)]["section"] if form_var_fonction_structured[int(form_var_compteur)]["section"] in form_var_liste_section_fiche else "Autre"</mapping>
-            <mapping field_id="16">=form_var_fonction_structured[int(form_var_compteur)]["section"] if form_var_fonction_structured[int(form_var_compteur)]["section"] not in form_var_liste_section_fiche else ""</mapping>
+            <mapping field_id="3">{% if form_var_fonction_structured|get:form_var_compteur|get:"section" in form_var_liste_section_fiche %}{{ form_var_fonction_structured|get:form_var_compteur|get:"section" }}{% else %}Autre{% endif %}</mapping>
+            <mapping field_id="16">{% if form_var_fonction_structured|get:form_var_compteur|get:"section" not in form_var_liste_section_fiche %}{{ form_var_fonction_structured|get:form_var_compteur|get:"section" }}{% else %}{% endif %}</mapping>
             <mapping field_id="2">{{form_var_fonction_structured|get:form_var_compteur|get:"fonction"}}</mapping>
             <mapping field_id="4">{{ form_var_candidature_multi_fonction_section }}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>

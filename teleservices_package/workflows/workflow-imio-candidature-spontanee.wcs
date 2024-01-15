@@ -97,7 +97,7 @@ Bien &#224; vous,
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
             <mapping field_id="3">Personnel administratif</mapping>
             <mapping field_id="2">{{ form_var_administratif_structured|get:form_var_compteur_administratif|get:"fonction" }}</mapping>
-            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_administratif_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="4">{% if form_var_administratif_raw|length &gt; 1 %}Oui cliquer sur le lien de la demande pour plus d'information{% else %}Non{% endif %}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>
             <mapping field_id="6">{{ form_var_prenom }}</mapping>
             <mapping field_id="7">{{ form_var_rue }}</mapping>
@@ -153,7 +153,7 @@ Bien &#224; vous,
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
             <mapping field_id="3">Personnel ouvrier</mapping>
             <mapping field_id="2">{{ form_var_ouvrier_structured|get:form_var_compteur_ouvrier|get:"fonction" }}</mapping>
-            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_ouvrier_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="4">{% if form_var_ouvrier_raw|length &gt; 1 %}Oui cliquer sur le lien de la demande pour plus d'information{% else %}Non{% endif %}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>
             <mapping field_id="6">{{ form_var_prenom }}</mapping>
             <mapping field_id="7">{{ form_var_rue }}</mapping>
@@ -209,7 +209,7 @@ Bien &#224; vous,
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
             <mapping field_id="3">Personnel social</mapping>
             <mapping field_id="2">{{ form_var_social_structured|get:form_var_compteur_social|get:"fonction" }}</mapping>
-            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_social_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="4">{% if form_var_social_raw|length &gt; 1 %}Oui cliquer sur le lien de la demande pour plus d'information{% else %}Non{% endif %}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>
             <mapping field_id="6">{{ form_var_prenom }}</mapping>
             <mapping field_id="7">{{ form_var_rue }}</mapping>
@@ -265,7 +265,7 @@ Bien &#224; vous,
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
             <mapping field_id="3">Personnel technique / sp&#233;cifique</mapping>
             <mapping field_id="2">{{ form_var_technique_structured|get:form_var_compteur_technique|get:"fonction" }}</mapping>
-            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_technique_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="4">{% if form_var_technique_raw|length &gt; 1 %}Oui cliquer sur le lien de la demande pour plus d'information{% else %}Non{% endif %}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>
             <mapping field_id="6">{{ form_var_prenom }}</mapping>
             <mapping field_id="7">{{ form_var_rue }}</mapping>
@@ -321,7 +321,7 @@ Bien &#224; vous,
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
             <mapping field_id="3">Personnel de nettoyage</mapping>
             <mapping field_id="2">{{ form_var_nettoyage_structured|get:form_var_compteur_nettoyage|get:"fonction" }}</mapping>
-            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_nettoyage_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="4">{% if form_var_nettoyage_raw|length &gt; 1 %}Oui cliquer sur le lien de la demande pour plus d'information{% else %}Non{% endif %}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>
             <mapping field_id="6">{{ form_var_prenom }}</mapping>
             <mapping field_id="7">{{ form_var_rue }}</mapping>
@@ -377,7 +377,7 @@ Bien &#224; vous,
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
             <mapping field_id="3">Personnel de cuisine</mapping>
             <mapping field_id="2">{{ form_var_cuisine_structured|get:form_var_compteur_cuisine|get:"fonction" }}</mapping>
-            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_cuisine_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="4">{% if form_var_cuisine_raw|length &gt; 1 %}Oui cliquer sur le lien de la demande pour plus d'information{% else %}Non{% endif %}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>
             <mapping field_id="6">{{ form_var_prenom }}</mapping>
             <mapping field_id="7">{{ form_var_rue }}</mapping>
@@ -433,7 +433,7 @@ Bien &#224; vous,
             <mapping field_id="1">{{ form_url_backoffice }}</mapping>
             <mapping field_id="3">Personnel du service enseignement</mapping>
             <mapping field_id="2">{{ form_var_enseignement_structured|get:form_var_compteur_enseignement|get:"fonction" }}</mapping>
-            <mapping field_id="4">="Oui cliquer sur le lien de la demande pour plus d'information" if len(form_var_enseignement_raw) &gt; 1 else "Non"</mapping>
+            <mapping field_id="4">{% if form_var_enseignement_raw|length &gt; 1 %}Oui cliquer sur le lien de la demande pour plus d'information{% else %}Non{% endif %}</mapping>
             <mapping field_id="5">{{ form_var_nom }}</mapping>
             <mapping field_id="6">{{ form_var_prenom }}</mapping>
             <mapping field_id="7">{{ form_var_rue }}</mapping>
