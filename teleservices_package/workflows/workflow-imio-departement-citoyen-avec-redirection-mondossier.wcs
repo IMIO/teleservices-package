@@ -9,7 +9,7 @@
     <status>
       <id>just_submitted</id>
       <name>Juste envoy&#233;</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
@@ -147,7 +147,7 @@
     </status><status>
       <id>32</id>
       <name>BAEC</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
@@ -169,7 +169,7 @@
     </status><status>
       <id>33</id>
       <name>Demande de migration</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
@@ -237,7 +237,7 @@ Cordialement,</body>
     </status><status>
       <id>36</id>
       <name>Erreur lors de la demande de migration</name>
-      <colour>FF0000</colour>
+      <colour>#FF0000</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -251,7 +251,7 @@ Cordialement,</body>
     </status><status>
       <id>34</id>
       <name>En attente du document</name>
-      <colour>0099FF</colour>
+      <colour>#0099FF</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -287,7 +287,7 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
     </status><status>
       <id>35</id>
       <name>V&#233;rification de la pr&#233;sence du document</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
@@ -341,7 +341,7 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
     </status><status>
       <id>31</id>
       <name>Document</name>
-      <colour>0099FF</colour>
+      <colour>#0099FF</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -392,7 +392,7 @@ Cordialement,</body>
     </status><status>
       <id>29</id>
       <name>R&#233;cup&#233;ration du document</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility>
         <role>_receiver</role>
@@ -437,7 +437,7 @@ Cordialement,</body>
     </status><status>
       <id>30</id>
       <name>Erreur lors de la r&#233;cup&#233;ration du document</name>
-      <colour>FF0000</colour>
+      <colour>#FF0000</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -451,7 +451,7 @@ Cordialement,</body>
     </status><status>
       <id>4</id>
       <name>Demande rejet&#233;e</name>
-      <colour>FF0000</colour>
+      <colour>#FF0000</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -487,7 +487,7 @@ Bien cordialement,</body>
     </status><status>
       <id>accepted</id>
       <name>En cours de traitement</name>
-      <colour>66CCFF</colour>
+      <colour>#66CCFF</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -572,7 +572,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
     </status><status>
       <id>finished</id>
       <name>Trait&#233;</name>
-      <colour>00FF00</colour>
+      <colour>#00FF00</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -598,7 +598,7 @@ Bien cordialement,</body>
     </status><status>
       <id>10</id>
       <name>En attente du paiement</name>
-      <colour>FFFF00</colour>
+      <colour>#FFFF00</colour>
       <visibility />
       <items>
         <item type="webservice_call" id="1">
@@ -664,7 +664,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
     </status><status>
       <id>12</id>
       <name>Demande annul&#233;e par le citoyen</name>
-      <colour>FF9966</colour>
+      <colour>#FF9966</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -680,7 +680,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
     </status><status>
       <id>13</id>
       <name>Document gratuit</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
@@ -729,7 +729,7 @@ Bien cordialement,</body>
     </status><status>
       <id>17</id>
       <name>Paiement re&#231;u</name>
-      <colour>66FF66</colour>
+      <colour>#66FF66</colour>
       <visibility />
       <items>
         <item type="set-backoffice-fields" id="1">
@@ -766,7 +766,7 @@ Bien cordialement,
     </status><status>
       <id>18</id>
       <name>Supprim&#233; du panier</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility />
       <items>
         <item type="webservice_call" id="1">
@@ -805,7 +805,7 @@ Bien cordialement,
     </status><status>
       <id>19</id>
       <name>Formulaire de refus</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
@@ -828,9 +828,9 @@ Bien cordialement,
                 <extra_css_class type="str">pk-important</extra_css_class>
                 <prefill>
                   <type>none</type>
-                </prefill><rows type="str">10</rows>
+                </prefill><anonymise type="str">final</anonymise>
+                <rows type="str">10</rows>
                 <display_mode type="str">plain</display_mode>
-                <anonymise type="bool">True</anonymise>
                 <id type="str">7</id>
               </field>
             </fields>
@@ -843,7 +843,7 @@ Bien cordialement,
     </status><status>
       <id>20</id>
       <name>REDIRECTION MONDOSSIER</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -869,7 +869,7 @@ En cliquant sur valider, vous allez &#234;tre red&#233;rig&#233; vers le site du
     </status><status>
       <id>21</id>
       <name>PC Banking (virement)</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
@@ -890,7 +890,7 @@ En cliquant sur valider, vous allez &#234;tre red&#233;rig&#233; vers le site du
     </status><status>
       <id>22</id>
       <name>En attente du virement</name>
-      <colour>FFFF00</colour>
+      <colour>#FFFF00</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -974,7 +974,7 @@ Bien cordialement,</body>
     </status><status>
       <id>23</id>
       <name>Virement re&#231;u</name>
-      <colour>66FF66</colour>
+      <colour>#66FF66</colour>
       <visibility />
       <items>
         <item type="jump" id="1">
@@ -990,7 +990,7 @@ Bien cordialement,</body>
     </status><status>
       <id>24</id>
       <name>Remboursement</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility />
       <items>
         <item type="webservice_call" id="1">
@@ -1024,7 +1024,7 @@ Bien cordialement,</body>
     </status><status>
       <id>25</id>
       <name>Demande d'informations pour le remboursement</name>
-      <colour>FFFF00</colour>
+      <colour>#FFFF00</colour>
       <visibility />
       <items>
         <item type="sendmail" id="1">
@@ -1077,7 +1077,7 @@ Bien &#224; vous,
                   <display_location>summary</display_location>
                 </display_locations><prefill>
                   <type>none</type>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">1</id>
               </field><field>
                 <type>string</type>
@@ -1090,7 +1090,7 @@ Bien &#224; vous,
                 </display_locations><prefill>
                   <type>user</type>
                   <value>_last_name</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">2</id>
               </field><field>
                 <type>string</type>
@@ -1101,7 +1101,7 @@ Bien &#224; vous,
                 <prefill>
                   <type>user</type>
                   <value>_street</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">3</id>
               </field><field>
                 <type>string</type>
@@ -1112,7 +1112,7 @@ Bien &#224; vous,
                 <prefill>
                   <type>user</type>
                   <value>_num_house</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">9</id>
               </field><field>
                 <type>string</type>
@@ -1122,7 +1122,7 @@ Bien &#224; vous,
                 <prefill>
                   <type>user</type>
                   <value>_num_box</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">10</id>
               </field><field>
                 <type>string</type>
@@ -1133,7 +1133,7 @@ Bien &#224; vous,
                 <prefill>
                   <type>user</type>
                   <value>_zipcode</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">4</id>
               </field><field>
                 <type>string</type>
@@ -1144,7 +1144,7 @@ Bien &#224; vous,
                 <prefill>
                   <type>user</type>
                   <value>_city</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">11</id>
               </field><field>
                 <type>item</type>
@@ -1157,14 +1157,16 @@ Bien &#224; vous,
                 </display_locations><prefill>
                   <type>user</type>
                   <value>_country</value>
-                </prefill><display_mode type="str">list</display_mode>
+                </prefill><anonymise type="str">no</anonymise>
+                <display_mode type="str">list</display_mode>
                 <items />
                 <data_source>
                   <type>pays</type>
                 </data_source><in_filters type="bool">False</in_filters>
-                <anonymise type="bool">False</anonymise>
                 <display_disabled_items type="bool">False</display_disabled_items>
                 <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+                <image_desktop_size type="int">150</image_desktop_size>
+                <image_mobile_size type="int">75</image_mobile_size>
                 <id type="str">5</id>
               </field>
             </fields>
@@ -1177,7 +1179,7 @@ Bien &#224; vous,
     </status><status>
       <id>26</id>
       <name>Paiement annul&#233;</name>
-      <colour>00FF00</colour>
+      <colour>#00FF00</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -1192,7 +1194,7 @@ Bien &#224; vous,
     </status><status>
       <id>27</id>
       <name>Demande rembours&#233;e</name>
-      <colour>00FF00</colour>
+      <colour>#00FF00</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -1211,7 +1213,7 @@ Bien &#224; vous,
     </status><status>
       <id>28</id>
       <name>En cours de remboursement</name>
-      <colour>0099FF</colour>
+      <colour>#0099FF</colour>
       <visibility />
       <items>
         <item type="sendmail" id="1">
@@ -1248,7 +1250,7 @@ Cordialement, </body>
     </status><status>
       <id>37</id>
       <name>Demande Cl&#244;tur&#233;e</name>
-      <colour>FF99FF</colour>
+      <colour>#FF99FF</colour>
       <visibility />
       <items>
         <item type="register-comment" id="1">
@@ -1273,11 +1275,11 @@ Cordialement, </body>
     </status><status>
       <id>38</id>
       <name>Demande anonymis&#233;e</name>
-      <colour>FF9999</colour>
+      <colour>#FF9999</colour>
       <visibility />
       <items>
         <item type="anonymise" id="1">
-          <unlink_user>False</unlink_user>
+          <mode>final</mode>
         </item>
       </items>
     </status>
@@ -1295,7 +1297,8 @@ Cordialement, </body>
         <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
             <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
-          </roles>
+          </roles><allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action><action>
@@ -1307,7 +1310,8 @@ Cordialement, </body>
         <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
             <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
-          </roles>
+          </roles><allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action><action>
@@ -1323,7 +1327,8 @@ Cordialement, </body>
         <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
             <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
-          </roles>
+          </roles><allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action><action>
@@ -1340,13 +1345,12 @@ Cordialement, </body>
       </items><triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
             <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
-          </roles>
+          </roles><allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action><action>
@@ -1366,11 +1370,10 @@ Cordialement, </body>
             <item role_id="_receiver">_receiver</item>
             <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
             <item slug="agent-ayant-acces-aux-fabriques" role_id="9be8b3ce1b3244be8f6e05a9aa003cf0">Agent ayant acces aux fabriques</item>
-          </roles>
+          </roles><allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger><trigger type="timeout" id="ffd68291-0bf3-4f65-8259-618dd48570da">
           <anchor>1st-arrival</anchor>
-          <anchor_expression />
-          <anchor_template />
           <anchor_status_first>wf-10</anchor_status_first>
           <timeout>0</timeout>
         </trigger>
@@ -1388,8 +1391,8 @@ Cordialement, </body>
 Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
           <varname type="str">commentaire</varname>
           <display_locations />
-          <display_mode type="str">plain</display_mode>
           <anonymise type="str">final</anonymise>
+          <display_mode type="str">plain</display_mode>
           <id type="str">b8dd06a3-4a96-46be-aaad-714a1f60a0f5</id>
         </field><field>
           <type>subtitle</type>
@@ -1409,7 +1412,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           </display_locations><prefill>
             <type>string</type>
             <value>"0"</value>
-          </prefill><anonymise type="bool">True</anonymise>
+          </prefill><anonymise type="str">final</anonymise>
           <id type="str">1</id>
         </field><field>
           <type>string</type>
@@ -1418,7 +1421,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">Sera employ&#233; dans le flux "PC Banking (virement)" du Workflow.</hint>
           <varname type="str">iban</varname>
           <display_locations />
-          <anonymise type="bool">True</anonymise>
+          <anonymise type="str">final</anonymise>
           <id type="str">9</id>
         </field><field>
           <type>item</type>
@@ -1427,15 +1430,17 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">Plus d'information sur les r&#233;gies de paiement : https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html#configurer-un-formulaire-etat-civil-population</hint>
           <varname type="str">regie_de_paiement</varname>
           <display_locations />
+          <anonymise type="bool">False</anonymise>
           <display_mode type="str">radio</display_mode>
           <items />
           <data_source>
             <type>json</type>
             <value>{{portal_url}}/api/lingo/regies</value>
           </data_source><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
           <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">11</id>
         </field><field>
           <type>bool</type>
@@ -1447,7 +1452,8 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><id type="str">13</id>
+          </prefill><anonymise type="str">no</anonymise>
+          <id type="str">13</id>
         </field><field>
           <type>subtitle</type>
           <label type="str">Motifs et destinations</label>
@@ -1465,15 +1471,17 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><items />
+          </prefill><anonymise type="bool">True</anonymise>
+          <items />
           <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
           <max_choices type="int">0</max_choices>
           <data_source>
             <type>passerelle_motifs</type>
           </data_source><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">True</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">3</id>
         </field><field>
           <type>items</type>
@@ -1485,15 +1493,17 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><items />
+          </prefill><anonymise type="bool">True</anonymise>
+          <items />
           <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
           <max_choices type="int">0</max_choices>
           <data_source>
             <type>passerelle_destinations</type>
           </data_source><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">True</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">4</id>
         </field><field>
           <type>subtitle</type>
@@ -1512,7 +1522,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
             <display_location>summary</display_location>
           </display_locations><prefill>
             <type>none</type>
-          </prefill><anonymise type="bool">True</anonymise>
+          </prefill><anonymise type="str">final</anonymise>
           <id type="str">7</id>
         </field><field>
           <type>bool</type>
@@ -1521,6 +1531,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">Cocher cette case redirigera automatiquement l'usager vers le site "Mon Dossier" si cela s'applique (Acte apr&#232;s 2019 et est la personne concern&#233;e).</hint>
           <varname type="str">redirection_automatique</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <id type="str">12</id>
         </field><field>
           <type>subtitle</type>
@@ -1535,14 +1546,16 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <required type="bool">False</required>
           <varname type="str">liaison_baec</varname>
           <display_locations />
+          <anonymise type="bool">False</anonymise>
           <display_mode type="str">list</display_mode>
           <items>
             <item>Staging</item>
             <item>Production</item>
           </items><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
           <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">15</id>
         </field><field>
           <type>string</type>
@@ -1551,10 +1564,10 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">Nombre de jours pour effectuer la migration des documents vers la BAEC.</hint>
           <varname type="str">delai_migration</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
           <validation>
             <type>digits</type>
-          </validation><anonymise type="bool">True</anonymise>
-          <id type="str">16</id>
+          </validation><id type="str">16</id>
         </field><field>
           <type>subtitle</type>
           <label type="str">Actes</label>
@@ -1569,14 +1582,16 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">Cocher cette case affichera un champ "Fichier" o&#249; le demandeur sera invit&#233; &#224; joindre un document justificatif si la demande d'acte ne le concerne pas (concerne un tiers).</hint>
           <varname type="str">actes_piece_justificative_tiers</varname>
           <display_locations />
+          <anonymise type="bool">False</anonymise>
           <display_mode type="str">radio</display_mode>
           <items>
             <item>Oui</item>
             <item>Non</item>
           </items><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
           <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">18</id>
         </field><field>
           <type>text</type>
@@ -1586,8 +1601,8 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <varname type="str">actes_commentaire_additionnel</varname>
           <display_locations />
           <extra_css_class type="str">grid-1-1 newline</extra_css_class>
-          <display_mode type="str">pre</display_mode>
           <anonymise type="bool">True</anonymise>
+          <display_mode type="str">pre</display_mode>
           <id type="str">17</id>
         </field><field>
           <type>subtitle</type>
@@ -1603,6 +1618,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">Cochez pour activer l'anonymisation</hint>
           <varname type="str">activer_anonymisation</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <id type="str">21</id>
         </field><field>
           <type>string</type>
@@ -1611,10 +1627,10 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">En jours</hint>
           <varname type="str">delai_anonymisation_me_concerne</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
           <validation>
             <type>digits</type>
-          </validation><anonymise type="bool">True</anonymise>
-          <id type="str">19</id>
+          </validation><id type="str">19</id>
         </field><field>
           <type>comment</type>
           <label type="str">&lt;p&gt;Le &lt;strong class="label" id="label19"&gt;D&amp;eacute;lai d&amp;#39;anonymisation document qui me concerne&lt;/strong&gt; est &amp;eacute;galement utilis&amp;eacute; pour&lt;/p&gt;
@@ -1634,10 +1650,10 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">En jours</hint>
           <varname type="str">delai_anonymisation_document_concerne_tier</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
           <validation>
             <type>digits</type>
-          </validation><anonymise type="bool">True</anonymise>
-          <id type="str">20</id>
+          </validation><id type="str">20</id>
         </field><field>
           <type>subtitle</type>
           <label type="str">Autre</label>
@@ -1652,7 +1668,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">Lien vers le r&#232;glement communal qui s'affichera &#233;ventuellement dans certains formulaires (https://...).</hint>
           <varname type="str">reglement_communal</varname>
           <display_locations />
-          <anonymise type="bool">True</anonymise>
+          <anonymise type="str">final</anonymise>
           <id type="str">14</id>
         </field>
       </fields>
@@ -1668,7 +1684,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo10</id>
         </field><field>
           <type>string</type>
@@ -1677,7 +1693,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo11</id>
         </field><field>
           <type>string</type>
@@ -1687,7 +1703,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo6</id>
         </field><field>
           <type>string</type>
@@ -1696,7 +1712,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo13</id>
         </field><field>
           <type>string</type>
@@ -1705,7 +1721,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo12</id>
         </field><field>
           <type>string</type>
@@ -1715,7 +1731,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo2</id>
         </field><field>
           <type>string</type>
@@ -1725,7 +1741,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo3</id>
         </field><field>
           <type>bool</type>
@@ -1736,7 +1752,8 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <display_locations>
             <display_location>validation</display_location>
             <display_location>summary</display_location>
-          </display_locations><id type="str">bo9</id>
+          </display_locations><anonymise type="str">no</anonymise>
+          <id type="str">bo9</id>
         </field><field>
           <type>file</type>
           <label type="str">Document</label>
@@ -1744,7 +1761,8 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <varname type="str">document</varname>
           <display_locations>
             <display_location>summary</display_location>
-          </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+          </display_locations><anonymise type="str">final</anonymise>
+          <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
           <automatic_image_resize type="bool">False</automatic_image_resize>
           <storage type="str">default</storage>
           <id type="str">boc69b2ccc-1a6c-43a8-a1e0-5008ba678885</id>
@@ -1757,7 +1775,8 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <varname type="str">demande_me_concerne</varname>
           <display_locations>
             <display_location>summary</display_location>
-          </display_locations><id type="str">bo98fcb92f-d9bc-4913-b0e1-c301885502f5</id>
+          </display_locations><anonymise type="str">no</anonymise>
+          <id type="str">bo98fcb92f-d9bc-4913-b0e1-c301885502f5</id>
         </field><field>
           <type>bool</type>
           <label type="str">La demande concerne un tier</label>
@@ -1765,14 +1784,15 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <varname type="str">demande_concerne_tier</varname>
           <display_locations>
             <display_location>summary</display_location>
-          </display_locations><id type="str">bo24cc53ce-c40b-4167-9080-9f286ac310dd</id>
+          </display_locations><anonymise type="str">no</anonymise>
+          <id type="str">bo24cc53ce-c40b-4167-9080-9f286ac310dd</id>
         </field><field>
           <type>string</type>
           <label type="str">R&#233;f&#233;rence document migration</label>
           <required type="bool">False</required>
           <varname type="str">reference_document_migration</varname>
           <display_locations />
-          <anonymise type="bool">True</anonymise>
+          <anonymise type="str">final</anonymise>
           <id type="str">bo7643fe75-2f16-48de-adad-e1820f5e7972</id>
         </field><field>
           <type>bool</type>
@@ -1780,6 +1800,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <required type="bool">False</required>
           <varname type="str">document_migrated</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <id type="str">bo1cbb8e82-4fca-49c7-ab50-dd7e5e945cf7</id>
         </field><field>
           <type>bool</type>
@@ -1787,6 +1808,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <required type="bool">False</required>
           <varname type="str">result_delivrance_date_acte</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <id type="str">bod44f78a7-aa27-4199-befc-4eebb65bff6f</id>
         </field><field>
           <type>bool</type>
@@ -1794,6 +1816,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <required type="bool">False</required>
           <varname type="str">result_delivrance_date_acte_concerne_qui_redirection_automatique</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <id type="str">bof2067322-8881-4022-a2c3-e55f600a3c3f</id>
         </field><field>
           <type>bool</type>
@@ -1802,6 +1825,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">BAEC</hint>
           <varname type="str">result_concerne_qui_redirection_auto_delivrance</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <id type="str">bo167ac504-a96b-44ad-9428-d6f354125380</id>
         </field><field>
           <type>bool</type>
@@ -1810,7 +1834,8 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <varname type="str">connexion_forte</varname>
           <display_locations>
             <display_location>summary</display_location>
-          </display_locations><id type="str">bo2162b04d-0b5b-4a87-9075-425b8fdebfb2</id>
+          </display_locations><anonymise type="str">no</anonymise>
+          <id type="str">bo2162b04d-0b5b-4a87-9075-425b8fdebfb2</id>
         </field><field>
           <type>string</type>
           <label type="str">Transaction Reference</label>
@@ -1818,7 +1843,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <varname type="str">transaction_reference</varname>
           <display_locations>
             <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo2ac6793a-00c7-49ea-a725-a60653555d37</id>
         </field>
       </fields>
