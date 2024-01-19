@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="102" url="">
+<workflow id="73" url="https://rixensart-formulaires.guichet-citoyen.be/backoffice/workflows/73/">
   <name>iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</name>
   <slug>imio-departement-citoyen-avec-redirection-mondossier</slug>
   <roles>
@@ -275,7 +275,7 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
         </item><item type="choice" id="4">
           <label>V&#233;rifier la pr&#233;sence de l'acte</label>
           <by>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="dd579cc297f041839e2973780781712e">Debug</item>
           </by><status>35</status>
           <require_confirmation>False</require_confirmation>
           <backoffice_info_text>&lt;p&gt;Debug : V&amp;eacute;rifie la pr&amp;eacute;sence de l&amp;#39;acte dans la BAEC suite &amp;agrave; la demande de migration.&lt;/p&gt;
@@ -363,7 +363,9 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
         </item><item type="register-comment" id="3">
           <comment>{% if form_var_baec_document_select_migration_command %}Nous avons r&#233;cup&#233;r&#233; automatiquement un extrait de votre acte.
 Si vous avez besoin d'une copie int&#233;grale, vous devez remplir &#224; nouveau le formulaire et le document vous sera fourni imm&#233;diatement.{% endif %}
-&lt;a href="{{ form_var_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</comment>
+&lt;p&gt;
+&lt;a href="{{ form_var_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button"&gt;T&#233;l&#233;charger le document&lt;/a&gt;
+&lt;/p&gt;</comment>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
@@ -405,7 +407,7 @@ Cordialement,</body>
           <qs_data>
             <item>
               <name>certificate_reference</name>
-              <value>{{ form_var_baec_document_select_reference }}</value>
+              <value>{% firstof form_var_baec_document_select_reference form_var_reference_document_migration %}</value>
             </item><item>
               <name>certificate_type</name>
               <value>{{ form_var_baec_document_type_raw|default:"E" }}</value>
@@ -427,7 +429,7 @@ Cordialement,</body>
           <record_errors>True</record_errors>
           <condition>
             <type>django</type>
-            <value>form_var_baec_document_select_reference</value>
+            <value>form_var_baec_document_select_reference or form_var_document_migrated</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="2">
           <status>31</status>
@@ -685,7 +687,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         <role>_receiver</role>
         <role>_validateur-pc-banking</role>
       </visibility><items>
-        <item type="webservice_call" id="3">
+        <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
           <method>POST</method>
           <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
@@ -711,7 +713,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
             <type>django</type>
             <value>transaction_info_response_id</value>
           </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="sendmail" id="1">
+        </item><item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
@@ -721,7 +723,7 @@ Votre d&#233;marche gratuite "{{ form_name }}" est en cours de traitement par no
 
 
 Bien cordialement,</body>
-        </item><item type="jump" id="2">
+        </item><item type="jump" id="3">
           <status>accepted</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
