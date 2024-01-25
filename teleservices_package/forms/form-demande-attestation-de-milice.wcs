@@ -139,10 +139,9 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
         <display_location>summary</display_location>
       </display_locations><anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
-      <items />
       <data_source>
-        <type>formula</type>
-        <value>form_var_authentication_delivrance_items_visibility</value>
+        <type>jsonvalue</type>
+        <value>{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}</value>
       </data_source><in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">True</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
@@ -661,10 +660,9 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
-      <items />
       <data_source>
-        <type>formula</type>
-        <value>form_var_le_document_est_destine_a</value>
+        <type>jsonvalue</type>
+        <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
       </data_source><in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
@@ -706,10 +704,9 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
-      <items />
       <data_source>
-        <type>formula</type>
-        <value>form_var_mode_d_envoi</value>
+        <type>jsonvalue</type>
+        <value>{{ form_var_mode_d_envoi|unlazy_filter|json_dumps }}</value>
       </data_source><in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
