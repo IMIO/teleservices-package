@@ -6,14 +6,12 @@ set -e # Exit immediately if a command exits with a non-zero status.
 install_path="/usr/lib/teleservices_package"
 
 echo "--- Install passerelle settings casier judiciaire"
-if [ ! -f "/etc/passerelle/settings.d/casier_judiciaire.py" ]
-then
+if [ ! -f "/etc/passerelle/settings.d/casier_judiciaire.py" ] || [ ! -s "/etc/passerelle/settings.d/casier_judiciaire.py" ]; then
   cp $install_path/passerelle/casier_judiciaire.py /etc/passerelle/settings.d/
 fi
 
 echo "--- Install passerelle settings BAEC"
-if [ ! -f "/etc/passerelle/settings.d/baec.py" ]
-then
+if [ ! -f "/etc/passerelle/settings.d/baec.py" ] || [ ! -s "/etc/passerelle/settings.d/baec.py" ]; then
   cp $install_path/passerelle/baec.py /etc/passerelle/settings.d/
 fi
 
