@@ -2,7 +2,6 @@
 <formdef id="37" url="http://local-formulaires.example.net/backoffice/forms/37/">
   <name>iMio - R&#233;servation &#233;v&#232;nement</name>
   <url_name>imio-reservation-evenement</url_name>
-  <internal_identifier>imio-reservation-evenement</internal_identifier>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -15,9 +14,9 @@
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="imio-agendas" category_id="2">iMio - Agendas</category>
   <workflow slug="imio-gestion-des-rendez-vous-et-evenements-package" workflow_id="30">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
-  <max_field_id>74</max_field_id>
   <fields>
     <field>
+      <type>comment</type>
       <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
@@ -31,26 +30,25 @@
 &lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/agenda/index.html" rel="noopener noreferrer" target="_blank"&gt;Page de documentation g&amp;eacute;n&amp;eacute;rale sur les agendas&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</label>
-      <type type="str">comment</type>
       <condition>
         <type>django</type>
         <value>false</value>
       </condition><display_locations />
       <id type="str">74</id>
     </field><field>
+      <type>page</type>
       <label type="str">Coordonn&#233;es</label>
-      <type type="str">page</type>
       <id type="str">40</id>
     </field><field>
+      <type>title</type>
       <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
-      <type type="str">title</type>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><id type="str">41</id>
     </field><field>
+      <type>string</type>
       <label type="str">Nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">nom</varname>
       <display_locations>
@@ -61,11 +59,11 @@
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">43</id>
     </field><field>
+      <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">prenom</varname>
       <display_locations>
@@ -76,11 +74,11 @@
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">44</id>
     </field><field>
+      <type>string</type>
       <label type="str">Rue</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">rue</varname>
       <display_locations>
@@ -90,11 +88,11 @@
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">45</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">numero_porte</varname>
       <display_locations>
@@ -104,14 +102,14 @@
       <prefill>
         <type>user</type>
         <value>_num_house</value>
-      </prefill><validation>
+      </prefill><anonymise type="str">final</anonymise>
+      <validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise type="bool">True</anonymise>
-      <id type="str">46</id>
+      </validation><id type="str">46</id>
     </field><field>
+      <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">boite</varname>
       <display_locations>
@@ -121,11 +119,11 @@
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">47</id>
     </field><field>
+      <type>string</type>
       <label type="str">Code postal</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">code_postal</varname>
       <display_locations>
@@ -135,14 +133,14 @@
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
-      </prefill><validation>
+      </prefill><anonymise type="str">final</anonymise>
+      <validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><anonymise type="bool">True</anonymise>
-      <id type="str">48</id>
+      </validation><id type="str">48</id>
     </field><field>
+      <type>string</type>
       <label type="str">Localit&#233;</label>
-      <type type="str">string</type>
       <required type="bool">True</required>
       <varname type="str">localite</varname>
       <display_locations>
@@ -152,11 +150,11 @@
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">49</id>
     </field><field>
+      <type>email</type>
       <label type="str">Adresse &#233;lectronique</label>
-      <type type="str">email</type>
       <required type="bool">True</required>
       <hint type="str">Si la personne concern&#233;e ne poss&#232;de pas d'adresse &#233;lectronique, encodez la v&#244;tre.</hint>
       <varname type="str">email</varname>
@@ -168,10 +166,11 @@
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><id type="str">52</id>
+      </prefill><anonymise type="str">final</anonymise>
+      <id type="str">52</id>
     </field><field>
+      <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <type type="str">string</type>
       <required type="bool">False</required>
       <varname type="str">telephone</varname>
       <display_locations>
@@ -181,20 +180,20 @@
       <prefill>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">50</id>
     </field><field>
+      <type>comment</type>
       <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous pouvez changer votre siganl&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="{{ idp_account_url }}edit/"&gt;page de profil&lt;/a&gt;).&lt;/p&gt;</label>
-      <type type="str">comment</type>
       <display_locations />
       <id type="str">53</id>
     </field><field>
+      <type>page</type>
       <label type="str">S&#233;lectionnez la section</label>
-      <type type="str">page</type>
       <id type="str">69</id>
     </field><field>
+      <type>item</type>
       <label type="str">Section</label>
-      <type type="str">item</type>
       <required type="bool">False</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">agenda</varname>
@@ -202,24 +201,24 @@
         <display_location>validation</display_location>
         <display_location>summary</display_location>
         <display_location>listings</display_location>
-      </display_locations><prefill>
-        <type>none</type>
-      </prefill><display_mode type="str">list</display_mode>
-      <items />
+      </display_locations><anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
       <data_source>
-        <type>formula</type>
-        <value>form_option_agendas_structured</value>
+        <type>jsonvalue</type>
+        <value>{{ form_option_agendas_structured|json_dumps }}</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">70</id>
     </field><field>
+      <type>page</type>
       <label type="str">S&#233;lectionnez l'heure du rendez-vous</label>
-      <type type="str">page</type>
       <id type="str">17</id>
     </field><field>
+      <type>item</type>
       <label type="str">Choisissez une plage horaire</label>
-      <type type="str">item</type>
       <required type="bool">True</required>
       <varname type="str">date_rdv</varname>
       <display_locations>
@@ -229,15 +228,18 @@
       </display_locations><extra_css_class type="str">template-meetings</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><display_mode type="str">timetable</display_mode>
+      </prefill><anonymise type="str">no</anonymise>
+      <display_mode type="str">timetable</display_mode>
       <items />
       <data_source>
         <type>json</type>
         <value>{{form_var_agenda_api_datetimes_url}}</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">25</id>
     </field>
   </fields><user-roles>
