@@ -869,7 +869,7 @@
       <display_mode type="str">list</display_mode>
       <items />
       <data_source>
-        <type>formula</type>
+        <type>jsonvalue</type>
         <value>{{ form_var_mode_de_recuperation|unlazy_filter|json_dumps }}</value>
       </data_source><in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
