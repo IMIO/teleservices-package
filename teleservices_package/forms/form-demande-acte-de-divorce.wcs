@@ -100,14 +100,16 @@
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><display_mode type="str">radio</display_mode>
+      </prefill><anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
       <items />
       <data_source>
         <type>ds_personne_concernee</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">7</id>
     </field><field>
       <type>file</type>
@@ -121,7 +123,8 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      </display_locations><anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
       <automatic_image_resize type="bool">False</automatic_image_resize>
       <storage type="str">default</storage>
       <id type="str">89</id>
@@ -136,15 +139,17 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><display_mode type="str">radio</display_mode>
+      </display_locations><anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
       <data_source>
-        <type>formula</type>
-        <value>form_var_authentication_delivrance_items_visibility</value>
+        <type>jsonvalue</type>
+        <value>{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">True</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">63</id>
     </field><field>
       <type>computed</type>
@@ -178,14 +183,16 @@
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><display_mode type="str">radio</display_mode>
+      </display_locations><anonymise type="str">final</anonymise>
+      <display_mode type="str">radio</display_mode>
       <items />
       <data_source>
         <type>baec_documents_by_category</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">True</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">79</id>
     </field><field>
       <type>comment</type>
@@ -250,7 +257,8 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><display_mode type="str">radio</display_mode>
+      </prefill><anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
       <items>
         <item>Avant le 31-03-2019</item>
         <item>Apr&#232;s le 31-03-2019</item>
@@ -258,10 +266,11 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </items><data_source>
         <type>ds_date_acte</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">66</id>
     </field><field>
       <type>page</type>
@@ -289,16 +298,18 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><display_mode type="str">radio</display_mode>
+      </display_locations><anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
       <items>
         <item>Extrait : document qui ne comporte qu'une partie des informations figurant dans l'acte</item>
         <item>Copie int&#233;grale : document qui reprend l'int&#233;gralit&#233; des informations reprises sur l'acte</item>
         <item>Article 16 : document extrait d'acte multilingue (les 3 langues nationales + l'anglais)</item>
         <item>Article 34 : document extrait d'acte plurilingue (&#224; destination de la Suisse et l'Allemagne uniquement)</item>
       </items><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">75</id>
     </field><field>
       <type>item</type>
@@ -312,15 +323,16 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><display_mode type="str">radio</display_mode>
-      <items />
+      </display_locations><anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
       <data_source>
-        <type>formula</type>
-        <value>form_var_baec_document_select_types</value>
+        <type>jsonvalue</type>
+        <value>{{ form_var_baec_document_select_types|json_dumps }}</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">77</id>
     </field><field>
       <type>comment</type>
@@ -350,7 +362,8 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><id type="str">94</id>
+      </display_locations><anonymise type="str">no</anonymise>
+      <id type="str">94</id>
     </field><field>
       <type>item</type>
       <label type="str">Langue pour la traduction</label>
@@ -363,14 +376,16 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
-      </display_locations><display_mode type="str">autocomplete</display_mode>
+      </display_locations><anonymise type="str">no</anonymise>
+      <display_mode type="str">autocomplete</display_mode>
       <items />
       <data_source>
         <type>langues</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">95</id>
     </field><field>
       <type>page</type>
@@ -389,7 +404,8 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><display_mode type="str">radio</display_mode>
+      </prefill><anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
       <items>
         <item>Conjoint</item>
         <item>Enfants</item>
@@ -398,10 +414,11 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </items><data_source>
         <type>ds_lien_de_parente</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">9</id>
     </field><field>
       <type>string</type>
@@ -415,7 +432,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <display_location>summary</display_location>
       </display_locations><prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">10</id>
     </field><field>
       <type>page</type>
@@ -445,7 +462,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">43</id>
     </field><field>
       <type>string</type>
@@ -458,7 +475,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">44</id>
     </field><field>
       <type>string</type>
@@ -472,10 +489,10 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><validation>
+      </prefill><anonymise type="str">final</anonymise>
+      <validation>
         <type>nrn-be</type>
-      </validation><anonymise type="bool">True</anonymise>
-      <id type="str">45</id>
+      </validation><id type="str">45</id>
     </field><field>
       <type>date</type>
       <label type="str">Date de naissance</label>
@@ -487,10 +504,10 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      </prefill><anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
-      <anonymise type="bool">True</anonymise>
       <id type="str">46</id>
     </field><field>
       <type>subtitle</type>
@@ -510,7 +527,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">48</id>
     </field><field>
       <type>string</type>
@@ -524,11 +541,11 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><validation>
+      </prefill><anonymise type="str">final</anonymise>
+      <validation>
         <type>regex</type>
         <value>[1-9][0-9]*</value>
-      </validation><anonymise type="bool">True</anonymise>
-      <id type="str">49</id>
+      </validation><id type="str">49</id>
     </field><field>
       <type>string</type>
       <label type="str">Bo&#238;te</label>
@@ -540,7 +557,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">50</id>
     </field><field>
       <type>string</type>
@@ -553,7 +570,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-4 newline</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">57</id>
     </field><field>
       <type>string</type>
@@ -566,7 +583,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">52</id>
     </field><field>
       <type>item</type>
@@ -579,14 +596,16 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><display_mode type="str">list</display_mode>
+      </prefill><anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
       <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">58</id>
     </field><field>
       <type>email</type>
@@ -599,7 +618,8 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><id type="str">54</id>
+      </prefill><anonymise type="str">final</anonymise>
+      <id type="str">54</id>
     </field><field>
       <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
@@ -609,12 +629,12 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
       <validation>
         <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
         <type>regex</type>
         <value>^(0|\+|00)(\d{8,})$</value>
-      </validation><anonymise type="bool">True</anonymise>
-      <id type="str">55</id>
+      </validation><id type="str">55</id>
     </field><field>
       <type>page</type>
       <label type="str">Donn&#233;es du demandeur</label>
@@ -644,7 +664,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">14</id>
     </field><field>
       <type>string</type>
@@ -658,7 +678,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">15</id>
     </field><field>
       <type>string</type>
@@ -673,10 +693,10 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_niss</value>
-      </prefill><validation>
+      </prefill><anonymise type="str">final</anonymise>
+      <validation>
         <type>nrn-be</type>
-      </validation><anonymise type="bool">True</anonymise>
-      <id type="str">16</id>
+      </validation><id type="str">16</id>
     </field><field>
       <type>date</type>
       <label type="str">Date de naissance</label>
@@ -690,10 +710,10 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_birthdate</value>
-      </prefill><minimum_is_future type="bool">False</minimum_is_future>
+      </prefill><anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
-      <anonymise type="bool">True</anonymise>
       <id type="str">17</id>
     </field><field>
       <type>subtitle</type>
@@ -714,7 +734,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">19</id>
     </field><field>
       <type>string</type>
@@ -729,11 +749,11 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_num_house</value>
-      </prefill><validation>
+      </prefill><anonymise type="str">final</anonymise>
+      <validation>
         <type>regex</type>
         <value>[1-9][0-9]*</value>
-      </validation><anonymise type="bool">True</anonymise>
-      <id type="str">20</id>
+      </validation><id type="str">20</id>
     </field><field>
       <type>string</type>
       <label type="str">Bo&#238;te</label>
@@ -746,7 +766,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">21</id>
     </field><field>
       <type>string</type>
@@ -760,7 +780,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">51</id>
     </field><field>
       <type>string</type>
@@ -774,7 +794,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">59</id>
     </field><field>
       <type>item</type>
@@ -789,14 +809,16 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_country</value>
-      </prefill><display_mode type="str">list</display_mode>
+      </prefill><anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
       <items />
       <data_source>
         <type>pays</type>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">60</id>
     </field><field>
       <type>comment</type>
@@ -815,7 +837,8 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><id type="str">24</id>
+      </prefill><anonymise type="str">final</anonymise>
+      <id type="str">24</id>
     </field><field>
       <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
@@ -828,12 +851,12 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>user</type>
         <value>_phone</value>
-      </prefill><validation>
+      </prefill><anonymise type="str">final</anonymise>
+      <validation>
         <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
         <type>regex</type>
         <value>^(0|\+|00)(\d{8,})$</value>
-      </validation><anonymise type="bool">True</anonymise>
-      <id type="str">25</id>
+      </validation><id type="str">25</id>
     </field><field>
       <type>page</type>
       <label type="str">Destination du document</label>
@@ -852,20 +875,23 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <type>item</type>
       <label type="str">Le document est destin&#233; &#224;</label>
       <required type="bool">True</required>
+      <hint type="str">Choisissez une option</hint>
       <varname type="str">motifs</varname>
       <display_locations>
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
       <data_source>
-        <type>formula</type>
-        <value>form_var_le_document_est_destine_a</value>
+        <type>jsonvalue</type>
+        <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">32</id>
     </field><field>
       <type>string</type>
@@ -880,7 +906,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>none</type>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">33</id>
     </field><field>
       <type>computed</type>
@@ -899,15 +925,17 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <display_location>validation</display_location>
         <display_location>summary</display_location>
       </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
       <data_source>
-        <type>formula</type>
-        <value>form_var_mode_de_recuperation</value>
+        <type>jsonvalue</type>
+        <value>{{ form_var_mode_de_recuperation|unlazy_filter|json_dumps }}</value>
       </data_source><in_filters type="bool">False</in_filters>
-      <anonymise type="bool">False</anonymise>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">34</id>
     </field><field>
       <type>string</type>
@@ -922,11 +950,11 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <prefill>
         <type>string</type>
         <value>1</value>
-      </prefill><validation>
+      </prefill><anonymise type="str">final</anonymise>
+      <validation>
         <type>regex</type>
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
-      </validation><anonymise type="bool">True</anonymise>
-      <id type="str">35</id>
+      </validation><id type="str">35</id>
     </field><field>
       <type>page</type>
       <label type="str">Prix de la d&#233;marche</label>
@@ -956,7 +984,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <locked>True</locked>
         <type>string</type>
         <value>{{form_option_cout|add:form_var_motifs_price|multiply:form_var_nb_exemplaire}} &#8364;</value>
-      </prefill><anonymise type="bool">True</anonymise>
+      </prefill><anonymise type="str">final</anonymise>
       <id type="str">61</id>
     </field>
   </fields><user-roles>
