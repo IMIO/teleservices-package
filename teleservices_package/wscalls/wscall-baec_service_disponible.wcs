@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <wscall id="baec_service_disponible" url="">
-  <name>iMio BAEC - Service disponible</name>
+  <name>iMio - BAEC - Service disponible</name>
   <slug>baec_service_disponible</slug>
   <description>V&#233;rifie la disponibilit&#233; du service.</description>
   <request>
