@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<wscall id="agenda_statut" url="">
+  <name>iMio - Agenda - Informations pour un &#233;v&#232;nement s&#233;lectionn&#233;</name>
+  <slug>agenda_statut</slug>
+  <description>Rapatrie les informations d'un &#233;v&#232;nement choisi d'un champ de formulaire. Utilise les conventions de nommage des formulaires &#233;v&#232;nements du package.</description>
+  <request>
+    <url>{{ form_var_date_rdv_api_status_url }}</url>
+    <request_signature_key />
+    <method>GET</method>
+    <timeout />
+    <cache_duration />
+    <qs_data />
+    <post_data />
+  </request><record_on_errors>true</record_on_errors>
+</wscall>

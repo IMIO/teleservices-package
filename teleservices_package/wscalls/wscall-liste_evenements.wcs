@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<wscall id="liste_evenements" url="">
+  <name>iMio - Agenda - Liste &#233;v&#232;nements pour un agenda s&#233;lectionn&#233;</name>
+  <slug>liste_evenements</slug>
+  <description>Il rapatrie tous les &#233;v&#232;nements d'un agenda donn&#233; ainsi que d'autres informations. Utilise les conventions de nommage des formulaires &#233;v&#232;nements du package.</description>
+  <request>
+    <url>{{ form_option_agenda_api_datetimes_url }}</url>
+    <request_signature_key />
+    <method>GET</method>
+    <timeout />
+    <cache_duration />
+    <qs_data />
+    <post_data />
+  </request><record_on_errors>true</record_on_errors>
+</wscall>
