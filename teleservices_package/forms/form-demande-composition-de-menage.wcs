@@ -667,8 +667,8 @@
     <option varname="liaison_baec">Staging</option>
     <option varname="liaison_baec_display">Staging</option>
     <option varname="liaison_baec_structured" />
-    <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=42&amp;language=FR</option>
-    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=42&amp;language=FR</option>
+    <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=42</option>
+    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=42</option>
     <option varname="mode_recup_disponibles" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
