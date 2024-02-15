@@ -415,7 +415,7 @@
 
 &lt;p&gt;Si vous ne connaissez&amp;nbsp;plus votre code PIN et n&amp;rsquo;&amp;ecirc;tes plus en possession du document reprenant le code PUK, veuillez &lt;a href="https://www.ibz.rrn.fgov.be/fr/documents-didentite/eid/demande-dun-code-pin/" target="_blank"&gt;commander un nouveau code puk en vous rendant sur le site du Registre national&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;{% with nombre_personnes=form_var_bloc_identite|default_if_none:0|length|add:1 %}Montant de votre demande (hors frais de ports) : {% if&#160;form_var_cp_ancienneadr in form_option_cp_commune %}{{ nombre_personnes|multiply:form_option_prix_par_adulte_concerne_si_emmenagement_intramuros|decimal:2 }}{% elif&#160;form_var_cp_ancienneadr not in form_option_cp_commune %}{{ nombre_personnes|multiply:form_option_prix_par_adulte_autre_commune|decimal:2 }}{% endif %} &amp;euro;{% endwith %}&lt;/p&gt;</label>
+&lt;p&gt;{% with nombre_personnes=form_var_bloc_identite|length|add:1|default_if_none:0 %}Montant de votre demande (hors frais de ports) : {% if&#160;form_var_cp_ancienneadr in form_option_cp_commune %}{{ nombre_personnes|multiply:form_option_prix_par_adulte_concerne_si_emmenagement_intramuros|decimal:2 }}{% elif&#160;form_var_cp_ancienneadr not in form_option_cp_commune %}{{ nombre_personnes|multiply:form_option_prix_par_adulte_autre_commune|decimal:2 }}{% endif %} &amp;euro;{% endwith %}&lt;/p&gt;</label>
       <type type="str">comment</type>
       <display_locations />
       <id type="str">41</id>
