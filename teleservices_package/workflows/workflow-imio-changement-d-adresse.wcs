@@ -329,8 +329,8 @@ Esplanade de l'H&#244;tel communal, 1
         <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
           <method>POST</method>
-          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
-          <post>True</post>
+          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <post>False</post>
           <post_data>
             <item>
               <name>skip_notification</name>
@@ -340,13 +340,14 @@ Esplanade de l'H&#244;tel communal, 1
               <value>{{panier_response_id}}</value>
             </item>
           </post_data><response_type>json</response_type>
+          <varname>annulation_panier</varname>
           <request_signature_key>13245</request_signature_key>
           <action_on_app_error>:pass</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>:stop</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>True</notify_on_errors>
+          <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
         </item><item type="displaymsg" id="2">

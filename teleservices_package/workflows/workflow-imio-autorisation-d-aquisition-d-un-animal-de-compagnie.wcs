@@ -416,7 +416,7 @@ Cordialement,
         <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
           <method>POST</method>
-          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <post>False</post>
           <post_data>
             <item>
@@ -448,7 +448,7 @@ Cordialement,
         <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
           <method>POST</method>
-          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <post>False</post>
           <post_data>
             <item>
@@ -509,7 +509,7 @@ Cordialement,
         <item type="webservice_call" id="2">
           <label>Supprimer du panier</label>
           <method>POST</method>
-          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <post>False</post>
           <post_data>
             <item>

@@ -443,7 +443,7 @@ Bien &#224; vous,</body>
       <items>
         <item id="1" type="webservice_call">
           <label>Supprimer du panier</label>
-          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <method>POST</method>
           <post>False</post>
           <post_data>
@@ -461,7 +461,7 @@ Bien &#224; vous,</body>
           <action_on_5xx>:stop</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>True</notify_on_errors>
+          <notify_on_errors>False</notify_on_errors>
           <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
         </item>
