@@ -517,7 +517,7 @@ Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.</body
       <items>
         <item type="webservice_call" id="1">
           <method>POST</method>
-          <url>{{portal_url}}/api/lingo/cancel-transaction</url>
+          <url>{{portal_url}}api/lingo/cancel-transaction</url>
           <qs_data>
             <item>
               <name>amount</name>
@@ -998,7 +998,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <items />
           <data_source>
             <type>json</type>
-            <value>{{portal_url}}/api/lingo/regies</value>
+            <value>{{portal_url}}api/lingo/regies</value>
           </data_source><in_filters type="bool">False</in_filters>
           <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>

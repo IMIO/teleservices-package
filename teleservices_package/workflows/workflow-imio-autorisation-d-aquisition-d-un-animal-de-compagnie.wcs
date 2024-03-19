@@ -617,7 +617,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <items />
           <data_source>
             <type>json</type>
-            <value>{{portal_url}}/api/lingo/regies</value>
+            <value>{{portal_url}}api/lingo/regies</value>
           </data_source><in_filters type="bool">False</in_filters>
           <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
