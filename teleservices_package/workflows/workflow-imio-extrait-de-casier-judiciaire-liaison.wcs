@@ -10,7 +10,7 @@
       <name>Juste envoy&#233;</name>
       <colour>#999999</colour>
       <visibility>
-        <role>_receiver</role>
+        <role>__restricted__</role>
       </visibility><items>
         <item type="webservice_call" id="1">
           <label>V&#233;rification du document</label>
@@ -57,6 +57,12 @@
         </item><item type="jump" id="4">
           <status>9</status>
           <set_marker_on_status>False</set_marker_on_status>
+</item><item type="jump" id="5">
+          <status>10</status>
+          <condition>
+            <type>django</type>
+            <value>form_workflow_data_check_document_response_bosa_return_code == "IN_TREATMENT"</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
@@ -64,7 +70,7 @@
       <name>R&#233;cup&#233;ration du document</name>
       <colour>#999999</colour>
       <visibility>
-        <role>_receiver</role>
+        <role>__restricted__</role>
       </visibility><items>
         <item type="webservice_call" id="1">
           <label>R&#233;cup&#233;ration du document</label>
@@ -74,7 +80,7 @@
           <post_data>
             <item>
               <name>pdf_base64</name>
-              <value>{{ form_workflow_data_check_document_response_file_content }}</value>
+              <value>{% firstof form_workflow_data_check_document_response_file_content form_workflow_data_verify_status_response_file_content %}</value>
             </item>
           </post_data><response_type>attachment</response_type>
           <varname>extract_document</varname>
@@ -216,6 +222,22 @@ Veuillez contacter votre administration communale pour l'en avertir.
         </item><item type="jump" id="3">
           <status>2</status>
           <set_marker_on_status>False</set_marker_on_status>
+</item><item type="sendmail" id="4">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to><subject>{{ form_name }} : Votre document est disponible</subject>
+          <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+
+Nous vous informons que votre document concernant la d&#233;marche {{ form_name }} est d&#233;sormais disponible.
+
+Vous pouvez le t&#233;l&#233;charger dans l'`historique de votre demande &lt;{{form_url}}&gt;`_.
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,</body>
         </item>
       </items>
     </status><status>
@@ -238,7 +260,7 @@ Veuillez contacter votre administration communale pour l'en avertir.
       <name>En attente d'anonymisation</name>
       <colour>#000000</colour>
       <visibility>
-        <role>_receiver</role>
+        <role>__restricted__</role>
       </visibility><items>
         <item type="jump" id="1">
           <status>8</status>
@@ -251,10 +273,56 @@ Veuillez contacter votre administration communale pour l'en avertir.
       <name>Demande anonymis&#233;e</name>
       <colour>#999999</colour>
       <visibility>
-        <role>_receiver</role>
+        <role>__restricted__</role>
       </visibility><items>
         <item type="anonymise" id="1">
           <mode>final</mode>
+        </item>
+      </items>
+</status><status>
+      <id>10</id>
+      <name>En cours de traitement</name>
+      <colour>#FFFFFF</colour>
+      <visibility />
+      <items>
+        <item type="register-comment" id="4">
+          <comment>Votre extrait de casier judiciaire sera bient&#244;t disponible. Vous serez inform&#233;(e) par e-mail d&#232;s sa mise &#224; disposition.
+
+</comment>
+        </item><item type="webservice_call" id="1">
+          <label>V&#233;rification du statut de la demande</label>
+          <method>GET</method>
+          <url>{{ passerelle_url }}passerelle-imio-apims-casier-judiciaire/apims-casier-judiciaire/get-delayed-extract</url>
+          <qs_data>
+            <item>
+              <name>requestor_nrn</name>
+              <value>{{ form_var_nn }}</value>
+            </item><item>
+              <name>unique_id</name>
+              <value>{{ form_workflow_data_check_document_response_bosa_unique_id }}</value>
+            </item>
+          </qs_data><post>False</post>
+          <response_type>json</response_type>
+          <varname>verify_status</varname>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <record_on_errors>True</record_on_errors>
+          <record_errors>False</record_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="2">
+          <status>10</status>
+          <timeout>86400</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item><item type="jump" id="3">
+          <status>1</status>
+          <condition>
+            <type>django</type>
+            <value>form_workflow_data_verify_status_response_bosa_return_code == "GENERATED"</value>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status>
@@ -278,9 +346,7 @@ Veuillez contacter votre administration communale pour l'en avertir.
           <require_confirmation>False</require_confirmation>
         </trigger><trigger type="timeout" id="cf9c8e6a-187a-4f6c-bab6-c6fa88d30c0e">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
-          <timeout>0</timeout>
+                    <timeout>0</timeout>
         </trigger>
       </triggers>
     </action><action>
