@@ -15,7 +15,7 @@
         <locked>False</locked>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
+      <automatic_image_resize>True</automatic_image_resize>
       <storage>default</storage>
       <id>bf229ecbb4-57e1-4f03-bac4-31f10a00acc3</id>
     </field>

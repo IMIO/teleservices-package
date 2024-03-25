@@ -64,7 +64,7 @@
       <prefill>
         <type>none</type>
       </prefill><allow_portfolio_picking>False</allow_portfolio_picking>
-      <automatic_image_resize>False</automatic_image_resize>
+      <automatic_image_resize>True</automatic_image_resize>
       <storage>default</storage>
       <id>bfc5a96fd0-9983-4174-b7a6-16d3de2d008c</id>
     </field>
