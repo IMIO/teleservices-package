@@ -240,8 +240,8 @@ Le service Population / Etat-civil
           </qs_data><post>False</post>
           <post_data>
             <item>
-              <name>url</name>
-              <value>{{form_url}}</value>
+              <name>nb_documents</name>
+              <value>{{form_var_nb_exemplaire}}</value>
             </item><item>
               <name>amount</name>
               <value>{{form_var_wf_total_commande}}</value>
@@ -251,6 +251,9 @@ Le service Population / Etat-civil
             </item><item>
               <name>display_name</name>
               <value>{{form_display_name}}</value>
+            </item><item>
+              <name>url</name>
+              <value>{{form_url}}</value>
             </item>
           </post_data><response_type>json</response_type>
           <varname>transaction_info</varname>
