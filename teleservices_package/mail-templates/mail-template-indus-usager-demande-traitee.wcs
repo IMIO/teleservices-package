@@ -2,27 +2,23 @@
 <mail-template id="54" url="https://staging-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/54/">
   <name>Indus - Usager - Demande trait&#233;e</name>
   <slug>indus-usager-demande-traitee</slug>
-  <subject>{{ form_name }} - Demande trait&#233;e</subject>
-  <body>Bonjour,
+  <subject>{{ form_name }} : Demande trait&#233;e</subject>
+  <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
-Votre demande a été traitée.
-Pour rappel, il s'agit de la démarche suivante : {{ form_name }}.
+Nous vous informons que votre demande concernant la d&#233;marche {{ form_name }} a &#233;t&#233; trait&#233;e.
 
+"{{form_workflow_data_comment_reponse}}"
 
-{% if form_var_destinations %}
-Pour rappel, vous avez choisi le mode réception suivant : {{ form_var_destinations }}.
-{% endif %}
-
-{% if form_comment %}
-Nouveau commentaire : {{ form_comment }}
-{% endif %}
-
-{% if form_var_destinations and "porte" in form_var_destinations %}
-`Acc&#233;der &#224; mon porte-documents &lt;{{porte_doc_url}}&gt;`_
+{% if "porte" in form_var_destinations %}
+`Acc&#233;der &#224; mon porte-documents &lt;{{form_var_document_url}}&gt;`_
 {% endif %}
 
 {% if form_user %}
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
 {% endif %}
 
 Cordialement,</body>

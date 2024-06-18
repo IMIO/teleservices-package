@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<workflow id="80" url="">
+<workflow id="80" url="https://staging-formulaires.guichet-citoyen.be/backoffice/workflows/80/">
   <name>iMio - Extrait casier judicaire</name>
   <slug>imio-extrait-casier-judicaire</slug>
   <roles>
@@ -9,10 +9,9 @@
     <status>
       <id>just_submitted</id>
       <name>Juste envoy&#233;</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
-        <role>_receiver</role>
-        <role>_validateur-pc-banking</role>
+        <role>__restricted__</role>
       </visibility><items>
         <item type="set-backoffice-fields" id="1">
           <label>D&#233;finition du demandeur</label>
@@ -51,22 +50,25 @@
           <condition>
             <type>django</type>
             <value>form_var_wf_total_commande|add:0 == 0 and form_var_destinations_price == '0.00'</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
+          </condition><mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="3">
           <status>21</status>
           <condition>
             <type>django</type>
             <value>form_option_paiement_en_ligne == 'False'</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
+          </condition><mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="4">
           <status>10</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>4</id>
       <name>Demande rejet&#233;e</name>
-      <colour>FF0000</colour>
+      <colour>#FF0000</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -83,19 +85,21 @@
           <condition>
             <type>django</type>
             <value>form_var_wf_total_commande|add:0 &gt; 0 and form_var_wf_paiement_en_ligne</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
+          </condition><mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="4">
           <status>25</status>
           <condition>
             <type>django</type>
             <value>form_var_wf_total_commande|add:0 &gt; 0</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
+          </condition><mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>accepted</id>
       <name>En cours de traitement</name>
-      <colour>0099FF</colour>
+      <colour>#0099FF</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -134,9 +138,10 @@ Bien &#224; vous,
           <display_title>True</display_title>
           <button_label>Envoyer le document vers le porte-documents</button_label>
           <display_button>True</display_button>
+          <backoffice_filefield_id>bo27003e64-9dbc-4cbb-a51a-5fe274cbccbd</backoffice_filefield_id>
           <attach_to_history>True</attach_to_history>
           <allow_portfolio_picking>False</allow_portfolio_picking>
-          <push_to_portfolio>True</push_to_portfolio>
+          <push_to_portfolio>False</push_to_portfolio>
           <condition>
             <type>django</type>
             <value>form_var_destinations and "porte" in form_var_destinations</value>
@@ -177,7 +182,7 @@ Bien &#224; vous,
     </status><status>
       <id>finished</id>
       <name>Trait&#233;</name>
-      <colour>00FF00</colour>
+      <colour>#00FF00</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -225,7 +230,7 @@ Le service Population / Etat-civil
     </status><status>
       <id>10</id>
       <name>En attente du paiement</name>
-      <colour>FFFF00</colour>
+      <colour>#FFFF00</colour>
       <visibility />
       <items>
         <item type="webservice_call" id="1">
@@ -257,14 +262,17 @@ Le service Population / Etat-civil
             </item>
           </post_data><response_type>json</response_type>
           <varname>transaction_info</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
           <action_on_app_error>:pass</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>:stop</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>True</notify_on_errors>
-          <record_on_errors>True</record_on_errors>
           <record_errors>True</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>True</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="register-comment" id="2">
           <comment>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
@@ -281,10 +289,12 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <position>top</position>
         </item><item type="jump" id="4">
           <status>12</status>
+          <mode>trigger</mode>
           <trigger>cancelled</trigger>
           <set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="5">
           <status>17</status>
+          <mode>trigger</mode>
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -292,7 +302,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
     </status><status>
       <id>12</id>
       <name>Demande annul&#233;e par le citoyen</name>
-      <colour>FF9966</colour>
+      <colour>#FF9966</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
@@ -308,7 +318,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
     </status><status>
       <id>13</id>
       <name>Document gratuit</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility />
       <items>
         <item type="sendmail" id="1">
@@ -327,13 +337,14 @@ Le service Population / Etat-civil
 {{administration_adresse}}</body>
         </item><item type="jump" id="2">
           <status>accepted</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>17</id>
       <name>Paiement re&#231;u</name>
-      <colour>99FF00</colour>
+      <colour>#99FF00</colour>
       <visibility />
       <items>
         <item type="set-backoffice-fields" id="1">
@@ -366,13 +377,14 @@ Le service Population / Etat-civil
 {{administration_adresse}</body>
         </item><item type="jump" id="3">
           <status>accepted</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>18</id>
       <name>Supprim&#233; du panier</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility />
       <items>
         <item type="webservice_call" id="1">
@@ -391,18 +403,20 @@ Le service Population / Etat-civil
           </post_data><response_type>json</response_type>
           <varname>annulation_panier</varname>
           <request_signature_key>13245</request_signature_key>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
           <action_on_app_error>:pass</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>:stop</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>False</notify_on_errors>
-          <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
           <condition>
             <type>django</type>
             <value>transaction_info_response_id</value>
-          </condition>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="displaymsg" id="2">
           <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
           <level>success</level>
@@ -415,10 +429,9 @@ Le service Population / Etat-civil
     </status><status>
       <id>19</id>
       <name>Formulaire de refus</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
-        <role>_receiver</role>
-        <role>_validateur-pc-banking</role>
+        <role>__restricted__</role>
       </visibility><items>
         <item type="form" id="1">
           <by>
@@ -429,8 +442,8 @@ Le service Population / Etat-civil
             <name>-</name>
             <fields>
               <field>
+                <type>text</type>
                 <label type="str">Motif du refus</label>
-                <type type="str">text</type>
                 <required type="bool">True</required>
                 <hint type="str">Le motif du refus sera envoy&#233; dans un courriel &#224; l'usager.</hint>
                 <varname type="str">motif</varname>
@@ -438,7 +451,8 @@ Le service Population / Etat-civil
                 <extra_css_class type="str">pk-important</extra_css_class>
                 <prefill>
                   <type>none</type>
-                </prefill><rows type="str">10</rows>
+                </prefill><anonymise type="str">final</anonymise>
+                <rows type="str">10</rows>
                 <display_mode type="str">plain</display_mode>
                 <id type="str">2</id>
               </field>
@@ -452,10 +466,9 @@ Le service Population / Etat-civil
     </status><status>
       <id>21</id>
       <name>Paiement par virement bancaire</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
-        <role>_receiver</role>
-        <role>_validateur-pc-banking</role>
+        <role>__restricted__</role>
       </visibility><items>
         <item type="set-backoffice-fields" id="1">
           <label>Total de la commande</label>
@@ -467,13 +480,14 @@ Le service Population / Etat-civil
           </fields>
         </item><item type="jump" id="2">
           <status>22</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>22</id>
       <name>En attente du virement</name>
-      <colour>FFFF00</colour>
+      <colour>#FFFF00</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -556,18 +570,19 @@ Le service Population / Etat-civil
     </status><status>
       <id>23</id>
       <name>Virement re&#231;u</name>
-      <colour>99FF00</colour>
+      <colour>#99FF00</colour>
       <visibility />
       <items>
         <item type="jump" id="1">
           <status>accepted</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>24</id>
       <name>Remboursement</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility />
       <items>
         <item type="webservice_call" id="1">
@@ -584,23 +599,27 @@ Le service Population / Etat-civil
           </qs_data><post>False</post>
           <response_type>json</response_type>
           <varname>cancel_operation</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
           <action_on_app_error>25</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>25</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>True</notify_on_errors>
-          <record_on_errors>True</record_on_errors>
           <record_errors>True</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>True</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
         </item><item type="jump" id="2">
           <status>26</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>25</id>
       <name>Demande d'informations pour le remboursement</name>
-      <colour>FFFF00</colour>
+      <colour>#FFFF00</colour>
       <visibility />
       <items>
         <item type="sendmail" id="1">
@@ -638,82 +657,82 @@ Le service Population / Etat civil
             <name>-</name>
             <fields>
               <field>
+                <type>title</type>
                 <label type="str">Vos informations de remboursement</label>
-                <type type="str">title</type>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
+                  <item>validation</item>
+                  <item>summary</item>
                 </display_locations><id type="str">9</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Num&#233;ro de compte IBAN</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">iban</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
+                  <item>validation</item>
+                  <item>summary</item>
                 </display_locations><prefill>
                   <type>none</type>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">1</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Nom</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">nom</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
+                  <item>validation</item>
+                  <item>summary</item>
                 </display_locations><prefill>
                   <type>user</type>
                   <value>_last_name</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">2</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Rue</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">rue</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
+                  <item>validation</item>
+                  <item>summary</item>
                 </display_locations><extra_css_class type="str">grid-2-4</extra_css_class>
                 <prefill>
                   <type>user</type>
                   <value>_street</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">3</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Num&#233;ro</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">numero</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
+                  <item>validation</item>
+                  <item>summary</item>
                 </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
                 <prefill>
                   <type>user</type>
                   <value>_num_house</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">6</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Bo&#238;te</label>
-                <type type="str">string</type>
                 <required type="bool">False</required>
                 <varname type="str">boite</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
+                  <item>validation</item>
+                  <item>summary</item>
                 </display_locations><extra_css_class type="str">grid-1-4</extra_css_class>
                 <prefill>
                   <type>user</type>
                   <value>_num_box</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">7</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Code postal</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">code_postal</varname>
                 <display_locations />
@@ -721,39 +740,42 @@ Le service Population / Etat civil
                 <prefill>
                   <type>user</type>
                   <value>_zipcode</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">4</id>
               </field><field>
+                <type>string</type>
                 <label type="str">Localit&#233;</label>
-                <type type="str">string</type>
                 <required type="bool">True</required>
                 <varname type="str">localite</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
+                  <item>validation</item>
+                  <item>summary</item>
                 </display_locations><prefill>
                   <type>user</type>
                   <value>_city</value>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill><anonymise type="str">final</anonymise>
                 <id type="str">8</id>
               </field><field>
+                <type>item</type>
                 <label type="str">Pays</label>
-                <type type="str">item</type>
                 <required type="bool">True</required>
                 <varname type="str">pays</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
+                  <item>validation</item>
+                  <item>summary</item>
                 </display_locations><prefill>
                   <type>user</type>
                   <value>_country</value>
-                </prefill><display_mode type="str">list</display_mode>
+                </prefill><anonymise type="str">no</anonymise>
+                <display_mode type="str">list</display_mode>
                 <items />
                 <data_source>
                   <type>pays</type>
                 </data_source><in_filters type="bool">False</in_filters>
-                <anonymise type="bool">False</anonymise>
                 <display_disabled_items type="bool">False</display_disabled_items>
+                <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+                <image_desktop_size type="int">150</image_desktop_size>
+                <image_mobile_size type="int">75</image_mobile_size>
                 <id type="str">5</id>
               </field>
             </fields>
@@ -766,7 +788,7 @@ Le service Population / Etat civil
     </status><status>
       <id>26</id>
       <name>Paiement annul&#233;</name>
-      <colour>00FF00</colour>
+      <colour>#00FF00</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -781,7 +803,7 @@ Le service Population / Etat civil
     </status><status>
       <id>27</id>
       <name>Demande rembours&#233;e</name>
-      <colour>00FF00</colour>
+      <colour>#00FF00</colour>
       <visibility />
       <items>
         <item type="displaymsg" id="1">
@@ -800,7 +822,7 @@ Le service Population / Etat civil
     </status><status>
       <id>28</id>
       <name>En cours de remboursement</name>
-      <colour>0099FF</colour>
+      <colour>#0099FF</colour>
       <visibility />
       <items>
         <item type="sendmail" id="1">
@@ -830,7 +852,7 @@ Pour toute autre information, vous pouvez vous connecter au backoffice :
 
 `Consulter la demande du citoyen &lt;{{ form_url_backoffice }}&gt;`_
 
-Cordialement, 
+Cordialement,
 
 Le service Population / Etat-civil
 
@@ -858,7 +880,7 @@ Communication sugg&#233;r&#233;e : {{form_name}}, code {{form_number}}</comment>
     </status><status>
       <id>29</id>
       <name>Hors d&#233;lai paiement</name>
-      <colour>FF9966</colour>
+      <colour>#FF9966</colour>
       <visibility />
       <items>
         <item type="sendmail" id="1">
@@ -912,14 +934,15 @@ Le service Population / Etat-civil
     </status><status>
       <id>30</id>
       <name>Demande Cl&#244;tur&#233;e</name>
-      <colour>FF99FF</colour>
+      <colour>#FF99FF</colour>
       <visibility />
       <items>
-        <item type="register-comment" id="2">
+        <item type="register-comment" id="1">
           <comment>&lt;p&gt;Demande cl&#244;tur&#233;e&lt;/p&gt;
 &lt;p&gt;La demande sera anonymis&#233;e le {% if form_option_delai_anonymisation %}{{ today|add_days:form_option_delai_anonymisation|date:"d/m/Y" }}{% endif %}&lt;/p&gt;</comment>
-        </item><item type="jump" id="1">
+        </item><item type="jump" id="2">
           <status>31</status>
+          <mode>timeout</mode>
           <timeout>{{ form_option_delai_anonymisation }} jours</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -927,11 +950,11 @@ Le service Population / Etat-civil
     </status><status>
       <id>31</id>
       <name>Demande anonymis&#233;e</name>
-      <colour>FF9999</colour>
+      <colour>#FF9999</colour>
       <visibility />
       <items>
         <item type="anonymise" id="1">
-          <unlink_user>False</unlink_user>
+          <mode>final</mode>
         </item>
       </items>
     </status>
@@ -947,8 +970,9 @@ Le service Population / Etat-civil
       </items><triggers>
         <trigger type="manual" id="050e72a0-5d2e-4b16-8c85-b5fbd137399d">
           <roles>
-            <item slug="debug" role_id="3bcd0f8e96bb43988b11ff46cf836c26">Debug</item>
-          </roles>
+            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+          </roles><allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action><action>
@@ -970,24 +994,27 @@ Le service Population / Etat-civil
             </item>
           </post_data><response_type>json</response_type>
           <varname>vide_panier_globale</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
           <action_on_app_error>:pass</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>:stop</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>False</notify_on_errors>
-          <record_on_errors>True</record_on_errors>
           <record_errors>True</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
           <condition>
             <type>django</type>
             <value>form_workflow_data_transaction_id</value>
-          </condition>
+          </condition><set_marker_on_status>False</set_marker_on_status>
         </item><item type="remove" id="2" />
       </items><triggers>
         <trigger type="manual" id="46fcea8a-8d4d-4922-bbd5-d56125e0e447">
           <roles>
-            <item slug="debug" role_id="3bcd0f8e96bb43988b11ff46cf836c26">Debug</item>
-          </roles>
+            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+          </roles><allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action><action>
@@ -1001,8 +1028,9 @@ Le service Population / Etat-civil
       </items><triggers>
         <trigger type="manual" id="af7eefd7-3ca2-4ee8-be1c-d8eb644838f7">
           <roles>
-            <item slug="debug" role_id="3bcd0f8e96bb43988b11ff46cf836c26">Debug</item>
-          </roles>
+            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+          </roles><allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action><action>
@@ -1019,11 +1047,14 @@ Le service Population / Etat-civil
       </items><triggers>
         <trigger type="timeout" id="39580d40-0b30-46e5-81c8-3471982d3245">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger><trigger type="manual" id="151ede49-d9b5-471d-8b94-424c19081e0c">
           <roles>
-            <item slug="debug" role_id="3bcd0f8e96bb43988b11ff46cf836c26">Debug</item>
-          </roles>
+            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+          </roles><allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action>
@@ -1039,85 +1070,80 @@ Le service Population / Etat-civil
 Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
           <varname type="str">commentaire</varname>
           <display_locations />
-          <display_mode type="str">plain</display_mode>
           <anonymise type="str">final</anonymise>
+          <display_mode type="str">plain</display_mode>
           <id type="str">5bf512d9-7434-4632-9995-0e524c152b53</id>
         </field><field>
           <type>subtitle</type>
           <label type="str">Paiement</label>
-          <type type="str">subtitle</type>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
+            <item>validation</item>
+            <item>summary</item>
           </display_locations><id type="str">3722b1b6-13d8-446d-ad9e-5a6af3f3cfa9</id>
         </field><field>
+          <type>string</type>
           <label type="str">Co&#251;t du document</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <varname type="str">cout</varname>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>string</type>
-            <value>"0"</value>
-          </prefill><anonymise type="bool">True</anonymise>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">1</id>
         </field><field>
+          <type>item</type>
           <label type="str">R&#233;gie de paiement</label>
-          <type type="str">item</type>
           <required type="bool">False</required>
           <hint type="str">---</hint>
           <varname type="str">regie_de_paiement</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><display_mode type="str">list</display_mode>
+            <item>summary</item>
+          </display_locations><anonymise type="str">no</anonymise>
+          <display_mode type="str">list</display_mode>
           <items />
           <data_source>
             <type>json</type>
             <value>{{portal_url}}api/lingo/regies</value>
           </data_source><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">False</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">11</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Paiement en ligne</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <hint type="str">Si non coch&#233;e les paiements sont &#224; effectuer par virement</hint>
           <varname type="str">paiement_en_ligne</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><id type="str">12</id>
+            <item>summary</item>
+          </display_locations><anonymise type="str">no</anonymise>
+          <id type="str">12</id>
         </field><field>
+          <type>string</type>
           <label type="str">IBAN</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <varname type="str">iban</varname>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><anonymise type="bool">True</anonymise>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">9</id>
         </field><field>
+          <type>subtitle</type>
           <label type="str">Motifs et destinations</label>
-          <type type="str">subtitle</type>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
+            <item>validation</item>
+            <item>summary</item>
           </display_locations><id type="str">9a6a97ad-5822-407f-9a4c-08624a84267e</id>
         </field><field>
+          <type>items</type>
           <label type="str">Motifs disponibles</label>
-          <type type="str">items</type>
           <required type="bool">False</required>
           <varname type="str">motifs_disponibles</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
           <items />
           <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
@@ -1125,70 +1151,70 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <data_source>
             <type>imio_motifs_extrait_casier_judiciaire</type>
           </data_source><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">True</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">13</id>
         </field><field>
+          <type>items</type>
           <label type="str">Destinations</label>
-          <type type="str">items</type>
           <required type="bool">False</required>
           <varname type="str">mode_recup_disponibles</varname>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><items />
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
+          <items />
           <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
           <max_choices type="int">0</max_choices>
           <data_source>
             <type>passerelle_destinations</type>
           </data_source><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">True</anonymise>
           <display_disabled_items type="bool">False</display_disabled_items>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">4</id>
         </field><field>
+          <type>subtitle</type>
           <label type="str">Anonymisation</label>
-          <type type="str">subtitle</type>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
+            <item>validation</item>
+            <item>summary</item>
           </display_locations><id type="str">6ca45ad7-0eaa-48ca-afe2-f650cb97fac6</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Activer l'anonymisation</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <hint type="str">Cochez pour activer l'anonymisation</hint>
           <varname type="str">activer_anonymisation</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <id type="str">99b2fbb4-75a2-4a5f-9ed7-cbbf1712aed3</id>
         </field><field>
+          <type>string</type>
           <label type="str">D&#233;lai d'anonymisation du document</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <hint type="str">En jours</hint>
           <varname type="str">delai_anonymisation</varname>
           <display_locations />
-          <anonymise type="bool">False</anonymise>
+          <anonymise type="str">no</anonymise>
           <id type="str">f57de479-1bca-443d-8386-c244bb65ea88</id>
         </field><field>
+          <type>subtitle</type>
           <label type="str">Divers</label>
-          <type type="str">subtitle</type>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
+            <item>validation</item>
+            <item>summary</item>
           </display_locations><id type="str">7a30edab-d948-4fb2-9227-e5cb27416605</id>
         </field><field>
+          <type>string</type>
           <label type="str">Lien du r&#232;glement communal</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <varname type="str">reglement_communal</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">14</id>
         </field>
       </fields>
@@ -1198,107 +1224,120 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
       <name>-</name>
       <fields>
         <field>
+          <type>string</type>
           <label type="str">Nom de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">wf_nom_interesse</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo10</id>
         </field><field>
+          <type>string</type>
           <label type="str">Pr&#233;nom de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">wf_prenom_interesse</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo11</id>
         </field><field>
+          <type>string</type>
           <label type="str">NN de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">False</required>
           <varname type="str">wf_nn_interesse</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo6</id>
         </field><field>
+          <type>string</type>
           <label type="str">Adresse de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">wf_adresse_interesse</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo13</id>
         </field><field>
+          <type>string</type>
           <label type="str">N&#176; t&#233;l&#233;phone de l'int&#233;ress&#233;</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">wf_numtel_interesse</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo12</id>
         </field><field>
+          <type>string</type>
           <label type="str">Prix Motif</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">prix_motif</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">boa5844d62-b20b-4616-886d-0c5d3fc84b38</id>
         </field><field>
+          <type>string</type>
           <label type="str">Total de la commande</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">wf_total_commande</varname>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo3</id>
         </field><field>
+          <type>bool</type>
           <label type="str">Paiement en ligne</label>
-          <type type="str">bool</type>
           <required type="bool">False</required>
           <hint type="str">Est-ce que le citoyen a choisit un paiement en ligne oui/non?</hint>
           <varname type="str">wf_paiement_en_ligne</varname>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><id type="str">bo9</id>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations><anonymise type="str">no</anonymise>
+          <id type="str">bo9</id>
         </field><field>
+          <type>string</type>
           <label type="str">Code de suivi de cette demande</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">wf_code_suivi</varname>
           <display_locations>
-            <display_location>summary</display_location>
-            <display_location>listings</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+            <item>listings</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">boc9ddcf3d-422e-4da9-b093-0e510f656c5d</id>
         </field><field>
+          <type>string</type>
           <label type="str">Usager connect&#233; en authentification forte</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">connexion_forte</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bofe9b4a04-3a39-4cce-a3d6-0cfe0b7ec5b0</id>
         </field><field>
+          <type>string</type>
           <label type="str">Transaction Reference</label>
-          <type type="str">string</type>
           <required type="bool">True</required>
           <varname type="str">transaction_reference</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
           <id type="str">bo9085b9a0-94a3-4445-bd8f-0a089f7d2ed3</id>
+        </field><field>
+          <type>file</type>
+          <label type="str">Document</label>
+          <required type="bool">True</required>
+          <varname type="str">document</varname>
+          <display_locations>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
+          <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+          <automatic_image_resize type="bool">True</automatic_image_resize>
+          <storage type="str">default</storage>
+          <id type="str">bo27003e64-9dbc-4cbb-a51a-5fe274cbccbd</id>
         </field>
       </fields>
     </formdef>
