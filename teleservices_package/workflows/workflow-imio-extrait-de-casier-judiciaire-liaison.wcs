@@ -415,10 +415,18 @@ Cordialement,</body>
           <display_mode type="str">pre</display_mode>
           <id type="str">df66fab4-16f7-45a8-b256-799be4adabc3</id>
         </field><field>
+          <type>bool</type>
+          <label type="str">Permettre la d&#233;livrance automatique du mod&#232;le 596.2 (activit&#233;s en lien avec les mineurs).</label>
+          <required type="bool">False</required>
+          <hint type="str">Cochez pour Oui.</hint>
+          <varname type="str">modele_2</varname>
+          <display_locations />
+          <id type="str">009f601d-f8a7-483e-ac93-cf55bc605ad0</id>
+        </field><field>
           <type>string</type>
           <label type="str">Lien vers l'extrait de casier judiciaire 596.2</label>
           <required type="bool">False</required>
-          <hint type="str">Lien vers l'obtention de l'extrait de casier judiciaire 596.2 (https://...).</hint>
+          <hint type="str">Lien vers l'obtention de l'extrait de casier judiciaire 596.2 (https://...). Si vous avez coch&#233; la case ci-dessus, ce lien est inutile.</hint>
           <varname type="str">lien_vers_l_extrait_de_casier_judiciaire_5962</varname>
           <display_locations />
           <anonymise type="str">final</anonymise>
