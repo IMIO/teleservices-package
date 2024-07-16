@@ -7,7 +7,7 @@
     <status>
       <id>just_submitted</id>
       <name>Juste envoy&#233;</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
       </visibility><items>
@@ -30,7 +30,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 </body>
         </item><item id="2" type="sendmail">
           <to>
-            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+            <item role_id="{{form_var_email}}">{{form_var_email}}</item>
           </to><mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
           <subject>Nouvelle demande ({{ form_name }})</subject>
           <body>{% if form_var_firstname %}Ch&#232;r&#183;e {{ form_var_firstname }}{% endif %}
@@ -52,13 +52,14 @@ Bien &#224; vous,
 </body>
         </item><item id="3" type="jump">
           <status>new</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status><status>
       <id>new</id>
       <name>Nouvelle demande</name>
-      <colour>66FF00</colour>
+      <colour>#66FF00</colour>
       <visibility />
       <items>
         <item id="6" type="displaymsg">
@@ -123,7 +124,7 @@ Bien &#224; vous,
       <items>
         <item id="2" type="sendmail">
           <to>
-            <item role_id="_submitter">_submitter</item>
+            <item role_id="{{form_var_email}}">{{form_var_email}}</item>
           </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
           <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
@@ -163,7 +164,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
     </status><status>
       <id>accepted</id>
       <name>Accept&#233;</name>
-      <colour>66CCFF</colour>
+      <colour>#66CCFF</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
@@ -190,7 +191,7 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 </body>
         </item><item id="2" type="sendmail">
           <to>
-            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+            <item role_id="{{form_var_email}}">{{form_var_email}}</item>
           </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
           <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
@@ -231,7 +232,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
     </status><status>
       <id>finished</id>
       <name>Termin&#233;</name>
-      <colour>CCCCCC</colour>
+      <colour>#CCCCCC</colour>
       <visibility />
       <items>
         <item id="1" type="sendmail">
@@ -258,7 +259,7 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 </body>
         </item><item id="2" type="sendmail">
           <to>
-            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+            <item role_id="{{form_var_email}}">{{form_var_email}}</item>
           </to><mail_template>indus-par-defaut-usager-terminee</mail_template>
           <subject>Changement de statut de la demande ({{ form_name }})</subject>
           <body>Bonjour,
@@ -290,7 +291,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
     </status><status>
       <id>1</id>
       <name>Motivation du refus</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
         <role>_receiver</role>
       </visibility><items>
@@ -303,19 +304,19 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
             <name>-</name>
             <fields>
               <field>
-                <label>Motif du refus</label>
                 <type>text</type>
-                <required>True</required>
-                <hint>Le motif du refus sera envoy&#233; &#224; l'usager par courriel</hint>
-                <varname>motif</varname>
+                <label type="str">Motif du refus</label>
+                <required type="bool">True</required>
+                <hint type="str">Le motif du refus sera envoy&#233; &#224; l'usager par courriel</hint>
+                <varname type="str">motif</varname>
                 <display_locations />
-                <extra_css_class>pk-important</extra_css_class>
+                <extra_css_class type="str">pk-important</extra_css_class>
                 <prefill>
-                  <locked>False</locked>
                   <type>none</type>
-                </prefill><rows>10m</rows>
-                <pre>True</pre>
-                <id>1</id>
+                </prefill><anonymise type="str">final</anonymise>
+                <rows type="str">10m</rows>
+                <display_mode type="str">plain</display_mode>
+                <id type="str">1</id>
               </field>
             </fields>
           </formdef>
@@ -332,7 +333,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       <items>
         <item id="1" type="sendmail">
           <to>
-            <item role_id="_submitter">_submitter</item>
+            <item role_id="{{form_var_email}}">{{form_var_email}}</item>
           </to><mail_template>indus-notification-de-commentaire-demandeur</mail_template>
         </item><item id="2" type="sendmail">
           <to>
@@ -340,6 +341,7 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
           </to><mail_template>indus-notification-de-commentaire-destinataire</mail_template>
         </item><item id="3" type="jump">
           <status>new</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -356,8 +358,8 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
           <varname type="str">commentaire</varname>
           <display_locations />
-          <display_mode type="str">plain</display_mode>
           <anonymise type="str">final</anonymise>
+          <display_mode type="str">plain</display_mode>
           <id type="str">dcfd39bd-a1c2-44ff-bf8b-93739ac8f76a</id>
         </field><field>
           <type>string</type>
@@ -365,12 +367,9 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <required type="bool">False</required>
           <varname type="str">reglement_communal</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <locked>False</locked>
-            <type>none</type>
-          </prefill><anonymise>True</anonymise>
-          <id>1</id>
+            <item>summary</item>
+          </display_locations><anonymise type="str">final</anonymise>
+          <id type="str">1</id>
         </field>
       </fields>
     </formdef>
