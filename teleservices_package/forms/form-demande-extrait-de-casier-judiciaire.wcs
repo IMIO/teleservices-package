@@ -395,7 +395,7 @@
       <label type="str">Nombre d'exemplaires demand&#233;s</label>
       <condition>
         <type>django</type>
-      <value>form_var_destinations != "Envoi dans mon porte-documents"</value>
+      <value>form_var_destinations != "Envoi dans l'historique de ma demande"</value>
       </condition><required type="bool">True</required>
       <hint type="str">Maximum 20 exemplaires.</hint>
       <varname type="str">nb_exemplaire</varname>

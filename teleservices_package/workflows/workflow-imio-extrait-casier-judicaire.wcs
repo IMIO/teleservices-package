@@ -136,7 +136,7 @@ Bien &#224; vous,
           </by><required>True</required>
           <title>Joindre un fichier</title>
           <display_title>True</display_title>
-          <button_label>Envoyer le document vers le porte-documents</button_label>
+          <button_label>Envoyer le document vers l'historique de la demande</button_label>
           <display_button>True</display_button>
           <backoffice_filefield_id>bo27003e64-9dbc-4cbb-a51a-5fe274cbccbd</backoffice_filefield_id>
           <attach_to_history>True</attach_to_history>

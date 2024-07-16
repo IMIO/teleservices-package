@@ -326,7 +326,7 @@ Bonne journ&#233;e !</body>
           <button_label>Joindre l'extrait</button_label>
           <display_button>True</display_button>
           <hint>Extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal</hint>
-          <backoffice_info_text>&lt;p&gt;Merci de joindre l&amp;#39;extrait du fichier central de la d&amp;eacute;linquance environnementale et du bien-&amp;ecirc;tre animal pour que celui-ci soit transf&amp;eacute;r&amp;eacute; dans le porte-documents du citoyen.&lt;/p&gt;
+          <backoffice_info_text>&lt;p&gt;Merci de joindre l&amp;#39;extrait du fichier central de la d&amp;eacute;linquance environnementale et du bien-&amp;ecirc;tre animal pour que celui-ci soit transf&amp;eacute;r&amp;eacute; dans l'historique de la demande du citoyen.&lt;/p&gt;
 </backoffice_info_text>
           <backoffice_filefield_id>boeb10ed05-b4fb-4bfc-987a-579fa94d4245</backoffice_filefield_id>
           <varname>extrait</varname>

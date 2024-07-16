@@ -9,10 +9,6 @@ Nous vous informons que votre demande concernant la d&#233;marche {{ form_name }
 
 "{{form_workflow_data_comment_reponse}}"
 
-{% if "porte" in form_var_destinations %}
-`Acc&#233;der &#224; mon porte-documents &lt;{{form_var_document_url}}&gt;`_
-{% endif %}
-
 {% if form_user %}
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
