@@ -4,6 +4,8 @@
   <slug>imio-fiche-recrutement</slug>
   <roles>
     <role id="_editor">Agent traitant</role>
+    <role id="_recrutement-personnel-du-service-a-l-enfance">Recrutement Personnel du service &#224; l&#8217;enfance</role>
+    <role id="_recrutement-personnel-soignant">Recrutement Personnel soignant</role>
     <role id="_responsable-recrutement-personnel-administratif">Responsable recrutement Personnel administratif</role>
     <role id="_responsable-recrutement-personnel-de-cuisine">Responsable recrutement Personnel de cuisine</role>
     <role id="_responsable-recrutement-personnel-de-nettoyage">Responsable recrutement Personnel de nettoyage</role>
@@ -17,7 +19,7 @@
     <status>
       <id>recorded</id>
       <name>Enregistr&#233;e</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility />
       <items>
         <item type="dispatch" id="1">
@@ -49,6 +51,12 @@
             </rule><rule>
               <role_id slug="recrutement-autre" role_id="ef3112114b46495b9d2613899dce153e">Recrutement Autre</role_id>
               <value>Autre</value>
+            </rule><rule>
+              <role_id slug="recrutement-personnel-soignant" role_id="3c0d37745f79402fb1939f729fde500f">Recrutement Personnel soignant</role_id>
+              <value>Personnel soignant</value>
+            </rule><rule>
+              <role_id slug="recrutement-personnel-du-service-a-lenfance" role_id="191526d3bca04e8597432b5d4a75de8e">Recrutement Personnel du service &#224; l&#8217;enfance</role_id>
+              <value>Personnel du service &#224; l&#8217;enfance</value>
             </rule>
           </rules><operation_mode>set</operation_mode>
         </item><item type="commentable" id="3">
@@ -71,7 +79,7 @@
     </status><status>
       <id>deleted</id>
       <name>Supprim&#233;e</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility />
       <items>
         <item type="remove" id="1" />

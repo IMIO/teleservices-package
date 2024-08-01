@@ -147,6 +147,22 @@
             "ou": {
                 "slug": "default"
             }
+        },
+        {
+            "slug": "recrutement-personnel-soignant",
+            "name": "Recrutement Personnel soignant",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "recrutement-personnel-du-service-a-lenfance",
+            "name": "Recrutement Personnel du service à l’enfance",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
         }
     ]
 }
