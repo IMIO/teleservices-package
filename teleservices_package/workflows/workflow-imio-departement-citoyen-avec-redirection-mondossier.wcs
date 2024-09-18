@@ -1672,7 +1672,7 @@ Cordialement, </body>
           <type>item</type>
           <label type="str">R&#233;gie de paiement</label>
           <required type="bool">False</required>
-          <hint type="str">Plus d'information sur les r&#233;gies de paiement : https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html#configurer-un-formulaire-etat-civil-population</hint>
+          <hint type="str">Plus d'information sur les r&#233;gies de paiement : https://docs.imio.be/iateleservices/package/acte.html#configurer-un-formulaire-etat-civil-population</hint>
           <varname type="str">regie_de_paiement</varname>
           <display_locations />
           <anonymise type="str">no</anonymise>

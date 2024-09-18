@@ -20,7 +20,7 @@
 
 &lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.imio.be/iateleservices/package/acte.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/" rel="noopener noreferrer" target="_blank"&gt;Ajouter, supprimer ou modifier des motifs et destination&lt;/a&gt;&lt;/p&gt;
 

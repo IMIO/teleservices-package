@@ -25,7 +25,7 @@
 
 &lt;p&gt;Comment modififer la liste&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/enseignement_communal.html"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.imio.be/iateleservices/package/enseignement_communal.html"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="{{site_url_backoffice}}/data/"&gt;Modifier la liste des fonctions disponible&lt;/a&gt;&lt;/p&gt;</label>
       <type type="str">comment</type>
