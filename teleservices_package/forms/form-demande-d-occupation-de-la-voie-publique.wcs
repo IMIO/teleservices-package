@@ -623,10 +623,12 @@
       <items>
         <item>7100</item>
         <item>7110</item>
-      </items><data_source>
-        <type>formula</type>
-        <value>form_var_liste_code_postaux</value>
-      </data_source><in_filters type="bool">False</in_filters>
+      </items>
+      <data_source>
+        <type>jsonvalue</type>
+        <value>[{% for commune in commune_cp|split:"," %}{"id": {{commune|json_dumps}}, "text":  {{commune|json_dumps}}}{% if not forloop.last %}, {% endif %}{% endfor %}]</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
