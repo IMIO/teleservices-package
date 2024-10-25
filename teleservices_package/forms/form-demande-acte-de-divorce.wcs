@@ -1128,6 +1128,10 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
     <field>
       <type>string</type>
       <label type="str">Nombre de certificats demand&#233;s</label>
+      <condition>
+        <type>django</type>
+        <value>"porte" not in form_var_destinations|lower and "mail" not in form_var_destinations|lower and "courriel" not in form_var_destinations|lower</value>
+      </condition>
       <required type="bool">True</required>
       <hint type="str">Maximum 20 exemplaires.</hint>
       <varname type="str">nb_exemplaire</varname>
@@ -1137,6 +1141,8 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       </display_locations>
       <extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>1</value>
       </prefill>
@@ -1146,6 +1152,33 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
       </validation>
       <id type="str">35</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nombre de certificats demand&#233;s</label>
+      <condition>
+        <type>django</type>
+        <value>"porte" in form_var_destinations|lower or "mail" in form_var_destinations|lower or "courriel" in form_var_destinations|lower</value>
+      </condition>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;Maximum 20 exemplaires.&lt;/p&gt;</hint>
+      <varname type="str">nb_exemplaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <prefill>
+        <locked>True</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>string</type>
+        <value>1</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
+      </validation>
+      <id type="str">266f5952-9db3-467a-a13a-cff03f5c0e94</id>
     </field>
     <field>
       <type>page</type>
@@ -1184,9 +1217,11 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <anonymise type="str">final</anonymise>
       <id type="str">61</id>
     </field>
-  </fields><user-roles>
+  </fields>
+  <user-roles>
     <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
-  </user-roles><options>
+  </user-roles>
+  <options>
     <option varname="actes_commentaire_additionnel" />
     <option varname="actes_piece_justificative_tiers" />
     <option varname="actes_piece_justificative_tiers_display" />
@@ -1222,7 +1257,8 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
-  </options><custom_views />
+  </options>
+  <custom_views />
   <geolocations />
   <management_sidebar_items>
     <item>__default__</item>

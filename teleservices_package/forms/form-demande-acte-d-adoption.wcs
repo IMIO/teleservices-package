@@ -1128,6 +1128,10 @@
     <field>
       <type>string</type>
       <label type="str">Nombre de certificats demand&#233;s</label>
+      <condition>
+        <type>django</type>
+        <value>"porte" not in form_var_destinations|lower and "mail" not in form_var_destinations|lower and "courriel" not in form_var_destinations|lower</value>
+      </condition>
       <required type="bool">True</required>
       <hint type="str">Maximum 20 exemplaires.</hint>
       <varname type="str">nb_exemplaire</varname>
@@ -1136,6 +1140,8 @@
         <item>summary</item>
       </display_locations>
       <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>1</value>
       </prefill>
@@ -1145,6 +1151,33 @@
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
       </validation>
       <id type="str">88</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nombre de certificats demand&#233;s</label>
+      <condition>
+        <type>django</type>
+        <value>"porte" in form_var_destinations|lower or "mail" in form_var_destinations|lower or "courriel" in form_var_destinations|lower</value>
+      </condition>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;Maximum 20 exemplaires.&lt;/p&gt;</hint>
+      <varname type="str">nb_exemplaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <prefill>
+        <locked>True</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>string</type>
+        <value>1</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
+      </validation>
+      <id type="str">3aca70e0-2bce-437f-89bb-f047aec3e2cc</id>
     </field>
     <field>
       <type>page</type>
