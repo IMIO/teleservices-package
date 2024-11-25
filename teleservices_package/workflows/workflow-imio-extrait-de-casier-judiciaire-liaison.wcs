@@ -28,7 +28,7 @@
               <value>{{ form_var_nn }}</value>
             </item><item>
               <name>language</name>
-              <value>{{ form_var_language_code }}</value>
+              <value>fr</value>
             </item>
           </qs_data><post>False</post>
           <response_type>json</response_type>

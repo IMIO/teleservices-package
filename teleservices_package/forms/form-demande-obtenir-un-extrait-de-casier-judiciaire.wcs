@@ -99,26 +99,6 @@
       <id type="str">32</id>
     </field><field>
       <type>item</type>
-      <label type="str">Langue</label>
-      <required type="bool">True</required>
-      <hint type="str">S&#233;lectionnez une langue</hint>
-      <varname type="str">language</varname>
-      <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><anonymise type="str">no</anonymise>
-      <display_mode type="str">radio</display_mode>
-      <items />
-      <data_source>
-        <type>carddef:imio-langage-bosa</type>
-      </data_source><in_filters type="bool">False</in_filters>
-      <display_disabled_items type="bool">False</display_disabled_items>
-      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
-      <id type="str">13</id>
-    </field><field>
-      <type>item</type>
       <label type="str">Choisissez l'extrait souhait&#233;</label>
       <required type="bool">True</required>
       <varname type="str">type_extrait</varname>
