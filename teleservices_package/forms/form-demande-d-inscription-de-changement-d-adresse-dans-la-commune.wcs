@@ -542,7 +542,7 @@
     <option varname="baec" />
     <option varname="commentaire" />
     <option varname="cout" />
-    <option varname="cp_commune"></option>
+    <option varname="cp_commune">1000</option>
     <option varname="iban" />
     <option varname="lien_mondossier" />
     <option varname="mode_recup_disponibles" />
@@ -552,13 +552,13 @@
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="numero_de_telephone" />
-    <option varname="paiement_par_virement" type="bool"></option>
-    <option varname="prix_par_adulte_autre_commune"></option>
+    <option varname="paiement_par_virement" type="bool">false</option>
+    <option varname="prix_par_adulte_autre_commune">3</option>
     <option varname="prix_par_adulte_concerne_si_emmenagement_intramuros">10</option>
-    <option varname="prix_unique_extra" type="decimal"></option>
-    <option varname="prix_unique_intra" type="decimal"></option>
-    <option varname="regie_de_paiement"></option>
-    <option varname="regie_de_paiement_display"></option>
+    <option varname="prix_unique_extra" type="decimal">2</option>
+    <option varname="prix_unique_intra" type="decimal">17</option>
+    <option varname="regie_de_paiement">atos_test</option>
+    <option varname="regie_de_paiement_display">Atos test</option>
     <option varname="regie_de_paiement_structured" type="dict">
       <id>atos_test</id>
       <text>Atos test</text>
