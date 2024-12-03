@@ -57,7 +57,7 @@
           <fields>
             <field>
               <field_id>bo3</field_id>
-              <value>{{ form_var_wf_nbrpers_concern|multiply:form_option_prix_par_adulte_concerne_si_emmenagement_intramuros|decimal:2 }}</value>
+              <value>{% if form_option_soit == "Prix par nombre de personnes qui emm&#233;nagent" %}{{ form_var_wf_nbrpers_concern|multiply:form_option_prix_par_adulte_concerne_si_emmenagement_intramuros|decimal:2 }} {% else %} {{form_option_prix_unique_intra}} {% endif %}</value>
             </field>
           </fields>
           <condition>
@@ -70,7 +70,7 @@
           <fields>
             <field>
               <field_id>bo3</field_id>
-              <value>{{ form_var_wf_nbrpers_concern|multiply:form_option_prix_par_adulte_autre_commune|decimal:2 }}</value>
+              <value>{% if form_option_soit == "Prix par nombre de personnes qui emm&#233;nagent" %}{{form_var_wf_nbrpers_concern|multiply:form_option_prix_par_adulte_autre_commune|decimal:2 }} {% else %}{{form_option_prix_unique_extra}} {% endif %}</value>
             </field>
           </fields>
           <condition>
@@ -1054,8 +1054,6 @@ Le service Population / Etat-civil
       <triggers>
         <trigger type="timeout" id="43c5e8a4-508c-4ebc-acd3-5e9005b0a17e">
           <anchor>creation</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>30</timeout>
         </trigger>
       </triggers>
@@ -1071,8 +1069,6 @@ Le service Population / Etat-civil
       <triggers>
         <trigger type="timeout" id="2c76aea5-4b9c-4ff1-b85d-95a9f9de4b05">
           <anchor>creation</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -1111,6 +1107,47 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
             <item>summary</item>
           </display_locations>
           <id type="str">17</id>
+        </field>
+        <field>
+          <type>item</type>
+          <label type="str">Soit</label>
+          <required type="bool">True</required>
+          <hint type="str">&lt;p&gt;Choisissez la m&#233;thode de calcul&lt;/p&gt;</hint>
+          <varname type="str">soit</varname>
+          <display_locations />
+          <display_mode type="str">radio</display_mode>
+          <items>
+            <item>Prix unique</item>
+            <item>Prix par nombre de personnes qui emm&#233;nagent</item>
+          </items>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="str">150</image_desktop_size>
+          <image_mobile_size type="str">75</image_mobile_size>
+          <id type="str">0f2d018c-3e43-4b96-8b02-0ccd4cc62bae</id>
+        </field>
+        <field>
+          <type>numeric</type>
+          <label type="str">Prix unique intra</label>
+          <required type="bool">False</required>
+          <varname type="str">prix_unique_intra</varname>
+          <display_locations />
+          <restrict_to_integers type="bool">False</restrict_to_integers>
+          <min_value type="decimal">0</min_value>
+          <default_value type="decimal">0</default_value>
+          <id type="str">006365a2-afd3-470e-985e-5ea41d866c12</id>
+        </field>
+        <field>
+          <type>numeric</type>
+          <label type="str">Prix unique extra</label>
+          <required type="bool">False</required>
+          <varname type="str">prix_unique_extra</varname>
+          <display_locations />
+          <restrict_to_integers type="bool">False</restrict_to_integers>
+          <min_value type="decimal">0</min_value>
+          <default_value type="decimal">0</default_value>
+          <id type="str">b41084ae-1064-4efe-bb41-12d519df778d</id>
         </field>
         <field>
           <type>string</type>

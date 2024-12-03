@@ -750,6 +750,83 @@
       <id type="str">73</id>
     </field>
     <field>
+      <type>title</type>
+      <label type="str">Informations suppl&#233;mentaires concernant le mariage</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">1e21326e-0271-4d2a-a57a-ac25a0ded120</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="bool">True</required>
+      <varname type="str">code_postal_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">76622088-ceb9-42a8-af4a-9df97485d32a</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="bool">True</required>
+      <varname type="str">localite_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">d0d8b42a-a1a6-4b1b-a301-35fa301609fa</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date du mariage</label>
+      <required type="bool">True</required>
+      <varname type="str">date_du_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">True</date_can_be_today>
+      <id type="str">7cdd0d4f-0939-43bd-bfa1-9d32d214ee44</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom du conjoint</label>
+      <required type="bool">True</required>
+      <varname type="str">nom_du_conjoint</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">839012a2-f6b5-4628-8294-2e3cfcdb7327</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom du conjoint</label>
+      <required type="bool">True</required>
+      <varname type="str">prenom_du_conjoint</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">694af57d-8030-49bf-a76d-879542ec9dc1</id>
+    </field>
+    <field>
       <type>page</type>
       <label type="str">Donn&#233;es du demandeur</label>
       <condition>
@@ -1124,8 +1201,6 @@
       </display_locations>
       <extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>1</value>
       </prefill>
@@ -1152,7 +1227,6 @@
       </display_locations>
       <prefill>
         <locked>True</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>1</value>
       </prefill>
