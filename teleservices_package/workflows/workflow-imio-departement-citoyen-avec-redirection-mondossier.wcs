@@ -1974,7 +1974,7 @@ Bien cordialement,</body>
         </field>
         <field>
           <type>item</type>
-          <label type="str">Actes : Pi&#232;ce justificative obligatoire si concerne un tiers</label>
+          <label type="str">Actes : Pi&#232;ce justificative obligatoire si concerne un tiers (hors acte de décès)</label>
           <required type="bool">False</required>
           <hint type="str">Cocher cette case affichera un champ "Fichier" o&#249; le demandeur sera invit&#233; &#224; joindre un document justificatif si la demande d'acte ne le concerne pas (concerne un tiers).</hint>
           <varname type="str">actes_piece_justificative_tiers</varname>

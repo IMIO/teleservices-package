@@ -10,7 +10,6 @@
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>false</confirmation>
   <always_advertise>true</always_advertise>
-  <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-etat-civil" category_id="8">Etat-Civil</category>
@@ -233,6 +232,25 @@
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
       <id type="str">20</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Pi&#232;ce justificative</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_date_de_deces|date &lt;= "31/03/2019"|date</value>
+      </condition>
+      <required type="bool">True</required>
+      <varname type="str">piece_justificative</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">4dd7e079-6b47-4ab0-9a76-ffaec647f60f</id>
     </field>
     <field>
       <type>subtitle</type>
