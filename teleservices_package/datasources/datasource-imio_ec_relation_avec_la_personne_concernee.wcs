@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datasource id="201" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/201/">
+  <name>iMio - EC - Relation avec la personne concern&#233;e</name>
+  <slug>imio_ec_relation_avec_la_personne_concernee</slug>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id": "je-suis-le-representant-legal", "text": "Je suis le repr&#233;sentant l&#233;gal"}, {"id": "je-suis-lepoux-epouse-cohabitant-legal", "text": "Je suis l'&#233;poux/&#233;pouse/cohabitant l&#233;gal"}, {"id": "je-suis-un-ascendant-descendant-au-premier-degre", "text": "Je suis un ascendant/descendant au premier degr&#233;"}, {"id": "je-suis-heretier", "text": "Je suis h&#233;ritier"}, {"id": "je-suis-son-avocat-notaire", "text": "Je suis son avocat/notaire"}]</value>
+  </data_source>
+  <category slug="imio-population-etat-civil" category_id="2">iMio - Population - Etat civil</category>
+</datasource>

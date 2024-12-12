@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datasource id="202" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/202/">
+  <name>iMio - EC - Int&#233;r&#234;ts l&#233;gitimes</name>
+  <slug>imio_ec_interets_legitimes</slug>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id": "etablir-ou-modifier-un-acte-d-etat-civil-a-l-etranger", "text": "Etablir ou modifier un acte d'&#233;tat civil &#224; l'&#233;tranger"}, {"id": "mener-des-procedures-judiciaires-concernant-l-etat-de-la-personne", "text": "Mener des proc&#233;dures judiciaires concernant l'&#233;tat de la personne"}, {"id": "s-enregistrer-aupres-d-une-instance-de-securite-sociale-etrangere-ou-d-une-autre-autorite-etrangere", "text": "S'enregistrer aupr&#232;s d'une instance de s&#233;curit&#233; sociale &#233;trang&#232;re ou d'une autre autorit&#233; &#233;trang&#232;re"}, {"id": "justifier-d-une-parent&#233;-en-vue-d-effectuer-un-voyage", "text": "Justifier d'une parent&#233; en vue d'effectuer un voyage"}, {"id": "etablir-un-acte-notarie", "text": "Etablir un acte notari&#233;"}, {"id": "accepter-ou-renoncer-a-une-succession", "text": "Accepter ou renoncer &#224; une succession"}, {"id": "rechercher-un-emploi-a-l-etranger", "text": "Rechercher un emploi &#224; l'&#233;tranger"}, {"id": "demander-un-passeport-une-carte-d-identite-ou-un-permis-de-conduire-etrangers", "text": "Demander un passeport, une carte d'identit&#233; ou un permis de conduire &#233;trangers"}, {"id": "connaitre-ses-testateurs-ou-heritiers", "text": "Conna&#238;tre ses testateurs ou h&#233;ritiers"}, {"id": "etre-en-possession-d-un-mandat-prive-de-la-personne-dont-l-acte-etablit-ou-modifie-l-etat-de-la-personne", "text": "&#202;tre en possession d'un mandat priv&#233; de la personne dont l'acte &#233;tablit ou modifie l'&#233;tat de la personne"}]</value>
+  </data_source>
+  <category slug="imio-population-etat-civil" category_id="2">iMio - Population - Etat civil</category>
+</datasource>
