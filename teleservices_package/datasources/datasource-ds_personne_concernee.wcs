@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-<datasource id="102" url="https://staging-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/102/">
+<datasource id="1" url="https://staging3-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/1/">
   <name>DS_personne_concernee</name>
   <slug>ds_personne_concernee</slug>
-  <description>Source de donn&#233;e des personnes concern&#233;es (demandeur ou un tiers)</description>
+  <documentation>Source de donn&#233;e des personnes concern&#233;es (demandeur ou un tiers)</documentation>
   <data_source>
     <type>jsonvalue</type>
-    <value>[{"id" : "moi" , "text": "Me concerne"}, {"id" : "tiers", "text" : "Concerne une autre personne"}]</value>
+    <value>[{"id" : "moi" , "text": "Me concerne moi-m&#234;me ou mes ayants droit"}, {"id" : "tiers", "text" : "Concerne une autre personne"}]</value>
   </data_source>
+  <category slug="imio-population-etat-civil" category_id="3">iMio - Population - Etat civil</category>
 </datasource>
