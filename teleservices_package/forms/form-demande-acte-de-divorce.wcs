@@ -55,27 +55,6 @@
     </field>
     <field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par :&amp;nbsp;&lt;/p&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;les personnes concern&amp;eacute;es par l&amp;#39;acte&lt;/li&gt;
-	&lt;li&gt;l&amp;#39;&amp;eacute;poux / l&amp;#39;&amp;eacute;pouse / le cohabitant l&amp;eacute;gal&lt;/li&gt;
-	&lt;li&gt;le repr&amp;eacute;sentant l&amp;eacute;gal&lt;/li&gt;
-	&lt;li&gt;l&amp;#39;ascendant / descendant&lt;/li&gt;
-	&lt;li&gt;le notaire / l&amp;#39;avocat&lt;/li&gt;
-	&lt;li&gt;l&amp;#39;h&amp;eacute;ritier / ayant droit&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d&amp;#39;identit&amp;eacute; &lt;/strong&gt;(ainsi que d&amp;#39;une&amp;nbsp;&lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt;&amp;nbsp;si vous le retirez pour un tiers).&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;/ol&gt;
-</label>
-      <display_locations />
-      <id type="str">2</id>
-    </field>
-    <field>
-      <type>comment</type>
       <label type="str">&lt;h2&gt;Comment obtenir l&amp;#39;acte souhait&amp;eacute; ?&lt;/h2&gt;
 
 &lt;ol&gt;
@@ -127,10 +106,10 @@
       <label type="str">Concerne une autre personne : pi&#232;ce justificative</label>
       <condition>
         <type>django</type>
-        <value>form_option_actes_piece_justificative_tiers == "Oui" and form_var_rb_concerne == "Concerne une autre personne"</value>
+        <value>False</value>
       </condition>
       <required type="bool">True</required>
-      <hint type="str">Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).</hint>
+      <hint type="str">&lt;p&gt;Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).&lt;/p&gt;</hint>
       <varname type="str">piece_justificative_tiers</varname>
       <display_locations>
         <item>validation</item>
@@ -457,7 +436,7 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
     </field>
     <field>
       <type>page</type>
-      <label type="str">Lien de parent&#233;</label>
+      <label type="str">Relation avec la personne concern&#233;e</label>
       <condition>
         <type>django</type>
         <value>form_var_rb_concerne_raw == 'tiers'</value>
@@ -466,16 +445,13 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
     </field>
     <field>
       <type>item</type>
-      <label type="str">Lien de parent&#233; :</label>
+      <label type="str">Relation avec la personne concern&#233;e</label>
       <required type="bool">True</required>
       <varname type="str">parente</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
       <items>
@@ -485,19 +461,19 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <item>Autre (&#224; pr&#233;ciser)</item>
       </items>
       <data_source>
-        <type>ds_lien_de_parente</type>
+        <type>imio_ec_relation_avec_la_personne_concernee</type>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
       <id type="str">9</id>
     </field>
     <field>
       <type>string</type>
-      <label type="str">Si Autre, pr&#233;ciser le lien de parent&#233;</label>
+      <label type="str">Si Autre, pr&#233;ciser la relation avec la personne concern&#233;e</label>
       <condition>
         <type>django</type>
         <value>form_var_parente_raw == 'autre'</value>
@@ -507,9 +483,6 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
       <anonymise type="str">final</anonymise>
       <id type="str">10</id>
     </field>
@@ -760,83 +733,6 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <id type="str">55</id>
     </field>
     <field>
-      <type>subtitle</type>
-      <label type="str">Informations suppl&#233;mentaires concernant le mariage</label>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <id type="str">0dec4a04-81b4-468c-b8d3-72910c4a8c26</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Code postal</label>
-      <required type="bool">True</required>
-      <varname type="str">code_postal_mariage</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-3</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">c939cb77-37b0-44fe-a321-1965fa727ddc</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Localit&#233;</label>
-      <required type="bool">True</required>
-      <varname type="str">localite_mariage</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-3</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">dcda132b-0dd0-4477-b686-e7dc4a21095a</id>
-    </field>
-    <field>
-      <type>date</type>
-      <label type="str">Date du mariage</label>
-      <required type="bool">True</required>
-      <varname type="str">date_du_mariage</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-3</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <minimum_is_future type="bool">False</minimum_is_future>
-      <date_in_the_past type="bool">True</date_in_the_past>
-      <date_can_be_today type="bool">False</date_can_be_today>
-      <id type="str">fc78e4f0-07eb-45ea-9f0a-ae290d84c6cc</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Nom du conjoint</label>
-      <required type="bool">True</required>
-      <varname type="str">nom_conjoint</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-3</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">3fc73e4b-c058-4096-8e89-ec25bd7cf9c6</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Pr&#233;nom du conjoint</label>
-      <required type="bool">True</required>
-      <varname type="str">prenom_conjoint</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-3</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">fff1650b-51ac-4a04-af5a-fc8070e7bbd0</id>
-    </field>
-    <field>
       <type>page</type>
       <label type="str">Donn&#233;es du demandeur</label>
       <condition>
@@ -1061,12 +957,6 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
       <id type="str">60</id>
     </field>
     <field>
-      <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;b&gt;Localit&#233; : {{commune_name}} &lt;/b&gt;&lt;/p&gt;</label>
-      <display_locations />
-      <id type="str">23</id>
-    </field>
-    <field>
       <type>email</type>
       <label type="str">Adresse e-mail</label>
       <required type="bool">True</required>
@@ -1104,6 +994,92 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <value>^(0|\+|00)(\d{8,})$</value>
       </validation>
       <id type="str">25</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Informations suppl&#233;mentaires concernant le mariage</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and form_var_acces_page_non_baec</value>
+      </condition>
+      <id type="str">880d16d4-e71d-4151-9c2e-5fc1b255efab</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Informations suppl&#233;mentaires concernant le mariage</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">0dec4a04-81b4-468c-b8d3-72910c4a8c26</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="bool">True</required>
+      <varname type="str">code_postal_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">c939cb77-37b0-44fe-a321-1965fa727ddc</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="bool">True</required>
+      <varname type="str">localite_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">dcda132b-0dd0-4477-b686-e7dc4a21095a</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date du mariage</label>
+      <required type="bool">True</required>
+      <varname type="str">date_du_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">fc78e4f0-07eb-45ea-9f0a-ae290d84c6cc</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom du conjoint</label>
+      <required type="bool">True</required>
+      <varname type="str">nom_conjoint</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">3fc73e4b-c058-4096-8e89-ec25bd7cf9c6</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom du conjoint</label>
+      <required type="bool">True</required>
+      <varname type="str">prenom_conjoint</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">fff1650b-51ac-4a04-af5a-fc8070e7bbd0</id>
     </field>
     <field>
       <type>page</type>
@@ -1252,6 +1228,52 @@ Le divorce est mentionn&amp;eacute; sur l&amp;#39;acte de mariage en mention mar
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
       </validation>
       <id type="str">266f5952-9db3-467a-a13a-cff03f5c0e94</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Quel est l'int&#233;r&#234;t l&#233;gitime de votre demande ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;S&#233;lectionnez votre int&#233;r&#234;t l&#233;gitime&lt;/p&gt;</hint>
+      <varname type="str">interet_legitime</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items />
+      <data_source>
+        <type>imio_ec_interets_legitimes</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">b87bf761-bdae-4fca-9332-b9494164e80f</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Preuve de l'int&#233;r&#234;t l&#233;gitime</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_parente_raw != "je-suis-le-representant-legal" and form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <required type="bool">True</required>
+      <varname type="str">preuve_interet_legitime</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">fdf58423-6463-4e2d-b3ea-5ca44e1c3414</id>
     </field>
     <field>
       <type>page</type>
