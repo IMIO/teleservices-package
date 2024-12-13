@@ -570,7 +570,7 @@ Bien cordialement,</body>
           <status>24</status>
           <condition>
             <type>django</type>
-            <value>form_var_wf_total_commande|add:0 &gt; 0 and form_var_wf_paiement_en_ligne</value>
+            <value>form_var_wf_total_commande|add:0 &gt; 0 and form_var_wf_paiement_en_ligne and form_option_interdire_remboursement</value>
           </condition>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -579,7 +579,7 @@ Bien cordialement,</body>
           <status>25</status>
           <condition>
             <type>django</type>
-            <value>form_var_wf_total_commande|add:0 &gt; 0</value>
+            <value>form_var_wf_total_commande|add:0 &gt; 0 and form_option_interdire_remboursement</value>
           </condition>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -1658,6 +1658,8 @@ Bien cordialement,</body>
       <triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger>
         <trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
@@ -1694,8 +1696,6 @@ Bien cordialement,</body>
         </trigger>
         <trigger type="timeout" id="ffd68291-0bf3-4f65-8259-618dd48570da">
           <anchor>1st-arrival</anchor>
-          <anchor_expression />
-          <anchor_template />
           <anchor_status_first>wf-10</anchor_status_first>
           <timeout>0</timeout>
         </trigger>
@@ -1831,6 +1831,15 @@ Bien cordialement,</body>
           <id type="str">13</id>
         </field>
         <field>
+          <type>bool</type>
+          <label type="str">Interdire le remboursement</label>
+          <required type="bool">False</required>
+          <hint type="str">&lt;p&gt;Emp&#234;che de passer &#224; la partie remboursement du workflow.&lt;/p&gt;</hint>
+          <varname type="str">interdire_remboursement</varname>
+          <display_locations />
+          <id type="str">2e8409e0-5dbd-4f27-a3f0-2fe0e02143fd</id>
+        </field>
+        <field>
           <type>subtitle</type>
           <label type="str">Motifs et destinations</label>
           <display_locations>
@@ -1905,16 +1914,6 @@ Bien cordialement,</body>
           </display_locations>
           <anonymise type="str">final</anonymise>
           <id type="str">7</id>
-        </field>
-        <field>
-          <type>bool</type>
-          <label type="str">Redirection Automatique</label>
-          <required type="bool">False</required>
-          <hint type="str">Cocher cette case redirigera automatiquement l'usager vers le site "Mon Dossier" si cela s'applique (Acte apr&#232;s 2019 et est la personne concern&#233;e).</hint>
-          <varname type="str">redirection_automatique</varname>
-          <display_locations />
-          <anonymise type="str">no</anonymise>
-          <id type="str">12</id>
         </field>
         <field>
           <type>subtitle</type>
