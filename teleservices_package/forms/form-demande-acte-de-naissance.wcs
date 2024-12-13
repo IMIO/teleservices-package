@@ -108,10 +108,10 @@
       <label type="str">Concerne une autre personne : pi&#232;ce justificative</label>
       <condition>
         <type>django</type>
-        <value>form_option_actes_piece_justificative_tiers == "Oui" and form_var_rb_concerne == "Concerne une autre personne"</value>
+        <value>False</value>
       </condition>
       <required type="bool">True</required>
-      <hint type="str">Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).</hint>
+      <hint type="str">&lt;p&gt;Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).&lt;/p&gt;</hint>
       <varname type="str">piece_justificative_tiers</varname>
       <display_locations>
         <item>validation</item>
@@ -423,7 +423,7 @@
     </field>
     <field>
       <type>page</type>
-      <label type="str">Lien de parent&#233;</label>
+      <label type="str">Relation avec la personne concern&#233;e</label>
       <condition>
         <type>django</type>
         <value>form_var_rb_concerne_raw == 'tiers'</value>
@@ -432,16 +432,13 @@
     </field>
     <field>
       <type>item</type>
-      <label type="str">Lien de parent&#233; :</label>
+      <label type="str">Relation avec la personne concern&#233;e</label>
       <required type="bool">True</required>
       <varname type="str">parente</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
       <items>
@@ -451,19 +448,19 @@
         <item>Autre (&#224; pr&#233;ciser)</item>
       </items>
       <data_source>
-        <type>ds_lien_de_parente</type>
+        <type>imio_ec_relation_avec_la_personne_concernee</type>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
       <id type="str">10</id>
     </field>
     <field>
       <type>string</type>
-      <label type="str">Si Autre, pr&#233;ciser le lien de parent&#233;</label>
+      <label type="str">Si Autre, pr&#233;ciser la relation avec la personne concern&#233;e</label>
       <condition>
         <type>django</type>
         <value>form_var_parente_raw == 'autre'</value>
@@ -473,9 +470,6 @@
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
       <anonymise type="str">final</anonymise>
       <id type="str">8</id>
     </field>
@@ -573,21 +567,6 @@
     </field>
     <field>
       <type>string</type>
-      <label type="str">Lieu de naissance</label>
-      <required type="bool">True</required>
-      <varname type="str">rb_naissance_perscon</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
-      <anonymise type="str">final</anonymise>
-      <id type="str">103</id>
-    </field>
-    <field>
-      <type>string</type>
       <label type="str">Code postal du lieu de naissance</label>
       <required type="bool">True</required>
       <varname type="str">code_postal_naissance</varname>
@@ -595,8 +574,22 @@
         <item>validation</item>
         <item>summary</item>
       </display_locations>
+      <extra_css_class type="str">newline grid-1-4</extra_css_class>
       <anonymise type="str">final</anonymise>
       <id type="str">b4895f08-01a5-4648-bf37-03ad629de1fb</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Lieu de naissance</label>
+      <required type="bool">True</required>
+      <varname type="str">rb_naissance_perscon</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-3-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">103</id>
     </field>
     <field>
       <type>subtitle</type>
@@ -857,10 +850,27 @@
     </field>
     <field>
       <type>string</type>
+      <label type="str">Code postal du lieu de naissance</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_rb_concerne_raw != 'tiers'</value>
+      </condition>
+      <required type="bool">True</required>
+      <varname type="str">code_postal_naissance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">47b42a19-7c03-4ee0-99c5-a42e2b02fe3f</id>
+    </field>
+    <field>
+      <type>string</type>
       <label type="str">Lieu de naissance</label>
       <condition>
         <type>django</type>
-        <value>form_var_rb_concerne != 'tiers'</value>
+        <value>form_var_rb_concerne_raw != 'tiers'</value>
       </condition>
       <required type="bool">True</required>
       <varname type="str">rb_naissance</varname>
@@ -868,9 +878,7 @@
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
+      <extra_css_class type="str">grid-3-4</extra_css_class>
       <anonymise type="str">final</anonymise>
       <id type="str">104</id>
     </field>
@@ -1182,6 +1190,52 @@
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
       </validation>
       <id type="str">db7d706f-f9ee-44cb-ac77-0322d3ed82ad</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Quel est l'int&#233;r&#234;t l&#233;gitime de votre demande ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;S&#233;lectionnez votre int&#233;r&#234;t l&#233;gitime&lt;/p&gt;</hint>
+      <varname type="str">interet_legitime</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items />
+      <data_source>
+        <type>imio_ec_interets_legitimes</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">21eb6c4f-a178-41fd-ae51-56bb9eb513fb</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Preuve de l'int&#233;r&#234;t l&#233;gitime</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_parente_raw != "je-suis-le-representant-legal" and form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <required type="bool">True</required>
+      <varname type="str">preuve_interet_legitime</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">e9433f80-b388-4553-b7da-a49cd94c6d35</id>
     </field>
     <field>
       <type>page</type>
