@@ -58,17 +58,7 @@
       <label type="str">&lt;p&gt;&lt;strong&gt;L&amp;rsquo;acte de nationalit&amp;eacute;&amp;nbsp;ne concerne que les &amp;eacute;trangers devenus Belges.&lt;br&gt;
 Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener noreferrer" target="_blank"&gt;demander le certificat de nationalit&amp;eacute;&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par la personne concern&amp;eacute;e ou moyennant une procuration :&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;Si la personne concern&amp;eacute;e est d&amp;eacute;c&amp;eacute;d&amp;eacute;e : l&amp;rsquo;acte ne peut &amp;ecirc;tre demand&amp;eacute; que par les personnes concern&amp;eacute;es par l&amp;rsquo;acte (adoptants ou adopt&amp;eacute;s). En cas de d&amp;eacute;c&amp;egrave;s, l&amp;rsquo;acte peut &amp;ecirc;tre demand&amp;eacute; par :&lt;/p&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;l&amp;#39;&amp;eacute;poux / l&amp;#39;&amp;eacute;pouse / le cohabitant l&amp;eacute;gal&lt;/li&gt;
-	&lt;li&gt;le repr&amp;eacute;sentant l&amp;eacute;gal&lt;/li&gt;
-	&lt;li&gt;l&amp;#39;ascendant / descendant&lt;/li&gt;
-	&lt;li&gt;le notaire / l&amp;#39;avocat&lt;/li&gt;
-	&lt;li&gt;l&amp;#39;h&amp;eacute;ritier / ayant droit&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par la personne concern&amp;eacute;e ou moyennant une preuve d&amp;#39;int&amp;eacute;r&amp;ecirc;t l&amp;eacute;gitime :&lt;/p&gt;
 
 &lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d&amp;#39;identit&amp;eacute; &lt;/strong&gt;(ainsi que d&amp;#39;une&amp;nbsp;&lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt;&amp;nbsp;si vous le retirez pour un tiers).&lt;/p&gt;
 </label>
@@ -124,14 +114,36 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
       <id type="str">7</id>
     </field>
     <field>
+      <type>item</type>
+      <label type="str">La personne concern&#233;e est-elle d&#233;c&#233;d&#233;e</label>
+      <required type="bool">True</required>
+      <varname type="str">is_person_con_deces</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">95fd45c9-88ef-48cb-b892-b01b146d6b07</id>
+    </field>
+    <field>
       <type>file</type>
       <label type="str">Concerne une autre personne : pi&#232;ce justificative</label>
       <condition>
         <type>django</type>
-        <value>form_option_actes_piece_justificative_tiers == "Oui" and form_var_rb_concerne == "Concerne une autre personne"</value>
+        <value>False</value>
       </condition>
       <required type="bool">True</required>
-      <hint type="str">Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).</hint>
+      <hint type="str">&lt;p&gt;Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).&lt;/p&gt;</hint>
       <varname type="str">piece_justificative_tiers</varname>
       <display_locations>
         <item>validation</item>
@@ -433,7 +445,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
     </field>
     <field>
       <type>page</type>
-      <label type="str">Lien de parent&#233;</label>
+      <label type="str">Relation avec la personne concern&#233;e</label>
       <condition>
         <type>django</type>
         <value>form_var_rb_concerne_raw == 'tiers'</value>
@@ -442,16 +454,13 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
     </field>
     <field>
       <type>item</type>
-      <label type="str">Lien avec la personne concern&#233;e :</label>
+      <label type="str">Relation avec la personne concern&#233;e</label>
       <required type="bool">True</required>
       <varname type="str">parente</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
       <items>
@@ -462,16 +471,19 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
         <item>H&#233;ritier(e) / Ayant droit</item>
         <item>Autre</item>
       </items>
+      <data_source>
+        <type>imio_ec_relation_avec_la_personne_concernee</type>
+      </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
       <id type="str">9</id>
     </field>
     <field>
       <type>string</type>
-      <label type="str">Si Autre, pr&#233;ciser le lien avec la personne concern&#233;e</label>
+      <label type="str">Si Autre, pr&#233;ciser la relation avec la personne concern&#233;e</label>
       <condition>
         <type>django</type>
         <value>form_var_parente == "Autre"</value>
@@ -481,9 +493,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
       <anonymise type="str">final</anonymise>
       <id type="str">10</id>
     </field>
@@ -582,6 +591,10 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
     <field>
       <type>date</type>
       <label type="str">Date du d&#233;c&#232;s</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_is_person_con_deces|lower == "oui"</value>
+      </condition>
       <required type="bool">True</required>
       <varname type="str">deces_perscon</varname>
       <display_locations>
@@ -589,9 +602,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
         <item>summary</item>
       </display_locations>
       <extra_css_class type="str">grid-2-12</extra_css_class>
-      <prefill>
-        <type>none</type>
-      </prefill>
       <anonymise type="str">final</anonymise>
       <minimum_is_future type="bool">False</minimum_is_future>
       <date_in_the_past type="bool">True</date_in_the_past>
@@ -1135,8 +1145,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
       </display_locations>
       <extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>1</value>
       </prefill>
@@ -1163,7 +1171,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
       </display_locations>
       <prefill>
         <locked>True</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>1</value>
       </prefill>
@@ -1173,6 +1180,52 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
       </validation>
       <id type="str">0f0ab614-b543-4029-acc4-d40860323499</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Quel est l'int&#233;r&#234;t l&#233;gitime de votre demande ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;S&#233;lectionnez votre int&#233;r&#234;t l&#233;gitime&lt;/p&gt;</hint>
+      <varname type="str">interet_legitime</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items />
+      <data_source>
+        <type>imio_ec_interets_legitimes</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">e3c7031c-0196-44aa-8370-36e8ee77a5a2</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Preuve de l'int&#233;r&#234;t l&#233;gitime</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_parente_raw != "je-suis-le-representant-legal" and form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <required type="bool">True</required>
+      <varname type="str">preuve_interet_legitime</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">3cae4546-4eea-40fd-aa77-98ba28bbe001</id>
     </field>
     <field>
       <type>page</type>
