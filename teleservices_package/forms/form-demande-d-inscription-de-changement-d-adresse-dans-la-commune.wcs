@@ -47,12 +47,8 @@
 	&lt;li&gt;Ce formulaire peut &amp;ecirc;tre compl&amp;eacute;t&amp;eacute; si vous souhaitez effectuer votre inscription dans la commune ou signaler un changement d&amp;rsquo;adresse au sein m&amp;ecirc;me de la commune.&lt;br&gt;
 	&amp;nbsp;&lt;/li&gt;
 	&lt;li&gt;&lt;strong&gt;Le formulaire ne concerne que les ressortissants belges et les &amp;eacute;trangers en possession d&amp;rsquo;une carte B, C, D, E, E+, F et F+&lt;br&gt;
-	Les autres personnes doivent se pr&amp;eacute;senter &amp;agrave; la commune pour effectuer l&amp;rsquo;inscription/le changement d&amp;rsquo;adresse.&lt;/strong&gt;&lt;br&gt;
-	&amp;nbsp;&lt;/li&gt;
-	&lt;li&gt;L&amp;rsquo;inscription et le changement d&amp;rsquo;adresse ne peuvent &amp;ecirc;tre d&amp;eacute;clar&amp;eacute;s que si vous &amp;ecirc;tes effectivement&amp;nbsp;install&amp;eacute;(es) &amp;agrave; l&amp;rsquo;adresse. L&amp;rsquo;agent de quartier doit pouvoir constater votre emm&amp;eacute;nagement &amp;agrave; l&amp;rsquo;adresse d&amp;egrave;s l&amp;rsquo;enregistrement de votre demande.{% if form_option_soit != "Prix unique" %}&lt;/li&gt;
-	&lt;li&gt;
-	&lt;p&gt;La taxe communale s&amp;rsquo;&amp;eacute;l&amp;egrave;ve, par personne majeure, &amp;agrave; {{form_option_prix_par_adulte_autre_commune}} &amp;euro; en cas d&amp;rsquo;arriv&amp;eacute;e dans la commune et {{form_option_prix_par_adulte_concerne_si_emmenagement_intramuros}} &amp;euro; &amp;nbsp;en cas de changement de domicile au sein de celle-ci.{% endif %}&lt;/p&gt;
-	&lt;/li&gt;
+	Les autres personnes doivent se pr&amp;eacute;senter &amp;agrave; la commune pour effectuer l&amp;rsquo;inscription/le changement d&amp;rsquo;adresse.&lt;/strong&gt;&lt;/li&gt;
+	&lt;li&gt;L&amp;rsquo;inscription et le changement d&amp;rsquo;adresse ne peuvent &amp;ecirc;tre d&amp;eacute;clar&amp;eacute;s que si vous &amp;ecirc;tes effectivement install&amp;eacute;(es) &amp;agrave; l&amp;rsquo;adresse. L&amp;rsquo;agent de quartier doit pouvoir constater votre emm&amp;eacute;nagement &amp;agrave; l&amp;rsquo;adresse d&amp;egrave;s l&amp;rsquo;enregistrement de votre demande.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
@@ -314,6 +310,13 @@
       <id type="str">55</id>
     </field>
     <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Merci d&amp;#39;indiquer la &lt;strong&gt;nouvelle adresse&lt;/strong&gt; dans laquelle vous souhaitez &amp;ecirc;tre domicili&amp;eacute;.&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">d5a7bd2f-4242-420f-aa55-b83a4f7d67d9</id>
+    </field>
+    <field>
       <type>string</type>
       <label type="str">Rue</label>
       <required type="bool">True</required>
@@ -542,7 +545,7 @@
     <option varname="baec" />
     <option varname="commentaire" />
     <option varname="cout" />
-    <option varname="cp_commune">1000</option>
+    <option varname="cp_commune" />
     <option varname="iban" />
     <option varname="lien_mondossier" />
     <option varname="mode_recup_disponibles" />
