@@ -40,7 +40,7 @@
         <post_condition>
           <condition>
             <type>django</type>
-            <value>form_option_redirection_automatique and session_user|is_strong_authentication and form_var_concerne_qui_raw == 'moi' or form_var_mode_delivrance_raw == 'mondossier' or form_var_rb_domicile_commune_slug == commune_slug or form_var_rb_domicile_raw == commune_slug</value>
+            <value>session_user|is_strong_authentication and form_var_concerne_qui_raw == 'moi' or form_var_mode_delivrance_raw == 'mondossier' or form_var_rb_domicile_commune_slug == commune_slug or form_var_rb_domicile_raw == commune_slug</value>
           </condition>
           <error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
@@ -124,7 +124,7 @@
 &lt;p&gt;Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique == False and form_var_concerne_qui_raw == 'moi'</value>
+        <value>form_var_concerne_qui_raw == 'moi'</value>
       </condition>
       <display_locations />
       <id type="str">51</id>
@@ -134,7 +134,7 @@
       <label type="str">Mode de d&#233;livrance</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique == False and form_var_concerne_qui_raw == 'moi'</value>
+        <value>form_var_concerne_qui_raw == 'moi'</value>
       </condition>
       <required type="bool">True</required>
       <varname type="str">mode_delivrance</varname>
@@ -415,7 +415,7 @@
       <label type="str">Donn&#233;es du demandeur</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
+        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition>
       <post_conditions>
         <post_condition>
@@ -699,7 +699,7 @@
       <label type="str">Informations compl&#233;mentaires</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
+        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition>
       <id type="str">20</id>
     </field>
@@ -835,7 +835,7 @@
       <label type="str">Prix de la d&#233;marche</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
+        <value>session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
       </condition>
       <id type="str">29</id>
     </field>

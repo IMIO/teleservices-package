@@ -68,10 +68,6 @@
     <field>
       <type>item</type>
       <label type="str">Mode de d&#233;livrance</label>
-      <condition>
-        <type>django</type>
-        <value>form_option_redirection_automatique == False</value>
-      </condition>
       <required type="bool">True</required>
       <varname type="str">mode_delivrance</varname>
       <display_locations>
@@ -98,7 +94,7 @@
       <label type="str">Attestation de Cohabitation L&#233;gale</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
+        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
       </condition>
       <post_conditions>
         <post_condition>
@@ -160,7 +156,7 @@
       <label type="str">Attestation de Cohabitation L&#233;gale - Vos coordonn&#233;es</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
+        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
       </condition>
       <post_conditions>
         <post_condition>
@@ -407,7 +403,7 @@
       <label type="str">Informations compl&#233;mentaires</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
+        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
       </condition>
       <id type="str">27</id>
     </field>
@@ -544,7 +540,7 @@
       <label type="str">Prix de la d&#233;marche</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
+        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
       </condition>
       <id type="str">32</id>
     </field>

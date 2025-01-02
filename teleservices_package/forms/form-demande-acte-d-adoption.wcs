@@ -126,7 +126,7 @@
       <label type="str">Mode de d&#233;livrance</label>
       <condition>
         <type>django</type>
-        <value>form_option_redirection_automatique == False and form_var_rb_concerne_raw == 'moi'</value>
+        <value>form_var_rb_concerne_raw == 'moi'</value>
       </condition>
       <required type="bool">True</required>
       <varname type="str">mode_delivrance</varname>
@@ -153,7 +153,7 @@
       <type>computed</type>
       <label type="str">Mode de d&#233;livrance ou redirection automatique</label>
       <varname type="str">mode_de_delivrance_or_redirection_automatique</varname>
-      <value_template type="str">{% if form_var_mode_delivrance_raw != 'commune' or form_option_redirection_automatique %}True{% else %}False{% endif %}</value_template>
+      <value_template type="str">{% if form_var_mode_delivrance_raw != 'commune' %}True{% else %}False{% endif %}</value_template>
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">47205499-70a6-4fa9-a617-b66e69b0465b</id>
     </field>
