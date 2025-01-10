@@ -41,11 +41,11 @@
             </field>
             <field>
               <field_id>bof2067322-8881-4022-a2c3-e55f600a3c3f</field_id>
-              <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_result_delivrance_date_acte %}True{% elif form_slug == "demande-cohabitation-legale" and form_option_redirection_automatique %}True{% else %}False{% endif %}</value>
+              <value>{% if form_var_concerne_qui_raw == "moi" or form_var_result_delivrance_date_acte %}True{% elif form_slug == "demande-cohabitation-legale" %}True{% else %}False{% endif %}</value>
             </field>
             <field>
               <field_id>bo167ac504-a96b-44ad-9428-d6f354125380</field_id>
-              <value>{% if form_var_concerne_qui_raw == "moi" and form_option_redirection_automatique or form_var_mode_delivrance_raw == 'mondossier' %}True{% elif form_var_rb_concerne_raw == "moi" and form_option_redirection_automatique %}True{% else %}False{% endif %}</value>
+              <value>{% if form_var_concerne_qui_raw == "moi" or form_var_mode_delivrance_raw == 'mondossier' %}True{% elif form_var_rb_concerne_raw == "moi" %}True{% else %}False{% endif %}</value>
             </field>
           </fields>
         </item>
@@ -1967,7 +1967,7 @@ Bien cordialement,</body>
         </field>
         <field>
           <type>item</type>
-          <label type="str">Actes : Pi&#232;ce justificative obligatoire si concerne un tiers (hors acte de décès)</label>
+          <label type="str">Actes : Pi&#232;ce justificative obligatoire si concerne un tiers (hors acte de d&#233;c&#232;s)</label>
           <required type="bool">False</required>
           <hint type="str">Cocher cette case affichera un champ "Fichier" o&#249; le demandeur sera invit&#233; &#224; joindre un document justificatif si la demande d'acte ne le concerne pas (concerne un tiers).</hint>
           <varname type="str">actes_piece_justificative_tiers</varname>
@@ -2073,18 +2073,6 @@ Bien cordialement,</body>
           <display_locations />
           <anonymise type="str">final</anonymise>
           <id type="str">14</id>
-        </field>
-        <field>
-          <type>bool</type>
-          <label type="str">redirection automatique</label>
-          <required type="bool">False</required>
-          <varname type="str">redirection_automatique</varname>
-          <display_locations>
-            <item>validation</item>
-            <item>summary</item>
-          </display_locations>
-          <anonymise type="str">no</anonymise>
-          <id type="str">f504ebed-757f-49d0-bc30-6702db5d51c5</id>
         </field>
       </fields>
     </formdef>
