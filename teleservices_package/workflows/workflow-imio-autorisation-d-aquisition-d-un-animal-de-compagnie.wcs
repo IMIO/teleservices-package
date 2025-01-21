@@ -5,7 +5,8 @@
   <roles>
     <role id="_receiver">Destinataire</role>
     <role id="_validateur-pc-banking">Validateur PC Banking</role>
-  </roles><possible_status>
+  </roles>
+  <possible_status>
     <status>
       <id>7</id>
       <name>Juste envoy&#233;</name>
@@ -15,7 +16,8 @@
         <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>{{ form_name }} : Demande re&#231;ue</subject>
+          </to>
+          <subject>{{ form_name }} : Demande re&#231;ue</subject>
           <body>Bonjour {{ form_user_display_name }},
 
 Nos services vous confirment la bonne r&#233;ception de votre demande d'autorisation d'acquisition d'un animal de compagnie.
@@ -27,17 +29,21 @@ Cordialement,
 {{ commune_name }}
 {{ administration_adresse }}
 {{ administration_site }}</body>
-        </item><item type="sendmail" id="2">
+        </item>
+        <item type="sendmail" id="2">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
-        </item><item type="jump" id="3">
+          </to>
+          <mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
+        </item>
+        <item type="jump" id="3">
           <status>1</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>1</id>
       <name>En attente de validation</name>
       <colour>#66FFFF</colour>
@@ -47,21 +53,25 @@ Cordialement,
           <message>Votre demande a bien &#233;t&#233; introduite dans notre syst&#232;me et les services comp&#233;tents en ont &#233;t&#233; inform&#233;s.</message>
           <level>success</level>
           <position>top</position>
-        </item><item type="choice" id="2">
+        </item>
+        <item type="choice" id="2">
           <label>Valider</label>
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><status>8</status>
+          </by>
+          <status>8</status>
           <require_confirmation>False</require_confirmation>
           <backoffice_info_text>&lt;p&gt;Valider la demande de l&amp;#39;usager.&lt;/p&gt;
 </backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item type="choice" id="3">
+        </item>
+        <item type="choice" id="3">
           <label>Refuser</label>
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><status>5</status>
+          </by>
+          <status>5</status>
           <require_confirmation>True</require_confirmation>
           <backoffice_info_text>&lt;p&gt;Refuser la demande si l&amp;#39;usager ne peut obtenir son autorisation.&lt;/p&gt;
 </backoffice_info_text>
@@ -69,7 +79,8 @@ Cordialement,
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>5</id>
       <name>Refus&#233;</name>
       <colour>#FF0000</colour>
@@ -78,7 +89,8 @@ Cordialement,
         <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>{{ form_name }} : Demande refus&#233;e</subject>
+          </to>
+          <subject>{{ form_name }} : Demande refus&#233;e</subject>
           <body>Bonjour {{ form_user_display_name }},
 
 Nous vous informons que votre demande d'autorisation d'acquisition d'un animal de compagnie n'a pas &#233;t&#233; accept&#233;e.
@@ -92,7 +104,8 @@ Cordialement,
 {{ administration_site }}</body>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>8</id>
       <name>Valid&#233;</name>
       <colour>#99FF00</colour>
@@ -103,25 +116,31 @@ Cordialement,
           <condition>
             <type>django</type>
             <value>form_option_regie_de_paiement and form_option_montant|add:form_var_destination_price &gt; 0</value>
-          </condition><mode>immediate</mode>
+          </condition>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="2">
+        </item>
+        <item type="jump" id="2">
           <status>11</status>
           <condition>
             <type>django</type>
             <value>not form_option_regie_de_paiement and form_option_montant|add:form_var_destination_price &gt; 0</value>
-          </condition><mode>immediate</mode>
+          </condition>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="3">
+        </item>
+        <item type="jump" id="3">
           <status>4</status>
           <condition>
             <type>django</type>
             <value>not form_option_regie_de_paiement or form_option_montant|add:form_var_destination_price &lt;= 0</value>
-          </condition><mode>immediate</mode>
+          </condition>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>11</id>
       <name>En attente du virement</name>
       <colour>#FFFF00</colour>
@@ -139,10 +158,12 @@ Cordialement,
 </message>
           <level>warning</level>
           <position>top</position>
-        </item><item type="sendmail" id="2">
+        </item>
+        <item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>D&#233;marche "{{ form_name }}". En attente du virement.</subject>
+          </to>
+          <subject>D&#233;marche "{{ form_name }}". En attente du virement.</subject>
           <body>Madame, Monsieur,
 
 Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
@@ -164,17 +185,20 @@ Montant de la commande : {{ form_option_montant|add:form_var_destination_price }
 
 
 Bien cordialement,</body>
-        </item><item type="choice" id="3">
+        </item>
+        <item type="choice" id="3">
           <label>Valider le paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
-          </by><status>3</status>
+          </by>
+          <status>3</status>
           <require_confirmation>False</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>2</id>
       <name>En attente de paiement</name>
       <colour>#FFFF00</colour>
@@ -183,7 +207,8 @@ Bien cordialement,</body>
         <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>{{ form_name }} : En attente de votre paiement</subject>
+          </to>
+          <subject>{{ form_name }} : En attente de votre paiement</subject>
           <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
 
@@ -207,7 +232,8 @@ Cordialement,
 {{ commune_name }}
 {{ administration_adresse }}
 {{ administration_site }}</body>
-        </item><item type="register-comment" id="2">
+        </item>
+        <item type="register-comment" id="2">
           <comment>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
@@ -215,14 +241,16 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item type="displaymsg" id="3">
+        </item>
+        <item type="displaymsg" id="3">
           <message>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</message>
           <level>info</level>
           <position>top</position>
-        </item><item type="webservice_call" id="4">
+        </item>
+        <item type="webservice_call" id="4">
           <label>Paiement en ligne</label>
           <method>POST</method>
           <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
@@ -231,25 +259,31 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
               <name>regie_id</name>
               <value>{{form_option_regie_de_paiement_raw}}</value>
             </item>
-          </qs_data><post>False</post>
+          </qs_data>
+          <post>False</post>
           <post_data>
             <item>
               <name>amount</name>
               <value>{{ form_option_montant }}</value>
-            </item><item>
+            </item>
+            <item>
               <name>destination</name>
               <value>{{form_var_destination_paymentrequired}}</value>
-            </item><item>
+            </item>
+            <item>
               <name>display_name</name>
               <value>{{form_display_name}}</value>
-            </item><item>
+            </item>
+            <item>
               <name>url</name>
               <value>{{form_url}}</value>
-            </item><item>
+            </item>
+            <item>
               <name>nb_documents</name>
               <value>1</value>
             </item>
-          </post_data><response_type>json</response_type>
+          </post_data>
+          <response_type>json</response_type>
           <varname>transaction_info</varname>
           <store_all_responses>False</store_all_responses>
           <attach_file_to_history>True</attach_file_to_history>
@@ -262,25 +296,35 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <record_on_errors>True</record_on_errors>
           <notify_on_errors>False</notify_on_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="5">
+        </item>
+        <item type="jump" id="5">
           <status>3</status>
           <mode>trigger</mode>
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="6">
+        </item>
+        <item type="jump" id="6">
           <status>10</status>
           <mode>trigger</mode>
           <trigger>cancelled</trigger>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
+        <item type="jump" id="7">
+          <status>13</status>
+          <mode>timeout</mode>
+          <timeout>2592000</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>10</id>
       <name>Demande annul&#233;e</name>
       <colour>#FF0000</colour>
       <visibility />
       <items />
-    </status><status>
+    </status>
+    <status>
       <id>3</id>
       <name>Pay&#233;</name>
       <colour>#99FF00</colour>
@@ -288,10 +332,12 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <items>
         <item type="register-comment" id="1">
           <comment>Votre paiement a bien &#233;t&#233; pris en compte et votre demande sera trait&#233;e dans les plus brefs d&#233;lais.</comment>
-        </item><item type="sendmail" id="2">
+        </item>
+        <item type="sendmail" id="2">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>{{ form_name }} : Paiement re&#231;u</subject>
+          </to>
+          <subject>{{ form_name }} : Paiement re&#231;u</subject>
           <body>Bonjour,
 
 Un paiement a &#233;t&#233; re&#231;u.
@@ -305,13 +351,15 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
 {% endif %}
 
 Bonne journ&#233;e !</body>
-        </item><item type="jump" id="3">
+        </item>
+        <item type="jump" id="3">
           <status>4</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>4</id>
       <name>En cours de traitement</name>
       <colour>#0099FF</colour>
@@ -320,7 +368,8 @@ Bonne journ&#233;e !</body>
         <item type="addattachment" id="1">
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><required>False</required>
+          </by>
+          <required>False</required>
           <title>Joindre l'extrait</title>
           <display_title>True</display_title>
           <button_label>Joindre l'extrait</button_label>
@@ -337,24 +386,26 @@ Bonne journ&#233;e !</body>
             <mimetype>application/pdf</mimetype>
             <mimetype>application/msword</mimetype>
             <mimetype>application/vnd.openxmlformats-officedocument.wordprocessingml.document</mimetype>
-          </document_type><allow_portfolio_picking>False</allow_portfolio_picking>
-          <push_to_portfolio>False</push_to_portfolio>
+          </document_type>
           <condition>
             <type>django</type>
             <value>"porte" in form_var_destination or "mail" in form_var_destination|lower</value>
           </condition>
-        </item><item type="jumponsubmit" id="2">
+        </item>
+        <item type="jumponsubmit" id="2">
           <status>6</status>
           <set_marker_on_status>False</set_marker_on_status>
           <condition>
             <type>django</type>
             <value>"porte" in form_var_destination or "mail" in form_var_destination|lower</value>
           </condition>
-        </item><item type="choice" id="3">
+        </item>
+        <item type="choice" id="3">
           <label>Traiter</label>
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><status>6</status>
+          </by>
+          <status>6</status>
           <require_confirmation>False</require_confirmation>
           <backoffice_info_text>&lt;p&gt;Notifier l&amp;#39;usager que sa demande est trait&amp;eacute;e.&lt;/p&gt;
 </backoffice_info_text>
@@ -366,7 +417,8 @@ Bonne journ&#233;e !</body>
           </condition>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>6</id>
       <name>Trait&#233;</name>
       <colour>#00FF00</colour>
@@ -375,10 +427,12 @@ Bonne journ&#233;e !</body>
       <items>
         <item type="displaymsg" id="1">
           <position>top</position>
-        </item><item type="sendmail" id="2">
+        </item>
+        <item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>{{ form_name }} : Demande trait&#233;e</subject>
+          </to>
+          <subject>{{ form_name }} : Demande trait&#233;e</subject>
           <body>Bonjour {{ form_user_display_name }},
 
 Nous vous informons que votre demande d'autorisation d'acquisition d'un animal de compagnie est valid&#233;e et trait&#233;e.
@@ -395,14 +449,16 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
           <attachments>
             <attachment>{{form_var_document_raw}}</attachment>
           </attachments>
-        </item><item type="jump" id="3">
+        </item>
+        <item type="jump" id="3">
           <status>9</status>
           <mode>timeout</mode>
           <timeout>31557600</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>9</id>
       <name>Anonymis&#233;</name>
       <colour>#000000</colour>
@@ -412,7 +468,8 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
           <mode>final</mode>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>12</id>
       <name>Supprimer du panier</name>
       <colour>#FFFFFF</colour>
@@ -427,11 +484,13 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
             <item>
               <name>basket_item_id</name>
               <value>{{ transaction_info_response_id }}</value>
-            </item><item>
+            </item>
+            <item>
               <name>skip_notification</name>
               <value>skip</value>
             </item>
-          </post_data><response_type>json</response_type>
+          </post_data>
+          <response_type>json</response_type>
           <varname>annulation</varname>
           <store_all_responses>False</store_all_responses>
           <attach_file_to_history>True</attach_file_to_history>
@@ -447,7 +506,60 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
         </item>
       </items>
     </status>
-  </possible_status><global_actions>
+    <status>
+      <id>13</id>
+      <name>Annulation pour Non-Paiement</name>
+      <colour>#ff0000</colour>
+      <visibility />
+      <items>
+        <item type="webservice_call" id="1">
+          <label>Supprimer du panier</label>
+          <method>POST</method>
+          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>basket_item_id</name>
+              <value>{{ transaction_info_response_id }}</value>
+            </item>
+            <item>
+              <name>skip_notification</name>
+              <value>skip</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <varname>non_paiement</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <record_errors>True</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="sendmail" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <subject>{{ form_name }} : Demande refus&#233;e</subject>
+          <body>Bonjour {{ form_user_display_name }},
+
+Nous vous informons que votre demande d'autorisation d'acquisition d'un animal de compagnie a &#233;t&#233; annul&#233;e pour cause de non-paiement dans un d&#233;lai de 30 jours.
+
+Cordialement,
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body>
+        </item>
+      </items>
+    </status>
+  </possible_status>
+  <global_actions>
     <action>
       <id>1</id>
       <name>Suppression</name>
@@ -461,11 +573,13 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
             <item>
               <name>basket_item_id</name>
               <value>{{ transaction_info_response_id }}</value>
-            </item><item>
+            </item>
+            <item>
               <name>skip_notification</name>
               <value>skip</value>
             </item>
-          </post_data><response_type>json</response_type>
+          </post_data>
+          <response_type>json</response_type>
           <varname>annulation_suppression</varname>
           <store_all_responses>False</store_all_responses>
           <attach_file_to_history>True</attach_file_to_history>
@@ -480,18 +594,23 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
           <condition>
             <type>django</type>
             <value>transaction_info_response_id</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="remove" id="2" />
-      </items><triggers>
+          </condition>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="remove" id="2" />
+      </items>
+      <triggers>
         <trigger type="manual" id="466327d5-2cb1-458f-bf6a-f28df7acfd85">
           <roles>
-            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
-            <item slug="agent-ayant-acces-aux-fabriques" role_id="9be8b3ce1b3244be8f6e05a9aa003cf0">Agent ayant acces aux fabriques</item>
-          </roles><allow_as_mass_action>True</allow_as_mass_action>
+            <item slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2">Agent ayant acces aux fabriques</item>
+          </roles>
+          <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
-    </action><action>
+    </action>
+    <action>
       <id>2</id>
       <name>Supprimer du panier</name>
       <items>
@@ -500,18 +619,22 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
           <condition>
             <type>django</type>
             <value>transaction_info_response_id</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
+          </condition>
+          <set_marker_on_status>False</set_marker_on_status>
         </item>
-      </items><triggers>
+      </items>
+      <triggers>
         <trigger type="manual" id="d0570a4a-e7f6-4605-a79d-11c5a825dedc">
           <roles>
-            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
-            <item slug="agent-ayant-acces-aux-fabriques" role_id="9be8b3ce1b3244be8f6e05a9aa003cf0">Agent ayant acces aux fabriques</item>
-          </roles><allow_as_mass_action>True</allow_as_mass_action>
+            <item slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2">Agent ayant acces aux fabriques</item>
+          </roles>
+          <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
-    </action><action>
+    </action>
+    <action>
       <id>3</id>
       <name>Cl&#244;tur&#233;</name>
       <backoffice_info_text>&lt;p&gt;&amp;Agrave; utiliser en cas de demande/payement au guichet. Emm&amp;egrave;ne la demande dans le statut &lt;strong&gt;Trait&amp;eacute;&lt;/strong&gt;.&lt;/p&gt;
@@ -526,11 +649,13 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
             <item>
               <name>basket_item_id</name>
               <value>{{ transaction_info_response_id }}</value>
-            </item><item>
+            </item>
+            <item>
               <name>skip_notification</name>
               <value>skip</value>
             </item>
-          </post_data><response_type>json</response_type>
+          </post_data>
+          <response_type>json</response_type>
           <varname>annulation_globale</varname>
           <store_all_responses>False</store_all_responses>
           <attach_file_to_history>True</attach_file_to_history>
@@ -545,24 +670,30 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
           <condition>
             <type>django</type>
             <value>form_workflow_data_transaction_info_response_id</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
-        </item><item type="jump" id="2">
+          </condition>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="2">
           <status>6</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-      </items><triggers>
+      </items>
+      <triggers>
         <trigger type="manual" id="a16169e1-32f1-4ac8-af25-243ecfd20f6c">
           <roles>
             <item role_id="_receiver">_receiver</item>
-          </roles><statuses>
+          </roles>
+          <statuses>
             <statuse>11</statuse>
             <statuse>2</statuse>
-          </statuses><allow_as_mass_action>True</allow_as_mass_action>
+          </statuses>
+          <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action>
-  </global_actions><variables>
+  </global_actions>
+  <variables>
     <formdef>
       <name>-</name>
       <fields>
@@ -577,7 +708,8 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <anonymise type="str">final</anonymise>
           <display_mode type="str">plain</display_mode>
           <id type="str">054bd77d-24fd-4e9f-8415-e1df467ff8f8</id>
-        </field><field>
+        </field>
+        <field>
           <type>string</type>
           <label type="str">Lien vers les mentions l&#233;gales</label>
           <required type="bool">False</required>
@@ -589,8 +721,10 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
             <error_message>N'indiquez pas le protocol (http, https, etc).</error_message>
             <type>django</type>
             <value>"http" not in value</value>
-          </validation><id type="str">4</id>
-        </field><field>
+          </validation>
+          <id type="str">4</id>
+        </field>
+        <field>
           <type>items</type>
           <label type="str">Destinations</label>
           <required type="bool">False</required>
@@ -604,12 +738,14 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <max_choices type="int">0</max_choices>
           <data_source>
             <type>passerelle_destinations</type>
-          </data_source><in_filters type="bool">False</in_filters>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
           <display_disabled_items type="bool">False</display_disabled_items>
           <image_desktop_size type="int">150</image_desktop_size>
           <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">3</id>
-        </field><field>
+        </field>
+        <field>
           <type>string</type>
           <label type="str">Montant, en &#8364;</label>
           <required type="bool">True</required>
@@ -621,8 +757,10 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
             <error_message>N'indiquez pas la monnaie.</error_message>
             <type>django</type>
             <value>"&#8364;" not in value</value>
-          </validation><id type="str">5</id>
-        </field><field>
+          </validation>
+          <id type="str">5</id>
+        </field>
+        <field>
           <type>item</type>
           <label type="str">R&#233;gie de paiement</label>
           <required type="bool">False</required>
@@ -635,13 +773,15 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <data_source>
             <type>json</type>
             <value>{{portal_url}}api/lingo/regies</value>
-          </data_source><in_filters type="bool">False</in_filters>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
           <display_disabled_items type="bool">False</display_disabled_items>
           <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
           <image_desktop_size type="int">150</image_desktop_size>
           <image_mobile_size type="int">75</image_mobile_size>
           <id type="str">2</id>
-        </field><field>
+        </field>
+        <field>
           <type>string</type>
           <label type="str">IBAN</label>
           <required type="bool">False</required>
@@ -652,7 +792,8 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
         </field>
       </fields>
     </formdef>
-  </variables><backoffice-fields>
+  </variables>
+  <backoffice-fields>
     <formdef>
       <name>-</name>
       <fields>
@@ -663,7 +804,8 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <varname type="str">document</varname>
           <display_locations>
             <item>summary</item>
-          </display_locations><anonymise type="str">final</anonymise>
+          </display_locations>
+          <anonymise type="str">final</anonymise>
           <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
           <automatic_image_resize type="bool">True</automatic_image_resize>
           <storage type="str">default</storage>
