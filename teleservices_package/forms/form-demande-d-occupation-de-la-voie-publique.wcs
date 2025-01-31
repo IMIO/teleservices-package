@@ -227,7 +227,7 @@
       <label type="str">Coordonn&#233;es entrepreneur</label>
       <condition>
         <type>django</type>
-        <value>form_var_typedemandeur == "un entrepreneur"</value>
+        <value>form_var_typedemandeur == "Un entrepreneur"</value>
       </condition><id type="str">9</id>
     </field><field>
       <type>string</type>
