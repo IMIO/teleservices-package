@@ -237,7 +237,7 @@
       <display_mode type="str">list</display_mode>
       <data_source>
         <type>jsonvalue</type>
-        <value>[{% for i in form_var_liste_type_rdv_plusieurs_personnes %}{"id": "{{ i }}", "text": "{{ i }}"}{% if not forloop.last %}, {% endif %}{% endfor %}]</value>
+        <value>[{% for i in form_var_liste_type_rdv_plusieurs_personnes %}{"id": {{ i|json_dumps }}, "text": {{ i|json_dumps }}}{% if not forloop.last %}, {% endif %}{% endfor %}]</value>
       </data_source><in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
