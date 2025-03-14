@@ -467,22 +467,10 @@
       <id type="str">10</id>
     </field>
     <field>
-      <type>string</type>
-      <label type="str">Si Autre, pr&#233;ciser le lien de parent&#233;</label>
-      <condition>
-        <type>django</type>
-        <value>form_var_parente_raw == 'autre'</value>
-      </condition>
-      <required type="bool">True</required>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
-      <anonymise type="str">final</anonymise>
-      <id type="str">8</id>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Toute demande &#233;manant d&#8217;un tiers dont la relation n&#8217;est pas list&#233;e ci-dessus doit se faire directement &#224; l&#8217;Administration communale&lt;/p&gt;</label>
+      <display_locations />
+      <id type="str">aed942c6-7417-493b-82db-13af0c4b8840</id>
     </field>
     <field>
       <type>page</type>

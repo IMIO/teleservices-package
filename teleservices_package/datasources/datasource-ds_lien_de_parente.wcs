@@ -4,6 +4,6 @@
   <slug>ds_lien_de_parente</slug>
   <data_source>
     <type>jsonvalue</type>
-    <value>[{"id": "conjoint", "text": "Conjoint"}, {"id": "enfant", "text": "Enfant"}, {"id": "pere_mere", "text": "P&#232;re ou M&#232;re"}, {"id": "autre", "text": "Autre (&#224; pr&#233;ciser)"}]</value>
+    <value>[{"id": "conjoint", "text": "Conjoint"}, {"id": "enfant", "text": "Enfant"}, {"id": "pere_mere", "text": "P&#232;re ou M&#232;re"}]</value>
   </data_source>
 </datasource>
