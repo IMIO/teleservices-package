@@ -4,7 +4,7 @@
   <slug>imio_ec_relation_avec_la_personne_concernee</slug>
   <data_source>
     <type>jsonvalue</type>
-    <value>[{"id": "je-suis-le-representant-legal", "text": "Je suis le repr&#233;sentant l&#233;gal"}, {"id": "je-suis-lepoux-epouse-cohabitant-legal", "text": "Je suis l'&#233;poux/&#233;pouse/cohabitant l&#233;gal"}, {"id": "je-suis-un-ascendant-descendant-au-premier-degre", "text": "Je suis un ascendant/descendant au premier degr&#233;"}, {"id": "je-suis-heretier", "text": "Je suis h&#233;ritier"}, {"id": "je-suis-son-avocat-notaire", "text": "Je suis son avocat/notaire"}, {"id": "autre", "text": "Autre"}]</value>
+    <value>[{"id": "je-suis-le-representant-legal", "text": "Je suis le repr&#233;sentant l&#233;gal"}, {"id": "je-suis-lepoux-epouse-cohabitant-legal", "text": "Je suis l'&#233;poux/&#233;pouse/cohabitant l&#233;gal"}, {"id": "je-suis-un-ascendant-descendant-au-premier-degre", "text": "Je suis un ascendant/descendant au premier degr&#233;"}, {"id": "je-suis-heretier", "text": "Je suis h&#233;ritier"}]</value>
   </data_source>
   <category slug="imio-population-etat-civil" category_id="2">iMio - Population - Etat civil</category>
 </datasource>
