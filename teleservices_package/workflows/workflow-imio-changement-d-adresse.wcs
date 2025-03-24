@@ -1151,8 +1151,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
         </field>
         <field>
           <type>string</type>
-          <label type="str">Prix par adulte concern&#233; si emm&#233;nagement depuis  autre commune</label>
-          <required type="bool">True</required>
+          <label type="str">Prix par adulte concern&#233; si emm&#233;nagement depuis  autre commune (laisser vide si vous n'utilisez pas cette méthode)</label>
           <hint type="str">Indiquez le prix en euro(s) et en chiffre(s) (Exemple : 2 ou 3.50 )</hint>
           <varname type="str">prix_par_adulte_autre_commune</varname>
           <display_locations>
@@ -1164,8 +1163,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
         </field>
         <field>
           <type>string</type>
-          <label type="str">Prix par adulte concern&#233; si emm&#233;nagement intra-muros</label>
-          <required type="bool">True</required>
+          <label type="str">Prix par adulte concern&#233; si emm&#233;nagement intra-muros (laisser vide si vous n'utilisez pas cette méthode)</label>
           <hint type="str">Indiquez le prix en euro(s) et en chiffre(s) (Exemple : 2 ou 3.50 )</hint>
           <varname type="str">prix_par_adulte_concerne_si_emmenagement_intramuros</varname>
           <display_locations>
