@@ -375,19 +375,12 @@
     <field>
       <type>item</type>
       <label type="str">Soit:</label>
-      <condition>
-        <type>django</type>
-        <value>false</value>
-      </condition>
       <required type="bool">True</required>
       <varname type="str">rejoint</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
       <items>
