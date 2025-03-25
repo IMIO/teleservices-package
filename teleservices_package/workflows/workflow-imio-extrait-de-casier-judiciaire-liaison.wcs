@@ -402,6 +402,15 @@ Cordialement,</body>
           </to>
           <mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
         </item>
+        <item type="commentable" id="4">
+          <label>Commentaire</label>
+          <button_label />
+          <by>
+            <item role_id="_validadeur-modele-2">_validadeur-modele-2</item>
+          </by>
+          <varname>refus</varname>
+          <required>False</required>
+        </item>
         <item type="choice" id="2">
           <label>Accepter</label>
           <by>
@@ -437,7 +446,13 @@ Cordialement,</body>
             <item role_id="_submitter">_submitter</item>
           </to>
           <subject>Votre demande d&#8217;extrait de casier judiciaire mod&#232;le 2.</subject>
-          <body>Votre demande d&#8217;extrait de casier judiciaire mod&#232;le 2 (activit&#233;s en lien avec des mineurs) n&#8217;a pas &#233;t&#233; accept&#233;e. Nous vous invitons &#224; vous adresser directement au Service Population de votre administration communale.</body>
+          <body>Votre demande d&#8217;extrait de casier judiciaire mod&#232;le 2 (activit&#233;s en lien avec des mineurs) n&#8217;a pas &#233;t&#233; accept&#233;e. Nous vous invitons &#224; vous adresser directement au Service Population de votre administration communale.
+
+{% if comment_refus %}
+Voici le motif du refus : 
+
+{{comment_refus}}
+{% endif %}</body>
         </item>
       </items>
     </status>
@@ -466,8 +481,6 @@ Cordialement,</body>
         </trigger>
         <trigger type="timeout" id="cf9c8e6a-187a-4f6c-bab6-c6fa88d30c0e">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
                     <timeout>0</timeout>
         </trigger>
       </triggers>
