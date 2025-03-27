@@ -262,11 +262,6 @@ Veuillez contacter votre administration communale pour l'en avertir.
           <level>success</level>
           <position>top</position>
         </item>
-        <item type="jump" id="3">
-          <status>2</status>
-          <mode>immediate</mode>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
         <item type="sendmail" id="4">
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -284,6 +279,11 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 {% endif %}
 
 Cordialement,</body>
+        </item>
+        <item type="jump" id="3">
+          <status>2</status>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status>
@@ -466,8 +466,6 @@ Cordialement,</body>
         </trigger>
         <trigger type="timeout" id="cf9c8e6a-187a-4f6c-bab6-c6fa88d30c0e">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
                     <timeout>0</timeout>
         </trigger>
       </triggers>
