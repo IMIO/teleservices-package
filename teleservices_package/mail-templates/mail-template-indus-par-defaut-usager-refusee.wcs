@@ -7,7 +7,7 @@
   <body>Bonjour,
 
 {% if form_status_changed %}
-Nous sommes au regrêt de devoir vous informer du refus de votre demande.
+Nous sommes au regret de devoir vous informer du refus de votre demande.
 Pour rappel, cela concerne la démarche suivante : {{ form_name }}.
 {% endif %}
 
