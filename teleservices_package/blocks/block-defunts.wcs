@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<block id="31" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/blocks/31/">
+  <name>D&#233;funts</name>
+  <slug>defunts</slug>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bfee52cec0-104f-4e10-8f20-2441265eea34</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bf84c799d0-3ec0-46a5-a83f-e42b2beb1518</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de registre national</label>
+      <required type="str">optional</required>
+      <varname type="str">numero_de_registre_national</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>nrn-be</type>
+      </validation>
+      <id type="str">bfb5f7710b-ac4a-4869-b18d-e85aeceaf84e</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date du d&#233;c&#232;s</label>
+      <required type="str">optional</required>
+      <varname type="str">date_du_deces</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">bf3e9b73d7-a371-4678-a367-7e10bb9b0eb7</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Lieu du d&#233;c&#232;s</label>
+      <required type="str">optional</required>
+      <varname type="str">lieu_du_deces</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bf9a4f9a43-74a7-4ad1-ae54-8701d3dfc9f5</id>
+    </field>
+  </fields>
+</block>
