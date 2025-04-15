@@ -1,0 +1,532 @@
+<?xml version="1.0"?>
+<formdef id="236" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/236/">
+  <name>Autorisation de transfert depuis un caveau d'attente</name>
+  <url_name>demande-d-autorisation-de-transfert-du-caveau-communal</url_name>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>true</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
+  <workflow slug="imio-paiement-urne-surnumeraire" workflow_id="162">iMio - Cimeti&#232;re</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es du demandeur / de l'ayant-droit</label>
+      <id type="str">26</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Coordonn&#233;es du demandeur ou de l'ayant-droit</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">852ce316-fb35-45f4-9733-c1b9a720d608</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition>
+      <display_locations />
+      <id type="str">e3d48cce-a677-4760-816d-dd4862d8d537</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;a href="{{form_option_reglement_communal}}" rel="nofollow"&gt;Lien vers le r&amp;egrave;glement communal&lt;/a&gt;&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition>
+      <display_locations />
+      <id type="str">b8b056c2-7443-4c58-b052-38a537ec9dff</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">72</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">73</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_street</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">74</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro</label>
+      <required type="str">required</required>
+      <varname type="str">numero_porte</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[0-9]*</value>
+      </validation>
+      <id type="str">75</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Bo&#238;te</label>
+      <required type="str">optional</required>
+      <varname type="str">boite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_num_box</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">76</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[0-9]*</value>
+      </validation>
+      <id type="str">77</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Ville</label>
+      <required type="str">required</required>
+      <varname type="str">ville</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_city</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">78</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse email</label>
+      <required type="str">required</required>
+      <varname type="str">email</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-2-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">81</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <required type="str">optional</required>
+      <varname type="str">telephone</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_phone</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">79</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de registre national</label>
+      <required type="str">required</required>
+      <varname type="str">numero_de_registre_national</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_niss</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>nrn-be</type>
+      </validation>
+      <id type="str">6e3c7336-9c5e-4c87-8f4c-1dff46d791ec</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="[idp_account_url]edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
+      <display_locations />
+      <id type="str">82</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Lien de filiation avec le/les d&#233;funt(s)</label>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">pk-important grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">7be52a22-2afe-4d90-8f70-eccf72c4c46c</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Informations li&#233;es &#224; la concession</label>
+      <id type="str">37</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Informations li&#233;es &#224; la concession</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">a6f06f2b-c662-40d3-9928-01ec58ed88e6</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Veuillez indiquer ci-dessous les informations li&amp;eacute;es au transfert du caveau.&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">60</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Emplacement</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">83</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Cimeti&#232;re dans lequel se trouve le caveau d'attente</label>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;-- Faites un choix --&lt;/p&gt;</hint>
+      <varname type="str">cimetiere</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <data_source>
+        <type>carddef:imio-liste-des-cimetieres</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">70</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong&gt;Choisissez vers quel cimeti&amp;egrave;re le corps sera transf&amp;eacute;r&amp;eacute; :&lt;/strong&gt;&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">50fdee63-2ee6-4793-acbb-2de9fec26add</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Cimeti&#232;re</label>
+      <required type="str">required</required>
+      <hint type="str">-- Faites un choix --</hint>
+      <varname type="str">cimetiere_futur</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <data_source>
+        <type>carddef:imio-liste-des-cimetieres</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
+      <id type="str">ca85c2c7-488b-49a6-9373-b50e7fec3dce</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Emplacement</label>
+      <required type="str">required</required>
+      <varname type="str">emplacement</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">71</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Choisissez le type de concession dans lequel le corps sera transf&#233;r&#233;</label>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;-- Faites un choix --&lt;/p&gt;</hint>
+      <varname type="str">futur_type</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items>
+        <item>Une parcelle de terrain pour caveau en GRANDE all&#233;e</item>
+        <item>Une parcelle de terrain pour caveau en PETITE all&#233;e</item>
+        <item>Une parcelle de terrain AVEC cadre en b&#233;ton</item>
+        <item>Une parcelle de terrain SANS cadre en b&#233;ton</item>
+        <item>Une cellule cin&#233;raire au columbarium</item>
+        <item>Une cellule cin&#233;raire en cavurne</item>
+      </items>
+      <data_source>
+        <type>carddef:imio-liste-concession-cimetiere-avec-prix:type-concession</type>
+        <value>form_var_types_emplacements</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">bcf484c9-d7a2-4d13-93f6-b8ea7eba7258</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Vous pouvez obtenir un aper&amp;ccedil;u des emplacements disponibles sur &lt;a href="{{ form_option_emplacements_disponibles }}" rel="nofollow"&gt;ce site&lt;/a&gt;.&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_emplacements_disponibles</value>
+      </condition>
+      <display_locations />
+      <id type="str">0d6a53ad-f2df-4a64-a83f-c4336c677118</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Informations li&#233;es au d&#233;funt</label>
+      <id type="str">85</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Informations li&#233;es au d&#233;funt</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">b1613fcc-3c24-4bfe-bb73-ce122a33a731</id>
+    </field>
+    <field>
+      <type>computed</type>
+      <label type="str">types_emplacements</label>
+      <varname type="str">types_emplacements</varname>
+      <value_template type="str">{{ form_var_cimetiere_futur_live_var_type_emplacement|getlist:"emplacement" }}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">58996990-fb80-40bb-a52d-ce1c90d41e3a</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">86</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">87</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de registre national</label>
+      <required type="str">optional</required>
+      <varname type="str">numero_de_registre_national</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>nrn-be</type>
+      </validation>
+      <id type="str">a3787e76-e1bf-4b4f-8d11-8fc1f016b26e</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date du d&#233;c&#232;s</label>
+      <required type="str">optional</required>
+      <varname type="str">date_deces</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-2-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">68</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Lieu du d&#233;c&#232;s</label>
+      <required type="str">optional</required>
+      <hint type="str">&lt;p&gt;Indiquez la localit&#233; dans laquelle le d&#233;c&#232;s a &#233;t&#233; d&#233;clar&#233;.&lt;/p&gt;</hint>
+      <varname type="str">localite_deces</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">69</id>
+    </field>
+    <field>
+      <type>bool</type>
+      <label type="str">Je reconnais avoir pris connaissance du r&#232;glement g&#233;n&#233;ral du cimeti&#232;re et m&#8217;engage &#224; le respecter dans son ensemble.</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <id type="str">88</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role role_id="logged-users">logged-users</role>
+  </user-roles>
+  <roles />
+  <options>
+    <option varname="activer_anonymisation" type="bool">false</option>
+    <option varname="commentaire" />
+    <option varname="denomination_bourgmestre" />
+    <option varname="duree_concession" />
+    <option varname="emplacements_disponibles">https://www.google.com/</option>
+    <option varname="iban" />
+    <option varname="paiement_en_ligne" type="bool">false</option>
+    <option varname="pronom_bourgmestre" />
+    <option varname="regie_de_paiement" />
+    <option varname="regie_de_paiement_display" />
+    <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
+    <option varname="tarif" />
+    <option varname="tarif_hors_commune" />
+  </options>
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+</formdef>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<block id="80" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/blocks/80/">
+  <name>iMio - Cimeti&#232;res - Mesures</name>
+  <slug>imio_cimetieres_mesures</slug>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Largeur</label>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;En centim&#232;tres.&lt;/p&gt;</hint>
+      <varname type="str">largeur</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bf003de976-ed29-457e-9722-3ec216ac5d3e</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Longueur</label>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;En centim&#232;tres.&lt;/p&gt;</hint>
+      <varname type="str">longueur</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bfcd820009-d45b-428d-b663-7ec32ca68725</id>
+    </field>
+  </fields>
+</block>

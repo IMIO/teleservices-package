@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<carddef id="28" url="https://staging-formulaires.guichet-citoyen.be/backoffice/cards/28/">
+  <name>iMio - Cimeti&#232;res - Liste des cimeti&#232;res</name>
+  <url_name>imio-liste-des-cimetieres</url_name>
+  <submission_user_association>none</submission_user_association>
+  <history_pane_default_mode>collapsed</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow slug="_carddef_default" workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Nom du cimeti&#232;re</label>
+      <required type="str">required</required>
+      <varname type="str">cimetiere</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <id type="str">eb983dba-dbc3-4e69-a1b3-1d480b3cc56a</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Adresse</label>
+      <required type="str">optional</required>
+      <varname type="str">adresse</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <id type="str">19dc31f2-a5e5-4486-b8bd-1ed81b1c6c55</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Emplacement</label>
+      <required type="str">optional</required>
+      <varname type="str">type_emplacement</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">15</max_items>
+      <add_element_label type="str">+</add_element_label>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_cimetiere_emplacements_disponibles</block_slug>
+      <id type="str">9ca65b57-bc34-4aef-80c5-6b5371d718e2</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</role>
+  </user-roles>
+  <backoffice-submission-roles>
+    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</role>
+  </backoffice-submission-roles>
+  <roles>
+    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9" role_key="_viewer">Debug</role>
+    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9" role_key="_editor">Debug</role>
+  </roles>
+  <options />
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <digest_templates>
+    <template key="default">{{ form_var_cimetiere }} - {{ form_var_adresse }}</template>
+  </digest_templates>
+</carddef>

@@ -1,0 +1,634 @@
+<?xml version="1.0"?>
+<formdef id="241" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/241/">
+  <name>Demande de modification de b&#233;n&#233;ficiaire</name>
+  <url_name>demande-de-modification-de-beneficiaire</url_name>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>true</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
+  <workflow slug="imio-paiement-urne-surnumeraire" workflow_id="162">iMio - Cimeti&#232;re</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es</label>
+      <id type="str">26</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Coordonn&#233;es du demandeur </label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">da46ab84-f72b-44e0-bb09-e12871564963</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition>
+      <display_locations />
+      <id type="str">c49e5a58-63f1-4a11-a915-0d9fcf6261ac</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;a href="{{form_option_reglement_communal}}" rel="nofollow"&gt;Lien vers le r&amp;egrave;glement communal&lt;/a&gt;&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition>
+      <display_locations />
+      <id type="str">9eb9fb77-fd28-42db-a965-f075bcf96df9</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">1</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">2</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_street</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">53</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro</label>
+      <required type="str">required</required>
+      <varname type="str">numero</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">71</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Bo&#238;te</label>
+      <required type="str">optional</required>
+      <varname type="str">boite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_num_box</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">72</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code Postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">54</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">localite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_city</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">55</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Adresse email</label>
+      <required type="str">required</required>
+      <varname type="str">email</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">20</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <required type="str">required</required>
+      <varname type="str">tel</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_phone</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">4</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de registre national</label>
+      <required type="str">required</required>
+      <varname type="str">numero_de_registre_national</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>nrn-be</type>
+      </validation>
+      <id type="str">129d2999-4788-477d-93bb-28834f98ca58</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Titulaire de la concession</label>
+      <required type="str">required</required>
+      <varname type="str">titu</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Je suis titulaire</item>
+        <item>Je suis un ayant-droit</item>
+        <item>Je suis b&#233;n&#233;ficiaire d&#233;sign&#233;</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">ae0db41f-a862-4c4b-aa22-ef9963b23a33</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">&#202;tes-vous le seul b&#233;n&#233;ficiaire d&#233;sign&#233; ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_titu == "Je suis b&#233;n&#233;ficiaire d&#233;sign&#233;"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">seul_beneficiaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Non, je ne suis pas le seul b&#233;n&#233;ficiaire d&#233;sign&#233;</item>
+        <item>Oui, je suis le seul b&#233;n&#233;ficiaire d&#233;sign&#233;</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">3cd869e8-d15c-41f0-a114-f67ef350a3ea</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">&#202;tes-vous le seul ayant-droit ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_titu == "Je suis un ayant-droit"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">ayantdroit</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Non, je ne suis pas le seul ayant-droit</item>
+        <item>Oui, je suis le seul ayant-droit</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">4178ada1-a7b5-439c-bd84-1decbee2cf23</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Ajoutez l'accord des autres ayant-droit</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_ayantdroit == "Non, je ne suis pas le seul ayant-droit"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">ajoutez_l_accord_des_autres_ayant_droit</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">679c7130-938f-46ff-a530-e5d4bcf85037</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Accord du b&#233;n&#233;ficiaire</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_seul_beneficiaire == "Non, je ne suis pas le seul b&#233;n&#233;ficiaire d&#233;sign&#233;"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">accord_du_beneficiaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">10</max_items>
+      <add_element_label type="str">Ajouter un b&#233;n&#233;ficiaire d&#233;sign&#233;</add_element_label>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_cimetiere_beneficiaires_designes</block_slug>
+      <id type="str">0fcd7b19-1085-4ecb-856f-29176cabb704</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Concession</label>
+      <id type="str">37</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong&gt;Sollicite la modification de l&amp;rsquo;article 1&lt;sup&gt;er&lt;/sup&gt; de la d&amp;eacute;lib&amp;eacute;ration du Coll&amp;egrave;ge communal m&amp;rsquo;accordant&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;</label>
+      <display_locations />
+      <id type="str">60</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Cimeti&#232;re</label>
+      <required type="str">required</required>
+      <hint type="str">-- Faites un choix --</hint>
+      <varname type="str">cimetiere</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items>
+        <item>Centre</item>
+        <item>Pironchamps</item>
+        <item>Wainage</item>
+      </items>
+      <data_source>
+        <type>carddef:imio-liste-des-cimetieres</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
+      <id type="str">73</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Type d'emplacement</label>
+      <required type="str">required</required>
+      <varname type="str">type_emplacement</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items>
+        <item>Une parcelle de terrain pour caveau en grande all&#233;e</item>
+        <item>Une parcelle de terrain pour caveau en petite all&#233;e</item>
+        <item>Une parcelle de terrain pleine terre avec cadre en b&#233;ton</item>
+        <item>Une parcelle de terrain pleine terre sans cadre en b&#233;ton</item>
+        <item>Une cellule cin&#233;raire au columbarium</item>
+        <item>Une cellule cin&#233;raire en cavurnel</item>
+      </items>
+      <data_source>
+        <type>carddef:imio-liste-concession-cimetiere-avec-prix:type-concession</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
+      <id type="str">76</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Emplacement</label>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">75</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">B&#233;n&#233;ficiaires</label>
+      <id type="str">77</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Informations li&#233;es au(x) b&#233;n&#233;ficiaire(s) </label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">4622e201-3e60-4be4-b5a9-e29f7d83af7d</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Votre demande concerne-t-elle :</label>
+      <required type="str">required</required>
+      <varname type="str">concerne</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items>
+        <item>Une modification</item>
+        <item>Un ajout</item>
+        <item>Un retrait</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">8f7ee1f2-2430-40bb-9e20-9194a809dce9</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Expliquez le motif de la modification/retrait/ajout de b&#233;n&#233;ficiaire</label>
+      <required type="str">required</required>
+      <varname type="str">expliquez_le_motif_de_la_modificationretraitajout</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">7846e2b6-6705-4269-b6a8-315d32da1d35</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Les nouveaux b&amp;eacute;n&amp;eacute;ficiaires sont :&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_concerne == "Une modification"</value>
+      </condition>
+      <display_locations />
+      <id type="str">78</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">B&#233;n&#233;ficiaire</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_concerne == "Une modification"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">beneficiaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">10</max_items>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_sepulture</block_slug>
+      <id type="str">cc959058-933a-4e72-bde0-0208c93d59e2</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;!--StartFragment--&gt;En lieu et place :&lt;!--EndFragment--&gt;&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_concerne == "Une modification"</value>
+      </condition>
+      <display_locations />
+      <id type="str">82</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Ancien b&#233;n&#233;ficiaire</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_concerne == "Une modification"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">ancien_beneficiaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_sepulture</block_slug>
+      <id type="str">0d29b3c1-9785-43ab-875e-3950f2a802d2</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Indiquez les coordonn&amp;eacute;es de la personne qui ne sera plus b&amp;eacute;n&amp;eacute;ficiaire de la concession :&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_concerne == "Un retrait"</value>
+      </condition>
+      <display_locations />
+      <id type="str">9c947289-ea50-4911-adbf-8d3e588cabc7</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">B&#233;n&#233;ficiaire</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_concerne == "Un retrait"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">beneficiaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">10</max_items>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_sepulture</block_slug>
+      <id type="str">c6dad3a5-141b-4545-8c82-7807f408cc95</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Indiquez les coordonn&amp;eacute;es de la personne qui est ajout&amp;eacute;e en tant que b&amp;eacute;n&amp;eacute;ficiaire de la concession :&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_concerne == "Un ajout"</value>
+      </condition>
+      <display_locations />
+      <id type="str">725681ec-6910-43c2-89c7-73f119bccce7</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">B&#233;n&#233;ficiaire</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_concerne == "Un ajout"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">beneficiaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">10</max_items>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_sepulture</block_slug>
+      <id type="str">9a034c2f-8ccc-4de7-9605-87c5c4665e76</id>
+    </field>
+    <field>
+      <type>bool</type>
+      <label type="str">Je reconnais avoir pris connaissance du r&#232;glement g&#233;n&#233;ral du cimeti&#232;re et m&#8217;engage &#224; le respecter dans son ensemble.</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <id type="str">070759c1-281e-47df-baaa-1a63f8e66dab</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role slug="citoyen-test" role_id="facf46c672034a8ca2009c6c499e53bf">Citoyen (test)</role>
+  </user-roles>
+  <roles />
+  <options />
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+</formdef>

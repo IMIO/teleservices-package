@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<block id="26" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/blocks/26/">
+  <name>iMio - S&#233;pulture</name>
+  <slug>imio_sepulture</slug>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <hint type="str">Entrez le nom en MAJUSCULE</hint>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bf301ba6e7-334f-4c44-90c4-457b9d7206f3</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <hint type="str">Entrez le pr&#233;nom en MAJUSCULE</hint>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bf93b5d591-7837-41c4-bd54-f6cf2861a227</id>
+    </field>
+  </fields>
+</block>

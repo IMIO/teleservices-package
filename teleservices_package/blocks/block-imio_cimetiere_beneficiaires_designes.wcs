@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<block id="82" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/blocks/82/">
+  <name>iMio - Cimeti&#232;re - B&#233;n&#233;ficiaires d&#233;sign&#233;s</name>
+  <slug>imio_cimetiere_beneficiaires_designes</slug>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4 pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bfbab58916-d7cd-42cc-9ced-b10afb444cd8</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4 pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bf66046c03-70a6-400f-9a63-a2b7e780933d</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro national</label>
+      <required type="str">required</required>
+      <varname type="str">numero_national</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4 pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>nrn-be</type>
+      </validation>
+      <id type="str">bfa550dfa6-a5a7-4f04-bb0e-42e610a2b0c0</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Preuve de l'accord</label>
+      <required type="str">required</required>
+      <varname type="str">preuve_de_l_accord</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4 pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">bfc3d476ad-093d-4ca7-9c03-e84a203a939b</id>
+    </field>
+  </fields>
+</block>

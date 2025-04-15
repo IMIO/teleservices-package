@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<carddef id="30" url="https://staging-formulaires.guichet-citoyen.be/backoffice/cards/30/">
+  <name>iMio - Cimeti&#232;re - Liste concession cimeti&#232;re avec prix</name>
+  <url_name>imio-liste-concession-cimetiere-avec-prix</url_name>
+  <submission_user_association>none</submission_user_association>
+  <history_pane_default_mode>collapsed</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow slug="_carddef_default" workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Type de concession</label>
+      <required type="str">required</required>
+      <varname type="str">type_concession</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <id type="str">d955432a-10d5-46de-bddc-a3bdecbb6df9</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Prix</label>
+      <required type="str">required</required>
+      <varname type="str">prix</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <id type="str">b04c7aeb-e653-42a5-a41e-83fe60d7e16a</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</role>
+  </user-roles>
+  <backoffice-submission-roles>
+    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</role>
+  </backoffice-submission-roles>
+  <roles>
+    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9" role_key="_editor">Debug</role>
+  </roles>
+  <options />
+  <custom_views>
+    <custom_view>
+      <title>Type concession</title>
+      <slug>type-concession</slug>
+      <visibility>datasource</visibility>
+      <filters />
+      <is_default>False</is_default>
+      <columns>
+        <id>d955432a-10d5-46de-bddc-a3bdecbb6df9</id>
+      </columns>
+      <order_by>-receipt_time</order_by>
+    </custom_view>
+  </custom_views>
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <digest_templates>
+    <template key="custom-view:type-concession">{{ form_var_type_concession }}</template>
+    <template key="default">{{ form_var_type_concession }} - {{ form_var_prix }}&#8364;</template>
+  </digest_templates>
+</carddef>

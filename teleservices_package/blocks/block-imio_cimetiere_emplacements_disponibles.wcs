@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<block id="25" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/blocks/25/">
+  <name>iMio - Cimeti&#232;re emplacements disponibles</name>
+  <slug>imio_cimetiere_emplacements_disponibles</slug>
+  <digest_template>{{ block_var_emplacement }}</digest_template>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Type d'emplacement + emplacement</label>
+      <required type="str">required</required>
+      <hint type="str">Exemple : Tombe - All&#233;e 1/7</hint>
+      <varname type="str">emplacement</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">bfcdf77f4a-96a8-4d5e-98d3-f8a8b93d8393</id>
+    </field>
+  </fields>
+</block>

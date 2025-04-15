@@ -1,0 +1,920 @@
+<?xml version="1.0"?>
+<formdef id="237" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/237/">
+  <name>Demande d'autorisation de travaux</name>
+  <url_name>demande-d-autorisation-de-travaux</url_name>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>true</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
+  <workflow slug="imio-paiement-urne-surnumeraire" workflow_id="162">iMio - Cimeti&#232;re</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Informations g&#233;n&#233;rales</label>
+      <id type="str">a813016a-98ff-425a-beab-fdc318b28f4c</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Informations g&#233;n&#233;rales</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">e2b55fa5-3688-4309-94dc-a341d2409daa</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Responsabilit&#233; du demandeur</label>
+      <required type="str">required</required>
+      <varname type="str">responsabilite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Je suis le donneur d'ordre</item>
+        <item>Je repr&#233;sente une entreprise de pompes fun&#232;bres / marbrerie</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">e63189ff-e724-4bca-b917-92c3e27f5bc4</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Concession</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">75</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">S&#233;lectionnez le cimeti&#232;re concern&#233; par les travaux</label>
+      <required type="str">required</required>
+      <hint type="str">-- Faites un choix --</hint>
+      <varname type="str">cimetiere</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items>
+        <item>Centre</item>
+        <item>Wainage</item>
+        <item>Pironchamps</item>
+      </items>
+      <data_source>
+        <type>carddef:imio-liste-des-cimetieres</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
+      <id type="str">59</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Emplacement</label>
+      <required type="str">optional</required>
+      <varname type="str">emplacement</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">67</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">B&#233;n&#233;ficiaire(s)</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">24c02081-8700-47ad-832d-a92560d12f1c</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">B&#233;n&#233;ficiaire(s)</label>
+      <required type="str">optional</required>
+      <hint type="str">&lt;p&gt;Indiquez le(s) nom(s) du ou des d&#233;funts.&lt;/p&gt;</hint>
+      <varname type="str">beneficiaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">10</max_items>
+      <add_element_label type="str">Ajouter un b&#233;n&#233;ficiaire</add_element_label>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_sepulture</block_slug>
+      <id type="str">fb4f58e6-4771-46b3-9476-4d9277f67c00</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Titulaires</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">644e4bc0-bc04-44df-aa9b-404c68aaec36</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Titulaire du caveau</label>
+      <required type="str">required</required>
+      <varname type="str">titulaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Je suis titulaire</item>
+        <item>Je ne suis pas titulaire</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">554dfd45-acee-4dbc-b4bf-35385cfd91ea</id>
+    </field>
+    <field>
+      <type>bool</type>
+      <label type="str">Je confirme avoir re&#231;u l&#8217;accord du titulaire pour effectuer ces travaux.</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_titulaire == "Je ne suis pas titulaire"</value>
+      </condition>
+      <required type="str">optional</required>
+      <varname type="str">je_confirme_avoir_recu_l_accord_du_titulaire_pour_effectuer_ces_travaux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <id type="str">4c71769b-675d-4157-be78-ddf77216016d</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es du donneur d'ordre</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_responsabilite == "Je suis le donneur d'ordre"</value>
+      </condition>
+      <id type="str">3d2f44d3-6595-42a8-89c7-29e892c54d45</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Coordonn&#233;es du donneur d'ordre</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">1885bc91-6438-4e31-81fa-d8aa0e469e37</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">c6128463-3283-4b56-924e-bd3f7acd5ea3</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">e5df799d-d9de-4a4e-aed4-ba360f08d3ee</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-3-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_street</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">55e44913-6126-40ef-b082-33b399a46dd7</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">N&#176;</label>
+      <required type="str">required</required>
+      <varname type="str">ndeg</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">53c4ef5f-a3cb-48e7-bdf5-39e7c8b8ea33</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">13ddaca9-084d-4600-9e39-dde49622517e</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Entit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">entite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-3-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_city</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">11e574b1-c0f4-483f-b95a-36348ec4e9d3</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">T&#233;l&#233;phone</label>
+      <required type="str">required</required>
+      <varname type="str">telephone</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_phone</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">5bb4005e-6ded-47c8-8a26-5aa0b3f177dc</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse e-mail</label>
+      <required type="str">required</required>
+      <varname type="str">adresse_e_mail</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">17f05f7a-7d2a-44ac-b214-03f5bd3c637f</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es des pompes fun&#232;bres / entreprise de marbrerie</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_responsabilite == "Je repr&#233;sente une entreprise de pompes fun&#232;bres / marbrerie"</value>
+      </condition>
+      <id type="str">26</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Coordonn&#233;es des pompes fun&#232;bres / entreprise de marbrerie</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">bfe90d90-4669-4ef8-b5aa-52fcf13e76d6</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition>
+      <display_locations />
+      <id type="str">9bfcff13-4e33-4228-9706-ac4fa109965e</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;a href="{{form_option_reglement_communal}}" rel="nofollow" target="_blank"&gt;Lien vers le r&amp;egrave;glement communal&lt;/a&gt;&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition>
+      <display_locations />
+      <id type="str">ab194ffe-ce96-4d36-abbc-b8886e1a6557</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom de l'entreprise de pompes fun&#232;bres / entreprise de marbrerie</label>
+      <required type="str">required</required>
+      <varname type="str">nom_entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">52</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-2-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">71</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">N&#176;</label>
+      <required type="str">required</required>
+      <varname type="str">numero</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">72</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Bo&#238;te</label>
+      <required type="str">optional</required>
+      <varname type="str">boite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">abb1cc5f-6951-405e-b892-90d9a6bf3cf0</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">cp</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-2-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">73</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">localite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-2-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">74</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Personne de contact</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">68</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom_contact</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">1</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom_contact</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">2</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse e-mail</label>
+      <required type="str">required</required>
+      <varname type="str">mail_contact</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">69</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <required type="str">required</required>
+      <varname type="str">tel_contact</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <type>user</type>
+        <value>_phone</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">4</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Entreprise ex&#233;cutant les travaux</label>
+      <id type="str">3</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Entreprise ex&#233;cutant les travaux</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">4bb9e4ba-f8e9-408c-b6fb-49412010a312</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom de l'entreprise effectuant les travaux</label>
+      <required type="str">required</required>
+      <varname type="str">entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">38</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue_entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-2-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">39</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">N&#176;</label>
+      <required type="str">required</required>
+      <varname type="str">numero_entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">77</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Bo&#238;te</label>
+      <required type="str">optional</required>
+      <varname type="str">boite_entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">b86c5821-7d54-4112-9b5c-ddece5c55036</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">cp_entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-2-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">40</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-2-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">41</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom_contact_entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">61</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom_contact_entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">78</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse e-mail</label>
+      <required type="str">required</required>
+      <varname type="str">mail_contact_entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">79</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <required type="str">required</required>
+      <varname type="str">numero_entreprise</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">60</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Travaux</label>
+      <id type="str">21</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Travaux</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">5e4af463-8f99-49e8-8136-2c5aad013e5b</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">La demande d'autorisation de travaux fait suite &#224; :</label>
+      <required type="str">required</required>
+      <varname type="str">placement_reno</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Un placement</item>
+        <item>Une r&#233;novation</item>
+        <item>Un enl&#232;vement</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">cde0affd-7e1c-4a0b-b3fc-efad955276b3</id>
+    </field>
+    <field>
+      <type>items</type>
+      <label type="str">Type de travaux</label>
+      <required type="str">required</required>
+      <varname type="str">type_travaux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2 pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
+      <max_choices type="int">0</max_choices>
+      <data_source>
+        <type>carddef:imio-liste-travaux-cimetiere</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
+      <id type="str">6f20271f-2e00-44e6-8131-e59cce10109d</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Informations compl&#233;mentaires &#233;ventuelles</label>
+      <required type="str">optional</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2 pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">80</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Date(s) de l'intervention</label>
+      <required type="str">required</required>
+      <varname type="str">dates_de_l_intervention</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">10</max_items>
+      <add_element_label type="str">Ajouter une date</add_element_label>
+      <label_display type="str">subtitle</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_cimetieres_dates_et_heures</block_slug>
+      <id type="str">f678576b-6a72-4141-9a34-bd18362c944d</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Documents concernant les croquis de l'intervention</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_placement_reno == "Un placement"</value>
+      </condition>
+      <id type="str">d375d1f0-9142-4a32-96ed-672c9d55cfd6</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Documents</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">ffdab7ae-7bf6-483f-9f6f-773774411a47</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Ajouter un croquis</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_fichier_obligatoire</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">croquis_obligatoire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">1</max_items>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">False</remove_button>
+      <block_slug type="str">ajouter_un_fichier</block_slug>
+      <id type="str">95928bd0-1d61-46df-a993-55d66e9a19ca</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Ajouter un croquis</label>
+      <condition>
+        <type>django</type>
+        <value>not form_var_croquis_obligatoire</value>
+      </condition>
+      <required type="str">optional</required>
+      <varname type="str">ajouter_un_croquis</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">1</max_items>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">False</remove_button>
+      <block_slug type="str">ajouter_un_fichier</block_slug>
+      <id type="str">3cf7765b-8f6d-448e-b9e3-571596ea778c</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Documents &#233;ventuels</label>
+      <id type="str">30</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Documents optionnels</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">9cc8bf39-b474-452a-9980-193128656697</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Documents</label>
+      <required type="str">optional</required>
+      <varname type="str">fichier</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">10</max_items>
+      <label_display type="str">hidden</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_ajouter_un_fichier_optionnel</block_slug>
+      <id type="str">b0d91079-862a-4963-bc5f-445663c93942</id>
+    </field>
+    <field>
+      <type>bool</type>
+      <label type="str">Je reconnais avoir pris connaissance du r&#232;glement g&#233;n&#233;ral du cimeti&#232;re et m&#8217;engage &#224; le respecter dans son ensemble.</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">pk-important</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <id type="str">e041635c-5c7e-4057-a757-bed9b72f86fa</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role slug="citoyen-test" role_id="facf46c672034a8ca2009c6c499e53bf">Citoyen (test)</role>
+  </user-roles>
+  <roles />
+  <options>
+    <option varname="activer_anonymisation" type="bool">false</option>
+    <option varname="commentaire" />
+    <option varname="denomination_bourgmestre">Monsieur le</option>
+    <option varname="duree_concession">20</option>
+    <option varname="emplacements_disponibles" />
+    <option varname="fichier_obligatoire" type="bool">false</option>
+    <option varname="iban" />
+    <option varname="paiement_en_ligne" type="bool">false</option>
+    <option varname="pronom_bourgmestre" />
+    <option varname="regie_de_paiement" />
+    <option varname="regie_de_paiement_display" />
+    <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
+    <option varname="tarif" />
+    <option varname="tarif_hors_commune">2</option>
+  </options>
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+</formdef>

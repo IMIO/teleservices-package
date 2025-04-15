@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<block id="79" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/blocks/79/">
+  <name>iMio - Cimeti&#232;res - Dates et heures</name>
+  <slug>imio_cimetieres_dates_et_heures</slug>
+  <fields>
+    <field>
+      <type>date</type>
+      <label type="str">Date</label>
+      <required type="str">required</required>
+      <varname type="str">date</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">True</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">bf810d30bd-d139-4ea0-ad85-9fc0518fccc8</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Heure de d&#233;but</label>
+      <required type="str">required</required>
+      <varname type="str">heure_de_debut</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>time</type>
+      </validation>
+      <id type="str">bfa3eb1301-5e3c-428f-ad0d-dbe2d0b6c10b</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Heure de fin</label>
+      <required type="str">required</required>
+      <varname type="str">heure_de_fin</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>time</type>
+      </validation>
+      <id type="str">bff5f07c1e-0ee1-4066-9cf9-4242c48128f8</id>
+    </field>
+  </fields>
+</block>

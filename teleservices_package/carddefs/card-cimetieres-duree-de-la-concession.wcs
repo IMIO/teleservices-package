@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<carddef id="44" url="https://staging-formulaires.guichet-citoyen.be/backoffice/cards/44/">
+  <name>iMio - Cimeti&#232;res - Dur&#233;e de la concession</name>
+  <url_name>cimetieres-duree-de-la-concession</url_name>
+  <submission_user_association>none</submission_user_association>
+  <history_pane_default_mode>collapsed</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow slug="_carddef_default" workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Dur&#233;e de la concession</label>
+      <required type="str">required</required>
+      <varname type="str">duree_de_la_concession</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <id type="str">21b3958d-573d-4cb2-a3ad-063e6182b329</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="9be8b3ce1b3244be8f6e05a9aa003cf0">Agent ayant acces aux fabriques</role>
+  </user-roles>
+  <backoffice-submission-roles>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="9be8b3ce1b3244be8f6e05a9aa003cf0">Agent ayant acces aux fabriques</role>
+  </backoffice-submission-roles>
+  <options />
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <digest_templates>
+    <template key="default">{{ form_var_duree_de_la_concession }}</template>
+  </digest_templates>
+</carddef>
