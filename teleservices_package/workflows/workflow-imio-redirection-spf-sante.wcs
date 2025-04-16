@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<workflow id="261" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/261/">
+  <name>iMio - Redirection SPF Sant&#233;</name>
+  <slug>imio-redirection-spf-sante</slug>
+  <roles>
+    <role id="_receiver">Destinataire</role>
+  </roles>
+  <possible_status>
+    <status>
+      <id>1</id>
+      <name>Redirection</name>
+      <colour>#FFFFFF</colour>
+      <visibility />
+      <items>
+        <item type="displaymsg" id="1">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <message>Vous allez &#234;tre redirig&#233; vers le site du Service public f&#233;d&#233;ral Int&#233;rieur afin de demander de nouveaux codes</message>
+          <level>info</level>
+          <position>top</position>
+        </item>
+        <item type="redirect_to_url" id="2">
+          <url>{{form_option_urlredirection}}</url>
+        </item>
+      </items>
+    </status>
+  </possible_status>
+  <variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="str">optional</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <anonymise type="str">final</anonymise>
+          <display_mode type="str">plain</display_mode>
+          <id type="str">1fe351b5-792e-49bc-959b-f07d534a739b</id>
+        </field>
+        <field>
+          <type>string</type>
+          <label type="str">Url-redirection</label>
+          <required type="str">required</required>
+          <varname type="str">urlredirection</varname>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">final</anonymise>
+          <id type="str">1</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables>
+</workflow>

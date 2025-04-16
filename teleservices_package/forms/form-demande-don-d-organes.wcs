@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<formdef id="58" url="">
+<formdef id="272" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/272/">
   <name>Don d'organes</name>
   <url_name>demande-don-d-organes</url_name>
-  <description>T&#233;l&#233;chargez un formulaire sous format PDF via cette d&#233;marche et renvoyez-le compl&#233;t&#233; &#224; votre administration communale par ce m&#234;me biais.</description>
   <keywords>pdf</keywords>
-  <internal_identifier>demande-don-d-organes</internal_identifier>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -12,64 +12,73 @@
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>false</confirmation>
   <always_advertise>false</always_advertise>
-  <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-population" category_id="12">Population</category>
-  <workflow slug="imio-documents-pdf" workflow_id="14">iMio - Documents PDF</workflow>
-  <max_field_id>3</max_field_id>
+  <category slug="imio-population" category_id="132">Demo : Population</category>
+  <workflow slug="imio-redirection-spf-sante" workflow_id="261">iMio - Redirection SPF Sant&#233;</workflow>
   <fields>
     <field>
+      <type>page</type>
       <label type="str">Document &#224; t&#233;l&#233;charger</label>
-      <type type="str">page</type>
-      <post_conditions>
-        <post_condition>
-          <condition>
-            <type>django</type>
-            <value>False</value>
-          </condition><error_message>Vous pouvez t&#233;l&#233;charger le document en cliquant sur le lien "Don d'organes".</error_message>
-        </post_condition>
-      </post_conditions><id type="str">1</id>
-    </field><field>
+      <id type="str">1</id>
+    </field>
+    <field>
       <type>comment</type>
       <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
 </label>
       <condition>
         <type>django</type>
         <value>form_option_commentaire</value>
-      </condition><display_locations />
+      </condition>
+      <display_locations />
       <id type="str">24078427-8929-40ea-94d1-8d3e6f1c9f4c</id>
-    </field><field>
+    </field>
+    <field>
       <type>comment</type>
       <label type="str">&lt;p style="line-height: 20.8px;"&gt;&lt;u&gt;Traitement :&lt;/u&gt;&lt;/p&gt;
+
+&lt;h3&gt;&lt;strong&gt;Via le site du SPF Sant&amp;eacute;&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Sans autorisation ou refus explicite du d&amp;eacute;funt, ses organes et tissus feront l&amp;rsquo;objet d&amp;rsquo;un don.&lt;/p&gt;
+
+&lt;p&gt;Dans le cas o&amp;ugrave; vous souhaitez explicitement autoriser ou refuser ce don, il vous faut communiquer ce choix aupr&amp;egrave;s du Service Public F&amp;eacute;d&amp;eacute;ral de la Sant&amp;eacute;.&lt;/p&gt;
+
+&lt;p&gt;En cliquant sur le bouton &amp;ldquo;Valider&amp;rdquo;, vous serez redirig&amp;eacute; vers le site f&amp;eacute;d&amp;eacute;ral o&amp;ugrave; une authentification via eID ou It&amp;rsquo;s me vous sera demand&amp;eacute;e pour entamer la d&amp;eacute;marche.&lt;/p&gt;
+
+&lt;h3&gt;&lt;strong&gt;Via l&amp;rsquo;administration communale&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Si vous le souhaitez, vous pouvez &amp;eacute;galement vous rendre &amp;agrave; votre administration communale avec le document ci-dessous compl&amp;eacute;t&amp;eacute;.&lt;/p&gt;
 
 &lt;p style="line-height: 20.8px;"&gt;&lt;strong&gt;Ce document vous est d&amp;eacute;livr&amp;eacute; gratuitement.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol style="line-height: 20.8px;"&gt;
-	&lt;li&gt;T&amp;eacute;l&amp;eacute;chargez &lt;a href="{{form_option_lien_document}}" target="_blank"&gt;ce document&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;T&amp;eacute;l&amp;eacute;chargez &lt;a href="{{form_option_lien_document}}" rel="nofollow" target="_blank"&gt;ce document&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;Imprimez le document.&lt;/li&gt;
 	&lt;li&gt;Compl&amp;eacute;tez le document.&lt;/li&gt;
 	&lt;li&gt;Afin de finaliser votre demande, veuillez vous pr&amp;eacute;senter {{form_option_lieu_depot}}.&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;{% if form_option_info_plus %}&lt;/p&gt;
-
-&lt;p&gt;&lt;u&gt;Plus d'infos ?&amp;nbsp;&lt;/u&gt;&lt;/p&gt;
-
-&lt;p&gt;Rendez-vous sur la&amp;nbsp;&lt;a href="{{form_option_info_plus}}" target="_blank"&gt;page sp&amp;eacute;cifique de la d&amp;eacute;marche&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;{% endif %}&lt;/p&gt;</label>
-      <type type="str">comment</type>
+</label>
       <display_locations />
       <id type="str">2</id>
     </field>
-  </fields><user-roles>
-    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
-  </user-roles><options>
+  </fields>
+  <options>
     <option varname="commentaire" />
-    <option varname="info_plus" />
-    <option varname="lien_document" />
-    <option varname="lieu_depot" />
-  </options><custom_views />
+    <option varname="urlredirection">https://idp.iamfas.belgium.be/fas/XUI/?spEntityID=https://www.ehealth.fgov.be/idp&amp;service=fas&amp;goto=https://idp.iamfas.belgium.be:443/am/saml2/continue/metaAlias/fas2/idp?secondVisitUrl=/am/SSOPOST/metaAlias/fas2/idp?ReqID=_a54588f906286902edce9c61a9aad77e&amp;AMAuthCookie=</option>
+  </options>
+  <custom_views />
   <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="imio-documents-pdf" new-workflow="imio-redirection-pinpuk" timestamp="2025-04-16T15:07:32.962325+02:00">
+      <timestamp>2025-04-16T15:07:32.962325+02:00</timestamp>
+      <status-mapping />
+    </migration>
+    <migration old-workflow="imio-redirection-pinpuk" new-workflow="imio-redirection-spf-sante" timestamp="2025-04-16T15:09:58.957667+02:00">
+      <timestamp>2025-04-16T15:09:58.957667+02:00</timestamp>
+      <status-mapping />
+    </migration>
+  </workflow-migrations>
 </formdef>
