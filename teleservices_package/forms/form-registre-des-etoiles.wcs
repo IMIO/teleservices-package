@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<formdef id="501" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/501/">
+  <name>Registre des Etoiles</name>
+  <url_name>registre-des-etoiles</url_name>
+  <description>&lt;p&gt;&lt;strong&gt;Tous les "enfants-&#233;toiles", quel que soit le temps pass&#233; dans le ventre de leur maman, peuvent &#234;tre inscrits symboliquement dans ce registre. Cette d&#233;claration est facultative. Elle n'entra&#238;ne donc aucune cons&#233;quence juridique. Ce registre a &#233;t&#233; cr&#233;&#233; afin de briser le tabou concernant le deuil p&#233;rinatal et permettre aux parents qui le souhaitent d'exprimer leur deuil. Pour les parents, ce registre offre un r&#233;confort, un soutien et une reconnaissance&lt;/strong&gt;.&lt;/p&gt;&lt;p&gt;L'inscription dans le registre des &#233;toiles est possible dans les cas suivants :&lt;/p&gt;&lt;p&gt;* Ind&#233;pendamment de l'&#226;ge gestationnel.&lt;/p&gt;&lt;p&gt;* Les parents peuvent choisir librement les nom(s) et pr&#233;nom(s), sans restriction.&lt;/p&gt;&lt;p&gt;* Sans limitation dans le temps, quel que soit le temps &#233;coul&#233; depuis le deuil.&lt;/p&gt;&lt;p&gt;* Les parents ne doivent pas pr&#233;senter de "preuve" pour enregistrer leur enfant. En effet, il arrive parfois que cette preuve ne soit pas disponible en cas de perte pr&#233;matur&#233;e de l'enfant.&lt;/p&gt;&lt;p&gt;* Il doit y avoir un lien avec la ville ou la commune, soit que les parents y r&#233;sident, soit que l'enfant est n&#233; dans la ville ou la commune.&lt;/p&gt;</description>
+  <user_support>optional</user_support>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>true</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
+  <workflow slug="imio-registre-des-etoiles" workflow_id="260">iMio - Registre des &#233;toiles</workflow>
+  <fields>
+    <field>
+      <type>title</type>
+      <label type="str">Coordonn&#233;es des parents</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">d0813b57-da3c-4aec-ac55-ba2f8d58cae9</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Parent 1</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">c9b27339-1d56-4a3e-a81b-cc166b8bf84a</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom(s)</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">4a7d39f4-963a-4b70-906a-8a4b68b8ed80</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom(s)</label>
+      <required type="str">required</required>
+      <varname type="str">prenoms</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">fa694337-56d2-4dd5-b7c4-f1a37a39c622</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de naissance</label>
+      <required type="str">required</required>
+      <varname type="str">date_de_naissance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_birthdate</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">d3ce27d9-c8f2-4f84-8753-406ffe93a650</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse email</label>
+      <required type="str">required</required>
+      <varname type="str">adresse_mail_de_contact</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">9836acd6-8776-4e98-aaab-ca88ebfd6d6a</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Parent 2</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">a6d5e582-1074-417b-b0e6-ba02ff1dc7cb</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom(s)</label>
+      <required type="str">optional</required>
+      <varname type="str">noms</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">521623c2-b2f8-4547-8b46-0b8edb5b2bf5</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom(s)</label>
+      <required type="str">optional</required>
+      <varname type="str">prenoms</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">afa0d805-f2cb-4ee2-a5f5-fb45b0c347d0</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de naissance</label>
+      <required type="str">optional</required>
+      <varname type="str">date_de_naissance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">eef5b947-1e77-483d-8462-b6c950ed4881</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse mail de contact</label>
+      <required type="str">optional</required>
+      <hint type="str">&lt;p&gt;A mentionner uniquement si diff&#233;rente du Parent 1&lt;/p&gt;</hint>
+      <varname type="str">adresse_mail_de_contact</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">4b3e80f1-6c9c-4d7a-a612-801611ba7ce9</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Coordonn&#233;es de l'enfant &#233;toile</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">15c157c2-5b05-48ed-a78d-48e08017bd09</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom(s)</label>
+      <required type="str">required</required>
+      <varname type="str">noms</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">dbdaf433-2f73-40aa-8699-9326c9994134</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom(s)</label>
+      <required type="str">required</required>
+      <varname type="str">prenoms</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">ff376b69-57be-459e-b405-2b9a8b635ed9</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Lieu de naissance</label>
+      <required type="str">required</required>
+      <varname type="str">lieu_de_naissance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">c9d66480-2e72-4d46-a5d7-6ba2f6a4368c</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de naissance</label>
+      <required type="str">required</required>
+      <varname type="str">date_de_naissance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">a711b767-07c7-4055-999d-ffb30b3af9d0</id>
+    </field>
+    <field>
+      <type>items</type>
+      <label type="str">Sexe</label>
+      <required type="str">required</required>
+      <varname type="str">sexe</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <items>
+        <item>Feminin</item>
+        <item>Masculin</item>
+        <item>Ind&#233;termin&#233;</item>
+      </items>
+      <display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">1</min_choices>
+      <max_choices type="int">1</max_choices>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">bb8ba8ae-04e4-41e2-812e-c879dfc31364</id>
+    </field>
+    <field>
+      <type>bool</type>
+      <label type="str">Je souhaite inscrire mon enfant dans le Registre des Etoiles et recevoir un certificat &#233;toil&#233;.</label>
+      <required type="str">required</required>
+      <varname type="str">inscription</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <id type="str">8c385744-3f8d-488e-804b-63027da51d5f</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Adresse postale pour l'envoi du certificat</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">61859332-186f-47bb-aa59-7a4875f542a6</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-3-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_street</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">d5f0e3b0-b128-484a-ab0e-fbfb924ab9c0</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro/Boite</label>
+      <required type="str">required</required>
+      <varname type="str">numeroboite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">669ed496-cd33-4237-9566-7babeebb25c8</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">2609f410-441c-4e96-9f0a-15d98776a04a</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">localite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-3-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_city</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">171981dd-104e-40e3-9b26-9c17a47126ee</id>
+    </field>
+  </fields>
+  <backoffice-submission-roles>
+    <role slug="agents-traitants-population-etat-civil" role_id="e8158eb6f0cb49798416e192f8c4dde6">Agents traitants - Population, etat civil</role>
+  </backoffice-submission-roles>
+  <roles>
+    <role slug="agents-traitants-population-etat-civil" role_id="e8158eb6f0cb49798416e192f8c4dde6" role_key="_receiver">Agents traitants - Population, etat civil</role>
+  </roles>
+  <options />
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="_default" new-workflow="_default" timestamp="2025-03-28T08:43:29.818053+01:00">
+      <timestamp>2025-03-28T08:43:29.818053+01:00</timestamp>
+      <status-mapping>
+        <map old="just_submitted" new="just_submitted" />
+        <map old="new" new="new" />
+        <map old="rejected" new="rejected" />
+        <map old="accepted" new="accepted" />
+        <map old="finished" new="finished" />
+      </status-mapping>
+    </migration>
+    <migration old-workflow="_default" new-workflow="registre-des-etoiles" timestamp="2025-04-01T11:26:06.111116+02:00">
+      <timestamp>2025-04-01T11:26:06.111116+02:00</timestamp>
+      <status-mapping>
+        <map old="just_submitted" new="just_submitted" />
+        <map old="new" new="new" />
+        <map old="rejected" new="rejected" />
+        <map old="accepted" new="accepted" />
+        <map old="finished" new="finished" />
+      </status-mapping>
+    </migration>
+  </workflow-migrations>
+</formdef>
