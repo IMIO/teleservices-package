@@ -261,7 +261,7 @@
     </field>
     <field>
       <type>text</type>
-      <label type="str">Pr&#233;cisez le lien de filiation + les coordonn&#233;es de cette personne</label>
+      <label type="str">Pr&#233;cisez le lien de filiation avec le défunt et les coordonn&#233;es de cette personne</label>
       <condition>
         <type>django</type>
         <value>form_var_beneficiaire == "Autre"</value>
