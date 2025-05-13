@@ -668,7 +668,7 @@
     <option varname="fichier_obligatoire" type="bool">false</option>
     <option varname="iban" />
     <option varname="paiement_en_ligne" type="bool">true</option>
-    <option varname="pronom_bourgmestre">/option>
+    <option varname="pronom_bourgmestre">/</option>
     <option varname="regie_de_paiement"></option>
     <option varname="regie_de_paiement_display"></option>
     <option varname="regie_de_paiement_structured" type="dict">
