@@ -13,8 +13,8 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
-  <workflow slug="imio-paiement-urne-surnumeraire" workflow_id="162">iMio - Cimeti&#232;re</workflow>
+  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
+  <workflow slug="imio-par-defaut" workflow_id="97">iMio - Par d&#233;faut</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -63,7 +63,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill>
@@ -81,7 +80,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill>
@@ -99,7 +97,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill>
@@ -117,7 +114,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill>
@@ -135,7 +131,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill>
@@ -153,7 +148,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill>
@@ -171,7 +165,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill>
@@ -189,7 +182,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -207,7 +199,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -621,14 +612,51 @@
       <id type="str">070759c1-281e-47df-baaa-1a63f8e66dab</id>
     </field>
   </fields>
-  <user-roles>
-    <role slug="citoyen-test" role_id="facf46c672034a8ca2009c6c499e53bf">Citoyen (test)</role>
-  </user-roles>
-  <roles />
-  <options />
+  <options>
+    <option varname="activer_anonymisation" type="bool"></option>
+    <option varname="commentaire" />
+    <option varname="denomination_bourgmestre" />
+    <option varname="duree_concession" />
+    <option varname="emplacements_disponibles" />
+    <option varname="fichier_obligatoire" type="bool"></option>
+    <option varname="iban" />
+    <option varname="paiement_en_ligne" type="bool"></option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
+    <option varname="regie_de_paiement_structured" type="dict">
+    </option>
+    <option varname="reglement_communal" />
+    <option varname="tarif_hors_commune">2</option>
+  </options>
   <custom_views />
   <geolocations />
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="imio-cimetiere" new-workflow="imio-par-defaut" timestamp="2025-05-13T10:09:15.228480+02:00">
+      <timestamp>2025-05-13T10:09:15.228480+02:00</timestamp>
+      <status-mapping>
+        <map old="just_submitted" new="just_submitted" />
+        <map old="4" new="just_submitted" />
+        <map old="accepted" new="accepted" />
+        <map old="finished" new="finished" />
+        <map old="10" new="just_submitted" />
+        <map old="12" new="just_submitted" />
+        <map old="17" new="just_submitted" />
+        <map old="18" new="just_submitted" />
+        <map old="19" new="just_submitted" />
+        <map old="21" new="just_submitted" />
+        <map old="22" new="just_submitted" />
+        <map old="23" new="just_submitted" />
+        <map old="24" new="just_submitted" />
+        <map old="25" new="just_submitted" />
+        <map old="26" new="just_submitted" />
+        <map old="27" new="just_submitted" />
+        <map old="28" new="just_submitted" />
+        <map old="37" new="just_submitted" />
+        <map old="38" new="just_submitted" />
+      </status-mapping>
+    </migration>
+  </workflow-migrations>
 </formdef>

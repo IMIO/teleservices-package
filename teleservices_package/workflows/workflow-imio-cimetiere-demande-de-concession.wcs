@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="162" url="https://staging-formulaires.guichet-citoyen.be/backoffice/workflows/162/">
-  <name>iMio - Cimeti&#232;re</name>
-  <slug>imio-cimetiere</slug>
+<workflow id="295" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/295/">
+  <name>iMio - Cimeti&#232;re - Demande de concession</name>
+  <slug>imio-cimetiere-demande-de-concession</slug>
   <roles>
     <role id="_receiver">Agent traitant</role>
     <role id="_validateur-pc-banking">Validateur pc banking</role>
@@ -20,7 +20,7 @@
           <fields>
             <field>
               <field_id>bo3</field_id>
-              <value>{% if form_var_code_postal not in commune_cp %}{% with multiplicateur=form_option_tarif_hors_commune|default:1 %}{{ form_var_futur_type_live_var_prix|multiply:multiplicateur }}{% endwith %}{% else %}{{ form_var_futur_type_live_var_prix }}{% endif %}</value>
+              <value>{% if form_var_code_postal not in commune_cp %}{% with multiplicateur=form_option_tarif_hors_commune|default:1 %}{{ form_var_emplacement_prix|multiply:multiplicateur }}{% endwith %}{% else %}{{ form_var_emplacement_prix }}{% endif %}</value>
             </field>
             <field>
               <field_id>bo9</field_id>
@@ -40,22 +40,24 @@
           </to>
           <mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
         </item>
-        <item type="jump" id="11">
-          <status>21</status>
-          <condition>
-            <type>django</type>
-            <value>form_option_iban</value>
-          </condition>
-          <mode>immediate</mode>
+        <item type="choice" id="15">
+          <label>Accepter la demande</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <status>39</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-        <item type="jump" id="12">
-          <status>10</status>
-          <condition>
-            <type>django</type>
-            <value>not form_option_iban</value>
-          </condition>
-          <mode>immediate</mode>
+        <item type="choice" id="16">
+          <label>Demande refus&#233;e par manque de place</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <status>40</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -910,6 +912,53 @@ Cordialement, </body>
         </item>
       </items>
     </status>
+    <status>
+      <id>39</id>
+      <name>Demande accept&#233;e</name>
+      <colour>#FFFFFF</colour>
+      <visibility />
+      <items>
+        <item type="jump" id="2">
+          <status>21</status>
+          <condition>
+            <type>django</type>
+            <value>form_option_iban</value>
+          </condition>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="3">
+          <status>10</status>
+          <condition>
+            <type>django</type>
+            <value>not form_option_iban</value>
+          </condition>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>40</id>
+      <name>Pas de place disponible</name>
+      <colour>#f21c1c</colour>
+      <visibility />
+      <items>
+        <item type="sendmail" id="1">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <subject>Demande de concession</subject>
+          <body>Bonjour {{ form_user_var_first_name }} {{ form_user_var_last_name }},
+
+Nous vous informons que nous ne pouvons malheureusement pas accepter votre demande de concession. L'emplacement souhait&#233; ne dispose plus de place.
+
+blablabalba
+
+</body>
+        </item>
+      </items>
+    </status>
   </possible_status>
   <global_actions>
     <action>
@@ -925,7 +974,7 @@ Cordialement, </body>
       <triggers>
         <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
-            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -941,7 +990,7 @@ Cordialement, </body>
       <triggers>
         <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
-            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -961,7 +1010,7 @@ Cordialement, </body>
       <triggers>
         <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
-            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -984,11 +1033,13 @@ Cordialement, </body>
       <triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger>
         <trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
-            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>

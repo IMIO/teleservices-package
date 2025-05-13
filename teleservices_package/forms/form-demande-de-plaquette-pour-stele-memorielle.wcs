@@ -13,8 +13,8 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
-  <workflow slug="imio-cimetiere-stele-memorielle" workflow_id="164">iMio - Cimeti&#232;re St&#232;le m&#233;morielle</workflow>
+  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
+  <workflow slug="imio-cimetiere-stele-memorielle" workflow_id="257">iMio - Cimeti&#232;re St&#232;le m&#233;morielle</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -63,7 +63,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill>
@@ -81,7 +80,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill>
@@ -99,7 +97,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill>
@@ -117,7 +114,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill>
@@ -135,7 +131,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill>
@@ -153,7 +148,6 @@
       </display_locations>
       <extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill>
@@ -171,7 +165,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill>
@@ -189,7 +182,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -207,7 +199,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -423,10 +414,6 @@ Plus d&amp;#39;informations &amp;agrave; la fin du formulaire.&lt;/p&gt;
       <id type="str">0cb4ee53-1e93-4f3f-9917-28de90497d0a</id>
     </field>
   </fields>
-  <user-roles>
-    <role slug="citoyen-test" role_id="facf46c672034a8ca2009c6c499e53bf">Citoyen (test)</role>
-  </user-roles>
-  <roles />
   <options>
     <option varname="activer_anonymisation" type="bool">false</option>
     <option varname="commentaire" />

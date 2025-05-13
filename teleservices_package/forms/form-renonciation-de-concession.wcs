@@ -13,8 +13,8 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
-  <workflow slug="imio-paiement-urne-surnumeraire" workflow_id="162">iMio - Cimeti&#232;re</workflow>
+  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
+  <workflow slug="imio-par-defaut" workflow_id="97">iMio - Par d&#233;faut</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -67,7 +67,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill>
@@ -85,7 +84,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill>
@@ -103,7 +101,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill>
@@ -121,7 +118,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill>
@@ -139,7 +135,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill>
@@ -157,7 +152,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_zipcode</value>
       </prefill>
@@ -175,7 +169,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill>
@@ -193,7 +186,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -211,7 +203,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -399,10 +390,6 @@
       <id type="str">e9bbd8af-fce8-46d1-8d63-ef17719d37a4</id>
     </field>
   </fields>
-  <user-roles>
-    <role slug="citoyen-test" role_id="facf46c672034a8ca2009c6c499e53bf">Citoyen (test)</role>
-  </user-roles>
-  <roles />
   <options>
     <option varname="activer_anonymisation" type="bool">false</option>
     <option varname="commentaire" />
@@ -422,4 +409,10 @@
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="imio-cimetiere" new-workflow="imio-par-defaut" timestamp="2025-05-13T10:10:47.146487+02:00">
+      <timestamp>2025-05-13T10:10:47.146487+02:00</timestamp>
+      <status-mapping />
+    </migration>
+  </workflow-migrations>
 </formdef>

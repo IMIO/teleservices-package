@@ -13,8 +13,8 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
-  <workflow slug="imio-paiement-urne-surnumeraire" workflow_id="162">iMio - Cimeti&#232;re</workflow>
+  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
+  <workflow slug="imio-cimetiere" workflow_id="258">iMio - Cimeti&#232;re</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -207,8 +207,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_last_name</value>
       </prefill>
@@ -226,8 +224,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_first_name</value>
       </prefill>
@@ -245,8 +241,6 @@
       </display_locations>
       <extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_street</value>
       </prefill>
@@ -264,8 +258,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_num_house</value>
       </prefill>
@@ -283,8 +275,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_zipcode</value>
       </prefill>
@@ -302,8 +292,6 @@
       </display_locations>
       <extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_city</value>
       </prefill>
@@ -321,8 +309,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -340,8 +326,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -486,7 +470,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill>
@@ -504,7 +487,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill>
@@ -522,7 +504,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -540,7 +521,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -739,6 +719,7 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2 pk-important</extra_css_class>
       <anonymise type="str">final</anonymise>
+      <items />
       <display_mode type="str">checkboxes</display_mode>
       <min_choices type="int">0</min_choices>
       <max_choices type="int">0</max_choices>
@@ -816,6 +797,7 @@
       <anonymise type="str">final</anonymise>
       <default_items_count type="int">1</default_items_count>
       <max_items type="int">1</max_items>
+      <add_element_label type="str" />
       <label_display type="str">normal</label_display>
       <remove_button type="bool">False</remove_button>
       <block_slug type="str">ajouter_un_fichier</block_slug>
@@ -837,6 +819,7 @@
       <anonymise type="str">final</anonymise>
       <default_items_count type="int">1</default_items_count>
       <max_items type="int">1</max_items>
+      <add_element_label type="str" />
       <label_display type="str">normal</label_display>
       <remove_button type="bool">False</remove_button>
       <block_slug type="str">ajouter_un_fichier</block_slug>
@@ -869,6 +852,7 @@
       <anonymise type="str">final</anonymise>
       <default_items_count type="int">1</default_items_count>
       <max_items type="int">10</max_items>
+      <add_element_label type="str" />
       <label_display type="str">hidden</label_display>
       <remove_button type="bool">True</remove_button>
       <block_slug type="str">imio_ajouter_un_fichier_optionnel</block_slug>
@@ -891,26 +875,22 @@
       <id type="str">e041635c-5c7e-4057-a757-bed9b72f86fa</id>
     </field>
   </fields>
-  <user-roles>
-    <role slug="citoyen-test" role_id="facf46c672034a8ca2009c6c499e53bf">Citoyen (test)</role>
-  </user-roles>
-  <roles />
   <options>
-    <option varname="activer_anonymisation" type="bool">false</option>
+    <option varname="activer_anonymisation" type="bool"></option>
     <option varname="commentaire" />
-    <option varname="denomination_bourgmestre">Monsieur le</option>
-    <option varname="duree_concession">20</option>
+    <option varname="denomination_bourgmestre"></option>
+    <option varname="duree_concession"></option>
     <option varname="emplacements_disponibles" />
-    <option varname="fichier_obligatoire" type="bool">false</option>
+    <option varname="fichier_obligatoire" type="bool"></option>
     <option varname="iban" />
-    <option varname="paiement_en_ligne" type="bool">false</option>
+    <option varname="paiement_en_ligne" type="bool"></option>
     <option varname="pronom_bourgmestre" />
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
     <option varname="tarif" />
-    <option varname="tarif_hors_commune">2</option>
+    <option varname="tarif_hors_commune"></option>
   </options>
   <custom_views />
   <geolocations />

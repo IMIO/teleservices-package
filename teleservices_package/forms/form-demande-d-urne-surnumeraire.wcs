@@ -13,8 +13,8 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
-  <workflow slug="imio-paiement-urne-surnumeraire" workflow_id="162">iMio - Cimeti&#232;re</workflow>
+  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
+  <workflow slug="imio-cimetiere" workflow_id="258">iMio - Cimeti&#232;re</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -63,7 +63,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_last_name</value>
       </prefill>
@@ -81,7 +80,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_first_name</value>
       </prefill>
@@ -99,7 +97,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill>
@@ -117,7 +114,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill>
@@ -135,7 +131,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill>
@@ -146,15 +141,13 @@
       <type>string</type>
       <label type="str">Code postal</label>
       <required type="str">required</required>
-      <varname type="str">cp</varname>
+      <varname type="str">code_postal</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
       <extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_zipcode</value>
       </prefill>
@@ -172,7 +165,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_city</value>
       </prefill>
@@ -190,7 +182,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -208,7 +199,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -380,8 +370,8 @@
       <type>item</type>
       <label type="str">Concession</label>
       <required type="str">required</required>
-      <hint type="str"> -- Faites un choix --</hint>
-      <varname type="str">type_concession</varname>
+      <hint type="str">&lt;p&gt;-- Faites un choix --&lt;/p&gt;</hint>
+      <varname type="str">futur_type</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
@@ -399,8 +389,8 @@
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
       <id type="str">45</id>
     </field>
     <field>
@@ -586,24 +576,18 @@ Plus d&amp;#39;informations &amp;agrave; la fin du formulaire.&lt;/p&gt;
       <id type="str">d01371e5-5ffb-458b-85b0-d07e1860c19f</id>
     </field>
   </fields>
-  <user-roles>
-    <role slug="citoyen-test" role_id="facf46c672034a8ca2009c6c499e53bf">Citoyen (test)</role>
-  </user-roles>
-  <roles />
   <options>
-    <option varname="activer_anonymisation" type="bool">false</option>
+    <option varname="activer_anonymisation" type="bool"></option>
     <option varname="commentaire" />
     <option varname="denomination_bourgmestre" />
     <option varname="duree_concession" />
     <option varname="emplacements_disponibles" />
+    <option varname="fichier_obligatoire" type="bool"></option>
     <option varname="iban" />
-    <option varname="paiement_en_ligne" type="bool">false</option>
-    <option varname="regie_de_paiement">atos_test</option>
-    <option varname="regie_de_paiement_display">Worldline</option>
+    <option varname="paiement_en_ligne" type="bool"></option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
     <option varname="regie_de_paiement_structured" type="dict">
-      <id>atos_test</id>
-      <text>Worldline</text>
-      <description>Atos test</description>
     </option>
     <option varname="reglement_communal" />
     <option varname="tarif" />

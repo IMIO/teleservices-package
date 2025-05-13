@@ -2,7 +2,6 @@
 <formdef id="501" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/501/">
   <name>Registre des Etoiles</name>
   <url_name>registre-des-etoiles</url_name>
-  <description>&lt;p&gt;&lt;strong&gt;Tous les "enfants-&#233;toiles", quel que soit le temps pass&#233; dans le ventre de leur maman, peuvent &#234;tre inscrits symboliquement dans ce registre. Cette d&#233;claration est facultative. Elle n'entra&#238;ne donc aucune cons&#233;quence juridique. Ce registre a &#233;t&#233; cr&#233;&#233; afin de briser le tabou concernant le deuil p&#233;rinatal et permettre aux parents qui le souhaitent d'exprimer leur deuil. Pour les parents, ce registre offre un r&#233;confort, un soutien et une reconnaissance&lt;/strong&gt;.&lt;/p&gt;&lt;p&gt;L'inscription dans le registre des &#233;toiles est possible dans les cas suivants :&lt;/p&gt;&lt;p&gt;* Ind&#233;pendamment de l'&#226;ge gestationnel.&lt;/p&gt;&lt;p&gt;* Les parents peuvent choisir librement les nom(s) et pr&#233;nom(s), sans restriction.&lt;/p&gt;&lt;p&gt;* Sans limitation dans le temps, quel que soit le temps &#233;coul&#233; depuis le deuil.&lt;/p&gt;&lt;p&gt;* Les parents ne doivent pas pr&#233;senter de "preuve" pour enregistrer leur enfant. En effet, il arrive parfois que cette preuve ne soit pas disponible en cas de perte pr&#233;matur&#233;e de l'enfant.&lt;/p&gt;&lt;p&gt;* Il doit y avoir un lien avec la ville ou la commune, soit que les parents y r&#233;sident, soit que l'enfant est n&#233; dans la ville ou la commune.&lt;/p&gt;</description>
   <user_support>optional</user_support>
   <submission_user_association>any</submission_user_association>
   <history_pane_default_mode>expanded</history_pane_default_mode>
@@ -47,8 +46,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_last_name</value>
       </prefill>
@@ -66,8 +63,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_first_name</value>
       </prefill>
@@ -85,8 +80,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_birthdate</value>
       </prefill>
@@ -107,8 +100,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -301,8 +292,6 @@
       </display_locations>
       <extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_street</value>
       </prefill>
@@ -320,8 +309,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_num_house</value>
       </prefill>
@@ -339,8 +326,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_zipcode</value>
       </prefill>
@@ -358,8 +343,6 @@
       </display_locations>
       <extra_css_class type="str">grid-3-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_city</value>
       </prefill>

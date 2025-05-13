@@ -13,8 +13,8 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
-  <workflow slug="imio-paiement-urne-surnumeraire" workflow_id="162">iMio - Cimeti&#232;re</workflow>
+  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
+  <workflow slug="imio-paiement" workflow_id="108">iMio - Paiement</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -114,7 +114,6 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill>
@@ -132,7 +131,6 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill>
@@ -154,7 +152,6 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill>
@@ -210,7 +207,6 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       </display_locations>
       <extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -228,7 +224,6 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -825,16 +820,59 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       <id type="str">7ab158b6-40e1-4b31-82d5-c8f4cbf4c954</id>
     </field>
   </fields>
-  <user-roles>
-    <role slug="citoyen-test" role_id="facf46c672034a8ca2009c6c499e53bf">Citoyen (test)</role>
-  </user-roles>
-  <roles />
   <options>
+    <option varname="activer_anonymisation" type="bool"></option>
+    <option varname="commentaire" />
+    <option varname="denomination_bourgmestre" />
+    <option varname="duree_concession">15</option>
+    <option varname="emplacements_disponibles" />
+    <option varname="fichier_obligatoire" type="bool"></option>
+    <option varname="iban" />
+    <option varname="paiement_en_ligne" type="bool"></option>
+    <option varname="prix"></option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
+    <option varname="regie_de_paiement_structured" type="dict">
+    </option>
+    <option varname="regie_paiement">atos_test_aes</option>
+    <option varname="regie_paiement_display">Atos (test AES)</option>
+    <option varname="regie_paiement_structured" type="dict">
+      <id>atos_test_aes</id>
+      <text>Atos (test AES)</text>
+      <description>Test avec module de facturation.</description>
+    </option>
     <option varname="reglement_communal">test</option>
+    <option varname="tarif_hors_commune">2</option>
   </options>
   <custom_views />
   <geolocations />
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="imio-cimetiere" new-workflow="imio-paiement" timestamp="2025-05-13T10:21:40.742483+02:00">
+      <timestamp>2025-05-13T10:21:40.742483+02:00</timestamp>
+      <status-mapping>
+        <map old="just_submitted" new="1" />
+        <map old="4" new="4" />
+        <map old="accepted" new="1" />
+        <map old="finished" new="1" />
+        <map old="10" new="10" />
+        <map old="12" new="12" />
+        <map old="17" new="1" />
+        <map old="18" new="1" />
+        <map old="19" new="1" />
+        <map old="21" new="1" />
+        <map old="22" new="1" />
+        <map old="23" new="1" />
+        <map old="24" new="1" />
+        <map old="25" new="1" />
+        <map old="26" new="1" />
+        <map old="27" new="1" />
+        <map old="28" new="1" />
+        <map old="37" new="1" />
+        <map old="38" new="1" />
+      </status-mapping>
+    </migration>
+  </workflow-migrations>
 </formdef>

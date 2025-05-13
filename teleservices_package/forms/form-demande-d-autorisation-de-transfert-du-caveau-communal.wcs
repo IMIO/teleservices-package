@@ -13,8 +13,8 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="136">Cimeti&#232;res</category>
-  <workflow slug="imio-paiement-urne-surnumeraire" workflow_id="162">iMio - Cimeti&#232;re</workflow>
+  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
+  <workflow slug="imio-cimetiere" workflow_id="258">iMio - Cimeti&#232;re</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -97,7 +97,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_street</value>
       </prefill>
@@ -115,7 +114,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_house</value>
       </prefill>
@@ -137,7 +135,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_num_box</value>
       </prefill>
@@ -193,7 +190,6 @@
       </display_locations>
       <extra_css_class type="str">grid-2-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -228,8 +224,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_niss</value>
       </prefill>
@@ -300,6 +294,7 @@
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>carddef:imio-liste-des-cimetieres</type>
       </data_source>
@@ -330,6 +325,7 @@
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>carddef:imio-liste-des-cimetieres</type>
       </data_source>
@@ -375,7 +371,7 @@
         <item>Une cellule cin&#233;raire en cavurne</item>
       </items>
       <data_source>
-        <type>carddef:imio-liste-concession-cimetiere-avec-prix:type-concession</type>
+        <type>carddef:imio-liste-concession-cimetiere-avec-prix</type>
         <value>form_var_types_emplacements</value>
       </data_source>
       <in_filters type="bool">False</in_filters>
@@ -504,25 +500,23 @@
       <id type="str">88</id>
     </field>
   </fields>
-  <user-roles>
-    <role role_id="logged-users">logged-users</role>
-  </user-roles>
-  <roles />
   <options>
-    <option varname="activer_anonymisation" type="bool">false</option>
+    <option varname="activer_anonymisation" type="bool"></option>
     <option varname="commentaire" />
-    <option varname="denomination_bourgmestre" />
-    <option varname="duree_concession" />
-    <option varname="emplacements_disponibles">https://www.google.com/</option>
+    <option varname="denomination_bourgmestre"></option>
+    <option varname="duree_concession"></option>
+    <option varname="emplacements_disponibles"></option>
+    <option varname="fichier_obligatoire" type="bool"></option>
     <option varname="iban" />
-    <option varname="paiement_en_ligne" type="bool">false</option>
+    <option varname="paiement_en_ligne" type="bool"></option>
     <option varname="pronom_bourgmestre" />
-    <option varname="regie_de_paiement" />
-    <option varname="regie_de_paiement_display" />
-    <option varname="regie_de_paiement_structured" />
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
+    <option varname="regie_de_paiement_structured" type="dict">
+    </option>
     <option varname="reglement_communal" />
     <option varname="tarif" />
-    <option varname="tarif_hors_commune" />
+    <option varname="tarif_hors_commune"></option>
   </options>
   <custom_views />
   <geolocations />
