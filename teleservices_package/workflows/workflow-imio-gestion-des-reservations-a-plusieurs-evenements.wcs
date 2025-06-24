@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<workflow id="258" url="">
+  <name>iMio - Gestion des r&#233;servations &#224; plusieurs &#233;v&#233;nements</name>
+  <slug>imio-gestion-des-reservations-a-plusieurs-evenements</slug>
+  <roles>
+    <role id="_acces-api">Acc&#232;s API</role>
+    <role id="_administrateur">Administrateur</role>
+    <role id="_receiver">Agent traitant</role>
+  </roles>
+  <possible_status>
+    <status>
+      <id>1</id>
+      <name>Juste envoy&#233;</name>
+      <colour>#FFFFFF</colour>
+      <visibility>
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="set-backoffice-fields" id="1">
+          <label>D&#233;finition du demandeur</label>
+          <fields>
+            <field>
+              <field_id>bo3c729bcc-c254-4ef6-b8ce-90a179d9cfde</field_id>
+              <value>{{form_var_numero_porte}} {% if form_var_boite %} {{form_var_boite}} {% endif %} {{form_var_rue}} {{form_var_code_postal}} {{form_var_localite}}</value>
+            </field>
+          </fields>
+        </item>
+        <item type="jump" id="2">
+          <status>8</status>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>8</id>
+      <name>R&#233;servation du rendez-vous</name>
+      <colour>#FFFFFF</colour>
+      <visibility>
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="webservice_call" id="1">
+          <label>R&#233;servation du rendez-vous</label>
+          <method>POST</method>
+          <url>{{ agendas_url }}/api/agenda/{{ form_option_agenda_slug }}/events/fillslots/</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>label</name>
+              <value>{{ form_var_nom }} {{ form_var_prenom }}</value>
+            </item>
+            <item>
+              <name>user_name</name>
+              <value>{{ form_var_nom }} {{ form_var_prenom }}</value>
+            </item>
+            <item>
+              <name>backoffice_url</name>
+              <value>{{ form_url_backoffice }}</value>
+            </item>
+            <item>
+              <name>slots</name>
+              <value>{{ form_var_date_rdv_raw|join:"," }}</value>
+            </item>
+            <item>
+              <name>form_url</name>
+              <value>{{ form_url }}</value>
+            </item>
+            <item>
+              <name>user_email</name>
+              <value>{{ form_var_email|default:"nothing" }}</value>
+            </item>
+            <item>
+              <name>user_phone_number</name>
+              <value>{{ form_var_telephone|default_if_none:"" }}</value>
+            </item>
+            <item>
+              <name>user_external_id</name>
+              <value>{{form_user_nameid}}</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <varname>reservation</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>:stop</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>8</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <record_errors>False</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="2">
+          <status>2</status>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>2</id>
+      <name>En attente du rendez-vous</name>
+      <colour>#0099FF</colour>
+      <visibility />
+      <items>
+        <item type="displaymsg" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <message>Votre demande a &#233;t&#233; enregistr&#233;e avec succ&#232;s.</message>
+          <level>success</level>
+          <position>top</position>
+        </item>
+        <item type="sendmail" id="5">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+          <subject>Prise de rendez-vous pour le {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          <body>Bonjour,
+
+Un rendez-vous a &#233;t&#233; pris pour {{form_var_nom}} {{form_var_prenom}} &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} avec comme motif {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
+
+`Consulter la demande  &lt;{{form_url_backoffice}}&gt;`_</body>
+        </item>
+        <item type="sendmail" id="6">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <subject>Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          <body>Bonjour,
+
+Votre rendez-vous pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} aura lieu le {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}.
+
+`Consulter votre demande via ce lien &lt;{{ form_url }}&gt;`_ {% if form_tracking_code %} ou via votre code de suivi **{{form_tracking_code}}** si le lien ne fonctionne pas. {% endif %}
+
+Bien &#224; vous.</body>
+        </item>
+        <item type="choice" id="8">
+          <label>Annuler la demande</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+            <item role_id="_submitter">_submitter</item>
+          </by>
+          <status>7</status>
+          <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;Action permettant au citoyen et &amp;agrave; l'agent traitant annuler le rendez-vous, quelle que soit la raison de chacun.&lt;/p&gt;</backoffice_info_text>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="choice" id="9">
+          <label>Refuser la demande</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <status>9</status>
+          <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;Action &amp;agrave; l'initiative de l'agent traitant qui va refuser le rendez-vous, quelle que soit la raison.&lt;/p&gt;</backoffice_info_text>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>9</id>
+      <name>Formulaire de refus</name>
+      <colour>#999999</colour>
+      <visibility>
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="form" id="1">
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <varname>refus</varname>
+          <hide_submit_button>False</hide_submit_button>
+          <include_in_form_history>False</include_in_form_history>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <type>text</type>
+                <label type="str">Motif du refus</label>
+                <required type="str">optional</required>
+                <hint type="str">Optionnel</hint>
+                <varname type="str">motif</varname>
+                <display_locations />
+                <extra_css_class type="str">pk-important</extra_css_class>
+                <prefill>
+                  <type>none</type>
+                </prefill>
+                <anonymise type="str">final</anonymise>
+                <rows type="str">10</rows>
+                <display_mode type="str">plain</display_mode>
+                <id type="str">1</id>
+              </field>
+            </fields>
+          </formdef>
+        </item>
+        <item type="jumponsubmit" id="2">
+          <status>3</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>3</id>
+      <name>Demande refus&#233;e</name>
+      <colour>#FF0000</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item type="webservice_call" id="3">
+          <label>R&#233;servation du rendez-vous</label>
+          <method>POST</method>
+          <url>{{ agendas_url }}/api/agenda/{{ form_option_agenda_slug }}/events/fillslots/</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>label</name>
+              <value>{{ form_var_nom }} {{ form_var_prenom }}</value>
+            </item>
+            <item>
+              <name>user_name</name>
+              <value>{{ form_var_nom }} {{ form_var_prenom }}</value>
+            </item>
+            <item>
+              <name>backoffice_url</name>
+              <value>{{ form_url_backoffice }}</value>
+            </item>
+            <item>
+              <name>slots</name>
+              <value />
+            </item>
+            <item>
+              <name>form_url</name>
+              <value>{{ form_url }}</value>
+            </item>
+            <item>
+              <name>user_email</name>
+              <value>{{ form_var_email|default:"nothing" }}</value>
+            </item>
+            <item>
+              <name>user_phone_number</name>
+              <value>{{ form_var_telephone|default_if_none:"" }}</value>
+            </item>
+            <item>
+              <name>user_external_id</name>
+              <value>{{form_user_nameid}}</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <varname>refus</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>:stop</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <record_errors>False</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="sendmail" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <subject>Refus de votre r&#233;servation ce {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          <body>Bonjour {{form_var_nom}} {{form_var_prenom}},
+
+Votre demande de rendez-vous &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} n'a pas eu de suite favorable.
+
+{% if refus_var_motif %}
+Motif du refus:
+
+{{refus_var_motif}}
+{% endif %}
+
+D'avance merci pour votre compr&#233;hension.
+
+Bien &#224; vous</body>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>7</id>
+      <name>Demande annul&#233;e</name>
+      <colour>#FFFF00</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item type="webservice_call" id="5">
+          <label>R&#233;servation du rendez-vous</label>
+          <method>POST</method>
+          <url>{{ agendas_url }}/api/agenda/{{ form_option_agenda_slug }}/events/fillslots/</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>label</name>
+              <value>{{ form_var_nom }} {{ form_var_prenom }}</value>
+            </item>
+            <item>
+              <name>user_name</name>
+              <value>{{ form_var_nom }} {{ form_var_prenom }}</value>
+            </item>
+            <item>
+              <name>backoffice_url</name>
+              <value>{{ form_url_backoffice }}</value>
+            </item>
+            <item>
+              <name>slots</name>
+              <value />
+            </item>
+            <item>
+              <name>form_url</name>
+              <value>{{ form_url }}</value>
+            </item>
+            <item>
+              <name>user_email</name>
+              <value>{{ form_var_email|default:"nothing" }}</value>
+            </item>
+            <item>
+              <name>user_phone_number</name>
+              <value>{{ form_var_telephone|default_if_none:"" }}</value>
+            </item>
+            <item>
+              <name>user_external_id</name>
+              <value>{{form_user_nameid}}</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <varname>annulation</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>:stop</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <record_errors>False</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="set-backoffice-fields" id="2">
+          <label>D&#233;finition date d'annulation</label>
+          <fields>
+            <field>
+              <field_id>bo4dd33514-33fd-4f8b-b7e4-fb573a89afd3</field_id>
+              <value>{{ today }}</value>
+            </field>
+          </fields>
+        </item>
+        <item type="sendmail" id="3">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+          <subject>Annulation du rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          <body>Bonjour,
+
+Le rendez-vous de {{form_var_nom}} {{form_var_prenom}} &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} vient-&#234;tre annul&#233;.
+
+Ne faites rien, ce mail vous est envoy&#233; &#224; titre informatif, le cr&#233;neau horaire est lib&#233;r&#233; de l'agenda.
+
+Bien &#224; vous.</body>
+        </item>
+        <item type="sendmail" id="4">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <subject>Annulation de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</subject>
+          <body>Bonjour,
+
+Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} a bien &#233;t&#233; annul&#233;.</body>
+        </item>
+      </items>
+    </status>
+  </possible_status>
+  <global_actions>
+    <action>
+      <id>1</id>
+      <name>Supprimer la d&#233;marche</name>
+      <items>
+        <item type="remove" id="1" />
+      </items>
+      <triggers>
+        <trigger type="manual" id="f2729901-1109-4708-9b53-7fee94f04be4">
+          <roles>
+            <item slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</item>
+          </roles>
+          <allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions>
+  <variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <type>item</type>
+          <label type="str">Liste des agendas disponible choix unique</label>
+          <required type="str">required</required>
+          <varname type="str">agenda</varname>
+          <display_locations>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">no</anonymise>
+          <display_mode type="str">list</display_mode>
+          <items />
+          <data_source>
+            <type>json</type>
+            <value>{{agendas_url}}api/agenda/</value>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <initial_zoom type="str">13</initial_zoom>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
+          <id type="str">3</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables>
+  <backoffice-fields>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <type>string</type>
+          <label type="str">Date d'annulation</label>
+          <required type="str">required</required>
+          <varname type="str">date_annulation</varname>
+          <display_locations>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">final</anonymise>
+          <id type="str">bo4dd33514-33fd-4f8b-b7e4-fb573a89afd3</id>
+        </field>
+      </fields>
+    </formdef>
+  </backoffice-fields>
+</workflow>

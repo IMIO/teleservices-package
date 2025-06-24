@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<formdef id="390" url="">
+  <name>iMio - R&#233;servation &#224; plusieurs &#233;v&#233;nements</name>
+  <url_name>imio-reservation-a-plusieurs-evenements</url_name>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="imio-agendas" category_id="116">iMio - Agendas</category>
+  <workflow slug="imio-gestion-des-reservations-a-plusieurs-evenements" workflow_id="258">iMio - Gestion des r&#233;servations &#224; plusieurs &#233;v&#233;nements</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es</label>
+      <id type="str">ea18c8a6-0c7c-4f9f-bed8-55b065289a46</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">a6b4e0fb-d02e-4c1b-af7f-0bb1addb12df</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">0a215ce3-7285-4988-954b-215bfe62779d</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">011ef5b5-6e42-4c36-97e3-33eb91c9dcfc</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_street</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">4b4fdb17-ca12-4ba2-a34e-7008d81f56a8</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro</label>
+      <required type="str">required</required>
+      <varname type="str">numero_porte</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[0-9]*</value>
+      </validation>
+      <id type="str">eb52b5a7-ecde-4d7d-94a0-0e5382a6732b</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Bo&#238;te</label>
+      <required type="str">optional</required>
+      <varname type="str">boite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_num_box</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">434dff76-1960-4c43-ab7a-4129ac2e58cb</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[0-9]*</value>
+      </validation>
+      <id type="str">1f5d7135-d10e-4945-839e-d05c7985182f</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">localite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_city</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">e2682f79-ca88-4a79-ad3d-f30bc834c5e3</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse &#233;lectronique</label>
+      <required type="str">required</required>
+      <hint type="str">Si la personne concern&#233;e ne poss&#232;de pas d'adresse &#233;lectronique, encodez la v&#244;tre.</hint>
+      <varname type="str">email</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">87915a5a-4c7c-40bb-83cf-cfc27b4758e5</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
+      <required type="str">optional</required>
+      <varname type="str">telephone</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_phone</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">50a0a9e9-b8fd-49e8-927a-e0f3ddee9d46</id>
+    </field>
+    <field>
+      <type>items</type>
+      <label type="str">S&#233;lectionnez les &#233;v&#233;nements</label>
+      <required type="str">required</required>
+      <varname type="str">date_rdv</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">0</min_choices>
+      <max_choices type="int">0</max_choices>
+      <data_source>
+        <type>json</type>
+        <value>{{ form_option_agenda_api_datetimes_url }}</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">cd9d5fc0-6c8e-4d13-9cc3-b782e5318500</id>
+    </field>
+  </fields>
+  <roles>
+    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9" role_key="_receiver">Debug</role>
+  </roles>
+  <options>
+    <option varname="agenda">plusieurs-evenements</option>
+    <option varname="agenda_display">Plusieurs &#233;v&#233;nements</option>
+    <option varname="agenda_structured" type="dict">
+      <id>plusieurs-evenements</id>
+      <slug>plusieurs-evenements</slug>
+      <text>Plusieurs &#233;v&#233;nements</text>
+      <kind>events</kind>
+      <minimal_booking_delay type="int">1</minimal_booking_delay>
+      <maximal_booking_delay type="int">720</maximal_booking_delay>
+      <minimal_booking_time>00:00:00</minimal_booking_time>
+      <admin_role />
+      <edit_role />
+      <view_role />
+      <category />
+      <category_label />
+      <events_type />
+      <minimal_booking_delay_in_working_days type="bool">false</minimal_booking_delay_in_working_days>
+      <api type="dict">
+        <datetimes_url>https://staging-agenda.guichet-citoyen.be/api/agenda/plusieurs-evenements/datetimes/</datetimes_url>
+        <backoffice_url>https://staging-agenda.guichet-citoyen.be/manage/agendas/210/</backoffice_url>
+      </api>
+      <booking_form_url />
+      <minimal_cancellation_delay />
+      <minimal_cancellation_delay_in_working_days type="bool">false</minimal_cancellation_delay_in_working_days>
+    </option>
+  </options>
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <submission_sidebar_items>
+    <item>__default__</item>
+  </submission_sidebar_items>
+</formdef>
