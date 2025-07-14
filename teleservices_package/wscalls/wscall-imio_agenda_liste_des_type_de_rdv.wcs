@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<wscall id="435" url="">
+  <name>iMio - Agenda - Liste des Type de RDV</name>
+  <slug>imio_agenda_liste_des_type_de_rdv</slug>
+  <request>
+    <url>{% firstof form_var_agenda_api_meetings_url form_option_agenda_api_meetings_url %}</url>
+    <request_signature_key />
+    <method>GET</method>
+    <timeout />
+    <cache_duration />
+    <qs_data />
+    <post_data />
+  </request>
+  <record_on_errors>true</record_on_errors>
+</wscall>

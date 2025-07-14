@@ -2,6 +2,8 @@
 <formdef id="4" url="">
   <name>iMio - Prise de rendez-vous - Plusieurs personnes</name>
   <url_name>imio-prise-de-rendez-vous-plusieurs-personnes</url_name>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
@@ -9,11 +11,10 @@
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>false</confirmation>
   <always_advertise>false</always_advertise>
-  <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="imio-agendas" category_id="2">iMio - Agendas</category>
-  <workflow slug="imio-gestion-des-rendez-vous-et-evenements-package" workflow_id="30">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
+  <category slug="imio-agendas" category_id="19">iMio - Agendas</category>
+  <workflow slug="imio-gestion-des-rendez-vous-et-evenements-package" workflow_id="107">iMio - Gestion des rendez-vous et &#233;v&#233;nements - package</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -33,9 +34,11 @@
       <condition>
         <type>django</type>
         <value>false</value>
-      </condition><display_locations />
+      </condition>
+      <display_locations />
       <id type="str">72</id>
-    </field><field>
+    </field>
+    <field>
       <type>page</type>
       <label type="str">Coordonn&#233;es</label>
       <post_conditions>
@@ -43,242 +46,292 @@
           <condition>
             <type>django</type>
             <value>form_option_heure_ouverture|time &lt;= now|time and form_option_heure_fermeture|time &gt;= now|time</value>
-          </condition><error_message>Le formulaire est indisponible actuellement revenez plus tard dans la journ&#233;e ou demain</error_message>
+          </condition>
+          <error_message>Le formulaire est indisponible actuellement revenez plus tard dans la journ&#233;e ou demain</error_message>
         </post_condition>
-      </post_conditions><id type="str">40</id>
-    </field><field>
+      </post_conditions>
+      <id type="str">40</id>
+    </field>
+    <field>
       <type>title</type>
       <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><id type="str">41</id>
-    </field><field>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">41</id>
+    </field>
+    <field>
       <type>string</type>
       <label type="str">Nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">nom</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class type="str">newline grid-1-2</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_last_name</value>
-      </prefill><anonymise type="str">final</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
       <id type="str">43</id>
-    </field><field>
+    </field>
+    <field>
       <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">prenom</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_first_name</value>
-      </prefill><anonymise type="str">final</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
       <id type="str">44</id>
-    </field><field>
+    </field>
+    <field>
       <type>string</type>
       <label type="str">Rue</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">rue</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_street</value>
-      </prefill><anonymise type="str">final</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
       <id type="str">45</id>
-    </field><field>
+    </field>
+    <field>
       <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">numero_porte</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_house</value>
-      </prefill><anonymise type="str">final</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
       <validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><id type="str">46</id>
-    </field><field>
+      </validation>
+      <id type="str">46</id>
+    </field>
+    <field>
       <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">boite</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-3</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_num_box</value>
-      </prefill><anonymise type="str">final</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
       <id type="str">47</id>
-    </field><field>
+    </field>
+    <field>
       <type>string</type>
       <label type="str">Code postal</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">code_postal</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_zipcode</value>
-      </prefill><anonymise type="str">final</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
       <validation>
         <type>regex</type>
         <value>^[0-9]*</value>
-      </validation><id type="str">48</id>
-    </field><field>
+      </validation>
+      <id type="str">48</id>
+    </field>
+    <field>
       <type>string</type>
       <label type="str">Localit&#233;</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">localite</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_city</value>
-      </prefill><anonymise type="str">final</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
       <id type="str">49</id>
-    </field><field>
+    </field>
+    <field>
       <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Si la personne concern&#233;e ne poss&#232;de pas d'adresse e-mail, merci d'encoder la v&#244;tre.</hint>
       <varname type="str">email</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_email</value>
-      </prefill><anonymise type="str">final</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
       <id type="str">52</id>
-    </field><field>
+    </field>
+    <field>
       <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">telephone</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
         <type>user</type>
         <value>_phone</value>
-      </prefill><anonymise type="str">final</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
       <id type="str">50</id>
-    </field><field>
+    </field>
+    <field>
       <type>comment</type>
       <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous pouvez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="{{ idp_account_url }}edit/"&gt;page de profil&lt;/a&gt;).&lt;/p&gt;</label>
       <display_locations />
       <id type="str">53</id>
-    </field><field>
+    </field>
+    <field>
       <type>page</type>
       <label type="str">S&#233;lectionnez le type de rendez-vous</label>
       <id type="str">2</id>
-    </field><field>
+    </field>
+    <field>
       <type>computed</type>
       <label type="str">liste_type_rdv_plusieurs_personnes</label>
       <varname type="str">liste_type_rdv_plusieurs_personnes</varname>
-      <value_template type="str">{{form_option_agenda_api_meetings_url|liste_type_rdv_plusieurs_personnes}}</value_template>
+      <value_template type="str">{{webservice.imio_agenda_liste_des_type_de_rdv|liste_type_rdv_plusieurs_personnes}}</value_template>
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">78</id>
-    </field><field>
+    </field>
+    <field>
       <type>item</type>
       <label type="str">Type de rendez-vous</label>
-      <required type="bool">True</required>
-      <hint type="str">Choisissez une option</hint>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;Choisissez une option&lt;/p&gt;</hint>
       <varname type="str">type_general_rdv</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><anonymise type="str">no</anonymise>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>jsonvalue</type>
-        <value>[{% for i in form_option_agenda_api_meetings_url|liste_type_rdv_plusieurs_personnes %}{"id": "{{ i }}", "text": "{{ i }}"}{% if not forloop.last %}, {% endif %}{% endfor %}]</value>
-      </data_source><in_filters type="bool">False</in_filters>
+        <value>{{ webservice.imio_agenda_liste_des_type_de_rdv|liste_type_rdv_plusieurs_personnes|json_dumps }}</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
       <id type="str">71</id>
-    </field><field>
+    </field>
+    <field>
       <type>page</type>
       <label type="str">S&#233;lectionnez le nombre de personnes</label>
       <id type="str">70</id>
-    </field><field>
+    </field>
+    <field>
       <type>computed</type>
       <label type="str">Rendez-vous s&#233;lectionn&#233;</label>
       <varname type="str">rdv_selectionne</varname>
-      <value_template type="str">{{form_option_agenda_api_meetings_url|liste_type_rdv_nombres_personnes:form_var_type_general_rdv_raw}}</value_template>
+      <value_template type="str">{{webservice.imio_agenda_liste_des_type_de_rdv|liste_type_rdv_nombres_personnes:form_var_type_general_rdv_raw}}</value_template>
       <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
       <id type="str">77</id>
-    </field><field>
+    </field>
+    <field>
       <type>item</type>
       <label type="str">Nombre de personnes</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">type_rdv</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><anonymise type="str">no</anonymise>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>jsonvalue</type>
         <value>{{ form_var_rdv_selectionne|unlazy_filter|json_dumps }}</value>
-      </data_source><in_filters type="bool">False</in_filters>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">24</id>
-    </field><field>
+    </field>
+    <field>
       <type>page</type>
       <label type="str">S&#233;lectionnez l'heure du rendez-vous</label>
       <id type="str">17</id>
-    </field><field>
+    </field>
+    <field>
       <type>item</type>
       <label type="str">Choisissez une plage horaire</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">date_rdv</varname>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-        <display_location>listings</display_location>
-      </display_locations><anonymise type="str">no</anonymise>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
       <display_mode type="str">timetable</display_mode>
       <items />
       <data_source>
         <type>json</type>
         <value>{{form_var_type_rdv_api_datetimes_url}}</value>
-      </data_source><in_filters type="bool">False</in_filters>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <initial_zoom type="str">13</initial_zoom>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
@@ -286,12 +339,34 @@
       <image_mobile_size type="int">75</image_mobile_size>
       <id type="str">25</id>
     </field>
-  </fields><user-roles>
-    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
-  </user-roles><options>
-    <option varname="agenda">agenda-test-nombre-de-personne</option>
-    <option varname="agenda_display">Agenda Test Nombre de personne</option>
-    <option varname="agenda_structured" />
+  </fields>
+  <options>
+    <option varname="agenda">test-plusieurs-personnes</option>
+    <option varname="agenda_display">Test plusieurs personnes</option>
+    <option varname="agenda_structured" type="dict">
+      <id>test-plusieurs-personnes</id>
+      <slug>test-plusieurs-personnes</slug>
+      <text>Test plusieurs personnes</text>
+      <kind>meetings</kind>
+      <minimal_booking_delay type="int">1</minimal_booking_delay>
+      <maximal_booking_delay type="int">56</maximal_booking_delay>
+      <minimal_booking_time>00:00:00</minimal_booking_time>
+      <admin_role />
+      <edit_role />
+      <view_role />
+      <category />
+      <category_label />
+      <free_range type="bool">false</free_range>
+      <shared_resources type="list" />
+      <resources type="list" />
+      <api type="dict">
+        <meetings_url>https://staging-agenda.guichet-citoyen.be/api/agenda/test-plusieurs-personnes/meetings/</meetings_url>
+        <desks_url>https://staging-agenda.guichet-citoyen.be/api/agenda/test-plusieurs-personnes/desks/</desks_url>
+        <shared_resources_url>https://staging-agenda.guichet-citoyen.be/api/agenda/test-plusieurs-personnes/shared-resources/</shared_resources_url>
+        <resources_url>https://staging-agenda.guichet-citoyen.be/api/agenda/test-plusieurs-personnes/shared-resources/</resources_url>
+        <backoffice_url>https://staging-agenda.guichet-citoyen.be/manage/agendas/177/</backoffice_url>
+      </api>
+    </option>
     <option varname="agendas" />
     <option varname="agendas_display" />
     <option varname="agendas_structured" />
@@ -300,6 +375,13 @@
     <option varname="date_minimale_de_reservation_structured" />
     <option varname="heure_fermeture">23:59</option>
     <option varname="heure_ouverture">00:00</option>
-  </options><custom_views />
+  </options>
+  <custom_views />
   <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <submission_sidebar_items>
+    <item>__default__</item>
+  </submission_sidebar_items>
 </formdef>
