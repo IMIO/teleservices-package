@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<formdef id="367" url="">
+<formdef id="77" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/77/">
   <name>Obtenir un extrait de casier judiciaire</name>
   <url_name>demande-obtenir-un-extrait-de-casier-judiciaire</url_name>
   <discussion>false</discussion>
@@ -34,20 +34,9 @@
       <id type="str">31</id>
     </field>
     <field>
-      <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;a href="{{form_option_lien_vers_l_extrait_de_casier_judiciaire_5962}}" rel="nofollow"&gt;Lien vers l&amp;#39;extrait de casier judiciaire mod&amp;egrave;le 596.2&lt;/a&gt;&lt;/p&gt;
-</label>
-      <condition>
-        <type>django</type>
-        <value>form_option_lien_vers_l_extrait_de_casier_judiciaire_5962</value>
-      </condition>
-      <display_locations />
-      <id type="str">fa9ea124-6ca1-4f89-9f0c-0cb14fca00fb</id>
-    </field>
-    <field>
       <type>string</type>
       <label type="str">Nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">nom</varname>
       <display_locations>
         <item>validation</item>
@@ -64,7 +53,7 @@
     <field>
       <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">prenom</varname>
       <display_locations>
         <item>validation</item>
@@ -81,7 +70,7 @@
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">nn</varname>
       <display_locations>
         <item>validation</item>
@@ -99,7 +88,7 @@
     <field>
       <type>email</type>
       <label type="str">Adresse email</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">courriel</varname>
       <display_locations>
         <item>validation</item>
@@ -121,7 +110,7 @@
         <type>django</type>
         <value>form_var_type_extrait != "596.2 - mod&#232;le destin&#233; aux contacts avec mineurs"</value>
       </condition>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">tel</varname>
       <display_locations>
         <item>validation</item>
@@ -129,8 +118,6 @@
       </display_locations>
       <extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -144,7 +131,7 @@
         <type>django</type>
         <value>form_var_type_extrait == "596.2 - mod&#232;le destin&#233; aux contacts avec mineurs"</value>
       </condition>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">tel2</varname>
       <display_locations>
         <item>validation</item>
@@ -152,8 +139,6 @@
       </display_locations>
       <extra_css_class type="str">newline grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -163,7 +148,7 @@
     <field>
       <type>item</type>
       <label type="str">Choisissez l'extrait souhait&#233;</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">type_extrait</varname>
       <display_locations>
         <item>validation</item>

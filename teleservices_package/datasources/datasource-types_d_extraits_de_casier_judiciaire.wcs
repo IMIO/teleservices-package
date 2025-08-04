@@ -9,6 +9,6 @@
   <text_attribute>title</text_attribute>
   <data_source>
     <type>json</type>
-    <value>{{ passerelle_url }}passerelle-imio-apims-casier-judiciaire/apims-casier-judiciaire/list-extract-types?language={{site_lang}}&amp;modele_2={{form_option_modele_2}}</value>
+    <value>{{ passerelle_url }}passerelle-imio-apims-casier-judiciaire/apims-casier-judiciaire/list-extract-types?language={{site_lang}}&amp;modele_2=True</value>
   </data_source>
 </datasource>

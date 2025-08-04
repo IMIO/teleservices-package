@@ -52,15 +52,6 @@
           <notify_on_errors>False</notify_on_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-        <item type="jump" id="6">
-          <status>11</status>
-          <condition>
-            <type>django</type>
-            <value>form_workflow_data_check_document_response_bosa_return_code == "GENERATED" and form_var_type_extrait == "596.2 - mod&#232;le destin&#233; aux contacts avec mineurs"</value>
-          </condition>
-          <mode>immediate</mode>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
         <item type="jump" id="2">
           <status>1</status>
           <condition>
@@ -152,14 +143,14 @@
       <visibility />
       <items>
         <item type="displaymsg" id="1">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
           <message>Une erreur s'est produite !
 
 Veuillez r&#233;essayer apr&#232;s quelques minutes</message>
           <level>error</level>
           <position>top</position>
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
         </item>
       </items>
     </status>
@@ -251,10 +242,10 @@ Veuillez contacter votre administration communale pour l'en avertir.
       <visibility />
       <items>
         <item type="register-comment" id="1">
-          <comment>&lt;a href="{{ form_var_casier_judiciaire_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button" target="_blank" rel="noopener noreferrer"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</comment>
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
+          <comment>&lt;a href="{{ form_var_casier_judiciaire_document_url }}" title="Cliquez pour &#234;tre redirig&#233; vers votre document" class="pk-button" target="_blank" rel="noopener noreferrer"&gt;T&#233;l&#233;charger le document&lt;/a&gt;</comment>
         </item>
         <item type="displaymsg" id="2">
           <message>Votre document est disponible au t&#233;l&#233;chargement.&lt;br /&gt;
@@ -481,7 +472,9 @@ Voici le motif du refus :
         </trigger>
         <trigger type="timeout" id="cf9c8e6a-187a-4f6c-bab6-c6fa88d30c0e">
           <anchor>finalized</anchor>
-                    <timeout>0</timeout>
+          <anchor_expression />
+          <anchor_template />
+          <timeout>0</timeout>
         </trigger>
       </triggers>
     </action>
@@ -522,7 +515,7 @@ Voici le motif du refus :
         <field>
           <type>bool</type>
           <label type="str">Activer l'anonymisation</label>
-          <required type="bool">False</required>
+          <required type="str">optional</required>
           <hint type="str">Cochez pour activer l'anonymisation</hint>
           <varname type="str">activer_anonymisation</varname>
           <display_locations />
@@ -532,7 +525,7 @@ Voici le motif du refus :
         <field>
           <type>string</type>
           <label type="str">D&#233;lai d'anonymisation de la demande</label>
-          <required type="bool">False</required>
+          <required type="str">optional</required>
           <hint type="str">En jours</hint>
           <varname type="str">delai_anonymisation</varname>
           <display_locations />
@@ -554,33 +547,13 @@ Voici le motif du refus :
         <field>
           <type>text</type>
           <label type="str">Commentaire</label>
-          <required type="bool">False</required>
+          <required type="str">optional</required>
           <hint type="str">Pr&#233;cisez par exemple la marche &#224; suivre pour les types d'extrait non list&#233;s ou le d&#233;lai de validit&#233; des extraits. Ce commentaire s'affichera au d&#233;but du formulaire.</hint>
           <varname type="str">commentaire</varname>
           <display_locations />
           <anonymise type="str">no</anonymise>
           <display_mode type="str">pre</display_mode>
           <id type="str">df66fab4-16f7-45a8-b256-799be4adabc3</id>
-        </field>
-        <field>
-          <type>bool</type>
-          <label type="str">Permettre la d&#233;livrance automatique du mod&#232;le 596.2 (activit&#233;s en lien avec les mineurs).</label>
-          <required type="bool">False</required>
-          <hint type="str">Cochez pour Oui.</hint>
-          <varname type="str">modele_2</varname>
-          <display_locations />
-          <anonymise type="str">no</anonymise>
-          <id type="str">009f601d-f8a7-483e-ac93-cf55bc605ad0</id>
-        </field>
-        <field>
-          <type>string</type>
-          <label type="str">Lien vers l'extrait de casier judiciaire 596.2</label>
-          <required type="bool">False</required>
-          <hint type="str">Lien vers l'obtention de l'extrait de casier judiciaire 596.2 (https://...). Si vous avez coch&#233; la case ci-dessus, ce lien est inutile.</hint>
-          <varname type="str">lien_vers_l_extrait_de_casier_judiciaire_5962</varname>
-          <display_locations />
-          <anonymise type="str">final</anonymise>
-          <id type="str">14cb6c8a-551f-4258-97fb-63713bd29223</id>
         </field>
       </fields>
     </formdef>
@@ -592,7 +565,7 @@ Voici le motif du refus :
         <field>
           <type>file</type>
           <label type="str">Document</label>
-          <required type="bool">True</required>
+          <required type="str">required</required>
           <varname type="str">casier_judiciaire_document</varname>
           <display_locations>
             <item>summary</item>
