@@ -357,20 +357,24 @@
       <automatic_image_resize type="bool">False</automatic_image_resize>
       <storage type="str">default</storage>
       <id type="str">17</id>
-    </field><field>
+    </field>
+    <field>
+      <type>string</type>
       <label type="str">Num&#233;ro de compte IBAN du demandeur</label>
-      <type type="str">string</type>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <display_locations>
-        <display_location>validation</display_location>
-        <display_location>summary</display_location>
-      </display_locations><extra_css_class type="str">grid-1-2</extra_css_class>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>BE</value>
-      </prefill><validation>
-        <type>iban</type>
-      </validation><anonymise type="bool">True</anonymise>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <maxlength type="str">16</maxlength>
       <id type="str">12</id>
     </field>
   </fields><user-roles>
