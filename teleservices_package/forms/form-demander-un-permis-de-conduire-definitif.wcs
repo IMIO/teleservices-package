@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<formdef id="28" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/28/">
-  <name>Demander un permis de conduire provisoire</name>
-  <url_name>demande-permis-de-conduire</url_name>
+<formdef id="250" url="https://staging2-formulaires.guichet-citoyen.be/backoffice/forms/250/">
+  <name>Demander un permis de conduire d&#233;finitif</name>
+  <url_name>demander-un-permis-de-conduire-definitif</url_name>
   <submission_user_association>any</submission_user_association>
   <history_pane_default_mode>expanded</history_pane_default_mode>
   <discussion>false</discussion>
@@ -45,7 +45,7 @@
   </user-roles>
   <options>
     <option varname="commentaire" />
-    <option varname="urlredirection">https://mobilit.belgium.be/fr/circulationroutiere/permis_de_conduire/demande_permis_de_conduire_en_ligne</option>
+    <option varname="urlredirection">https://beldrive.mobilit.fgov.be/</option>
   </options>
   <custom_views />
   <geolocations />
