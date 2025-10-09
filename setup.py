@@ -22,7 +22,7 @@ version = "1.0.1"
 setup(
     name="teleservices-package",
     version=version,
-    author="Daniel Muyshond, Nicolas Selva, Nicolas Hislaire",
+    author="Jordano Modesto, Nicolas Selva, Nicolas Hislaire",
     author_email="support-ts@imio.be",
     packages=find_packages(),
     include_package_data=True,
