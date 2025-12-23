@@ -1,0 +1,560 @@
+<?xml version="1.0"?>
+<workflow id="339" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/339/">
+  <name>iMio - D&#233;clarations de mariage</name>
+  <slug>imio-declarations-de-mariage</slug>
+  <roles>
+    <role id="_receiver">Destinataire</role>
+  </roles>
+  <possible_status>
+    <status>
+      <id>1</id>
+      <name>Juste envoy&#233;</name>
+      <colour>#FFFFFF</colour>
+      <visibility />
+      <items>
+        <item type="sendmail" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
+        </item>
+        <item type="sendmail" id="2">
+          <to>
+            <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
+          </to>
+          <subject>{{ form_name }} Signature requise par le deuxi&#232;me &#233;poux.</subject>
+          <body>Bonjour,
+
+Nous vous confirmons la r&#233;ception de la d&#233;marche suivante : {{form_name}} introduite par votre &#233;poux/&#233;pouse.
+
+{% if form_tracking_code %}
+Utilisez le code de suivi pour accepter les donn&#233;es fournies par votre &#233;poux/&#233;pouse.
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
+
+{{ form_details }}
+{% endif %}
+
+</body>
+        </item>
+        <item type="jump" id="1">
+          <status>11</status>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>2</id>
+      <name>Cr&#233;ation du compte du deuxi&#232;me &#233;poux</name>
+      <colour>#62a0ea</colour>
+      <visibility>
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="webservice_call" id="3">
+          <label>Cr&#233;ation d'utilisateur</label>
+          <method>POST</method>
+          <url>{{ idp_url }}api/users/</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>email</name>
+              <value>{{form_var_courriel}}</value>
+            </item>
+            <item>
+              <name>first_name</name>
+              <value>{{ form_var_prenom_epoux }}</value>
+            </item>
+            <item>
+              <name>last_name</name>
+              <value>{{ form_var_nom_epoux }}</value>
+            </item>
+            <item>
+              <name>username</name>
+              <value>{{ form_var_nom_epoux }}{{ form_var_prenom_epoux }}</value>
+            </item>
+            <item>
+              <name>zipcode</name>
+              <value>{{ form_var_code_postal_epoux }}</value>
+            </item>
+            <item>
+              <name>send_registration_email</name>
+              <value>True</value>
+            </item>
+            <item>
+              <name>birthdate</name>
+              <value>{{ form_var_date_de_naissance_epoux }}</value>
+            </item>
+            <item>
+              <name>country</name>
+              <value>Belgique</value>
+            </item>
+            <item>
+              <name>num_house</name>
+              <value>{{ form_var_ndeg_epoux }}</value>
+            </item>
+            <item>
+              <name>street</name>
+              <value>{{ form_var_rue_epoux }}</value>
+            </item>
+            <item>
+              <name>city</name>
+              <value>{{ form_var_localite_epoux }}</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <varname>authentic</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>6</action_on_app_error>
+          <action_on_4xx>6</action_on_4xx>
+          <action_on_5xx>6</action_on_5xx>
+          <action_on_bad_data>6</action_on_bad_data>
+          <action_on_network_errors>6</action_on_network_errors>
+          <record_errors>True</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="1">
+          <status>3</status>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>3</id>
+      <name>Attribution du r&#244;le "Deuxi&#232;me &#233;poux"</name>
+      <colour>#62a0ea</colour>
+      <visibility>
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="webservice_call" id="2">
+          <label>Liaison au r&#244;le</label>
+          <method>POST</method>
+          <url>{{ idp_url }}api/roles/{{ form_option_role_a_attribuer_id }}/members/{{ form_workflow_data_authentic_response_uuid }}/</url>
+          <post>False</post>
+          <response_type>json</response_type>
+          <varname>role_imio</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>7</action_on_app_error>
+          <action_on_4xx>7</action_on_4xx>
+          <action_on_5xx>7</action_on_5xx>
+          <action_on_bad_data>7</action_on_bad_data>
+          <action_on_network_errors>7</action_on_network_errors>
+          <record_errors>False</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <condition>
+            <type>django</type>
+            <value>form_previous_status == 'Attribution du r&#244;le "Deuxi&#232;me &#233;poux"' or form_previous_status == " Erreur &#224; l'attribution du r&#244;le" or form_previous_status == "Cr&#233;ation du compte du deuxi&#232;me &#233;poux"</value>
+          </condition>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="webservice_call" id="3">
+          <label>Liaison au r&#244;le</label>
+          <method>POST</method>
+          <url>{{ idp_url }}api/roles/{{ form_option_role_a_attribuer_id }}/members/{{form_workflow_wscall_authentic_search_response_results.0.uuid}}/</url>
+          <post>False</post>
+          <response_type>json</response_type>
+          <varname>role_imio</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>7</action_on_app_error>
+          <action_on_4xx>7</action_on_4xx>
+          <action_on_5xx>7</action_on_5xx>
+          <action_on_bad_data>7</action_on_bad_data>
+          <action_on_network_errors>7</action_on_network_errors>
+          <record_errors>False</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <condition>
+            <type>django</type>
+            <value>form_previous_status == "Checker si l'user existe d&#233;j&#224;"</value>
+          </condition>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="1">
+          <status>4</status>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>4</id>
+      <name>En attente de validation du deuxi&#232;me &#233;poux</name>
+      <colour>#f9f06b</colour>
+      <visibility />
+      <items>
+        <item type="register-comment" id="2">
+          <comment>Un email contenant la marche &#224; suivre a &#233;t&#233; envoy&#233; &#224; votre &#233;poux/&#233;pouse.</comment>
+          <level>info</level>
+        </item>
+        <item type="choice" id="1">
+          <label>Valider la d&#233;claration de mariage introduite par le premier &#233;poux</label>
+          <by>
+            <item slug="deuxieme-epoux" role_id="6d30d5351ea74851ae1cd7cab7727ae1">Deuxi&#232;me &#233;poux</item>
+          </by>
+          <status>5</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>5</id>
+      <name>En attente de traitement par l'administration</name>
+      <colour>#ffa348</colour>
+      <visibility />
+      <items>
+        <item type="register-comment" id="2">
+          <comment>{{session_user_display_name}} a valid&#233; la d&#233;claration de mariage fournie par {{form_user_display_name}}</comment>
+          <level>success</level>
+        </item>
+        <item type="sendmail" id="1">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+          <mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
+        </item>
+        <item type="commentable" id="5">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <varname>commentaire</varname>
+          <required>False</required>
+        </item>
+        <item type="choice" id="3">
+          <label>Accepter</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <status>8</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
+        </item>
+        <item type="choice" id="6">
+          <label>Ajouter un motif de refus</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <status>12</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
+        </item>
+        <item type="choice" id="7">
+          <label>Refuser</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <status>9</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>6</id>
+      <name>Erreur &#224; la cr&#233;ation du compte</name>
+      <colour>#e01b24</colour>
+      <visibility>
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="jump" id="1">
+          <status>2</status>
+          <mode>timeout</mode>
+          <timeout>43200</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>7</id>
+      <name>Erreur &#224; l'attribution du r&#244;le</name>
+      <colour>#e01b24</colour>
+      <visibility>
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="jump" id="1">
+          <status>3</status>
+          <mode>timeout</mode>
+          <timeout>43200</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>8</id>
+      <name>Accept&#233;</name>
+      <colour>#33d17a</colour>
+      <visibility />
+      <items>
+        <item type="sendmail" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <mail_template>indus-par-defaut-usager-acceptee</mail_template>
+        </item>
+        <item type="choice" id="1">
+          <label>Cl&#244;turer la demande</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <status>10</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>9</id>
+      <name>Rejet&#233;</name>
+      <colour>#e01b24</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item type="sendmail" id="1">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+          <mail_template>indus-par-defaut-agent-traitant-refusee</mail_template>
+        </item>
+        <item type="sendmail" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <mail_template>indus-par-defaut-usager-refusee</mail_template>
+        </item>
+        <item type="register-comment" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <comment>Cette demande a &#233;t&#233; trait&#233;e.</comment>
+          <level>warning</level>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>10</id>
+      <name>Termin&#233;</name>
+      <colour>#77767b</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items>
+        <item type="register-comment" id="1">
+          <comment>Cette demande a &#233;t&#233; trait&#233;e.</comment>
+          <level>success</level>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>11</id>
+      <name>Checker si l'user existe d&#233;j&#224;</name>
+      <colour>#ffffff</colour>
+      <visibility>
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="webservice_call" id="1">
+          <label>Checker si l'user existe</label>
+          <method>GET</method>
+          <url>{{ idp_url }}api/users/</url>
+          <qs_data>
+            <item>
+              <name>email__iexact</name>
+              <value>{{ form_var_courriel }}</value>
+            </item>
+          </qs_data>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>email</name>
+              <value>{{form_var_courriel}}</value>
+            </item>
+            <item>
+              <name>first_name</name>
+              <value>{{ form_var_prenom_epoux }}</value>
+            </item>
+            <item>
+              <name>last_name</name>
+              <value>{{ form_var_nom_epoux }}</value>
+            </item>
+            <item>
+              <name>username</name>
+              <value>{{ form_var_nom_epoux }}{{ form_var_prenom_epoux }}</value>
+            </item>
+            <item>
+              <name>zipcode</name>
+              <value>{{ form_var_code_postal_epoux }}</value>
+            </item>
+            <item>
+              <name>send_registration_email</name>
+              <value>True</value>
+            </item>
+            <item>
+              <name>birthdate</name>
+              <value>{{ form_var_date_de_naissance_epoux }}</value>
+            </item>
+            <item>
+              <name>country</name>
+              <value>Belgique</value>
+            </item>
+            <item>
+              <name>num_house</name>
+              <value>{{ form_var_ndeg_epoux }}</value>
+            </item>
+            <item>
+              <name>street</name>
+              <value>{{ form_var_rue_epoux }}</value>
+            </item>
+            <item>
+              <name>city</name>
+              <value>{{ form_var_localite_epoux }}</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <varname>authentic_search</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>:stop</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:stop</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <record_errors>True</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="2">
+          <status>2</status>
+          <condition>
+            <type>django</type>
+            <value>not form_workflow_data_authentic_search_response_results</value>
+          </condition>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="3">
+          <status>3</status>
+          <condition>
+            <type>django</type>
+            <value>form_workflow_data_authentic_search_response_results</value>
+          </condition>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>12</id>
+      <name>Motif refus</name>
+      <colour>#FFFFFF</colour>
+      <visibility />
+      <items>
+        <item type="form" id="1">
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <varname>motif</varname>
+          <hide_submit_button>True</hide_submit_button>
+          <include_in_form_history>False</include_in_form_history>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <type>text</type>
+                <label type="str">Motif du refus</label>
+                <required type="str">required</required>
+                <varname type="str">refus</varname>
+                <display_locations />
+                <display_mode type="str">plain</display_mode>
+                <id type="str">29d54e67-675c-49d1-ac08-6ef949fa1816</id>
+              </field>
+            </fields>
+          </formdef>
+        </item>
+        <item type="choice" id="2">
+          <label>Refuser la demande</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <status>9</status>
+          <require_confirmation>False</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
+        </item>
+      </items>
+    </status>
+  </possible_status>
+  <variables>
+    <formdef>
+      <name>-</name>
+      <fields>
+        <field>
+          <type>item</type>
+          <label type="str">R&#212;LE</label>
+          <required type="str">required</required>
+          <hint type="str">&lt;p&gt;Laisser "Deuxi&#232;me &#233;poux"&lt;/p&gt;</hint>
+          <varname type="str">role_a_attribuer</varname>
+          <display_locations />
+          <display_mode type="str">list</display_mode>
+          <data_source>
+            <type>imio_roles</type>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="str">150</image_desktop_size>
+          <image_mobile_size type="str">75</image_mobile_size>
+          <radio_orientation type="str">auto</radio_orientation>
+          <id type="str">1df522b0-92cc-4b14-bd18-b744a8dcdd2f</id>
+        </field>
+        <field>
+          <type>bool</type>
+          <label type="str">Proposer le carnet de mariage</label>
+          <required type="str">optional</required>
+          <varname type="str">carnet_mariage</varname>
+          <display_locations />
+          <id type="str">d5f981e5-63e7-4196-baf4-5c112b70d8e3</id>
+        </field>
+        <field>
+          <type>string</type>
+          <label type="str">Lien vers le r&#232;glement communal</label>
+          <required type="str">optional</required>
+          <varname type="str">reglement_communal</varname>
+          <display_locations />
+          <validation>
+            <type>url</type>
+          </validation>
+          <id type="str">2746fc5d-d4e4-4fe3-9bd1-00f16c0236c2</id>
+        </field>
+      </fields>
+    </formdef>
+  </variables>
+</workflow>

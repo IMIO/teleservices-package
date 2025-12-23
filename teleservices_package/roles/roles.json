@@ -9,6 +9,14 @@
             }
         },
         {
+            "slug": "deuxieme-epoux",
+            "name": "Deuxi\u00e8me \u00e9poux",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
             "slug": "recrutement-personnel-du-service-enseignement",
             "name": "Recrutement Personnel du service enseignement",
             "emails_to_members": true,

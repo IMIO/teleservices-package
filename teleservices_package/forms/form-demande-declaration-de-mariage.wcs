@@ -1,0 +1,864 @@
+<?xml version="1.0"?>
+<formdef id="504" url="">
+  <name>D&#233;claration de mariage</name>
+  <url_name>demande-declaration-de-mariage</url_name>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>true</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="declarations" category_id="115">D&#233;clarations</category>
+  <workflow slug="imio-declarations-de-mariage" workflow_id="339">iMio - D&#233;clarations de mariage</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es des futurs &#233;poux</label>
+      <post_conditions>
+        <post_condition>
+          <condition>
+            <type>django</type>
+            <value>form_var_date|date &lt;= today|date|add_days:194</value>
+          </condition>
+          <error_message>La date pr&#233;vue pour le mariage est trop lointaine pour continuer le formulaire.</error_message>
+        </post_condition>
+        <post_condition>
+          <condition>
+            <type>django</type>
+            <value>form_var_date|date &gt;= today|date|add_days:14</value>
+          </condition>
+          <error_message>La date pr&#233;vue pour le mariage est trop proche pour continuer le formulaire.</error_message>
+        </post_condition>
+      </post_conditions>
+      <id type="str">8678dd71-2f22-4f5b-9fe5-95154741cbb9</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;La l&amp;eacute;gislation belge impose plusieurs conditions pour pouvoir se marier :&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;l&amp;#39;&amp;acirc;ge minimum de 18 ans ;&lt;/li&gt;
+	&lt;li&gt;le consentement mutuel ;&lt;/li&gt;
+	&lt;li&gt;ne pas avoir de lien de parent&amp;eacute; en ligne directe ;&lt;/li&gt;
+	&lt;li&gt;ne pas &amp;ecirc;tre d&amp;eacute;j&amp;agrave; dans les liens du mariage ;&lt;/li&gt;
+	&lt;li&gt;ne pas &amp;ecirc;tre en cohabitation l&amp;eacute;gale avec une tierce personne ;&lt;/li&gt;
+	&lt;li&gt;la d&amp;eacute;claration de mariage doit &amp;ecirc;tre entr&amp;eacute;e dans un d&amp;eacute;lai de 14 jours avant le marige et sera valable 6 mois.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pour plus d&amp;#39;informations, rendez-vous sur le site &lt;a href="https://www.belgium.be/fr/famille/couple/mariage/formalites" rel="nofollow"&gt;belgium.be&lt;/a&gt;.&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">b384d486-81ab-4e12-8c53-1e00417670a0</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;a href="{{ form_option_reglement_communal }}" rel="nofollow"&gt;Retrouvez l&amp;#39;ensemble des informations/obligations &amp;agrave; propos de la d&amp;eacute;claration de mariage sur notre site internet.&lt;/a&gt;&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_reglement_communal</value>
+      </condition>
+      <display_locations />
+      <id type="str">ab5c4064-f9b3-4eeb-a65c-105be99b36fe</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Vos coordonn&#233;es (personne qui introduit la demande)</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">da522582-bcf1-4211-8a5e-76637f836b3d</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">729d79a3-a752-41a4-aa82-8da5d099ffe6</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">1553d5a2-7c7f-4991-912c-16948273563f</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de naissance</label>
+      <required type="str">required</required>
+      <varname type="str">date_de_naissance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_birthdate</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">5b45e92c-4aac-4f4d-a14c-d37c6c0992d7</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de Registre national</label>
+      <required type="str">required</required>
+      <varname type="str">registre_national</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_niss</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">8573ce13-301f-4421-abf7-c00d77b36418</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_street</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">ffb5f7d8-24d5-4565-8e13-7fada69b466d</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">N&#176;</label>
+      <required type="str">required</required>
+      <varname type="str">ndeg</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">301edf3e-efa0-435d-8fe8-c234d7d171b4</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">d579cd78-d8df-4d7e-afc9-92b00d478257</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">localite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_city</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">e8f71332-61ad-46fd-8b8a-90b958e7db74</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Futur.e &#233;poux.se</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">efbca6e0-d963-49ba-b15d-3bbdb1d35663</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">5862be40-de2a-4c2d-880b-6e99ad6841fb</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">0a7cd157-e43f-4477-84bf-b7b314cf1c95</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de naissance</label>
+      <required type="str">required</required>
+      <varname type="str">date_de_naissance_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">aee1dda5-068c-4a06-ad85-c33da88c7ad0</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de Registre national</label>
+      <required type="str">required</required>
+      <varname type="str">registre_national</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">c3f9e6e7-8c2b-4e45-be50-f8494c1e03ca</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">e8438c8c-8b18-4452-b03d-a67c6d54f405</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">N&#176;</label>
+      <required type="str">required</required>
+      <varname type="str">ndeg_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">24aadeb8-77e8-46ba-8f6b-0002b510f647</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">7b85ab9b-015b-4dc3-8729-a8f5aa497d95</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">localite_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">303907eb-4b54-42e3-b254-e6da23e1fa3c</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse email</label>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;Attention, saisissez correctement l'adresse mail de votre &#233;poux/&#233;pouse.&lt;br&gt;Il lui sera demand&#233; de valider les informations que vous avez introduites, des v&#233;rifications seront effectu&#233;es.&lt;/p&gt;</hint>
+      <varname type="str">courriel</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <id type="str">92fc0add-8a49-4c30-861b-5f70d74018b2</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Date projet&#233;e pour le mariage</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">e3fd242d-9401-4b2a-a8ed-28f2456c5f79</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date</label>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;Attention, la date s&#233;lectionn&#233;e ne peut &#234;tre un dimanche ou un jour f&#233;ri&#233;&lt;/p&gt;</hint>
+      <varname type="str">date</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">True</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">e5f4da95-0073-4c6e-90d3-960c7da43b0e</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Heure souhait&#233;e</label>
+      <required type="str">required</required>
+      <varname type="str">heure</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">505cada1-e173-4ac6-aa30-6905f4c7958b</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Coordonn&#233;es auxquelles vous joindre</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">d81634a2-8da8-4362-9d2d-2afd9d8d2265</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Mail</label>
+      <required type="str">required</required>
+      <varname type="str">mail</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">3431a228-2007-4e34-9b81-165ca77e8a7b</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">T&#233;l&#233;phone</label>
+      <required type="str">required</required>
+      <varname type="str">telephone</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_phone</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>phone</type>
+      </validation>
+      <id type="str">10ac288f-5f61-4997-ac05-77a6e87b57f1</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es des t&#233;moins</label>
+      <id type="str">2f841a00-d31d-4a63-8dbf-f406d435161c</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">T&#233;moins</label>
+      <extra_css_class type="str">newline</extra_css_class>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">c87959a6-3101-41d4-91aa-f7aa4d09cdfe</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong&gt;&amp;Acirc;g&amp;eacute;s de 18 ans minimum. Il n&amp;rsquo;est pas obligatoire de choisir des t&amp;eacute;moins.&lt;/strong&gt;&lt;br&gt;
+Pas plus de 4 t&amp;eacute;moins, pour les t&amp;eacute;moins non-belges, fournir une copie recto / verso de la carte d&amp;rsquo;identit&amp;eacute;.&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">b5500d92-76e7-4718-b016-b78b9233c24f</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">T&#233;moin</label>
+      <required type="str">optional</required>
+      <varname type="str">temoins</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-1</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="str">1</default_items_count>
+      <max_items type="str">4</max_items>
+      <add_element_label type="str">Ajouter un t&#233;moin</add_element_label>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">True</remove_button>
+      <remove_element_label type="str">Supprimer un t&#233;moin</remove_element_label>
+      <block_slug type="str">temoins</block_slug>
+      <id type="str">4fdde54a-1a71-413b-b68a-21520c3edb5c</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Informations concernant la c&#233;r&#233;monie </label>
+      <id type="str">59acf3d1-42b3-42a0-9032-d39025d7c383</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Lors de la c&#233;r&#233;monie, l'&#233;change des alliances se fera devant l'Officier de l'Etat Civil ?</label>
+      <required type="str">required</required>
+      <varname type="str">alliances</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">0638300c-69c3-4c1d-b508-c0376dc88c25</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">D&#233;sirez-vous un carnet de mariage ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_carnet_mariage</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">desirez_vous_un_carnet_de_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">82f9fd8b-a384-4400-b1ce-285bf79c6b81</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Avez-vous des enfants en commun ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_desirez_vous_un_carnet_de_mariage == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">enfants</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">5cf43f48-2dcc-4dfc-a321-34f0834397ce</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">D&#233;sirez-vous que votre/vos enfant(s) figure(nt) sur le carnet de mariage ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_enfants == "Oui" and form_var_desirez_vous_un_carnet_de_mariage == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">carnet_de_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">e0a1cafa-1a63-4f20-8fe2-0de98a56b7ee</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Enfants</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_carnet_de_mariage == "Oui" and form_var_desirez_vous_un_carnet_de_mariage == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">enfants</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">5</max_items>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">False</remove_button>
+      <remove_element_label type="str" />
+      <block_slug type="str">enfants</block_slug>
+      <id type="str">24039c33-8997-490b-97b0-46bb7201e8f5</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Nous d&#233;sirons recevoir des attestations de pr&#233;sence pour les personnes ci-apr&#232;s (liste non-exhaustive)</label>
+      <required type="str">optional</required>
+      <varname type="str">attestation_presence</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">30</max_items>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">True</remove_button>
+      <remove_element_label type="str" />
+      <block_slug type="str">attestations</block_slug>
+      <id type="str">72546403-b607-48fd-9581-8e4ff321b7ab</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Nous d&#233;sirons que l'Officier de l&#8217;&#233;tat civil personnalise la c&#233;r&#233;monie</label>
+      <required type="str">required</required>
+      <varname type="str">personnalisation</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Oui</item>
+        <item>Non</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">49abf647-8aa9-4f93-9d2d-18015382fede</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong&gt;Personnalisation du mariage&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Afin de mieux vous conna&amp;icirc;tre et de pouvoir personnaliser votre c&amp;eacute;r&amp;eacute;monie, nous vous serions reconnaissants de prendre quelques instants pour compl&amp;eacute;ter ce document et &amp;eacute;ventuellement ajouter quelques pr&amp;eacute;cisions si vous le souhaitez.&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_personnalisation == "Oui"</value>
+      </condition>
+      <display_locations />
+      <id type="str">f708df22-e907-4f57-9cb1-b36b9fdae1b8</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Date, lieu et circonstances de votre rencontre</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_personnalisation == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">date_lieu_et_circonstances_de_votre_rencontre</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">bf4f0d6f-96a2-4385-954e-88f62db1ba7a</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Anecdotes et souvenirs amusants</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_personnalisation == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">anecdotes_et_souvenirs_amusants</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">ad28ed3a-bcc3-4e6a-a4c6-af493d9a1426</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Loisirs personnels ou en commun</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_personnalisation == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">loisirs_personnels_ou_en_commun</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">95cbe5ed-ba4c-436c-96a8-ac316361a0df</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Souhaitez-vous &#233;voquer vos professions ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_personnalisation == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">souhaitez_vous_evoquer_vos_professions</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">2c6c8ecb-9115-4944-92b0-67bff29a3248</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Souhaitez vous &#233;voquer vos familles respectives ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_personnalisation == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">souhaitez_vous_evoquer_vos_familles_respectives</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">f68b1785-3eef-4ac6-a5a9-a576807370d3</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Avez-vous des enfants ? Si Oui, pr&#233;noms, noms, &#226;ges, traits de caract&#232;re</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_personnalisation == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">avez_vous_des_enfants_si_oui_prenoms_noms_ages_traits_de_caractere</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">0ab52b9f-94e6-4b0b-b48e-6d94f5eb08ef</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Commentaires personnels</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_personnalisation == "Oui"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">commentaires_personnels</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">3e899cfb-8c70-468d-8bf2-151bd003ecb2</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;L&amp;#39;Officier de l&amp;rsquo;&amp;eacute;tat civil vous remercie de votre collaboration. Ces donn&amp;eacute;es personnelles seront exclusivement trait&amp;eacute;es, par l&amp;#39;Officier&amp;nbsp;et/ou son/sa&amp;nbsp;secr&amp;eacute;taire, dans le respect du r&amp;egrave;glement g&amp;eacute;n&amp;eacute;ral relatif &amp;agrave; la protection des donn&amp;eacute;es.&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">165534b1-ab3c-4f52-85cf-05e78ec9198e</id>
+    </field>
+    <field>
+      <type>bool</type>
+      <label type="str">Je d&#233;clare &#234;tre compl&#233;tement d&#8217;accord avec la d&#233;claration de mariage et je manifeste express&#233;ment le v&#339;u d&#8217;&#233;pouser le mandataire</label>
+      <required type="str">required</required>
+      <varname type="str">je_declare_etre_completement_d_accord_avec_la_declaration_de_mariage_et_je_manifeste_expressement_le_voeu_d_epouser_le_mandataire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <id type="str">01cb26a7-b602-4894-b490-b61b621ef819</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role role_id="logged-users">logged-users</role>
+  </user-roles>
+  <roles />
+  <options>
+    <option varname="carnet_mariage" type="bool">true</option>
+    <option varname="reglement_communal" />
+    <option varname="role_a_attribuer">deuxieme-epoux</option>
+    <option varname="role_a_attribuer_display">Deuxi&#232;me &#233;poux</option>
+    <option varname="role_a_attribuer_structured" type="dict">
+      <uuid>6d30d5351ea74851ae1cd7cab7727ae1</uuid>
+      <name>Deuxi&#232;me &#233;poux</name>
+      <slug>deuxieme-epoux</slug>
+      <ou>default</ou>
+      <id>deuxieme-epoux</id>
+      <text>Deuxi&#232;me &#233;poux</text>
+    </option>
+  </options>
+  <custom_views />
+  <geolocations />
+  <required_authentication_contexts>
+    <method>fedict</method>
+  </required_authentication_contexts>
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <submission_sidebar_items>
+    <item>__default__</item>
+  </submission_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="_default" new-workflow="imio-declarations-de-mariage" timestamp="2025-06-30T11:55:22.141760+02:00">
+      <timestamp>2025-06-30T11:55:22.141760+02:00</timestamp>
+      <status-mapping>
+        <map old="just_submitted" new="1" />
+        <map old="new" new="1" />
+        <map old="rejected" new="1" />
+        <map old="accepted" new="1" />
+        <map old="finished" new="1" />
+      </status-mapping>
+    </migration>
+  </workflow-migrations>
+</formdef>

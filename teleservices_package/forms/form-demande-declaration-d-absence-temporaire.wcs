@@ -1,0 +1,468 @@
+<?xml version="1.0"?>
+<formdef id="503" url="">
+  <name>D&#233;claration d'absence temporaire</name>
+  <url_name>demande-declaration-d-absence-temporaire</url_name>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="declarations" category_id="115">D&#233;clarations</category>
+  <workflow slug="imio-par-defaut" workflow_id="97">iMio - Par d&#233;faut</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Informations g&#233;n&#233;rales</label>
+      <id type="str">709b1ad1-8c24-475c-b71c-1f4acad3f26a</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Informations g&#233;n&#233;rales </label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">a5941eb9-e756-433a-8e80-28ca6e65e1c6</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Lorsque vous quittez votre r&amp;eacute;sidence principale pour une dur&amp;eacute;e de plus de 3 mois, il vous est conseill&amp;eacute; de le signaler aupr&amp;egrave;s des autorit&amp;eacute;s communales afin d&amp;#39;&amp;eacute;viter une &amp;eacute;ventuelle proc&amp;eacute;dure de radiation d&amp;#39;office et la perte de ses droits civils, administratifs, sociaux et politiques.&lt;/p&gt;
+
+&lt;p&gt;Une personne qui n&amp;#39;est pas certaine de rester d&amp;eacute;finitivement &amp;agrave; l&amp;#39;&amp;eacute;tranger, peut rester inscrite dans les registres de population en Belgique comme personne &amp;quot;temporairement absente&amp;quot; de sa derni&amp;egrave;re adresse d&amp;#39;inscription, &amp;agrave; condition que d&amp;#39;autres membres du m&amp;eacute;nage y soient inscrits.&lt;/p&gt;
+
+&lt;p&gt;Certaines conditions pour pouvoir utiliser cette solution doivent &amp;ecirc;tre respect&amp;eacute;es :&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Disposer d&amp;#39;une r&amp;eacute;sidence principale que l&amp;#39;on peut r&amp;eacute;int&amp;eacute;grer &amp;agrave; tout moment ;&lt;/li&gt;
+	&lt;li&gt;Y conserver suffisamment d&amp;#39;int&amp;eacute;r&amp;ecirc;ts (soit un logement inoccup&amp;eacute; mais suffisamment &amp;eacute;quip&amp;eacute; et meubl&amp;eacute; pour pouvoir y vivre effectivement, soit un logement occup&amp;eacute; par des membres de son m&amp;eacute;nage) ;&lt;/li&gt;
+	&lt;li&gt;Qu&amp;#39;aucun autre m&amp;eacute;nage ne soit inscrit &amp;agrave; l&amp;#39;adresse entre-temps.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br&gt;
+L&amp;#39;absence temporaire ne peut durer plus d&amp;#39;une ann&amp;eacute;e. Ce d&amp;eacute;lai peut &amp;ecirc;tre renouvel&amp;eacute; une fois au moyen d&amp;#39;une nouvelle d&amp;eacute;claration. Le non-respect des conditions pr&amp;eacute;cit&amp;eacute;es peut entra&amp;icirc;ner une radiation d&amp;#39;office des registres de la population.&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exceptions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;L&amp;rsquo;absence temporaire peut, dans certains cas, &amp;ecirc;tre appliqu&amp;eacute;e sans limitation de dur&amp;eacute;e.&lt;/p&gt;
+
+&lt;p&gt;Cela concerne :&lt;/p&gt;
+
+&lt;p&gt;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; les personnes absentes pour des raisons de sant&amp;eacute; ;&lt;/p&gt;
+
+&lt;p&gt;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; les d&amp;eacute;tenues et d&amp;eacute;tenus ;&lt;/p&gt;
+
+&lt;p&gt;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; les mineures et mineurs d&amp;#39;&amp;acirc;ge plac&amp;eacute;s en institution ;&lt;/p&gt;
+
+&lt;p&gt;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; les militaires, polici&amp;egrave;res, policiers.. envoy&amp;eacute;s en mission &amp;agrave; l&amp;#39;&amp;eacute;tranger ;&lt;/p&gt;
+
+&lt;p&gt;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; les personnes signal&amp;eacute;es disparues depuis six mois ou plus;&lt;/p&gt;
+
+&lt;p&gt;&amp;middot; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; les travailleuses et travailleurs en mission &amp;agrave; l&amp;#39;&amp;eacute;tranger;&lt;/p&gt;
+
+&lt;p&gt;les &amp;eacute;tudiantes et &amp;eacute;tudiants qui s&amp;eacute;journent en dehors de leur r&amp;eacute;sidence principale.&lt;br&gt;
+&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bon &amp;agrave; savoir&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Lorsque le m&amp;eacute;nage dont fait partie une personne temporairement absente change de r&amp;eacute;sidence en Belgique au cours de cette absence, le changement de r&amp;eacute;sidence de cette personne est effectu&amp;eacute; en m&amp;ecirc;me temps que celui de son m&amp;eacute;nage.&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">0e10de84-137d-4c89-a0a5-20a8684c1ca8</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;a href="https://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=fr&amp;amp;la=F&amp;amp;cn=1992071631&amp;amp;table_name=loi#text" rel="nofollow"&gt;Extrait de l&amp;#39;arr&amp;ecirc;t&amp;eacute; royal du 16 juillet 1992 relatif aux registres de population et au registre des &amp;eacute;trangers.&lt;/a&gt;&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">62c10131-6a63-407a-805e-44ae1bff4ee7</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Coordonn&#233;es du demandeur</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">46d9f5df-800a-4f99-84f1-ed28366bb5de</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">d2027457-0055-48fb-b7e0-cddf00cbde0e</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">78a8fe83-cba8-48d4-ba31-987485f969b4</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de naissance</label>
+      <required type="str">required</required>
+      <varname type="str">date_de_naissance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_birthdate</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">1bb39fca-ab9b-4a43-8fe8-4f7d5c027382</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de registre national</label>
+      <required type="str">required</required>
+      <varname type="str">numero_de_registre_national</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_niss</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">dc709512-9443-42ea-a7c8-2232e10adb89</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">R&#233;sidence principale </label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">07792fe6-b639-47d9-b686-5bd80d6a5328</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_street</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">654a5796-c015-4b96-a966-5b0e2a1be319</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de boite</label>
+      <required type="str">required</required>
+      <varname type="str">numero_de_boite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">ba3ab1ce-a004-4808-bbec-aafd405e3e25</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">9650d177-aec4-41d0-8bb2-fc1a84bc9a6f</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">localite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_city</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">a84581d9-33d8-4516-9901-0e9f10d3e5b3</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">d&#233;clare quitter temporairement sa r&#233;sidence principale susmentionn&#233;e et demande  l&#8217;enregistrement de cette absence temporaire dans les registres de la population pour le motif  suivant* :</label>
+      <required type="str">required</required>
+      <varname type="str">declaration</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">5029c36a-c2e0-4eec-ae00-46e69549c64b</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;*Le r&#232;glement communal peut attribuer un num&#233;ro de bo&#238;te distinct pour les personnes inscrites en adresse de r&#233;f&#233;rence &#224; l'adresse du centre  public d'action sociale&lt;/p&gt;</label>
+      <display_locations />
+      <id type="str">7e7af7fb-1b30-4671-94a9-f554ac8dbbcb</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">R&#233;sidence temporaire </label>
+      <id type="str">15b9ad37-8baf-4af2-a3de-ab0480ab3898</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">R&#233;sidence temporaire</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">75c7efb1-b0f8-4f43-8a48-9d79b8bed945</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">cb687d2d-27c8-4837-b7af-3b3a2c815979</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de boite</label>
+      <required type="str">required</required>
+      <varname type="str">numero_de_boite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">cd619652-aa5d-4a3f-8604-2ad90846f3c6</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">c87a00a4-2458-4abe-b2d6-a6f6167507c2</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">localite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">0dab3efe-5e33-490d-8478-9e140510d4c8</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pays</label>
+      <required type="str">required</required>
+      <varname type="str">pays</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">328320f9-ab97-4e18-8f9d-7b3a757f44e0</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date d'entr&#233;e en vigueur</label>
+      <required type="str">required</required>
+      <varname type="str">date_d_entree_en_vigueur</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">dad815f6-5332-43f3-b716-4bee1827d148</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de fin pr&#233;vue</label>
+      <required type="str">required</required>
+      <varname type="str">date_de_fin_prevue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">96c50e31-9d88-46c4-8254-e46e27a4bef2</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Veuillez fournir des pi&#232;ces justificatives &#224; titre de preuve*</label>
+      <required type="str">required</required>
+      <varname type="str">justificatif</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">905ad42b-58f0-40fd-976c-b262b8b0a99b</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Le cas &#233;ch&#233;ant, la pr&#233;sente d&#233;claration vaut &#233;galement pour les membres suivants du m&#233;nage**</label>
+      <required type="str">optional</required>
+      <varname type="str">membres_menage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="int">1</default_items_count>
+      <max_items type="int">10</max_items>
+      <label_display type="str">normal</label_display>
+      <remove_button type="bool">False</remove_button>
+      <remove_element_label type="str" />
+      <block_slug type="str">declaration_d_absence_temporaire</block_slug>
+      <id type="str">9945a764-d364-444f-9001-e70d8dc478c9</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;*Si l&#8217;article 18, &#167;3 de l&#8217;arr&#234;t&#233; royal du 16 juillet 1992 relatif aux registres de la population et au registre des &#233;trangers est d&#8217;application, il faut toujours  communiquer le motif et joindre les pi&#232;ces justificatives &#224; titre de preuve (voir le verso du pr&#233;sent formulaire). Dans tous les autres cas, cela est  fortement recommand&#233;.&lt;/p&gt;</label>
+      <display_locations />
+      <id type="str">0ee2b8aa-3ada-4d48-a447-6b2ec5226613</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;**Seule la personne de r&#233;f&#233;rence du m&#233;nage peut faire la d&#233;claration pour l&#8217;ensemble du m&#233;nage. Un membre adulte du m&#233;nage ne peut faire cette  d&#233;claration qu&#8217;en ce qui le concerne et un membre mineur du m&#233;nage ne peut faire cette d&#233;claration que moyennant l&#8217;accord expr&#232;s au pr&#233;sent  formulaire de la personne qui exerce l&#8217;autorit&#233; parentale.&lt;/p&gt;</label>
+      <display_locations />
+      <id type="str">1d46d7d0-725d-44f4-af39-20fa51fe8d9c</id>
+    </field>
+  </fields>
+  <options />
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <submission_sidebar_items>
+    <item>__default__</item>
+  </submission_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="_default" new-workflow="imio-paiement" timestamp="2025-04-22T14:39:04.791927+02:00">
+      <timestamp>2025-04-22T14:39:04.791927+02:00</timestamp>
+      <status-mapping />
+    </migration>
+    <migration old-workflow="imio-paiement" new-workflow="imio-par-defaut" timestamp="2025-07-02T09:39:12.790963+02:00">
+      <timestamp>2025-07-02T09:39:12.790963+02:00</timestamp>
+      <status-mapping>
+        <map old="1" new="1" />
+        <map old="2" new="2" />
+        <map old="3" new="just_submitted" />
+        <map old="4" new="just_submitted" />
+        <map old="5" new="just_submitted" />
+        <map old="6" new="just_submitted" />
+        <map old="7" new="just_submitted" />
+        <map old="8" new="just_submitted" />
+        <map old="9" new="just_submitted" />
+        <map old="10" new="just_submitted" />
+        <map old="11" new="just_submitted" />
+        <map old="12" new="just_submitted" />
+        <map old="13" new="just_submitted" />
+        <map old="14" new="just_submitted" />
+      </status-mapping>
+    </migration>
+  </workflow-migrations>
+</formdef>

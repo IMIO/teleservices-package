@@ -1,0 +1,589 @@
+<?xml version="1.0"?>
+<formdef id="649" url="">
+  <name>D&#233;claration de naissance</name>
+  <url_name>demande-declaration-de-naissance</url_name>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>true</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="declarations" category_id="115">D&#233;clarations</category>
+  <workflow slug="imio-declarations-de-naissance" workflow_id="392">iMio - D&#233;clarations de naissance</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es du parent</label>
+      <id type="str">2d509011-1761-4f92-b2d7-d6af96c30514</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Coordonn&#233;es du parent introduisant cette demande</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">ace114fd-3f42-43eb-a7e5-b78e4c051aa9</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">6aec6c52-5522-494a-99a3-8ee0006b18e0</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">42013dc7-6b79-4a54-be97-71904de22876</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de naissance</label>
+      <required type="str">required</required>
+      <varname type="str">date_de_naissance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_birthdate</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">c53f736f-cca8-4d2d-8351-ea72e907c611</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de registre national</label>
+      <required type="str">required</required>
+      <varname type="str">numero_de_registre_national</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_niss</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">33af14f8-a140-4b47-b89a-265e90567c3b</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-3</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_street</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">c6075c7a-dbc2-48c9-87a0-b8e9b26d3f70</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro</label>
+      <required type="str">required</required>
+      <varname type="str">numero_porte</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_num_house</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[0-9]*</value>
+      </validation>
+      <id type="str">702be212-9e65-458c-8d47-d171988be1df</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Bo&#238;te</label>
+      <required type="str">optional</required>
+      <varname type="str">boite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_num_box</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">8a80e049-c816-4a48-82a0-4d9b04440c7f</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[0-9]*</value>
+      </validation>
+      <id type="str">65c0859b-ec10-4a9c-9394-2d95130bf279</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Ville</label>
+      <required type="str">required</required>
+      <varname type="str">ville</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_city</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">a2308539-d23c-44b6-bf07-dbaa321a441c</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de GSM</label>
+      <required type="str">optional</required>
+      <varname type="str">gsm</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <type>user</type>
+        <value>_phone</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">a6d1e4cc-1604-4519-a8ca-03b6bc17a238</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse e-mail</label>
+      <required type="str">optional</required>
+      <varname type="str">email</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">72e4a2a5-f4fd-4d9f-8748-a477ca75e76a</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Si vos informations personnelles ont chang&amp;eacute;, vous devez changer votre signal&amp;eacute;tique dans vos pr&amp;eacute;f&amp;eacute;rences personnelles (&lt;a href="{{ idp_account_url }}edit/"&gt;page de profil&lt;/a&gt;) avant de r&amp;eacute;aliser votre demande. Merci.&lt;/p&gt;</label>
+      <display_locations />
+      <id type="str">241f4610-7cef-4217-9d95-e5fead4d8aae</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Votre situation :</label>
+      <required type="str">required</required>
+      <varname type="str">situation_parent1</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Vous &#234;tes un couple mari&#233;</item>
+        <item>Vous avez &#233;tabli une reconnaissance pr&#233;alable de paternit&#233;</item>
+        <item>Vous &#234;tes une m&#232;re c&#233;libataire</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">vertical</radio_orientation>
+      <id type="str">33817dc9-2152-4224-b8e4-9e708d25ebdf</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Veuillez nous fournir les documents suivants :</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_situation_parent1 in "Vous &#234;tes un couple mari&#233;, Vous avez &#233;tabli une reconnaissance pr&#233;alable de paternit&#233;, Vous &#234;tes une m&#232;re c&#233;libataire"</value>
+      </condition>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">5fcdb909-5ac1-4eab-b657-1af61cb747f0</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">L'avis de naissance fourni par la maternit&#233;</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_situation_parent1 in "Vous &#234;tes un couple mari&#233;, Vous avez &#233;tabli une reconnaissance pr&#233;alable de paternit&#233;, Vous &#234;tes une m&#232;re c&#233;libataire"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">avis_de_naissance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">213a599b-6e4a-4c7e-8498-b386bb1541c8</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Le carnet de mariage</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_situation_parent1 == "Vous &#234;tes un couple mari&#233;"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">le_carnet_de_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">e616793e-adf8-4a7f-8544-78d14d517f7f</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">L'acte de reconnaissance pr&#233;natale</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_situation_parent1 == "Vous avez &#233;tabli une reconnaissance pr&#233;alable de paternit&#233;"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">acte_de_reconnaissance_prenatale</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">c054020f-d0f3-4ad4-a7d4-2b8ad7f63b63</id>
+    </field>
+    <field>
+      <type>bool</type>
+      <label type="str">Il s'agit du premier enfant en commun du couple</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_situation_parent1 in "Vous &#234;tes un couple mari&#233;, Vous avez &#233;tabli une reconnaissance pr&#233;alable de paternit&#233;"</value>
+      </condition>
+      <required type="str">optional</required>
+      <varname type="str">premier_enfant_en_commun</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <id type="str">1962ac55-442f-4e65-998e-86e0e163d04b</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es du deuxi&#232;me parent</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_situation_parent1 != "Vous &#234;tes une m&#232;re c&#233;libataire"</value>
+      </condition>
+      <id type="str">097eb6b5-b6a9-423e-91f7-e8b98aa024bc</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">c8a084f8-cc11-49ef-bd94-fb4d60a0d43f</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">5dd824bc-a121-4c91-83f9-857849632af2</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de naissance</label>
+      <required type="str">required</required>
+      <varname type="str">date_de_naissance_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">33354f58-64e0-4135-a0df-9f453994d01d</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Num&#233;ro de registre national</label>
+      <required type="str">required</required>
+      <varname type="str">numero_de_registre_national_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>nrn-be</type>
+      </validation>
+      <id type="str">21bc73f3-f5c9-45b8-8251-a108edb89b02</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">Adresse e-mail</label>
+      <required type="str">required</required>
+      <varname type="str">courriel</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">f6b8c7d7-9c1e-4ef6-8093-869218c6f760</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Rue</label>
+      <required type="str">required</required>
+      <varname type="str">rue_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">d0be8bad-b74f-4b0c-bb6f-5f363e750fb0</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">N&#176;</label>
+      <required type="str">required</required>
+      <varname type="str">ndeg_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bd574966-1f74-4e25-8f6b-9a79aecdac32</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Code postal</label>
+      <required type="str">required</required>
+      <varname type="str">code_postal_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">7fb205f2-2115-4a82-a66d-41aec93a0178</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Localit&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">localite_epoux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">92804f5e-615d-4e64-b83e-259c49905b00</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Coordonn&#233;es de l'enfant</label>
+      <post_conditions>
+        <post_condition>
+          <condition>
+            <type>django</type>
+            <value>form_var_date_de_naissance_enfant|add_days:15 &gt; today</value>
+          </condition>
+          <error_message>La date pr&#233;vue ne respecte pas le d&#233;lai de 15 jours.</error_message>
+        </post_condition>
+      </post_conditions>
+      <id type="str">61112247-9e68-4aeb-89af-3e73933c62af</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">Coordonn&#233;es de l'enfant</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">bb6592b9-bc83-403f-89c8-c01f7d221dc9</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nom(s)</label>
+      <required type="str">required</required>
+      <varname type="str">noms</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">d223e50b-49d5-41ed-9c16-dc78dbe7eb68</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom(s)</label>
+      <required type="str">required</required>
+      <varname type="str">prenoms</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">d024f7fc-2de3-417a-bea0-b1924c9ce419</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date de naissance</label>
+      <required type="str">required</required>
+      <varname type="str">date_de_naissance_enfant</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">False</date_in_the_past>
+      <date_can_be_today type="bool">False</date_can_be_today>
+      <id type="str">3a916980-fc23-42a1-bde7-d46940fefb42</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role role_id="logged-users">logged-users</role>
+  </user-roles>
+  <roles />
+  <options>
+    <option varname="reglement_communal" />
+    <option varname="role_a_attribuer">deuxieme-epoux</option>
+    <option varname="role_a_attribuer_display">Deuxi&#232;me &#233;poux</option>
+    <option varname="role_a_attribuer_structured" type="dict">
+      <uuid>6d30d5351ea74851ae1cd7cab7727ae1</uuid>
+      <name>Deuxi&#232;me &#233;poux</name>
+      <slug>deuxieme-epoux</slug>
+      <ou>default</ou>
+      <id>deuxieme-epoux</id>
+      <text>Deuxi&#232;me &#233;poux</text>
+    </option>
+  </options>
+  <custom_views />
+  <geolocations />
+  <required_authentication_contexts>
+    <method>fedict</method>
+  </required_authentication_contexts>
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <submission_sidebar_items>
+    <item>__default__</item>
+  </submission_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="_default" new-workflow="imio-declarations-de-naissance" timestamp="2025-12-22T11:03:39.293714+01:00">
+      <timestamp>2025-12-22T11:03:39.293714+01:00</timestamp>
+      <status-mapping />
+    </migration>
+  </workflow-migrations>
+</formdef>
