@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<block id="66" url="https://demo-formulaires.guichet-citoyen.be/backoffice/forms/blocks/66/">
+  <name>iMio - Attestations mariage</name>
+  <slug>attestations</slug>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Nom</label>
+      <required type="str">required</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bf5ea7683d-b508-4d6d-9e0e-d474cba5ee5d</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Pr&#233;nom</label>
+      <required type="str">required</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bfebf366cd-502c-439b-ba16-1d817a179078</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Lien de parent&#233;</label>
+      <required type="str">required</required>
+      <varname type="str">lien_de_parente</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bfd90669a3-f06e-4a05-a016-fec3d5ed4287</id>
+    </field>
+  </fields>
+</block>
