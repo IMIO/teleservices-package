@@ -4,15 +4,17 @@
   <slug>imio-paiement</slug>
   <roles>
     <role id="_receiver">Destinataire</role>
-  </roles><possible_status>
+  </roles>
+  <possible_status>
     <status>
       <id>1</id>
       <name>Juste envoy&#233;</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility>
-        <role>_receiver</role>
-      </visibility><items>
-        <item id="1" type="set-backoffice-fields">
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="set-backoffice-fields" id="1">
           <label>Calcul du prix</label>
           <fields>
             <field>
@@ -20,61 +22,77 @@
               <value>{{ form_option_prix|decimal }}</value>
             </field>
           </fields>
-        </item><item id="2" type="jump">
+        </item>
+        <item type="jump" id="2">
           <status>2</status>
           <condition>
             <type>django</type>
             <value>form_var_wf_total != "0.00"</value>
-          </condition><set_marker_on_status>False</set_marker_on_status>
+          </condition>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>2</id>
       <name>Paiement en ligne</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="webservice_call">
+        <item type="webservice_call" id="1">
           <label>paiement en ligne</label>
+          <method>POST</method>
           <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <qs_data>
             <item>
               <name>regie_id</name>
               <value>{{form_option_regie_paiement_raw}}</value>
             </item>
-          </qs_data><method>POST</method>
+          </qs_data>
           <post>False</post>
           <post_data>
             <item>
               <name>url</name>
               <value>{{form_url}}</value>
-            </item><item>
+            </item>
+            <item>
               <name>display_name</name>
               <value>{{form_display_name}}</value>
-            </item><item>
+            </item>
+            <item>
               <name>amount</name>
               <value>{{form_var_wf_total}}</value>
             </item>
-          </post_data><response_type>json</response_type>
+          </post_data>
+          <response_type>json</response_type>
           <varname>transaction_info</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
           <action_on_app_error>14</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>:stop</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>True</notify_on_errors>
-          <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
-        </item><item id="2" type="register-comment">
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>True</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="register-comment" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
           <comment>&lt;p&gt;L'article se trouve dans votre panier.&lt;br&gt;
 Veuillez r&#233;gler votre commande.&lt;/p&gt;
 &lt;p&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;Acc&#233;der au panier&lt;/a&gt;
 &lt;/p&gt;</comment>
+        </item>
+        <item type="displaymsg" id="3">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item id="3" type="displaymsg">
           <message>&lt;p&gt;L'article se trouve dans votre panier.&lt;br&gt;
 Veuillez r&#233;gler votre commande.&lt;/p&gt;
 &lt;p&gt;
@@ -82,115 +100,145 @@ Veuillez r&#233;gler votre commande.&lt;/p&gt;
 &lt;/p&gt;</message>
           <level>info</level>
           <position>top</position>
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
-        </item><item id="4" type="jump">
+        </item>
+        <item type="jump" id="4">
           <status>3</status>
+          <mode>trigger</mode>
           <trigger>cancelled</trigger>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="5" type="jump">
+        </item>
+        <item type="jump" id="5">
           <status>4</status>
+          <mode>trigger</mode>
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-      </items>
-    </status><status>
-      <id>3</id>
-      <name>Paiement annul&#233;</name>
-      <colour>999999</colour>
-      <visibility />
-      <items />
-    </status><status>
-      <id>4</id>
-      <name>Paiement re&#231;u</name>
-      <colour>00FF66</colour>
-      <visibility />
-      <items>
-        <item id="1" type="sendmail">
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to><mail_template>indus-par-defaut-avec-paiement-usager-paiement-recu</mail_template>
-          <subject>Paiement re&#231;u</subject>
-        </item><item id="2" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
-        </item><item id="3" type="jump">
-          <status>5</status>
+        <item type="jump" id="6">
+          <status>13</status>
+          <mode>timeout</mode>
+          <timeout>2678400</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
-      <id>5</id>
-      <name>En cours de traitement</name>
-      <colour>0099FF</colour>
+    </status>
+    <status>
+      <id>3</id>
+      <name>Paiement annul&#233;</name>
+      <colour>#999999</colour>
+      <visibility />
+      <items />
+    </status>
+    <status>
+      <id>4</id>
+      <name>Paiement re&#231;u</name>
+      <colour>#00FF66</colour>
       <visibility />
       <items>
-        <item id="1" type="choice">
+        <item type="sendmail" id="1">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <mail_template>indus-par-defaut-avec-paiement-usager-paiement-recu</mail_template>
+          <subject>Paiement re&#231;u</subject>
+        </item>
+        <item type="sendmail" id="2">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+          <mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
+        </item>
+        <item type="jump" id="3">
+          <status>5</status>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+    </status>
+    <status>
+      <id>5</id>
+      <name>En cours de traitement</name>
+      <colour>#0099FF</colour>
+      <visibility />
+      <items>
+        <item type="choice" id="1">
           <label>Refuser</label>
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><status>11</status>
+          </by>
+          <status>11</status>
           <require_confirmation>False</require_confirmation>
           <backoffice_info_text>&lt;p&gt;R&amp;eacute;serv&amp;eacute;e &amp;agrave; l'agent traitant, cette action l'invite a compl&amp;eacute;ter un formulaire afin de justifier la raison du refus. Le contenu de ce formulaire sera envoy&amp;eacute; par courrier &amp;eacute;lectronique &amp;agrave; l'usager.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item id="2" type="choice">
+          <allow_as_mass_action>True</allow_as_mass_action>
+        </item>
+        <item type="choice" id="2">
           <label>Traiter</label>
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><status>12</status>
+          </by>
+          <status>12</status>
           <require_confirmation>False</require_confirmation>
           <backoffice_info_text>&lt;p&gt;Indiquer la demande comme ayant &amp;eacute;t&amp;eacute; prise en charge et trait&amp;eacute;e. L'usager recevra un courrier &amp;eacute;lectronique lui indiquant que sa demande a &amp;eacute;t&amp;eacute; finalis&amp;eacute;e.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>6</id>
       <name>Remboursement</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="webservice_call">
+        <item type="webservice_call" id="1">
           <label>remboursement</label>
+          <method>POST</method>
           <url>{{portal_url}}api/lingo/cancel-transaction</url>
           <qs_data>
             <item>
               <name>transaction_id</name>
               <value>{{transaction_id}}</value>
-            </item><item>
+            </item>
+            <item>
               <name>amount</name>
               <value>{{form_var_total}}</value>
             </item>
-          </qs_data><method>POST</method>
+          </qs_data>
           <post>False</post>
           <response_type>json</response_type>
           <varname>cancel_operation</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
           <action_on_app_error>7</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>:stop</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>False</notify_on_errors>
-          <record_on_errors>False</record_on_errors>
           <record_errors>False</record_errors>
-        </item><item id="2" type="jump">
+          <record_on_errors>False</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="2">
           <status>9</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>7</id>
       <name>Demande d'informations pour le remboursement</name>
-      <colour>0099FF</colour>
+      <colour>#0099FF</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><subject>Demande d'information pour le remboursement de votre commande de {{form_name}}</subject>
+          </to>
+          <subject>Demande d'information pour le remboursement de votre commande de {{form_name}}</subject>
           <body>Bonjour {{form_user_display_name}},
 
 Suite au refus de votre demande de {{form_name}} d'un montant de {{form_var_total}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions
@@ -198,106 +246,133 @@ Suite au refus de votre demande de {{form_name}} d'un montant de {{form_var_tota
 Attention, si vous avez pay&#233; &#224; l'aide d'une carte de cr&#233;dit, merci d'indiquer un num&#233;ro de compte IBAN classique.
 
 Bien &#224; vous,</body>
-        </item><item id="2" type="displaymsg">
+        </item>
+        <item type="displaymsg" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
           <message>Merci de compl&#233;ter les informations bancaires n&#233;cessaires au remboursement de votre demande.
 Le remboursement se fera dans les plus brefs d&#233;lais sur le compte bancaire renseign&#233; par vos soins en bas de cette page.
 Attention, si vous aviez pay&#233; par carte de cr&#233;dit, veuillez indiquer un num&#233;ro de carte de d&#233;bit classique.
 Exemple de num&#233;ro IBAN : BE1234567890</message>
           <position>top</position>
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
-        </item><item id="3" type="form">
+        </item>
+        <item type="form" id="3">
           <by>
             <item role_id="_submitter">_submitter</item>
-          </by><varname>info_remboursement</varname>
+          </by>
+          <varname>info_remboursement</varname>
+          <hide_submit_button>True</hide_submit_button>
+          <include_in_form_history>False</include_in_form_history>
           <formdef>
             <name>-</name>
             <fields>
               <field>
+                <type>string</type>
                 <label type="str">num compte IBAN</label>
-                <type type="str">string</type>
-                <required type="bool">True</required>
+                <required type="str">required</required>
                 <varname type="str">iban</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
+                  <item>validation</item>
+                  <item>summary</item>
+                </display_locations>
+                <prefill>
                   <type>none</type>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill>
+                <anonymise type="str">final</anonymise>
                 <id type="str">1</id>
-              </field><field>
+              </field>
+              <field>
+                <type>string</type>
                 <label type="str">Nom</label>
-                <type type="str">string</type>
-                <required type="bool">True</required>
+                <required type="str">required</required>
                 <varname type="str">nom</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
+                  <item>validation</item>
+                  <item>summary</item>
+                </display_locations>
+                <prefill>
                   <type>none</type>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill>
+                <anonymise type="str">final</anonymise>
                 <id type="str">2</id>
-              </field><field>
+              </field>
+              <field>
+                <type>string</type>
                 <label type="str">Rue et Num&#233;ro</label>
-                <type type="str">string</type>
-                <required type="bool">True</required>
+                <required type="str">required</required>
                 <varname type="str">adresse1</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
+                  <item>validation</item>
+                  <item>summary</item>
+                </display_locations>
+                <prefill>
                   <type>none</type>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill>
+                <anonymise type="str">final</anonymise>
                 <id type="str">3</id>
-              </field><field>
+              </field>
+              <field>
+                <type>string</type>
                 <label type="str">Code postal et Localit&#233;</label>
-                <type type="str">string</type>
-                <required type="bool">True</required>
+                <required type="str">required</required>
                 <varname type="str">adresse2</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
+                  <item>validation</item>
+                  <item>summary</item>
+                </display_locations>
+                <prefill>
                   <type>none</type>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill>
+                <anonymise type="str">final</anonymise>
                 <id type="str">4</id>
-              </field><field>
+              </field>
+              <field>
+                <type>item</type>
                 <label type="str">Pays</label>
-                <type type="str">item</type>
-                <required type="bool">True</required>
+                <required type="str">required</required>
                 <varname type="str">pays</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
+                  <item>validation</item>
+                  <item>summary</item>
+                </display_locations>
+                <prefill>
                   <type>none</type>
-                </prefill><display_mode type="str">list</display_mode>
+                </prefill>
+                <anonymise type="str">no</anonymise>
+                <display_mode type="str">list</display_mode>
                 <items />
                 <data_source>
                   <type>pays</type>
-                </data_source><in_filters type="bool">False</in_filters>
-                <anonymise type="bool">False</anonymise>
+                </data_source>
+                <in_filters type="bool">False</in_filters>
                 <display_disabled_items type="bool">False</display_disabled_items>
+                <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+                <image_desktop_size type="int">150</image_desktop_size>
+                <image_mobile_size type="int">75</image_mobile_size>
+                <radio_orientation type="str">auto</radio_orientation>
                 <id type="str">5</id>
               </field>
             </fields>
           </formdef>
-        </item><item id="4" type="jumponsubmit">
+        </item>
+        <item type="jumponsubmit" id="4">
           <status>8</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>8</id>
       <name>Demande &#224; rembourser</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_receiver">_receiver</item>
-          </to><subject>{{info_remboursement_nom}} / {{ form_number }} : Demande de remboursement ({{ form_name }})</subject>
+          </to>
+          <subject>{{info_remboursement_nom}} / {{ form_number }} : Demande de remboursement ({{ form_name }})</subject>
           <body>Bonjour,
 
 Un formulaire de remboursement vient d'&#234;tre compl&#233;t&#233; par le citoyen.
@@ -322,263 +397,361 @@ Pour toute autre information, vous pouvez vous connecter au backoffice :
 `Consulter la demande du citoyen &lt;{{ form_url_backoffice }}&gt;`_
 
 Bien &#224; vous,</body>
-        </item><item id="2" type="choice">
+        </item>
+        <item type="choice" id="2">
           <label>Cloturer le remboursement</label>
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><status>9</status>
+          </by>
+          <status>9</status>
           <require_confirmation>False</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>9</id>
       <name>Demande rembours&#233;e</name>
-      <colour>0099FF</colour>
+      <colour>#0099FF</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><mail_template>indus-usager-remboursement-effectue</mail_template>
+          </to>
+          <mail_template>indus-usager-remboursement-effectue</mail_template>
           <subject>Demande de remboursement effectu&#233;e</subject>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>10</id>
       <name>Refus</name>
-      <colour>FF0000</colour>
+      <colour>#FF0000</colour>
       <visibility />
       <items>
-        <item id="1" type="register-comment">
+        <item type="register-comment" id="1">
           <comment>{{refus_var_objet}}
 
 {{refus_var_corps}}</comment>
-        </item><item id="2" type="sendmail">
+        </item>
+        <item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
+          </to>
+          <mail_template>indus-par-defaut-usager-refusee</mail_template>
           <subject>{{refus_var_objet}}</subject>
           <body>{{refus_var_corps}}</body>
-        </item><item id="3" type="jump">
+        </item>
+        <item type="jump" id="3">
           <status>6</status>
+          <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>11</id>
       <name>Formulaire</name>
-      <colour>999999</colour>
+      <colour>#999999</colour>
       <visibility>
-        <role>_receiver</role>
-      </visibility><items>
-        <item id="1" type="form">
+        <role>__restricted__</role>
+      </visibility>
+      <items>
+        <item type="form" id="1">
           <by>
             <item role_id="_receiver">_receiver</item>
-          </by><varname>refus</varname>
+          </by>
+          <varname>refus</varname>
+          <hide_submit_button>True</hide_submit_button>
+          <include_in_form_history>False</include_in_form_history>
           <formdef>
             <name>-</name>
             <fields>
               <field>
+                <type>title</type>
                 <label type="str">Motif du refus</label>
-                <type type="str">title</type>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><id type="str">1</id>
-              </field><field>
+                  <item>validation</item>
+                  <item>summary</item>
+                </display_locations>
+                <id type="str">1</id>
+              </field>
+              <field>
+                <type>string</type>
                 <label type="str">Objet du mail</label>
-                <type type="str">string</type>
-                <required type="bool">True</required>
+                <required type="str">required</required>
                 <varname type="str">objet</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
+                  <item>validation</item>
+                  <item>summary</item>
+                </display_locations>
+                <prefill>
                   <type>none</type>
-                </prefill><anonymise type="bool">True</anonymise>
+                </prefill>
+                <anonymise type="str">final</anonymise>
                 <id type="str">2</id>
-              </field><field>
+              </field>
+              <field>
+                <type>text</type>
                 <label type="str">Corps du mail</label>
-                <type type="str">text</type>
-                <required type="bool">True</required>
+                <required type="str">required</required>
                 <varname type="str">corps</varname>
                 <display_locations>
-                  <display_location>validation</display_location>
-                  <display_location>summary</display_location>
-                </display_locations><prefill>
+                  <item>validation</item>
+                  <item>summary</item>
+                </display_locations>
+                <prefill>
                   <type>none</type>
-                </prefill><pre type="bool">True</pre>
+                </prefill>
+                <anonymise type="str">final</anonymise>
+                <display_mode type="str">plain</display_mode>
                 <id type="str">3</id>
               </field>
             </fields>
           </formdef>
-        </item><item id="2" type="jumponsubmit">
+        </item>
+        <item type="jumponsubmit" id="2">
           <status>10</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>12</id>
       <name>Trait&#233;</name>
-      <colour>00FF66</colour>
+      <colour>#00FF66</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item id="1" type="sendmail">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
-          </to><mail_template>indus-par-defaut-usager-acceptee</mail_template>
+          </to>
+          <mail_template>indus-par-defaut-usager-acceptee</mail_template>
           <subject>Inscription valid&#233;e</subject>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>13</id>
       <name>Supprimer du panier</name>
-      <colour>FFFFFF</colour>
+      <colour>#FFFFFF</colour>
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item id="1" type="webservice_call">
+        <item type="webservice_call" id="1">
           <label>Supprimer du panier</label>
-          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <method>POST</method>
+          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
           <post>False</post>
           <post_data>
             <item>
               <name>basket_item_id</name>
               <value>{{ transaction_info_response_id }}</value>
-            </item><item>
+            </item>
+            <item>
               <name>skip_notification</name>
               <value>skip</value>
             </item>
-          </post_data><response_type>json</response_type>
+          </post_data>
+          <response_type>json</response_type>
           <varname>annulation</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
           <action_on_app_error>:pass</action_on_app_error>
           <action_on_4xx>:stop</action_on_4xx>
           <action_on_5xx>:stop</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
           <action_on_network_errors>:stop</action_on_network_errors>
-          <notify_on_errors>False</notify_on_errors>
-          <record_on_errors>True</record_on_errors>
           <record_errors>False</record_errors>
-        </item>
-      </items>
-    </status><status>
-      <id>14</id>
-      <name>Une erreur s'est produite</name>
-      <colour>FF0000</colour>
-      <visibility />
-      <items>
-        <item id="1" type="sendmail">
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
-        </item><item id="2" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to>
-        </item><item id="3" type="choice">
-          <label>Revenir &#224; paiement en ligne</label>
-          <by>
-            <item role_id="_receiver">_receiver</item>
-          </by><status>2</status>
-          <require_confirmation>False</require_confirmation>
-          <backoffice_info_text>&lt;p&gt;A n'utiliser que quand le probl&amp;egrave;me est r&amp;eacute;gl&amp;eacute;.&lt;/p&gt;</backoffice_info_text>
-          <ignore_form_errors>False</ignore_form_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status>
-  </possible_status><global_actions>
+    <status>
+      <id>14</id>
+      <name>Une erreur s'est produite</name>
+      <colour>#FF0000</colour>
+      <visibility />
+      <items>
+        <item type="sendmail" id="1">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+        </item>
+        <item type="sendmail" id="2">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to>
+        </item>
+        <item type="choice" id="3">
+          <label>Revenir &#224; paiement en ligne</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <status>2</status>
+          <require_confirmation>False</require_confirmation>
+          <backoffice_info_text>&lt;p&gt;A n'utiliser que quand le probl&amp;egrave;me est r&amp;eacute;gl&amp;eacute;.&lt;/p&gt;</backoffice_info_text>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
+        </item>
+      </items>
+    </status>
+  </possible_status>
+  <global_actions>
     <action>
       <id>1</id>
       <name>Supprimer la d&#233;marche</name>
       <items>
-        <item id="1" type="remove" />
-      </items><triggers>
-        <trigger id="054193c1-0c48-45d4-a695-b0d6502b5863" type="manual">
-          <roles>
-            <item role_id="712f8f807cef44f4aff1b714d5b0e055" slug="debug">Debug</item>
-          </roles>
-        </trigger>
-      </triggers>
-    </action><action>
-      <id>2</id>
-      <name>Supprimer du panier</name>
-      <items>
-        <item id="1" type="jump">
-          <status>13</status>
+        <item type="webservice_call" id="2">
+          <label>Supprimer du panier</label>
+          <method>POST</method>
+          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>basket_item_id</name>
+              <value>{{ transaction_info_response_id }}</value>
+            </item>
+            <item>
+              <name>skip_notification</name>
+              <value>skip</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <varname>delete_cancel</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:pass</action_on_4xx>
+          <action_on_5xx>:pass</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:pass</action_on_network_errors>
+          <record_errors>False</record_errors>
+          <record_on_errors>False</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-      </items><triggers>
-        <trigger id="759d55b6-6d60-4791-9c81-5db53c8516f6" type="manual">
+        <item type="remove" id="1" />
+      </items>
+      <triggers>
+        <trigger type="manual" id="054193c1-0c48-45d4-a695-b0d6502b5863">
           <roles>
-            <item role_id="712f8f807cef44f4aff1b714d5b0e055" slug="debug">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="032bfed279a448d39a09dedadbc09a31">Agent ayant acces aux fabriques</item>
           </roles>
+          <allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
         </trigger>
       </triggers>
     </action>
-  </global_actions><variables>
+    <action>
+      <id>2</id>
+      <name>Supprimer du panier</name>
+      <items>
+        <item type="jump" id="1">
+          <status>13</status>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+      </items>
+      <triggers>
+        <trigger type="manual" id="759d55b6-6d60-4791-9c81-5db53c8516f6">
+          <roles>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+          </roles>
+          <allow_as_mass_action>True</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions>
+  <variables>
     <formdef>
       <name>-</name>
       <fields>
         <field>
-          <label type="str">regie paiement</label>
-          <type type="str">item</type>
-          <required type="bool">True</required>
-          <varname type="str">regie_paiement</varname>
+          <type>subtitle</type>
+          <label type="str">Paiement</label>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><display_mode type="str">list</display_mode>
-          <items />
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <id type="str">8466110f-4a66-451d-b2c5-e72cc57a03f2</id>
+        </field>
+        <field>
+          <type>item</type>
+          <label type="str">R&#233;gie de paiement</label>
+          <required type="str">required</required>
+          <varname type="str">regie_paiement</varname>
+          <display_locations />
+          <display_mode type="str">list</display_mode>
           <data_source>
             <type>json</type>
             <value>{{portal_url}}api/lingo/regies</value>
-          </data_source><in_filters type="bool">False</in_filters>
-          <anonymise type="bool">False</anonymise>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
           <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="str">150</image_desktop_size>
+          <image_mobile_size type="str">75</image_mobile_size>
+          <radio_orientation type="str">auto</radio_orientation>
           <id type="str">2</id>
-        </field><field>
+        </field>
+        <field>
+          <type>string</type>
           <label type="str">Prix</label>
-          <type type="str">string</type>
-          <required type="bool">True</required>
+          <required type="str">required</required>
           <varname type="str">prix</varname>
           <display_locations>
-            <display_location>validation</display_location>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">final</anonymise>
           <id type="str">3</id>
-        </field><field>
+        </field>
+        <field>
+          <type>subtitle</type>
+          <label type="str">Autre</label>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <id type="str">3143d2dc-0cae-4ee8-916a-d92dcffc1bb3</id>
+        </field>
+        <field>
+          <type>string</type>
           <label type="str">Lien du r&#232;glement communal</label>
-          <type type="str">string</type>
-          <required type="bool">False</required>
+          <required type="str">optional</required>
           <varname type="str">reglement_communal</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><prefill>
-            <type>none</type>
-          </prefill><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">final</anonymise>
           <id type="str">4</id>
         </field>
       </fields>
     </formdef>
-  </variables><backoffice-fields>
+  </variables>
+  <backoffice-fields>
     <formdef>
       <name>-</name>
       <fields>
         <field>
+          <type>string</type>
           <label type="str">total</label>
-          <type type="str">string</type>
-          <required type="bool">True</required>
+          <required type="str">required</required>
           <varname type="str">wf_total</varname>
           <display_locations>
-            <display_location>summary</display_location>
-          </display_locations><anonymise type="bool">True</anonymise>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">final</anonymise>
           <id type="str">bo4413471e-d2b0-4d57-8ac8-c42a5a5ecc7b</id>
         </field>
       </fields>
