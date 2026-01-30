@@ -1283,16 +1283,10 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
         <field>
           <type>string</type>
           <label type="str">Codes postaux (commune)</label>
-          <required type="str">optional</required>
-          <hint type="str">Lister les diff&#233;rents codes postaux relatifs &#224; votre commune.
-Coll&#233;s et s&#233;par&#233;s par une ","
-ex : 4000,4020,4030,4031</hint>
+          <required type="str">required</required>
+          <hint type="str">&lt;p&gt;Lister les diff&#233;rents codes postaux relatifs &#224; votre commune. Coll&#233;s et s&#233;par&#233;s par une "," ex : 4000,4020,4030,4031&lt;/p&gt;</hint>
           <varname type="str">cp_commune</varname>
-          <display_locations>
-            <item>validation</item>
-            <item>summary</item>
-          </display_locations>
-          <anonymise type="str">final</anonymise>
+          <display_locations />
           <id type="str">6</id>
         </field>
         <field>
