@@ -65,6 +65,7 @@ Cordialement,
 </backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
         </item>
         <item type="choice" id="3">
           <label>Refuser</label>
@@ -77,6 +78,7 @@ Cordialement,
 </backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
         </item>
       </items>
     </status>
@@ -195,6 +197,7 @@ Bien cordialement,</body>
           <require_confirmation>False</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
         </item>
       </items>
     </status>
@@ -234,13 +237,13 @@ Cordialement,
 {{ administration_site }}</body>
         </item>
         <item type="register-comment" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
           <comment>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</comment>
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
         </item>
         <item type="displaymsg" id="3">
           <message>&lt;p&gt;
@@ -415,6 +418,7 @@ Bonne journ&#233;e !</body>
             <type>django</type>
             <value>"porte" not in form_var_destination and "mail" not in form_var_destination|lower</value>
           </condition>
+          <allow_as_mass_action>True</allow_as_mass_action>
         </item>
       </items>
     </status>
@@ -584,17 +588,13 @@ Cordialement,
           <store_all_responses>False</store_all_responses>
           <attach_file_to_history>True</attach_file_to_history>
           <action_on_app_error>:pass</action_on_app_error>
-          <action_on_4xx>:stop</action_on_4xx>
-          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_4xx>:pass</action_on_4xx>
+          <action_on_5xx>:pass</action_on_5xx>
           <action_on_bad_data>:pass</action_on_bad_data>
-          <action_on_network_errors>:stop</action_on_network_errors>
-          <record_errors>True</record_errors>
-          <record_on_errors>True</record_on_errors>
+          <action_on_network_errors>:pass</action_on_network_errors>
+          <record_errors>False</record_errors>
+          <record_on_errors>False</record_on_errors>
           <notify_on_errors>False</notify_on_errors>
-          <condition>
-            <type>django</type>
-            <value>transaction_info_response_id</value>
-          </condition>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
         <item type="remove" id="2" />
@@ -602,8 +602,8 @@ Cordialement,
       <triggers>
         <trigger type="manual" id="466327d5-2cb1-458f-bf6a-f28df7acfd85">
           <roles>
-            <item slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a">Debug</item>
-            <item slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2">Agent ayant acces aux fabriques</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="032bfed279a448d39a09dedadbc09a31">Agent ayant acces aux fabriques</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -626,8 +626,8 @@ Cordialement,
       <triggers>
         <trigger type="manual" id="d0570a4a-e7f6-4605-a79d-11c5a825dedc">
           <roles>
-            <item slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a">Debug</item>
-            <item slug="agent-ayant-acces-aux-fabriques" role_id="35d122b0a99b422083ca61be583dcbd2">Agent ayant acces aux fabriques</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="032bfed279a448d39a09dedadbc09a31">Agent ayant acces aux fabriques</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -698,36 +698,82 @@ Cordialement,
       <name>-</name>
       <fields>
         <field>
-          <type>text</type>
-          <label type="str">Commentaire</label>
-          <required type="bool">False</required>
-          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
-Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
-          <varname type="str">commentaire</varname>
-          <display_locations />
-          <anonymise type="str">final</anonymise>
-          <display_mode type="str">plain</display_mode>
-          <id type="str">054bd77d-24fd-4e9f-8415-e1df467ff8f8</id>
+          <type>subtitle</type>
+          <label type="str">Paiement</label>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <id type="str">b6509619-4be6-4ab6-ae42-93f98cc8a27c</id>
         </field>
         <field>
           <type>string</type>
-          <label type="str">Lien vers les mentions l&#233;gales</label>
-          <required type="bool">False</required>
-          <hint type="str">N'indiquez pas le protocol (http, https, etc).</hint>
-          <varname type="str">lien_mentions_legales</varname>
+          <label type="str">Montant, en &#8364;</label>
+          <required type="str">required</required>
+          <hint type="str">N'indiquez pas la monnaie. Choisissez une r&#233;gie de paiement, sinon le document restera gratuit.</hint>
+          <varname type="str">montant</varname>
+          <display_locations />
+          <anonymise type="str">final</anonymise>
+          <validation>
+            <error_message>N'indiquez pas la monnaie.</error_message>
+            <type>django</type>
+            <value>"&#8364;" not in value</value>
+          </validation>
+          <id type="str">5</id>
+        </field>
+        <field>
+          <type>item</type>
+          <label type="str">R&#233;gie de paiement</label>
+          <required type="str">optional</required>
+          <hint type="str">Pas de r&#233;gie de paiement</hint>
+          <varname type="str">regie_de_paiement</varname>
           <display_locations />
           <anonymise type="str">no</anonymise>
-          <validation>
-            <error_message>N'indiquez pas le protocol (http, https, etc).</error_message>
-            <type>django</type>
-            <value>"http" not in value</value>
-          </validation>
-          <id type="str">4</id>
+          <display_mode type="str">list</display_mode>
+          <items />
+          <data_source>
+            <type>json</type>
+            <value>{{portal_url}}api/lingo/regies</value>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
+          <radio_orientation type="str">auto</radio_orientation>
+          <id type="str">2</id>
+        </field>
+        <field>
+          <type>string</type>
+          <label type="str">IBAN</label>
+          <required type="str">optional</required>
+          <varname type="str">iban</varname>
+          <display_locations />
+          <anonymise type="str">final</anonymise>
+          <id type="str">7</id>
+        </field>
+        <field>
+          <type>subtitle</type>
+          <label type="str">Destinations</label>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <id type="str">21d676bf-ac7e-4a98-b739-1e0350a78b43</id>
+        </field>
+        <field>
+          <type>comment</type>
+          <label type="str">&lt;p&gt;Rendez-vous sur &lt;a href="{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/" rel="nofollow"&gt;cette page pour adapter les motifs et destinations&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</label>
+          <display_locations />
+          <id type="str">55f0d202-9566-4520-a040-7e803bb38c23</id>
         </field>
         <field>
           <type>items</type>
           <label type="str">Destinations</label>
-          <required type="bool">False</required>
+          <required type="str">optional</required>
           <hint type="str">S&#233;lectionnez les destinations possibles.</hint>
           <varname type="str">destinations</varname>
           <display_locations />
@@ -746,49 +792,40 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <id type="str">3</id>
         </field>
         <field>
-          <type>string</type>
-          <label type="str">Montant, en &#8364;</label>
-          <required type="bool">True</required>
-          <hint type="str">N'indiquez pas la monnaie. Choisissez une r&#233;gie de paiement, sinon le document restera gratuit.</hint>
-          <varname type="str">montant</varname>
-          <display_locations />
-          <anonymise type="str">final</anonymise>
-          <validation>
-            <error_message>N'indiquez pas la monnaie.</error_message>
-            <type>django</type>
-            <value>"&#8364;" not in value</value>
-          </validation>
-          <id type="str">5</id>
+          <type>subtitle</type>
+          <label type="str">Autre</label>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <id type="str">b806f755-603d-4923-b199-cbe933dc330b</id>
         </field>
         <field>
-          <type>item</type>
-          <label type="str">R&#233;gie de paiement</label>
-          <required type="bool">False</required>
-          <hint type="str">Pas de r&#233;gie de paiement</hint>
-          <varname type="str">regie_de_paiement</varname>
+          <type>string</type>
+          <label type="str">Lien vers les mentions l&#233;gales</label>
+          <required type="str">optional</required>
+          <hint type="str">N'indiquez pas le protocol (http, https, etc).</hint>
+          <varname type="str">lien_mentions_legales</varname>
           <display_locations />
           <anonymise type="str">no</anonymise>
-          <display_mode type="str">list</display_mode>
-          <items />
-          <data_source>
-            <type>json</type>
-            <value>{{portal_url}}api/lingo/regies</value>
-          </data_source>
-          <in_filters type="bool">False</in_filters>
-          <display_disabled_items type="bool">False</display_disabled_items>
-          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-          <image_desktop_size type="int">150</image_desktop_size>
-          <image_mobile_size type="int">75</image_mobile_size>
-          <id type="str">2</id>
+          <validation>
+            <error_message>N'indiquez pas le protocol (http, https, etc).</error_message>
+            <type>django</type>
+            <value>"http" not in value</value>
+          </validation>
+          <id type="str">4</id>
         </field>
         <field>
-          <type>string</type>
-          <label type="str">IBAN</label>
-          <required type="bool">False</required>
-          <varname type="str">iban</varname>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="str">optional</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
           <display_locations />
           <anonymise type="str">final</anonymise>
-          <id type="str">7</id>
+          <display_mode type="str">plain</display_mode>
+          <id type="str">054bd77d-24fd-4e9f-8415-e1df467ff8f8</id>
         </field>
       </fields>
     </formdef>
@@ -800,7 +837,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
         <field>
           <type>file</type>
           <label type="str">Document</label>
-          <required type="bool">True</required>
+          <required type="str">required</required>
           <varname type="str">document</varname>
           <display_locations>
             <item>summary</item>
