@@ -13,7 +13,7 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="imio-etat-civil" category_id="17">Etat civil</category>
+  <category slug="demande-etat-civil"category_id="17">Etat civil</category>
   <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="393">IMio - D&#233;partement Citoyen</workflow>
   <fields>
     <field>
