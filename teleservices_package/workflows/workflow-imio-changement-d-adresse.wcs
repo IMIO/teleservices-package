@@ -1079,8 +1079,6 @@ Le service Population / Etat-civil
       <triggers>
         <trigger type="timeout" id="43c5e8a4-508c-4ebc-acd3-5e9005b0a17e">
           <anchor>creation</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>30</timeout>
         </trigger>
       </triggers>
@@ -1096,8 +1094,6 @@ Le service Population / Etat-civil
       <triggers>
         <trigger type="timeout" id="2c76aea5-4b9c-4ff1-b85d-95a9f9de4b05">
           <anchor>creation</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -1107,18 +1103,6 @@ Le service Population / Etat-civil
     <formdef>
       <name>-</name>
       <fields>
-        <field>
-          <type>text</type>
-          <label type="str">Commentaire</label>
-          <required type="str">optional</required>
-          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
-Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
-          <varname type="str">commentaire</varname>
-          <display_locations />
-          <anonymise type="str">final</anonymise>
-          <display_mode type="str">plain</display_mode>
-          <id type="str">193583c9-8853-4c8b-a2f7-12007ae33542</id>
-        </field>
         <field>
           <type>title</type>
           <label type="str">Paiement</label>
@@ -1189,6 +1173,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">&lt;p&gt;Indiquez le prix en euro(s) et en chiffre(s) (Exemple : 2 ou 3.50 )&lt;/p&gt;</hint>
           <varname type="str">prix_par_adulte_autre_commune</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
           <validation>
             <type>digits</type>
           </validation>
@@ -1201,6 +1186,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">&lt;p&gt;Indiquez le prix en euro(s) et en chiffre(s) (Exemple : 2 ou 3.50 )&lt;/p&gt;</hint>
           <varname type="str">prix_par_adulte_concerne_si_emmenagement_intramuros</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
           <validation>
             <type>digits</type>
           </validation>
@@ -1287,6 +1273,7 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <hint type="str">&lt;p&gt;Lister les diff&#233;rents codes postaux relatifs &#224; votre commune. Coll&#233;s et s&#233;par&#233;s par une "," ex : 4000,4020,4030,4031&lt;/p&gt;</hint>
           <varname type="str">cp_commune</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
           <id type="str">6</id>
         </field>
         <field>
@@ -1311,6 +1298,18 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           </display_locations>
           <anonymise type="str">final</anonymise>
           <id type="str">15</id>
+        </field>
+        <field>
+          <type>text</type>
+          <label type="str">Commentaire</label>
+          <required type="str">optional</required>
+          <hint type="str">Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire.
+Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.</hint>
+          <varname type="str">commentaire</varname>
+          <display_locations />
+          <anonymise type="str">final</anonymise>
+          <display_mode type="str">plain</display_mode>
+          <id type="str">193583c9-8853-4c8b-a2f7-12007ae33542</id>
         </field>
       </fields>
     </formdef>

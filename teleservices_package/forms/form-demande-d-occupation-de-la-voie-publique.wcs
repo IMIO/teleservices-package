@@ -5,7 +5,7 @@
   <description>Pour demander l'autorisation d'installer un container, d'un &#233;chaffaudage ou de tout autre mat&#233;riel sur la voie publique, vous pouvez compl&#233;ter ce formulaire.</description>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>

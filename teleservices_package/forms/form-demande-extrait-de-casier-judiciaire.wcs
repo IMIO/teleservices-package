@@ -6,7 +6,7 @@
   <submission_user_association>any</submission_user_association>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>

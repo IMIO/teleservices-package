@@ -1,19 +1,21 @@
-<?xml version="1.0"?>
-<formdef id="15" url="">
+<formdef id="663">
   <name>Certificat de R&#233;sidence ou de Domicile</name>
-  <url_name>demande-certificat-de-residence-ou-de-domicile</url_name>
+  <url_name>v2-demande-certificat-de-residence-ou-de-domicile</url_name>
   <description>&lt;p&gt;Ce document atteste l'adresse actuelle d'une personne.&lt;/p&gt;</description>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
+  <hidden_from_api_results>false</hidden_from_api_results>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-population" category_id="9">Population</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="22">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <category slug="demande-population" category_id="11">Population</category>
+  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="394">iMio - Certificats Population</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -40,12 +42,20 @@
         <post_condition>
           <condition>
             <type>django</type>
-            <value>session_user|is_strong_authentication and form_var_concerne_qui_raw == 'moi' or form_var_mode_delivrance_raw == 'mondossier' or form_var_rb_domicile_commune_slug == commune_slug or form_var_rb_domicile_raw == commune_slug</value>
+            <value>session_user|is_strong_authentication and form_var_rb_concerne_raw == 'moi' or form_var_mode_delivrance_raw == 'mondossier' or form_var_rb_domicile_commune_slug == commune_slug or form_var_rb_domicile_raw == commune_slug</value>
           </condition>
           <error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
         </post_condition>
       </post_conditions>
       <id type="str">50</id>
+    </field>
+    <field>
+      <type>computed</type>
+      <label type="str">Le document est destin&#233; &#224;</label>
+      <varname type="str">le_document_est_destine_a</varname>
+      <value_template type="str">{% firstof form_option_motifs_disponibles_structured data_source.passerelle_motifs %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">2388d9c8-00a6-4467-9d98-617297bc3cb3</id>
     </field>
     <field>
       <type>comment</type>
@@ -91,8 +101,8 @@
     <field>
       <type>item</type>
       <label type="str">Le document demand&#233; :</label>
-      <required type="bool">True</required>
-      <varname type="str">concerne_qui</varname>
+      <required type="str">required</required>
+      <varname type="str">rb_concerne</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
@@ -112,8 +122,9 @@
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">34</id>
     </field>
     <field>
@@ -127,7 +138,7 @@
 &lt;p&gt;Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
       <condition>
         <type>django</type>
-        <value>form_var_concerne_qui_raw == 'moi'</value>
+        <value>form_var_rb_concerne_raw == 'moi'</value>
       </condition>
       <display_locations />
       <id type="str">51</id>
@@ -137,9 +148,9 @@
       <label type="str">Mode de d&#233;livrance</label>
       <condition>
         <type>django</type>
-        <value>form_var_concerne_qui_raw == 'moi'</value>
+        <value>form_var_rb_concerne_raw == 'moi'</value>
       </condition>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">mode_delivrance</varname>
       <display_locations>
         <item>validation</item>
@@ -158,39 +169,74 @@
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">52</id>
     </field>
     <field>
       <type>item</type>
-      <label type="str">O&#249; est domicili&#233;(e) la personne concern&#233;e par le document ?</label>
-      <required type="bool">True</required>
+      <label type="str">O&#249; est domicili&#233;e la personne concern&#233;e par le document ?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;La demande doit &#234;tre effectu&#233;e aupr&#232;s de la commune o&#249; la personne concern&#233;e est domicili&#233;e.&lt;/p&gt;</hint>
       <varname type="str">rb_domicile</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
       <items />
       <data_source>
-        <type>carddef:imio-py-domicile</type>
+        <type>imio_domicile_population</type>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">4</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Le document est destin&#233; &#224;</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_mode_delivrance_raw == "mondossier" and form_option_rendre_la_delivrance_automatique_des_documents_payante</value>
+      </condition>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;Choisissez une option&lt;/p&gt;</hint>
+      <varname type="str">motifs</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items />
+      <data_source>
+        <type>jsonvalue</type>
+        <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">21</id>
     </field>
     <field>
       <type>page</type>
       <label type="str">Coordonn&#233;es de la personne concern&#233;e</label>
       <condition>
         <type>django</type>
-        <value>form_var_concerne_qui_raw == "tiers"</value>
+        <value>form_var_rb_concerne_raw == "tiers"</value>
       </condition>
       <post_conditions>
         <post_condition>
@@ -215,7 +261,7 @@
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn_perscon</varname>
       <display_locations>
@@ -235,7 +281,7 @@
     <field>
       <type>string</type>
       <label type="str">Nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">nom_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -251,7 +297,7 @@
     <field>
       <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">prenom_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -267,7 +313,7 @@
     <field>
       <type>string</type>
       <label type="str">Rue</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">rue_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -283,7 +329,7 @@
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">numero_porte_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -303,7 +349,7 @@
     <field>
       <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">boite_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -319,7 +365,7 @@
     <field>
       <type>string</type>
       <label type="str">Code postal</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">cp_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -339,7 +385,7 @@
     <field>
       <type>string</type>
       <label type="str">Localit&#233;</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">localite_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -355,7 +401,7 @@
     <field>
       <type>item</type>
       <label type="str">Pays</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">pays_perscon</varname>
       <display_locations>
@@ -377,12 +423,13 @@
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">57</id>
     </field>
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">telephone_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -400,7 +447,7 @@
     <field>
       <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">email_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -415,16 +462,154 @@
     </field>
     <field>
       <type>page</type>
+      <label type="str">Informations compl&#233;mentaires</label>
+      <condition>
+        <type>django</type>
+        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <id type="str">20</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Date souhait&#233;e du certificat</label>
+      <required type="str">optional</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <prefill>
+        <type>string</type>
+        <value>{{ today }}</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">True</date_can_be_today>
+      <id type="str">25</id>
+    </field>
+    <field>
+      <type>computed</type>
+      <label type="str">Le document est destin&#233; &#224;</label>
+      <varname type="str">le_document_est_destine_a</varname>
+      <value_template type="str">{% firstof form_option_motifs_disponibles_structured data_source.passerelle_motifs %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">78813217-ad3a-4f98-93ad-5361934cbbb0</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Le document est destin&#233; &#224;</label>
+      <required type="str">required</required>
+      <hint type="str">Choisissez une option</hint>
+      <varname type="str">motifs</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <items />
+      <data_source>
+        <type>jsonvalue</type>
+        <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">e8fb3a15-4bdb-4500-ab75-40d1aec5eeb1</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Si autre</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_motifs == "Autre"</value>
+      </condition>
+      <required type="str">required</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <prefill>
+        <type>none</type>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">60</id>
+    </field>
+    <field>
+      <type>computed</type>
+      <label type="str">Mode d'envoi</label>
+      <varname type="str">mode_d_envoi</varname>
+      <value_template type="str">{% firstof form_option_mode_recup_disponibles_structured data_source.passerelle_destinations %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">8528251e-142e-45cf-8dc3-bb94c1bd6abe</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Mode d'envoi</label>
+      <required type="str">required</required>
+      <hint type="str">Choisissez une option</hint>
+      <varname type="str">destinations</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items />
+      <data_source>
+        <type>jsonvalue</type>
+        <value>{{ form_var_mode_d_envoi|unlazy_filter|json_dumps }}</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">33</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nombre de certificats demand&#233;s</label>
+      <required type="str">required</required>
+      <hint type="str">Maximum 20 exemplaires.</hint>
+      <varname type="str">nb_exemplaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <prefill>
+        <type>string</type>
+        <value>1</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
+      </validation>
+      <id type="str">27</id>
+    </field>
+    <field>
+      <type>page</type>
       <label type="str">Donn&#233;es du demandeur</label>
       <condition>
         <type>django</type>
-        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
+        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_rb_concerne_raw == "tiers"</value>
       </condition>
       <post_conditions>
         <post_condition>
           <condition>
             <type>django</type>
-            <value>form_var_concerne_qui_raw == 'moi' and form_var_cp in commune_cp|split:',' or form_var_concerne_qui_raw != 'moi'</value>
+            <value>form_var_rb_concerne_raw == 'moi' and form_var_cp in commune_cp|split:',' or form_var_rb_concerne_raw != 'moi'</value>
           </condition>
           <error_message>Vous d&#233;sirez commander un certificat de r&#233;sidence ou de domicile pour vous-m&#234;me. Votre code postal ne semble pas &#234;tre celui de notre commune. Vous devez habitez notre commune pour commander ce document.</error_message>
         </post_condition>
@@ -455,7 +640,7 @@
     <field>
       <type>string</type>
       <label type="str">Nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">nom</varname>
       <display_locations>
         <item>validation</item>
@@ -472,7 +657,7 @@
     <field>
       <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">prenom</varname>
       <display_locations>
         <item>validation</item>
@@ -489,7 +674,7 @@
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn</varname>
       <display_locations>
@@ -510,7 +695,7 @@
     <field>
       <type>date</type>
       <label type="str">Date de naissance</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Format de la date : 01/01/2016</hint>
       <display_locations>
         <item>validation</item>
@@ -530,6 +715,10 @@
     <field>
       <type>subtitle</type>
       <label type="str">ADRESSE</label>
+      <condition>
+        <type>django</type>
+        <value>"domicile" in form_var_destinations</value>
+      </condition>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
@@ -539,7 +728,11 @@
     <field>
       <type>string</type>
       <label type="str">Rue</label>
-      <required type="bool">True</required>
+      <condition>
+        <type>django</type>
+        <value>"domicile" in form_var_destinations</value>
+      </condition>
+      <required type="str">required</required>
       <varname type="str">rue</varname>
       <display_locations>
         <item>validation</item>
@@ -556,8 +749,12 @@
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <required type="bool">True</required>
-      <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
+      <condition>
+        <type>django</type>
+        <value>"domicile" in form_var_destinations</value>
+      </condition>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.&lt;/p&gt;</hint>
       <varname type="str">numero</varname>
       <display_locations>
         <item>validation</item>
@@ -578,7 +775,11 @@
     <field>
       <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <required type="bool">False</required>
+      <condition>
+        <type>django</type>
+        <value>"domicile" in form_var_destinations</value>
+      </condition>
+      <required type="str">optional</required>
       <varname type="str">boite</varname>
       <display_locations>
         <item>validation</item>
@@ -595,7 +796,11 @@
     <field>
       <type>string</type>
       <label type="str">Code postal</label>
-      <required type="bool">True</required>
+      <condition>
+        <type>django</type>
+        <value>"domicile" in form_var_destinations</value>
+      </condition>
+      <required type="str">required</required>
       <varname type="str">cp</varname>
       <display_locations>
         <item>validation</item>
@@ -616,7 +821,11 @@
     <field>
       <type>string</type>
       <label type="str">Localit&#233;</label>
-      <required type="bool">True</required>
+      <condition>
+        <type>django</type>
+        <value>"domicile" in form_var_destinations</value>
+      </condition>
+      <required type="str">required</required>
       <varname type="str">localite</varname>
       <display_locations>
         <item>validation</item>
@@ -633,8 +842,12 @@
     <field>
       <type>item</type>
       <label type="str">Pays</label>
-      <required type="bool">True</required>
-      <hint type="str">Choisissez une option</hint>
+      <condition>
+        <type>django</type>
+        <value>"domicile" in form_var_destinations</value>
+      </condition>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;Choisissez une option&lt;/p&gt;</hint>
       <varname type="str">pays</varname>
       <display_locations>
         <item>validation</item>
@@ -654,14 +867,15 @@
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">58</id>
     </field>
     <field>
       <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">email</varname>
       <display_locations>
         <item>validation</item>
@@ -678,7 +892,7 @@
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">tel</varname>
       <display_locations>
         <item>validation</item>
@@ -699,146 +913,10 @@
     </field>
     <field>
       <type>page</type>
-      <label type="str">Informations compl&#233;mentaires</label>
-      <condition>
-        <type>django</type>
-        <value>not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
-      </condition>
-      <id type="str">20</id>
-    </field>
-    <field>
-      <type>date</type>
-      <label type="str">Date souhait&#233;e du certificat</label>
-      <required type="bool">False</required>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <prefill>
-        <type>string</type>
-        <value>{{ today }}</value>
-      </prefill>
-      <anonymise type="str">final</anonymise>
-      <minimum_is_future type="bool">False</minimum_is_future>
-      <date_in_the_past type="bool">True</date_in_the_past>
-      <date_can_be_today type="bool">True</date_can_be_today>
-      <id type="str">25</id>
-    </field>
-    <field>
-      <type>computed</type>
-      <label type="str">Le document est destin&#233; &#224;</label>
-      <varname type="str">le_document_est_destine_a</varname>
-      <value_template type="str">{% firstof form_option_motifs_disponibles_structured data_source.passerelle_motifs %}</value_template>
-      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
-      <id type="str">2388d9c8-00a6-4467-9d98-617297bc3cb3</id>
-    </field>
-    <field>
-      <type>item</type>
-      <label type="str">Le document est destin&#233; &#224;</label>
-      <required type="bool">True</required>
-      <hint type="str">Choisissez une option</hint>
-      <varname type="str">motifs</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <anonymise type="str">no</anonymise>
-      <display_mode type="str">list</display_mode>
-      <items />
-      <data_source>
-        <type>jsonvalue</type>
-        <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
-      </data_source>
-      <in_filters type="bool">False</in_filters>
-      <display_disabled_items type="bool">False</display_disabled_items>
-      <initial_zoom type="str">13</initial_zoom>
-      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
-      <id type="str">21</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Si autre</label>
-      <condition>
-        <type>django</type>
-        <value>form_var_motifs == "Autre"</value>
-      </condition>
-      <required type="bool">True</required>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
-      <anonymise type="str">final</anonymise>
-      <id type="str">60</id>
-    </field>
-    <field>
-      <type>computed</type>
-      <label type="str">Mode d'envoi</label>
-      <varname type="str">mode_d_envoi</varname>
-      <value_template type="str">{% firstof form_option_mode_recup_disponibles_structured data_source.passerelle_destinations %}</value_template>
-      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
-      <id type="str">8528251e-142e-45cf-8dc3-bb94c1bd6abe</id>
-    </field>
-    <field>
-      <type>item</type>
-      <label type="str">Mode d'envoi</label>
-      <required type="bool">True</required>
-      <hint type="str">Choisissez une option</hint>
-      <varname type="str">destinations</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <anonymise type="str">no</anonymise>
-      <display_mode type="str">radio</display_mode>
-      <items />
-      <data_source>
-        <type>jsonvalue</type>
-        <value>{{ form_var_mode_d_envoi|unlazy_filter|json_dumps }}</value>
-      </data_source>
-      <in_filters type="bool">False</in_filters>
-      <display_disabled_items type="bool">False</display_disabled_items>
-      <initial_zoom type="str">13</initial_zoom>
-      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
-      <id type="str">33</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Nombre de certificats demand&#233;s</label>
-      <required type="bool">True</required>
-      <hint type="str">Maximum 20 exemplaires.</hint>
-      <varname type="str">nb_exemplaire</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">newline grid-1-2</extra_css_class>
-      <prefill>
-        <type>string</type>
-        <value>1</value>
-      </prefill>
-      <anonymise type="str">final</anonymise>
-      <validation>
-        <type>regex</type>
-        <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
-      </validation>
-      <id type="str">27</id>
-    </field>
-    <field>
-      <type>page</type>
       <label type="str">Prix de la d&#233;marche</label>
       <condition>
         <type>django</type>
-        <value>form_var_mode_delivrance_raw == 'commune' or form_var_concerne_qui_raw == "tiers"</value>
+        <value>form_option_rendre_la_delivrance_automatique_des_documents_payante or form_var_mode_delivrance_raw != "mondossier"</value>
       </condition>
       <id type="str">29</id>
     </field>
@@ -851,7 +929,7 @@
     <field>
       <type>string</type>
       <label type="str">Montant</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
@@ -859,19 +937,25 @@
       <prefill>
         <locked>True</locked>
         <type>string</type>
-        <value>{{form_option_cout|add:form_var_motifs_price|multiply:form_var_nb_exemplaire}} &#8364;</value>
+        <value>{% if form_user_var_zipcode in commune_cp %}{{ form_option_cout|default_if_none:0|add:form_var_motifs_price|default_if_none:0|multiply:form_var_nb_exemplaire|default_if_none:1 }}{% else %}{{ form_option_cout_extra|default_if_none:0|add:form_var_motifs_price|default_if_none:0|multiply:form_var_nb_exemplaire|default_if_none:1 }}{% endif %} &#8364;</value>
       </prefill>
       <anonymise type="str">final</anonymise>
       <id type="str">59</id>
     </field>
-  </fields><user-roles>
-    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
-  </user-roles><options>
+  </fields>
+  <user-roles>
+    <role role_id="logged-users">logged-users</role>
+  </user-roles>
+  <backoffice-submission-roles>
+    <role slug="agent" role_id="b9b15c5c29134ccfb9d3d2dd90f18225">Agent</role>
+  </backoffice-submission-roles>
+  <roles />
+  <options>
     <option varname="actes_commentaire_additionnel" />
     <option varname="actes_piece_justificative_tiers" />
     <option varname="actes_piece_justificative_tiers_display" />
     <option varname="actes_piece_justificative_tiers_structured" />
-    <option varname="activer_anonymisation" />
+    <option varname="activer_anonymisation" type="bool">false</option>
     <option varname="baec" />
     <option varname="commentaire" />
     <option varname="comptes_identifiants_regies" />
@@ -889,23 +973,36 @@
     <option varname="liaison_baec">Staging</option>
     <option varname="liaison_baec_display">Staging</option>
     <option varname="liaison_baec_structured" />
-    <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=38</option>
-    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=38</option>
-    <option varname="mode_recup_disponibles" />
+    <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=38&amp;language=FR</option>
+    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=38&amp;language=FR</option>
+    <option varname="mode_recup_disponibles" type="list" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
-    <option varname="motifs_disponibles" />
+    <option varname="motifs_disponibles" type="list" />
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
-    <option varname="paiement_en_ligne" />
-    <option varname="redirection_automatique" />
+    <option varname="paiement_en_ligne" type="bool">false</option>
+    <option varname="redirection_automatique" type="bool">true</option>
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
-  </options><custom_views />
+  </options>
+  <custom_views />
   <geolocations />
+  <required_authentication_contexts>
+    <method>fedict</method>
+  </required_authentication_contexts>
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>
+  <submission_sidebar_items>
+    <item>__default__</item>
+  </submission_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="imio-departement-citoyen-avec-redirection-mondossier" new-workflow="imio-certificats-population-new" timestamp="2025-12-02T11:57:36.062607+01:00">
+      <timestamp>2025-12-02T11:57:36.062607+01:00</timestamp>
+      <status-mapping />
+    </migration>
+  </workflow-migrations>
 </formdef>

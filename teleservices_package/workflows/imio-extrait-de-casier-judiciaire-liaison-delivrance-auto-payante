@@ -1,10 +1,9 @@
-<?xml version="1.0"?>
-<workflow id="172" url="">
-  <name>iMio - Extrait de casier judiciaire - liaison</name>
-  <slug>imio-extrait-de-casier-judiciaire-liaison</slug>
+<workflow id="395">
+  <name>iMio - Obtenir un extrait de casier judiciare</name>
+  <slug>imio-extrait-de-casier-judiciaire-liaison-delivrance-auto-payante</slug>
+  <category slug="ecpop-liaison-automatique-avec-paiement" category_id="114">EC/POP - Liaison Automatique avec paiement</category>
   <roles>
     <role id="_receiver">Destinataire</role>
-    <role id="_validadeur-modele-2">Validadeur mod&#232;le 2</role>
   </roles>
   <possible_status>
     <status>
@@ -26,11 +25,11 @@
             </item>
             <item>
               <name>person_nrn</name>
-              <value>{{ form_var_nn }}</value>
+              <value>{{ session_user_var_niss }}</value>
             </item>
             <item>
               <name>requestor_nrn</name>
-              <value>{{ form_var_nn }}</value>
+              <value>{{ session_user_var_niss }}</value>
             </item>
             <item>
               <name>language</name>
@@ -121,7 +120,20 @@
           <set_marker_on_status>False</set_marker_on_status>
         </item>
         <item type="jump" id="2">
+          <status>11</status>
+          <condition>
+            <type>django</type>
+            <value>form_option_cout_document|add:form_var_motifs_price &gt; 0</value>
+          </condition>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="3">
           <status>6</status>
+          <condition>
+            <type>django</type>
+            <value>form_option_cout_document|add:form_var_motifs_price == 0</value>
+          </condition>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -253,6 +265,11 @@ Veuillez contacter votre administration communale pour l'en avertir.
           <level>success</level>
           <position>top</position>
         </item>
+        <item type="jump" id="3">
+          <status>2</status>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
         <item type="sendmail" id="4">
           <to>
             <item role_id="_submitter">_submitter</item>
@@ -270,11 +287,6 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 {% endif %}
 
 Cordialement,</body>
-        </item>
-        <item type="jump" id="3">
-          <status>2</status>
-          <mode>immediate</mode>
-          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status>
@@ -383,67 +395,122 @@ Cordialement,</body>
     </status>
     <status>
       <id>11</id>
-      <name>En attente de validation</name>
+      <name>Paiement en ligne</name>
       <colour>#FFFFFF</colour>
       <visibility />
       <items>
-        <item type="sendmail" id="1">
-          <to>
-            <item role_id="_validadeur-modele-2">_validadeur-modele-2</item>
-          </to>
-          <mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
-        </item>
-        <item type="commentable" id="4">
-          <label>Commentaire</label>
-          <button_label />
-          <by>
-            <item role_id="_validadeur-modele-2">_validadeur-modele-2</item>
-          </by>
-          <varname>refus</varname>
-          <required>False</required>
-        </item>
-        <item type="choice" id="2">
-          <label>Accepter</label>
-          <by>
-            <item role_id="_validadeur-modele-2">_validadeur-modele-2</item>
-            <item role_id="_receiver">_receiver</item>
-          </by>
-          <status>1</status>
-          <require_confirmation>False</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
+        <item type="webservice_call" id="1">
+          <label>Paiement en ligne</label>
+          <method>POST</method>
+          <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <qs_data>
+            <item>
+              <name>regie_id</name>
+              <value>{{form_option_regie_paiement_raw}}</value>
+            </item>
+          </qs_data>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>amount</name>
+              <value>{% if form_user_var_zipcode in commune_cp %} {{ form_option_cout_document|add:form_var_motifs_price|default_if_none:0 }} {% else %}{{ form_option_cout_document_extra|add:form_var_motifs_price|default_if_none:0 }}{% endif %}</value>
+            </item>
+            <item>
+              <name>display_name</name>
+              <value>{{form_display_name}}</value>
+            </item>
+            <item>
+              <name>url</name>
+              <value>{{form_url}}</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <varname>transaction_info</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <record_errors>False</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-        <item type="choice" id="3">
-          <label>Refuser la demande</label>
-          <by>
-            <item role_id="_validadeur-modele-2">_validadeur-modele-2</item>
-            <item role_id="_receiver">_receiver</item>
-          </by>
+        <item type="register-comment" id="4">
+          <comment>&lt;p&gt;
+Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
+&lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
+&lt;p&gt;</comment>
+          <level>info</level>
+        </item>
+        <item type="jump" id="2">
+          <status>6</status>
+          <mode>trigger</mode>
+          <trigger>paid</trigger>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="3">
           <status>12</status>
-          <require_confirmation>False</require_confirmation>
-          <ignore_form_errors>False</ignore_form_errors>
+          <mode>trigger</mode>
+          <trigger>cancelled</trigger>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="5">
+          <status>13</status>
+          <mode>timeout</mode>
+          <timeout>2678400</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status>
     <status>
       <id>12</id>
-      <name>Refus de la demande</name>
-      <colour>#e01b24</colour>
+      <name>Paiement annul&#233;</name>
+      <colour>#77767b</colour>
+      <forced_endpoint>true</forced_endpoint>
+      <visibility />
+      <items />
+    </status>
+    <status>
+      <id>13</id>
+      <name>Supprim&#233; du panier</name>
+      <colour>#ffffff</colour>
+      <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item type="sendmail" id="1">
-          <to>
-            <item role_id="_submitter">_submitter</item>
-          </to>
-          <subject>Votre demande d&#8217;extrait de casier judiciaire mod&#232;le 2.</subject>
-          <body>Votre demande d&#8217;extrait de casier judiciaire mod&#232;le 2 (activit&#233;s en lien avec des mineurs) n&#8217;a pas &#233;t&#233; accept&#233;e. Nous vous invitons &#224; vous adresser directement au Service Population de votre administration communale.
-
-{% if comment_refus %}
-Voici le motif du refus : 
-
-{{comment_refus}}
-{% endif %}</body>
+        <item type="webservice_call" id="1">
+          <label>Supprimer du panier</label>
+          <method>POST</method>
+          <url>{{portal_url}}/api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>basket_item_id</name>
+              <value>{{transaction_info_response_id}}</value>
+            </item>
+            <item>
+              <name>skip_notification</name>
+              <value>skip</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:stop</action_on_4xx>
+          <action_on_5xx>:stop</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:stop</action_on_network_errors>
+          <record_errors>True</record_errors>
+          <record_on_errors>True</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <condition>
+            <type>django</type>
+            <value>transaction_info_response_id</value>
+          </condition>
+          <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
     </status>
@@ -465,15 +532,13 @@ Voici le motif du refus :
       <triggers>
         <trigger type="manual" id="9b8299b1-a3bb-4422-ac47-72e8b362aa5e">
           <roles>
-            <item slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
         </trigger>
         <trigger type="timeout" id="cf9c8e6a-187a-4f6c-bab6-c6fa88d30c0e">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>0</timeout>
         </trigger>
       </triggers>
@@ -482,17 +547,43 @@ Voici le motif du refus :
       <id>1</id>
       <name>Supprimer</name>
       <items>
+        <item type="webservice_call" id="2">
+          <label>Supprimer du panier</label>
+          <method>POST</method>
+          <url>{{portal_url}}api/lingo/remove-basket-item?NameId={{form_user_name_identifier_0}}</url>
+          <post>False</post>
+          <post_data>
+            <item>
+              <name>basket_item_id</name>
+              <value>{{transaction_info_response_id}}</value>
+            </item>
+            <item>
+              <name>skip_notification</name>
+              <value>skip</value>
+            </item>
+          </post_data>
+          <response_type>json</response_type>
+          <varname>delete_cancel</varname>
+          <store_all_responses>False</store_all_responses>
+          <attach_file_to_history>True</attach_file_to_history>
+          <action_on_app_error>:pass</action_on_app_error>
+          <action_on_4xx>:pass</action_on_4xx>
+          <action_on_5xx>:pass</action_on_5xx>
+          <action_on_bad_data>:pass</action_on_bad_data>
+          <action_on_network_errors>:pass</action_on_network_errors>
+          <record_errors>False</record_errors>
+          <record_on_errors>False</record_on_errors>
+          <notify_on_errors>False</notify_on_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
         <item type="remove" id="1" />
       </items>
       <triggers>
         <trigger type="manual" id="c13248ae-7f70-498a-94d8-7ca297035141">
           <roles>
-            <item slug="debug" role_id="6d2c55fe2ea44e41b7f8111b93f1930a">Debug</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="032bfed279a448d39a09dedadbc09a31">Agent ayant acces aux fabriques</item>
           </roles>
-          <statuses>
-            <statuse>3</statuse>
-            <statuse>5</statuse>
-          </statuses>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
         </trigger>
@@ -503,6 +594,95 @@ Voici le motif du refus :
     <formdef>
       <name>-</name>
       <fields>
+        <field>
+          <type>subtitle</type>
+          <label type="str">Paiement</label>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <id type="str">6e6f026b-d127-48cd-bbf6-6177d4153e7c</id>
+        </field>
+        <field>
+          <type>bool</type>
+          <label type="str">Rendre la d&#233;livrance automatique des documents payante</label>
+          <required type="str">optional</required>
+          <varname type="str">rendre_la_delivrance_automatique_des_documents_payante</varname>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">no</anonymise>
+          <id type="str">5f257ac0-3ac0-4ae3-9f0c-15ff7bbc2906</id>
+        </field>
+        <field>
+          <type>numeric</type>
+          <label type="str">Co&#251;t du document : INTRAMUROS</label>
+          <required type="str">optional</required>
+          <varname type="str">cout_document</varname>
+          <display_locations />
+          <anonymise type="str">final</anonymise>
+          <restrict_to_integers type="bool">False</restrict_to_integers>
+          <min_value type="decimal">0</min_value>
+          <id type="str">ebd7f690-4d92-4fab-80d0-f507d5c7f374</id>
+        </field>
+        <field>
+          <type>numeric</type>
+          <label type="str">Co&#251;t du document : EXTRAMUROS</label>
+          <required type="str">optional</required>
+          <varname type="str">cout_document_extra</varname>
+          <display_locations />
+          <anonymise type="str">final</anonymise>
+          <restrict_to_integers type="bool">False</restrict_to_integers>
+          <min_value type="decimal">0</min_value>
+          <id type="str">dfc2c443-afeb-4705-a156-cee6dca08cbd</id>
+        </field>
+        <field>
+          <type>item</type>
+          <label type="str">R&#233;gie de paiement</label>
+          <required type="str">optional</required>
+          <varname type="str">regie_paiement</varname>
+          <display_locations />
+          <display_mode type="str">list</display_mode>
+          <data_source>
+            <type>json</type>
+            <value>{{portal_url}}api/lingo/regies</value>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="str">150</image_desktop_size>
+          <image_mobile_size type="str">75</image_mobile_size>
+          <radio_orientation type="str">auto</radio_orientation>
+          <id type="str">c4fca377-a729-42b3-a392-22458c5315c7</id>
+        </field>
+        <field>
+          <type>comment</type>
+          <label type="str">&lt;h3&gt;&lt;strong&gt;Motifs et destinations&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Rendez-vous sur &lt;a href="{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/" rel="nofollow"&gt;cette page pour adapter les motifs et destinations&lt;/a&gt;.&lt;/p&gt;
+</label>
+          <display_locations />
+          <id type="str">dd01650e-7d10-430c-9ffe-506a82e46695</id>
+        </field>
+        <field>
+          <type>items</type>
+          <label type="str">Motifs disponibles</label>
+          <required type="str">optional</required>
+          <varname type="str">motifs_disponibles</varname>
+          <display_locations />
+          <display_mode type="str">checkboxes</display_mode>
+          <min_choices type="int">0</min_choices>
+          <max_choices type="int">0</max_choices>
+          <data_source>
+            <type>passerelle_motifs</type>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <image_desktop_size type="str">150</image_desktop_size>
+          <image_mobile_size type="str">75</image_mobile_size>
+          <id type="str">79d05cca-2543-4ada-94a0-99edee59d368</id>
+        </field>
         <field>
           <type>subtitle</type>
           <label type="str">Anonymisation</label>
@@ -545,6 +725,26 @@ Voici le motif du refus :
           <id type="str">d947286f-b4b1-4c11-834c-8e49c80591e3</id>
         </field>
         <field>
+          <type>string</type>
+          <label type="str">Lien vers l'extrait de casier judiciaire 596.2</label>
+          <required type="str">optional</required>
+          <hint type="str">Lien vers l'obtention de l'extrait de casier judiciaire 596.2 (https://...). Si vous avez coch&#233; la case ci-dessus, ce lien est inutile.</hint>
+          <varname type="str">lien_vers_l_extrait_de_casier_judiciaire_5962</varname>
+          <display_locations />
+          <anonymise type="str">final</anonymise>
+          <id type="str">14cb6c8a-551f-4258-97fb-63713bd29223</id>
+        </field>
+        <field>
+          <type>bool</type>
+          <label type="str">Permettre la d&#233;livrance automatique du mod&#232;le 596.2 (activit&#233;s en lien avec les mineurs).</label>
+          <required type="str">optional</required>
+          <hint type="str">Cochez pour Oui.</hint>
+          <varname type="str">modele_2</varname>
+          <display_locations />
+          <anonymise type="str">no</anonymise>
+          <id type="str">009f601d-f8a7-483e-ac93-cf55bc605ad0</id>
+        </field>
+        <field>
           <type>text</type>
           <label type="str">Commentaire</label>
           <required type="str">optional</required>
@@ -571,7 +771,6 @@ Voici le motif du refus :
             <item>summary</item>
           </display_locations>
           <anonymise type="str">final</anonymise>
-          <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
           <automatic_image_resize type="bool">False</automatic_image_resize>
           <storage type="str">default</storage>
           <id type="str">bo70afeba7-c09b-49ef-973e-244528f1af95</id>
