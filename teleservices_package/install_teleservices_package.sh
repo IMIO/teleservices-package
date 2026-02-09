@@ -10,9 +10,9 @@ if [ ! -f "/etc/passerelle/settings.d/casier_judiciaire.py" ] || [ ! -s "/etc/pa
   cp $install_path/passerelle/casier_judiciaire.py /etc/passerelle/settings.d/
 fi
 
-echo "--- Install passerelle settings BAEC"
-if [ ! -f "/etc/passerelle/settings.d/baec.py" ] || [ ! -s "/etc/passerelle/settings.d/baec.py" ]; then
-  cp $install_path/passerelle/baec.py /etc/passerelle/settings.d/
+echo "--- Install passerelle settings"
+if [ ! -f "/etc/passerelle/settings.d/passerelle_package.py" ] || [ ! -s "/etc/passerelle/settings.d/passerelle_package.py" ]; then
+  cp $install_path/passerelle/passerelle_package.py /etc/passerelle/settings.d/
 fi
 
 service passerelle restart
