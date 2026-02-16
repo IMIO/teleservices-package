@@ -475,7 +475,7 @@ Cordialement,</body>
           <status>31</status>
           <condition>
             <type>django</type>
-            <value>not form_option_rendre_la_delivrance_automatique_des_documents_payante or form_option_cout_document|add:form_var_motifs_price == 0</value>
+            <value>not form_option_rendre_la_delivrance_automatique_des_documents_payante or form_option_cout|add:form_var_motifs_price == 0 or form_option_cout_extra|add:form_var_motifs_price == 0</value>
           </condition>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -484,7 +484,7 @@ Cordialement,</body>
           <status>41</status>
           <condition>
             <type>django</type>
-            <value>form_option_cout_document|add:form_var_motifs_price &gt; 0</value>
+            <value>form_option_cout|add:form_var_motifs_price &gt; 0 or form_option_cout_extra|add:form_var_motifs_price &gt; 0</value>
           </condition>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
