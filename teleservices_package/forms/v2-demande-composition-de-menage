@@ -88,22 +88,6 @@
       <id type="str">2</id>
     </field>
     <field>
-      <type>comment</type>
-      <label type="str">&lt;p&gt;La composition de m&amp;eacute;nage peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit :&lt;/p&gt;
-
-&lt;p&gt;1. En la t&amp;eacute;l&amp;eacute;chargeant gratuitement via l&amp;#39;application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;2. En la commandant sur notre e-guichet (cette m&amp;eacute;thode peut engendrer des frais)&lt;/p&gt;
-
-&lt;p&gt;Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
-      <condition>
-        <type>django</type>
-        <value>form_var_rb_concerne_raw == 'moi'</value>
-      </condition>
-      <display_locations />
-      <id type="str">65</id>
-    </field>
-    <field>
       <type>item</type>
       <label type="str">Mode de d&#233;livrance</label>
       <condition>
