@@ -7,6 +7,7 @@
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>false</disabled>
+  <hidden>false</hidden>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>false</confirmation>
@@ -40,25 +41,6 @@
       <anonymise type="str">final</anonymise>
       <id type="str">19dc31f2-a5e5-4486-b8bd-1ed81b1c6c55</id>
     </field>
-    <field>
-      <type>block</type>
-      <label type="str">Emplacement</label>
-      <required type="str">optional</required>
-      <varname type="str">type_emplacement</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-        <item>listings</item>
-      </display_locations>
-      <anonymise type="str">final</anonymise>
-      <default_items_count type="int">1</default_items_count>
-      <max_items type="int">15</max_items>
-      <add_element_label type="str">+</add_element_label>
-      <label_display type="str">hidden</label_display>
-      <remove_button type="bool">True</remove_button>
-      <block_slug type="str">imio_cimetiere_emplacements_disponibles</block_slug>
-      <id type="str">9ca65b57-bc34-4aef-80c5-6b5371d718e2</id>
-    </field>
   </fields>
   <user-roles>
     <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</role>
@@ -76,6 +58,9 @@
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>
+  <submission_sidebar_items>
+    <item>__default__</item>
+  </submission_sidebar_items>
   <digest_templates>
     <template key="default">{{ form_var_cimetiere }} - {{ form_var_adresse }}</template>
   </digest_templates>
