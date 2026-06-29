@@ -62,6 +62,14 @@
     </field>
     <field>
       <type>computed</type>
+      <label type="str">Document Type</label>
+      <varname type="str">document_type</varname>
+      <value_template type="str">HistoricMainResidence</value_template>
+      <freeze_on_initial_value type="bool">True</freeze_on_initial_value>
+      <id type="str">114</id>
+    </field>
+    <field>
+      <type>computed</type>
       <label type="str">authentication_delivrance_items_visibility</label>
       <varname type="str">authentication_delivrance_items_visibility</varname>
       <value_template type="str">{{ data_source.mode_de_delivrance|authentication_delivrance_items_visibility:session_user }}</value_template>
