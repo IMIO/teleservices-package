@@ -159,7 +159,7 @@
       <items />
       <data_source>
         <type>imio_domicile_population</type>
-        <value>data_source.py_domicile[1:]</value>
+        <value>data_source.imio_domicile_population[1:]</value>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
