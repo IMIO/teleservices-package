@@ -306,26 +306,13 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-        <item type="jump" id="6">
-          <status>10</status>
-          <mode>trigger</mode>
-          <trigger>cancelled</trigger>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
         <item type="jump" id="7">
           <status>13</status>
           <mode>timeout</mode>
-          <timeout>2592000</timeout>
+          <timeout>{{ form_option_expiration }} jours</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
-    </status>
-    <status>
-      <id>10</id>
-      <name>Demande annul&#233;e</name>
-      <colour>#FF0000</colour>
-      <visibility />
-      <items />
     </status>
     <status>
       <id>3</id>
@@ -753,6 +740,18 @@ Cordialement,
           <id type="str">7</id>
         </field>
         <field>
+          <type>string</type>
+          <label type="str">Nombre de jours avant suppression du panier</label>
+          <required type="str">required</required>
+          <varname type="str">expiration</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation>
+          <default_value type="str">90</default_value>
+          <id type="str">c36ff0cb-ed12-46f3-b743-e4c8263fb243</id>
+        </field>
+        <field>
           <type>subtitle</type>
           <label type="str">Destinations</label>
           <display_locations>
@@ -843,7 +842,6 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
             <item>summary</item>
           </display_locations>
           <anonymise type="str">final</anonymise>
-          <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
           <automatic_image_resize type="bool">True</automatic_image_resize>
           <storage type="str">default</storage>
           <id type="str">boeb10ed05-b4fb-4bfc-987a-579fa94d4245</id>

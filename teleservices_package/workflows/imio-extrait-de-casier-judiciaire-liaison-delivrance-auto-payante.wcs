@@ -460,7 +460,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         <item type="jump" id="5">
           <status>13</status>
           <mode>timeout</mode>
-          <timeout>2678400</timeout>
+          <timeout>{{ form_option_expiration }} jours</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -539,6 +539,8 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         </trigger>
         <trigger type="timeout" id="cf9c8e6a-187a-4f6c-bab6-c6fa88d30c0e">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger>
       </triggers>
@@ -643,7 +645,9 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <required type="str">optional</required>
           <varname type="str">regie_paiement</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <display_mode type="str">list</display_mode>
+          <items />
           <data_source>
             <type>json</type>
             <value>{{portal_url}}api/lingo/regies</value>
@@ -655,6 +659,18 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <image_mobile_size type="str">75</image_mobile_size>
           <radio_orientation type="str">auto</radio_orientation>
           <id type="str">c4fca377-a729-42b3-a392-22458c5315c7</id>
+        </field>
+        <field>
+          <type>string</type>
+          <label type="str">Nombre de jours avant suppression du panier</label>
+          <required type="str">required</required>
+          <varname type="str">expiration</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation>
+          <default_value type="str">90</default_value>
+          <id type="str">64818da9-5dba-4c94-9d2a-0773a5c51ec0</id>
         </field>
         <field>
           <type>comment</type>
@@ -671,6 +687,8 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <required type="str">optional</required>
           <varname type="str">motifs_disponibles</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
+          <items />
           <display_mode type="str">checkboxes</display_mode>
           <min_choices type="int">0</min_choices>
           <max_choices type="int">0</max_choices>

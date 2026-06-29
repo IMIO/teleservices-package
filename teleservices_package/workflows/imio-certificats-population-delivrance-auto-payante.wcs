@@ -346,6 +346,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
                 <required type="str">required</required>
                 <varname type="str">document</varname>
                 <display_locations />
+                <anonymise type="str">final</anonymise>
                 <automatic_image_resize type="bool">True</automatic_image_resize>
                 <storage type="str">default</storage>
                 <id type="str">92760b1c-d95b-41ea-b14f-cc21c9dfa18f</id>
@@ -499,7 +500,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         <item type="jump" id="6">
           <status>18</status>
           <mode>timeout</mode>
-          <timeout>2678400</timeout>
+          <timeout>{{ form_option_expiration }} jours</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -1492,6 +1493,8 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger>
         <trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
@@ -1526,6 +1529,8 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         </trigger>
         <trigger type="timeout" id="ffd68291-0bf3-4f65-8259-618dd48570da">
           <anchor>1st-arrival</anchor>
+          <anchor_expression />
+          <anchor_template />
           <anchor_status_first>wf-10</anchor_status_first>
           <timeout>0</timeout>
         </trigger>
@@ -1675,6 +1680,18 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <display_locations />
           <anonymise type="str">no</anonymise>
           <id type="str">c3b1f93e-4426-4a20-846b-67d3e4bbe5a0</id>
+        </field>
+        <field>
+          <type>string</type>
+          <label type="str">Nombre de jours avant suppression du panier</label>
+          <required type="str">required</required>
+          <varname type="str">expiration</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation>
+          <default_value type="str">90</default_value>
+          <id type="str">409934e8-0d8f-486d-93dd-a99a0cca0697</id>
         </field>
         <field>
           <type>subtitle</type>

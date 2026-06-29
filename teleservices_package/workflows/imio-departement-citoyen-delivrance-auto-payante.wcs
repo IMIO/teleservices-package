@@ -610,6 +610,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
                 <required type="str">required</required>
                 <varname type="str">document</varname>
                 <display_locations />
+                <anonymise type="str">final</anonymise>
                 <automatic_image_resize type="bool">True</automatic_image_resize>
                 <storage type="str">default</storage>
                 <id type="str">e0217e7a-dc1e-455e-95fb-270d31c2b891</id>
@@ -772,6 +773,12 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <status>18</status>
           <mode>timeout</mode>
           <timeout>2678400</timeout>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="7">
+          <status>18</status>
+          <mode>timeout</mode>
+          <timeout>{{ form_option_expiration }} jours</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -1671,7 +1678,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         <item type="jump" id="5">
           <status>18</status>
           <mode>timeout</mode>
-          <timeout>2678400</timeout>
+          <timeout>{{ form_option_expiration }} jours</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -1790,6 +1797,8 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger>
         <trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
@@ -1940,6 +1949,18 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <display_locations />
           <anonymise type="str">no</anonymise>
           <id type="str">2e8409e0-5dbd-4f27-a3f0-2fe0e02143fd</id>
+        </field>
+        <field>
+          <type>string</type>
+          <label type="str">Nombre de jours avant suppression du panier</label>
+          <required type="str">required</required>
+          <varname type="str">expiration</varname>
+          <display_locations />
+          <validation>
+            <type>digits</type>
+          </validation>
+          <default_value type="str">90</default_value>
+          <id type="str">d10446e8-ba54-4fb4-ad71-0ffd04cdd4d0</id>
         </field>
         <field>
           <type>subtitle</type>
