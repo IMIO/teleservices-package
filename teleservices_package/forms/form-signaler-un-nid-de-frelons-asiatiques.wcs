@@ -13,7 +13,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-environnement" category_id="115">Environnement</category>
-  <workflow slug="imio-redirection-signaler-un-nid-de-frelons-asiatiques-1" workflow_id="178">iMio - Redirection Signaler un nid de frelons asiatiques</workflow>
+  <workflow slug="imio-redirection-signaler-un-nid-de-frelons-asiatiques" workflow_id="178">iMio - Redirection Signaler un nid de frelons asiatiques</workflow>
   <fields>
     <field>
       <type>page</type>
