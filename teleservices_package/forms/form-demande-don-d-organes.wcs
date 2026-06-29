@@ -14,7 +14,7 @@
   <always_advertise>false</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="imio-population" category_id="132">Demo : Population</category>
+  <category slug="demande-population" category_id="132">Population</category>
   <workflow slug="imio-redirection-spf-sante" workflow_id="261">iMio - Redirection SPF Sant&#233;</workflow>
   <fields>
     <field>
