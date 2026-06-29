@@ -13,7 +13,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-population" category_id="12">Population</category>
-  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier" workflow_id="13">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER)</workflow>
+  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="13">IMio - D&#233;partement Citoyen</workflow>
   <fields>
     <field>
       <type>comment</type>
