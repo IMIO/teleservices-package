@@ -13,7 +13,7 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="population" category_id="1">Population</category>
+  <category slug="demande-population" category_id="1">Population</category>
   <workflow slug="imio-extrait-casier-judicaire" workflow_id="80">iMio - Extrait casier judicaire</workflow>
   <fields>
     <field>

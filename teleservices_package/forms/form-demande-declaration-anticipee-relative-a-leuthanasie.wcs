@@ -15,7 +15,7 @@
   <include_download_all_button>false</include_download_all_button>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-etat-civil" category_id="9">Etat-Civil</category>
+  <category slug="demande-etat-civil" category_id="9">Etat civil</category>
   <workflow slug="imio-documents-pdf" workflow_id="14">iMio - Documents PDF</workflow>
   <max_field_id>5</max_field_id>
   <fields>
