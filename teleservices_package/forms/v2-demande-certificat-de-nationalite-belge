@@ -1,6 +1,6 @@
 <formdef id="659">
-  <name>Certificat de nationalit&#233; belge new</name>
-  <url_name>v2-demande-certificat-de-nationalite-belge</url_name>
+  <name>Certificat de nationalit&#233;</name>
+  <url_name>v2-demande-certificat-de-nationalite</url_name>
   <submission_user_association>any</submission_user_association>
   <history_pane_default_mode>expanded</history_pane_default_mode>
   <discussion>false</discussion>
