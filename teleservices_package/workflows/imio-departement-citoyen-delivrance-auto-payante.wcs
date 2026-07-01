@@ -769,12 +769,6 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <trigger>paid</trigger>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-        <item type="jump" id="6">
-          <status>18</status>
-          <mode>timeout</mode>
-          <timeout>2678400</timeout>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
         <item type="jump" id="7">
           <status>18</status>
           <mode>timeout</mode>
@@ -1868,6 +1862,14 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
             <item>summary</item>
           </display_locations>
           <id type="str">24</id>
+        </field>
+        <field>
+          <type>bool</type>
+          <label type="str">Forcer la delivrance automatique</label>
+          <required type="str">optional</required>
+          <varname type="str">forcer_delivrance_automatique</varname>
+          <display_locations />
+          <id type="str">b1b19205-aae5-4265-b8cc-6b0c950b45a8</id>
         </field>
         <field>
           <type>bool</type>
