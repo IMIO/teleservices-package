@@ -1384,7 +1384,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         <item type="jump" id="4">
           <status>18</status>
           <mode>timeout</mode>
-          <timeout>2678400</timeout>
+          <timeout>{{ form_option_expiration }} jours</timeout>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
       </items>
@@ -1596,6 +1596,14 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
             <item>summary</item>
           </display_locations>
           <id type="str">24</id>
+        </field>
+        <field>
+          <type>bool</type>
+          <label type="str">Forcer la delivrance automatique</label>
+          <required type="str">optional</required>
+          <varname type="str">forcer_delivrance_automatique</varname>
+          <display_locations />
+          <id type="str">07bd17e9-5011-4afb-bbb4-d4e7cbcff02a</id>
         </field>
         <field>
           <type>bool</type>
