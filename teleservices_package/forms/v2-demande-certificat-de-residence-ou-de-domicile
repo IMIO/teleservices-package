@@ -169,7 +169,7 @@
       <items />
       <data_source>
         <type>jsonvalue</type>
-        <value>{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}</value>
+        <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite récupérer directement le document PDF (Connexion avec carte d'identité + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">True</display_disabled_items>
