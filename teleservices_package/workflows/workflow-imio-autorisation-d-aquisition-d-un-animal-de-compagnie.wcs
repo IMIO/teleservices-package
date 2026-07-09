@@ -284,12 +284,6 @@ Afin que votre demande "{{form_name}}" puisse &#234;tre trait&#233;e, nous vous 
 
 D&#232;s r&#233;ception du paiement, nos agents traiteront votre demande dans les plus brefs d&#233;lais, vous serez tenu inform&#233; de son avancement.
 
-{% if form_details %}
-Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
-
-{{ form_details }}
-{% endif %}
-
 {% if form_tracking_code %}
 Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
 En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.

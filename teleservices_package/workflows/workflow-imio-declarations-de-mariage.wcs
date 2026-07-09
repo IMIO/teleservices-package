@@ -28,12 +28,6 @@ Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez in
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
 
-{% if form_details %}
-Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
-
-{{ form_details }}
-{% endif %}
-
 {% if form_tracking_code %}
 Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
 En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
@@ -71,12 +65,6 @@ Nous vous confirmons la r&#233;ception de la d&#233;marche suivante : {{form_nam
 Utilisez le code de suivi pour accepter les donn&#233;es fournies par votre &#233;poux/&#233;pouse.
 Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
 En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
-{% endif %}
-
-{% if form_details %}
-Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
-
-{{ form_details }}
 {% endif %}
 
 </body><target_url>{{ form_url }}</target_url></item><item type="jump" id="5">

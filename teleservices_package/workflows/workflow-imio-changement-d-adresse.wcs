@@ -433,12 +433,6 @@ Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez in
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
 
-{% if form_details %}
-Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
-
-{{ form_details }}
-{% endif %}
-
 Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="3">
           <status>accepted</status>
           <mode>immediate</mode>
@@ -642,12 +636,6 @@ Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez in
 
 {% if form_user %}
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
-{% endif %}
-
-{% if form_details %}
-Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
-
-{{ form_details }}
 {% endif %}
 
 {% if form_tracking_code %}
