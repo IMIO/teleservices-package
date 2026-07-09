@@ -126,7 +126,28 @@
           <subject>{{form_refus_var_object}}</subject>
           <body>{{form_refus_var_body}}</body>
         </item>
-        <item type="jump" id="3">
+        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Demande refus&#233;e</title><body>Bonjour,
+
+{% if form_status_changed %}
+Nous sommes au regret de devoir vous informer du refus de votre demande.
+Pour rappel, cela concerne la d&#233;marche suivante : {{ form_name }}.
+{% endif %}
+
+{% if refus_var_motif %}
+Motif du refus : {{ refus_var_motif }}
+{% endif %}
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,
+</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="4">
           <status>24</status>
           <condition>
             <type>django</type>
@@ -135,7 +156,7 @@
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-        <item type="jump" id="4">
+        <item type="jump" id="5">
           <status>25</status>
           <condition>
             <type>django</type>
@@ -244,7 +265,29 @@ Esplanade de l'H&#244;tel communal, 1
 T&#233;l. 04 247 72 11
 </body>
         </item>
-        <item type="displaymsg" id="2">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Demande accept&#233;e</title><body>Bonjour,
+
+{% if form_status_changed %}
+La demande suivante a &#233;t&#233; accept&#233;e&#160;: {{ form_name }}
+{% endif %}
+
+{% if form_comment %}
+Nouveau commentaire&#160;: {{ form_comment }}
+{% endif %}
+
+Le statut de votre demande a donc chang&#233;, il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,
+</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="3">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>
@@ -380,7 +423,23 @@ Administration communale d'Ans
 Esplanade de l'H&#244;tel communal, 1
 4430 ANS</body>
         </item>
-        <item type="jump" id="2">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Confirmation de paiement</title><body>Bonjour,
+
+Nous vous confirmons la r&#233;ception du paiement concernant la demande suivante : {{form_name}}.
+
+Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez inform&#233;&#183;e par mail de l'avancement de votre d&#233;marche.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
+
+{{ form_details }}
+{% endif %}
+
+Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="3">
           <status>accepted</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -565,7 +624,38 @@ Code de suivi : {{ form_tracking_code }}
 
 Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.</body>
         </item>
-        <item type="choice" id="3">
+        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - En attente de paiement</title><body>Bonjour,
+
+Nous vous invitons &#224; r&#233;gler le montant li&#233; &#224; la d&#233;marche suivante :
+
+{{ form_name }}
+
+Le montant &#224; payer est le suivant : {{ form_var_wf_total_commande }} &#8364;.
+Retrouvez l'information utile au virement ci-dessous.
+
+- B&#233;n&#233;ficiaire : Ville de {{ commune_name }} - {{ administration_adresse }}
+- Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {{form_option_iban}}
+- R&#233;f&#233;rence de la commande (communication libre) :{{ form_number }}
+- Montant de la commande : {{ form_var_wf_total_commande }}
+
+Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez inform&#233;&#183;e par mail de l'avancement de votre d&#233;marche.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
+
+{{ form_details }}
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="choice" id="4">
           <label>Le paiement par virement est valid&#233;.</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -576,7 +666,7 @@ Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.</body
           <set_marker_on_status>False</set_marker_on_status>
           <allow_as_mass_action>True</allow_as_mass_action>
         </item>
-        <item type="choice" id="4">
+        <item type="choice" id="5">
           <label>Hors d&#233;lai paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -671,14 +761,23 @@ Esplanade de l'H&#244;tel communal, 1
 
 T&#233;l. : 04/247 72 11</body>
         </item>
-        <item type="displaymsg" id="2">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{form_name}} - Demande d'information pour remboursement</title><body>Bonjour,
+
+Suite au refus de votre d&#233;marche payante d'un montant de {{form_var_wf_total_commande}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement d&#233;j&#224; effectu&#233;. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions
+
+Pour rappel, il s'agit de la d&#233;marche suivante : {{form_name}}
+
+Attention, si vous avez pay&#233; &#224; l'aide d'une carte de cr&#233;dit, merci d'indiquer un num&#233;ro de compte IBAN classique.
+
+Cordialement,
+</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="3">
           <message>Merci de compl&#233;ter les informations bancaires n&#233;cessaires au remboursement de votre demande.
 Le remboursement se fera dans les plus brefs d&#233;lais sur le compte bancaire renseign&#233; par vos soins en bas de cette page.
 Attention, si vous aviez pay&#233; par carte de cr&#233;dit, veuillez indiquer un num&#233;ro de carte de d&#233;bit classique.
 Exemple de num&#233;ro IBAN : BE1234567890</message>
           <position>top</position>
         </item>
-        <item type="form" id="3">
+        <item type="form" id="4">
           <by>
             <item role_id="_submitter">_submitter</item>
           </by>
@@ -835,7 +934,7 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
             </fields>
           </formdef>
         </item>
-        <item type="jumponsubmit" id="4">
+        <item type="jumponsubmit" id="5">
           <status>28</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
@@ -877,6 +976,16 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
           </to>
           <mail_template>indus-usager-remboursement-effectue</mail_template>
         </item>
+      <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Remboursement effectu&#233;</title><body>Bonjour,
+
+Vous avez introduit la d&#233;marche suivante : {{ form_name }}.
+Nous vous informons qu'un remboursement vient de vous &#234;tre accord&#233; et effectu&#233;.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+Cordialement,</body><target_url>{{ form_url }}</target_url></item>
       </items>
     </status>
     <status>
@@ -991,7 +1100,43 @@ Le service Population / Etat-civil
 {{form_option_numero_de_telephone}}
 </body>
         </item>
-        <item type="displaymsg" id="2">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>Votre demande sur E-guichet : ({{form_name}})</title><body>Madame, Monsieur, {% if form_user %} {{ form_user_var_last_name }},{% endif %}
+
+Bonjour,
+
+Nous sommes au regret devoir vous informer que votre demande n'a pas pu aboutir. En effet, votre paiement ne nous est pas parvenu dans les temps.
+
+Si vous souhaitez n&#233;anmoins ce document, il vous faudra r&#233;introduire une demande compl&#232;te.
+
+Pour rappel, il s'agissait de la demande suivante :
+
+*{{ form_name }}*
+
+{% if form_refus_var_body %}
+Commentaire de l'administration &#224; votre intention :
+Objet : *{{form_refus_var_object}}*
+Message : *{{form_refus_var_body}}*
+{% endif %}
+
+{% if form_tracking_code %}
+En cas de probl&#232;me, vous pouvez communiquer ce code de suivi &#224; l'administration communale :
+Code de suivi : **{{ form_tracking_code }}**
+{% endif %}
+
+{% if form_user %}
+Vous avez la possibilit&#233; de consulter l'historique de cette demande via ce lien :
+
+`Acc&#233;der &#224; ma demande &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+Bien cordialement,
+
+Le service Population / Etat-civil
+
+{{administration_adresse}}
+
+{{form_option_numero_de_telephone}}
+</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="3">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>

@@ -197,7 +197,13 @@ Votre rendez-vous pour {% firstof form_var_type_rdv_text form_var_type_rdv form_
 `Consulter votre demande via ce lien &lt;{{ form_url }}&gt;`_ {% if form_tracking_code %} ou via votre code de suivi **{{form_tracking_code}}** si le lien ne fonctionne pas. {% endif %}
 
 Bien &#224; vous.</body>
-        </item><item type="choice" id="7">
+        </item><item type="notification" id="7"><to><item role_id="_submitter">_submitter</item></to><title>Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</title><body>Bonjour,
+
+Votre rendez-vous pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} aura lieu le {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}.
+
+`Consulter votre demande via ce lien &lt;{{ form_url }}&gt;`_ {% if form_tracking_code %} ou via votre code de suivi **{{form_tracking_code}}** si le lien ne fonctionne pas. {% endif %}
+
+Bien &#224; vous.</body><target_url>{{ form_url }}</target_url></item><item type="choice" id="8">
           <label>Le demandeur s'est pr&#233;sent&#233;</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -209,7 +215,7 @@ Bien &#224; vous.</body>
             <type>django</type>
             <value>reservation_response_datetime|date &lt;= today|date</value>
           </condition>
-        </item><item type="choice" id="8">
+        </item><item type="choice" id="9">
           <label>Annuler la demande</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -219,7 +225,7 @@ Bien &#224; vous.</body>
           <backoffice_info_text>&lt;p&gt;Action permettant au citoyen et &amp;agrave; l'agent traitant annuler le rendez-vous, quelle que soit la raison de chacun.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item type="choice" id="9">
+        </item><item type="choice" id="10">
           <label>Refuser la demande</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -228,7 +234,7 @@ Bien &#224; vous.</body>
           <backoffice_info_text>&lt;p&gt;Action &amp;agrave; l'initiative de l'agent traitant qui va refuser le rendez-vous, quelle que soit la raison.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item type="choice" id="10">
+        </item><item type="choice" id="11">
           <label>Le demandeur ne s'est pas pr&#233;sent&#233;</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -240,7 +246,7 @@ Bien &#224; vous.</body>
             <type>django</type>
             <value>reservation_response_datetime|date &lt;= today|date</value>
           </condition>
-        </item><item type="choice" id="11">
+        </item><item type="choice" id="12">
           <label>Reporter le rendez-vous</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -249,7 +255,7 @@ Bien &#224; vous.</body>
           <backoffice_info_text>&lt;p&gt;Permet &amp;agrave; l'agent de reporter le rendez-vous ou &amp;agrave; l'usager de red&amp;eacute;finir une date de rendez-vous en cas d'indisponibilit&amp;eacute; de la part de la commune ou d'un agent.&lt;/p&gt;</backoffice_info_text>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
-        </item><item type="editable" id="12">
+        </item><item type="editable" id="13">
           <by>
             <item role_id="_submitter">_submitter</item>
             <item role_id="_receiver">_receiver</item>
@@ -349,6 +355,19 @@ D'avance merci pour votre compr&#233;hension.
 
 Bien &#224; vous</body>
         </item>
+      <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>Refus de votre r&#233;servation ce {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</title><body>Bonjour {{form_var_nom}} {{form_var_prenom}},
+
+Votre demande de rendez-vous &#224; la date du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} n'a pas eu de suite favorable.
+
+{% if refus_var_motif %}
+Motif du refus:
+
+{{refus_var_motif}}
+{% endif %}
+
+D'avance merci pour votre compr&#233;hension.
+
+Bien &#224; vous</body><target_url>{{ form_url }}</target_url></item>
       </items>
     </status><status>
       <id>13</id>
@@ -429,6 +448,17 @@ Bien &#224; vous,
 
 La commune de {{commune_name}}</body>
         </item>
+      <item type="notification" id="4"><to><item role_id="_submitter">_submitter</item></to><title>Annulation de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</title><body>Bonjour,
+
+Vous n'avez pas report&#233; votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
+
+Vous pouvez &lt;a href="{{eservices_url}}{{form_uri}}" title="Reprendre un rendez-vous"&gt;reprendre un rendez-vous via le formulaire ad&#233;quat&lt;/a&gt;.
+
+D'avance merci pour votre compr&#233;hension.
+
+Bien &#224; vous, 
+
+La commune de {{commune_name}}</body><target_url>{{ form_url }}</target_url></item>
       </items>
     </status><status>
       <id>7</id>
@@ -479,7 +509,9 @@ Bien &#224; vous.</body>
           <body>Bonjour,
 
 Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} a bien &#233;t&#233; annul&#233;.</body>
-        </item><item type="jump" id="5">
+        </item><item type="notification" id="5"><to><item role_id="_submitter">_submitter</item></to><title>Annulation de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</title><body>Bonjour,
+
+Votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %} a bien &#233;t&#233; annul&#233;.</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="6">
           <status>6</status>
           <condition>
             <type>django</type>
@@ -545,6 +577,15 @@ D'avance merci pour votre compr&#233;hension.
 Bien &#224; vous
 </body>
         </item>
+      <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>Votre rendez-vous de ce {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} pour {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}</title><body>Bonjour,
+nous ne pouvons que constater votre absence ce jour pour le rendez-vous pris le {{ form_receipt_date }} &#224; {{ form_receipt_time }} pour cette date {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}} et ce motif {% firstof form_var_type_rdv_text form_var_type_rdv form_var_date_rdv_label form_var_agenda %}.
+
+Les places &#233;tant limit&#233;es, pensez &#224; ne vous inscrire que si vous &#234;tes certain de venir et de penser &#224; annuler en cas d'emp&#234;chement.
+
+D'avance merci pour votre compr&#233;hension.
+
+Bien &#224; vous
+</body><target_url>{{ form_url }}</target_url></item>
       </items>
     </status><status>
       <id>15</id>
@@ -568,7 +609,15 @@ Pour des raisons ind&#233;pendantes de notre volont&#233;, votre rendez-vous du
 Bien &#224; vous.
 
 La commune de {{commune_name}}</body>
-        </item><item type="jump" id="2">
+        </item><item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>D&#233;placement de votre rendez-vous du {{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}</title><body>Bonjour,
+
+Pour des raisons ind&#233;pendantes de notre volont&#233;, votre rendez-vous du 
+{{form_workflow_data_reservation_response_datetime|date:"l j F"}} &#224; {{form_workflow_data_reservation_response_datetime|date:"G"}}:{{form_workflow_data_reservation_response_datetime|date:"i"}}, ne pourra avoir lieu. Veuillez &#233;diter votre rendez-vous ou l'annuler.
+`Vous pouvez consulter votre demande via ce lien &lt;{{ form_url }}&gt;`_ ou via votre code de suivi {{ form_tracking_code }} si le lien ne fonctionne pas. 
+
+Bien &#224; vous.
+
+La commune de {{commune_name}}</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="3">
           <status>13</status>
           <set_marker_on_status>False</set_marker_on_status>
         </item>

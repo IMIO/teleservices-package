@@ -88,7 +88,28 @@
           </to><mail_template>indus-par-defaut-usager-refusee</mail_template>
           <subject>{{ form_name }}</subject>
           <body>Votre demande a &#233;t&#233; refus&#233;e. </body>
-        </item><item id="2" type="displaymsg">
+        </item><item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Demande refus&#233;e</title><body>Bonjour,
+
+{% if form_status_changed %}
+Nous sommes au regret de devoir vous informer du refus de votre demande.
+Pour rappel, cela concerne la d&#233;marche suivante : {{ form_name }}.
+{% endif %}
+
+{% if refus_var_motif %}
+Motif du refus : {{ refus_var_motif }}
+{% endif %}
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,
+</body><target_url>{{ form_url }}</target_url></item><item id="3" type="displaymsg">
           <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
           <level>success</level>
           <position>top</position>
@@ -103,7 +124,7 @@
       <colour>0099FF</colour>
       <visibility />
       <items>
-        <item id="3" type="register-comment">
+        <item id="1" type="register-comment">
           <comment>Montant de la prime : {{ prime_var_montant }}</comment>
         </item><item id="2" type="sendmail">
           <to>
@@ -115,7 +136,20 @@ Celle-ci est en cours de traitement.
 
 
 </body>
-        </item><item id="1" type="choice">
+        </item><item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Demande accept&#233;e</title><body>Bonjour,
+
+Nous vous confirmons que le statut de la demande suivante vient de changer, vous pouvez en prendre connaissance en suivant ce lien&#160;:
+  {{ form_url_backoffice }}
+
+{% if form_status_changed %}
+Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
+&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+
+Cordialement,
+</body><target_url>{{ form_url }}</target_url></item><item id="4" type="choice">
           <label>Demande trait&#233;e</label>
           <by>
             <item role_id="_agent-traitant">_agent-traitant</item>
@@ -141,7 +175,25 @@ Celle-ci est en cours de traitement.
 Cordialement,
 Le service finances votre administration
 </body>
-        </item><item id="2" type="displaymsg">
+        </item><item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - D&#233;marche finalis&#233;e</title><body>Bonjour,
+
+Nous vous informons que la d&#233;marche suivante est termin&#233;e : {{ form_name }}.
+
+{% if form_comment %}
+Nouveau commentaire&#160;: {{ form_comment }}
+{% endif %}
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,
+</body><target_url>{{ form_url }}</target_url></item><item id="3" type="displaymsg">
           <message>Cette demande a &#233;t&#233; trait&#233;e.</message>
           <level>success</level>
           <position>top</position>

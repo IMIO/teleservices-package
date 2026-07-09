@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <workflow id="394">
   <name>iMio - Certificats Population</name>
   <slug>imio-certificats-population-delivrance-auto-payante</slug>
@@ -272,7 +273,15 @@ La raison de ce refus est la suivante :
 
 Bien cordialement,</body>
         </item>
-        <item type="jump" id="3">
+        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>Votre demande concernant : {{ form_name }} {{ form_number }} a &#233;t&#233; rejet&#233;e</title><body>Bonjour,
+
+Nous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.
+
+La raison de ce refus est la suivante :
+
+{{ refus_var_motif }}
+
+Bien cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="4">
           <status>24</status>
           <condition>
             <type>django</type>
@@ -281,7 +290,7 @@ Bien cordialement,</body>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-        <item type="jump" id="4">
+        <item type="jump" id="5">
           <status>25</status>
           <condition>
             <type>django</type>
@@ -391,7 +400,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
       <forced_endpoint>true</forced_endpoint>
       <visibility />
       <items>
-        <item type="set-backoffice-fields" id="3">
+        <item type="set-backoffice-fields" id="1">
           <label>Document</label>
           <fields>
             <field>
@@ -404,7 +413,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
             <value>form_workflow_form_fichier_joint_var_document_raw</value>
           </condition>
         </item>
-        <item type="sendmail" id="1">
+        <item type="sendmail" id="2">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
@@ -416,7 +425,21 @@ Votre d&#233;marche "{{ form_name }}" a &#233;t&#233; trait&#233;e par nos servi
 
 Bien cordialement,</body>
         </item>
-        <item type="displaymsg" id="2">
+        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} : Demande trait&#233;e</title><body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+
+Nous vous informons que votre demande concernant la d&#233;marche {{ form_name }} a &#233;t&#233; trait&#233;e.
+
+"{{form_workflow_data_comment_reponse}}"
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+
+Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="4">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>
@@ -574,7 +597,29 @@ Votre d&#233;marche gratuite "{{ form_name }}" est en cours de traitement par no
 
 Bien cordialement,</body>
         </item>
-        <item type="jump" id="3">
+        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - R&#233;ception de votre demande</title><body>Bonjour,
+
+Nous vous confirmons la r&#233;ception de la d&#233;marche suivante : {{form_name}}
+
+Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez inform&#233;&#183;e par mail de l'avancement de votre d&#233;marche.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
+
+{{ form_details }}
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+
+Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="4">
           <status>accepted</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -616,7 +661,23 @@ Bien cordialement,
 
 </body>
         </item>
-        <item type="jump" id="3">
+        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Confirmation de paiement</title><body>Bonjour,
+
+Nous vous confirmons la r&#233;ception du paiement concernant la demande suivante : {{form_name}}.
+
+Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez inform&#233;&#183;e par mail de l'avancement de votre d&#233;marche.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
+
+{{ form_details }}
+{% endif %}
+
+Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="4">
           <status>accepted</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -814,7 +875,27 @@ Montant de la commande : {{ form_var_wf_total_commande }}
 
 Bien cordialement,</body>
         </item>
-        <item type="choice" id="5">
+        <item type="notification" id="5"><to><item role_id="_submitter">_submitter</item></to><title>D&#233;marche "{{ form_name }}". En attente du virement.</title><body>Madame, Monsieur,
+
+Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
+
+
+Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :
+
+
+B&#233;n&#233;ficiaire : Ville de {{ commune_name }} - {{ administration_adresse }}
+
+
+Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {% if form_option_iban %}{{form_option_iban}}{% else %}Le num&#233;ro IBAN n'est pas configur&#233;.{% endif %}
+
+
+R&#233;f&#233;rence de la commande (communication libre) : {{ form_number }}
+
+
+Montant de la commande : {{ form_var_wf_total_commande }}
+
+
+Bien cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="choice" id="6">
           <label>Valider le paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -913,7 +994,16 @@ Bien &#224; vous,
 
 </body>
         </item>
-        <item type="displaymsg" id="2">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{form_name}} - Demande d'information pour remboursement</title><body>Bonjour,
+
+Suite au refus de votre d&#233;marche payante d'un montant de {{form_var_wf_total_commande}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement d&#233;j&#224; effectu&#233;. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions
+
+Pour rappel, il s'agit de la d&#233;marche suivante : {{form_name}}
+
+Attention, si vous avez pay&#233; &#224; l'aide d'une carte de cr&#233;dit, merci d'indiquer un num&#233;ro de compte IBAN classique.
+
+Cordialement,
+</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="3">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
@@ -926,7 +1016,7 @@ Bien &#224; vous,
           <level>warning</level>
           <position>top</position>
         </item>
-        <item type="form" id="3">
+        <item type="form" id="4">
           <by>
             <item role_id="_submitter">_submitter</item>
           </by>
@@ -1100,6 +1190,16 @@ Bien &#224; vous,
           </to>
           <mail_template>indus-usager-remboursement-effectue</mail_template>
         </item>
+      <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Remboursement effectu&#233;</title><body>Bonjour,
+
+Vous avez introduit la d&#233;marche suivante : {{ form_name }}.
+Nous vous informons qu'un remboursement vient de vous &#234;tre accord&#233; et effectu&#233;.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+Cordialement,</body><target_url>{{ form_url }}</target_url></item>
       </items>
     </status>
     <status>
@@ -1277,7 +1377,13 @@ Vous pouvez le consulter en suivant le lien suivant : {{ form_url }}
 
 Bien cordialement,</body>
         </item>
-        <item type="form" id="4">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>Votre demande {{ form_name }} : Un agent vous a laiss&#233; un message</title><body>Bonjour,
+
+Un nouveau message a &#233;t&#233; ajout&#233; &#224; votre demande,
+
+Vous pouvez le consulter en suivant le lien suivant : {{ form_url }}
+
+Bien cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="form" id="3">
           <by>
             <item role_id="_submitter">_submitter</item>
           </by>
@@ -1303,7 +1409,7 @@ Bien cordialement,</body>
             </fields>
           </formdef>
         </item>
-        <item type="choice" id="5">
+        <item type="choice" id="4">
           <label>Envoyer le commentaire</label>
           <by>
             <item role_id="_submitter">_submitter</item>

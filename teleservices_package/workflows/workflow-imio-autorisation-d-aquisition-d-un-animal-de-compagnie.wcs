@@ -30,13 +30,23 @@ Cordialement,
 {{ administration_adresse }}
 {{ administration_site }}</body>
         </item>
-        <item type="sendmail" id="2">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} : Demande re&#231;ue</title><body>Bonjour {{ form_user_display_name }},
+
+Nos services vous confirment la bonne r&#233;ception de votre demande d'autorisation d'acquisition d'un animal de compagnie.
+
+Nous devons v&#233;rifier dans un premier temps si vous &#234;tes dans les conditions pour obtenir l'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal.
+
+Cordialement,
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body><target_url>{{ form_url }}</target_url></item><item type="sendmail" id="3">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>
           <mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
         </item>
-        <item type="jump" id="3">
+        <item type="jump" id="4">
           <status>1</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -105,6 +115,17 @@ Cordialement,
 {{ administration_adresse }}
 {{ administration_site }}</body>
         </item>
+      <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} : Demande refus&#233;e</title><body>Bonjour {{ form_user_display_name }},
+
+Nous vous informons que votre demande d'autorisation d'acquisition d'un animal de compagnie n'a pas &#233;t&#233; accept&#233;e.
+
+L'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal ne peut &#234;tre d&#233;livr&#233; que si l'individu qui en fait la demande n'est pas sous le coup d'une interdiction de d&#233;tention d'un animal ou d&#233;chue de son permis de d&#233;tenir un animal.
+
+Cordialement,
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body><target_url>{{ form_url }}</target_url></item>
       </items>
     </status>
     <status>
@@ -188,7 +209,27 @@ Montant de la commande : {{ form_option_montant|add:form_var_destination_price }
 
 Bien cordialement,</body>
         </item>
-        <item type="choice" id="3">
+        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>D&#233;marche "{{ form_name }}". En attente du virement.</title><body>Madame, Monsieur,
+
+Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
+
+
+Nous vous invitons &#224; r&#233;gler votre commande par virement bancaire en mentionnant les instructions de paiement suivantes :
+
+
+B&#233;n&#233;ficiaire : Ville de {{ commune_name }} - {{ administration_adresse }}
+
+
+Num&#233;ro de compte b&#233;n&#233;ficiaire (IBAN) : {{form_option_iban}}
+
+
+R&#233;f&#233;rence de la commande (communication libre) : {{ form_number }}
+
+
+Montant de la commande : {{ form_option_montant|add:form_var_destination_price }}
+
+
+Bien cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="choice" id="4">
           <label>Valider le paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -236,7 +277,29 @@ Cordialement,
 {{ administration_adresse }}
 {{ administration_site }}</body>
         </item>
-        <item type="register-comment" id="2">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} : En attente de votre paiement</title><body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+
+
+Afin que votre demande "{{form_name}}" puisse &#234;tre trait&#233;e, nous vous invitons &#224; `r&#233;gler votre commande &lt;{{ form_url }}&gt;`_ :
+
+D&#232;s r&#233;ception du paiement, nos agents traiteront votre demande dans les plus brefs d&#233;lais, vous serez tenu inform&#233; de son avancement.
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
+
+{{ form_details }}
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body><target_url>{{ form_url }}</target_url></item><item type="register-comment" id="3">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
@@ -245,7 +308,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
 &lt;p&gt;</comment>
         </item>
-        <item type="displaymsg" id="3">
+        <item type="displaymsg" id="4">
           <message>&lt;p&gt;
 Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve dans votre panier.&lt;/br&gt;&lt;/br&gt;
 &lt;a href="{{portal_user_url}}panier" class="pk-button"&gt;R&#233;gler ma commande&lt;/a&gt;
@@ -253,7 +316,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <level>info</level>
           <position>top</position>
         </item>
-        <item type="webservice_call" id="4">
+        <item type="webservice_call" id="5">
           <label>Paiement en ligne</label>
           <method>POST</method>
           <url>{{portal_url}}api/lingo/add-basket-item?NameId={{form_user_name_identifier_0}}</url>
@@ -300,7 +363,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <notify_on_errors>False</notify_on_errors>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-        <item type="jump" id="5">
+        <item type="jump" id="6">
           <status>3</status>
           <mode>trigger</mode>
           <trigger>paid</trigger>
@@ -441,7 +504,19 @@ Vous trouverez l'extrait du fichier central de la d&#233;linquance environnement
             <attachment>{{form_var_document_raw}}</attachment>
           </attachments>
         </item>
-        <item type="jump" id="3">
+        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} : Demande trait&#233;e</title><body>Bonjour {{ form_user_display_name }},
+
+Nous vous informons que votre demande d'autorisation d'acquisition d'un animal de compagnie est valid&#233;e et trait&#233;e.
+{% if "mail" not in form_var_destination|lower %}
+Vous recevrez l'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal par le biais souhait&#233;, &#224; savoir par {{ form_var_destination }}.
+{% endif %}
+{% if "mail" in form_var_destination|lower %}
+Vous trouverez l'extrait du fichier central de la d&#233;linquance environnementale et du bien-&#234;tre animal en pi&#232;ce jointe de ce mail.
+{% endif %}
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="4">
           <status>9</status>
           <mode>timeout</mode>
           <timeout>31557600</timeout>
@@ -547,6 +622,15 @@ Cordialement,
 {{ administration_adresse }}
 {{ administration_site }}</body>
         </item>
+      <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} : Demande refus&#233;e</title><body>Bonjour {{ form_user_display_name }},
+
+Nous vous informons que votre demande d'autorisation d'acquisition d'un animal de compagnie a &#233;t&#233; annul&#233;e pour cause de non-paiement dans un d&#233;lai de 30 jours.
+
+Cordialement,
+
+{{ commune_name }}
+{{ administration_adresse }}
+{{ administration_site }}</body><target_url>{{ form_url }}</target_url></item>
       </items>
     </status>
   </possible_status>

@@ -12,13 +12,35 @@
       <colour>#FFFFFF</colour>
       <visibility />
       <items>
-        <item type="sendmail" id="3">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
           <mail_template>indus-par-defaut-usager-nouvelle-demande</mail_template>
         </item>
-        <item type="sendmail" id="2">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - R&#233;ception de votre demande</title><body>Bonjour,
+
+Nous vous confirmons la r&#233;ception de la d&#233;marche suivante : {{form_name}}
+
+Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez inform&#233;&#183;e par mail de l'avancement de votre d&#233;marche.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
+
+{{ form_details }}
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+
+Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="sendmail" id="3">
           <to>
             <item role_id="{{form_var_courriel}}">{{form_var_courriel}}</item>
           </to>
@@ -41,7 +63,23 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
 
 </body>
         </item>
-        <item type="jump" id="4">
+        <item type="notification" id="4"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} Signature requise par le deuxi&#232;me &#233;poux.</title><body>Bonjour,
+
+Nous vous confirmons la r&#233;ception de la d&#233;marche suivante : {{form_name}} introduite par {{form_var_nom}} {{form_var_prenom}}.
+
+{% if form_tracking_code %}
+Utilisez le code de suivi pour accepter les donn&#233;es fournies par {{form_var_nom}} {{form_var_prenom}}.
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+{% if form_details %}
+Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
+
+{{ form_details }}
+{% endif %}
+
+</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="5">
           <status>5</status>
           <condition>
             <type>django</type>
@@ -50,7 +88,7 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
         </item>
-        <item type="jump" id="1">
+        <item type="jump" id="6">
           <status>11</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -331,13 +369,35 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
       <colour>#33d17a</colour>
       <visibility />
       <items>
-        <item type="sendmail" id="2">
+        <item type="sendmail" id="1">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
           <mail_template>indus-par-defaut-usager-acceptee</mail_template>
         </item>
-        <item type="choice" id="1">
+        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Demande accept&#233;e</title><body>Bonjour,
+
+{% if form_status_changed %}
+La demande suivante a &#233;t&#233; accept&#233;e&#160;: {{ form_name }}
+{% endif %}
+
+{% if form_comment %}
+Nouveau commentaire&#160;: {{ form_comment }}
+{% endif %}
+
+Le statut de votre demande a donc chang&#233;, il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;.
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,
+</body><target_url>{{ form_url }}</target_url></item><item type="choice" id="3">
           <label>Cl&#244;turer la demande</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -369,7 +429,28 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande :
           </to>
           <mail_template>indus-par-defaut-usager-refusee</mail_template>
         </item>
-        <item type="register-comment" id="3">
+        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Demande refus&#233;e</title><body>Bonjour,
+
+{% if form_status_changed %}
+Nous sommes au regret de devoir vous informer du refus de votre demande.
+Pour rappel, cela concerne la d&#233;marche suivante : {{ form_name }}.
+{% endif %}
+
+{% if refus_var_motif %}
+Motif du refus : {{ refus_var_motif }}
+{% endif %}
+
+{% if form_user %}
+Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_tracking_code %}
+Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
+En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
+{% endif %}
+
+Cordialement,
+</body><target_url>{{ form_url }}</target_url></item><item type="register-comment" id="4">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>

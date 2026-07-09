@@ -54,7 +54,9 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail de la demande&#160;:
 Bien &#224; vous,
 </body>
         </item><item type="notification" id="3">
-          <users_template>{{form_var_courriel}}</users_template>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
           <title>{{ form_name }} - R&#233;ception de votre demande</title>
           <body>Bonjour,
 
@@ -268,7 +270,9 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 </body>
         </item><item type="notification" id="3">
-          <users_template>{{form_var_courriel}}</users_template>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
           <title>{{ form_name }} - Demande accept&#233;e</title>
           <body>Bonjour,
 
@@ -362,7 +366,9 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 </body>
         </item><item type="notification" id="3">
-          <users_template>{{form_var_courriel}}</users_template>
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
           <title>{{ form_name }} - D&#233;marche finalis&#233;e</title>
           <body>Bonjour,
 
