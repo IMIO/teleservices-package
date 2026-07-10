@@ -14,7 +14,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-population" category_id="35">Population</category>
-  <workflow slug="imio-certificats-population" workflow_id="104">iMio - Certificats Population</workflow>
+  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="394">iMio - Certificats Population</workflow>
   <fields>
     <field>
       <type>comment</type>

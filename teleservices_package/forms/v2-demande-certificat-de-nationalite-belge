@@ -96,6 +96,12 @@
         <item>validation</item>
         <item>summary</item>
       </display_locations>
+      <prefill>
+        <locked>True</locked>
+        <locked-unless-empty>True</locked-unless-empty>
+        <type>string</type>
+        <value>{% if form_option_restreindre_aux_demandes_personnelles %}moi{% endif %}</value>
+      </prefill>
       <extra_css_class type="str">pk-important</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
@@ -714,7 +720,7 @@
       <label type="str">Lieu de naissance</label>
       <condition>
         <type>django</type>
-        <value>form_var_rb_concerne != 'tiers'</value>
+        <value>form_var_rb_concerne_raw != 'tiers'</value>
       </condition>
       <required type="str">required</required>
       <varname type="str">rb_naissance</varname>
