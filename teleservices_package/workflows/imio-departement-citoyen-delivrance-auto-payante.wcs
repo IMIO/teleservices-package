@@ -218,7 +218,12 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 
 Cordialement,</body>
         </item>
-        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} : Lien vers le r&#233;capitulatif de votre demande</title><body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+        <item type="notification" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} : Lien vers le r&#233;capitulatif de votre demande</title>
+          <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
 Nous vous informons que votre document concernant la d&#233;marche {{ form_name }} va &#234;tre num&#233;ris&#233; dans la Banque des Actes de l'Etat Civil.
 Le service f&#233;d&#233;ral est pr&#233;venu de votre demande et va la traiter dans les plus brefs d&#233;lais. Vous recevrez un mail lorsqu'il sera disponible.
@@ -230,7 +235,10 @@ Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
 En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
 {% endif %}
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="set-backoffice-fields" id="4">
+Cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="set-backoffice-fields" id="4">
           <label>R&#233;f&#233;rence du document migr&#233;</label>
           <fields>
             <field>
@@ -301,7 +309,7 @@ Un mail contenant un lien vers cette page vient de vous &#234;tre envoy&#233; af
         <item type="choice" id="4">
           <label>V&#233;rifier la pr&#233;sence de l'acte</label>
           <by>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f">Debug</item>
           </by>
           <status>35</status>
           <require_confirmation>False</require_confirmation>
@@ -435,7 +443,12 @@ Cordialement,</body>
             <value>form_var_document_migrated</value>
           </condition>
         </item>
-      <item type="notification" id="5"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} : Votre document est disponible</title><body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+        <item type="notification" id="5">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} : Votre document est disponible</title>
+          <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
 Nous vous informons que votre document concernant la d&#233;marche {{ form_name }} est d&#233;sormais disponible.
 
@@ -446,7 +459,9 @@ Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
 En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
 {% endif %}
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item>
+Cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
       </items>
     </status>
     <status>
@@ -557,7 +572,12 @@ La raison de ce refus est la suivante :
 
 Bien cordialement,</body>
         </item>
-        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>Votre demande concernant : {{ form_name }} {{ form_number }} a &#233;t&#233; rejet&#233;e</title><body>Bonjour,
+        <item type="notification" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>Votre demande concernant : {{ form_name }} {{ form_number }} a &#233;t&#233; rejet&#233;e</title>
+          <body>Bonjour,
 
 Nous sommes au regret de vous annoncer que votre d&#233;marche n'a pu aboutir.
 
@@ -565,7 +585,10 @@ La raison de ce refus est la suivante :
 
 {{ refus_var_motif }}
 
-Bien cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="4">
+Bien cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="jump" id="4">
           <status>24</status>
           <condition>
             <type>django</type>
@@ -713,7 +736,12 @@ Votre d&#233;marche "{{ form_name }}" a &#233;t&#233; trait&#233;e par nos servi
 
 Bien cordialement,</body>
         </item>
-        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} : Demande trait&#233;e</title><body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+        <item type="notification" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} : Demande trait&#233;e</title>
+          <body>Bonjour{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
 
 Nous vous informons que votre demande concernant la d&#233;marche {{ form_name }} a &#233;t&#233; trait&#233;e.
 
@@ -727,7 +755,10 @@ Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {{ form_evolution }}
 {% endif %}
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="4">
+Cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="displaymsg" id="4">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>
@@ -894,7 +925,12 @@ Votre d&#233;marche gratuite "{{ form_name }}" est en cours de traitement par no
 
 Bien cordialement,</body>
         </item>
-        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - R&#233;ception de votre demande</title><body>Bonjour,
+        <item type="notification" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} - R&#233;ception de votre demande</title>
+          <body>Bonjour,
 
 Nous vous confirmons la r&#233;ception de la d&#233;marche suivante : {{form_name}}
 
@@ -910,7 +946,10 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 {% endif %}
 
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="4">
+Cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="jump" id="4">
           <status>accepted</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -952,7 +991,12 @@ Bien cordialement,
 
 </body>
         </item>
-        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Confirmation de paiement</title><body>Bonjour,
+        <item type="notification" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} - Confirmation de paiement</title>
+          <body>Bonjour,
 
 Nous vous confirmons la r&#233;ception du paiement concernant la demande suivante : {{form_name}}.
 
@@ -962,7 +1006,10 @@ Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez in
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="4">
+Cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="jump" id="4">
           <status>accepted</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -1157,7 +1204,12 @@ Montant de la commande : {{ form_var_wf_total_commande }}
 
 Bien cordialement,</body>
         </item>
-        <item type="notification" id="5"><to><item role_id="_submitter">_submitter</item></to><title>D&#233;marche "{{ form_name }}". En attente du virement.</title><body>Madame, Monsieur,
+        <item type="notification" id="5">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>D&#233;marche "{{ form_name }}". En attente du virement.</title>
+          <body>Madame, Monsieur,
 
 Votre commande a bien &#233;t&#233; enregistr&#233;e dans notre syst&#232;me.
 
@@ -1177,7 +1229,10 @@ R&#233;f&#233;rence de la commande (communication libre) : {{ form_number }}
 Montant de la commande : {{ form_var_wf_total_commande }}
 
 
-Bien cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="choice" id="6">
+Bien cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="choice" id="6">
           <label>Valider le paiement</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -1276,7 +1331,12 @@ Bien &#224; vous,
 
 </body>
         </item>
-        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{form_name}} - Demande d'information pour remboursement</title><body>Bonjour,
+        <item type="notification" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{form_name}} - Demande d'information pour remboursement</title>
+          <body>Bonjour,
 
 Suite au refus de votre d&#233;marche payante d'un montant de {{form_var_wf_total_commande}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement d&#233;j&#224; effectu&#233;. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions
 
@@ -1285,7 +1345,10 @@ Pour rappel, il s'agit de la d&#233;marche suivante : {{form_name}}
 Attention, si vous avez pay&#233; &#224; l'aide d'une carte de cr&#233;dit, merci d'indiquer un num&#233;ro de compte IBAN classique.
 
 Cordialement,
-</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="3">
+</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="displaymsg" id="3">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
@@ -1488,7 +1551,12 @@ Cordialement,
           </to>
           <mail_template>indus-usager-remboursement-effectue</mail_template>
         </item>
-      <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Remboursement effectu&#233;</title><body>Bonjour,
+        <item type="notification" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} - Remboursement effectu&#233;</title>
+          <body>Bonjour,
 
 Vous avez introduit la d&#233;marche suivante : {{ form_name }}.
 Nous vous informons qu'un remboursement vient de vous &#234;tre accord&#233; et effectu&#233;.
@@ -1497,7 +1565,9 @@ Nous vous informons qu'un remboursement vient de vous &#234;tre accord&#233; et 
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item>
+Cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
       </items>
     </status>
     <status>
@@ -1675,13 +1745,21 @@ Vous pouvez le consulter en suivant le lien suivant : {{ form_url }}
 
 Bien cordialement,</body>
         </item>
-        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>Votre demande {{ form_name }} : Un agent vous a laiss&#233; un message</title><body>Bonjour,
+        <item type="notification" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>Votre demande {{ form_name }} : Un agent vous a laiss&#233; un message</title>
+          <body>Bonjour,
 
 Un nouveau message a &#233;t&#233; ajout&#233; &#224; votre demande,
 
 Vous pouvez le consulter en suivant le lien suivant : {{ form_url }}
 
-Bien cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="form" id="3">
+Bien cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="form" id="3">
           <by>
             <item role_id="_submitter">_submitter</item>
           </by>
@@ -1818,7 +1896,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <triggers>
         <trigger type="manual" id="8748c0b0-59d6-49ad-b00d-c683db005990">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f">Debug</item>
             <item role_id="_receiver">_receiver</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
@@ -1865,8 +1943,8 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <triggers>
         <trigger type="manual" id="7a3a1475-ecd5-421c-a07c-766ad720ee2b">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
-            <item slug="agent-ayant-acces-aux-fabriques" role_id="032bfed279a448d39a09dedadbc09a31">Agent ayant acces aux fabriques</item>
+            <item slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="684b3f2682ec43b599f0724134d13e10">Agent ayant acces aux fabriques</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>True</require_confirmation>
@@ -1886,7 +1964,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <triggers>
         <trigger type="manual" id="ee8824e9-4a77-403a-a6a1-b3b650138a9a">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f">Debug</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -1909,13 +1987,11 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>0</timeout>
         </trigger>
         <trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f">Debug</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -1948,7 +2024,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         <item type="choice" id="1">
           <label>Vers statut "En cours de traitement"</label>
           <by>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f">Debug</item>
           </by>
           <status>accepted</status>
           <require_confirmation>False</require_confirmation>
@@ -1960,7 +2036,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <triggers>
         <trigger type="manual" id="874729bc-1c3d-489f-aa18-862ef8a9d623">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f">Debug</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -1983,10 +2059,19 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         </field>
         <field>
           <type>bool</type>
+          <label type="str">Restreindre aux demandes personnelles</label>
+          <required type="str">optional</required>
+          <varname type="str">restreindre_aux_demandes_personnelles</varname>
+          <display_locations />
+          <id type="str">09d5f10d-51d2-4a6f-82f2-c11b4df38dec</id>
+        </field>
+        <field>
+          <type>bool</type>
           <label type="str">Forcer la delivrance automatique</label>
           <required type="str">optional</required>
           <varname type="str">forcer_delivrance_automatique</varname>
           <display_locations />
+          <anonymise type="str">no</anonymise>
           <id type="str">b1b19205-aae5-4265-b8cc-6b0c950b45a8</id>
         </field>
         <field>
@@ -2076,6 +2161,7 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <required type="str">required</required>
           <varname type="str">expiration</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
           <validation>
             <type>digits</type>
           </validation>

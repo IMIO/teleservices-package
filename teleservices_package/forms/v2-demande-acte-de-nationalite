@@ -14,7 +14,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-etat-civil" category_id="34">Etat-Civil</category>
-  <workflow slug="imio-departement-citoyen" workflow_id="103">IMio - D&#233;partement Citoyen</workflow>
+  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="103">IMio - D&#233;partement Citoyen</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -84,19 +84,21 @@
         <item>summary</item>
       </display_locations>
       <prefill>
-        <type>none</type>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>string</type>
+        <value>{% if form_option_restreindre_aux_demandes_personnelles %}moi{% endif %}</value>
       </prefill>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
-      <items />
       <data_source>
         <type>ds_personne_concernee</type>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
       <radio_orientation type="str">auto</radio_orientation>
       <id type="str">7</id>
     </field>
@@ -118,29 +120,6 @@
       <automatic_image_resize type="bool">True</automatic_image_resize>
       <storage type="str">default</storage>
       <id type="str">e0e2f3f7-f9a4-4893-bfe5-a04522e9090d</id>
-    </field>
-    <field>
-      <type>item</type>
-      <label type="str">La personne concern&#233;e est-elle d&#233;c&#233;d&#233;e</label>
-      <required type="str">required</required>
-      <varname type="str">is_person_con_deces</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <anonymise type="str">no</anonymise>
-      <display_mode type="str">radio</display_mode>
-      <items>
-        <item>Oui</item>
-        <item>Non</item>
-      </items>
-      <in_filters type="bool">False</in_filters>
-      <display_disabled_items type="bool">False</display_disabled_items>
-      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="str">150</image_desktop_size>
-      <image_mobile_size type="str">75</image_mobile_size>
-      <radio_orientation type="str">auto</radio_orientation>
-      <id type="str">95fd45c9-88ef-48cb-b892-b01b146d6b07</id>
     </field>
     <field>
       <type>item</type>
@@ -196,6 +175,7 @@
       <extra_css_class type="str">pk-important</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>jsonvalue</type>
         <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
@@ -503,6 +483,7 @@
       <add_element_label type="str">Ajouter une preuve</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
+      <remove_element_label type="str" />
       <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">bd0adec2-f739-4030-a62f-d14f4c13d262</id>
     </field>
