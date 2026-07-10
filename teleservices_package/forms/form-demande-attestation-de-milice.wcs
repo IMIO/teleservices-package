@@ -2,18 +2,20 @@
 <formdef id="8" url="">
   <name>Attestation de milice</name>
   <url_name>demande-attestation-de-milice</url_name>
-  <description>&lt;p&gt;Le certificat de milice concerne les personnes n&#233;es avant le 1 janvier 1976. Si le ou la r&#233;sidant.e belge se trouve &#224; l'&#233;tranger, le demander &#224; l'administration communale o&#249; il/elle a &#233;t&#233; inscrit&#183;e sur les listes de milice (le lieu de r&#233;sidence &#224; l'&#226;ge de 16 ans). L'attestation de milice concerne les personnes n&#233;es apr&#232;s le 31 d&#233;cembre 1975. Le certificat ou l'attestation doit &#234;tre demand&#233; au lieu de domicile.&lt;/p&gt;</description>
+  <submission_user_association>any</submission_user_association>
+  <history_pane_default_mode>expanded</history_pane_default_mode>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
+  <hidden>false</hidden>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-population" category_id="12">Population</category>
-  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="13">IMio - D&#233;partement Citoyen</workflow>
+  <category slug="demande-population" category_id="35">Population</category>
+  <workflow slug="imio-certificats-population" workflow_id="104">iMio - Certificats Population</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -36,15 +38,6 @@
     <field>
       <type>page</type>
       <label type="str">Attestation de milice</label>
-      <post_conditions>
-        <post_condition>
-          <condition>
-            <type>django</type>
-            <value>session_user|is_strong_authentication and form_var_concerne_qui_raw == 'moi' or form_var_mode_delivrance_raw == 'mondossier' or form_var_rb_domicile_commune_slug == commune_slug or form_var_rb_domicile_raw == commune_slug</value>
-          </condition>
-          <error_message>Nous ne pouvons donner suite &#224; votre demande parce que la personne concern&#233;e par le document n'est pas domicili&#233;e dans notre commune. Il faut s'adresser &#224; la commune du domicile.</error_message>
-        </post_condition>
-      </post_conditions>
       <id type="str">1</id>
     </field>
     <field>
@@ -67,35 +60,9 @@
       <id type="str">fb5bd4fb-b41c-49b7-9e4d-6a4ef4101e22</id>
     </field>
     <field>
-      <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;strong&gt;Attention, les certificats peuvent &amp;ecirc;tre obtenus via le site monDossier uniquement en &amp;eacute;tant connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique, et non avec Itsme.&lt;/strong&gt;&lt;br&gt;
-&lt;br&gt;
-Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne les personnes n&amp;eacute;es&amp;nbsp;avant le 1 janvier 1976. Si le r&amp;eacute;sident belge se trouve &amp;agrave; l&amp;#39;&amp;eacute;tranger, le demander &amp;agrave; l&amp;#39;administration communale o&amp;ugrave; il a &amp;eacute;t&amp;eacute; inscrit sur les listes de milice (lieu de r&amp;eacute;sidence &amp;agrave; l&amp;#39;&amp;acirc;ge de 16 ans).&lt;/p&gt;
-
-&lt;p&gt;L&amp;#39;&lt;strong&gt;attestation de milice&lt;/strong&gt;&amp;nbsp;concerne les personnes n&amp;eacute;es&amp;nbsp;apr&amp;egrave;s le 31 d&amp;eacute;cembre 1975.&lt;/p&gt;
-
-&lt;p&gt;Le certificat ou l&amp;#39;attestation doivent &amp;ecirc;tre demand&amp;eacute;s au lieu de domicile.&lt;/p&gt;
-
-&lt;p&gt;Si vous choisissez l&amp;#39;envoi postal, le&amp;nbsp;document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l&amp;#39;adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
-
-&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de &lt;strong&gt;votre carte d&amp;#39;identit&amp;eacute;&lt;/strong&gt; (ainsi que d&amp;#39;une &lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt; si vous le retirez pour un tiers).&lt;/p&gt;
-
-&lt;h2&gt;Traitement&lt;/h2&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;Compl&amp;eacute;tez votre demande via le formulaire ci-dessous.&lt;/li&gt;
-	&lt;li&gt;Le cas &amp;eacute;ch&amp;eacute;ant, proc&amp;eacute;dez au paiement.&lt;/li&gt;
-	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l&amp;#39;adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
-	&lt;li&gt;Si votre demande est valide, vous recevrez prochainement votre document selon le mode de d&amp;eacute;livrance choisi. A d&amp;eacute;faut, vous serez pr&amp;eacute;venu par e-mail.&lt;/li&gt;
-&lt;/ol&gt;
-</label>
-      <display_locations />
-      <id type="str">2</id>
-    </field>
-    <field>
       <type>item</type>
       <label type="str">La demande :</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">concerne_qui</varname>
       <display_locations>
         <item>validation</item>
@@ -118,32 +85,28 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">34</id>
     </field>
     <field>
-      <type>comment</type>
-      <label type="str">&lt;p&gt;L'attestation de milice&amp;nbsp;peut vous &amp;ecirc;tre d&amp;eacute;livr&amp;eacute;e soit :&lt;/p&gt;
-
-&lt;p&gt;1.&amp;nbsp;En la t&amp;eacute;l&amp;eacute;chargeant gratuitement via l'application &amp;quot;Mon Dossier&amp;quot; du registre national&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;2. En la commandant sur notre e-guichet (cette m&amp;eacute;thode peut engendrer des frais)&lt;/p&gt;
-
-&lt;p&gt;Veuillez choisir la formule qui vous agr&amp;eacute;e.&lt;/p&gt;</label>
+      <type>file</type>
+      <label type="str">Concerne une autre personne : pi&#232;ce justificative</label>
       <condition>
         <type>django</type>
-        <value>form_var_concerne_qui_raw == 'moi'</value>
+        <value>form_option_actes_piece_justificative_tiers == "Oui" and form_var_rb_concerne_raw == "tiers"</value>
       </condition>
-      <display_locations />
-      <id type="str">68</id>
-    </field>
-    <field>
-      <type>subtitle</type>
-      <label type="str">---</label>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).&lt;/p&gt;</hint>
+      <varname type="str">piece_justificative_tiers</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
-      <id type="str">74</id>
+      <extra_css_class type="str">pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <automatic_image_resize type="bool">False</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">f3291e0f-d67e-408a-8961-fecc0a21bcbe</id>
     </field>
     <field>
       <type>item</type>
@@ -152,7 +115,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
         <type>django</type>
         <value>form_var_concerne_qui_raw == 'moi'</value>
       </condition>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">mode_delivrance</varname>
       <display_locations>
         <item>validation</item>
@@ -163,7 +126,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       <items />
       <data_source>
         <type>jsonvalue</type>
-        <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite récupérer directement le document PDF (Connexion avec carte d'identité + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
+        <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite r&#233;cup&#233;rer directement le document PDF (Connexion avec carte d'identit&#233; + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">True</display_disabled_items>
@@ -171,34 +134,8 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">69</id>
-    </field>
-    <field>
-      <type>item</type>
-      <label type="str">O&#249; est domicili&#233;(e) la personne concern&#233;e par le document ?</label>
-      <required type="bool">True</required>
-      <hint type="str">La personne concern&#233;e par le document doit se rendre &#224; la commune de son domicile.</hint>
-      <varname type="str">rb_domicile</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <prefill>
-        <type>none</type>
-      </prefill>
-      <anonymise type="str">no</anonymise>
-      <display_mode type="str">radio</display_mode>
-      <items />
-      <data_source>
-        <type>carddef:imio-py-domicile</type>
-      </data_source>
-      <in_filters type="bool">False</in_filters>
-      <display_disabled_items type="bool">False</display_disabled_items>
-      <initial_zoom type="str">13</initial_zoom>
-      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
-      <id type="str">4</id>
     </field>
     <field>
       <type>page</type>
@@ -240,7 +177,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">nom_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -256,7 +193,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">prenom_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -272,7 +209,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn_perscon</varname>
       <display_locations>
@@ -292,7 +229,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>date</type>
       <label type="str">Date de naissance</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">birthday_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -320,7 +257,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Rue</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">rue_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -336,7 +273,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
       <varname type="str">numero_perscon</varname>
       <display_locations>
@@ -357,7 +294,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">boite_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -373,7 +310,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Code postal</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">cp_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -389,7 +326,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Localit&#233;</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">localite_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -405,7 +342,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>item</type>
       <label type="str">Pays</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">pays_perscon</varname>
       <display_locations>
@@ -427,12 +364,13 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">64</id>
     </field>
     <field>
       <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">email_perscon</varname>
       <display_locations>
         <item>validation</item>
@@ -448,7 +386,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Exemple : +3281005678 ou 0123456789.</hint>
       <varname type="str">tel_perscon</varname>
       <display_locations>
@@ -506,7 +444,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">nom</varname>
       <display_locations>
         <item>validation</item>
@@ -523,7 +461,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Pr&#233;nom</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">prenom</varname>
       <display_locations>
         <item>validation</item>
@@ -540,7 +478,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro national</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Le n&#176; d'identification au Registre national se trouve sur la carte d'identit&#233;.</hint>
       <varname type="str">nn</varname>
       <display_locations>
@@ -561,7 +499,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>date</type>
       <label type="str">Date de naissance</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">birthday</varname>
       <display_locations>
         <item>validation</item>
@@ -590,7 +528,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Rue</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">rue</varname>
       <display_locations>
         <item>validation</item>
@@ -607,7 +545,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Ex de num&#233;ro: 12, 145 et pas 1C ou 12/21 &#224; indiquer dans le champ bo&#238;te.</hint>
       <varname type="str">numero</varname>
       <display_locations>
@@ -629,7 +567,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Bo&#238;te</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <varname type="str">boite</varname>
       <display_locations>
         <item>validation</item>
@@ -646,7 +584,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Code postal</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">cp</varname>
       <display_locations>
         <item>validation</item>
@@ -663,7 +601,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Localit&#233;</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">localite</varname>
       <display_locations>
         <item>validation</item>
@@ -680,7 +618,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>item</type>
       <label type="str">Pays</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">pays</varname>
       <display_locations>
@@ -703,12 +641,13 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">71</id>
     </field>
     <field>
       <type>email</type>
       <label type="str">Adresse e-mail</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <varname type="str">email</varname>
       <display_locations>
         <item>validation</item>
@@ -725,7 +664,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Exemple : +3281005678 ou 0123456789.</hint>
       <varname type="str">tel</varname>
       <display_locations>
@@ -757,7 +696,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>date</type>
       <label type="str">Date souhait&#233;e du certificat</label>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
@@ -784,7 +723,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>item</type>
       <label type="str">Le document est destin&#233; &#224;</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">motifs</varname>
       <display_locations>
@@ -805,6 +744,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">21</id>
     </field>
     <field>
@@ -814,7 +754,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
         <type>django</type>
         <value>form_var_motifs == "Autre"</value>
       </condition>
-      <required type="bool">False</required>
+      <required type="str">optional</required>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
@@ -837,7 +777,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>item</type>
       <label type="str">Mode d'envoi</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Choisissez une option</hint>
       <varname type="str">destinations</varname>
       <display_locations>
@@ -858,12 +798,13 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">33</id>
     </field>
     <field>
       <type>string</type>
       <label type="str">Nombre de certificats demand&#233;s</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Maximum 20 exemplaires.</hint>
       <varname type="str">nb_exemplaire</varname>
       <display_locations>
@@ -900,7 +841,7 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
     <field>
       <type>string</type>
       <label type="str">Montant</label>
-      <required type="bool">True</required>
+      <required type="str">required</required>
       <hint type="str">Hors &#233;ventuels frais de port.</hint>
       <display_locations>
         <item>validation</item>
@@ -914,31 +855,25 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
       <anonymise type="str">final</anonymise>
       <id type="str">73</id>
     </field>
-  </fields><user-roles>
-    <role slug="citoyen-test" role_id="45d1eb0a941f44f68289eb1586be448e">Citoyen (test)</role>
-  </user-roles><options>
-    <option varname="baec" />
-    <option varname="commentaire" />
+  </fields>
+  <user-roles>
+    <role role_id="logged-users">logged-users</role>
+  </user-roles>
+  <options>
     <option varname="cout">0</option>
-    <option varname="cp_commune" />
-    <option varname="destinations" />
-    <option varname="destinations_display" />
-    <option varname="destinations_structured" />
     <option varname="iban" />
-    <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=44</option>
-    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=44</option>
     <option varname="mode_recup_disponibles" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
     <option varname="motifs_disponibles" />
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
-    <option varname="redirection_automatique" />
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
-  </options><custom_views />
+  </options>
+  <custom_views />
   <geolocations />
   <required_authentication_contexts>
     <method>fedict</method>
@@ -946,4 +881,13 @@ Le&amp;nbsp;&lt;strong&gt;certificat de milice&lt;/strong&gt;&amp;nbsp;concerne 
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>
+  <submission_sidebar_items>
+    <item>__default__</item>
+  </submission_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="imio-departement-citoyen-avec-redirection-mondossier" new-workflow="imio-certificats-population" timestamp="2026-07-10T09:25:48.683395+02:00">
+      <timestamp>2026-07-10T09:25:48.683395+02:00</timestamp>
+      <status-mapping />
+    </migration>
+  </workflow-migrations>
 </formdef>

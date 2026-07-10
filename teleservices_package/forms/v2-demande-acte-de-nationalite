@@ -6,15 +6,15 @@
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
-  <hidden_from_api_results>false</hidden_from_api_results>
+  <hidden>false</hidden>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>false</confirmation>
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-etat-civil" category_id="17">Etat civil</category>
-  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="393">IMio - D&#233;partement Citoyen</workflow>
+  <category slug="demande-etat-civil" category_id="34">Etat-Civil</category>
+  <workflow slug="imio-departement-citoyen" workflow_id="103">IMio - D&#233;partement Citoyen</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -41,6 +41,14 @@
     </field>
     <field>
       <type>computed</type>
+      <label type="str">Le document est destin&#233; &#224;</label>
+      <varname type="str">le_document_est_destine_a</varname>
+      <value_template type="str">{% firstof form_option_motifs_disponibles_structured data_source.passerelle_motifs %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">7f9900e0-4707-459a-a4d8-ef34feed83c0</id>
+    </field>
+    <field>
+      <type>computed</type>
       <label type="str">BAEC cat&#233;gorie</label>
       <varname type="str">baec_category</varname>
       <value_template type="str">'missing_category'</value_template>
@@ -54,30 +62,6 @@
       <value_template type="str">{{ data_source.mode_de_delivrance|authentication_delivrance_items_visibility:session_user }}</value_template>
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">41958521-efad-4d35-99e7-433e6454a7cd</id>
-    </field>
-    <field>
-      <type>comment</type>
-      <label type="str">&lt;p&gt;&lt;strong&gt;L&amp;rsquo;acte de nationalit&amp;eacute;&amp;nbsp;ne concerne que les &amp;eacute;trangers devenus Belges.&lt;br&gt;
-Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener noreferrer" target="_blank"&gt;demander le certificat de nationalit&amp;eacute;&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Cet acte peut &amp;ecirc;tre &lt;strong&gt;EXCLUSIVEMENT&lt;/strong&gt; demand&amp;eacute; par la personne concern&amp;eacute;e ou moyennant une preuve d&amp;#39;int&amp;eacute;r&amp;ecirc;t l&amp;eacute;gitime :&lt;/p&gt;
-
-&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de&amp;nbsp;&lt;strong&gt;votre carte d&amp;#39;identit&amp;eacute; &lt;/strong&gt;(ainsi que d&amp;#39;une&amp;nbsp;&lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt;&amp;nbsp;si vous le retirez pour un tiers).&lt;/p&gt;
-</label>
-      <display_locations />
-      <id type="str">2</id>
-    </field>
-    <field>
-      <type>comment</type>
-      <label type="str">&lt;h2&gt;Comment obtenir l&amp;#39;acte souhait&amp;eacute; ?&lt;/h2&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;Si l&amp;#39;acte vous concerne et si vous &amp;ecirc;tes connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique ou l&amp;#39;application It&amp;#39;s Me, vous aurez la possibilit&amp;eacute; de r&amp;eacute;cup&amp;eacute;rer directement en format PDF l&amp;#39;extrait ou la copie de votre acte. Si cet acte n&amp;#39;a pas &amp;eacute;t&amp;eacute; num&amp;eacute;ris&amp;eacute; dans la Banque des Actes de l&amp;#39;Etat Civil, vous aurez la possibilit&amp;eacute; d&amp;#39;en faire la demande.&lt;/li&gt;
-	&lt;li&gt;&#171; Si le certificat ne vous concerne pas, vous pouvez faire la demande aupr&#232;s de l&#8217;administration communale pour un tiers. Dans ce cas, vous devrez annexer une pi&#232;ce justificative : mandat d&#8217;administrateur, copie de carte d&#8217;identit&#233; et procuration sign&#233;e par la personne concern&#233;e, preuve de requ&#234;te en justice, etc. &#187;. 
-	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi.
-</label>
-      <display_locations />
-      <id type="str">83</id>
     </field>
     <field>
       <type>comment</type>
@@ -176,7 +160,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
       <items />
       <data_source>
         <type>jsonvalue</type>
-        <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite récupérer directement le document PDF (Connexion avec carte d'identité + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
+        <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite r&#233;cup&#233;rer directement le document PDF (Connexion avec carte d'identit&#233; + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">True</display_disabled_items>
@@ -194,6 +178,35 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
       <value_template type="str">{% if form_var_mode_delivrance_raw != 'commune' %}True{% else %}False{% endif %}</value_template>
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">87</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Le document est destin&#233; &#224;</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_mode_delivrance_raw == "mondossier" and form_option_rendre_la_delivrance_automatique_des_documents_payante</value>
+      </condition>
+      <required type="str">required</required>
+      <hint type="str">&lt;p&gt;Choisissez une option&lt;/p&gt;</hint>
+      <varname type="str">motifs</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">pk-important</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <data_source>
+        <type>jsonvalue</type>
+        <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">6c9f90f0-67ce-4079-a596-91bf887e1d8f</id>
     </field>
     <field>
       <type>page</type>
@@ -490,7 +503,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
       <add_element_label type="str">Ajouter une preuve</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
-      <remove_element_label type="str" />
       <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">bd0adec2-f739-4030-a62f-d14f4c13d262</id>
     </field>
@@ -1247,7 +1259,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
       </display_locations>
       <prefill>
         <locked>True</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>{% if form_var_mode_delivrance_raw != "mondossier" %}{% if form_var_cp in commune_cp and form_var_rb_concerne_raw == 'moi' or form_var_cp_perscon in commune_cp and form_var_rb_concerne_raw == 'tiers' or form_user_var_zipcode in commune_cp and form_var_rb_concerne_raw == 'moi' %}{% with cout=form_option_cout|default:0 motifs_price=form_var_motifs_price|default:0 nb_exemplaire=form_var_nb_exemplaire|default:0 %}{{ cout|add:motifs_price|multiply:nb_exemplaire }}{% endwith %}{% else %}{% with cout_extra=form_option_cout_extra|default:0 motifs_price=form_var_motifs_price|default:0 nb_exemplaire=form_var_nb_exemplaire|default:0  %}{{cout_extra|add:motifs_price|multiply:nb_exemplaire}}{% endwith %}{% endif %}{% else %}{% if form_user_var_zipcode in commune_cp %} {{ form_option_cout|default_if_none:0|add:form_var_motifs_price|default_if_none:0 }}{% else %}{{ form_option_cout_extra|default_if_none:0|add:form_var_motifs_price|default_if_none:0 }}{% endif %}{% endif %} &#8364;</value>
       </prefill>
@@ -1259,7 +1270,7 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
     <role role_id="logged-users">logged-users</role>
   </user-roles>
   <backoffice-submission-roles>
-    <role slug="agent" role_id="b9b15c5c29134ccfb9d3d2dd90f18225">Agent</role>
+    <role slug="agent" role_id="35bc67ed92d846f9b4680d00203791ff">Agent</role>
   </backoffice-submission-roles>
   <options>
     <option varname="actes_commentaire_additionnel" />
@@ -1267,25 +1278,14 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
     <option varname="actes_piece_justificative_tiers_display" />
     <option varname="actes_piece_justificative_tiers_structured" />
     <option varname="activer_anonymisation" type="bool">false</option>
-    <option varname="baec" />
-    <option varname="commentaire" />
-    <option varname="comptes_identifiants_regies" />
-    <option varname="comptes_identifiants_regies_display" />
-    <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">0</option>
-    <option varname="cp_commune" />
     <option varname="delai_anonymisation_document_concerne_tier" />
     <option varname="delai_anonymisation_me_concerne" />
     <option varname="delai_migration" />
-    <option varname="destinations" />
-    <option varname="destinations_display" />
-    <option varname="destinations_structured" />
     <option varname="iban" />
     <option varname="liaison_baec">Staging</option>
     <option varname="liaison_baec_display">Staging</option>
     <option varname="liaison_baec_structured" />
-    <option varname="lien_bosa" />
-    <option varname="lien_mondossier" />
     <option varname="mode_recup_disponibles" type="list" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
@@ -1293,7 +1293,6 @@ Si vous &amp;ecirc;tes Belge de naissance, vous devez &lt;a rel="noopener norefe
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="paiement_en_ligne" type="bool">false</option>
-    <option varname="redirection_automatique" type="bool">false</option>
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />

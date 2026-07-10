@@ -6,15 +6,15 @@
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
-  <hidden_from_api_results>false</hidden_from_api_results>
+  <hidden>false</hidden>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>false</confirmation>
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-etat-civil" category_id="17">Etat civil</category>
-  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="393">IMio - D&#233;partement Citoyen</workflow>
+  <category slug="demande-etat-civil" category_id="34">Etat-Civil</category>
+  <workflow slug="imio-departement-citoyen" workflow_id="103">IMio - D&#233;partement Citoyen</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -62,18 +62,6 @@
       <value_template type="str">{{ data_source.mode_de_delivrance|authentication_delivrance_items_visibility:session_user }}</value_template>
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">e5d6b736-80bc-4c9e-b9e6-360dc7cbbb13</id>
-    </field>
-    <field>
-      <type>comment</type>
-      <label type="str">&lt;h2&gt;Comment obtenir l&amp;#39;acte souhait&amp;eacute; ?&lt;/h2&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;Si l&amp;#39;acte vous concerne et si vous &amp;ecirc;tes connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique ou l&amp;#39;application It&amp;#39;s Me, vous aurez la possibilit&amp;eacute; de r&amp;eacute;cup&amp;eacute;rer directement en format PDF l&amp;#39;extrait ou la copie de votre acte. Si cet acte n&amp;#39;a pas &amp;eacute;t&amp;eacute; num&amp;eacute;ris&amp;eacute; dans la Banque des Actes de l&amp;#39;Etat Civil, vous aurez la possibilit&amp;eacute; d&amp;#39;en faire la demande.&lt;/li&gt;
-	&lt;li&gt;&#171; Si le certificat ne vous concerne pas, vous pouvez faire la demande aupr&#232;s de l&#8217;administration communale pour un tiers. Dans ce cas, vous devrez annexer une pi&#232;ce justificative : mandat d&#8217;administrateur, copie de carte d&#8217;identit&#233; et procuration sign&#233;e par la personne concern&#233;e, preuve de requ&#234;te en justice, etc. &#187;. 
-	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi.
-</label>
-      <display_locations />
-      <id type="str">107</id>
     </field>
     <field>
       <type>comment</type>
@@ -152,7 +140,7 @@
       <items />
       <data_source>
         <type>jsonvalue</type>
-        <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite récupérer directement le document PDF (Connexion avec carte d'identité + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
+        <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite r&#233;cup&#233;rer directement le document PDF (Connexion avec carte d'identit&#233; + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">True</display_disabled_items>
@@ -508,7 +496,6 @@
       <add_element_label type="str">Ajouter une preuve</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
-      <remove_element_label type="str" />
       <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">cbda8ce7-238b-4321-b24a-25a4de7cf312</id>
     </field>
@@ -1323,7 +1310,6 @@
       </display_locations>
       <prefill>
         <locked>True</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>{% if form_var_mode_delivrance_raw != "mondossier" %}{% if form_var_cp in commune_cp and form_var_rb_concerne_raw == 'moi' or form_var_cp_perscon in commune_cp and form_var_rb_concerne_raw == 'tiers' or form_user_var_zipcode in commune_cp and form_var_rb_concerne_raw == 'moi' %}{% with cout=form_option_cout|default:0 motifs_price=form_var_motifs_price|default:0 nb_exemplaire=form_var_nb_exemplaire|default:0 %}{{ cout|add:motifs_price|multiply:nb_exemplaire }}{% endwith %}{% else %}{% with cout_extra=form_option_cout_extra|default:0 motifs_price=form_var_motifs_price|default:0 nb_exemplaire=form_var_nb_exemplaire|default:0  %}{{cout_extra|add:motifs_price|multiply:nb_exemplaire}}{% endwith %}{% endif %}{% else %}{% if form_user_var_zipcode in commune_cp %} {{ form_option_cout|default_if_none:0|add:form_var_motifs_price|default_if_none:0 }}{% else %}{{ form_option_cout_extra|default_if_none:0|add:form_var_motifs_price|default_if_none:0 }}{% endif %}{% endif %} &#8364;</value>
       </prefill>
@@ -1335,7 +1321,7 @@
     <role role_id="logged-users">logged-users</role>
   </user-roles>
   <backoffice-submission-roles>
-    <role slug="agent" role_id="b9b15c5c29134ccfb9d3d2dd90f18225">Agent</role>
+    <role slug="agent" role_id="35bc67ed92d846f9b4680d00203791ff">Agent</role>
   </backoffice-submission-roles>
   <options>
     <option varname="actes_commentaire_additionnel" />
@@ -1343,25 +1329,14 @@
     <option varname="actes_piece_justificative_tiers_display" />
     <option varname="actes_piece_justificative_tiers_structured" />
     <option varname="activer_anonymisation" type="bool">false</option>
-    <option varname="baec" />
-    <option varname="commentaire" />
-    <option varname="comptes_identifiants_regies" />
-    <option varname="comptes_identifiants_regies_display" />
-    <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">0</option>
-    <option varname="cp_commune" />
     <option varname="delai_anonymisation_document_concerne_tier" />
     <option varname="delai_anonymisation_me_concerne" />
     <option varname="delai_migration" />
-    <option varname="destinations" />
-    <option varname="destinations_display" />
-    <option varname="destinations_structured" />
     <option varname="iban" />
     <option varname="liaison_baec">Staging</option>
     <option varname="liaison_baec_display">Staging</option>
     <option varname="liaison_baec_structured" />
-    <option varname="lien_bosa" />
-    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
     <option varname="mode_recup_disponibles" type="list" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
@@ -1369,7 +1344,6 @@
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="paiement_en_ligne" type="bool">true</option>
-    <option varname="redirection_automatique" type="bool">false</option>
     <option varname="regie_de_paiement">atos_test</option>
     <option varname="regie_de_paiement_display">Atos test</option>
     <option varname="regie_de_paiement_structured" type="dict">
