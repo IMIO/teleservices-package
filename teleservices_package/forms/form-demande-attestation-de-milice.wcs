@@ -11,11 +11,11 @@
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
-  <always_advertise>true</always_advertise>
+  <always_advertise>false</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-population" category_id="35">Population</category>
-  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="394">iMio - Certificats Population</workflow>
+  <workflow slug="imio-certificats-population" workflow_id="104">iMio - Certificats Population</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -811,24 +811,35 @@
     <role role_id="logged-users">logged-users</role>
   </user-roles>
   <options>
+    <option varname="actes_commentaire_additionnel" />
+    <option varname="actes_piece_justificative_tiers" />
+    <option varname="actes_piece_justificative_tiers_display" />
+    <option varname="actes_piece_justificative_tiers_structured" />
+    <option varname="activer_anonymisation" type="bool">false</option>
     <option varname="cout">0</option>
+    <option varname="cout_extra" />
+    <option varname="delai_anonymisation_document_concerne_tier" />
+    <option varname="delai_anonymisation_me_concerne" />
+    <option varname="expiration">10</option>
+    <option varname="forcer_delivrance_automatique" type="bool">false</option>
     <option varname="iban" />
+    <option varname="interdire_remboursement" type="bool">false</option>
     <option varname="mode_recup_disponibles" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
     <option varname="motifs_disponibles" />
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
+    <option varname="paiement_en_ligne" type="bool">false</option>
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
+    <option varname="rendre_la_delivrance_automatique_des_documents_payante" type="bool">false</option>
+    <option varname="restreindre_aux_demandes_personnelles" type="bool">true</option>
   </options>
   <custom_views />
   <geolocations />
-  <required_authentication_contexts>
-    <method>fedict</method>
-  </required_authentication_contexts>
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>
