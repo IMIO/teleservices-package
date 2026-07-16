@@ -1167,36 +1167,36 @@
     <role slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f" role_key="_receiver">Debug</role>
   </roles>
   <options>
-    <option varname="actes_commentaire_additionnel" />
-    <option varname="actes_piece_justificative_tiers">Non</option>
-    <option varname="actes_piece_justificative_tiers_display">Non</option>
-    <option varname="actes_piece_justificative_tiers_structured" />
-    <option varname="activer_anonymisation" type="bool">false</option>
-    <option varname="cout">0</option>
-    <option varname="cout_extra">0</option>
-    <option varname="delai_anonymisation_document_concerne_tier" />
-    <option varname="delai_anonymisation_me_concerne" />
-    <option varname="delai_migration" />
-    <option varname="expiration">90</option>
-    <option varname="forcer_delivrance_automatique" type="bool">false</option>
-    <option varname="iban" />
-    <option varname="interdire_remboursement" type="bool">false</option>
-    <option varname="liaison_baec">Staging</option>
-    <option varname="liaison_baec_display">Staging</option>
-    <option varname="liaison_baec_structured" />
-    <option varname="mode_recup_disponibles" />
-    <option varname="mode_recup_disponibles_display" />
-    <option varname="mode_recup_disponibles_structured" />
-    <option varname="motifs_disponibles" />
-    <option varname="motifs_disponibles_display" />
-    <option varname="motifs_disponibles_structured" />
-    <option varname="paiement_en_ligne" type="bool">true</option>
-    <option varname="regie_de_paiement" />
-    <option varname="regie_de_paiement_display" />
-    <option varname="regie_de_paiement_structured" />
-    <option varname="reglement_communal" />
-    <option varname="rendre_la_delivrance_automatique_des_documents_payante" type="bool">true</option>
-    <option varname="restreindre_aux_demandes_personnelles" type="bool">false</option>
+    <option varname="actes_commentaire_additionnel"></option>
+    <option varname="actes_piece_justificative_tiers"></option>
+    <option varname="actes_piece_justificative_tiers_display"></option>
+    <option varname="actes_piece_justificative_tiers_structured"></option>
+    <option varname="activer_anonymisation" type="bool"></option>
+    <option varname="cout"></option>
+    <option varname="cout_extra"></option>
+    <option varname="delai_anonymisation_document_concerne_tier"></option>
+    <option varname="delai_anonymisation_me_concerne"></option>
+    <option varname="delai_migration"></option>
+    <option varname="expiration"></option>
+    <option varname="forcer_delivrance_automatique" type="bool"></option>
+    <option varname="iban"></option>
+    <option varname="interdire_remboursement" type="bool"></option>
+    <option varname="liaison_baec"></option>
+    <option varname="liaison_baec_display"></option>
+    <option varname="liaison_baec_structured"></option>
+    <option varname="mode_recup_disponibles"></option>
+    <option varname="mode_recup_disponibles_display"></option>
+    <option varname="mode_recup_disponibles_structured"></option>
+    <option varname="motifs_disponibles"></option>
+    <option varname="motifs_disponibles_display"></option>
+    <option varname="motifs_disponibles_structured"></option>
+    <option varname="paiement_en_ligne" type="bool"></option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
+    <option varname="regie_de_paiement_structured"></option>
+    <option varname="reglement_communal"></option>
+    <option varname="rendre_la_delivrance_automatique_des_documents_payante" type="bool"></option>
+    <option varname="restreindre_aux_demandes_personnelles" type="bool"></option>
   </options>
   <custom_views />
   <geolocations />

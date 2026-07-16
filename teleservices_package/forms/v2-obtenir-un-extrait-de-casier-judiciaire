@@ -106,24 +106,24 @@
     <role slug="agent" role_id="b9b15c5c29134ccfb9d3d2dd90f18225">Agent</role>
   </backoffice-submission-roles>
   <options>
-    <option varname="activer_anonymisation" type="bool">false</option>
-    <option varname="commentaire" />
-    <option varname="cout_document" type="decimal">5</option>
-    <option varname="cout_document_extra" type="decimal">10</option>
-    <option varname="delai_anonymisation" />
-    <option varname="lien_vers_l_extrait_de_casier_judiciaire_5962" />
-    <option varname="modele_2" type="bool">true</option>
-    <option varname="motifs_disponibles" />
-    <option varname="motifs_disponibles_display" />
-    <option varname="motifs_disponibles_structured" />
-    <option varname="regie_paiement">atos_test_aes</option>
-    <option varname="regie_paiement_display">Atos (test AES)</option>
+    <option varname="activer_anonymisation" type="bool"></option>
+    <option varname="commentaire"></option>
+    <option varname="cout_document" type="decimal"></option>
+    <option varname="cout_document_extra" type="decimal"></option>
+    <option varname="delai_anonymisation"></option>
+    <option varname="lien_vers_l_extrait_de_casier_judiciaire_5962"></option>
+    <option varname="modele_2" type="bool"></option>
+    <option varname="motifs_disponibles"></option>
+    <option varname="motifs_disponibles_display"></option>
+    <option varname="motifs_disponibles_structured"></option>
+    <option varname="regie_paiement"></option>
+    <option varname="regie_paiement_display"></option>
     <option varname="regie_paiement_structured" type="dict">
-      <id>atos_test_aes</id>
-      <text>Atos (test AES)</text>
-      <description>Test avec module de facturation.</description>
+      <id />
+      <text />
+      <description />
     </option>
-    <option varname="rendre_la_delivrance_automatique_des_documents_payante" type="bool">true</option>
+    <option varname="rendre_la_delivrance_automatique_des_documents_payante" type="bool"></option>
   </options>
   <custom_views />
   <geolocations />

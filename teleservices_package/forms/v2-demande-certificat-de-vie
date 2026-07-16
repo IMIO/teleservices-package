@@ -916,26 +916,22 @@
     <role role_id="logged-users">logged-users</role>
   </user-roles>
   <options>
-    <option varname="activer_anonymisation" type="bool">false</option>
-    <option varname="cout">0</option>
-    <option varname="delai_anonymisation_document_concerne_tier">90</option>
-    <option varname="delai_anonymisation_me_concerne">90</option>
-    <option varname="iban" />
-    <option varname="mode_recup_disponibles" type="list" />
-    <option varname="mode_recup_disponibles_display" />
-    <option varname="mode_recup_disponibles_structured" />
-    <option varname="motifs_disponibles" type="list" />
-    <option varname="motifs_disponibles_display" />
-    <option varname="motifs_disponibles_structured" />
-    <option varname="paiement_en_ligne" type="bool">false</option>
-    <option varname="regie_de_paiement" />
-    <option varname="regie_de_paiement_display" />
-    <option varname="regie_de_paiement_structured" type="dict">
-      <id />
-      <text />
-      <description />
-    </option>
-    <option varname="reglement_communal" />
+    <option varname="activer_anonymisation" type="bool"></option>
+    <option varname="cout"></option>
+    <option varname="delai_anonymisation_document_concerne_tier"></option>
+    <option varname="delai_anonymisation_me_concerne"></option>
+    <option varname="iban"></option>
+    <option varname="mode_recup_disponibles" type="list"></option>
+    <option varname="mode_recup_disponibles_display"></option>
+    <option varname="mode_recup_disponibles_structured"></option>
+    <option varname="motifs_disponibles" type="list"></option>
+    <option varname="motifs_disponibles_display"></option>
+    <option varname="motifs_disponibles_structured"></option>
+    <option varname="paiement_en_ligne" type="bool"></option>
+    <option varname="regie_de_paiement"></option>
+    <option varname="regie_de_paiement_display"></option>
+    <option varname="regie_de_paiement_structured" type="dict"></option>
+    <option varname="reglement_communal"></option>
   </options>
   <custom_views />
   <geolocations />
