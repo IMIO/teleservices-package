@@ -108,8 +108,8 @@
   <options>
     <option varname="activer_anonymisation" type="bool"></option>
     <option varname="commentaire"></option>
-    <option varname="cout_document" type="decimal"></option>
-    <option varname="cout_document_extra" type="decimal"></option>
+    <option varname="cout_document" type="decimal">0</option>
+    <option varname="cout_document_extra" type="decimal">0</option>
     <option varname="delai_anonymisation"></option>
     <option varname="lien_vers_l_extrait_de_casier_judiciaire_5962"></option>
     <option varname="modele_2" type="bool"></option>
