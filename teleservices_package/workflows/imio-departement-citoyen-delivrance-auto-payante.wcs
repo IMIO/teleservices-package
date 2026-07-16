@@ -2066,18 +2066,6 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <varname type="str">actes_commentaire_additionnel</varname>
           <display_locations />
           <display_mode type="str">rich</display_mode>
-          <default_value type="str">&lt;h3&gt;Comment obtenir l'acte souhait&#233; ?&lt;/h3&gt;
-
-&lt;p&gt;Si l'acte vous concerne et si vous &#234;tes connect&#233; avec votre &lt;strong&gt;carte d'identit&#233; &#233;lectronique&lt;/strong&gt; ou l'application &lt;strong&gt;It's Me&lt;/strong&gt;, vous aurez la possibilit&#233; de r&#233;cup&#233;rer directement en &lt;strong&gt;format PDF&lt;/strong&gt; l'extrait ou la copie de votre acte. Si cet acte n'a pas &#233;t&#233; num&#233;ris&#233; dans la Banque des Actes de l'&#201;tat Civil, vous aurez la possibilit&#233; d'en faire la demande.&lt;/p&gt;
-
-&lt;p&gt;Si l'acte &lt;em&gt;ne vous concerne pas&lt;/em&gt;, vous pouvez faire la demande aupr&#232;s de l'administration communale &lt;strong&gt;pour un tiers&lt;/strong&gt;. Dans ce cas, vous devrez annexer une pi&#232;ce justificative, par exemple :&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Mandat d'administrateur&lt;/li&gt;
-  &lt;li&gt;Copie de carte d'identit&#233; et procuration sign&#233;e par la personne concern&#233;e&lt;/li&gt;
-  &lt;li&gt;Preuve de requ&#234;te en justice&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Si votre demande est valide, vous recevrez tr&#232;s prochainement votre document selon le &lt;strong&gt;mode de d&#233;livrance&lt;/strong&gt; que vous aurez choisi.&lt;/p&gt;</default_value>
           <id type="str">f9e99ee9-c420-44c6-a0ca-650a961831eb</id>
         </field>
         <field>

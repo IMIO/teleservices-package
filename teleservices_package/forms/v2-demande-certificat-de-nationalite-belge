@@ -919,7 +919,7 @@
     <role role_id="logged-users">logged-users</role>
   </user-roles>
   <options>
-    <option varname="actes_commentaire_additionnel"></option>
+    <option varname="actes_commentaire_additionnel">&lt;h3&gt;Comment obtenir le certificat souhait&#233; ?&lt;/h3&gt; &lt;ol&gt; &lt;li&gt;Si le document vous concerne et si vous &#234;tes connect&#233; avec votre &lt;strong&gt;carte d&#8217;identit&#233; &#233;lectronique&lt;/strong&gt; ou l&#8217;application &lt;strong&gt;itsme&lt;/strong&gt;, vous avez la possibilit&#233; de r&#233;cup&#233;rer le certificat en cliquant sur &quot;Valider&quot; ci-dessous.&lt;/li&gt; &lt;li&gt;Si le certificat ne vous concerne pas, vous pouvez faire la demande aupr&#232;s de l&#8217;administration communale &lt;strong&gt;pour un tiers&lt;/strong&gt;. Une redevance communale et des frais li&#233;s au mode de r&#233;ception sont possibles. Vous pourrez r&#233;gler le montant d&#251; en ligne.&lt;/li&gt; &lt;li&gt;Si votre demande est valide, vous recevrez tr&#232;s prochainement votre document selon le &lt;strong&gt;mode de d&#233;livrance&lt;/strong&gt; que vous aurez choisi.&lt;/li&gt; &lt;/ol&gt;</option>
     <option varname="actes_piece_justificative_tiers"></option>
     <option varname="actes_piece_justificative_tiers_display"></option>
     <option varname="actes_piece_justificative_tiers_structured"></option>
