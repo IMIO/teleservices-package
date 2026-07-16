@@ -14,7 +14,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-etat-civil" category_id="34">Etat-Civil</category>
-  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="393">IMio - D&#233;partement Citoyen</workflow>
+  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="103">IMio - D&#233;marches Etat civil</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -102,25 +102,6 @@
       <image_mobile_size type="int">75</image_mobile_size>
       <radio_orientation type="str">auto</radio_orientation>
       <id type="str">7</id>
-    </field>
-    <field>
-      <type>file</type>
-      <label type="str">Pi&#232;ce justificative visant &#224; attester du lien avec la personne concern&#233;e</label>
-      <condition>
-        <type>django</type>
-        <value>form_option_actes_piece_justificative_tiers and form_var_rb_concerne_raw == "tiers"</value>
-      </condition>
-      <required type="str">required</required>
-      <hint type="str">&lt;p&gt;Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</hint>
-      <varname type="str">piece_justificative_tiers</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <anonymise type="str">final</anonymise>
-      <automatic_image_resize type="bool">True</automatic_image_resize>
-      <storage type="str">default</storage>
-      <id type="str">7ac4f330-f477-4bf4-9446-60024a750695</id>
     </field>
     <field>
       <type>item</type>
@@ -496,6 +477,7 @@
       <add_element_label type="str">Ajouter une preuve</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
+      <remove_element_label type="str" />
       <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">cbda8ce7-238b-4321-b24a-25a4de7cf312</id>
     </field>

@@ -14,7 +14,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-population" category_id="35">Population</category>
-  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="394">iMio - Certificats Population</workflow>
+  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="104">iMio - D&#233;marches Population</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -65,11 +65,11 @@
     </field>
     <field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;{{ form_option_commentaire|safe }}&lt;/p&gt;
+      <label type="str">&lt;p&gt;{{ form_option_actes_commentaire_additionnel|safe }}&lt;/p&gt;
 </label>
       <condition>
         <type>django</type>
-        <value>form_option_commentaire</value>
+        <value>form_option_actes_commentaire_additionnel</value>
       </condition>
       <display_locations />
       <id type="str">120</id>
@@ -969,9 +969,6 @@
   </options>
   <custom_views />
   <geolocations />
-  <required_authentication_contexts>
-    <method>fedict</method>
-  </required_authentication_contexts>
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>

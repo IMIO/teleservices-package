@@ -14,7 +14,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-etat-civil" category_id="34">Etat-Civil</category>
-  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="393">IMio - D&#233;partement Citoyen</workflow>
+  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="103">IMio - D&#233;marches Etat civil</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -103,26 +103,6 @@
       <image_mobile_size type="str">75</image_mobile_size>
       <radio_orientation type="str">auto</radio_orientation>
       <id type="str">9</id>
-    </field>
-    <field>
-      <type>file</type>
-      <label type="str">Pi&#232;ce justificative visant &#224; attester du lien avec la personne concern&#233;e</label>
-      <condition>
-        <type>django</type>
-        <value>form_option_actes_piece_justificative_tiers and form_var_rb_concerne_raw == "tiers"</value>
-      </condition>
-      <required type="str">required</required>
-      <hint type="str">&lt;p&gt;Veuillez d&#233;poser un document qui justifie votre demande pour un tiers (copie de carte d'identit&#233;, procuration ou raison l&#233;gale).&lt;/p&gt;</hint>
-      <varname type="str">piece_justificative_tiers</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">pk-important</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <automatic_image_resize type="bool">True</automatic_image_resize>
-      <storage type="str">default</storage>
-      <id type="str">93dd9678-0972-494a-ada3-8da13dcfe29d</id>
     </field>
     <field>
       <type>item</type>
@@ -502,7 +482,6 @@
       <add_element_label type="str">Ajouter une preuve</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
-      <remove_element_label type="str" />
       <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">5666f734-e92e-4910-96f8-f17c11ae057a</id>
     </field>
@@ -585,19 +564,6 @@
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
       <id type="str">74</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Lieu de naissance</label>
-      <required type="str">required</required>
-      <varname type="str">rb_naissance_perscon</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-2 pk-important</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">104</id>
     </field>
     <field>
       <type>subtitle</type>
@@ -839,23 +805,6 @@
       <date_in_the_past type="bool">True</date_in_the_past>
       <date_can_be_today type="bool">False</date_can_be_today>
       <id type="str">59</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Lieu de naissance</label>
-      <condition>
-        <type>django</type>
-        <value>form_var_rb_concerne != 'tiers'</value>
-      </condition>
-      <required type="str">required</required>
-      <varname type="str">lieu_naissance</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">pk-important</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">105</id>
     </field>
     <field>
       <type>subtitle</type>
@@ -1212,15 +1161,15 @@
     <role role_id="logged-users">logged-users</role>
   </user-roles>
   <backoffice-submission-roles>
-    <role slug="agent" role_id="b9b15c5c29134ccfb9d3d2dd90f18225">Agent</role>
+    <role slug="agent" role_id="35bc67ed92d846f9b4680d00203791ff">Agent</role>
   </backoffice-submission-roles>
   <roles>
-    <role slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666" role_key="_receiver">Debug</role>
+    <role slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f" role_key="_receiver">Debug</role>
   </roles>
   <options>
     <option varname="actes_commentaire_additionnel" />
-    <option varname="actes_piece_justificative_tiers">Oui</option>
-    <option varname="actes_piece_justificative_tiers_display">Oui</option>
+    <option varname="actes_piece_justificative_tiers">Non</option>
+    <option varname="actes_piece_justificative_tiers_display">Non</option>
     <option varname="actes_piece_justificative_tiers_structured" />
     <option varname="activer_anonymisation" type="bool">false</option>
     <option varname="cout">0</option>
@@ -1228,6 +1177,8 @@
     <option varname="delai_anonymisation_document_concerne_tier" />
     <option varname="delai_anonymisation_me_concerne" />
     <option varname="delai_migration" />
+    <option varname="expiration">90</option>
+    <option varname="forcer_delivrance_automatique" type="bool">false</option>
     <option varname="iban" />
     <option varname="interdire_remboursement" type="bool">false</option>
     <option varname="liaison_baec">Staging</option>
@@ -1245,6 +1196,7 @@
     <option varname="regie_de_paiement_structured" />
     <option varname="reglement_communal" />
     <option varname="rendre_la_delivrance_automatique_des_documents_payante" type="bool">true</option>
+    <option varname="restreindre_aux_demandes_personnelles" type="bool">false</option>
   </options>
   <custom_views />
   <geolocations />

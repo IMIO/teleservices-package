@@ -1,11 +1,12 @@
-<formdef id="663">
+<?xml version="1.0"?>
+<formdef id="193" url="https://canary-formulaires.guichet-citoyen.be/backoffice/forms/193/">
   <name>Certificat de R&#233;sidence ou de Domicile</name>
   <url_name>v2-demande-certificat-de-residence-ou-de-domicile</url_name>
   <submission_user_association>any</submission_user_association>
   <history_pane_default_mode>expanded</history_pane_default_mode>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <hidden>false</hidden>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
@@ -14,7 +15,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-population" category_id="35">Population</category>
-  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="394">iMio - Certificats Population</workflow>
+  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="104">iMio - D&#233;marches Population</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -65,7 +66,7 @@
     </field>
     <field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;{{ form_option_actes_commentaire_additionnel }}&lt;/p&gt;
+      <label type="str">&lt;p&gt;{{ form_option_actes_commentaire_additionnel|safe }}&lt;/p&gt;
 </label>
       <condition>
         <type>django</type>
@@ -83,13 +84,13 @@
         <item>validation</item>
         <item>summary</item>
       </display_locations>
+      <extra_css_class type="str">pk-important</extra_css_class>
       <prefill>
         <locked>True</locked>
         <locked-unless-empty>True</locked-unless-empty>
         <type>string</type>
         <value>{% if form_option_restreindre_aux_demandes_personnelles %}moi{% endif %}</value>
       </prefill>
-      <extra_css_class type="str">pk-important</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
       <items />
@@ -979,9 +980,6 @@
   </options>
   <custom_views />
   <geolocations />
-  <required_authentication_contexts>
-    <method>fedict</method>
-  </required_authentication_contexts>
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>

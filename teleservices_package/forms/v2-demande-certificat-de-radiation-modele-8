@@ -7,15 +7,15 @@
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
-  <hidden_from_api_results>false</hidden_from_api_results>
+  <hidden>false</hidden>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>true</enable_tracking_codes>
   <confirmation>true</confirmation>
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-population" category_id="11">Population</category>
-  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="394">iMio - Certificats Population</workflow>
+  <category slug="demande-population" category_id="35">Population</category>
+  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="104">iMio - D&#233;marches Population</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -42,35 +42,14 @@
     </field>
     <field>
       <type>comment</type>
-      <label type="str">&lt;p&gt;{{ form_option_commentaire|safe&#160;}}&lt;/p&gt;
+      <label type="str">&lt;p&gt;{{ form_option_actes_commentaire_additionnel|safe&#160;}}&lt;/p&gt;
 </label>
       <condition>
         <type>django</type>
-        <value>form_option_commentaire</value>
+        <value>form_option_actes_commentaire_additionnel</value>
       </condition>
       <display_locations />
       <id type="str">815e1e53-eff5-4348-9785-4ea4a6e86023</id>
-    </field>
-    <field>
-      <type>comment</type>
-      <label type="str">&lt;h2&gt;Le certificat de radiation mod&amp;egrave;le 8 atteste que le citoyen a &amp;eacute;t&amp;eacute; radi&amp;eacute; des registres de population. Avant de pouvoir vous fournir ce certificat, vous devez compl&amp;eacute;ter la &lt;a href="{{cards|objects:'imio-lien-vers-formulaire'|filter_by:'nom'|filter_value:'Radiation pour l\'&#233;tranger'|first|get:'lien'}}"&gt;d&amp;eacute;marche de radiation pour l'&amp;eacute;tranger&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Le certificat doit &amp;ecirc;tre demand&amp;eacute;&amp;nbsp;au lieu de domicile.&lt;/p&gt;
-
-&lt;p&gt;Si vous choisissez l'envoi postal, le&amp;nbsp;document demand&amp;eacute; est toujours envoy&amp;eacute; &amp;agrave; l'adresse de la personne concern&amp;eacute;e par le document.&lt;/p&gt;
-
-&lt;p&gt;Si vous choisissez le retrait &amp;agrave; la commune, le certificat vous sera d&amp;eacute;livr&amp;eacute; sur pr&amp;eacute;sentation de &lt;strong&gt;votre carte d'identit&amp;eacute;&lt;/strong&gt; (ainsi que d'une &lt;strong&gt;procuration sign&amp;eacute;e&lt;/strong&gt; si vous le retirez pour un tiers).&lt;/p&gt;
-
-&lt;h2&gt;Traitement&lt;/h2&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;Compl&amp;eacute;tez votre demande via le formulaire ci-dessous.&lt;/li&gt;
-	&lt;li&gt;Le cas &amp;eacute;ch&amp;eacute;ant, proc&amp;eacute;dez au paiement.&lt;/li&gt;
-	&lt;li&gt;Vous recevrez un r&amp;eacute;capitulatif de votre demande sur l'adresse e-mail communiqu&amp;eacute;e dans le formulaire.&lt;/li&gt;
-	&lt;li&gt;Si votre demande est valide, vous recevrez prochainement votre document selon le mode de d&amp;eacute;livrance choisi. A d&amp;eacute;faut, vous serez pr&amp;eacute;venu par e-mail.&lt;/li&gt;
-&lt;/ol&gt;</label>
-      <display_locations />
-      <id type="str">2</id>
     </field>
     <field>
       <type>item</type>
@@ -825,31 +804,18 @@
     <role role_id="logged-users">logged-users</role>
   </user-roles>
   <backoffice-submission-roles>
-    <role slug="agent" role_id="b9b15c5c29134ccfb9d3d2dd90f18225">Agent</role>
+    <role slug="agent" role_id="35bc67ed92d846f9b4680d00203791ff">Agent</role>
   </backoffice-submission-roles>
-  <roles />
   <options>
     <option varname="actes_commentaire_additionnel" />
     <option varname="actes_piece_justificative_tiers" />
     <option varname="actes_piece_justificative_tiers_display" />
     <option varname="actes_piece_justificative_tiers_structured" />
     <option varname="activer_anonymisation" type="bool">false</option>
-    <option varname="baec" />
-    <option varname="commentaire" />
     <option varname="cout">0</option>
-    <option varname="cp_commune" />
     <option varname="delai_anonymisation_document_concerne_tier" />
     <option varname="delai_anonymisation_me_concerne" />
-    <option varname="delai_migration" />
-    <option varname="destinations" />
-    <option varname="destinations_display" />
-    <option varname="destinations_structured" />
     <option varname="iban" />
-    <option varname="liaison_baec">Staging</option>
-    <option varname="liaison_baec_display">Staging</option>
-    <option varname="liaison_baec_structured" />
-    <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=44</option>
-    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificate.do?tx=44</option>
     <option varname="mode_recup_disponibles" type="list" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
@@ -857,7 +823,6 @@
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="paiement_en_ligne" type="bool">false</option>
-    <option varname="redirection_automatique" type="bool">false</option>
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
@@ -865,9 +830,6 @@
   </options>
   <custom_views />
   <geolocations />
-  <required_authentication_contexts>
-    <method>fedict</method>
-  </required_authentication_contexts>
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>

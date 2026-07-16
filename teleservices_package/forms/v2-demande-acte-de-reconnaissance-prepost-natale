@@ -14,7 +14,7 @@
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
   <category slug="demande-etat-civil" category_id="34">Etat-Civil</category>
-  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="393">IMio - D&#233;partement Citoyen</workflow>
+  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="103">IMio - D&#233;marches Etat civil</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -113,6 +113,7 @@
       </display_locations>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>jsonvalue</type>
         <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite r&#233;cup&#233;rer directement le document PDF (Connexion avec carte d'identit&#233; + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
@@ -142,6 +143,7 @@
       <extra_css_class type="str">pk-important</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>jsonvalue</type>
         <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
@@ -1125,7 +1127,6 @@
       </display_locations>
       <prefill>
         <locked>True</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>{% if form_var_mode_delivrance_raw != "mondossier" %}{% if form_var_cp in commune_cp and form_var_rb_concerne_raw == 'moi' or form_var_cp_perscon in commune_cp and form_var_rb_concerne_raw == 'tiers' or form_user_var_zipcode in commune_cp and form_var_rb_concerne_raw == 'moi' %}{% with cout=form_option_cout|default:0 motifs_price=form_var_motifs_price|default:0 nb_exemplaire=form_var_nb_exemplaire|default:0 %}{{ cout|add:motifs_price|multiply:nb_exemplaire }}{% endwith %}{% else %}{% with cout_extra=form_option_cout_extra|default:0 motifs_price=form_var_motifs_price|default:0 nb_exemplaire=form_var_nb_exemplaire|default:0  %}{{cout_extra|add:motifs_price|multiply:nb_exemplaire}}{% endwith %}{% endif %}{% else %}{% if form_user_var_zipcode in commune_cp %} {{ form_option_cout|default_if_none:0|add:form_var_motifs_price|default_if_none:0 }}{% else %}{{ form_option_cout_extra|default_if_none:0|add:form_var_motifs_price|default_if_none:0 }}{% endif %}{% endif %} &#8364;</value>
       </prefill>
@@ -1137,7 +1138,7 @@
     <role role_id="logged-users">logged-users</role>
   </user-roles>
   <backoffice-submission-roles>
-    <role slug="agent" role_id="b9b15c5c29134ccfb9d3d2dd90f18225">Agent</role>
+    <role slug="agent" role_id="35bc67ed92d846f9b4680d00203791ff">Agent</role>
   </backoffice-submission-roles>
   <options>
     <option varname="actes_commentaire_additionnel" />
@@ -1145,25 +1146,14 @@
     <option varname="actes_piece_justificative_tiers_display" />
     <option varname="actes_piece_justificative_tiers_structured" />
     <option varname="activer_anonymisation" type="bool">false</option>
-    <option varname="baec" />
-    <option varname="commentaire" />
-    <option varname="comptes_identifiants_regies" />
-    <option varname="comptes_identifiants_regies_display" />
-    <option varname="comptes_identifiants_regies_structured" />
     <option varname="cout">0</option>
-    <option varname="cp_commune" />
     <option varname="delai_anonymisation_document_concerne_tier" />
     <option varname="delai_anonymisation_me_concerne" />
     <option varname="delai_migration" />
-    <option varname="destinations" />
-    <option varname="destinations_display" />
-    <option varname="destinations_structured" />
     <option varname="iban" />
     <option varname="liaison_baec">Staging</option>
     <option varname="liaison_baec_display">Staging</option>
     <option varname="liaison_baec_structured" />
-    <option varname="lien_bosa" />
-    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/</option>
     <option varname="mode_recup_disponibles" type="list" />
     <option varname="mode_recup_disponibles_display" />
     <option varname="mode_recup_disponibles_structured" />
@@ -1171,7 +1161,6 @@
     <option varname="motifs_disponibles_display" />
     <option varname="motifs_disponibles_structured" />
     <option varname="paiement_en_ligne" type="bool">false</option>
-    <option varname="redirection_automatique" type="bool">false</option>
     <option varname="regie_de_paiement" />
     <option varname="regie_de_paiement_display" />
     <option varname="regie_de_paiement_structured" />
@@ -1179,9 +1168,6 @@
   </options>
   <custom_views />
   <geolocations />
-  <required_authentication_contexts>
-    <method>fedict</method>
-  </required_authentication_contexts>
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>

@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
-<workflow id="393">
-  <name>IMio - D&#233;partement Citoyen</name>
+<workflow id="103" url="https://canary-formulaires.guichet-citoyen.be/backoffice/workflows/103/">
+  <name>IMio - D&#233;marches Etat civil</name>
   <slug>imio-departement-citoyen-delivrance-auto-payante</slug>
-  <category slug="ecpop-liaison-automatique-avec-paiement" category_id="114">EC/POP - Liaison Automatique avec paiement</category>
   <roles>
     <role id="_receiver">Agent traitant</role>
     <role id="_validateur-pc-banking">Validateur pc banking</role>
@@ -1987,6 +1986,8 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
+          <anchor_expression />
+          <anchor_template />
           <timeout>0</timeout>
         </trigger>
         <trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">
@@ -2050,38 +2051,162 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <fields>
         <field>
           <type>subtitle</type>
+          <label type="str">Commentaire premi&#232;re page</label>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <id type="str">4c44aede-de04-4c46-8786-c3a4d608cb3a</id>
+        </field>
+        <field>
+          <type>text</type>
+          <label type="str">Commentaire additionnel</label>
+          <required type="str">optional</required>
+          <hint type="str">&lt;p&gt;Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire. Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.&lt;/p&gt;</hint>
+          <varname type="str">actes_commentaire_additionnel</varname>
+          <display_locations />
+          <display_mode type="str">rich</display_mode>
+          <default_value type="str">&lt;h3&gt;Comment obtenir l'acte souhait&#233; ?&lt;/h3&gt;
+
+&lt;p&gt;Si l'acte vous concerne et si vous &#234;tes connect&#233; avec votre &lt;strong&gt;carte d'identit&#233; &#233;lectronique&lt;/strong&gt; ou l'application &lt;strong&gt;It's Me&lt;/strong&gt;, vous aurez la possibilit&#233; de r&#233;cup&#233;rer directement en &lt;strong&gt;format PDF&lt;/strong&gt; l'extrait ou la copie de votre acte. Si cet acte n'a pas &#233;t&#233; num&#233;ris&#233; dans la Banque des Actes de l'&#201;tat Civil, vous aurez la possibilit&#233; d'en faire la demande.&lt;/p&gt;
+
+&lt;p&gt;Si le certificat &lt;em&gt;ne vous concerne pas&lt;/em&gt;, vous pouvez faire la demande aupr&#232;s de l'administration communale &lt;strong&gt;pour un tiers&lt;/strong&gt;. Dans ce cas, vous devrez annexer une pi&#232;ce justificative, par exemple :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mandat d'administrateur&lt;/li&gt;
+  &lt;li&gt;Copie de carte d'identit&#233; et procuration sign&#233;e par la personne concern&#233;e&lt;/li&gt;
+  &lt;li&gt;Preuve de requ&#234;te en justice&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Si votre demande est valide, vous recevrez tr&#232;s prochainement votre document selon le &lt;strong&gt;mode de d&#233;livrance&lt;/strong&gt; que vous aurez choisi.&lt;/p&gt;</default_value>
+          <id type="str">f9e99ee9-c420-44c6-a0ca-650a961831eb</id>
+        </field>
+        <field>
+          <type>subtitle</type>
+          <label type="str">D&#233;livrance du document</label>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <id type="str">faa1ce77-d9bf-4992-ad29-62e3dd7c2566</id>
+        </field>
+        <field>
+          <type>bool</type>
+          <label type="str">Forcer la d&#233;livrance automatique</label>
+          <required type="str">optional</required>
+          <hint type="str">&lt;p&gt;Cette option ne permet pas au citoyen de passer par l&#8217;administration communale lorsque la demande le concerne. Le flux passera uniquement par la d&#233;livrance automatique du document.&lt;/p&gt;</hint>
+          <varname type="str">forcer_delivrance_automatique</varname>
+          <display_locations />
+          <id type="str">b1b19205-aae5-4265-b8cc-6b0c950b45a8</id>
+        </field>
+        <field>
+          <type>bool</type>
+          <label type="str">Rendre payante la d&#233;livrance automatique des documents</label>
+          <required type="str">optional</required>
+          <hint type="str">&lt;p&gt;Cette option g&#233;n&#232;rera un co&#251;t pour la d&#233;livrance du document, sur base des m&#234;mes montants et motifs que pour une demande faite par le biais de l&#8217;administration communale.&lt;/p&gt;</hint>
+          <varname type="str">rendre_la_delivrance_automatique_des_documents_payante</varname>
+          <display_locations />
+          <id type="str">2d53ac9d-d775-4f3e-b224-c244918371b0</id>
+        </field>
+        <field>
+          <type>bool</type>
+          <label type="str">Restreindre aux demandes personnelles</label>
+          <required type="str">optional</required>
+          <hint type="str">&lt;p&gt;Cette option emp&#234;che les demandes de documents pour un tiers. Le citoyen ne pourra faire une demande de document que pour lui-m&#234;me ou ses ayants-droit.&lt;/p&gt;</hint>
+          <varname type="str">restreindre_aux_demandes_personnelles</varname>
+          <display_locations />
+          <id type="str">09d5f10d-51d2-4a6f-82f2-c11b4df38dec</id>
+        </field>
+        <field>
+          <type>item</type>
+          <label type="str">Pi&#232;ce justificative obligatoire si concerne un tiers (hors acte de d&#233;c&#232;s)</label>
+          <required type="str">optional</required>
+          <hint type="str">&lt;p&gt;Cocher "Oui" affichera un champ "Fichier" o&#249; le demandeur sera invit&#233; &#224; joindre un document justificatif si la demande d'acte ne le concerne pas (concerne un tiers).&lt;/p&gt;</hint>
+          <varname type="str">actes_piece_justificative_tiers</varname>
+          <display_locations />
+          <anonymise type="str">no</anonymise>
+          <display_mode type="str">radio</display_mode>
+          <items>
+            <item>Oui</item>
+            <item>Non</item>
+          </items>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="str">150</image_desktop_size>
+          <image_mobile_size type="str">75</image_mobile_size>
+          <radio_orientation type="str">auto</radio_orientation>
+          <id type="str">18</id>
+        </field>
+        <field>
+          <type>subtitle</type>
+          <label type="str">Motifs et destinations</label>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <id type="str">27</id>
+        </field>
+        <field>
+          <type>comment</type>
+          <label type="str">&lt;p&gt;Rendez-vous sur &lt;a href="{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/" rel="nofollow"&gt;cette page pour adapter les motifs et destinations&lt;/a&gt;.&lt;/p&gt;
+</label>
+          <display_locations />
+          <id type="str">c709b522-2523-4bf4-a233-9cd3dcec4a1c</id>
+        </field>
+        <field>
+          <type>items</type>
+          <label type="str">Motifs disponibles</label>
+          <required type="str">optional</required>
+          <varname type="str">motifs_disponibles</varname>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">final</anonymise>
+          <items />
+          <display_mode type="str">checkboxes</display_mode>
+          <min_choices type="int">0</min_choices>
+          <max_choices type="int">0</max_choices>
+          <data_source>
+            <type>passerelle_motifs</type>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
+          <id type="str">3</id>
+        </field>
+        <field>
+          <type>items</type>
+          <label type="str">Destinations</label>
+          <required type="str">optional</required>
+          <varname type="str">mode_recup_disponibles</varname>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">final</anonymise>
+          <items />
+          <display_mode type="str">checkboxes</display_mode>
+          <min_choices type="int">0</min_choices>
+          <max_choices type="int">0</max_choices>
+          <data_source>
+            <type>passerelle_destinations</type>
+          </data_source>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
+          <id type="str">4</id>
+        </field>
+        <field>
+          <type>subtitle</type>
           <label type="str">Paiement</label>
           <display_locations>
             <item>validation</item>
             <item>summary</item>
           </display_locations>
           <id type="str">24</id>
-        </field>
-        <field>
-          <type>bool</type>
-          <label type="str">Restreindre aux demandes personnelles</label>
-          <required type="str">optional</required>
-          <varname type="str">restreindre_aux_demandes_personnelles</varname>
-          <display_locations />
-          <id type="str">09d5f10d-51d2-4a6f-82f2-c11b4df38dec</id>
-        </field>
-        <field>
-          <type>bool</type>
-          <label type="str">Forcer la delivrance automatique</label>
-          <required type="str">optional</required>
-          <varname type="str">forcer_delivrance_automatique</varname>
-          <display_locations />
-          <anonymise type="str">no</anonymise>
-          <id type="str">b1b19205-aae5-4265-b8cc-6b0c950b45a8</id>
-        </field>
-        <field>
-          <type>bool</type>
-          <label type="str">Rendre la d&#233;livrance automatique des documents payante</label>
-          <required type="str">optional</required>
-          <varname type="str">rendre_la_delivrance_automatique_des_documents_payante</varname>
-          <display_locations />
-          <anonymise type="str">no</anonymise>
-          <id type="str">2d53ac9d-d775-4f3e-b224-c244918371b0</id>
         </field>
         <field>
           <type>string</type>
@@ -2170,131 +2295,6 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         </field>
         <field>
           <type>subtitle</type>
-          <label type="str">Motifs et destinations</label>
-          <display_locations>
-            <item>validation</item>
-            <item>summary</item>
-          </display_locations>
-          <id type="str">27</id>
-        </field>
-        <field>
-          <type>comment</type>
-          <label type="str">&lt;p&gt;Rendez-vous sur &lt;a href="{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/" rel="nofollow"&gt;cette page pour adapter les motifs et destinations&lt;/a&gt;.&lt;/p&gt;
-</label>
-          <display_locations />
-          <id type="str">c709b522-2523-4bf4-a233-9cd3dcec4a1c</id>
-        </field>
-        <field>
-          <type>items</type>
-          <label type="str">Motifs disponibles</label>
-          <required type="str">optional</required>
-          <varname type="str">motifs_disponibles</varname>
-          <display_locations>
-            <item>validation</item>
-            <item>summary</item>
-          </display_locations>
-          <anonymise type="str">final</anonymise>
-          <items />
-          <display_mode type="str">checkboxes</display_mode>
-          <min_choices type="int">0</min_choices>
-          <max_choices type="int">0</max_choices>
-          <data_source>
-            <type>passerelle_motifs</type>
-          </data_source>
-          <in_filters type="bool">False</in_filters>
-          <display_disabled_items type="bool">False</display_disabled_items>
-          <image_desktop_size type="int">150</image_desktop_size>
-          <image_mobile_size type="int">75</image_mobile_size>
-          <id type="str">3</id>
-        </field>
-        <field>
-          <type>items</type>
-          <label type="str">Destinations</label>
-          <required type="str">optional</required>
-          <varname type="str">mode_recup_disponibles</varname>
-          <display_locations>
-            <item>validation</item>
-            <item>summary</item>
-          </display_locations>
-          <anonymise type="str">final</anonymise>
-          <items />
-          <display_mode type="str">checkboxes</display_mode>
-          <min_choices type="int">0</min_choices>
-          <max_choices type="int">0</max_choices>
-          <data_source>
-            <type>passerelle_destinations</type>
-          </data_source>
-          <in_filters type="bool">False</in_filters>
-          <display_disabled_items type="bool">False</display_disabled_items>
-          <image_desktop_size type="int">150</image_desktop_size>
-          <image_mobile_size type="int">75</image_mobile_size>
-          <id type="str">4</id>
-        </field>
-        <field>
-          <type>item</type>
-          <label type="str">Pi&#232;ce justificative obligatoire si concerne un tiers (hors acte de d&#233;c&#232;s)</label>
-          <required type="str">optional</required>
-          <hint type="str">&lt;p&gt;Cocher "Oui" affichera un champ "Fichier" o&#249; le demandeur sera invit&#233; &#224; joindre un document justificatif si la demande d'acte ne le concerne pas (concerne un tiers).&lt;/p&gt;</hint>
-          <varname type="str">actes_piece_justificative_tiers</varname>
-          <display_locations />
-          <anonymise type="str">no</anonymise>
-          <display_mode type="str">radio</display_mode>
-          <items>
-            <item>Oui</item>
-            <item>Non</item>
-          </items>
-          <in_filters type="bool">False</in_filters>
-          <display_disabled_items type="bool">False</display_disabled_items>
-          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-          <image_desktop_size type="str">150</image_desktop_size>
-          <image_mobile_size type="str">75</image_mobile_size>
-          <radio_orientation type="str">auto</radio_orientation>
-          <id type="str">18</id>
-        </field>
-        <field>
-          <type>subtitle</type>
-          <label type="str">BAEC</label>
-          <display_locations>
-            <item>validation</item>
-            <item>summary</item>
-          </display_locations>
-          <id type="str">28</id>
-        </field>
-        <field>
-          <type>item</type>
-          <label type="str">BAEC : Phase de la liaison</label>
-          <required type="str">optional</required>
-          <varname type="str">liaison_baec</varname>
-          <display_locations />
-          <anonymise type="str">no</anonymise>
-          <display_mode type="str">list</display_mode>
-          <items>
-            <item>Staging</item>
-            <item>Production</item>
-          </items>
-          <in_filters type="bool">False</in_filters>
-          <display_disabled_items type="bool">False</display_disabled_items>
-          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-          <image_desktop_size type="int">150</image_desktop_size>
-          <image_mobile_size type="int">75</image_mobile_size>
-          <radio_orientation type="str">auto</radio_orientation>
-          <id type="str">15</id>
-        </field>
-        <field>
-          <type>string</type>
-          <label type="str">BAEC : D&#233;lai pour la migration</label>
-          <required type="str">optional</required>
-          <hint type="str">Nombre de jours pour effectuer la migration des documents vers la BAEC.</hint>
-          <varname type="str">delai_migration</varname>
-          <display_locations />
-          <anonymise type="str">final</anonymise>
-          <validation>
-            <type>digits</type>
-          </validation>
-          <id type="str">16</id>
-        </field>
-        <field>
-          <type>subtitle</type>
           <label type="str">Anonymisation</label>
           <display_locations>
             <item>validation</item>
@@ -2353,26 +2353,6 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
         </field>
         <field>
           <type>subtitle</type>
-          <label type="str">Commentaire premi&#232;re page</label>
-          <display_locations>
-            <item>validation</item>
-            <item>summary</item>
-          </display_locations>
-          <id type="str">4c44aede-de04-4c46-8786-c3a4d608cb3a</id>
-        </field>
-        <field>
-          <type>text</type>
-          <label type="str">Commentaire additionnel</label>
-          <required type="str">optional</required>
-          <hint type="str">&lt;p&gt;Le commentaire s'affichera &#224; la premi&#232;re page de votre formulaire. Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoyens.&lt;/p&gt;</hint>
-          <varname type="str">actes_commentaire_additionnel</varname>
-          <display_locations />
-          <anonymise type="str">final</anonymise>
-          <display_mode type="str">rich</display_mode>
-          <id type="str">f9e99ee9-c420-44c6-a0ca-650a961831eb</id>
-        </field>
-        <field>
-          <type>subtitle</type>
           <label type="str">Autre</label>
           <display_locations>
             <item>validation</item>
@@ -2389,6 +2369,45 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
           <display_locations />
           <anonymise type="str">final</anonymise>
           <id type="str">14</id>
+        </field>
+        <field>
+          <type>subtitle</type>
+          <label type="str">Param&#233;trage de la d&#233;livrance automatique</label>
+          <display_locations />
+          <id type="str">540a108b-efdb-4200-9f2a-1f5706e50c96</id>
+        </field>
+        <field>
+          <type>item</type>
+          <label type="str">BAEC : Phase de la liaison</label>
+          <required type="str">optional</required>
+          <varname type="str">liaison_baec</varname>
+          <display_locations />
+          <anonymise type="str">no</anonymise>
+          <display_mode type="str">list</display_mode>
+          <items>
+            <item>Staging</item>
+            <item>Production</item>
+          </items>
+          <in_filters type="bool">False</in_filters>
+          <display_disabled_items type="bool">False</display_disabled_items>
+          <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+          <image_desktop_size type="int">150</image_desktop_size>
+          <image_mobile_size type="int">75</image_mobile_size>
+          <radio_orientation type="str">auto</radio_orientation>
+          <id type="str">15</id>
+        </field>
+        <field>
+          <type>string</type>
+          <label type="str">BAEC : D&#233;lai pour la migration</label>
+          <required type="str">optional</required>
+          <hint type="str">Nombre de jours pour effectuer la migration des documents vers la BAEC.</hint>
+          <varname type="str">delai_migration</varname>
+          <display_locations />
+          <anonymise type="str">final</anonymise>
+          <validation>
+            <type>digits</type>
+          </validation>
+          <id type="str">16</id>
         </field>
       </fields>
     </formdef>

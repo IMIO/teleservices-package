@@ -1,4 +1,5 @@
-<formdef id="668">
+<?xml version="1.0"?>
+<formdef id="170" url="https://canary-formulaires.guichet-citoyen.be/backoffice/forms/170/">
   <name>Extrait des registres</name>
   <url_name>v2-demande-extrait-des-registres</url_name>
   <submission_user_association>any</submission_user_association>
@@ -6,15 +7,15 @@
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
   <disabled>true</disabled>
-  <hidden_from_api_results>false</hidden_from_api_results>
+  <hidden>false</hidden>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>false</confirmation>
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-population" category_id="11">Population</category>
-  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="394">iMio - Certificats Population</workflow>
+  <category slug="demande-population" category_id="35">Population</category>
+  <workflow slug="imio-certificats-population-delivrance-auto-payante" workflow_id="104">iMio - D&#233;marches Population</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -65,23 +66,11 @@
     </field>
     <field>
       <type>comment</type>
-      <label type="str">&lt;h2&gt;Comment obtenir le certificat souhait&amp;eacute; ?&lt;/h2&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;Si le document vous concerne et si vous &amp;ecirc;tes connect&amp;eacute; avec votre carte d&amp;#39;identit&amp;eacute; &amp;eacute;lectronique ou l&amp;#39;application itsme, vous avez la possibilit&amp;eacute; de r&amp;eacute;cup&amp;eacute;rer le certificat en cliquant sur &amp;quot;Valider&amp;quot; ci-dessous.&lt;/li&gt;
-	&lt;li&gt;Si le certificat ne vous concerne pas, vous pouvez faire la demande aupr&amp;egrave;s de l&amp;#39;administration communale pour un tiers. Une redevance communale et des frais li&amp;eacute;s au mode de r&amp;eacute;ception sont possibles. Vous pourrez r&amp;eacute;gler le montant d&amp;ucirc; en ligne.&lt;/li&gt;
-	&lt;li&gt;Si votre demande est valide, vous recevrez tr&amp;egrave;s prochainement votre document selon le mode de d&amp;eacute;livrance que vous aurez choisi.
-</label>
-      <display_locations />
-      <id type="str">121</id>
-    </field>
-    <field>
-      <type>comment</type>
-      <label type="str">&lt;p&gt;{{ form_option_commentaire|safe }}&lt;/p&gt;
+      <label type="str">&lt;p&gt;{{ form_option_actes_commentaire_additionnel|safe }}&lt;/p&gt;
 </label>
       <condition>
         <type>django</type>
-        <value>form_option_commentaire</value>
+        <value>form_option_actes_commentaire_additionnel</value>
       </condition>
       <display_locations />
       <id type="str">120</id>
@@ -152,7 +141,7 @@
       <items />
       <data_source>
         <type>jsonvalue</type>
-        <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite récupérer directement le document PDF (Connexion avec carte d'identité + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
+        <value>{% if form_option_forcer_delivrance_automatique %}[{"id": "mondossier", "text": "Je souhaite r&#233;cup&#233;rer directement le document PDF (Connexion avec carte d'identit&#233; + code pin requis ou itsme pour les actes).", "disabled": false}]{% else %}{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}{% endif %}</value>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">True</display_disabled_items>
@@ -983,18 +972,13 @@
     <role role_id="logged-users">logged-users</role>
   </user-roles>
   <backoffice-submission-roles>
-    <role slug="agent" role_id="b9b15c5c29134ccfb9d3d2dd90f18225">Agent</role>
+    <role slug="agent" role_id="35bc67ed92d846f9b4680d00203791ff">Agent</role>
   </backoffice-submission-roles>
-  <roles />
   <options>
     <option varname="activer_anonymisation" type="bool">false</option>
-    <option varname="commentaire" />
     <option varname="cout">0</option>
     <option varname="delai_anonymisation_document_concerne_tier">90</option>
     <option varname="delai_anonymisation_me_concerne">90</option>
-    <option varname="destinations" />
-    <option varname="destinations_display" />
-    <option varname="destinations_structured" />
     <option varname="iban" />
     <option varname="mode_recup_disponibles" type="list" />
     <option varname="mode_recup_disponibles_display" />
@@ -1014,9 +998,6 @@
   </options>
   <custom_views />
   <geolocations />
-  <required_authentication_contexts>
-    <method>fedict</method>
-  </required_authentication_contexts>
   <management_sidebar_items>
     <item>__default__</item>
   </management_sidebar_items>
