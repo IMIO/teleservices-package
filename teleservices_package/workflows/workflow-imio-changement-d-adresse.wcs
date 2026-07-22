@@ -126,7 +126,12 @@
           <subject>{{form_refus_var_object}}</subject>
           <body>{{form_refus_var_body}}</body>
         </item>
-        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Demande refus&#233;e</title><body>Bonjour,
+        <item type="notification" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} - Demande refus&#233;e</title>
+          <body>Bonjour,
 
 {% if form_status_changed %}
 Nous sommes au regret de devoir vous informer du refus de votre demande.
@@ -147,7 +152,10 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 {% endif %}
 
 Cordialement,
-</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="4">
+</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="jump" id="4">
           <status>24</status>
           <condition>
             <type>django</type>
@@ -195,6 +203,35 @@ Pour r&#233;f&#233;rence, voici le d&#233;tail du formulaire :
 Bien &#224; vous,
 
 </body>
+        </item>
+        <item type="form" id="4">
+          <by>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <varname>courriel_cloture</varname>
+          <hide_submit_button>True</hide_submit_button>
+          <include_in_form_history>False</include_in_form_history>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <type>text</type>
+                <label type="str">Courriel de cl&#244;ture au citoyen</label>
+                <required type="str">optional</required>
+                <hint type="str">&lt;p&gt;Laisser vide si vous ne souhaitez pas entrer de message personnalis&#233;&lt;/p&gt;</hint>
+                <varname type="str">courriel_de_cloture_au_citoyen</varname>
+                <display_locations />
+                <prefill>
+                  <locked>False</locked>
+                  <locked-unless-empty>False</locked-unless-empty>
+                  <type>string</type>
+                  <value>{{ form_option_courriel_de_cloture_au_citoyen }}</value>
+                </prefill>
+                <display_mode type="str">plain</display_mode>
+                <id type="str">cc43989b-8b53-4487-964e-ea376a140aeb</id>
+              </field>
+            </fields>
+          </formdef>
         </item>
         <item type="choice" id="2">
           <label>Terminer</label>
@@ -264,8 +301,30 @@ Esplanade de l'H&#244;tel communal, 1
 
 T&#233;l. 04 247 72 11
 </body>
+          <condition>
+            <type>django</type>
+            <value>not form_workflow_form_courriel_cloture_var_courriel_de_cloture_au_citoyen</value>
+          </condition>
         </item>
-        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Demande accept&#233;e</title><body>Bonjour,
+        <item type="sendmail" id="4">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <subject>{{ form_name }} - Votre d&#233;marche a &#233;t&#233; trait&#233;e.</subject>
+          <body>{{ form_workflow_form_courriel_cloture_var_courriel_de_cloture_au_citoyen }}
+
+Test</body>
+          <condition>
+            <type>django</type>
+            <value>form_workflow_form_courriel_cloture_var_courriel_de_cloture_au_citoyen</value>
+          </condition>
+        </item>
+        <item type="notification" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} - Demande accept&#233;e</title>
+          <body>Bonjour,
 
 {% if form_status_changed %}
 La demande suivante a &#233;t&#233; accept&#233;e&#160;: {{ form_name }}
@@ -287,7 +346,10 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 {% endif %}
 
 Cordialement,
-</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="3">
+</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="displaymsg" id="3">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>
@@ -423,7 +485,12 @@ Administration communale d'Ans
 Esplanade de l'H&#244;tel communal, 1
 4430 ANS</body>
         </item>
-        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Confirmation de paiement</title><body>Bonjour,
+        <item type="notification" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} - Confirmation de paiement</title>
+          <body>Bonjour,
 
 Nous vous confirmons la r&#233;ception du paiement concernant la demande suivante : {{form_name}}.
 
@@ -433,7 +500,10 @@ Nos services traitent les demandes dans les meilleurs d&#233;lais. Vous serez in
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="jump" id="3">
+Cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="jump" id="3">
           <status>accepted</status>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -618,7 +688,12 @@ Code de suivi : {{ form_tracking_code }}
 
 Votre document sera trait&#233; d&#232;s r&#233;ception de votre paiement.</body>
         </item>
-        <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - En attente de paiement</title><body>Bonjour,
+        <item type="notification" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} - En attente de paiement</title>
+          <body>Bonjour,
 
 Nous vous invitons &#224; r&#233;gler le montant li&#233; &#224; la d&#233;marche suivante :
 
@@ -643,7 +718,10 @@ Le code de suivi de votre demande est le suivant : **{{form_tracking_code}}**
 En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l'administration.
 {% endif %}
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="choice" id="4">
+Cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="choice" id="4">
           <label>Le paiement par virement est valid&#233;.</label>
           <by>
             <item role_id="_validateur-pc-banking">_validateur-pc-banking</item>
@@ -749,7 +827,12 @@ Esplanade de l'H&#244;tel communal, 1
 
 T&#233;l. : 04/247 72 11</body>
         </item>
-        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{form_name}} - Demande d'information pour remboursement</title><body>Bonjour,
+        <item type="notification" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{form_name}} - Demande d'information pour remboursement</title>
+          <body>Bonjour,
 
 Suite au refus de votre d&#233;marche payante d'un montant de {{form_var_wf_total_commande}} &#8364;, nous n'avons pas pu proc&#233;der &#224; l'annulation de votre paiement d&#233;j&#224; effectu&#233;. Merci de compl&#233;ter le formulaire &#224; l'adresse suivante afin que l'on proc&#232;de au remboursement : {{form_url}}#wf-actions
 
@@ -758,7 +841,10 @@ Pour rappel, il s'agit de la d&#233;marche suivante : {{form_name}}
 Attention, si vous avez pay&#233; &#224; l'aide d'une carte de cr&#233;dit, merci d'indiquer un num&#233;ro de compte IBAN classique.
 
 Cordialement,
-</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="3">
+</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="displaymsg" id="3">
           <message>Merci de compl&#233;ter les informations bancaires n&#233;cessaires au remboursement de votre demande.
 Le remboursement se fera dans les plus brefs d&#233;lais sur le compte bancaire renseign&#233; par vos soins en bas de cette page.
 Attention, si vous aviez pay&#233; par carte de cr&#233;dit, veuillez indiquer un num&#233;ro de carte de d&#233;bit classique.
@@ -964,7 +1050,12 @@ Exemple de num&#233;ro IBAN : BE1234567890</message>
           </to>
           <mail_template>indus-usager-remboursement-effectue</mail_template>
         </item>
-      <item type="notification" id="3"><to><item role_id="_submitter">_submitter</item></to><title>{{ form_name }} - Remboursement effectu&#233;</title><body>Bonjour,
+        <item type="notification" id="3">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>{{ form_name }} - Remboursement effectu&#233;</title>
+          <body>Bonjour,
 
 Vous avez introduit la d&#233;marche suivante : {{ form_name }}.
 Nous vous informons qu'un remboursement vient de vous &#234;tre accord&#233; et effectu&#233;.
@@ -973,7 +1064,9 @@ Nous vous informons qu'un remboursement vient de vous &#234;tre accord&#233; et 
 Vous pouvez `consulter la demande. &lt;{{ form_url }}&gt;`_
 {% endif %}
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item>
+Cordialement,</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
       </items>
     </status>
     <status>
@@ -1088,7 +1181,12 @@ Le service Population / Etat-civil
 {{form_option_numero_de_telephone}}
 </body>
         </item>
-        <item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>Votre demande sur E-guichet : ({{form_name}})</title><body>Madame, Monsieur, {% if form_user %} {{ form_user_var_last_name }},{% endif %}
+        <item type="notification" id="2">
+          <to>
+            <item role_id="_submitter">_submitter</item>
+          </to>
+          <title>Votre demande sur E-guichet : ({{form_name}})</title>
+          <body>Madame, Monsieur, {% if form_user %} {{ form_user_var_last_name }},{% endif %}
 
 Bonjour,
 
@@ -1124,7 +1222,10 @@ Le service Population / Etat-civil
 {{administration_adresse}}
 
 {{form_option_numero_de_telephone}}
-</body><target_url>{{ form_url }}</target_url></item><item type="displaymsg" id="3">
+</body>
+          <target_url>{{ form_url }}</target_url>
+        </item>
+        <item type="displaymsg" id="3">
           <to>
             <item role_id="_receiver">_receiver</item>
           </to>
@@ -1148,7 +1249,7 @@ Le service Population / Etat-civil
       <triggers>
         <trigger type="manual" id="4fea7229-e7c8-4102-be35-a4be25662141">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+            <item slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f">Debug</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -1193,8 +1294,8 @@ Le service Population / Etat-civil
       <triggers>
         <trigger type="manual" id="d7935db0-f43e-420d-9a12-d036da5e1ad3">
           <roles>
-            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
-            <item slug="agent-ayant-acces-aux-fabriques" role_id="032bfed279a448d39a09dedadbc09a31">Agent ayant acces aux fabriques</item>
+            <item slug="debug" role_id="cdcc12ee550e435292b47fbf3a17c32f">Debug</item>
+            <item slug="agent-ayant-acces-aux-fabriques" role_id="684b3f2682ec43b599f0724134d13e10">Agent ayant acces aux fabriques</item>
           </roles>
           <allow_as_mass_action>True</allow_as_mass_action>
           <require_confirmation>False</require_confirmation>
@@ -1212,8 +1313,6 @@ Le service Population / Etat-civil
       <triggers>
         <trigger type="timeout" id="43c5e8a4-508c-4ebc-acd3-5e9005b0a17e">
           <anchor>creation</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>30</timeout>
         </trigger>
       </triggers>
@@ -1229,8 +1328,6 @@ Le service Population / Etat-civil
       <triggers>
         <trigger type="timeout" id="2c76aea5-4b9c-4ff1-b85d-95a9f9de4b05">
           <anchor>creation</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>1827</timeout>
         </trigger>
       </triggers>
@@ -1335,6 +1432,7 @@ Le service Population / Etat-civil
           <required type="str">required</required>
           <varname type="str">expiration</varname>
           <display_locations />
+          <anonymise type="str">final</anonymise>
           <validation>
             <type>digits</type>
           </validation>
@@ -1459,6 +1557,16 @@ Ce dernier vous permet d'indiquer des informations personnalis&#233;es aux citoy
           <anonymise type="str">final</anonymise>
           <display_mode type="str">plain</display_mode>
           <id type="str">193583c9-8853-4c8b-a2f7-12007ae33542</id>
+        </field>
+        <field>
+          <type>text</type>
+          <label type="str">Courriel de cl&#244;ture au citoyen</label>
+          <required type="str">optional</required>
+          <hint type="str">&lt;p&gt;Donnez les informations pratiques aux citoyens concernant leur changement d'adresse. Laisser vide si vous ne souhaitez pas entrer de message personnalis&#233;.&lt;/p&gt;</hint>
+          <varname type="str">courriel_de_cloture_au_citoyen</varname>
+          <display_locations />
+          <display_mode type="str">plain</display_mode>
+          <id type="str">aca6b8f4-1ee3-491d-a101-2801c99a268c</id>
         </field>
       </fields>
     </formdef>
