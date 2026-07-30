@@ -126,7 +126,7 @@
           <status>10</status>
           <condition>
             <type>django</type>
-            <value>form_option_regie_de_paiement</value>
+            <value>form_option_regie_de_paiement and form_var_wf_total_commande|decimal &gt; 0</value>
           </condition>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
