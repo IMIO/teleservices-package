@@ -14,7 +14,7 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres-en-cours-de-modifications" category_id="69">Cimeti&#232;res - En cours de modifications</category>
+  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
   <workflow slug="imio-cimetiere-exhumation" workflow_id="411">iMio - Cimeti&#232;re - Exhumation</workflow>
   <fields>
     <field>

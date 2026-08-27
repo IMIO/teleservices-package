@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<carddef id="106" url="https://demarches.mytournai.be/backoffice/cards/106/">
+  <name>iMio - Emplacement cimeti&#232;re</name>
+  <url_name>imio-emplacement-cimetiere</url_name>
+  <submission_user_association>none</submission_user_association>
+  <history_pane_default_mode>collapsed</history_pane_default_mode>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <hidden>false</hidden>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow slug="_carddef_default" workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Emplacement</label>
+      <required type="str">required</required>
+      <varname type="str">emplacement</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <id type="str">e84b5034-6e93-4a29-aec7-cb69b657893c</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role slug="debug" role_id="72e128f9cb5a40c1b2a0bc6760d7fe97">Debug</role>
+  </user-roles>
+  <backoffice-submission-roles>
+    <role slug="debug" role_id="72e128f9cb5a40c1b2a0bc6760d7fe97">Debug</role>
+  </backoffice-submission-roles>
+  <options />
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <submission_sidebar_items>
+    <item>__default__</item>
+  </submission_sidebar_items>
+  <digest_templates>
+    <template key="default">{{ form_var_emplacement }}</template>
+  </digest_templates>
+</carddef>
