@@ -1,20 +1,21 @@
 <?xml version="1.0"?>
 <formdef id="246" url="https://staging-formulaires.guichet-citoyen.be/backoffice/forms/246/">
   <name>Demande d'exhumation de confort et rassemblement des restes de mortels</name>
-  <url_name>demande-d-exhumation</url_name>
+  <url_name>demande-d-exhumation-de-confort-et-rassemblement-des-restes-de-mortels</url_name>
   <submission_user_association>any</submission_user_association>
   <history_pane_default_mode>expanded</history_pane_default_mode>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
+  <hidden>false</hidden>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>true</confirmation>
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
-  <workflow slug="imio-paiement" workflow_id="108">iMio - Paiement</workflow>
+  <category slug="cimetieres-en-cours-de-modifications" category_id="69">Cimeti&#232;res - En cours de modifications</category>
+  <workflow slug="imio-cimetiere-exhumation" workflow_id="411">iMio - Cimeti&#232;re - Exhumation</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -263,7 +264,7 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
     </field>
     <field>
       <type>item</type>
-      <label type="str">Titulaire de la concession</label>
+      <label type="str">Titulaire de la s&#233;pulture</label>
       <required type="str">required</required>
       <varname type="str">titulaire</varname>
       <display_locations>
@@ -282,6 +283,7 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">ee1bee4d-488d-4a79-be05-4edcecbeca40</id>
     </field>
     <field>
@@ -363,7 +365,6 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
         <item>summary</item>
       </display_locations>
       <anonymise type="str">final</anonymise>
-      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
       <automatic_image_resize type="bool">True</automatic_image_resize>
       <storage type="str">default</storage>
       <id type="str">42389d5b-b08b-467b-98af-7e0d9b066841</id>
@@ -383,7 +384,6 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <anonymise type="str">final</anonymise>
-      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
       <automatic_image_resize type="bool">True</automatic_image_resize>
       <storage type="str">default</storage>
       <id type="str">fe96168c-f9ac-4b22-846c-3b0678d361f0</id>
@@ -428,6 +428,7 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">836a1cb9-1fbd-4cc7-b0e3-dfca59cbd178</id>
     </field>
     <field>
@@ -456,6 +457,7 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">4fa07bea-242e-4574-97e2-053f7ce4ec06</id>
     </field>
     <field>
@@ -500,6 +502,7 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">e556f61d-a696-407a-8f68-fe36b2df0685</id>
     </field>
     <field>
@@ -670,12 +673,12 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
     </field>
     <field>
       <type>page</type>
-      <label type="str">Concession concern&#233;e</label>
+      <label type="str">S&#233;pulture concern&#233;e</label>
       <id type="str">37</id>
     </field>
     <field>
       <type>title</type>
-      <label type="str">Concession concern&#233;e</label>
+      <label type="str">S&#233;pulture concern&#233;e</label>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
@@ -692,17 +695,18 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
         <item>summary</item>
       </display_locations>
       <anonymise type="str">final</anonymise>
-      <default_items_count type="int">1</default_items_count>
-      <max_items type="int">8</max_items>
+      <default_items_count type="str">1</default_items_count>
+      <max_items type="str">8</max_items>
       <add_element_label type="str">Ajouter</add_element_label>
       <label_display type="str">subtitle</label_display>
       <remove_button type="bool">True</remove_button>
+      <remove_element_label type="str" />
       <block_slug type="str">defunts</block_slug>
       <id type="str">503957ac-30bc-4a23-bb06-fcc263187573</id>
     </field>
     <field>
       <type>title</type>
-      <label type="str">Informations li&#233;es &#224; la concession</label>
+      <label type="str">Informations li&#233;es &#224; la s&#233;pulture</label>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
@@ -736,19 +740,8 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">71</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Emplacement</label>
-      <required type="str">required</required>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-2</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">72</id>
     </field>
     <field>
       <type>computed</type>
@@ -781,7 +774,7 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
         <item>Une cellule cin&#233;raire en cavurne</item>
       </items>
       <data_source>
-        <type>carddef:imio-liste-concession-cimetiere-avec-prix:type-concession</type>
+        <type>carddef:imio-type-d-emplacement-a-exhumer-avec-prix</type>
         <value>form_var_types_emplacements</value>
       </data_source>
       <in_filters type="bool">False</in_filters>
@@ -789,6 +782,7 @@ Les rassemblements des restes de mortel&amp;nbsp;sont possibles&amp;nbsp;uniquem
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">45</id>
     </field>
     <field>

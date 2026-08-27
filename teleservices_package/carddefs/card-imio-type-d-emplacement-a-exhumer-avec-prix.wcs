@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<carddef id="68" url="https://demarches.mytournai.be/backoffice/cards/68/">
-  <name>iMio - Cimeti&#232;res - prestations cimeti&#232;res</name>
-  <url_name>imio-liste-travaux-cimetiere</url_name>
+<carddef id="143" url="https://demarches.mytournai.be/backoffice/cards/143/">
+  <name>iMio - Type d'emplacement &#224; exhumer avec prix</name>
+  <url_name>imio-type-d-emplacement-a-exhumer-avec-prix</url_name>
   <submission_user_association>none</submission_user_association>
   <history_pane_default_mode>collapsed</history_pane_default_mode>
   <discussion>false</discussion>
@@ -18,15 +18,15 @@
   <fields>
     <field>
       <type>string</type>
-      <label type="str">Type de travaux</label>
+      <label type="str">Emplacement</label>
       <required type="str">required</required>
-      <varname type="str">type_travaux</varname>
+      <varname type="str">emplacement</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
       <anonymise type="str">final</anonymise>
-      <id type="str">d955432a-10d5-46de-bddc-a3bdecbb6df9</id>
+      <id type="str">e84b5034-6e93-4a29-aec7-cb69b657893c</id>
     </field>
     <field>
       <type>string</type>
@@ -38,17 +38,17 @@
         <item>summary</item>
       </display_locations>
       <anonymise type="str">final</anonymise>
-      <id type="str">cf936134-c752-421d-87de-a9b42ec8b6c4</id>
+      <id type="str">e8f29ac8-d307-4abf-be8d-651ab98b4ce5</id>
     </field>
   </fields>
   <user-roles>
-    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</role>
+    <role slug="debug" role_id="72e128f9cb5a40c1b2a0bc6760d7fe97">Debug</role>
   </user-roles>
   <backoffice-submission-roles>
-    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9">Debug</role>
+    <role slug="debug" role_id="72e128f9cb5a40c1b2a0bc6760d7fe97">Debug</role>
   </backoffice-submission-roles>
   <roles>
-    <role slug="debug" role_id="df908b92acec4a68b3a11bbf516263d9" role_key="_editor">Debug</role>
+    <role slug="debug" role_id="72e128f9cb5a40c1b2a0bc6760d7fe97" role_key="_editor">Debug</role>
   </roles>
   <options />
   <custom_views />
@@ -60,6 +60,6 @@
     <item>__default__</item>
   </submission_sidebar_items>
   <digest_templates>
-    <template key="default">{{ form_var_type_travaux }} - {{ form_var_prix }}&#8364;</template>
+    <template key="default">{{ form_var_emplacement }} - {{ form_var_prix }}&#8364;</template>
   </digest_templates>
 </carddef>

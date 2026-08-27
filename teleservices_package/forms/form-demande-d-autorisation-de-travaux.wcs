@@ -6,15 +6,16 @@
   <history_pane_default_mode>expanded</history_pane_default_mode>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
+  <hidden>false</hidden>
   <only_allow_one>false</only_allow_one>
   <enable_tracking_codes>false</enable_tracking_codes>
   <confirmation>true</confirmation>
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
-  <workflow slug="imio-cimetiere" workflow_id="258">iMio - Cimeti&#232;re</workflow>
+  <category slug="cimetieres-en-cours-de-modifications" category_id="69">Cimeti&#232;res - En cours de modifications</category>
+  <workflow slug="imio-cimetiere-autorisation-de-travaux" workflow_id="410">iMio - Cimeti&#232;re - Autorisation de travaux</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -50,11 +51,12 @@
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">e63189ff-e724-4bca-b917-92c3e27f5bc4</id>
     </field>
     <field>
       <type>subtitle</type>
-      <label type="str">Concession</label>
+      <label type="str">S&#233;pulture</label>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
@@ -87,20 +89,31 @@
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">59</id>
     </field>
     <field>
-      <type>string</type>
+      <type>item</type>
       <label type="str">Emplacement</label>
-      <required type="str">optional</required>
+      <required type="str">required</required>
       <varname type="str">emplacement</varname>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">67</id>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <data_source>
+        <type>carddef:imio-emplacement-cimetiere</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">24f868ed-8891-4acf-b1b8-8286970f2e5f</id>
     </field>
     <field>
       <type>subtitle</type>
@@ -123,11 +136,12 @@
       </display_locations>
       <extra_css_class type="str">pk-important</extra_css_class>
       <anonymise type="str">final</anonymise>
-      <default_items_count type="int">1</default_items_count>
-      <max_items type="int">10</max_items>
+      <default_items_count type="str">1</default_items_count>
+      <max_items type="str">10</max_items>
       <add_element_label type="str">Ajouter un b&#233;n&#233;ficiaire</add_element_label>
       <label_display type="str">hidden</label_display>
       <remove_button type="bool">True</remove_button>
+      <remove_element_label type="str" />
       <block_slug type="str">imio_sepulture</block_slug>
       <id type="str">fb4f58e6-4771-46b3-9476-4d9277f67c00</id>
     </field>
@@ -160,6 +174,7 @@
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">554dfd45-acee-4dbc-b4bf-35385cfd91ea</id>
     </field>
     <field>
@@ -529,7 +544,104 @@
     </field>
     <field>
       <type>page</type>
+      <label type="str">Travaux</label>
+      <id type="str">21</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Travaux</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">5e4af463-8f99-49e8-8136-2c5aad013e5b</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">La demande d'autorisation de travaux fait suite &#224; :</label>
+      <required type="str">required</required>
+      <varname type="str">placement_reno</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items>
+        <item>Un placement</item>
+        <item>Une r&#233;novation</item>
+        <item>Un enl&#232;vement</item>
+      </items>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
+      <id type="str">cde0affd-7e1c-4a0b-b3fc-efad955276b3</id>
+    </field>
+    <field>
+      <type>items</type>
+      <label type="str">Type de travaux</label>
+      <required type="str">required</required>
+      <varname type="str">type_travaux</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2 pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">checkboxes</display_mode>
+      <min_choices type="int">1</min_choices>
+      <max_choices type="int">1</max_choices>
+      <data_source>
+        <type>carddef:imio-liste-travaux-cimetiere</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">6f20271f-2e00-44e6-8131-e59cce10109d</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Informations compl&#233;mentaires &#233;ventuelles</label>
+      <required type="str">optional</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2 pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">plain</display_mode>
+      <id type="str">80</id>
+    </field>
+    <field>
+      <type>block</type>
+      <label type="str">Date(s) de l'intervention souhait&#233;e</label>
+      <required type="str">required</required>
+      <varname type="str">dates_de_l_intervention</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <default_items_count type="str">1</default_items_count>
+      <max_items type="str">10</max_items>
+      <add_element_label type="str">Ajouter une date</add_element_label>
+      <label_display type="str">subtitle</label_display>
+      <remove_button type="bool">True</remove_button>
+      <block_slug type="str">imio_cimetieres_dates_et_heures</block_slug>
+      <id type="str">f678576b-6a72-4141-9a34-bd18362c944d</id>
+    </field>
+    <field>
+      <type>page</type>
       <label type="str">Entreprise ex&#233;cutant les travaux</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_type_travaux in "Pose de monument - s&#233;pulture en terrain non conc&#233;d&#233; (champs communs), Pose de citerne (urne), Pose de citerne (cercueil), Pose de monument - s&#233;pulture en terrain conc&#233;d&#233; (contrat)"</value>
+      </condition>
       <id type="str">3</id>
     </field>
     <field>
@@ -552,7 +664,7 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <anonymise type="str">final</anonymise>
-      <id type="str">38</id>
+      <id type="str">78</id>
     </field>
     <field>
       <type>string</type>
@@ -578,7 +690,7 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <anonymise type="str">final</anonymise>
-      <id type="str">77</id>
+      <id type="str">60</id>
     </field>
     <field>
       <type>string</type>
@@ -620,45 +732,6 @@
     </field>
     <field>
       <type>string</type>
-      <label type="str">Nom</label>
-      <required type="str">required</required>
-      <varname type="str">nom_contact_entreprise</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-2</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">61</id>
-    </field>
-    <field>
-      <type>string</type>
-      <label type="str">Pr&#233;nom</label>
-      <required type="str">required</required>
-      <varname type="str">prenom_contact_entreprise</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-2</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">78</id>
-    </field>
-    <field>
-      <type>email</type>
-      <label type="str">Adresse e-mail</label>
-      <required type="str">required</required>
-      <varname type="str">mail_contact_entreprise</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-2</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <id type="str">79</id>
-    </field>
-    <field>
-      <type>string</type>
       <label type="str">Num&#233;ro de t&#233;l&#233;phone</label>
       <required type="str">required</required>
       <varname type="str">numero_entreprise</varname>
@@ -669,99 +742,6 @@
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <anonymise type="str">final</anonymise>
       <id type="str">60</id>
-    </field>
-    <field>
-      <type>page</type>
-      <label type="str">Travaux</label>
-      <id type="str">21</id>
-    </field>
-    <field>
-      <type>title</type>
-      <label type="str">Travaux</label>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <id type="str">5e4af463-8f99-49e8-8136-2c5aad013e5b</id>
-    </field>
-    <field>
-      <type>item</type>
-      <label type="str">La demande d'autorisation de travaux fait suite &#224; :</label>
-      <required type="str">required</required>
-      <varname type="str">placement_reno</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <anonymise type="str">no</anonymise>
-      <display_mode type="str">radio</display_mode>
-      <items>
-        <item>Un placement</item>
-        <item>Une r&#233;novation</item>
-        <item>Un enl&#232;vement</item>
-      </items>
-      <in_filters type="bool">False</in_filters>
-      <display_disabled_items type="bool">False</display_disabled_items>
-      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
-      <image_desktop_size type="str">150</image_desktop_size>
-      <image_mobile_size type="str">75</image_mobile_size>
-      <id type="str">cde0affd-7e1c-4a0b-b3fc-efad955276b3</id>
-    </field>
-    <field>
-      <type>items</type>
-      <label type="str">Type de travaux</label>
-      <required type="str">required</required>
-      <varname type="str">type_travaux</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-        <item>listings</item>
-      </display_locations>
-      <extra_css_class type="str">grid-1-2 pk-important</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <items />
-      <display_mode type="str">checkboxes</display_mode>
-      <min_choices type="int">0</min_choices>
-      <max_choices type="int">0</max_choices>
-      <data_source>
-        <type>carddef:imio-liste-travaux-cimetiere</type>
-      </data_source>
-      <in_filters type="bool">False</in_filters>
-      <display_disabled_items type="bool">False</display_disabled_items>
-      <image_desktop_size type="int">150</image_desktop_size>
-      <image_mobile_size type="int">75</image_mobile_size>
-      <id type="str">6f20271f-2e00-44e6-8131-e59cce10109d</id>
-    </field>
-    <field>
-      <type>text</type>
-      <label type="str">Informations compl&#233;mentaires &#233;ventuelles</label>
-      <required type="str">optional</required>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <extra_css_class type="str">newline grid-1-2 pk-important</extra_css_class>
-      <anonymise type="str">final</anonymise>
-      <display_mode type="str">plain</display_mode>
-      <id type="str">80</id>
-    </field>
-    <field>
-      <type>block</type>
-      <label type="str">Date(s) de l'intervention</label>
-      <required type="str">required</required>
-      <varname type="str">dates_de_l_intervention</varname>
-      <display_locations>
-        <item>validation</item>
-        <item>summary</item>
-      </display_locations>
-      <anonymise type="str">final</anonymise>
-      <default_items_count type="int">1</default_items_count>
-      <max_items type="int">10</max_items>
-      <add_element_label type="str">Ajouter une date</add_element_label>
-      <label_display type="str">subtitle</label_display>
-      <remove_button type="bool">True</remove_button>
-      <block_slug type="str">imio_cimetieres_dates_et_heures</block_slug>
-      <id type="str">f678576b-6a72-4141-9a34-bd18362c944d</id>
     </field>
     <field>
       <type>page</type>
@@ -795,11 +775,11 @@
         <item>summary</item>
       </display_locations>
       <anonymise type="str">final</anonymise>
-      <default_items_count type="int">1</default_items_count>
-      <max_items type="int">1</max_items>
-      <add_element_label type="str" />
+      <default_items_count type="str">1</default_items_count>
+      <max_items type="str">1</max_items>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">False</remove_button>
+      <remove_element_label type="str" />
       <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">95928bd0-1d61-46df-a993-55d66e9a19ca</id>
     </field>
@@ -822,6 +802,7 @@
       <add_element_label type="str" />
       <label_display type="str">normal</label_display>
       <remove_button type="bool">False</remove_button>
+      <remove_element_label type="str" />
       <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">3cf7765b-8f6d-448e-b9e3-571596ea778c</id>
     </field>
@@ -832,12 +813,30 @@
     </field>
     <field>
       <type>title</type>
-      <label type="str">Documents optionnels</label>
+      <label type="str">Documents</label>
       <display_locations>
         <item>validation</item>
         <item>summary</item>
       </display_locations>
       <id type="str">9cc8bf39-b474-452a-9980-193128656697</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Mandat re&#231;u de la part du donneur d&#8217;ordre</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_responsabilite == "Je repr&#233;sente une entreprise de pompes fun&#232;bres / marbrerie"</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">mandat</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">890ad9ab-f15b-46cf-b331-7dc7d8d5105b</id>
     </field>
     <field>
       <type>block</type>
@@ -850,11 +849,11 @@
       </display_locations>
       <extra_css_class type="str">pk-important</extra_css_class>
       <anonymise type="str">final</anonymise>
-      <default_items_count type="int">1</default_items_count>
-      <max_items type="int">10</max_items>
-      <add_element_label type="str" />
+      <default_items_count type="str">1</default_items_count>
+      <max_items type="str">10</max_items>
       <label_display type="str">hidden</label_display>
       <remove_button type="bool">True</remove_button>
+      <remove_element_label type="str" />
       <block_slug type="str">imio_ajouter_un_fichier_optionnel</block_slug>
       <id type="str">b0d91079-862a-4963-bc5f-445663c93942</id>
     </field>
@@ -875,6 +874,12 @@
       <id type="str">e041635c-5c7e-4057-a757-bed9b72f86fa</id>
     </field>
   </fields>
+  <user-roles>
+    <role role_id="logged-users">logged-users</role>
+  </user-roles>
+  <roles>
+    <role slug="debug" role_id="72e128f9cb5a40c1b2a0bc6760d7fe97" role_key="_receiver">Debug</role>
+  </roles>
   <options>
     <option varname="activer_anonymisation" type="bool"></option>
     <option varname="commentaire" />
