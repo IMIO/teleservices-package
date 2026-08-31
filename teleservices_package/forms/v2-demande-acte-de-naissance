@@ -13,8 +13,8 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="demande-etat-civil" category_id="34">Etat-Civil</category>
-  <workflow slug="imio-departement-citoyen-delivrance-auto-payante" workflow_id="103">IMio - D&#233;marches Etat civil</workflow>
+  <category slug="ec-pop-avec-paiement" category_id="113">&#201;tat-Civil / Population - D&#233;livrance automatique payante</category>
+  <workflow slug="imio-demarches-etat-civil" workflow_id="456">IMio - D&#233;marches Etat civil</workflow>
   <fields>
     <field>
       <type>comment</type>
@@ -488,9 +488,38 @@
       <add_element_label type="str">Ajouter une preuve</add_element_label>
       <label_display type="str">normal</label_display>
       <remove_button type="bool">True</remove_button>
-      <remove_element_label type="str" />
       <block_slug type="str">ajouter_un_fichier</block_slug>
       <id type="str">8cf1eb3c-5e5d-4dcd-81cd-2b60e4eb39ce</id>
+    </field>
+    <field>
+      <type>bool</type>
+      <label type="str">Avez-vous un motif d'&#233;xon&#233;ration ?</label>
+      <required type="str">optional</required>
+      <varname type="str">avez_vous_un_motif_d_exoneration</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <id type="str">3d085f06-ca77-422d-a358-cb98e49b449a</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Motif d'&#233;xon&#233;ration</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_avez_vous_un_motif_d_exoneration</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">motif_d_exoneration</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">022d5785-2e71-4b4d-8621-ec72fb9d835b</id>
     </field>
     <field>
       <type>page</type>
