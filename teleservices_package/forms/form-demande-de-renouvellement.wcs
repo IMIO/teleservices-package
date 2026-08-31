@@ -13,8 +13,8 @@
   <always_advertise>true</always_advertise>
   <has_captcha>false</has_captcha>
   <skip_from_360_view>false</skip_from_360_view>
-  <category slug="cimetieres" category_id="183">Cimeti&#232;res</category>
-  <workflow slug="imio-cimetiere" workflow_id="258">iMio - Cimeti&#232;re</workflow>
+  <category slug="cimetieres" category_id="58">Cimeti&#232;res</category>
+  <workflow slug="imio-cimetiere-demande-de-renouvellement" workflow_id="527">iMio - Cimeti&#232;re - Demande de renouvellement</workflow>
   <fields>
     <field>
       <type>page</type>
@@ -246,6 +246,7 @@
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">402e8d58-4259-4058-9c7f-dd2c3c71f8e3</id>
     </field>
     <field>
@@ -306,6 +307,7 @@
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="int">150</image_desktop_size>
       <image_mobile_size type="int">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">66</id>
     </field>
     <field>
@@ -320,6 +322,58 @@
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <anonymise type="str">final</anonymise>
       <id type="str">68</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Ann&#233;e de l'octroi de la concession</label>
+      <required type="str">optional</required>
+      <varname type="str">annee_de_l_octroi_de_la_concession</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">a29b0886-970f-46c8-86e0-7d83b642b431</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Ann&#233;e du dernier renouvellement</label>
+      <required type="str">optional</required>
+      <varname type="str">annee_du_dernier_renouvellement</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">fef3c808-1a4e-4ab3-ae36-6e218dd49241</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Ann&#233;e de l'expiration initiale</label>
+      <required type="str">optional</required>
+      <varname type="str">annee_de_l_expiration_initiale</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">3833df27-9ab7-4229-96e1-1d4dd5a1f654</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Ann&#233;e de la derni&#232;re inhumation</label>
+      <required type="str">optional</required>
+      <varname type="str">annee_de_derniere_inhumation</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">pk-important</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">31488db8-161a-479b-a372-e81b4d2a732c</id>
     </field>
     <field>
       <type>comment</type>
@@ -351,13 +405,14 @@
         <item>Anciennes concession perp&#233;tuelle  Prix : 12.5 euros</item>
       </items>
       <data_source>
-        <type>carddef:imio-liste-concession-cimetiere-avec-prix</type>
+        <type>carddef:imio-liste-concession-cimetiere-avec-prix:type-concession</type>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">45</id>
     </field>
     <field>
@@ -370,11 +425,12 @@
         <item>summary</item>
       </display_locations>
       <anonymise type="str">final</anonymise>
-      <default_items_count type="int">1</default_items_count>
-      <max_items type="int">5</max_items>
+      <default_items_count type="str">1</default_items_count>
+      <max_items type="str">5</max_items>
       <add_element_label type="str">Ajouter une personne</add_element_label>
       <label_display type="str">hidden</label_display>
       <remove_button type="bool">True</remove_button>
+      <remove_element_label type="str" />
       <block_slug type="str">imio_sepulture</block_slug>
       <id type="str">599fc724-b733-4014-b6fc-94ff188c8184</id>
     </field>
@@ -390,29 +446,6 @@
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <anonymise type="str">final</anonymise>
       <id type="str">b9e9cfef-9b4e-41f9-815f-5dd3f6afc280</id>
-    </field>
-    <field>
-      <type>comment</type>
-      <label type="str">&lt;p&gt;Le prix pour une demande de concession pour une personne r&amp;eacute;sidant hors de la commune sera &lt;span class="biglistitem--content"&gt;&lt;span class="biglistitem--content-details"&gt;&lt;span class="varname"&gt;{{ form_option_tarif_hors_commune }} fois le prix de base, soit :&amp;nbsp;&lt;strong&gt;{{form_var_type_concession_live_var_prix|multiply:form_option_tarif_hors_commune}} &amp;euro; &lt;/strong&gt;({{form_var_type_concession_live_var_prix}} &amp;euro;*{{form_option_tarif_hors_commune }})&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-</label>
-      <condition>
-        <type>django</type>
-        <value>form_var_type_concession and form_option_tarif_hors_commune</value>
-      </condition>
-      <display_locations />
-      <id type="str">367e61cf-0d59-40cf-a6a8-66faffaa7503</id>
-    </field>
-    <field>
-      <type>comment</type>
-      <label type="str">&lt;p&gt;La somme de &lt;strong&gt;{% with multiplicateur=form_option_tarif_hors_commune|default:1 %}{{ form_var_type_concession_live_var_prix|multiply:multiplicateur }}{% endwith %} &amp;euro;&lt;/strong&gt; vous sera demand&amp;eacute;e en effectuant un paiement sur le compte bancaire &lt;strong&gt;{{ form_option_iban }}&lt;/strong&gt; .&lt;br&gt;
-Plus d&amp;#39;informations &amp;agrave; la fin du formulaire.&lt;/p&gt;
-</label>
-      <condition>
-        <type>django</type>
-        <value>form_var_type_concession and form_option_iban</value>
-      </condition>
-      <display_locations />
-      <id type="str">76c1642d-ddb5-4074-940d-d116ac4e5e15</id>
     </field>
     <field>
       <type>bool</type>
@@ -449,6 +482,7 @@ Plus d&amp;#39;informations &amp;agrave; la fin du formulaire.&lt;/p&gt;
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">36490bbc-aa2e-4427-8b9f-a28a7fd21884</id>
     </field>
     <field>
@@ -472,6 +506,7 @@ Plus d&amp;#39;informations &amp;agrave; la fin du formulaire.&lt;/p&gt;
       <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
       <image_desktop_size type="str">150</image_desktop_size>
       <image_mobile_size type="str">75</image_mobile_size>
+      <radio_orientation type="str">auto</radio_orientation>
       <id type="str">72ff30df-b1dc-4f30-8194-14dfeba0be18</id>
     </field>
     <field>
