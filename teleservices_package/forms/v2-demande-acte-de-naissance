@@ -493,7 +493,7 @@
     </field>
     <field>
       <type>bool</type>
-      <label type="str">Avez-vous un motif d'&#233;xon&#233;ration ?</label>
+      <label type="str">Cochez si vous avez un motif d'exon&#233;ration</label>
       <required type="str">optional</required>
       <varname type="str">avez_vous_un_motif_d_exoneration</varname>
       <display_locations>
@@ -505,7 +505,7 @@
     </field>
     <field>
       <type>file</type>
-      <label type="str">Motif d'&#233;xon&#233;ration</label>
+      <label type="str">Motif d'exon&#233;ration</label>
       <condition>
         <type>django</type>
         <value>form_var_avez_vous_un_motif_d_exoneration</value>

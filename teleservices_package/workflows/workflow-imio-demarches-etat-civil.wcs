@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <workflow id="103" url="https://canary-formulaires.guichet-citoyen.be/backoffice/workflows/103/">
   <name>IMio - D&#233;marches Etat civil</name>
-  <slug>imio-departement-citoyen-delivrance-auto-payante</slug>
+  <slug>imio-demarches-etat-civil</slug>
   <roles>
     <role id="_receiver">Agent traitant</role>
     <role id="_validateur-pc-banking">Validateur pc banking</role>
@@ -118,6 +118,15 @@
           <condition>
             <type>django</type>
             <value>not form_var_wf_paiement_en_ligne_raw</value>
+          </condition>
+          <mode>immediate</mode>
+          <set_marker_on_status>False</set_marker_on_status>
+        </item>
+        <item type="jump" id="13">
+          <status>43</status>
+          <condition>
+            <type>django</type>
+            <value>form_option_regie_de_paiement and form_var_wf_total_commande|decimal &gt; 0 and form_var_avez_vous_un_motif_d_exoneration</value>
           </condition>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
@@ -1880,6 +1889,38 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <visibility />
       <items />
     </status>
+    <status>
+      <id>43</id>
+      <name>En cours de validation</name>
+      <colour>#FFFFFF</colour>
+      <visibility />
+      <items>
+        <item type="choice" id="1">
+          <label>Refuser le motif d'&#233;xon&#233;ration</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+          </by>
+          <status>10</status>
+          <require_confirmation>True</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>False</allow_as_mass_action>
+        </item>
+        <item type="choice" id="2">
+          <label>Accepter le motif d'&#233;xon&#233;ration</label>
+          <by>
+            <item role_id="_receiver">_receiver</item>
+            <item slug="debug" role_id="08b4ba67eb2d421ea88d4bb0256a9666">Debug</item>
+          </by>
+          <status>accepted</status>
+          <require_confirmation>True</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>False</allow_as_mass_action>
+        </item>
+      </items>
+    </status>
   </possible_status>
   <global_actions>
     <action>
@@ -1986,8 +2027,6 @@ Votre commande de document(s) attend d'&#234;tre r&#233;gl&#233;e et se trouve d
       <triggers>
         <trigger type="timeout" id="4a65f297-9b34-4b0d-963a-a4a1af68c89a">
           <anchor>finalized</anchor>
-          <anchor_expression />
-          <anchor_template />
           <timeout>0</timeout>
         </trigger>
         <trigger type="manual" id="ede2fb20-aab7-4985-8525-1527123c1ee4">

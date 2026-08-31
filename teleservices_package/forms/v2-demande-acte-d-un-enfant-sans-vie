@@ -492,6 +492,36 @@
       <id type="str">8cf1eb3c-5e5d-4dcd-81cd-2b60e4eb39ce</id>
     </field>
     <field>
+      <type>bool</type>
+      <label type="str">Cochez si vous avez un motif d'exon&#233;ration</label>
+      <required type="str">optional</required>
+      <varname type="str">avez_vous_un_motif_d_exoneration</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <id type="str">a7efb92e-2bcf-45ac-81d6-2e62bbd0e052</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Motif d'exon&#233;ration</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_avez_vous_un_motif_d_exoneration</value>
+      </condition>
+      <required type="str">required</required>
+      <varname type="str">motif_d_exoneration</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">da7b1b1c-9709-4b66-8b28-c81032a63eba</id>
+    </field>
+    <field>
       <type>page</type>
       <label type="str">Destination du document</label>
       <condition>
