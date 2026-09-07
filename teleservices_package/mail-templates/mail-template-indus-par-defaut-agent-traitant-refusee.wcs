@@ -2,7 +2,7 @@
 <mail-template id="55" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/55/">
   <name>Indus - Par d&#233;faut - Agent traitant - Refus&#233;e</name>
   <slug>indus-par-defaut-agent-traitant-refusee</slug>
-  <description>Email envoy&#233; &#224; l'agent traitant lorsqu'il refuse une demande</description>
+  <documentation>Email envoy&#233; &#224; l'agent traitant lorsqu'il refuse une demande</documentation>
   <subject>{{ form_name }} - Demande refus&#233;e</subject>
   <body>Bonjour,
 

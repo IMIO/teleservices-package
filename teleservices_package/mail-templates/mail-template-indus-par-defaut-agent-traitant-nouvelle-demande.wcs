@@ -2,7 +2,7 @@
 <mail-template id="49" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/49/">
   <name>Indus - Par d&#233;faut - Agent traitant - Nouvelle demande</name>
   <slug>indus-par-defaut-agent-traitant-nouvelle-demande</slug>
-  <description>Email envoy&#233; &#224; l'agent traitant lors de l'arriv&#233;e d'une nouvelle demande.</description>
+  <documentation>Email envoy&#233; &#224; l'agent traitant lors de l'arriv&#233;e d'une nouvelle demande.</documentation>
   <subject>{{ form_name }} - Nouvelle demande</subject>
   <body>Bonjour,
 

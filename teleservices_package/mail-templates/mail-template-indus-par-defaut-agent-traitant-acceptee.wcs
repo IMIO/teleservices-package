@@ -2,7 +2,7 @@
 <mail-template id="51" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/51/">
   <name>Indus - Par d&#233;faut - Agent traitant - Accept&#233;e</name>
   <slug>indus-par-defaut-agent-traitant-acceptee</slug>
-  <description>Email envoy&#233; &#224; l'agent traitant lorsqu'il a accept&#233; une demande.</description>
+  <documentation>Email envoy&#233; &#224; l'agent traitant lorsqu'il a accept&#233; une demande.</documentation>
   <subject>{{ form_name }} - Demande accept&#233;e</subject>
   <body>Bonjour,
 

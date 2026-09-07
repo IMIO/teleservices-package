@@ -2,7 +2,7 @@
 <mail-template id="56" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/56/">
   <name>Indus - Par d&#233;faut - Usager - Termin&#233;e</name>
   <slug>indus-par-defaut-usager-terminee</slug>
-  <description>Email envoy&#233; &#224; l'usager lorsque sa demande est termin&#233;e</description>
+  <documentation>Email envoy&#233; &#224; l'usager lorsque sa demande est termin&#233;e</documentation>
   <subject>{{ form_name }} - Démarche finalisée</subject>
   <body>Bonjour,
 

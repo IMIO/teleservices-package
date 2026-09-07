@@ -2,7 +2,7 @@
 <mail-template id="53" url="https://demo-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/53/">
   <name>Indus - Par d&#233;faut - Usager - Nouvelle demande</name>
   <slug>indus-par-defaut-usager-nouvelle-demande</slug>
-  <description>Email envoy&#233; &#224; l'usager lors de l'envoi de sa demande pour confirmation</description>
+  <documentation>Email envoy&#233; &#224; l'usager lors de l'envoi de sa demande pour confirmation</documentation>
   <subject>{{ form_name }} - R&#233;ception de votre demande</subject>
   <body>Bonjour,
 
