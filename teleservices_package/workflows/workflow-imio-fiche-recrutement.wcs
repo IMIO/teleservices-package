@@ -59,12 +59,6 @@
               <value>Personnel du service &#224; l&#8217;enfance</value>
             </rule>
           </rules><operation_mode>set</operation_mode>
-        </item><item type="commentable" id="3">
-          <label>Commentaire</label>
-          <button_label>Ajouter le commentaire</button_label>
-          <by>
-            <item role_id="_editor">_editor</item>
-          </by><required>False</required>
         </item><item type="choice" id="4">
           <label>Supprimer la fiche</label>
           <by>
@@ -86,4 +80,47 @@
       </items>
     </status>
   </possible_status>
+  <global_actions>
+    <action>
+      <id>1</id>
+      <name>&#128172; Ajouter un commentaire</name>
+      <backoffice_info_text>&lt;p&gt;Cette action permet d&amp;rsquo;ajouter un commentaire dans l&amp;rsquo;historique de la fiche.&lt;/p&gt;</backoffice_info_text>
+      <items>
+        <item type="form" id="1">
+          <by>
+            <item role_id="_editor">_editor</item>
+          </by>
+          <varname>commentaire</varname>
+          <hide_submit_button>False</hide_submit_button>
+          <include_in_form_history>True</include_in_form_history>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <type>text</type>
+                <label type="str">Commentaire</label>
+                <required type="str">required</required>
+                <varname type="str">commentaire</varname>
+                <display_locations />
+                <display_mode type="str">pre</display_mode>
+                <id type="str">35849689-4fe2-4406-878d-562256027e0e</id>
+              </field>
+            </fields>
+          </formdef>
+        </item>
+      </items>
+      <triggers>
+        <trigger type="manual" id="24ae17c5-b8cc-45df-8736-ec039205dde2">
+          <roles>
+            <item role_id="_editor">_editor</item>
+          </roles>
+          <statuses>
+            <statuse>recorded</statuse>
+          </statuses>
+          <allow_as_mass_action>False</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions>
 </workflow>
