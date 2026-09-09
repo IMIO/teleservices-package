@@ -70,13 +70,6 @@ Vous pouvez la consulter en suivant ce lien&#160;: {{ form_url }}
       <colour>#66FF00</colour>
       <visibility />
       <items>
-        <item type="commentable" id="1">
-          <by>
-            <item role_id="_submitter">_submitter</item>
-            <item role_id="_receiver">_receiver</item>
-          </by>
-          <required>False</required>
-        </item>
         <item type="choice" id="2">
           <label>Accepter</label>
           <by>
@@ -121,7 +114,7 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 &#224; &#171;&#160;{{ form_status }}&#160;&#187;.
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -144,7 +137,7 @@ pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#
 Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -162,7 +155,7 @@ pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#
 Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -192,7 +185,7 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 &#224; &#171;&#160;{{ form_status }}&#160;&#187;.
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -215,7 +208,7 @@ pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#
 Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -233,7 +226,7 @@ pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#
 Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -272,7 +265,7 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 &#224; &#171;&#160;{{ form_status }}&#160;&#187;.
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -295,7 +288,7 @@ pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#
 Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -313,7 +306,7 @@ pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#
 Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -322,4 +315,49 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
       </items>
     </status>
   </possible_status>
+  <global_actions>
+    <action>
+      <id>1</id>
+      <name>&#128172; Ajouter un commentaire</name>
+      <backoffice_info_text>&lt;p&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/p&gt;</backoffice_info_text>
+      <items>
+        <item type="form" id="1">
+          <by>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <varname>commentaire</varname>
+          <hide_submit_button>False</hide_submit_button>
+          <include_in_form_history>True</include_in_form_history>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <type>text</type>
+                <label type="str">Commentaire</label>
+                <required type="str">required</required>
+                <varname type="str">commentaire</varname>
+                <display_locations />
+                <display_mode type="str">pre</display_mode>
+                <id type="str">c2e0d80d-06d7-46bd-a86e-84909f19b1d6</id>
+              </field>
+            </fields>
+          </formdef>
+        </item>
+      </items>
+      <triggers>
+        <trigger type="manual" id="d1941a82-3acc-4c34-ac46-515277efc87f">
+          <roles>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </roles>
+          <statuses>
+            <statuse>new</statuse>
+          </statuses>
+          <allow_as_mass_action>False</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions>
 </workflow>
