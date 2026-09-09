@@ -254,16 +254,6 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
           </to>
           <mail_template>indus-par-defaut-agent-traitant-nouvelle-demande</mail_template>
         </item>
-        <item type="commentable" id="5">
-          <label>Commentaire</label>
-          <button_label>Ajouter le commentaire</button_label>
-          <by>
-            <item role_id="_submitter">_submitter</item>
-            <item role_id="_receiver">_receiver</item>
-          </by>
-          <varname>commentaire</varname>
-          <required>False</required>
-        </item>
         <item type="choice" id="3">
           <label>Accepter</label>
           <by>
@@ -349,8 +339,8 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 La demande suivante a &#233;t&#233; accept&#233;e&#160;: {{ form_name }}
 {% endif %}
 
-{% if form_comment %}
-Nouveau commentaire&#160;: {{ form_comment }}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}
+Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}
 {% endif %}
 
 Le statut de votre demande a donc chang&#233;, il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;.
@@ -581,6 +571,51 @@ Cordialement,
       </items>
     </status>
   </possible_status>
+  <global_actions>
+    <action>
+      <id>1</id>
+      <name>&#128172; Ajouter un commentaire</name>
+      <backoffice_info_text>&lt;p&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/p&gt;</backoffice_info_text>
+      <items>
+        <item type="form" id="1">
+          <by>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <varname>commentaire</varname>
+          <hide_submit_button>False</hide_submit_button>
+          <include_in_form_history>True</include_in_form_history>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <type>text</type>
+                <label type="str">Commentaire</label>
+                <required type="str">required</required>
+                <varname type="str">commentaire</varname>
+                <display_locations />
+                <display_mode type="str">pre</display_mode>
+                <id type="str">a32ad276-35e4-4d24-8195-d5bbd2eb3bae</id>
+              </field>
+            </fields>
+          </formdef>
+        </item>
+      </items>
+      <triggers>
+        <trigger type="manual" id="06a7b84d-b2bc-4e91-a35c-9e432c676eea">
+          <roles>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </roles>
+          <statuses>
+            <statuse>5</statuse>
+          </statuses>
+          <allow_as_mass_action>False</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions>
   <variables>
     <formdef>
       <name>-</name>
