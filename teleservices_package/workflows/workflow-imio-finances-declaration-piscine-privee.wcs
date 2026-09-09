@@ -87,20 +87,6 @@ Cordialement,</body><target_url>{{ form_url }}</target_url></item><item id="4" t
             <type>django</type>
             <value>form_previous_status == "Juste envoy&#233;"</value>
           </condition>
-        </item><item id="1" type="commentable">
-          <label>Commentaire</label>
-          <button_label>Ajouter le commentaire</button_label>
-          <by>
-            <item role_id="_submitter">_submitter</item>
-            <item role_id="_receiver">_receiver</item>
-          </by><varname>commentaire</varname>
-          <backoffice_info_text>&lt;p&gt;&lt;/p&gt;
-
-&lt;p dir="ltr" id="docs-internal-guid-5cb84a04-7fff-424c-a22c-3f7fe12a8ab7" style="line-height: 1.38; margin-top: 12pt; margin-bottom: 12pt;"&gt;&lt;span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
-          <required>False</required>
-        </item><item id="2" type="jumponsubmit">
-          <status>2</status>
-          <set_marker_on_status>False</set_marker_on_status>
         </item><item id="3" type="choice">
           <label>Accepter</label>
           <by>
@@ -153,7 +139,7 @@ pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#
 Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if refus_var_motif %}Motif du refus : {{refus_var_motif}} {% endif %}
 
@@ -219,7 +205,7 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -240,7 +226,7 @@ Le statut de la demande relative &#224; la commande de plants que vous avez tran
 Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -252,8 +238,8 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 La demande suivante a &#233;t&#233; accept&#233;e&#160;: {{ form_name }}
 {% endif %}
 
-{% if form_comment %}
-Nouveau commentaire&#160;: {{ form_comment }}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}
+Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}
 {% endif %}
 
 Le statut de votre demande a donc chang&#233;, il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;.
@@ -268,15 +254,7 @@ En cas de probl&#232;me, munissez-vous du code de suivi et prenez contact avec l
 {% endif %}
 
 Cordialement,
-</body><target_url>{{ form_url }}</target_url></item><item id="4" type="commentable">
-          <label>Commentaire</label>
-          <button_label>Ajouter le commentaire</button_label>
-          <by>
-            <item role_id="_submitter">_submitter</item>
-            <item role_id="_receiver">_receiver</item>
-          </by><backoffice_info_text>&lt;p&gt;&lt;span id="docs-internal-guid-01b47662-7fff-c9a5-55e3-7ec6ead8b000" style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; white-space: pre-wrap;"&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/span&gt;&lt;/p&gt;</backoffice_info_text>
-          <required>False</required>
-        </item><item id="5" type="choice">
+</body><target_url>{{ form_url }}</target_url></item><item id="5" type="choice">
           <label>Terminer</label>
           <by>
             <item role_id="_receiver">_receiver</item>
@@ -309,7 +287,7 @@ Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}
 &#224; &#171;&#160;{{ form_status }}&#160;&#187;).
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -331,7 +309,7 @@ pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#
 Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 {% endif %}
 
-{% if form_comment %}Nouveau commentaire&#160;: {{ form_comment }}{% endif %}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}{% endif %}
 
 {% if form_evolution %}
 {{ form_evolution }}
@@ -341,8 +319,8 @@ Vous pouvez en prendre connaissance en suivant ce lien&#160;: {{ form_url }}
 
 Nous vous informons que la d&#233;marche suivante est termin&#233;e : {{ form_name }}.
 
-{% if form_comment %}
-Nouveau commentaire&#160;: {{ form_comment }}
+{% if form_workflow_form_commentaire_var_commentaire or form_comment %}
+Nouveau commentaire&#160;: {% firstof form_workflow_form_commentaire_var_commentaire form_comment %}
 {% endif %}
 
 {% if form_user %}
@@ -406,32 +384,77 @@ Cordialement,
       <name>Commentaire</name>
       <colour>FFFFFF</colour>
       <visibility />
+      <items />
+    </status>
+  </possible_status>
+  <global_actions>
+    <action>
+      <id>1</id>
+      <name>&#128172; Ajouter un commentaire</name>
+      <backoffice_info_text>&lt;p&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/p&gt;</backoffice_info_text>
       <items>
-        <item id="1" type="sendmail">
+        <item type="form" id="1">
+          <by>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <varname>commentaire</varname>
+          <hide_submit_button>False</hide_submit_button>
+          <include_in_form_history>True</include_in_form_history>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <type>text</type>
+                <label type="str">Commentaire</label>
+                <required type="str">required</required>
+                <varname type="str">commentaire</varname>
+                <display_locations />
+                <display_mode type="str">pre</display_mode>
+                <id type="str">2b5e7244-8816-468f-9b99-a08a4e482496</id>
+              </field>
+            </fields>
+          </formdef>
+        </item>
+        <item id="2" type="sendmail">
           <to>
             <item role_id="_submitter">_submitter</item>
           </to><mail_template>indus-notification-de-commentaire-demandeur</mail_template>
-        </item><item type="notification" id="2"><to><item role_id="_submitter">_submitter</item></to><title>{{form_name}} - Nouveau commentaire</title><body>Bonjour,
+        </item>
+        <item id="3" type="sendmail">
+          <to>
+            <item role_id="_receiver">_receiver</item>
+          </to><mail_template>indus-notification-de-commentaire-destinataire</mail_template>
+        </item>
+        <item type="notification" id="4"><to><item role_id="_submitter">_submitter</item></to><title>{{form_name}} - Nouveau commentaire</title><body>Bonjour,
 
 Votre administration vous &#233;crit le commentaire suivant :
 
-{{comment_commentaire}}
+{{ form_workflow_form_commentaire_var_commentaire }}
 
 Pour rappel, cela concerne la d&#233;marche suivante : {{form_name}}
 
 Vous pouvez &#233;ventuellement y `r&#233;pondre en suivant ce lien &lt;{{ form_url }}&gt;`_
 
-Cordialement,</body><target_url>{{ form_url }}</target_url></item><item id="3" type="sendmail">
-          <to>
-            <item role_id="_receiver">_receiver</item>
-          </to><mail_template>indus-notification-de-commentaire-destinataire</mail_template>
-        </item><item id="4" type="jump">
-          <status>new</status>
-          <set_marker_on_status>False</set_marker_on_status>
-        </item>
+Cordialement,</body><target_url>{{ form_url }}</target_url></item>
       </items>
-    </status>
-  </possible_status><variables>
+      <triggers>
+        <trigger type="manual" id="cd7e4706-26bd-4e45-bdd9-406408f0d92c">
+          <roles>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </roles>
+          <statuses>
+            <statuse>new</statuse>
+            <statuse>accepted</statuse>
+          </statuses>
+          <allow_as_mass_action>False</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions>
+  <variables>
     <formdef>
       <name>-</name>
       <fields>

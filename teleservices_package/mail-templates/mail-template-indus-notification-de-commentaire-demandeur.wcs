@@ -7,7 +7,7 @@
 
 Votre administration vous écrit le commentaire suivant :
 
-{{comment_commentaire}}
+{{ form_workflow_form_commentaire_var_commentaire }}
 
 Pour rappel, cela concerne la démarche suivante : {{form_name}}
 
