@@ -356,18 +356,56 @@ Cordialement,</body><target_url>{{ form_url }}</target_url></item><item type="ju
           <to>
             <item role_id="_submitter">_submitter</item>
           </to>
-        </item><item type="commentable" id="2">
-          <label>Commentaire</label>
-          <button_label>Ajouter le commentaire</button_label>
-          <by>
-            <item role_id="_submitter">_submitter</item>
-            <item role_id="_receiver">_receiver</item>
-          </by><varname>commentaire</varname>
-          <required>False</required>
         </item>
       </items>
     </status>
-  </possible_status><variables>
+  </possible_status>
+  <global_actions>
+    <action>
+      <id>1</id>
+      <name>&#128172; Ajouter un commentaire</name>
+      <backoffice_info_text>&lt;p&gt;Cette action permet d&amp;rsquo;ajouter un commentaire qui sera visible par l&amp;rsquo;usager.&lt;/p&gt;</backoffice_info_text>
+      <items>
+        <item type="form" id="1">
+          <by>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </by>
+          <varname>commentaire</varname>
+          <hide_submit_button>False</hide_submit_button>
+          <include_in_form_history>True</include_in_form_history>
+          <formdef>
+            <name>-</name>
+            <fields>
+              <field>
+                <type>text</type>
+                <label type="str">Commentaire</label>
+                <required type="str">required</required>
+                <varname type="str">commentaire</varname>
+                <display_locations />
+                <display_mode type="str">pre</display_mode>
+                <id type="str">f18f5d5e-1023-4f70-8853-4f3a814e56d0</id>
+              </field>
+            </fields>
+          </formdef>
+        </item>
+      </items>
+      <triggers>
+        <trigger type="manual" id="b6609555-987c-4667-b8bf-7b52d15d4d90">
+          <roles>
+            <item role_id="_submitter">_submitter</item>
+            <item role_id="_receiver">_receiver</item>
+          </roles>
+          <statuses>
+            <statuse>new</statuse>
+          </statuses>
+          <allow_as_mass_action>False</allow_as_mass_action>
+          <require_confirmation>False</require_confirmation>
+        </trigger>
+      </triggers>
+    </action>
+  </global_actions>
+  <variables>
     <formdef>
       <name>-</name>
       <fields>
