@@ -83,7 +83,6 @@
           <label>Traiter</label>
           <by>
             <item role_id="_editor">_editor</item>
-            <item role_id="_submitter">_submitter</item>
           </by>
           <status>0</status>
           <require_confirmation>True</require_confirmation>
