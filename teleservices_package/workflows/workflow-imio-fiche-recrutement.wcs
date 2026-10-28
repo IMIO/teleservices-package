@@ -15,7 +15,8 @@
     <role id="_responsable-recrutement-personnel-technique-specifique">Responsable recrutement Personnel technique / sp&#233;cifique</role>
     <role id="_responsable-recutement-autre">Responsable recutement Autre</role>
     <role id="_viewer">Visualisateur</role>
-  </roles><possible_status>
+  </roles>
+  <possible_status>
     <status>
       <id>recorded</id>
       <name>Enregistr&#233;e</name>
@@ -24,53 +25,75 @@
       <items>
         <item type="dispatch" id="1">
           <role_key>_editor</role_key>
+          <operation_mode>set</operation_mode>
           <dispatch_type>automatic</dispatch_type>
           <variable>form_var_section</variable>
           <rules>
             <rule>
-              <role_id slug="recrutement-personnel-administratif" role_id="6a15f6c13023447d953cb56b59be3a31">Recrutement Personnel administratif</role_id>
+              <role_id slug="recrutement-personnel-administratif" role_id="cfe5fb6d993f4a4ab42e35fca58edcee">Recrutement Personnel administratif</role_id>
               <value>Personnel administratif</value>
-            </rule><rule>
-              <role_id slug="recrutement-personnel-ouvrier" role_id="eecfebe3e9904b36807110b20256fd5d">Recrutement Personnel ouvrier</role_id>
+            </rule>
+            <rule>
+              <role_id slug="recrutement-personnel-ouvrier" role_id="dea4f5a9a5fe4d0b9b1e4e8316a4b9f7">Recrutement Personnel ouvrier</role_id>
               <value>Personnel ouvrier</value>
-            </rule><rule>
-              <role_id slug="recrutement-personnel-social" role_id="ab9f8a7bb15c41f49f32f5096b2505ba">Recrutement Personnel social</role_id>
+            </rule>
+            <rule>
+              <role_id slug="recrutement-personnel-social" role_id="8867e01b11054332b3449a0200fa96b3">Recrutement Personnel social</role_id>
               <value>Personnel social</value>
-            </rule><rule>
-              <role_id slug="recrutement-personnel-technique-specifique" role_id="b0af3b91c7b847c6b5b97956916edb04">Recrutement Personnel technique / sp&#233;cifique</role_id>
+            </rule>
+            <rule>
+              <role_id slug="recrutement-personnel-technique-specifique" role_id="4960c968c7aa4fa4949a8e37daa41cc5">Recrutement Personnel technique / sp&#233;cifique</role_id>
               <value>Personnel technique / sp&#233;cifique</value>
-            </rule><rule>
-              <role_id slug="recrutement-personnel-de-nettoyage" role_id="390cac8d8b014e17a7f6aee8b9bfb474">Recrutement Personnel de nettoyage</role_id>
+            </rule>
+            <rule>
+              <role_id slug="recrutement-personnel-de-nettoyage" role_id="ee7c2ef0a98e4aad807e7e4ed665bf65">Recrutement Personnel de nettoyage</role_id>
               <value>Personnel de nettoyage</value>
-            </rule><rule>
-              <role_id slug="recrutement-personnel-de-cuisine" role_id="64fe3bd92d8f434c8e74becf910c8883">Recrutement Personnel de cuisine</role_id>
+            </rule>
+            <rule>
+              <role_id slug="recrutement-personnel-de-cuisine" role_id="61bdb5415cb44c31b789f5650fcb095a">Recrutement Personnel de cuisine</role_id>
               <value>Personnel de cuisine</value>
-            </rule><rule>
-              <role_id slug="recrutement-personnel-du-service-enseignement" role_id="5d461f42dfb347139d4757b701e52f50">Recrutement Personnel du service enseignement</role_id>
+            </rule>
+            <rule>
+              <role_id slug="recrutement-personnel-du-service-enseignement" role_id="e5dff7247e774414a09c78a9606a1062">Recrutement Personnel du service enseignement</role_id>
               <value>Personnel du service enseignement</value>
-            </rule><rule>
-              <role_id slug="recrutement-autre" role_id="ef3112114b46495b9d2613899dce153e">Recrutement Autre</role_id>
+            </rule>
+            <rule>
+              <role_id slug="recrutement-autre" role_id="9642a262e46843a7aa8877c26e5a27c7">Recrutement Autre</role_id>
               <value>Autre</value>
-            </rule><rule>
-              <role_id slug="recrutement-personnel-soignant" role_id="3c0d37745f79402fb1939f729fde500f">Recrutement Personnel soignant</role_id>
+            </rule>
+            <rule>
+              <role_id slug="recrutement-personnel-soignant" role_id="f865359eed6f44e98bdd632ccecfa9a7">Recrutement Personnel soignant</role_id>
               <value>Personnel soignant</value>
-            </rule><rule>
-              <role_id slug="recrutement-personnel-du-service-a-lenfance" role_id="191526d3bca04e8597432b5d4a75de8e">Recrutement Personnel du service &#224; l&#8217;enfance</role_id>
+            </rule>
+            <rule>
+              <role_id slug="recrutement-personnel-du-service-a-lenfance" role_id="ded37dcd0a414c1397d5a071fff3a7ae">Recrutement Personnel du service &#224; l&#8217;enfance</role_id>
               <value>Personnel du service &#224; l&#8217;enfance</value>
             </rule>
-          </rules><operation_mode>set</operation_mode>
-        </item><item type="choice" id="4">
-          <label>Supprimer la fiche</label>
+          </rules>
+        </item>
+        <item type="commentable" id="3">
+          <label>Commentaire</label>
+          <button_label>Ajouter le commentaire</button_label>
+          <by>
+            <item role_id="_editor">_editor</item>
+          </by>
+          <required>False</required>
+        </item>
+        <item type="choice" id="4">
+          <label>Traiter</label>
           <by>
             <item role_id="_editor">_editor</item>
             <item role_id="_submitter">_submitter</item>
-          </by><status>deleted</status>
+          </by>
+          <status>0</status>
           <require_confirmation>True</require_confirmation>
           <ignore_form_errors>False</ignore_form_errors>
           <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>False</allow_as_mass_action>
         </item>
       </items>
-    </status><status>
+    </status>
+    <status>
       <id>deleted</id>
       <name>Supprim&#233;e</name>
       <colour>#FFFFFF</colour>
@@ -79,48 +102,25 @@
         <item type="remove" id="1" />
       </items>
     </status>
-  </possible_status>
-  <global_actions>
-    <action>
-      <id>1</id>
-      <name>&#128172; Ajouter un commentaire</name>
-      <backoffice_info_text>&lt;p&gt;Cette action permet d&amp;rsquo;ajouter un commentaire dans l&amp;rsquo;historique de la fiche.&lt;/p&gt;</backoffice_info_text>
+    <status>
+      <id>0</id>
+      <name>Trait&#233;e</name>
+      <colour>#FFFFFF</colour>
+      <visibility />
       <items>
-        <item type="form" id="1">
+        <item type="choice" id="1">
+          <label>Supprimer la fiche</label>
           <by>
             <item role_id="_editor">_editor</item>
+            <item role_id="_submitter">_submitter</item>
           </by>
-          <varname>commentaire</varname>
-          <hide_submit_button>False</hide_submit_button>
-          <include_in_form_history>True</include_in_form_history>
-          <formdef>
-            <name>-</name>
-            <fields>
-              <field>
-                <type>text</type>
-                <label type="str">Commentaire</label>
-                <required type="str">required</required>
-                <varname type="str">commentaire</varname>
-                <display_locations />
-                <display_mode type="str">pre</display_mode>
-                <id type="str">35849689-4fe2-4406-878d-562256027e0e</id>
-              </field>
-            </fields>
-          </formdef>
+          <status>deleted</status>
+          <require_confirmation>True</require_confirmation>
+          <ignore_form_errors>False</ignore_form_errors>
+          <set_marker_on_status>False</set_marker_on_status>
+          <allow_as_mass_action>True</allow_as_mass_action>
         </item>
       </items>
-      <triggers>
-        <trigger type="manual" id="24ae17c5-b8cc-45df-8736-ec039205dde2">
-          <roles>
-            <item role_id="_editor">_editor</item>
-          </roles>
-          <statuses>
-            <statuse>recorded</statuse>
-          </statuses>
-          <allow_as_mass_action>False</allow_as_mass_action>
-          <require_confirmation>False</require_confirmation>
-        </trigger>
-      </triggers>
-    </action>
-  </global_actions>
+    </status>
+  </possible_status>
 </workflow>
